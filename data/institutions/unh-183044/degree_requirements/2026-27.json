@@ -27442,20 +27442,23 @@
                 "title": "First-Year Writing"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "MATH 424B",
+                    "title": "Calculus for Life Sciences"
+                  },
+                  {
+                    "code": "MATH 420",
+                    "title": "Finite Mathematics"
+                  },
+                  {
+                    "code": "MATH 425",
+                    "title": "Calculus I"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MATH 424B",
-                "title": "Calculus for Life Sciences"
-              },
-              {
-                "code": "MATH 420",
-                "title": "Finite Mathematics"
-              },
-              {
-                "code": "MATH 425",
-                "title": "Calculus I"
               },
               {
                 "code": "NR 415",
@@ -27619,20 +27622,23 @@
                 "title": "Forest Inventory and Modeling"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "RMP 711",
+                    "title": "Recreation Resource Management"
+                  },
+                  {
+                    "code": "NR 767W",
+                    "title": "Social Impact Assessment"
+                  },
+                  {
+                    "code": "RMP 511",
+                    "title": "Issues of Wilderness and Nature in American Society"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "RMP 711",
-                "title": "Recreation Resource Management"
-              },
-              {
-                "code": "NR 767W",
-                "title": "Social Impact Assessment"
-              },
-              {
-                "code": "RMP 511",
-                "title": "Issues of Wilderness and Nature in American Society"
               },
               {
                 "credits": 4,
@@ -27662,7 +27668,7 @@
       },
       "source_url": "https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/forestry/forestry-major-bsf/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NH/2026-10-07-cat#f73e126a8645482d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NH/2026-10-07-cat/evidence.json#6ebef14b7ccd26d5."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 130 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NH/2026-10-07-cat#6ebef14b7ccd26d5) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NH/2026-10-07-cat/evidence.json#6ebef14b7ccd26d5."
     },
     {
       "last_verified_at": "2026-10-07",

@@ -5075,32 +5075,35 @@
                 "credits": "3-4"
               },
               {
+                "choose": 1,
                 "credits": "3-4",
+                "options": [
+                  {
+                    "code": "MATH 130",
+                    "title": "Precalculus Mathematics F"
+                  },
+                  {
+                    "code": "MATH 152",
+                    "title": "Calculus for Business and Social Sciences F"
+                  },
+                  {
+                    "code": "MATH 231",
+                    "title": "Calculus of Functions of One Variable I H, F"
+                  },
+                  {
+                    "code": "MATH 232",
+                    "title": "Calculus of Functions of One Variable II H, F"
+                  },
+                  {
+                    "code": "MATH 233",
+                    "title": "Calculus of Functions of Several Variables H"
+                  },
+                  {
+                    "code": "STOR 113",
+                    "title": "Decision Models for Business and Economics"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MATH 130",
-                "title": "Precalculus Mathematics F"
-              },
-              {
-                "code": "MATH 152",
-                "title": "Calculus for Business and Social Sciences F"
-              },
-              {
-                "code": "MATH 231",
-                "title": "Calculus of Functions of One Variable I H, F"
-              },
-              {
-                "code": "MATH 232",
-                "title": "Calculus of Functions of One Variable II H, F"
-              },
-              {
-                "code": "MATH 233",
-                "title": "Calculus of Functions of Several Variables H"
-              },
-              {
-                "code": "STOR 113",
-                "title": "Decision Models for Business and Economics"
               }
             ],
             "label": "Sophomore Year",
@@ -5235,7 +5238,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/health-policy-management-major-bsph/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#8ff00fcff3dc22e5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9f56e5a7e8c5cbad."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 71-73 (as printed)' = printed total; any_of STOR 120/155 split after footnote letters 'H, F' checked by hand; semester sub-headings kept as text items as on file Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#9f56e5a7e8c5cbad) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9f56e5a7e8c5cbad."
     },
     {
       "last_verified_at": "2026-10-06",

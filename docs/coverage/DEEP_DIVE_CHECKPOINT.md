@@ -2,7 +2,7 @@
 
 This file is how a new Deep Dive session picks up degree-requirement, roadmap and specialised-reader work without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `9ccbc6ad21` (merge of #258). This PR (`programs/i229-recover`) is on top of it, with main's #251 (Research batch 7, JHU corrections) and #248 merged in. #260 (Course List reader, #250) is open separately.
+- **Main at the last refresh:** `b2c83c42d2` (merge of #261). This PR (`programs/plan-choices`) is on top of it.
 - **Owner's split (2026-10-22):** Research does nationwide school-level baseline coverage. Deep Dive does degree requirements, roadmaps and specialised catalog readers. Degree-detail completeness is reported separately from school-level comparison readiness. Deep Dive helps with shared extraction tools when that unlocks baseline or policy coverage, and avoids bulk-data work.
 - **Ownership on #153 (posted 2026-10-22):**
   - **Deep Dive:**
@@ -20,19 +20,30 @@ This file is how a new Deep Dive session picks up degree-requirement, roadmap an
 
 These are verified records counted from `data/institutions/*`. Plans are `program_plan` records; groups are every other `degree_requirements` record.
 
-| | main `46c7f81` (2026-10-21 start) | main `2c24af0` | main `af5868f` (after #252) | main `9ccbc6a` (#258) | with this PR |
-|---|---|---|---|---|---|
-| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 | 10,665 (with Research #251) |
-| Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,356 at 65 schools | 3,441 at 66 schools | 3,502 at 68 schools |
-| Partially verified plans | 0 | 0 | 119 (#229 downgrades) | 180 (+61 CU track plans) | 119 (58 #229 + 61 CU) |
-| Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 |
-| Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 70 |
+| | main `46c7f81` (2026-10-21 start) | main `2c24af0` | main `af5868f` (after #252) | main `9ccbc6a` (#258) | main `b2c83c4` (#261) | with this PR |
+|---|---|---|---|---|---|---|
+| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 | 10,665 (with Research #251) | 10,665 |
+| Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,356 at 65 schools | 3,441 at 66 schools | 3,502 at 68 schools | 3,511 at 68 schools |
+| Partially verified plans | 0 | 0 | 119 (#229 downgrades) | 180 (+61 CU track plans) | 119 (58 #229 + 61 CU) | 110 (49 #229 + 61 CU) |
+| Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
+| Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: #229 recovery
+## This PR: UWM Course List groups (#250)
 
-- Reviewed override `replaces_correction` in `programs/promote.py`. Without it, a corrected record is still refused. The corrections.json entries stay as history.
-- 61 downgraded plans are re-verified (LMU 22, YSU 34, SLU 5) after an independent review against the stored grids. 46 are held by the review and 12 by the reader. See `docs/coverage/I229_CORRECTIONS.md`.
-- Reader fix: a plan row with a credit cell that is not a plain number ('.5', '3 or 4', '1 (0)') is kept as printed. Before, its credits were dropped. No verified plan is affected.
+- UWM `WI/2026-10-22-d01` was re-read by main's Course List reader (after #260, #264). 313 new candidates for verified programs were issue-free.
+- An independent read-only review checked them with its own parser against the stored layout cells, and hand-checked every record. **238 approved, 75 held.** Held:
+  - 12: option or advice lists stored as all_required;
+  - 12: two theatre tracks merged;
+  - 4: wrong rule;
+  - 4: footnote mark in a label;
+  - 3: the plans (7-letter subjects, a flat 'Select one');
+  - 40: section incomplete. 36 of these are exact fragments of a section whose other rows have no candidate; promoting them is a policy question.
+- Verified requirement groups: 15,307 → 15,545.
+- Reader follow-ups:
+  - a table's context sentence ('encouraged to include', 'maximum of 6 credits') should hold the table;
+  - track headings above tables;
+  - sections that mix required rows and choices;
+  - the plan reader's 7-letter subjects.
 
 ## Merged on 2026-10-21/22
 
@@ -47,13 +58,9 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 
 ## Open
 
-- **#260 (`programs/uwm-courselist`, for #250):** the Course List reader for long, two-word and '&' subjects.
-  - Three independent reviews; every blocking finding is fixed.
-  - Regression: 0 new unheld groups against the third-review head.
-  - When it merges, re-extract the runs named in #250 (UWM `WI/2026-10-22-d01`, UW-Madison, UNI, UC Irvine, Missouri, SF State), have them reviewed, and promote.
+- **#250 data (reader merged in #260):** re-extract the runs named in #250 (UWM `WI/2026-10-22-d01`, UW-Madison, UNI, UC Irvine, Missouri, SF State), have them reviewed, and promote.
   - The audit of the 225 verified groups listed in #250 needs owner approval.
-- **#229 remainder:** 58 plans and 51 groups stay partially verified with their corrections. Recovering them needs reader work:
-  - 'Select one' blocks in plans (25 LMU);
+- **#229 remainder:** 49 plans and 51 groups stay partially verified with their corrections (9 LMU plans were recovered here). Recovering them needs reader work:
   - multi-row 'or' alternatives;
   - blank-name and 'or' separator rows (YSU);
   - session headings with empty credit cells (LMU);
@@ -63,8 +70,12 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 
 ## Next executable tasks
 
-1. Merge #260 after CI, then re-extract and review the affected schools.
-2. Plan reader: 'Select one' blocks as choices, and multi-row 'or' rows. Then recover the remaining #229 plans with `replaces_correction`.
+1. #250: re-extract and review the schools #260's reader affects.
+2. Plan reader:
+   - multi-row 'or' rows;
+   - choice headers with a footnote digit ('Select one of the following: 1', about 75 records);
+   - ending a choice run at a label or note row (7 holds).
+   Then recover the remaining #229 plans with `replaces_correction`.
 3. Reader follow-ups from the #258 reviews:
    - a single-grid `courseleaf_plangrid` label should be the program, not the nearest heading (22 SHSU holds);
    - UNL 0-credit rows are dropped from Course Lists (17 holds);

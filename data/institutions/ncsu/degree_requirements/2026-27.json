@@ -35482,20 +35482,23 @@
             "credit_hours": "15",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ARE 321",
+                    "title": "Agricultural Financial Management"
+                  },
+                  {
+                    "code": "ARE 323",
+                    "title": "Agribusiness Finance"
+                  },
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ARE 321",
-                "title": "Agricultural Financial Management"
-              },
-              {
-                "code": "ARE 323",
-                "title": "Agribusiness Finance"
-              },
-              {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
               },
               {
                 "code": "ARE 433",
@@ -35561,7 +35564,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-resource-economics/agricultural-business-management-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#688450bb41b5b192) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#76e60a04e92dca8d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#76e60a04e92dca8d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#76e60a04e92dca8d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -37245,20 +37248,23 @@
                 "title": "Plant Breeding"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               },
               {
                 "credits": 4,
@@ -37276,7 +37282,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#243ffb9d97a17a61) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9e208b6cf4550410."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#9e208b6cf4550410) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9e208b6cf4550410."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -37769,24 +37775,27 @@
                 "text": "GEP Elective"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "AEE 311",
+                    "title": "Communication Methods and Media"
+                  },
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "AEE 311",
-                "title": "Communication Methods and Media"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               }
             ],
             "label": "Fall Semester",
@@ -37892,7 +37901,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#c9c761c925ef36f8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#92e559f2a87a8e2b."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#92e559f2a87a8e2b) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#92e559f2a87a8e2b."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -38364,24 +38373,27 @@
                 "text": "GEP Humanities"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "AEE 311",
+                    "title": "Communication Methods and Media"
+                  },
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "AEE 311",
-                "title": "Communication Methods and Media"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               },
               {
                 "credits": 2,
@@ -38487,7 +38499,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#2c36cf5c32a65e52) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#13a117025b1ac196."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#13a117025b1ac196) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#13a117025b1ac196."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -39777,14 +39789,17 @@
               },
               "MA 242or ST 311or ST 380 | Calculus III 1,2or Introduction to Statisticsor | 4",
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "PY 211",
+                    "title": "College Physics I 1,3"
+                  },
+                  "PY 205& PY 206 | Physics for Engineers and Scientists Iand Physics for Engineers and Scientists I Laboratory 1,3"
+                ],
                 "text": "Select one of the following:"
               },
-              {
-                "code": "PY 211",
-                "title": "College Physics I 1,3"
-              },
-              "PY 205& PY 206 | Physics for Engineers and Scientists Iand Physics for Engineers and Scientists I Laboratory 1,3",
               {
                 "credits": "3-4",
                 "text": "Life Science Elective 1,4"
@@ -39829,14 +39844,17 @@
                 "credits": 1
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "PY 212",
+                    "title": "College Physics II 1,3"
+                  },
+                  "PY 208& PY 209 | Physics for Engineers and Scientists IIand Physics for Engineers and Scientists II Laboratory 1,3"
+                ],
                 "text": "Select one of the following:"
               },
-              {
-                "code": "PY 212",
-                "title": "College Physics II 1,3"
-              },
-              "PY 208& PY 209 | Physics for Engineers and Scientists IIand Physics for Engineers and Scientists II Laboratory 1,3",
               {
                 "credits": 3,
                 "text": "Select one of the following:"
@@ -40007,7 +40025,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/molecular-structural-biochemistry/biochemistry-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#f68b3061f40be8f9) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#64e125692f392748."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 2 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 121-122 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#64e125692f392748) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#64e125692f392748."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -40300,11 +40318,14 @@
                 "title": "Introductory Biology: Cellular and Molecular Biology 1"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  "CH 220& CH 222 | Introductory Organic Chemistryand Organic Chemistry I Lab",
+                  "CH 221& CH 222 | Organic Chemistry Iand Organic Chemistry I Lab"
+                ],
                 "text": "Select one of the following:"
               },
-              "CH 220& CH 222 | Introductory Organic Chemistryand Organic Chemistry I Lab",
-              "CH 221& CH 222 | Organic Chemistry Iand Organic Chemistry I Lab",
               {
                 "code": "ENG 101",
                 "credits": 4,
@@ -40461,24 +40482,27 @@
             "credit_hours": "15",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PB 492",
+                    "title": "External Learning Experience"
+                  },
+                  {
+                    "code": "PB 493",
+                    "title": "Plant Biology Supervised Undergraduate Research Experience"
+                  },
+                  {
+                    "code": "PB 495",
+                    "title": "Special Topics in Plant Biology"
+                  },
+                  {
+                    "code": "ALS 498",
+                    "title": "Honors Research or Teaching I"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "PB 492",
-                "title": "External Learning Experience"
-              },
-              {
-                "code": "PB 493",
-                "title": "Plant Biology Supervised Undergraduate Research Experience"
-              },
-              {
-                "code": "PB 495",
-                "title": "Special Topics in Plant Biology"
-              },
-              {
-                "code": "ALS 498",
-                "title": "Honors Research or Teaching I"
               },
               {
                 "credits": 3,
@@ -40523,7 +40547,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#f8ce4165ec7a4b30) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8dbd94c03d1af1b3."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 2 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#8dbd94c03d1af1b3) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8dbd94c03d1af1b3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -42707,20 +42731,23 @@
                 "title": "Data Structures and Object-Oriented Programming for Electrical and Computer Engineers"
               },
               {
+                "choose": 1,
                 "credits": 1,
+                "options": [
+                  {
+                    "code": "ECE 380",
+                    "title": "Engineering Profession for Electrical Engineers"
+                  },
+                  {
+                    "code": "ECE 381",
+                    "title": "Engineering Profession for Computer Engineers"
+                  },
+                  {
+                    "code": "ECE 383",
+                    "title": "Introduction to Entrepreneurship and New Product Development"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ECE 380",
-                "title": "Engineering Profession for Electrical Engineers"
-              },
-              {
-                "code": "ECE 381",
-                "title": "Engineering Profession for Computer Engineers"
-              },
-              {
-                "code": "ECE 383",
-                "title": "Introduction to Entrepreneurship and New Product Development"
               },
               {
                 "credits": 3,
@@ -42808,7 +42835,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/engineering/electrical-computer/computer-engineering-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#9b41303a96171f8a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8b1dfb8113eb8369."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 122 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#8b1dfb8113eb8369) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8b1dfb8113eb8369."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -43256,20 +43283,23 @@
                 "title": "Electromagnetic Fields"
               },
               {
+                "choose": 1,
                 "credits": 1,
+                "options": [
+                  {
+                    "code": "ECE 380",
+                    "title": "Engineering Profession for Electrical Engineers"
+                  },
+                  {
+                    "code": "ECE 381",
+                    "title": "Engineering Profession for Computer Engineers"
+                  },
+                  {
+                    "code": "ECE 383",
+                    "title": "Introduction to Entrepreneurship and New Product Development"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ECE 380",
-                "title": "Engineering Profession for Electrical Engineers"
-              },
-              {
-                "code": "ECE 381",
-                "title": "Engineering Profession for Computer Engineers"
-              },
-              {
-                "code": "ECE 383",
-                "title": "Introduction to Entrepreneurship and New Product Development"
               },
               {
                 "code": "ECE 404",
@@ -43354,7 +43384,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/engineering/electrical-computer/electrical-engineering-bs-electronic-devices-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#81448b7d54550f41) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#2bfed967c6c97f64."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 122 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#2bfed967c6c97f64) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#2bfed967c6c97f64."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -43814,20 +43844,23 @@
                 "title": "Electromagnetic Fields"
               },
               {
+                "choose": 1,
                 "credits": 1,
+                "options": [
+                  {
+                    "code": "ECE 380",
+                    "title": "Engineering Profession for Electrical Engineers"
+                  },
+                  {
+                    "code": "ECE 381",
+                    "title": "Engineering Profession for Computer Engineers"
+                  },
+                  {
+                    "code": "ECE 383",
+                    "title": "Introduction to Entrepreneurship and New Product Development"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ECE 380",
-                "title": "Engineering Profession for Electrical Engineers"
-              },
-              {
-                "code": "ECE 381",
-                "title": "Engineering Profession for Computer Engineers"
-              },
-              {
-                "code": "ECE 383",
-                "title": "Introduction to Entrepreneurship and New Product Development"
               },
               {
                 "credits": 3,
@@ -43911,7 +43944,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/engineering/electrical-computer/electrical-engineering-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#8987f5a5c984f316) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#1d23d6a604c060f8."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 122 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#1d23d6a604c060f8) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#1d23d6a604c060f8."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -46019,20 +46052,23 @@
                 "text": "Statistics 3xx 1"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               }
             ],
             "label": "Fall Semester",
@@ -46184,7 +46220,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/humanities-social-sciences/interdisciplinary/science-technology-society-program/science-technology-society-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#dede2b555ab69aae) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#b356e5f184e3cbad."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#b356e5f184e3cbad) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#b356e5f184e3cbad."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -46335,24 +46371,27 @@
                 "text": "Social Sciences"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "LOG 201",
+                    "title": "Logic"
+                  },
+                  {
+                    "code": "LOG 335",
+                    "title": "Symbolic Logic"
+                  },
+                  {
+                    "code": "LOG 430",
+                    "title": "Varieties of Logic"
+                  },
+                  {
+                    "code": "LOG 435",
+                    "title": "Advanced Logic & Metamathematics"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "LOG 201",
-                "title": "Logic"
-              },
-              {
-                "code": "LOG 335",
-                "title": "Symbolic Logic"
-              },
-              {
-                "code": "LOG 430",
-                "title": "Varieties of Logic"
-              },
-              {
-                "code": "LOG 435",
-                "title": "Advanced Logic & Metamathematics"
               },
               {
                 "credits": 3,
@@ -46475,7 +46514,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/humanities-social-sciences/philosophy-religious-studies/philosophy-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#036c1fcdcd1b7804) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#40f24bb9fdd3fa24."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#40f24bb9fdd3fa24) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#40f24bb9fdd3fa24."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -49303,28 +49342,31 @@
                 "title": "Introduction to Business Analytics"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  },
+                  {
+                    "code": "BUS 360",
+                    "title": "Principles of Marketing"
+                  },
+                  {
+                    "code": "BUS 370",
+                    "title": "Operations and Supply Chain Management"
+                  },
+                  {
+                    "code": "MIE 305",
+                    "title": "Legal and Regulatory Environment"
+                  },
+                  {
+                    "code": "MIE 330",
+                    "title": "Managing People"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
-              },
-              {
-                "code": "BUS 360",
-                "title": "Principles of Marketing"
-              },
-              {
-                "code": "BUS 370",
-                "title": "Operations and Supply Chain Management"
-              },
-              {
-                "code": "MIE 305",
-                "title": "Legal and Regulatory Environment"
-              },
-              {
-                "code": "MIE 330",
-                "title": "Managing People"
               },
               {
                 "code": "PSY 200",
@@ -49371,28 +49413,31 @@
                 "title": "Accounting Information Systems"
               },
               {
+                "choose": 2,
                 "credits": 6,
+                "options": [
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  },
+                  {
+                    "code": "BUS 360",
+                    "title": "Principles of Marketing"
+                  },
+                  {
+                    "code": "BUS 370",
+                    "title": "Operations and Supply Chain Management"
+                  },
+                  {
+                    "code": "MIE 305",
+                    "title": "Legal and Regulatory Environment"
+                  },
+                  {
+                    "code": "MIE 330",
+                    "title": "Managing People"
+                  }
+                ],
                 "text": "Select two of the following:"
-              },
-              {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
-              },
-              {
-                "code": "BUS 360",
-                "title": "Principles of Marketing"
-              },
-              {
-                "code": "BUS 370",
-                "title": "Operations and Supply Chain Management"
-              },
-              {
-                "code": "MIE 305",
-                "title": "Legal and Regulatory Environment"
-              },
-              {
-                "code": "MIE 330",
-                "title": "Managing People"
               },
               {
                 "credits": 3,
@@ -49432,28 +49477,31 @@
                 "title": "Accounting Analytics I: Tools and Techniques"
               },
               {
+                "choose": 2,
                 "credits": 6,
+                "options": [
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  },
+                  {
+                    "code": "BUS 360",
+                    "title": "Principles of Marketing"
+                  },
+                  {
+                    "code": "BUS 370",
+                    "title": "Operations and Supply Chain Management"
+                  },
+                  {
+                    "code": "MIE 305",
+                    "title": "Legal and Regulatory Environment"
+                  },
+                  {
+                    "code": "MIE 330",
+                    "title": "Managing People"
+                  }
+                ],
                 "text": "Select two of the following:"
-              },
-              {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
-              },
-              {
-                "code": "BUS 360",
-                "title": "Principles of Marketing"
-              },
-              {
-                "code": "BUS 370",
-                "title": "Operations and Supply Chain Management"
-              },
-              {
-                "code": "MIE 305",
-                "title": "Legal and Regulatory Environment"
-              },
-              {
-                "code": "MIE 330",
-                "title": "Managing People"
               },
               {
                 "credits": 3,
@@ -49520,7 +49568,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/management/accounting/accounting-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#2eae0ed5b5ffb802) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#ebd315442e5756d0."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#ebd315442e5756d0) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#ebd315442e5756d0."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -50683,20 +50731,23 @@
                 "title": "Econometrics I"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               },
               {
                 "credits": 6,
@@ -50795,7 +50846,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/management/economics/economics-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#1398dd38ce19ca24) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#62711e2342262617."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#62711e2342262617) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#62711e2342262617."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -51093,36 +51144,39 @@
             "credit_hours": "16",
             "items": [
               {
+                "choose": 3,
                 "credits": 9,
+                "options": [
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  },
+                  {
+                    "code": "BUS 340",
+                    "title": "Information Systems Management"
+                  },
+                  {
+                    "code": "BUS 360",
+                    "title": "Principles of Marketing"
+                  },
+                  {
+                    "code": "BUS 370",
+                    "title": "Operations and Supply Chain Management"
+                  },
+                  {
+                    "code": "MIE 305",
+                    "title": "Legal and Regulatory Environment"
+                  },
+                  {
+                    "code": "MIE 310",
+                    "title": "Entrepreneurial Value Creation"
+                  },
+                  {
+                    "code": "MIE 330",
+                    "title": "Managing People"
+                  }
+                ],
                 "text": "Select three of the following:"
-              },
-              {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
-              },
-              {
-                "code": "BUS 340",
-                "title": "Information Systems Management"
-              },
-              {
-                "code": "BUS 360",
-                "title": "Principles of Marketing"
-              },
-              {
-                "code": "BUS 370",
-                "title": "Operations and Supply Chain Management"
-              },
-              {
-                "code": "MIE 305",
-                "title": "Legal and Regulatory Environment"
-              },
-              {
-                "code": "MIE 310",
-                "title": "Entrepreneurial Value Creation"
-              },
-              {
-                "code": "MIE 330",
-                "title": "Managing People"
               },
               {
                 "code": "PSY 200",
@@ -51159,52 +51213,58 @@
             "credit_hours": "15",
             "items": [
               {
+                "choose": 2,
                 "credits": 6,
+                "options": [
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  },
+                  {
+                    "code": "BUS 340",
+                    "title": "Information Systems Management"
+                  },
+                  {
+                    "code": "BUS 360",
+                    "title": "Principles of Marketing"
+                  },
+                  {
+                    "code": "BUS 370",
+                    "title": "Operations and Supply Chain Management"
+                  },
+                  {
+                    "code": "MIE 305",
+                    "title": "Legal and Regulatory Environment"
+                  },
+                  {
+                    "code": "MIE 310",
+                    "title": "Entrepreneurial Value Creation"
+                  },
+                  {
+                    "code": "MIE 330",
+                    "title": "Managing People"
+                  }
+                ],
                 "text": "Select two of the following:"
               },
               {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
-              },
-              {
-                "code": "BUS 340",
-                "title": "Information Systems Management"
-              },
-              {
-                "code": "BUS 360",
-                "title": "Principles of Marketing"
-              },
-              {
-                "code": "BUS 370",
-                "title": "Operations and Supply Chain Management"
-              },
-              {
-                "code": "MIE 305",
-                "title": "Legal and Regulatory Environment"
-              },
-              {
-                "code": "MIE 310",
-                "title": "Entrepreneurial Value Creation"
-              },
-              {
-                "code": "MIE 330",
-                "title": "Managing People"
-              },
-              {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               },
               {
                 "credits": 6,
@@ -51218,36 +51278,39 @@
             "credit_hours": "15",
             "items": [
               {
+                "choose": 2,
                 "credits": 6,
+                "options": [
+                  {
+                    "code": "BUS 320",
+                    "title": "Principles of Finance"
+                  },
+                  {
+                    "code": "BUS 340",
+                    "title": "Information Systems Management"
+                  },
+                  {
+                    "code": "BUS 360",
+                    "title": "Principles of Marketing"
+                  },
+                  {
+                    "code": "BUS 370",
+                    "title": "Operations and Supply Chain Management"
+                  },
+                  {
+                    "code": "MIE 305",
+                    "title": "Legal and Regulatory Environment"
+                  },
+                  {
+                    "code": "MIE 310",
+                    "title": "Entrepreneurial Value Creation"
+                  },
+                  {
+                    "code": "MIE 330",
+                    "title": "Managing People"
+                  }
+                ],
                 "text": "Select two of the following:"
-              },
-              {
-                "code": "BUS 320",
-                "title": "Principles of Finance"
-              },
-              {
-                "code": "BUS 340",
-                "title": "Information Systems Management"
-              },
-              {
-                "code": "BUS 360",
-                "title": "Principles of Marketing"
-              },
-              {
-                "code": "BUS 370",
-                "title": "Operations and Supply Chain Management"
-              },
-              {
-                "code": "MIE 305",
-                "title": "Legal and Regulatory Environment"
-              },
-              {
-                "code": "MIE 310",
-                "title": "Entrepreneurial Value Creation"
-              },
-              {
-                "code": "MIE 330",
-                "title": "Managing People"
               },
               {
                 "credits": 3,
@@ -51313,7 +51376,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/management/itao/business-administration-bs-operations-supply-chain-management/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#efce0fe29d608f9b) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#d7ee3795e013fa0d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#d7ee3795e013fa0d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#d7ee3795e013fa0d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -53307,13 +53370,16 @@
                 "title": "Introduction to Sustainable Materials and Technology"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  "ENV 100& ENV 101 | Student Success in Environmental First Yearand Exploring the Environment",
+                  {
+                    "code": "ES 100",
+                    "title": "Introduction to Environmental Sciences"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              "ENV 100& ENV 101 | Student Success in Environmental First Yearand Exploring the Environment",
-              {
-                "code": "ES 100",
-                "title": "Introduction to Environmental Sciences"
               },
               {
                 "credits": 3,
@@ -53582,20 +53648,23 @@
                 "text": "GEP Humanities"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PS 320",
+                    "title": "U.S. Environmental Law and Politics"
+                  },
+                  {
+                    "code": "PS 336",
+                    "title": "Global Environmental Politics"
+                  },
+                  {
+                    "code": "ARE 309",
+                    "title": "Environmental Law & Economic Policy"
+                  }
+                ],
                 "text": "Select one of the following"
-              },
-              {
-                "code": "PS 320",
-                "title": "U.S. Environmental Law and Politics"
-              },
-              {
-                "code": "PS 336",
-                "title": "Global Environmental Politics"
-              },
-              {
-                "code": "ARE 309",
-                "title": "Environmental Law & Economic Policy"
               },
               {
                 "credits": 3,
@@ -53613,7 +53682,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/natural-resources/forest-biomaterials/sustainable-materials-technology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#6d96ec1e79d31438) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#fbc98bd3c7c406a6."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#fbc98bd3c7c406a6) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#fbc98bd3c7c406a6."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -62783,20 +62852,23 @@
                 "text": "Animal Science Course"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "MA 114",
+                    "title": "Introduction to Finite Mathematics with Applications"
+                  },
+                  {
+                    "code": "MA 121",
+                    "title": "Elements of Calculus"
+                  },
+                  {
+                    "code": "MA 131",
+                    "title": "Calculus for Life and Management Sciences A"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MA 114",
-                "title": "Introduction to Finite Mathematics with Applications"
-              },
-              {
-                "code": "MA 121",
-                "title": "Elements of Calculus"
-              },
-              {
-                "code": "MA 131",
-                "title": "Calculus for Life and Management Sciences A"
               },
               {
                 "code": "BIO 183",
@@ -62976,7 +63048,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/animal-science/animal-science-bs-industry-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#0dbb234901a044bd) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8b16888e0943737e."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#8b16888e0943737e) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8b16888e0943737e."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -63791,30 +63863,36 @@
               },
               "CS/HS 410 | Community Food Systems | 3",
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  "CH 201& CH 202 | Chemistry - A Quantitative Scienceand Quantitative Chemistry Laboratory",
+                  "CH 220& CH 222 | Introductory Organic Chemistryand Organic Chemistry I Lab"
+                ],
                 "text": "Select one of the following:"
               },
-              "CH 201& CH 202 | Chemistry - A Quantitative Scienceand Quantitative Chemistry Laboratory",
-              "CH 220& CH 222 | Introductory Organic Chemistryand Organic Chemistry I Lab",
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "AEE 311",
+                    "title": "Communication Methods and Media"
+                  },
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "AEE 311",
-                "title": "Communication Methods and Media"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               }
             ],
             "label": "Fall Semester",
@@ -63872,20 +63950,23 @@
                 "text": "Socio-Economic and Food Systems Elective"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "CSSC 492",
+                    "title": "Professional Internship Experience in Crop and Soil Sciences"
+                  },
+                  {
+                    "code": "CSSC 493",
+                    "title": "Research Experience in Crop and Soil Sciences"
+                  },
+                  {
+                    "code": "ALS 494",
+                    "title": "International Learning Experience in Agriculture and Life Sciences"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "CSSC 492",
-                "title": "Professional Internship Experience in Crop and Soil Sciences"
-              },
-              {
-                "code": "CSSC 493",
-                "title": "Research Experience in Crop and Soil Sciences"
-              },
-              {
-                "code": "ALS 494",
-                "title": "International Learning Experience in Agriculture and Life Sciences"
               },
               {
                 "credits": 3,
@@ -63923,7 +64004,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#5546489288d20890) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#58e82d336769fbf6."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 2 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#58e82d336769fbf6) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#58e82d336769fbf6."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -65586,20 +65667,23 @@
                 "title": "Quantitative Chemistry Laboratory"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               },
               {
                 "code": "GN 311",
@@ -65682,7 +65766,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#cdbb3e0c7a1c66d6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#4017b2ea242336c0."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#4017b2ea242336c0) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#4017b2ea242336c0."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -65894,24 +65978,27 @@
                 "credits": 3
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "MA 114",
+                    "title": "Introduction to Finite Mathematics with Applications"
+                  },
+                  {
+                    "code": "MA 121",
+                    "title": "Elements of Calculus"
+                  },
+                  {
+                    "code": "MA 131",
+                    "title": "Calculus for Life and Management Sciences A"
+                  },
+                  {
+                    "code": "MA 141",
+                    "title": "Calculus I"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MA 114",
-                "title": "Introduction to Finite Mathematics with Applications"
-              },
-              {
-                "code": "MA 121",
-                "title": "Elements of Calculus"
-              },
-              {
-                "code": "MA 131",
-                "title": "Calculus for Life and Management Sciences A"
-              },
-              {
-                "code": "MA 141",
-                "title": "Calculus I"
               },
               {
                 "credits": 3,
@@ -66040,20 +66127,23 @@
             "credit_hours": "14",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENG 331",
+                    "title": "Communication for Engineering and Technology"
+                  },
+                  {
+                    "code": "ENG 332",
+                    "title": "Communication for Business and Management"
+                  },
+                  {
+                    "code": "ENG 333",
+                    "title": "Communication for Science and Research"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENG 331",
-                "title": "Communication for Engineering and Technology"
-              },
-              {
-                "code": "ENG 332",
-                "title": "Communication for Business and Management"
-              },
-              {
-                "code": "ENG 333",
-                "title": "Communication for Science and Research"
               },
               {
                 "code": "PO 424",
@@ -66146,7 +66236,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#2943ab5ad9f1a773) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#da1c1a4f216ff68f."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#da1c1a4f216ff68f) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#da1c1a4f216ff68f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -67384,18 +67474,21 @@
                 "text": "GEP Interdisciplinary Perspectives"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "CH 100",
+                    "title": "Chemistry and Society"
+                  },
+                  "CH 101& CH 102 | Chemistry - A Molecular Scienceand General Chemistry Laboratory",
+                  "BIO 105& BIO 106 | Biology in the Modern Worldand Biology in the Modern World Laboratory",
+                  {
+                    "code": "BIO 181",
+                    "title": "Introductory Biology: Ecology, Evolution, and Biodiversity"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "CH 100",
-                "title": "Chemistry and Society"
-              },
-              "CH 101& CH 102 | Chemistry - A Molecular Scienceand General Chemistry Laboratory",
-              "BIO 105& BIO 106 | Biology in the Modern Worldand Biology in the Modern World Laboratory",
-              {
-                "code": "BIO 181",
-                "title": "Introductory Biology: Ecology, Evolution, and Biodiversity"
               },
               {
                 "credits": 3,
@@ -67667,7 +67760,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/elementary-education-bs-science-technology-engineering-mathematics-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#6c7a32fe6c333848) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#292c3b8a292e870a."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 2 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#292c3b8a292e870a) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#292c3b8a292e870a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -68164,20 +68257,23 @@
                 "title": "Fundamentals of Economics"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "PHI 214",
+                    "title": "Issues in Business Ethics"
+                  },
+                  {
+                    "code": "PHI 221",
+                    "title": "Contemporary Moral Issues"
+                  },
+                  {
+                    "code": "PHI 375",
+                    "title": "Ethics"
+                  }
+                ],
                 "text": "Select One of The Following"
-              },
-              {
-                "code": "PHI 214",
-                "title": "Issues in Business Ethics"
-              },
-              {
-                "code": "PHI 221",
-                "title": "Contemporary Moral Issues"
-              },
-              {
-                "code": "PHI 375",
-                "title": "Ethics"
               }
             ],
             "label": "Spring Semester",
@@ -68396,7 +68492,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/engineering/engineering-havelock/engineering-bs-electrical-engineering-systems-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#1cee178b0e140b33) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#6386a4abcda21c8d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 124 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#6386a4abcda21c8d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#6386a4abcda21c8d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -69395,11 +69491,14 @@
                 "text": "English Elective"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  "ENG/COM 364 | History of Film to 1940",
+                  "ENG/COM 374 | History of Film From 1940"
+                ],
                 "text": "Select one of the following:"
               },
-              "ENG/COM 364 | History of Film to 1940",
-              "ENG/COM 374 | History of Film From 1940",
               {
                 "credits": 3,
                 "text": "GEP Interdisciplinary Perspectives"
@@ -69483,7 +69582,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/humanities-social-sciences/english/english-ba-film-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#8b6e63eb2ae0ba3e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#48070de6bf712c31."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 2 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#48070de6bf712c31) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#48070de6bf712c31."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -75476,16 +75575,19 @@
             "credit_hours": "16",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "WLAR 301",
+                    "title": "Advanced Intermediate Arabic I"
+                  },
+                  {
+                    "code": "WLAR 320",
+                    "title": "Arabic for Professional Purposes"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "WLAR 301",
-                "title": "Advanced Intermediate Arabic I"
-              },
-              {
-                "code": "WLAR 320",
-                "title": "Arabic for Professional Purposes"
               },
               {
                 "credits": 3,
@@ -75592,7 +75694,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/humanities-social-sciences/world-languages-cultures/foreign-languages-literatures-ba-arabic-language-culture-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#c948139fe3259ec0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#b86fea6f09eba9c0."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#b86fea6f09eba9c0) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#b86fea6f09eba9c0."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -78812,24 +78914,27 @@
                 "text": "Concentration"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ARE 201",
+                    "title": "Introduction to Agricultural & Resource Economics"
+                  },
+                  {
+                    "code": "ARE 201A",
+                    "title": "Introduction to Agricultural & Resource Economics"
+                  },
+                  {
+                    "code": "EC 201",
+                    "title": "Principles of Microeconomics"
+                  },
+                  {
+                    "code": "EC 205",
+                    "title": "Fundamentals of Economics"
+                  }
+                ],
                 "text": "Select one of the following"
-              },
-              {
-                "code": "ARE 201",
-                "title": "Introduction to Agricultural & Resource Economics"
-              },
-              {
-                "code": "ARE 201A",
-                "title": "Introduction to Agricultural & Resource Economics"
-              },
-              {
-                "code": "EC 201",
-                "title": "Principles of Microeconomics"
-              },
-              {
-                "code": "EC 205",
-                "title": "Fundamentals of Economics"
               },
               {
                 "credits": 3,
@@ -78968,7 +79073,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/natural-resources/parks-recreation-tourism-management/parks-recreation-tourism-management-bs-parks-natural-resource-recreation-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#6eb6ec986ccee2b0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#e0ca4d94245c2037."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 117 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#e0ca4d94245c2037) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#e0ca4d94245c2037."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -79292,24 +79397,27 @@
                 "text": "Concentration"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 201",
+                    "title": "Principles of Microeconomics"
+                  },
+                  {
+                    "code": "EC 205",
+                    "title": "Fundamentals of Economics"
+                  },
+                  {
+                    "code": "ARE 201",
+                    "title": "Introduction to Agricultural & Resource Economics"
+                  },
+                  {
+                    "code": "ARE 201A",
+                    "title": "Introduction to Agricultural & Resource Economics"
+                  }
+                ],
                 "text": "Select one of the following"
-              },
-              {
-                "code": "EC 201",
-                "title": "Principles of Microeconomics"
-              },
-              {
-                "code": "EC 205",
-                "title": "Fundamentals of Economics"
-              },
-              {
-                "code": "ARE 201",
-                "title": "Introduction to Agricultural & Resource Economics"
-              },
-              {
-                "code": "ARE 201A",
-                "title": "Introduction to Agricultural & Resource Economics"
               },
               {
                 "credits": 3,
@@ -79448,7 +79556,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/natural-resources/parks-recreation-tourism-management/parks-recreation-tourism-management-bs-sustainable-tourism-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#5ef4f8b3bdb1ece0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#3e816730fa81ad80."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#3e816730fa81ad80) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#3e816730fa81ad80."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -84807,20 +84915,23 @@
                 "title": "Textile Engineering Design II"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 205",
+                    "title": "Fundamentals of Economics"
+                  },
+                  {
+                    "code": "EC 201",
+                    "title": "Principles of Microeconomics"
+                  },
+                  {
+                    "code": "ARE 201",
+                    "title": "Introduction to Agricultural & Resource Economics"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "EC 205",
-                "title": "Fundamentals of Economics"
-              },
-              {
-                "code": "EC 201",
-                "title": "Principles of Microeconomics"
-              },
-              {
-                "code": "ARE 201",
-                "title": "Introduction to Agricultural & Resource Economics"
               },
               {
                 "credits": 3,
@@ -84843,7 +84954,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/textiles/textile-engineering-chemistry-science/textile-engineering-bs-chemical-processing-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#c48d985298e26dfa) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#07de0d8f05429347."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 125 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#07de0d8f05429347) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#07de0d8f05429347."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -85606,20 +85717,23 @@
               },
               "CH 101& CH 102 | Chemistry - A Molecular Scienceand General Chemistry Laboratory 1 | 4",
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "MA 121",
+                    "title": "Elements of Calculus"
+                  },
+                  {
+                    "code": "MA 131",
+                    "title": "Calculus for Life and Management Sciences A"
+                  },
+                  {
+                    "code": "MA 141",
+                    "title": "Calculus I"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MA 121",
-                "title": "Elements of Calculus"
-              },
-              {
-                "code": "MA 131",
-                "title": "Calculus for Life and Management Sciences A"
-              },
-              {
-                "code": "MA 141",
-                "title": "Calculus I"
               }
             ],
             "label": "Spring Semester",
@@ -85639,41 +85753,47 @@
                 "text": "GEP Interdisciplinary Perspectives"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ARE 201",
+                    "title": "Introduction to Agricultural & Resource Economics"
+                  },
+                  {
+                    "code": "EC 201",
+                    "title": "Principles of Microeconomics"
+                  },
+                  {
+                    "code": "EC 202",
+                    "title": "Principles of Macroeconomics"
+                  },
+                  {
+                    "code": "EC 205",
+                    "title": "Fundamentals of Economics"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ARE 201",
-                "title": "Introduction to Agricultural & Resource Economics"
-              },
-              {
-                "code": "EC 201",
-                "title": "Principles of Microeconomics"
-              },
-              {
-                "code": "EC 202",
-                "title": "Principles of Macroeconomics"
-              },
-              {
-                "code": "EC 205",
-                "title": "Fundamentals of Economics"
               },
               "CH 221& CH 222 | Organic Chemistry Iand Organic Chemistry I Lab | 4",
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "COM 110",
+                    "title": "Public Speaking"
+                  },
+                  {
+                    "code": "COM 112",
+                    "title": "Interpersonal Communication"
+                  },
+                  {
+                    "code": "COM 211",
+                    "title": "Argumentation and Advocacy"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "COM 110",
-                "title": "Public Speaking"
-              },
-              {
-                "code": "COM 112",
-                "title": "Interpersonal Communication"
-              },
-              {
-                "code": "COM 211",
-                "title": "Argumentation and Advocacy"
               }
             ],
             "label": "Fall Semester",
@@ -85826,7 +85946,7 @@
       },
       "source_url": "https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/animal-science/animal-science-bs-veterinary-bioscience-concentration/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#5df3f92dcd49cbc4) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#85867bf08ec4c668."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (2 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence NC/2026-10-06-cat3#85867bf08ec4c668) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#85867bf08ec4c668."
     },
     {
       "last_verified_at": "2026-10-06",

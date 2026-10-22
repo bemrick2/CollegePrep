@@ -72,7 +72,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | **in_progress** | 31 | 1 | 6% (needs 80%) | 0 | 27 | 36 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 23 | 26 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 7 | 17 |
-| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 1 | 111 | 172 |
+| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 0 | 111 | 172 |
 | CO | **in_progress** | 30 | 2 | 23% (needs 80%) | 0 | 24 | 36 |
 | CT | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 20 | 31 |
 | DC | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
@@ -264,7 +264,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Stanford University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Solano Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Clara University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Loyola Marymount University | covered_open_items | 62 | 61 | 22 | 148 | met | open | met | queued | admission_rules:not_yet_researched |
+| Loyola Marymount University | covered | 62 | 61 | 31 | 148 | met | met | met | queued | admission_rules:not_yet_researched |
 | West Los Angeles College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | California Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of San Diego | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -2417,7 +2417,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Wisconsin-Madison | covered | 222 | 220 | 127 | 128 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
-| University of Wisconsin-Milwaukee | covered | 133 | 133 | 41 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| University of Wisconsin-Milwaukee | covered | 133 | 133 | 41 | 238 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | University of Wisconsin-La Crosse | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Whitewater | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Wisconsin-Eau Claire | partial | 2 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
