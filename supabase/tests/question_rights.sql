@@ -49,9 +49,12 @@ begin
   perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'model: self-check')$s$, g), '22023', '%human%');
   perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'inhuman: automated check')$s$, g), '22023', '%human%');
   perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'checked by a human: no')$s$, g), '22023', '%human%');
+  perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'humane review')$s$, g), '22023', '%human%');
   -- Even with the trigger skipped, a generated row can't be stored current without a human review.
   set local session_replication_role = replica;
   perform hp_test.expect_error(format($s$update public.practice_questions set review_current = true, review_method = 'loader' where id = %L$s$, g), '23514');
+  perform hp_test.expect_error(format($s$update public.practice_questions set review_current = true, review_method = 'automated (human: no)' where id = %L$s$, g), '23514');
+  perform hp_test.expect_error(format($s$update public.practice_questions set review_current = true, review_method = 'humanly' where id = %L$s$, g), '23514');
   set local session_replication_role = origin;
   perform public.approve_practice_question(g, 'loader v2 checks', now(), 'changes_needed');  -- a non-approval may be recorded
   update public.practice_questions set status = 'published' where id = g;
