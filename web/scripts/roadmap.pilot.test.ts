@@ -126,8 +126,8 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     const why = r.unknowns.map((u) => u.text).find((t) => /AP credit table/.test(t))!
     expect(why).toMatch(/on file but not yet verified: the values were checked, but the page prints no academic year/)
     expect(why).not.toMatch(/reject|discontinu|no longer/i)
-    // No fit label is drawn without an acceptance value (CollegePlan CreditRow), so "No credit at this score" never shows here.
-    expect(micro.fit).toBe('none')
+    // Its own fit, so no screen reading `fit` can say "No credit at this score" for a table that just isn't verified.
+    expect(micro.fit).toBe('not_verified')
     expect(micro.hours.value).toBeNull()
     expect(r.cost.value?.length).toBeGreaterThan(0)
     expect(r.options).toEqual([])
