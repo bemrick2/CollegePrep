@@ -1,6 +1,10 @@
 name: IPEDS source pin
-# Push ipeds-request.json ({"year": "2023-24", "files": ["EF2023A.zip", "EF2023A_Dict.zip"]}) to an ipeds-source/** branch.
+# Push ipeds-request.json to an ipeds-source/** branch. Either form:
+#   {"year": "2023-24", "files": ["EF2023A.zip", "EF2023A_Dict.zip"]}
+#   {"requests": [{"year": "2023-24", "files": [...]}, {"year": "2024-25", "files": [...]}]}
 # Downloads each file from nces.ed.gov, pins it into sources/ipeds/<year>/ with its sha256, and commits to the same branch.
+# A file NCES doesn't serve (not released yet, renamed) is recorded under `unavailable` in that year's manifest with the
+# HTTP status; the run continues with the other files.
 on:
   push:
     branches: ['ipeds-source/**']
@@ -16,12 +20,23 @@ jobs:
         with: { python-version: '3.13' }
       - name: Download and pin
         run: |
-          year=$(python -c "import json;print(json.load(open('ipeds-request.json'))['year'])")
-          files=$(python -c "import json;print(' '.join(json.load(open('ipeds-request.json'))['files']))")
-          for f in $files; do curl -fsSL --retry 3 -o "$f" "https://nces.ed.gov/ipeds/datacenter/data/$f"; done
-          python scripts/pin_ipeds.py "$year" $files
-          rm -f $files
+          python - <<'PY' > requests.txt
+          import json
+          r = json.load(open('ipeds-request.json'))
+          for q in r.get('requests') or [r]:
+              for f in q['files']: print(q['year'], f)
+          PY
+          while read -r year f; do
+            code=$(curl -sSL --retry 3 -o "$f" -w '%{http_code}' "https://nces.ed.gov/ipeds/datacenter/data/$f" || echo 000)
+            if [ "$code" = "200" ] && unzip -tq "$f" >/dev/null 2>&1; then
+              python scripts/pin_ipeds.py "$year" "$f"
+            else
+              python scripts/pin_ipeds.py --unavailable "$year" "$f" "$code"
+            fi
+            rm -f "$f"
+          done < requests.txt
+          rm -f requests.txt
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
-          git add sources/ipeds && git commit -m "Pin IPEDS files from nces.ed.gov ($(python -c "import json;print(' '.join(json.load(open('ipeds-request.json'))['files']))"))" && git push || echo "nothing to pin"
+          git add sources/ipeds && git commit -m "Pin IPEDS files from nces.ed.gov (ipeds-request.json)" && git push || echo "nothing to pin"
