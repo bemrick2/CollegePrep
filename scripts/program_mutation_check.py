@@ -433,7 +433,10 @@ MUTS = [
     ('programs/extract.py', " or PAREN_AWARD_VARIANT_ENTRY.match(line) or LONG_AWARD", " or LONG_AWARD"),
     ('programs/autoreview.py', " and not PAREN_AWARD_VARIANT_ENTRY.match(n) and _degree_key(n)", " and _degree_key(n)"),
     # promote never replaces an owner-corrected record or re-promotes a candidate over the record it produced
-    ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys(): return 'owner-approved correction on file'", "    pass"),
+    ('programs/promote.py', "    if on_file.get('verification_correction_reason') or nk in corrected_keys():", "    if False:"),
+    ('programs/promote.py', "        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'", "        pass"),
+    ('programs/promote.py', "        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'\n        return None", "        if not (approval or {}).get('replaces_correction'): return 'owner-approved correction on file'"),
+    ('programs/promote.py', "            rec.pop('verification_correction_reason', None)", "            pass"),
     ('programs/promote.py', "    if c['candidate_id'] in promoted_ids and not (approval or {}).get('replaces_promoted'): return 'already promoted from this run'", "    pass"),
     ('programs/promote.py', " and not (approval or {}).get('replaces_promoted'): return", ": return"),
     ('programs/promote.py', "        if held:\n", "        if False:\n"),

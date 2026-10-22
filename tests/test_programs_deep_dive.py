@@ -2736,6 +2736,9 @@ class KeptRecordTests(unittest.TestCase):
                 self.assertIsNone(P.kept_record(c('g', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))  # a new review may update it
                 self.assertIsNone(P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}, {'replaces_promoted': 'award from school page'}))
                 self.assertIn('correction', P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_promoted': 'x'}))
+                self.assertIsNone(P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_correction': 'reader fixed'}))
+                self.assertIsNone(P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set(), {'replaces_correction': 'reader fixed'}))
+                self.assertIn('correction', P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set(), {'replaces_correction': ''}))
                 self.assertIsNone(P.kept_record(c('n', 'new'), {'program_key': 'new'}, {'k': 'x'}, set()))
             finally:
                 P.ROOT, PP.ROOT = old, oldp
@@ -2775,6 +2778,18 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 arch = json.loads((ev / 'evidence.json').read_text())
                 self.assertEqual(arch['c2']['decision']['reason'], 'award found')
                 self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c2~superseded-')], ['first review'])
+                # #229 recovery: a reviewed re-extraction replaces a corrected record only with 'replaces_correction'
+                c3 = {**c, 'record': {**c['record'], 'institution_key': 'k', 'academic_year': '2026-27', 'last_verified_at': '2026-10-22'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c3) + '\n')
+                arch['c1'] = {'decision': {'candidate_id': 'c1', 'reason': 'earlier'}}; (ev / 'evidence.json').write_text(json.dumps(arch))
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c1', 'reason': 'rechecked', 'replaces_correction': 'reader now reads the total'}]}))
+                P.promote(dec, log=logs.append)
+                recs = json.loads((f / '2026-27.json').read_text())['records']; self.assertEqual(len(recs), 2); rec = recs[0]
+                self.assertEqual(rec['verification_status'], 'verified')
+                self.assertNotIn('verification_correction_reason', rec)
+                self.assertIn('Re-verified after the correction on file (kept in supabase/corrections.json): reader now reads the total', rec['notes'])
+                arch = json.loads((ev / 'evidence.json').read_text())
+                self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c1~superseded-')], ['earlier'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 
