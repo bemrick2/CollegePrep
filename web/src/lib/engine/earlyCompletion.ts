@@ -64,17 +64,28 @@ export function earlyCompletion(coveredTerms: number, evidence: CompletionEviden
     isUrl(e.sourceUrl) &&
     !!scope &&
     e.institutionKey === scope.institutionKey &&
-    scope.planKey != null &&
+    typeof scope.planKey === 'string' &&
+    scope.planKey !== '' &&
     e.planKey === scope.planKey &&
     scope.terms.length === coveredTerms &&
+    Array.isArray(e.terms) &&
     scope.terms.every((t) => e.terms.includes(t))
   const missing = COMPLETION_CONDITIONS.filter((c) => !shows(evidence[c]))
   return { supported: coveredTerms > 0 && missing.length === 0, missing }
 }
 
+/**
+ * The one gate every screen uses for a time or dollar saving (#253): `compute` runs only when early completion is
+ * supported, so a screen can't show a saving on coverage alone.
+ */
+export function gatedSaving<T>(coveredTerms: number, compute: () => T | null, evidence: CompletionEvidence = {}, scope?: CompletionScope): { early: EarlyCompletion; saving: T | null } {
+  const early = earlyCompletion(coveredTerms, evidence, scope)
+  return { early, saving: early.supported ? compute() : null }
+}
+
 /** "Not shown: …" in plain words, for a withheld saving. */
 export function withheldReason(e: EarlyCompletion, coveredTerms: number): string {
   if (coveredTerms === 0) return 'No whole plan term is covered, so no time or money saved is shown.'
-  if (coveredTerms < 0) return 'No verified plan, so no time or money saved is shown.'
+  if (coveredTerms < 0) return 'No verified plan for a saved major is on file, so no time or money saved is shown.'
   return `Covering a term’s courses doesn’t by itself mean finishing a term sooner. That also needs records showing that ${e.missing.map((c) => CONDITION_TEXT[c]).join('; ')}. None of that is on file, so no time or money saved is shown.`
 }

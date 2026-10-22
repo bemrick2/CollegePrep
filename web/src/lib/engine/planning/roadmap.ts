@@ -11,7 +11,7 @@ import type { InstitutionComparison, ProjectionRow } from '../../data/types'
 import { degreeCredit, type ExamApplicability } from '../degreeCredit'
 import { FAMILY_LABEL, examOptions, matchExam, policyKindOf, type CreditPolicy, type ExamFamily, type ExamMatch, type IbLevel, type PlannedExam } from '../examCredit'
 import { termsSaving, type FamilyAid } from '../costProjection'
-import { earlyCompletion, withheldReason, type CompletionEvidence } from '../earlyCompletion'
+import { gatedSaving, withheldReason, type CompletionEvidence } from '../earlyCompletion'
 import { pickCost } from '../residency'
 import { planTerms, type PlanTermLike } from '../planItems'
 import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanCourseRow, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
@@ -257,12 +257,11 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
       : { value: null, evidence: missing(hasPlan ? 'No whole plan term is covered by this credit.' : 'No verified plan, so coverage can’t be checked.', planRec, catalogYear) }
 
   // Time or money saved needs more than coverage: records showing the student could really finish sooner.
-  const early = earlyCompletion(covered, completionEvidence, {
+  const { early, saving } = gatedSaving(covered, () => (projection ? termsSaving(projection, covered, aid) : null), completionEvidence, {
     institutionKey: c.institution_key,
     planKey: planRec ? String(planRec.requirement_key ?? '') || null : null,
     terms: dc.coveredTerms.map((t) => t.term),
   })
-  const saving = early.supported && projection ? termsSaving(projection, covered, aid) : null
   const savings: Roadmap['savings'] = saving
     ? { value: saving, evidence: { ...evidence(planRec, c.academic_year), state: 'estimate', method: 'Potential only: the published price of the terms no longer needed, held at this year’s price, minus grants entered for those terms.' } }
     : { value: null, evidence: missing(early.supported ? `No verified cost projection for ${inst}.` : withheldReason(early, hasPlan ? covered : -1), null, c.academic_year) }

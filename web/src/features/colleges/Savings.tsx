@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { AwardListing, CostBasis, CostComponents, CreditLever, InstitutionComparison, ProjectionRow } from '../../lib/data/types'
 import { fullProgram, termsSaving, type FamilyAid, type FullProgram, type PotentialSaving } from '../../lib/engine/costProjection'
-import { earlyCompletion, withheldReason } from '../../lib/engine/earlyCompletion'
+import { gatedSaving, withheldReason } from '../../lib/engine/earlyCompletion'
 import { degreeCredit, type DegreeCreditResult, type ExamApplicability, type PlanTerm } from '../../lib/engine/degreeCredit'
 import { summarizeSchool, type CreditPolicy } from '../../lib/engine/examCredit'
 import { labelOf, type SavedInterest } from '../../lib/engine/interests'
@@ -41,7 +41,7 @@ const CAP_LABEL: Record<string, string> = {
 const AWARD_PREVIEW = 3
 
 /**
- * Cost and savings for the family's saved schools: the school's own published price by part, credit counted only
+ * Cost and credit for the family's saved schools: the school's own published price by part, credit counted only
  * by that school's published rules, and the family's own grant and loan numbers kept apart from research data.
  * Every total is an estimate at this year's prices.
  */
@@ -434,8 +434,7 @@ function CreditSteps({ row, credit, examSummary, aid, name }: { row: ProjectionR
   const covered = tiers?.coveredTerms.length ?? 0
   // No completion records are wired in yet, so this is always withheld. Only the covered plan terms could ever be
   // counted: never all accepted credit, and never the server's credits ÷ 15 (that is not evidence of a shorter degree).
-  const early = earlyCompletion(covered)
-  const shown = early.supported ? termsSaving(row, covered, aid) : null
+  const { early, saving: shown } = gatedSaving(covered, () => termsSaving(row, covered, aid))
   const anyCredit = exam.requested_credits > 0 || prior.requested_credits > 0 || examSummary.courses > 0
   return (
     <section className="border-t border-line px-5 py-4" aria-label={`${name}: credit the student brings`}>
@@ -525,7 +524,7 @@ function CreditSteps({ row, credit, examSummary, aid, name }: { row: ProjectionR
       {anyCredit && !shown && (
         <div className="mt-3 rounded-xl border border-line px-3 py-3 text-sm">
           <h4 className="font-semibold text-ink">Time and money saved: not shown</h4>
-          <p className="mt-1 text-ink-2">{withheldReason(early, covered)}</p>
+          <p className="mt-1 text-ink-2">{withheldReason(early, tiers ? covered : -1)}</p>
           <p className="mt-1 text-xs text-ink-3">Ask the school’s registrar and an academic advisor whether this credit lets the student finish sooner.</p>
         </div>
       )}

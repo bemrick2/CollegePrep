@@ -13,7 +13,7 @@ and they're deferred until the owner decides (`SUPABASE_DEFERRED.md`).
    their rules:
    - `examCredit`: acceptance of AP, CLEP, IB and Statewide Dual Credit.
    - `planItems` and `degreeCredit`: where credit lands in a plan.
-   - `costProjection`: `termsSaving` and `potentialSaving`.
+   - `costProjection`: `termsSaving`, used only through `earlyCompletion.gatedSaving` (`potentialSaving` is never shown).
    - `residency`: which price applies.
    - `merit`: published single test minimums.
 2. **Every output line carries its evidence.** The line has a state, and if the evidence is missing, the line says what's missing.

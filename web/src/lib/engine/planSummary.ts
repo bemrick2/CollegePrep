@@ -20,8 +20,9 @@ export interface PlanSummary {
   opportunity: { key: string; school: string; lever: CostLever } | null
 }
 
-// Score improvement first (the plan's main lever), then credit, then everything else; one opportunity only.
-const RANK: Record<string, number> = { 'merit-next:within_reach': 0, 'merit-met:on_track': 1, 'credit:on_track': 2, 'merit-next:stretch': 3, 'credit:available': 4, 'dual:available': 5, 'need:available': 6 }
+// Score improvement first (the plan's main lever), then everything else; one opportunity only. Exam credit is coverage,
+// not a demonstrated saving (#253), so it ranks after merit.
+const RANK: Record<string, number> = { 'merit-next:within_reach': 0, 'merit-met:on_track': 1, 'merit-next:stretch': 3, 'credit:available': 4, 'dual:available': 5, 'need:available': 6 }
 
 export function planSummary(schools: SchoolPlanInput[], topChoice: string | null): PlanSummary {
   const four = schools.filter((s) => s.level !== 'two_year')

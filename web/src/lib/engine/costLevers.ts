@@ -84,8 +84,9 @@ export function costLevers(i: LeverInput): CostLever[] {
   if (i.credit && i.credit.courses > 0)
     out.push({
       key: 'credit',
-      status: 'on_track',
-      title: `Listed exams earn credit for ${i.credit.courses} course${i.credit.courses === 1 ? '' : 's'}`,
+      // Coverage, not a demonstrated saving (#253): it never ranks as the best way to lower the cost.
+      status: 'available',
+      title: `Listed exams earn credit for ${i.credit.courses} course${i.credit.courses === 1 ? '' : 's'}; any saving isn't confirmed`,
       detail: `${i.credit.publishedHours ? `${i.credit.publishedHours} published credit hours` : 'Credit hours not all published'}. Credit coverage only: a shorter degree also depends on prerequisites, course offerings, course order and the remaining requirements.`,
     })
   else if (hasTable)
