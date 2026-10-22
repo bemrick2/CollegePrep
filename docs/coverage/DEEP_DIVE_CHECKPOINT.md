@@ -28,23 +28,22 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: printed choice blocks in plans
+## This PR: UWM Course List groups (#250)
 
-- **Reader:** `choice_blocks` in `programs/courseleaf.py`. A printed 'Select/Choose <N> [courses] of|from the following[:]' header with a credit cell, followed by two or more blank-credit course rows, becomes one item: `{choose, text, credits, options}`. That is the plangrid shape `web/src/lib/engine/planItems.ts` already reads (#230).
-  - Before this change, every option read as a required course.
-  - The options run to the next row that prints credits, or to the term's end. Every row in that run must be a course row, either read into fields or kept as a printed course string such as 'ANSC 326/FSTC 326' or 'GEOL 101& GEOL 102'. Otherwise the block stays flat, so it is never cut short.
-  - `verify` checks each option.
-- **Regression over the 10,061 stored grids:** 1,961 blocks in 902 grids. Flattening every new item gives back the old items exactly.
-- **Independent review, read-only, own parser, two rounds:**
-  - The first round found blocks cut short at printed-string options; that was fixed.
-  - The second round covered 349 records: 342 approved, 7 held.
-  - The 7 holds are blocks left flat because a label or note row follows them. Those records stay as on file. The follow-up is to end the run at a non-course row that is directly followed by another header.
-- **Promoted 342 reviewed re-reads:** `programs/decisions/*-plans-choices.json`, with `replaces_promoted`.
-  - 233 are grouping only.
-  - 99 also turn courseleaf_plan/v2 printed strings into fields (Texas A&M 78, JSU, ODU, Temple, SRU).
-  - 9 LMU plans held by the #229 correction for flat choice blocks are re-verified with `replaces_correction`.
-- **Shared plan keys checked:** all 14 verified plans whose key two pages share came from the program's main page, not a concentration page.
-  - Texas A&M Environmental Studies BS is printed under two colleges, which is Research's program-list question.
+- UWM `WI/2026-10-22-d01` was re-read by main's Course List reader (after #260, #264). 313 new candidates for verified programs were issue-free.
+- An independent read-only review checked them with its own parser against the stored layout cells, and hand-checked every record. **238 approved, 75 held.** Held:
+  - 12: option or advice lists stored as all_required;
+  - 12: two theatre tracks merged;
+  - 4: wrong rule;
+  - 4: footnote mark in a label;
+  - 3: the plans (7-letter subjects, a flat 'Select one');
+  - 40: section incomplete. 36 of these are exact fragments of a section whose other rows have no candidate; promoting them is a policy question.
+- Verified requirement groups: 15,307 → 15,545.
+- Reader follow-ups:
+  - a table's context sentence ('encouraged to include', 'maximum of 6 credits') should hold the table;
+  - track headings above tables;
+  - sections that mix required rows and choices;
+  - the plan reader's 7-letter subjects.
 
 ## Merged on 2026-10-21/22
 
