@@ -88,13 +88,13 @@ export interface TermCoverage {
   creditHours: string | number | null
   rows: PlanCourseRow[]
   covered: boolean
-  /** A year printed as one block: whole-term coverage isn't checked for it. */
-  multiTerm: boolean
+  /** Why whole-term coverage isn't checked for this term (planItems.planTerms), or null when it is. */
+  notChecked: 'multi_term' | 'short_term' | 'quarter_calendar' | 'hours' | null
 }
 
 /** One printed row of a plan term, kept as printed. */
 export interface PlanCourseRow {
-  kind: 'course' | 'choice' | 'text' | 'heading'
+  kind: 'course' | 'choice' | 'text' | 'heading' | 'subtotal'
   code: string | null
   title: string | null
   /** The row as printed (code and title, or the text). */

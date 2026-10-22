@@ -65,15 +65,30 @@ export interface PlanTermLike {
 
 const str = (v: unknown): string | null => (typeof v === 'string' && v.trim() ? v.trim() : null)
 
-/** A printed credit value: "3", "1.5", "3-4", "15-16". */
-const CREDITS = /^\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?$/
-/** Semester-level labels: "Semester 2", "Second Semester", "2nd Semester", "Term 1", "Fall", "Spring Semester". */
-const SEMESTER_HEADING = /^(?:(?:first|second|third|fourth|fifth|sixth|seventh|eighth|\d+(?:st|nd|rd|th))\s+(?:semester|term|quarter)|(?:semester|term|quarter)\s+\d+|(?:fall|spring|summer|winter|autumn)(?:\s+(?:semester|term|quarter))?)$/i
+/** A printed credit value: "3", "1.5", ".5", "3-4", "15-16", "2 or 3", "3,4", "6 to 12", "15+". */
+const NUM = '(?:\\d+(?:\\.\\d+)?|\\.\\d+)'
+const CREDITS = new RegExp(`^${NUM}(?:\\s*(?:[-–,]|or|to)\\s*${NUM})*\\+?$`, 'i')
+const ORDINAL = '(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\\d+(?:st|nd|rd|th))'
+const NUMBER_WORD = '(?:\\d+|one|two|three|four|five|six|seven|eight|nine|ten)'
+/** Semester-level labels: "Semester 2", "Semester Seven", "Second Semester", "Term 1", "Fall", "Summer Session", "J-term". */
+const SEMESTER_HEADING = new RegExp(
+  `^(?:${ORDINAL}\\s+(?:semester|term|quarter)|(?:semester|term|quarter)\\s+${NUMBER_WORD}|(?:fall|spring|summer|winter|autumn)(?:\\s+(?:semester|term|quarter|session))?|(?:fall|spring|autumn)\\s*[12]|j-?term|any\\s+quarter|maymester|intersession)$`,
+  'i',
+)
+/** A column header printed as a row: "First Semester | Credits", "Fall | S.H.", "Semester 1 | Credit Hours". */
+const HEADER_WORD = /^(?:credits?|credit\s+hours|semester\s+credit\s+hours|hours|s\.?\s?h\.?|units)$/i
+/** A short or partial session: whole-term coverage is never checked for it (it isn't a semester of cost). */
+const SHORT_TERM = /\b(?:summer|winter|j-?term|intersession|maymester|session|mini)\b|^any\b/i
+/** "Spring 1" / "Spring 2" printed under a "Spring" heading: sub-sessions of one semester (SLU), not semesters. */
+const SUB_SESSION = /^(?:fall|spring|autumn)\s*[12]$/i
 /** Year-level labels: "Freshman", "Sophomore Year", "Year 2", "Year One", "First Year", "4th Year". */
 const YEAR_HEADING = /^(?:(?:freshman|sophomore|junior|senior)(?:\s+year)?|year\s+(?:\d+|one|two|three|four|five)|(?:first|second|third|fourth|fifth|\d+(?:st|nd|rd|th))\s+year)$/i
-const SUBTOTAL = /^(?:total\s+)?(?:(?:semester|term|quarter)\s+)?(?:credit\s+)?(?:hours|credits)(?:\s+total)?$/i
-/** Exactly one course code; subjects up to 8 letters ("COMPSCI 250", "ENGLISH 101" at UWM). COURSE_NUMBER is declared further down. */
-const SINGLE_CODE = /^[A-Za-z]{2,8}\s*F?\d{3,4}[A-Z]?$/
+const SUBTOTAL = /^(?:minimum\s+)?(?:total\s+)?(?:(?:semester|term|quarter)\s+)?(?:credit\s+)?(?:hours|credits|units)(?:\s+total)?$/i
+/**
+ * Exactly one course code. Subjects of 6–8 letters must be capitals ("COMPSCI 250", "ENGLISH 101" at UWM), so a
+ * word such as "Language 113" isn't read as a code. COURSE_NUMBER is declared further down.
+ */
+const SINGLE_CODE = /^(?:[A-Z]{2,8}|[A-Za-z]{2,5})\s*F?\d{3,4}[A-Z]?$/
 
 const entry = (e: Partial<PlanEntry> & Pick<PlanEntry, 'text'>): PlanEntry => ({
   kind: 'text',
@@ -91,8 +106,11 @@ const entry = (e: Partial<PlanEntry> & Pick<PlanEntry, 'text'>): PlanEntry => ({
 /** Credits as printed: an integer as a number (as the structured formats store it), anything else as the string. */
 const printedCredits = (c: string): number | string => (/^\d+$/.test(c) ? Number(c) : c)
 
-function readPipe(raw: string): PlanEntry {
+function readPipe(raw: string): PlanEntry | null {
   const parts = raw.split('|').map((x) => x.trim())
+  if (parts.every((x) => !x)) return null
+  // A column header row: the semester's name plus "Credits".
+  if (parts.length === 2 && HEADER_WORD.test(parts[1]!) && (SEMESTER_HEADING.test(parts[0]!) || YEAR_HEADING.test(parts[0]!))) return entry({ kind: 'heading', text: parts[0]! })
   const last = parts[parts.length - 1]!
   const credits = CREDITS.test(last) ? printedCredits(last) : null
   const rest = credits !== null ? parts.slice(0, -1) : parts
@@ -156,6 +174,8 @@ export function isHeadingTerm(term: PlanTermLike): boolean {
   return !items.some((x) => readPlanItem(x)) && !(typeof term.credit_hours === 'string' && term.credit_hours.trim())
 }
 
+export type NotCheckedReason = 'multi_term' | 'short_term' | 'quarter_calendar' | 'hours'
+
 export interface PlanTermView {
   /** 1, 2, 3… over real terms only (heading terms are not numbered). */
   number: number
@@ -164,15 +184,25 @@ export interface PlanTermView {
   label: string
   /** The year heading printed above this term, when the plan has one. */
   group: string | null
-  /** As printed: the term's credit_hours, or its printed subtotal row. Never summed by the app. */
+  /** As printed: the term's credit_hours. Never summed by the app, and printed subtotal rows are left as rows. */
   creditHours: string | number | null
   entries: PlanEntry[]
-  /**
-   * The term holds more than one semester (a year printed as one block, or semester headings inside its rows). Whole-
-   * term coverage isn't checked for it: covering it would not mean one term saved.
-   */
+  /** The term holds more than one semester (a year printed as one block, or several semester headings in its rows). */
   multiTerm: boolean
+  /**
+   * Why "this whole term is covered" isn't checked for this term, or null when it is. A covered term is valued as a
+   * semester of cost, so only a regular full-time semester qualifies: never a year block, a summer or short session,
+   * a quarter (the cost model counts semesters), or a term whose printed hours are under 12 or not printed.
+   */
+  notChecked: NotCheckedReason | null
 }
+
+const lowest = (v: unknown): number | null => {
+  if (typeof v === 'number') return v
+  const m = typeof v === 'string' ? /\d+(?:\.\d+)?|\.\d+/.exec(v) : null
+  return m ? Number(m[0]) : null
+}
+const FULL_TIME = 12
 
 /**
  * The plan's terms as the student would read them: heading terms become the `group` of the terms under them and are
@@ -181,25 +211,43 @@ export interface PlanTermView {
 export function planTerms(terms: PlanTermLike[]): PlanTermView[] {
   const out: PlanTermView[] = []
   let group: string | null = null
+  // Quarter calendars: a winter term with rows, or any term or inline heading naming a quarter.
+  const quarter = terms.some(
+    (t) =>
+      (/\bquarter\b/i.test(t.label ?? '') || (/^winter\b/i.test(t.label ?? '') && !isHeadingTerm(t))) ||
+      readTermItems(t).some((e) => e.kind === 'heading' && /\bquarter\b/i.test(e.text)),
+  )
   terms.forEach((t, i) => {
-    const label = (typeof t.label === 'string' && t.label.trim()) || `Term ${t.term_index ?? i + 1}`
+    let label = (typeof t.label === 'string' && t.label.trim()) || `Term ${t.term_index ?? i + 1}`
     if (isHeadingTerm(t)) {
       group = label
       return
     }
-    const entries = readTermItems(t)
-    const subtotal = entries.find((e) => e.kind === 'subtotal')?.credits ?? null
-    const hours = typeof t.credit_hours === 'string' && t.credit_hours.trim() ? t.credit_hours.trim() : subtotal
-    const inlineSemesters = entries.some((e) => e.kind === 'heading' && SEMESTER_HEADING.test(e.text))
-    out.push({
-      number: out.length + 1,
-      termIndex: t.term_index ?? i + 1,
-      label,
-      group,
-      creditHours: hours,
-      entries,
-      multiTerm: inlineSemesters || YEAR_HEADING.test(label),
-    })
+    let entries = readTermItems(t)
+    let termGroup = group
+    const semesterHeads = entries.filter((e) => e.kind === 'heading' && SEMESTER_HEADING.test(e.text))
+    // "First Year" whose rows start with its only semester heading ("Fall Semester | Credits"): that semester.
+    if (YEAR_HEADING.test(label) && semesterHeads.length === 1 && entries[0] === semesterHeads[0]) {
+      termGroup = label
+      label = semesterHeads[0]!.text
+      entries = entries.slice(1)
+    }
+    const multiTerm = entries.some((e) => e.kind === 'heading' && SEMESTER_HEADING.test(e.text)) || YEAR_HEADING.test(label) || entries.filter((e) => e.kind === 'subtotal').length > 1
+    const hours = typeof t.credit_hours === 'string' && t.credit_hours.trim() ? t.credit_hours.trim() : null
+    // Printed hours, or else the rows' printed credits (each at its lowest); used only to tell a full-time term.
+    const reqs = entries.filter(isRequirement)
+    const rowHours = reqs.every((e) => lowest(e.credits) != null) ? reqs.reduce((n, e) => n + lowest(e.credits)!, 0) : null
+    const termHours = hours != null ? lowest(hours) : rowHours
+    const notChecked: NotCheckedReason | null = multiTerm
+      ? 'multi_term'
+      : SHORT_TERM.test(label) || (SUB_SESSION.test(label) && /^(?:fall|spring|autumn)\b/i.test(termGroup ?? ''))
+        ? 'short_term'
+        : quarter
+          ? 'quarter_calendar'
+          : termHours == null || termHours < FULL_TIME
+            ? 'hours'
+            : null
+    out.push({ number: out.length + 1, termIndex: t.term_index ?? i + 1, label, group: termGroup, creditHours: hours, entries, multiTerm, notChecked })
   })
   return out
 }

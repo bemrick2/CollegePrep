@@ -229,14 +229,17 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, profil
     label: t.label,
     group: t.group,
     creditHours: t.creditHours,
-    rows: t.entries.filter((e) => e.kind !== 'subtotal').map(
+    rows: t.entries.map(
       (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text) }),
     ),
     covered: dc.coveredTerms.some((x) => x.term === t.termIndex),
-    multiTerm: t.multiTerm,
+    notChecked: t.notChecked,
   }))
-  if (termList.some((t) => t.multiTerm))
-    unknown('timeline', `${inst}'s plan prints some years as one block, so whether credit covers a whole term isn't checked for those years.`)
+  const skipped = new Set(termList.map((t) => t.notChecked).filter(Boolean))
+  if (skipped.has('multi_term')) unknown('timeline', `${inst}'s plan prints some years as one block, so whether credit covers a whole term isn't checked for those years.`)
+  if (skipped.has('short_term')) unknown('timeline', 'Summer and other short sessions are never counted as a term saved.')
+  if (skipped.has('quarter_calendar')) unknown('timeline', `${inst}'s plan uses quarters; terms saved are counted only for semester plans, so none are shown.`)
+  if (skipped.has('hours')) unknown('timeline', 'Terms with fewer than 12 printed credit hours, or none printed, are never counted as a term saved.')
   const covered = dc.coveredTerms.length
   const timeline: Roadmap['timeline'] =
     hasPlan && covered > 0
@@ -262,7 +265,7 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, profil
     status: !hasPlan ? 'blocked' : allCreditVerified && cost.value ? 'ready' : 'partial',
     plan: hasPlan
       ? {
-          value: { catalogYear, title: str(planDetails?.source_section), terms: termList, totalCredits: num(totalRec?.minimum_credits), totalText: str(planDetails?.rule_text) },
+          value: { catalogYear, title: str(planDetails?.source_section), terms: termList, totalCredits: num(totalRec?.minimum_credits), totalText: /\btotal\b.*\d/i.test(str(planDetails?.rule_text) ?? '') ? str(planDetails?.rule_text) : null },
           evidence: evidence(planRec, catalogYear),
         }
       : { value: null, evidence: missing(planRec ? 'Plan on file but not verified.' : 'No plan on file.', planRec, catalogYear) },

@@ -2,12 +2,12 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { codesInText, entryCodes, isHeadingTerm, planTerms, readPlanItem, type PlanTermLike } from './planItems'
-import { degreeCredit } from './degreeCredit'
-import { buildRoadmap } from './planning/roadmap'
+import { codesInText, entryCodes, isHeadingTerm, planTerms, readPlanItem, type PlanTermLike } from '../src/lib/engine/planItems'
+import { degreeCredit } from '../src/lib/engine/degreeCredit'
+import { buildRoadmap } from '../src/lib/engine/planning/roadmap'
 
 type Rec = { program_key: string; requirement_key: string; requirement_kind: string; verification_status: string; rule_details: { source_section?: string; rule_text?: string; terms: PlanTermLike[] } }
-const data = (inst: string): Rec[] => JSON.parse(readFileSync(resolve(__dirname, `../../../../data/institutions/${inst}/degree_requirements/2026-27.json`), 'utf8')).records
+const data = (inst: string): Rec[] => JSON.parse(readFileSync(resolve(__dirname, `../../data/institutions/${inst}/degree_requirements/2026-27.json`), 'utf8')).records
 const plan = (inst: string, program: string, key?: string) => {
   const r = data(inst).find((x) => x.requirement_kind === 'program_plan' && x.program_key.includes(program) && (!key || x.requirement_key === key))
   if (!r) throw new Error(`no plan ${inst}/${program}`)
@@ -113,7 +113,7 @@ describe('term counts and coverage (#230)', () => {
   it('a heading term is not a term to cover, and inline subtotals are not requirements', () => {
     const terms: PlanTermLike[] = [
       { term_index: 1, label: 'Year One', items: [] },
-      { term_index: 2, label: 'Fall', credit_hours: '3', items: [{ code: 'ENGL 101', credits: 3 }, 'Credit Hours | 3'] },
+      { term_index: 2, label: 'Fall', credit_hours: '15', items: [{ code: 'ENGL 101', credits: 3 }, 'Credit Hours | 15'] },
     ]
     const m = { status: 'qualifies', exam: { name: 'AP English' }, earned: [{ course: 'ENGL 101', credits: 3, minimumText: '4' }] }
     expect(degreeCredit([m as never], terms).coveredTerms).toEqual([{ term: 2, label: 'Fall' }])
@@ -123,5 +123,50 @@ describe('term counts and coverage (#230)', () => {
     const terms: PlanTermLike[] = [{ term_index: 1, label: 'Fall', items: ['BIOL 1113& BIOL 1111 | Introductory Biology and Laboratory | 4'] }]
     const one = { status: 'qualifies', exam: { name: 'AP Biology' }, earned: [{ course: 'BIOL 1113', credits: 3, minimumText: '3' }] }
     expect(degreeCredit([one as never], terms).coveredTerms).toEqual([])
+  })
+
+  it('a combination row: the exam fills a course in the plan, but the row is done only when every course is awarded', () => {
+    const terms: PlanTermLike[] = [{ term_index: 1, label: 'Fall', credit_hours: '15', items: ['PHYS 2325& PHYS 2125 | University Physics I and Lab | 4'] }]
+    const one = { status: 'qualifies', exam: { name: 'AP Physics C: Mechanics' }, earned: [{ course: 'PHYS 2325', credits: 3, minimumText: '4' }] }
+    const r = degreeCredit([one as never], terms)
+    expect(r.accepted[0]!.status).toBe('applies')
+    expect(r.coveredTerms).toEqual([])
+  })
+})
+
+describe('review findings on stored plans (#242)', () => {
+  it('UNO Geology: the 5-credit Summer term is never a covered term', () => {
+    const p = plan('unomaha', 'geology')
+    const summer = planTerms(p.rule_details.terms).find((t) => /^summer/i.test(t.label))!
+    expect(summer.notChecked).toBe('short_term')
+    const m = { status: 'qualifies', exam: { name: 'CLEP Calculus' }, earned: [{ course: 'MATH 1950', credits: 5, minimumText: '50' }] }
+    expect(degreeCredit([m as never], p.rule_details.terms).coveredTerms).toEqual([])
+  })
+
+  it('a quarter-calendar plan (Oregon) never reports a covered term', () => {
+    const p = data('uoregon').find((r) => r.requirement_kind === 'program_plan' && r.rule_details.terms.some((t) => /winter/i.test(t.label ?? '')))!
+    expect(planTerms(p.rule_details.terms).every((t) => t.notChecked !== null)).toBe(true)
+  })
+
+  it('a "First Year" term whose rows start with its one semester header is that semester, not a year block', () => {
+    const t = planTerms([{ term_index: 1, label: 'First Year', items: ['Fall Semester | Semester Credit Hours', 'ENGL 1101 | Composition | 3'] }])[0]!
+    expect(t).toMatchObject({ label: 'Fall Semester', group: 'First Year', multiTerm: false })
+    expect(planTerms([{ term_index: 1, label: 'Year 2', items: ['Hours | 14', 'Semester 2', 'MATH 2413 | Calculus | 4'] }])[0]!.multiTerm).toBe(true)
+  })
+
+  it('credit formats as printed, and odd rows', () => {
+    expect(readPlanItem('CORE 1000 | Ignite First Year Seminar | 2 or 3')).toMatchObject({ code: 'CORE 1000', credits: '2 or 3', milestone: null })
+    expect(readPlanItem('Select 15+ Credits | 15+')).toMatchObject({ text: 'Select 15+ Credits', credits: '15+' })
+    expect(readPlanItem('Elective | .5')!.credits).toBe('.5')
+    expect(readPlanItem('|')).toBeNull()
+    expect(readPlanItem('Total Units | 120')!.kind).toBe('subtotal')
+    expect(readPlanItem('Language 113 | 4')!.code).toBeNull()
+    expect(readPlanItem('Semester Seven')!.kind).toBe('heading')
+  })
+
+  it('splits joined "or" in free text for credit too', () => {
+    const terms: PlanTermLike[] = [{ term_index: 1, label: 'Fall', credit_hours: '15', items: ['INM 101or VOK 101'] }]
+    const m = { status: 'qualifies', exam: { name: 'X' }, earned: [{ course: 'VOK 101', credits: 1, minimumText: '3' }] }
+    expect(degreeCredit([m as never], terms).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
   })
 })

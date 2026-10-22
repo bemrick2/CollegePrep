@@ -302,6 +302,13 @@ function RoadmapView({
   )
 }
 
+const NOT_CHECKED: Record<NonNullable<TermCoverage['notChecked']>, string> = {
+  multi_term: 'Printed as one block of more than one term, so whole-term coverage isn’t checked.',
+  short_term: 'A summer or short session: never counted as a term saved.',
+  quarter_calendar: 'A quarter term: terms saved are counted for semester plans only.',
+  hours: 'Under 12 printed credit hours, or none printed: never counted as a term saved.',
+}
+
 /** The plan's terms under their year headings, every row as printed. Year headings are not terms (#230). */
 function PlanTerms({ terms }: { terms: TermCoverage[] }) {
   const groups: { heading: string | null; terms: TermCoverage[] }[] = []
@@ -325,16 +332,21 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
                   {t.creditHours != null && <span className="text-xs text-ink-3">{String(t.creditHours)} credit hours, as printed</span>}
                 </div>
                 {t.covered && <div className="mt-1 text-xs font-semibold text-go-strong">Fully covered by credit</div>}
-                {t.multiTerm && <div className="mt-1 text-xs text-ink-3">Printed as one block of more than one term, so whole-term coverage isn’t checked.</div>}
+                {t.notChecked && <div className="mt-1 text-xs text-ink-3">{NOT_CHECKED[t.notChecked]}</div>}
                 <ul className="mt-2 grid gap-1 text-xs text-ink-2">
                   {t.rows.map((x, i) =>
                     x.kind === 'heading' ? (
                       <li key={i} className="pt-1 font-semibold text-ink">
                         {x.text}
                       </li>
+                    ) : x.kind === 'subtotal' ? (
+                      <li key={i} className="flex justify-between gap-3 text-ink-3">
+                        <span>{x.text} (printed subtotal)</span>
+                        <span className="shrink-0 tabular-nums">{String(x.credits)}</span>
+                      </li>
                     ) : (
                       <li key={i} className="flex justify-between gap-3">
-                        <span>
+                        <span className="min-w-0 break-words">
                           {x.code ? <span className="font-semibold text-ink">{x.code}</span> : null}
                           {x.code ? (x.title ? ` ${x.title}` : '') : x.text}
                           {x.options.length > 0 && <span className="block text-ink-3">Any one of: {x.options.join('; ')}</span>}
