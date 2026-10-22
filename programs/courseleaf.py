@@ -30,7 +30,7 @@ TERM = re.compile(r'^(first|second|third|fourth|fifth|freshman|sophomore|junior|
                   # 'Semester III' (Lorain CCC), 'Summer Session I' (West Chester), 'Fall I' (Georgetown), 'J-term'
                   # (Quinnipiac), 'Junior and Senior Years' (CSUS), and SPU's 'Any Quarter' / 'Variable' / 'Autumn or Winter'
                   r'|^term\s+\d$|^(1st|2nd|3rd|[4-6]th)\s+year$|^year\s+(i|ii|iii|iv|v)$|^semester\s+(i|ii|iii|iv|v|vi|vii|viii)$'
-                  r'|^summer\s+session(\s+(i|ii|\d))?$|^(fall|spring|summer|winter)\s+(i|ii)$|^j-?term$'
+                  r'|^summer\s+session(\s+(i|ii|\d))?$|^(fall|spring|summer|winter)\s+(i|ii|iii|iv)$|^j-?term$'
                   r'|^(freshman|sophomore|junior|senior)\s+and\s+(freshman|sophomore|junior|senior)\s+years$'
                   r'|^any\s+quarter$|^variable$|^(autumn|fall|winter|spring|summer)\s+or\s+(autumn|fall|winter|spring|summer)$', re.I)
 
@@ -147,6 +147,8 @@ def parse_grid(t):
         if not nonempty: continue
         if len(cells) == 1 and not TERM.match(cells[0]):  # a label row the reader does not know ('Third Semeseter', UNO)
             t['_unread_label'] = True
+        if len(nonempty) == 1 and not TERM.match(nonempty[0]) and re.search(r'\byear\s+\d\b', nonempty[0], re.I) and nonempty[0].isupper():
+            t['_unread_label'] = True  # 'DOCTORAL YEAR 2' / 'YEAR 1, CONTINUED' printed inside a term (Quinnipiac BS/OTD)
         if (len(nonempty) >= 2 and not TERM.match(nonempty[0]) and not ONE.match(nonempty[0])
                 and all(c.lower() in HEADER_CELLS for c in nonempty[1:])):  # an unknown term printed with its header ('Term 1 | Units')
             t['_unread_label'] = True

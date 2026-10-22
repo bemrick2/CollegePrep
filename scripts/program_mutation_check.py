@@ -66,6 +66,9 @@ MUTS = [
     ('programs/courseleaf.py', "                  r'|^(1st|2nd|3rd|[4-8]th)\\s+semester$'\n", ""),
     # courseleaf_plan/v3 item fields, labels and checks (#229, #230)
     # positional plan grids (SHSU 2026-27 '#plangrid' documents)
+    ('programs/courseleaf.py', "        if cells[1] and re.search(r'(^|[\\s(])or(\\s|$)|or$', cells[1]): return None", "        if cells[1] and re.search(r'(^|[\\s])or(\\s|$)|or$', cells[1]): return None"),
+    ('programs/verify.py', "    return re.search(rf'^\\|\\s*{re.escape(marker)}\\s*\\|\\s*{code_re}\\s*\\|', lined(text), re.M) is not None", "    return re.search(rf'{re.escape(marker)}\\s*\\|\\s*{code_re}\\s*', lined(text), re.M) is not None"),
+    ('programs/courseleaf.py', "|prerequisite courses|school of .+)$'", "|prerequisite courses|school of law)$'"),
     ('programs/extract.py', "        if cl and len(progs) == 1:", "        if False:"),
     ('programs/extract.py', "        if cl and len(progs) == 1:", "        if cl:"),
     ('programs/courseleaf.py', " and not prev.endswith(('.', ':')) and TRACK_WORD.search(prev):", " and not prev.endswith(('.', ':')):"),
@@ -86,8 +89,11 @@ MUTS = [
     ('programs/courseleaf.py', " or re.fullmatch(r'\\d{1,2}', first): return None  # 'or ...' rows, footnote-only rows", ": return None  # 'or ...' rows, footnote-only rows"),
     ('programs/courseleaf.py', "all(h and not GENERIC_PLAN_HEADING.match(h) for h in headings)", "all(h for h in headings)"),
     ('programs/courseleaf.py', "all(h and not GENERIC_PLAN_HEADING.match(h) for h in headings)", "all(not GENERIC_PLAN_HEADING.match(h) for h in headings)"),
-    ('programs/verify.py', "    return codes in t and (not titles or '\\nor '.join(titles) in t)", "    return codes in t"),
-    ('programs/verify.py', "    codes = '\\nor '.join(a.get('code', '') for a in alts)", "    codes = ''"),
+    ('programs/verify.py', "    cell_end = r'[ \\t]*(?=\\||\\n|$)'", "    cell_end = ''"),
+    ('programs/verify.py', "    codes = '\\nor '.join(re.escape(a.get('code', '')) for a in alts)", "    codes = ''"),
+    ('programs/verify.py', "[ \\t]*\\n?\\|[ \\t]*' + '\\nor '.join(re.escape(x) for x in titles) + cell_end", ".*' + '\\nor '.join(re.escape(x) for x in titles) + cell_end"),
+    ('programs/courseleaf.py', " and re.search(r'\\byear\\s+\\d\\b', nonempty[0], re.I) and nonempty[0].isupper():", " and False:"),
+    ('programs/courseleaf.py', " and re.search(r'\\byear\\s+\\d\\b', nonempty[0], re.I) and nonempty[0].isupper():", " and re.search(r'\\byear\\s+\\d\\b', nonempty[0], re.I):"),
     ('programs/verify.py', "            if not alternatives_printed(text, i['any_of']): probs.append", "            if False: probs.append"),
     ('programs/verify.py', "    return re.search(rf'^\\|\\s*{re.escape(marker)}\\s*\\|\\s*{code_re}\\s*\\|', lined(text), re.M) is not None", "    return marker in text"),
     ('programs/verify.py', "            if not marker_printed(text, i['marker'], i.get('code', '')): probs.append('item marker not printed')", "            pass"),

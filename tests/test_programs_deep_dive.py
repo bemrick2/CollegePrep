@@ -555,6 +555,27 @@ class CourseleafPlanTests(unittest.TestCase):
         items[0]['any_of'][1]['code'] = 'SPAD 285'; items[1]['marker'] = '#'
         self.assertEqual(sorted(check_candidate(bad, page)), ['alternatives SPAD 281 / SPAD 285 not printed as stored', 'item marker not printed'])
 
+    def test_review_followups_v3(self):  # second independent review of #241
+        from programs import courseleaf as CL, verify as V
+        from pipeline import text as T
+        self.assertIsNone(CL.plan_item(['X 101or X 102', 'Intro (or Honors Intro)', '3'], False))  # a '(or' in the title cell
+        self.assertFalse(V.marker_printed('| Important! | ASL\xa019201 | Elementary ASL I | 4', '!', 'ASL 19201'))
+        page = '| MATH\xa0101\n\nor MATH\xa01025\n| Calculus\n\nor Honors Calculus\n| 4'
+        self.assertFalse(V.alternatives_printed(page, [{'code': 'MATH 101', 'title': 'Calculus'}, {'code': 'MATH 102', 'title': 'Honors Calculus'}]))
+        self.assertFalse(V.alternatives_printed(page, [{'code': 'MATH 101'}, {'code': 'MATH 102'}]))
+        self.assertTrue(V.alternatives_printed(page, [{'code': 'MATH 101', 'title': 'Calculus'}, {'code': 'MATH 1025', 'title': 'Honors Calculus'}]))
+        other = page + '\n| ENGL\xa0101\n\nor ENGL\xa0102\n| Writing\n\nor Honors Writing\n| 3'
+        self.assertFalse(V.alternatives_printed(other, [{'code': 'ENGL 101', 'title': 'Calculus'}, {'code': 'ENGL 102', 'title': 'Honors Calculus'}]))
+        self.assertTrue(CL.TERM.match('Spring III'))
+        q = {'rows': [['Fall', 'Credits'], ['OT 101', 'Intro', '3'], ['DOCTORAL YEAR 2', ''], ['OT 801', 'Practice', '3']]}
+        CL.parse_grid(q); self.assertTrue(q.get('_unread_label'))
+        r = {'rows': [['Fall', 'Credits'], ['OT 101', 'Intro', '3'], ['Apply to the major in Year 2!', '']]}
+        CL.parse_grid(r); self.assertFalse(r.get('_unread_label'))
+        g = lambda h: {'caption': 'Plan of Study Grid', 'heading': h, 'rows': [['Fall', 'Credits'], ['GEOG 101', 'Intro', '3']]}
+        e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        out = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g('School of Engineering'), g('Physical Geography')], [], []), '2026-2027', '', True)
+        self.assertEqual([c['issues'] for c in out], [['multiple_plan_grids'], ['multiple_plan_grids']])
+
     def test_review_findings_v3(self):  # independent review of #241
         from programs import courseleaf as CL
         from pipeline import text as T
