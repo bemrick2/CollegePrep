@@ -4193,132 +4193,354 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Choice of Introductory Courses should be based on primary studio interests as they will be prerequisites for upper level study."
+          }
+        ],
         "group_type": "sequence",
+        "rule_text": "Total Semester Hours 120-122 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "items": [
-              "Fall | S.H.",
-              "YSU 1500or YSU 1500Sor HONR 1500 | Success Seminaror Youngstown State University Success Seminaror Intro to Honors | 1-2",
-              "ART 1501or ART 1502 | Fundamentals of 2D Designor Fundamentals of 3D Design | 3",
-              "ART 1521 | Foundation Drawing | 3",
-              "ENGL 1550or ENGL 1549 | Writing 1or Writing 1 with Support | 3-4",
-              "Any Gen Ed Math | 3",
-              "Semester Hours | 13-15"
-            ],
+            "items": [],
             "label": "Year 1",
             "term_index": 1
           },
           {
+            "credit_hours": "13-15",
             "items": [
-              "ART 1502or ART 1501 | Fundamentals of 3D Designor Fundamentals of 2D Design | 3",
-              "ART 1503 | Freshman Seminar and Portfolio Review | 1",
-              "ART 2650 | Introduction to Painting 1 | 3",
-              "ENGL 1551A | Writing 2 | 3",
-              "CMST 1545 | Communication Foundations | 3",
-              "General Education Elective - Any Gen Ed | 3",
-              "Semester Hours | 16"
+              {
+                "any_of": [
+                  {
+                    "code": "YSU 1500",
+                    "title": "Success Seminar"
+                  },
+                  {
+                    "code": "YSU 1500S",
+                    "title": "Youngstown State University Success Seminar"
+                  },
+                  {
+                    "code": "HONR 1500",
+                    "title": "Intro to Honors"
+                  }
+                ],
+                "credits": "1-2"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ART 1501",
+                    "title": "Fundamentals of 2D Design"
+                  },
+                  {
+                    "code": "ART 1502",
+                    "title": "Fundamentals of 3D Design"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "ART 1521",
+                "credits": 3,
+                "title": "Foundation Drawing"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1550",
+                    "title": "Writing 1"
+                  },
+                  {
+                    "code": "ENGL 1549",
+                    "title": "Writing 1 with Support"
+                  }
+                ],
+                "credits": "3-4"
+              },
+              {
+                "credits": 3,
+                "text": "Any Gen Ed Math"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "any_of": [
+                  {
+                    "code": "ART 1502",
+                    "title": "Fundamentals of 3D Design"
+                  },
+                  {
+                    "code": "ART 1501",
+                    "title": "Fundamentals of 2D Design"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "ART 1503",
+                "credits": 1,
+                "title": "Freshman Seminar and Portfolio Review"
+              },
+              {
+                "code": "ART 2650",
+                "credits": 3,
+                "title": "Introduction to Painting 1"
+              },
+              {
+                "code": "ENGL 1551A",
+                "credits": 3,
+                "title": "Writing 2"
+              },
+              {
+                "code": "CMST 1545",
+                "credits": 3,
+                "title": "Communication Foundations"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Elective - Any Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Year 2",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "ART 2674 | Introduction to Photography 1 | 3",
-              "ART 2625or ART 2626 | Introduction to Printmaking: Intaglio and Relief 1or Introduction to Printmaking: Lithography and Screenprinting | 3",
-              "ART 15XX/26XX/37XX/48XX Studio Art Elective | 3",
-              "ART 1541or ART 1542 | Survey of Art History 1or Global Art since 1400 | 3",
-              "Minor Course 1 | 3",
-              "Semester Hours | 15"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "15",
             "items": [
-              "ART 3722 | Interdisciplinary Art Practice | 3",
-              "ART 2691 | Introduction to Digital Media 1 | 3",
-              "ART 15XX/26XX/37XX/48XX Studio Art Elective | 3",
-              "ART 1542or ART 1541 | Global Art since 1400or Survey of Art History 1 | 3",
-              "Minor Course 2 | 3",
-              "Semester Hours | 15"
+              {
+                "code": "ART 2674",
+                "credits": 3,
+                "title": "Introduction to Photography 1"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ART 2625",
+                    "title": "Introduction to Printmaking: Intaglio and Relief 1"
+                  },
+                  {
+                    "code": "ART 2626",
+                    "title": "Introduction to Printmaking: Lithography and Screenprinting"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "ART 15XX/26XX/37XX/48XX Studio Art Elective"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ART 1541",
+                    "title": "Survey of Art History 1"
+                  },
+                  {
+                    "code": "ART 1542",
+                    "title": "Global Art since 1400"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 1"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "ART 3722",
+                "credits": 3,
+                "title": "Interdisciplinary Art Practice"
+              },
+              {
+                "code": "ART 2691",
+                "credits": 3,
+                "title": "Introduction to Digital Media 1"
+              },
+              {
+                "credits": 3,
+                "text": "ART 15XX/26XX/37XX/48XX Studio Art Elective"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ART 1542",
+                    "title": "Global Art since 1400"
+                  },
+                  {
+                    "code": "ART 1541",
+                    "title": "Survey of Art History 1"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 2"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Year 3",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "ART 3701 | Professional Preparedness / Artist Business Practices | 3",
-              "ART 2611or ART 2631 | Introduction to Sculpture 1or Introduction to Ceramics | 3",
-              "ART 3700 level or higher Art History Elective | 3",
-              "General Education Elective - Natural Science + Lab | 4",
-              "General Education Elective - Social Science *If pursuing Social Media minor you must take CMST 2600 | 3",
-              "Semester Hours | 16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "16",
             "items": [
-              "ART 3703 | Junior Portfolio Review | 1",
-              "ART 3700 level or higher Studio Art Elective | 3",
-              "ART 3700 level or higher Art History Elective | 3",
-              "General Education Elective - Social Science | 3",
+              {
+                "code": "ART 3701",
+                "credits": 3,
+                "title": "Professional Preparedness / Artist Business Practices"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ART 2611",
+                    "title": "Introduction to Sculpture 1"
+                  },
+                  {
+                    "code": "ART 2631",
+                    "title": "Introduction to Ceramics"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Art History Elective"
+              },
+              {
+                "credits": 4,
+                "text": "General Education Elective - Natural Science + Lab"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Elective - Social Science *If pursuing Social Media minor you must take CMST 2600"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "ART 3703",
+                "credits": 1,
+                "title": "Junior Portfolio Review"
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Studio Art Elective"
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Art History Elective"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Elective - Social Science"
+              },
               "ART 3702Cor ART 4884or 4887 | Community Engagement Internshipor Museum Internshipor | 2",
-              "Minor Course 3 | 3",
-              "Request a Graduation Evaluation from the CCAC Advising Office, 2310 Bliss Hall, (330) 941-3625 after you have completed 80-85 sh.",
-              "Semester Hours | 15"
+              {
+                "credits": 3,
+                "text": "Minor Course 3"
+              },
+              {
+                "text": "Request a Graduation Evaluation from the CCAC Advising Office, 2310 Bliss Hall, (330) 941-3625 after you have completed 80-85 sh."
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Year 4",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "ART 4803 | Senior Seminar | 3",
-              "ART 3700 level or higher Studio Art Elective | 3",
-              "ART 3700 level or higher Studio Art Elective | 3",
-              "General Education Elective - Natural Science | 3",
-              "Minor Course 4 | 3",
-              "Semester Hours | 15"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "15",
             "items": [
-              "ART 4802 | Senior Project | 3",
-              "ART 3700 level or higher Studio Art Elective | 3",
-              "ART 3700 level or higher Art History Elective | 3",
-              "General Education Elective - Any Gen Ed *If pursuing Business minor you must take ECON 1505 | 3",
-              "Minor Course 5 or electives to meet 120 s.h. | 3",
-              "Semester Hours | 15",
-              "Total Semester Hours | 120-122"
+              {
+                "code": "ART 4803",
+                "credits": 3,
+                "title": "Senior Seminar"
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Studio Art Elective"
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Studio Art Elective"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Elective - Natural Science"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 4"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "ART 4802",
+                "credits": 3,
+                "title": "Senior Project"
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Studio Art Elective"
+              },
+              {
+                "credits": 3,
+                "text": "ART 3700 level or higher Art History Elective"
+              },
+              {
+                "credits": 3,
+                "text": "General Education Elective - Any Gen Ed *If pursuing Business minor you must take ECON 1505"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 5 or electives to meet 120 s.h."
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-creative-arts-communication/department-art/bfa-studio-art-interdisciplinary-studio-arts-emphasis/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#c005bb813c521007. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://catalog.ysu.edu/undergraduate/colleges-programs/college-creative-arts-communication/department-art/bfa-studio-art-interdisciplinary-studio-arts-emphasis/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (first term header 'Fall | S.H.' stored as a string item under 'Year 1'; the first 'Fall' term is lost and its subtotal is attached to 'Year 1'), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#c005bb813c521007."
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). All rows, alternatives, choice blocks, term subtotals and the printed total match the stored grid. All 1 printed footnote(s) are stored verbatim and the capture is complete. Changes from the record on file: term structure: 11→12 terms; credit_hours set on 8 terms (old 0); rule_text None→'Total Semester Hours 120-122 (as printed)'; old junk rows dropped: 10 (Fall|S.H., SemesterHours|13-15, SemesterHours|15, SemesterHours|16); item form: str→text×22, str→code×12, str→any×8, plus 1 footnote(s). The print supports every change. Partially verified (#229). Promoting it needs replaces_correction. Some 'or' rows are kept as the exact printed string; the #229 policy question applies. Replaces the record promoted earlier from this candidate: Plan on file (evidence OH/2026-10-07-cat#c005bb813c521007) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence OH/2026-10-07-cat#c005bb813c521007); the re-read reads the printed grid and its footnotes, and the review confirmed them. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#4f4e2d1139edf70e."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -6454,6 +6676,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "General education courses must fulfill the requirements for the baccalaureate degree."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Semester Hours 120-125 (as printed)",
         "schema": "requirement_group/v1",
@@ -6680,7 +6908,7 @@
       },
       "source_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-health-human-services/department-clinical-diagnostic-health-sciences/medical-laboratory-science-mls-bsas/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 14 terms/31 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Total Semester Hours 120-125'; 14 non-alternative row(s) (co-req \"&\", cross-list \"/\", non-standard code or credit) kept verbatim as strings, checked equal to print [hand-inspected] Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-21 #229 downgrade (evidence OH/2026-10-07-cat#9225617db97b8ce0) held this plan because the reader then missed a printed header, total or subtotal; the #255 reader reads it and the review confirmed the grid. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#00c59923d13ce7bc."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2', '3', '4'] have no footnote printed after this grid (not a reader loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence OH/2026-10-07-cat#00c59923d13ce7bc) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#00c59923d13ce7bc."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -8018,6 +8246,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Placement test in English, math, and foreign languages required before registration for classes."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Semester Hours 120-125 (as printed)",
         "schema": "requirement_group/v1",
@@ -8289,7 +8523,7 @@
       },
       "source_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-liberal-arts-social-sciences-education/department-anthropology/ba-anthropology/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 12 terms/39 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Total Semester Hours 120-125' Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-21 #229 downgrade (evidence OH/2026-10-07-cat#8e8a693c1caab6c7) held this plan because the reader then missed a printed header, total or subtotal; the #255 reader reads it and the review confirmed the grid. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#59851f2c1661139c."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2', '3', '4'] have no footnote printed after this grid (not a reader loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence OH/2026-10-07-cat#59851f2c1661139c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#59851f2c1661139c."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -10287,6 +10521,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Placement test in English, math, and foreign languages required before registration for classes."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Semester Hours 120-122 (as printed)",
         "schema": "requirement_group/v1",
@@ -10564,7 +10804,7 @@
       },
       "source_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-liberal-arts-social-sciences-education/department-sociology/ba-sociology/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 12 terms/41 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Total Semester Hours 120-122' Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-21 #229 downgrade (evidence OH/2026-10-07-cat#bbdf0ac5e84bf9c6) held this plan because the reader then missed a printed header, total or subtotal; the #255 reader reads it and the review confirmed the grid. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#b85cee0c8487cb4b."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2', '3', '4'] have no footnote printed after this grid (not a reader loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence OH/2026-10-07-cat#b85cee0c8487cb4b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review. Evidence: sources/programs/OH/2026-10-07-cat/evidence.json#b85cee0c8487cb4b."
     },
     {
       "last_verified_at": "2026-10-07",

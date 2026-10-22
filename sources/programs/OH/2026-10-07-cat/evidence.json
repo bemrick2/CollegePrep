@@ -218,6 +218,99 @@
  "00c59923d13ce7bc": {
   "decision": {
    "candidate_id": "00c59923d13ce7bc",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2', '3', '4'] have no footnote printed after this grid (not a reader loss)",
+   "replaces_correction": "The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review.",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#00c59923d13ce7bc) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 12-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 2 items, 7 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 12 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 7 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 14 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:29:36+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 14:51:13 GMT",
+   "page_file": "fcb0fd3fdcec38713cc6.json.gz",
+   "requested_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-health-human-services/department-clinical-diagnostic-health-sciences/medical-laboratory-science-mls-bsas/",
+   "sha256": "fcb0fd3fdcec38713cc6cb3d22624f07161ef8320de12ac8efe9ce80cee445ed",
+   "title": "Bachelor of Science in Medical Laboratory Science < Youngstown State University Academic Catalog",
+   "url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-health-human-services/department-clinical-diagnostic-health-sciences/medical-laboratory-science-mls-bsas/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "00c59923d13ce7bc~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "00c59923d13ce7bc",
    "reason": "Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 14 terms/31 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Total Semester Hours 120-125'; 14 non-alternative row(s) (co-req \"&\", cross-list \"/\", non-standard code or credit) kept verbatim as strings, checked equal to print [hand-inspected]",
    "replaces_correction": "The 2026-10-21 #229 downgrade (evidence OH/2026-10-07-cat#9225617db97b8ce0) held this plan because the reader then missed a printed header, total or subtotal; the #255 reader reads it and the review confirmed the grid."
   },
@@ -544,8 +637,8 @@
  "02aa913fc670cf92": {
   "decision": {
    "candidate_id": "02aa913fc670cf92",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#7eb2467525e162e3) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 3 footnote(s) ['1', '2', '3'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#02aa913fc670cf92) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -1525,8 +1618,8 @@
  "0830e6dc3ae0bbb4": {
   "decision": {
    "candidate_id": "0830e6dc3ae0bbb4",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#94f3d101db306ba6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 7 footnote(s) ['1', '2', '3', '4', '5', '6', '7'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#0830e6dc3ae0bbb4) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -3150,8 +3243,8 @@
  "128687e563da1b47": {
   "decision": {
    "candidate_id": "128687e563da1b47",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#efeab0c8e5a7a39b) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#128687e563da1b47) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -4244,8 +4337,8 @@
  "1818168f9cdabeb0": {
   "decision": {
    "candidate_id": "1818168f9cdabeb0",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#6dc410327c9917da) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 3 footnote(s) ['1', '2', '3'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Alert: By the end of your first 48 credit hours at\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#1818168f9cdabeb0) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -6203,8 +6296,8 @@
  "231a1140bf997a45": {
   "decision": {
    "candidate_id": "231a1140bf997a45",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#c3c57b2ac46cf8a5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 6 footnote(s) ['1', '2', '3', '4', '5', '6'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#231a1140bf997a45) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -7209,8 +7302,8 @@
  "26ed801858512180": {
   "decision": {
    "candidate_id": "26ed801858512180",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#3040f71957b7b221) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 8 footnote(s) ['1', '2', '3', '4', '5', '6', '7', '8'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#26ed801858512180) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -7736,8 +7829,8 @@
  "2946477c1cf0e542": {
   "decision": {
    "candidate_id": "2946477c1cf0e542",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#d95aa1b3288d27aa) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 9 footnote(s) ['1', '2', '3', '4', '5', '6', '7', '8', '9'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#2946477c1cf0e542) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -9479,8 +9572,8 @@
  "330351aafd5c5d05": {
   "decision": {
    "candidate_id": "330351aafd5c5d05",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#0844e4f097a3a8d1) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 5 footnote(s) ['1', '2', '3', '4', '5'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#330351aafd5c5d05) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -12570,8 +12663,8 @@
  "45610f7a0df8d016": {
   "decision": {
    "candidate_id": "45610f7a0df8d016",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#a1e8c7ec58933bac) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 5 footnote(s) ['1', '2', '3', '4', '5'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Policy Alert: By the end of your first 48 credit h\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#45610f7a0df8d016) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -13217,8 +13310,8 @@
  "485e93c5716abd3a": {
   "decision": {
    "candidate_id": "485e93c5716abd3a",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#c8cbb5ed76bcf8a6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#485e93c5716abd3a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -14576,6 +14669,89 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "4f4e2d1139edf70e": {
+  "decision": {
+   "candidate_id": "4f4e2d1139edf70e",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). All rows, alternatives, choice blocks, term subtotals and the printed total match the stored grid. All 1 printed footnote(s) are stored verbatim and the capture is complete. Changes from the record on file: term structure: 11→12 terms; credit_hours set on 8 terms (old 0); rule_text None→'Total Semester Hours 120-122 (as printed)'; old junk rows dropped: 10 (Fall|S.H., SemesterHours|13-15, SemesterHours|15, SemesterHours|16); item form: str→text×22, str→code×12, str→any×8, plus 1 footnote(s). The print supports every change. Partially verified (#229). Promoting it needs replaces_correction. Some 'or' rows are kept as the exact printed string; the #229 policy question applies.",
+   "replaces_correction": "The #229 correction held this plan (evidence OH/2026-10-07-cat#c005bb813c521007); the re-read reads the printed grid and its footnotes, and the review confirmed them.",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#c005bb813c521007) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 13-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:29:27+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 14:50:05 GMT",
+   "page_file": "7edcbf9b29fa1438064b.json.gz",
+   "requested_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-creative-arts-communication/department-art/bfa-studio-art-interdisciplinary-studio-arts-emphasis/",
+   "sha256": "7edcbf9b29fa1438064b7da4a6119e0e24aa2e28cb52e11a7b37fa5a7c210200",
+   "title": "Bachelor of Fine Arts in Studio Art, Interdisciplinary Studio Arts < Youngstown State University Academic Catalog",
+   "url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-creative-arts-communication/department-art/bfa-studio-art-interdisciplinary-studio-arts-emphasis/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "4f65fbbb48f8b2fd": {
   "decision": {
    "candidate_id": "4f65fbbb48f8b2fd",
@@ -15847,6 +16023,89 @@
   "year_basis": "labeled_in_source"
  },
  "59851f2c1661139c": {
+  "decision": {
+   "candidate_id": "59851f2c1661139c",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2', '3', '4'] have no footnote printed after this grid (not a reader loss)",
+   "replaces_correction": "The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review.",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#59851f2c1661139c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 13-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:29:44+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 14:52:11 GMT",
+   "page_file": "9b2a7646c99b1bf7bd31.json.gz",
+   "requested_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-liberal-arts-social-sciences-education/department-anthropology/ba-anthropology/",
+   "sha256": "9b2a7646c99b1bf7bd31099e60aa04bf5bc0ef29eb9a866c794b0c4912f74286",
+   "title": "Bachelor of Arts in Anthropology < Youngstown State University Academic Catalog",
+   "url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-liberal-arts-social-sciences-education/department-anthropology/ba-anthropology/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "59851f2c1661139c~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "59851f2c1661139c",
    "reason": "Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 12 terms/39 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Total Semester Hours 120-125'",
@@ -18353,8 +18612,8 @@
  "6bbf48e383094c83": {
   "decision": {
    "candidate_id": "6bbf48e383094c83",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#1c6ad636b8e63eff) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#6bbf48e383094c83) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -18465,8 +18724,8 @@
  "6c392b13167dd887": {
   "decision": {
    "candidate_id": "6c392b13167dd887",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#5cf5f4b00e2c9329) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#6c392b13167dd887) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -19407,8 +19666,8 @@
  "70126d614e1ac096": {
   "decision": {
    "candidate_id": "70126d614e1ac096",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#00302b160380d827) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 4 footnote(s) ['1', '2', '3', '4'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#70126d614e1ac096) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -22269,8 +22528,8 @@
  "80f8af511107ac01": {
   "decision": {
    "candidate_id": "80f8af511107ac01",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#464fc502f3e84bb5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#80f8af511107ac01) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -23813,8 +24072,8 @@
  "8aa6f3e055af2f12": {
   "decision": {
    "candidate_id": "8aa6f3e055af2f12",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#ad8c749068111bcc) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 8 footnote(s) ['1', '2', '3', '4', '5', '6', '7', '8'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"You must have a minimum cumulative GPA of a 2.0 to\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#8aa6f3e055af2f12) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -25713,8 +25972,8 @@
  "940c6b267e46dbe2": {
   "decision": {
    "candidate_id": "940c6b267e46dbe2",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#48a49877ea000b86) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Program Notes:\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#940c6b267e46dbe2) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -25903,8 +26162,8 @@
  "9438025f8ba8fea5": {
   "decision": {
    "candidate_id": "9438025f8ba8fea5",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#e65136949ba003f4) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#9438025f8ba8fea5) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -27813,8 +28072,8 @@
  "9efc6a1844c70812": {
   "decision": {
    "candidate_id": "9efc6a1844c70812",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#dd522e08c07d2860) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 4 footnote(s) ['1', '2', '3', '4'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#9efc6a1844c70812) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -28779,8 +29038,8 @@
  "a66d66c5c1fe24a4": {
   "decision": {
    "candidate_id": "a66d66c5c1fe24a4",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#6426dc7edad59f0f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 4 footnote(s) ['1', '2', '3', '4'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#a66d66c5c1fe24a4) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -31178,8 +31437,8 @@
  "b5b5178930cfd8ec": {
   "decision": {
    "candidate_id": "b5b5178930cfd8ec",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#ad516c3e697bce76) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#b5b5178930cfd8ec) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -31815,6 +32074,89 @@
  "b85cee0c8487cb4b": {
   "decision": {
    "candidate_id": "b85cee0c8487cb4b",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2', '3', '4'] have no footnote printed after this grid (not a reader loss)",
+   "replaces_correction": "The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review.",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#b85cee0c8487cb4b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 13-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:29:51+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 14:52:55 GMT",
+   "page_file": "ac984882d3133fa67e19.json.gz",
+   "requested_url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-liberal-arts-social-sciences-education/department-sociology/ba-sociology/",
+   "sha256": "ac984882d3133fa67e19993c0bd993b8bac629913367d4bafef06877ad049b1f",
+   "title": "Bachelor of Arts in Sociology < Youngstown State University Academic Catalog",
+   "url": "https://catalog.ysu.edu/undergraduate/colleges-programs/college-liberal-arts-social-sciences-education/department-sociology/ba-sociology/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b85cee0c8487cb4b~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "b85cee0c8487cb4b",
    "reason": "Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 12 terms/41 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Total Semester Hours 120-122'",
    "replaces_correction": "The 2026-10-21 #229 downgrade (evidence OH/2026-10-07-cat#bbdf0ac5e84bf9c6) held this plan because the reader then missed a printed header, total or subtotal; the #255 reader reads it and the review confirmed the grid."
   },
@@ -32445,8 +32787,8 @@
  "b9f8cb82bad7707f": {
   "decision": {
    "candidate_id": "b9f8cb82bad7707f",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#f50c43a4a0b79369) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#b9f8cb82bad7707f) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -33283,8 +33625,8 @@
  "be0768f8c36a9fb9": {
   "decision": {
    "candidate_id": "be0768f8c36a9fb9",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#1dd3bf3ef4577a83) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#be0768f8c36a9fb9) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -33841,8 +34183,8 @@
  "c05fe8bfc00bbc4c": {
   "decision": {
    "candidate_id": "c05fe8bfc00bbc4c",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#76db13735545c385) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 7 footnote(s) ['1', '2', '3', '4', '5', '6', '7'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#c05fe8bfc00bbc4c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -34192,8 +34534,8 @@
  "c199d6dd8d789f1e": {
   "decision": {
    "candidate_id": "c199d6dd8d789f1e",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#dafbda77cd1b890d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; marker-like suffixes ['2'] have no footnote printed after this grid (not a reader loss)",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#c199d6dd8d789f1e) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -34590,8 +34932,8 @@
  "c3a977fd1ad8bbd9": {
   "decision": {
    "candidate_id": "c3a977fd1ad8bbd9",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#76d2b4ea03714509) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 4 footnote(s) ['1', '2', '3', '4'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#c3a977fd1ad8bbd9) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -35096,8 +35438,8 @@
  "c6e57a7a01a89e54": {
   "decision": {
    "candidate_id": "c6e57a7a01a89e54",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#da60eb53085fecfe) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 4 footnote(s) ['1', '2', '3', '4'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#c6e57a7a01a89e54) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -35896,8 +36238,8 @@
  "ca82800da9090278": {
   "decision": {
    "candidate_id": "ca82800da9090278",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#414b8fc551e6e24c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 6 footnote(s) ['1', '2', '3', '4', '†', '‡'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#ca82800da9090278) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -37934,8 +38276,8 @@
  "d5edcf2419d28f03": {
   "decision": {
    "candidate_id": "d5edcf2419d28f03",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#be189fe5c10e99f2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 3 footnote(s) ['1', '2', '3'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#d5edcf2419d28f03) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -38227,8 +38569,8 @@
  "d73ac773a6bd5bc5": {
   "decision": {
    "candidate_id": "d73ac773a6bd5bc5",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#b27d4417bf8d05e9) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 6 footnote(s) ['1', '2', '3', '4', '5', '6'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#d73ac773a6bd5bc5) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -41371,8 +41713,8 @@
  "e5669e75c6ac4c24": {
   "decision": {
    "candidate_id": "e5669e75c6ac4c24",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#af3f12dfa296ed32) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 5 footnote(s) ['1', '2', '3', '4', '5'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Program Contact(s):\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#e5669e75c6ac4c24) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -44475,8 +44817,8 @@
  "f4a66e95fc8f2397": {
   "decision": {
    "candidate_id": "f4a66e95fc8f2397",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#b783148807ed6bdd) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 4 footnote(s) ['1', '2', '3', '4'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Policy Alert: By the end of your first 48 credit h\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#f4a66e95fc8f2397) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -45661,8 +46003,8 @@
  "fa47f53bdff7f6b2": {
   "decision": {
    "candidate_id": "fa47f53bdff7f6b2",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#eb802298d135ff2e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Alert: By the end of your first 48 credit hours at\")",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#fa47f53bdff7f6b2) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -46223,8 +46565,8 @@
  "fc708d09ece0539b": {
   "decision": {
    "candidate_id": "fc708d09ece0539b",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#883745eb7cb17d18) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#fc708d09ece0539b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -46529,8 +46871,8 @@
  "fd86da8909a31a4c": {
   "decision": {
    "candidate_id": "fd86da8909a31a4c",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence OH/2026-10-07-cat#94e4aca82caa893c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 7 footnote(s) ['1', '2', '3', '4', '5', '6', '7'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical",
+   "replaces_promoted": "Plan on file (evidence OH/2026-10-07-cat#fd86da8909a31a4c) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {

@@ -28,17 +28,25 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: choice headers with a label or footnote marks
+## This PR: plan footnotes kept with the plan
 
-- **Reader:** `CHOICE_HEADER` also accepts a printed label before the instruction ('Jax MIX Experience: select one of the following: 1', JSU) and footnote marks after it ('Select one of the following: 1', Texas A&M, Temple). Both stay in the item's text.
-- **Regression:** across the 10,061 stored grids this adds 274 blocks in 161 grids. Flattening every item gives back the items on main exactly.
-- **Re-extraction:** 12 runs. 74 verified plans change, and 6 new JSU plans come from continued grids (#270). The Texas A&M and Temple continued-grid plans stay held by `grid_change_noted`.
-- **Independent review, round 3** (own parser, read-only, 28 checked by hand): **55 approved, 25 held.**
-  - 22 held because a printed footnote that substitutes for, waives or constrains a row is not stored (for example Texas A&M 'MATH 147/151/171 accepted in lieu of MATH 142', Georgian 'only need CJ210 or CJ212').
-  - 3 held because a block is left flat when a label row follows its options.
-- **Promoted:** 49 re-reads with `replaces_promoted`, and 6 new JSU plans. Verified plans 3,511 → 3,517.
-
-**Footnotes (owner rule: preserve substitutions, options and notes).** No plan record stores footnote text, only the markers. The review found that in 68 of the 80 records a referenced footnote concerns electives, substitutions or options. Next reader task: store each grid's printed footnotes in `rule_details.footnotes`, keyed by marker. Then re-read and re-review every plan whose footnotes change a row: the 22 holds here and the plans promoted earlier.
+- **Reader:** each grid's printed footnotes go in `rule_details.footnotes` as `[{marker, text, grid?}]`, verbatim.
+  - A footnote's text runs to the next marker; its lines are joined by ' / '.
+  - The last footnote runs on only while it plainly continues.
+  - Markers can be numbers, letters, or + ^ ** †. Numbers must increase, but a skipped number is allowed.
+  - Inline symbol notes are read ('**This document …').
+  - A page whose footnotes can't be paired with its grids holds the plan (`footnotes_not_read`): Montana, Idaho and NJCU, 299 stored pages.
+  - `verify` checks each footnote verbatim.
+- **Stored pages:** 13,259 footnotes on 3,236 plan pages.
+- **Review, two independent reviewers** (own parsers, read-only):
+  - Round 1: 660 of 861 footnote-only re-reads and 109 of 140 others approved. The holds found 4 reader defects (notes of several lines, symbol and letter markers, skipped numbers, inline notes), all fixed.
+  - 758 re-reads equal to an approved version are promoted with `replaces_promoted`.
+  - 10 plans held by #229 need `replaces_correction`: 5 partially verified LMU/YSU plans and 5 verified plans replaced under #229 corrections.
+  - 323 changed or held re-reads are in a third review.
+- **Totals:** verified plans 3,517 → 3,522. 758 plans now carry their printed footnotes.
+- **Still open:**
+  - 113 verified plans at Idaho, Montana and Roosevelt come from pages whose footnotes can't be paired yet.
+  - Notes printed after the footnotes with no marker (Texas A&M 'Graduation requirements', LMU 'Notes:') aren't captured; this needs an owner decision.
 
 ## Merged on 2026-10-21/22
 
