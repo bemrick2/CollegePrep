@@ -28,6 +28,8 @@ down() {
 up() {
   down
   psql -q -X -v ON_ERROR_STOP=1 -d postgres -c "drop database if exists $DB with (force)" -c "create database $DB" >/dev/null
+  # The demo bank is generated and has no human review; its 'fixture:' approvals count only here (CR-24 migration).
+  psql -q -X -v ON_ERROR_STOP=1 -d postgres -c "alter database $DB set collegeprep.fixture_approvals = 'on'" >/dev/null
   export PGDATABASE=$DB
   psql -q -X -v ON_ERROR_STOP=1 >/dev/null <<'SQL'
 do $$ begin

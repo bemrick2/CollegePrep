@@ -57,7 +57,7 @@ for (const x of QUESTIONS) {
   const accepted = x.answer_format === 'numeric' ? x.accepted_answers.filter((a) => /^-?([0-9]+\.?[0-9]*|\.[0-9]+|[0-9]+\/[0-9]+)$/.test(a.replace(/\s/g, ''))) : x.accepted_answers
   const remember = x.remember && x.remember.trim().split(/\s+/).length <= 16 ? x.remember : null
   out.push(
-    `insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices, answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, passage_id, remember_text, source_attribution) values (${q(id)}, ${q(ev)}, ${q(uid(`qt:${x.exam_family}:${x.answer_format}`))}, ${q(x.section)}, ${x.difficulty}, ${q(label(x.difficulty))}, ${q(x.stem)}, ${j(x.choices)}, ${q(x.answer_format)}, ${j(accepted)}, ${j(x.hints)}, ${q(x.teaching_explanation)}, ${q(x.strategy_explanation)}, ${x.expected_time_seconds}, ${isReviewed(x) ? "'published'" : "'draft'"}, ${passage}, ${q(remember)}, 'Prep & Price original demo item') on conflict do nothing;`,
+    `insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices, answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, passage_id, remember_text, source_attribution, license, origin) values (${q(id)}, ${q(ev)}, ${q(uid(`qt:${x.exam_family}:${x.answer_format}`))}, ${q(x.section)}, ${x.difficulty}, ${q(label(x.difficulty))}, ${q(x.stem)}, ${j(x.choices)}, ${q(x.answer_format)}, ${j(accepted)}, ${j(x.hints)}, ${q(x.teaching_explanation)}, ${q(x.strategy_explanation)}, ${x.expected_time_seconds}, ${isReviewed(x) ? "'published'" : "'draft'"}, ${passage}, ${q(remember)}, 'Prep & Price original demo item', 'original-owned', 'generated') on conflict do nothing;`,
   )
   out.push(`insert into public.practice_question_skills(question_id, skill_id, is_primary) values (${q(id)}, ${q(uid(`sk:${x.primary_skill_key}`))}, true) on conflict do nothing;`)
   for (const d of x.distractors)
@@ -71,7 +71,9 @@ for (const x of QUESTIONS) {
 }
 // CR-21: record each approval on the server, which hashes the content itself (practice_question_content_hash).
 // Only items the review record approves for their current content are approved; the client hash is not sent.
-const METHOD = 'AI review: two blind solves + key and explanation audit (web/src/lib/data/demo/questionReviews.json)'
+// The demo bank is AI-drafted (origin 'generated') and AI-reviewed, never human-reviewed. A 'fixture:' approval counts only
+// in a database set up by scripts/local/live_stack.sh (CR-24); on hosted these items would stay unservable.
+const METHOD = 'fixture: AI review: two blind solves + key and explanation audit (web/src/lib/data/demo/questionReviews.json)'
 for (const x of QUESTIONS.filter((q) => isReviewed(q)))
   out.push(`select public.approve_practice_question(${q(uid(`q:${x.id}`))}, ${q(METHOD)}, ${q(REVIEW_RECORD.items[x.id]!.reviewed_at)}::timestamptz);`)
 out.push('commit;')

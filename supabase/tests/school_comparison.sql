@@ -5,9 +5,10 @@ insert into public.sources(id,canonical_url,authority) values
 insert into public.institutions(id,institution_key,ipeds_name,display_name,state_code,source_id,verification_status,last_verified_at,identity_academic_year)
 values ('10000000-0000-0000-0000-000000000002','comparison-test','Fixture','Fixture','TN','10000000-0000-0000-0000-000000000001','verified',current_date,'2023-24'),
  ('10000000-0000-0000-0000-000000000003','comparison-unverified','Hidden','Hidden','TN','10000000-0000-0000-0000-000000000001','unverified',current_date,'2023-24');
-insert into public.institution_costs(institution_id,academic_year,residency,tuition,source_id,verification_status,last_verified_at) values
- ('10000000-0000-0000-0000-000000000002','2023-24','in_state',1000,'10000000-0000-0000-0000-000000000001','verified',current_date),
- ('10000000-0000-0000-0000-000000000002','2026-27','in_state',2000,'10000000-0000-0000-0000-000000000001','unverified',current_date);
+insert into public.institution_costs(institution_id,academic_year,residency,tuition,source_id,verification_status,last_verified_at,components,living_arrangements) values
+ ('10000000-0000-0000-0000-000000000002','2023-24','in_state',1000,'10000000-0000-0000-0000-000000000001','verified',current_date,
+  '{"enrollment_fees_in_state": 1000}','[{"arrangement": "on_campus", "total_cost_of_attendance": 5000}]'),
+ ('10000000-0000-0000-0000-000000000002','2026-27','in_state',2000,'10000000-0000-0000-0000-000000000001','unverified',current_date,null,null);
 insert into public.appeal_policies(institution_id,academic_year,appeal_kind,offered,policy_url,source_id,verification_status,last_verified_at,qualifies_for_paid_addon,qualifying_path_evidence) values
  ('10000000-0000-0000-0000-000000000002','2026-27','merit_reconsideration',true,'https://example.edu/comparison-test','10000000-0000-0000-0000-000000000001','verified',current_date,true,'Explicit documented merit reconsideration fixture');
 insert into public.academic_programs(id,institution_id,program_key,program_name,academic_year,source_id,verification_status,last_verified_at) values
@@ -37,6 +38,10 @@ begin
  if (r->'institutions'->1->>'found')::boolean or (r->'institutions'->2->>'found')::boolean then raise exception 'Unknown or unverified identity leaked'; end if;
  old=public.compare_institutions(array['comparison-test'],'2023-24')->'institutions'->0;
  if (old->>'can_offer_paid_addon')::boolean or old->'domains'->'costs'->0->>'tuition'<>'1000' then raise exception 'Annual isolation failed'; end if;
+ -- #218 C3: printed components and living arrangements are served as stored.
+ if old->'domains'->'costs'->0->'components'<>'{"enrollment_fees_in_state": 1000}'::jsonb
+  or old->'domains'->'costs'->0->'living_arrangements'->0->>'arrangement'<>'on_campus' then raise exception 'Cost components or arrangements not served'; end if;
+ if (select components->>'enrollment_fees_in_state' from public.institution_costs_with_provenance where academic_year='2023-24')<>'1000' then raise exception 'Provenance view lacks components'; end if;
  if (select prosecdef from pg_proc where oid='public.compare_institutions(text[],text)'::regprocedure) then raise exception 'RPC bypasses caller permissions'; end if;
  begin
   perform public.compare_institutions(array['comparison-test'],null);
