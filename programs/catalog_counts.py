@@ -25,7 +25,8 @@ COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Schola
                   r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|(?-i:\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\b)|"  # ODU '..., BS-MBA' (a hyphenated single award such as 'BS-MT' is not combined); La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
                   r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)|"
-                  r"(?-i:\bBachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*\s*/\s*Master of\b)|^Bachelor's/Master's\b", re.I)  # JHU 2026-27 'Biology, Bachelor of Arts/Master of Science'; the 'Bachelor's/Master's Degrees' heading  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
+                  r"(?-i:\bBachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*\s*/\s*Master of\b)|^Bachelor's/Master's\b|"
+                  r"\bBachelor's to Master's\b|\bto Master of\b", re.I)  # YSU 'Bachelor's to Master's Track'; '... Option to Master of Respiratory Care'  # JHU 2026-27 'Biology, Bachelor of Arts/Master of Science'; the 'Bachelor's/Master's Degrees' heading  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
 GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$|^Requirements for a Bachelor's Degree$|\bDouble Degree Program", re.I)
 ROTC = re.compile(r'\bN?ROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
@@ -72,6 +73,27 @@ WHOLE_DEGREE = [re.compile(r'^Bachelor of (?P<long>Arts|Science|Fine Arts|Music|
                 re.compile(r'^(?P<award>(?-i:B[A-Z]{1,3})) in (?P<base>[^,:()]+?)$'),
                 re.compile(r'^(?P<base>[^,:()]+?) \((?P<award>(?-i:B[A-Z]{1,3}))\)$'),
                 re.compile(r'^(?P<base>[^,:()]+?), (?P<award>(?-i:B[A-Z]{1,3}))$')]
+
+
+DELIVERY_QUALIFIER = re.compile(r'\s*\((?:online|on campus|hybrid|non-?\u200b?rn)\)\s*$', re.I)  # YSU '(Online)', '(Non-RN)'
+TRACK_SUFFIX = re.compile(r'\b(?:Track|Option)$')
+TRACK_ENTRY = re.compile(r'^(?P<award>Bachelor of (?:Arts|Science|Fine Arts|Music|Business Administration)|(?-i:B[A-Z]{1,3}))\s+in\s+'
+                         r'(?P<rest>[^()]+?)\s+(?:Track|Option)$')
+
+
+def track_of_listed(line, degrees):
+    """YSU 2026-27: 'Bachelor of Arts in Multimedia Communication, Public Relations Track' or 'Bachelor of Science in
+    Computer Science Cybersecurity Track' beside 'Bachelor of Science in Computer Science': a track of a degree the same
+    list prints. True only when some leading part of the name (before a comma, ' - ' or a word boundary) is that listed
+    degree with the same award."""
+    m = TRACK_ENTRY.match(line)
+    if not m: return False
+    award = X._award_key(m.group('award'))
+    words = re.split(r'(\s+-\s+|,\s*|\s+)', m.group('rest'))
+    for i in range(1, len(words) - 1, 2):  # every separator position, leaving at least one word for the track
+        base = ''.join(words[:i])
+        if (X.name_key_of(base), award) in degrees: return True
+    return False
 
 
 def whole_degree(name):
@@ -144,6 +166,16 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
         shape = [X.emphasis_entry(X.list_line(x['printed'])) for x in rest]
         degrees = {X._degree_key(X.list_line(x['printed'])) for x, m in zip(rest, shape) if not m} - {None}
         opts = [x for x, m in zip(rest, shape) if m and (X.name_key_of(m.group('base')), X._award_key(m.group('award'))) in degrees]
+        opts += [x for x, m in zip(rest, shape) if not m and x not in opts and track_of_listed(X.list_line(x['printed']), degrees)]
+        # a track printed on a page under a listed degree's own page (YSU '.../bsas-exercise-science/mat-track/', 'Exercise
+        # Science - MAT Track') is that degree's track
+        deg_pages = {page_key(x['url']) for x, m in zip(rest, shape) if not m and X._degree_key(X.list_line(x['printed']))}
+        opts += [x for x in rest if x not in opts and TRACK_SUFFIX.search(X.list_line(x['printed']))
+                 and any(page_key(x['url']).startswith(dp.rstrip('/') + '/') for dp in deg_pages)]
+        # the same degree listed again for another delivery ('X (online)' beside 'X') is one program
+        plain = {name_key(x['printed']) for x in rest}
+        opts += [x for x in rest if x not in opts and DELIVERY_QUALIFIER.search(x['printed'])
+                 and name_key(DELIVERY_QUALIFIER.sub('', x['printed'])) in plain]
         deg = [x for x in rest if x not in opts]
         by_page = defaultdict(set)
         for x in deg: by_page[page_key(x['url'])].add(ident(x))
@@ -157,7 +189,7 @@ def entries(run_dir, decision, iks, year='2026-2027', reviewed=''):
                 rk = name_key(hit['record']['program_name']); pk = name_key(x['printed'])
                 # 'X: Concentration in Y' is not credited through X's page; a college named in parentheses is not a qualifier
                 # (UVM 'Computer Science B.A. (College of Arts and Sciences)')
-                bare = name_key(X.COLLEGE_QUALIFIER.sub('', x['printed']))
+                bare = name_key(DELIVERY_QUALIFIER.sub('', X.COLLEGE_QUALIFIER.sub('', x['printed'])))
                 if pk.startswith(rk) and pk != rk and bare != rk: hit = None
             if hit: verified[k] = hit['record']['program_key']
             else: verified.setdefault(k, None)

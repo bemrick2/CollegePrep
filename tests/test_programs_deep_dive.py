@@ -3241,6 +3241,37 @@ class CatalogCountTests(unittest.TestCase):
         self.assertEqual(whole_degree('Bachelor of Science in Human Resource Management'), whole_degree('Human Resource Management (BS)'))
         self.assertIsNone(whole_degree('Education (BA) with EC-6 Core Subjects'))
 
+    def test_tracks_combined_tracks_and_delivery_variants(self):  # YSU 2026-27 program list
+        import tempfile
+        from programs.catalog_counts import entries, track_of_listed
+        u = 'https://catalog.x.edu/'
+        listing = [('Bachelor of Arts in Multimedia Communication', u + 'mmc', 'bachelor'),
+                   ('Bachelor of Arts in Multimedia Communication, Public Relations Track', u + 'mmc-pr', 'bachelor'),
+                   ("Bachelor of Arts in Multimedia Communication, Bachelor's to Master's Track", u + 'mmc-ma', 'bachelor'),
+                   ('Bachelor of Science in Computer Science', u + 'cs', 'bachelor'),
+                   ('Bachelor of Science in Computer Science Cybersecurity Track', u + 'cs-cyber', 'bachelor'),
+                   ('Bachelor of Science in Respiratory Care', u + 'rc', 'bachelor'),
+                   ('Bachelor of Science in Respiratory Care with Advanced Placement Option to Master of Respiratory Care', u + 'rc-m', 'bachelor'),
+                   ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex', 'bachelor'),
+                   ('Bachelor of Science in Applied Science Exercise Science - MAT Track', u + 'ex/mat-track', 'bachelor'),
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis', 'bachelor'),
+                   ('Bachelor of Science in Geographic Information Science (online)', u + 'gis-online', 'bachelor'),
+                   ('Bachelor of Fine Arts in Graphic Design (Online)', u + 'gd-online', 'bachelor'),
+                   ('Bachelor of Science in Chemistry Track', u + 'chem-track', 'bachelor')]  # no 'Chemistry' degree listed: counted
+        records = [('Bachelor of Arts in Multimedia Communication', u + 'mmc'), ('Bachelor of Science in Computer Science', u + 'cs'),
+                   ('Bachelor of Science in Respiratory Care', u + 'rc'), ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex'),
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis'), ('Bachelor of Fine Arts in Graphic Design', u + 'gd-online')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (7, 6), b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Bachelor of Science in Chemistry Track."), b)
+        degrees = {('multimediacommunication', 'ba')}
+        self.assertTrue(track_of_listed('Bachelor of Arts in Multimedia Communication Sports Track', degrees))
+        self.assertFalse(track_of_listed('Bachelor of Science in Multimedia Communication Sports Track', degrees))  # another award
+        self.assertFalse(track_of_listed('Bachelor of Arts in Multimedia Communication', degrees))  # the degree itself
+
     def test_jhu_combined_policy_and_double_degree_entries(self):  # JHU 2026-27 program list
         import tempfile
         from programs.catalog_counts import entries, whole_degree
