@@ -2,7 +2,7 @@
 
 This file is how a new Deep Dive session picks up degree-requirement, roadmap and specialised-reader work without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `af5868f99a` (merge of #255). This PR (`programs/shsu-unl-depth`) is on top of it.
+- **Main at the last refresh:** `9ccbc6ad21` (merge of #258). This PR (`programs/i229-recover`) is on top of it. #260 (Course List reader, #250) is open separately.
 - **Owner's split (2026-10-22):** Research does nationwide school-level baseline coverage. Deep Dive does degree requirements, roadmaps and specialised catalog readers. Degree-detail completeness is reported separately from school-level comparison readiness. Deep Dive helps with shared extraction tools when that unlocks baseline or policy coverage, and avoids bulk-data work.
 - **Ownership on #153 (posted 2026-10-22):**
   - **Deep Dive:**
@@ -20,30 +20,19 @@ This file is how a new Deep Dive session picks up degree-requirement, roadmap an
 
 These are verified records counted from `data/institutions/*`. Plans are `program_plan` records; groups are every other `degree_requirements` record.
 
-| | main `46c7f81` (2026-10-21 start) | main `2c24af0` | main `af5868f` (after #252) | with this PR |
-|---|---|---|---|---|
-| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 |
-| Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,356 at 65 schools | 3,441 at 66 schools |
-| Partially verified plans | 0 | 0 | 119 (#229 downgrades) | 180 (+61 CU track plans, see below) |
-| Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 |
-| Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 |
+| | main `46c7f81` (2026-10-21 start) | main `2c24af0` | main `af5868f` (after #252) | main `9ccbc6a` (#258) | with this PR |
+|---|---|---|---|---|---|
+| Verified bachelor's program records (all workstreams) | 10,145 | 10,648 | 10,648 | 10,648 | 10,648 |
+| Verified plans | 2,843 at 64 schools | 3,475 at 67 schools | 3,356 at 65 schools | 3,441 at 66 schools | 3,502 at 68 schools |
+| Partially verified plans | 0 | 0 | 119 (#229 downgrades) | 180 (+61 CU track plans) | 119 (58 #229 + 61 CU) |
+| Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 |
+| Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 70 |
 
-## This PR
+## This PR: #229 recovery
 
-- **SHSU:** 85 plans read by position from the `#plangrid` layout (#249) and 174 Course List groups.
-- **UNL:** 122 Course List groups (#249 wiring).
-- **CU Boulder:** 61 track plans, each labelled by its printed heading.
-  - They are promoted `partially_verified`, because `pipeline/promote.py` gives that status to every record approved with an accepted issue, here `plan_heading_label`.
-  - Making a reviewer-confirmed label non-blocking would be a shared-code decision. It's the next item for this area.
-- **Independent reviews:**
-  - Plans: 171 reviewed, 146 approved, 25 held.
-    - SHSU 22: the stored label is a stray section heading such as 'Applied Music Fees'.
-    - CU 3: Classics, labelled by a sentence; Women and Gender Studies and Biomedical Engineering, labelled by section headings.
-  - Groups: 375 reviewed, 296 approved, 79 held.
-    - UNL 0-credit rows dropped and lists split: 17.
-    - Partial sections: 3.
-    - Minor, business-core, ACE or college groups labelled as major: 56.
-    - Other: 3.
+- Reviewed override `replaces_correction` in `programs/promote.py`. Without it, a corrected record is still refused. The corrections.json entries stay as history.
+- 61 downgraded plans are re-verified (LMU 22, YSU 34, SLU 5) after an independent review against the stored grids. 46 are held by the review and 12 by the reader. See `docs/coverage/I229_CORRECTIONS.md`.
+- Reader fix: a plan row with a credit cell that is not a plain number ('.5', '3 or 4', '1 (0)') is kept as printed. Before, its credits were dropped. No verified plan is affected.
 
 ## Merged on 2026-10-21/22
 
@@ -54,23 +43,33 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | #249 | SHSU positional plangrid with printed-sum checks; single-track labels; UNL Course Lists; per-area counts and shared plan keys held |
 | #252 | #229 corrections: 2,366 plans and 76 groups replaced; 119 plans and 51 groups downgraded (`docs/coverage/I229_CORRECTIONS.md`) |
 | #255 | recovery readers: YSU 'S.H.', LMU total, SLU sessions; subtotals spanning terms held |
+| #258 | SHSU 85 plans and 174 groups, UNL 122 groups, CU 61 track plans (partially verified) |
 
 ## Open
 
-- **#250 (`programs/uwm-courselist`):** the Course List reader for 6–8 letter, two-word and '&' subjects.
-  - The first review was blocking: long-subject complex rows were dropped. That's fixed in `08c2e931fe`, and the re-review is in progress.
-  - When it merges, re-extract the runs from the #250 issue (UWM `WI/2026-10-22-d01`, UW-Madison, UNI, UC Irvine, Missouri, SF State), have them reviewed, and audit the 225 verified groups listed in #250. That audit needs owner approval.
-- **#229 recovery (119 plans):** the readers are merged in #255. Re-extract LMU (`CA/2026-10-07-cat`), YSU (`OH/2026-10-07-cat`), SLU and the others, then review.
-  - Re-promoting a downgraded record needs an explicit, reviewed override in `programs/promote.py`. `kept_record` refuses any record whose key is in `supabase/corrections.json`, deliberately.
+- **#260 (`programs/uwm-courselist`, for #250):** the Course List reader for long, two-word and '&' subjects.
+  - Three independent reviews; every blocking finding is fixed.
+  - Regression: 0 new unheld groups against the third-review head.
+  - When it merges, re-extract the runs named in #250 (UWM `WI/2026-10-22-d01`, UW-Madison, UNI, UC Irvine, Missouri, SF State), have them reviewed, and promote.
+  - The audit of the 225 verified groups listed in #250 needs owner approval.
+- **#229 remainder:** 58 plans and 51 groups stay partially verified with their corrections. Recovering them needs reader work:
+  - 'Select one' blocks in plans (25 LMU);
+  - multi-row 'or' alternatives;
+  - blank-name and 'or' separator rows (YSU);
+  - session headings with empty credit cells (LMU);
+  - subtotals spanning terms (SLU 1, Marshall, UNC, UVU);
+  - Dunwoody, Lorain and Akron label rows.
+  - The 15 YSU/LMU plans held only because an 'or' row is a printed string could be approved if verbatim alternatives are accepted. That's a policy call for review, not a data defect.
 
 ## Next executable tasks
 
-1. Merge #250 after re-review and CI, then re-extract and review the affected schools.
-2. #229 recovery: a reviewed promote override for corrected records, then re-promotion of the recovered plans.
-3. Reader follow-ups found by today's reviews:
+1. Merge #260 after CI, then re-extract and review the affected schools.
+2. Plan reader: 'Select one' blocks as choices, and multi-row 'or' rows. Then recover the remaining #229 plans with `replaces_correction`.
+3. Reader follow-ups from the #258 reviews:
    - a single-grid `courseleaf_plangrid` label should be the program, not the nearest heading (22 SHSU holds);
-   - UNL 0-credit rows dropped from Course Lists, which splits lists (17 holds);
-   - categorise college-core and ACE tables instead of labelling them as major (56 holds).
+   - UNL 0-credit rows are dropped from Course Lists (17 holds);
+   - categorise college-core and ACE tables (56 holds);
+   - read hyphenated Course List subjects (`CSCI-UA 101`, `BUSN-P316`), which needs its own review.
 4. Depth at high-enrolment schools, ranked by IPEDS entering students:
    - Texas A&M and CU Boulder groups;
    - plans for Penn State, Illinois, UF, UC Davis and UC Irvine.

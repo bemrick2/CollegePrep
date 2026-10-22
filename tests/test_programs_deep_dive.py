@@ -646,6 +646,12 @@ class CourseleafPlanTests(unittest.TestCase):
         terms, _ = CL.parse_grid(t)
         self.assertEqual([i.get('credits') for i in terms[0]['items']], ['1.5', '0.5', '1-1.5', 3])
         self.assertEqual(terms[0]['credit_hours'], '6.5')
+        # a credit cell that is not a plain number keeps the row as printed (#229 recovery review: EKU, UIC, Montana)
+        t = {'rows': [['Semester One', 'Credits'], ['CED 200', 'Clinical II', '.5'], ['HIST 419', 'Civics', '3 or 4'], ['THTR 103', 'House', '1 (0)'],
+                      ['ENG 101', 'Composition', '3']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual(terms[0]['items'][:3], ['CED 200 | Clinical II | .5', 'HIST 419 | Civics | 3 or 4', 'THTR 103 | House | 1 (0)'])
+        self.assertEqual(terms[0]['items'][3], {'code': 'ENG 101', 'title': 'Composition', 'credits': 3})
 
     def test_course_titled_total_and_unknown_term_header(self):  # #238 review: UNO HRM, EKU EHS; UMT 'Autumn | Hours'
         from programs import courseleaf as CL

@@ -7,6 +7,7 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/courseleaf.py', "        if m and len(cells) >= 3 and cells[-1] and not hours:", "        if False:"),
     ('programs/courseleaf.py', "                elif sum(1 for x in span if x['items']) > 1: t['_subtotal_spans'] = True", "                elif False: pass"),
     ('programs/courseleaf.py', "        if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')", "        pass"),
     ('programs/courseleaf.py', "                parent = parent if parent is not None and not parent['items'] else None", "                pass"),
