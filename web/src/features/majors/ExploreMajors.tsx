@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useApp } from '../../lib/app'
-import { labelOf } from '../../lib/engine/interests'
+import { canEditStudentPlans } from '../../lib/permissions'
+import { CERTAINTY_OPTIONS, labelOf } from '../../lib/engine/interests'
 import { UNVERIFIED_QUESTIONS } from '../../lib/engine/programFit'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { CollegesTabs } from '../colleges/CollegesTabs'
@@ -15,7 +16,7 @@ import { Card, CardHeader, cx } from '../../components/ui'
  * school's verified records cover them. Changes apply everywhere at once; onboarding never has to be repeated.
  */
 export function ExploreMajors() {
-  const { activeStudent, viewer } = useApp()
+  const { activeStudent, viewer, ctx } = useApp()
   const sid = activeStudent?.id
   const it = useInterests(sid)
   const isStudent = !!viewer && activeStudent?.linked_user_id === viewer.userId
@@ -23,6 +24,8 @@ export function ExploreMajors() {
   const cmp = useSavedComparison(COMPARE_YEAR)
   const schools = (cmp.data ?? []).filter((c) => c.found && c.institution?.level !== 'two_year')
   const { profile } = it
+  // The student, or a guardian who can set goals (#218 C1). Anyone else sees the answers and changes nothing.
+  const canEdit = canEditStudentPlans(activeStudent, viewer?.userId, ctx)
 
   return (
     <div className="grid grid-cols-1 gap-5">
@@ -45,7 +48,11 @@ export function ExploreMajors() {
       <Card className="p-5">
         <h2 className="font-semibold text-ink">{who === 'you' ? 'How sure are you about a major?' : `How sure is ${who} about a major?`}</h2>
         <div className="mt-3">
-          <CertaintyChoice compact value={profile.certainty} onChange={it.setCertainty} who={who} />
+          {canEdit ? (
+            <CertaintyChoice compact value={profile.certainty} onChange={it.setCertainty} who={who} />
+          ) : (
+            <p className="text-sm text-ink-2">{CERTAINTY_OPTIONS.find((o) => o.value === profile.certainty)?.label ?? 'Not answered yet.'}</p>
+          )}
         </div>
       </Card>
 
@@ -60,6 +67,7 @@ export function ExploreMajors() {
                 <li key={`${i.kind}:${i.key}`} className={cx('flex items-center gap-1 rounded-full border py-1 pl-3 pr-1 text-sm', i.focus ? 'border-brand bg-brand-soft' : 'border-line bg-surface')}>
                   <span className="font-semibold text-ink">{labelOf(i)}</span>
                   {i.kind === 'area' && <span className="text-xs text-ink-3">· area</span>}
+                  {canEdit && (
                   <button
                     type="button"
                     onClick={() => it.setFocus(i)}
@@ -70,9 +78,13 @@ export function ExploreMajors() {
                   >
                     <Sparkle size={14} />
                   </button>
+                  )}
+                  {canEdit && (
                   <button type="button" onClick={() => it.toggle(i)} aria-label={`Remove ${labelOf(i)}`} className="grid h-7 w-7 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink">
                     <X size={14} />
                   </button>
+                  )}
+                  {!canEdit && i.focus && <span className="pr-2 text-xs text-brand">focus</span>}
                 </li>
               ))}
             </ul>
@@ -81,12 +93,18 @@ export function ExploreMajors() {
         </div>
       </Card>
 
-      <Card className="p-5">
-        <h2 className="font-semibold text-ink">Add interests</h2>
-        <div className="mt-3">
-          <InterestPicker value={profile} onToggle={it.toggle} />
-        </div>
-      </Card>
+      {canEdit ? (
+        <Card className="p-5">
+          <h2 className="font-semibold text-ink">Add interests</h2>
+          <div className="mt-3">
+            <InterestPicker value={profile} onToggle={it.toggle} />
+          </div>
+        </Card>
+      ) : (
+        <p className="text-sm text-ink-2">
+          You can see {who}’s interests. Only {who} or a parent who can set goals can change them.
+        </p>
+      )}
 
       <Card>
         <CardHeader title={<span className="flex items-center gap-2"><School size={18} /> Keeps options open?</span>} subtitle="How each saved four-year school's verified records cover every saved interest" />

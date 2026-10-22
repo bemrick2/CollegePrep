@@ -17,7 +17,8 @@ A guardian creates a student profile (no email needed), then invites the student
      ("Too many tries"). Link tokens aren't limited, because they can't be guessed.
 
    The database also records `recipient_email` on the invitation and cancels that student's earlier outstanding
-   invitations.
+   invitations. Clients can't read `recipient_email` from the table; `household_invitation_recipients` serves it to
+   guardians with manage-members, or manage-students for student invitations (#218 C7).
 3. The function calls `prepare_invitation_email` as the parent. This confirms the invite is theirs and still
    usable, enforces at most 5 sends per invitation with 30 seconds between sends, and returns the names and expiry.
    It never returns the hash.

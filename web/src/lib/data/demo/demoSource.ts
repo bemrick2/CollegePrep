@@ -360,6 +360,11 @@ export class DemoSource implements DataSource {
   }
 
   async listInvitations(householdId: string): Promise<InvitationSummary[]> {
+    // Mirrors household_invitation_recipients (#218 C7): the address only for manage_members, or manage_students on
+    // a student invitation.
+    const me = this.viewerId()
+    const mine = this.s.members.find((m) => m.household_id === householdId && m.user_id === me && m.role === 'guardian')
+    const seesEmail = (role: string) => !!mine && (mine.can_manage_members || (role === 'student' && mine.can_manage_students))
     return delay(
       this.s.invitations
         .filter((i) => i.household_id === householdId)
@@ -367,7 +372,7 @@ export class DemoSource implements DataSource {
           id: i.id ?? i.code,
           role: i.role,
           student_id: i.student_id,
-          recipient_email: i.recipient_email ?? null,
+          recipient_email: seesEmail(i.role) ? (i.recipient_email ?? null) : null,
           created_at: i.created_at ?? i.expires_at,
           expires_at: i.expires_at,
           accepted_at: i.accepted_at ?? (i.accepted_by ? i.expires_at : null),

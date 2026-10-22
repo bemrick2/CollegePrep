@@ -153,9 +153,11 @@ export function CostOutlook({ showAlternative = false }: { showAlternative?: boo
                   <span className="text-sm text-ink-3">No verified total yet</span>
                 )}
               </div>
-              <button type="button" onClick={() => void cmp.remove(r.key)} aria-label={`Remove ${r.name}`} className="grid h-8 w-8 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink">
-                <X size={16} />
-              </button>
+              {cmp.canRemove(r.key) && (
+                <button type="button" onClick={() => void cmp.remove(r.key)} aria-label={`Remove ${r.name}`} className="grid h-8 w-8 place-items-center rounded-full text-ink-3 hover:bg-surface-2 hover:text-ink">
+                  <X size={16} />
+                </button>
+              )}
             </div>
           </li>
         ))}
