@@ -71,11 +71,11 @@ insert into public.question_strategies(id, strategy_key, name) values
  ('31000000-0000-0000-0000-000000000003', 'plug_in_numbers', 'Plug in numbers');
 -- q1..q8: id suffix = question number. q5 is a draft.
 insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices,
-  answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status)
+  answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, license, origin)
 select ('30000000-0000-0000-0000-00000000000' || n)::uuid, '40000000-0000-0000-0000-000000000001',
   case when fmt = 'numeric' then '41000000-0000-0000-0000-000000000002' else '41000000-0000-0000-0000-000000000001' end::uuid,
   section, 2, 'medium', 'Question ' || n, case when fmt = 'numeric' then '[]' else '["A","B","C","D"]' end::jsonb,
-  fmt, answers::jsonb, hints::jsonb, 'Teaching ' || n, 'Strategy ' || n, secs, status
+  fmt, answers::jsonb, hints::jsonb, 'Teaching ' || n, 'Strategy ' || n, secs, status, 'original-owned', 'authored'
 from (values
   (1, 'math', 'choice', '["B"]', '["First hint","Second hint"]', 60, 'published'),
   (2, 'math', 'numeric', '["1/2"]', '[]', 90, 'published'),
