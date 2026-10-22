@@ -6,7 +6,8 @@ begin;
 \ir support/test_helpers.sql
 
 -- a1: creator (every flag). a2: view_progress only. c1: set_goals only. c2: manage_students only.
--- c3: manage_members only. 51: the linked student. 99: outsider.
+-- c3: manage_members only. c2 and c3 also have view_progress, so their refused updates and deletes see the rows
+-- (without it, row visibility alone would hide the rows and the checks would prove nothing). 51: student. 99: outsider.
 insert into auth.users(id) values ('20000000-0000-0000-0000-0000000000c1'), ('20000000-0000-0000-0000-0000000000c2'),
   ('20000000-0000-0000-0000-0000000000c3');
 insert into public.sources(id, canonical_url, authority) values ('50000000-0000-0000-0000-000000000101', 'https://example.edu/roles', 'institution');
@@ -26,8 +27,8 @@ begin
   inv_s := public.create_household_invitation(hh, 'student', st);
   inv_a2 := public.create_household_invitation(hh, 'guardian', null, 72, array['view_progress']);
   inv_c1 := public.create_household_invitation(hh, 'guardian', null, 72, array['set_goals']);
-  inv_c2 := public.create_household_invitation(hh, 'guardian', null, 72, array['manage_students']);
-  inv_c3 := public.create_household_invitation(hh, 'guardian', null, 72, array['manage_members']);
+  inv_c2 := public.create_household_invitation(hh, 'guardian', null, 72, array['manage_students', 'view_progress']);
+  inv_c3 := public.create_household_invitation(hh, 'guardian', null, 72, array['manage_members', 'view_progress']);
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051'); perform public.accept_household_invitation(inv_s);
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2'); perform public.accept_household_invitation(inv_a2);
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c1'); perform public.accept_household_invitation(inv_c1);
@@ -56,11 +57,14 @@ begin
   update public.student_exam_plan set score = 1 where student_id = st::uuid;
   delete from public.student_exam_plan where student_id = st::uuid;
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c2');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 3::bigint, 'manage-students guardian with view_progress sees the rows');
   perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:roles-d')$q$, st), '42501');
   update public.student_exam_plan set score = 1 where student_id = st::uuid;
   delete from public.student_exam_plan where student_id = st::uuid;
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c3');
+  perform hp_test.eq((select count(*) from public.student_exam_plan), 3::bigint, 'manage-members guardian with view_progress sees the rows');
   perform hp_test.expect_error(format($q$insert into public.student_exam_plan(student_id, exam_key) values (%L, 'ap:roles-d')$q$, st), '42501');
+  update public.student_exam_plan set score = 1 where student_id = st::uuid;
   delete from public.student_exam_plan where student_id = st::uuid;
   perform hp_test.as_owner();
   perform hp_test.eq((select count(*) from public.student_exam_plan where student_id = st::uuid), 3::bigint, 'no guardian without set_goals deleted an exam');
@@ -76,7 +80,9 @@ begin
   update public.student_academic_interests set certainty = 'sure', interests = '[]' where student_id = st::uuid;
   delete from public.student_academic_interests where student_id = st::uuid;
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c2');
+  perform hp_test.eq((select count(*) from public.student_academic_interests), 1::bigint, 'manage-students guardian sees the interests');
   update public.student_academic_interests set certainty = 'sure' where student_id = st::uuid;
+  delete from public.student_academic_interests where student_id = st::uuid;
   perform hp_test.as_owner();
   perform hp_test.check((select certainty = 'few' and interests = '[{"kind":"major","key":"biology"}]'::jsonb
     from public.student_academic_interests where student_id = st::uuid), 'interests unchanged by guardians without set_goals');
@@ -111,6 +117,10 @@ begin
   perform hp_test.expect_error(format('select public.remove_household_school(%L, %L)', hh, 'roles-5'), '42501');
   perform hp_test.as_owner();
   perform hp_test.eq((select count(*) from public.household_saved_schools where household_id = hh::uuid), 5::bigint, 'nothing removed without the right');
+  -- A school that's already gone: nothing to do, for any member (a stale second device).
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
+  perform public.remove_household_school(hh::uuid, 'roles-6');
+  perform hp_test.as_owner();
 
   -- Allowed: the member who saved it; a guardian with set_goals; a guardian with manage_students.
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
@@ -136,6 +146,12 @@ begin
   perform hp_test.eq((select recipient_email from public.household_invitation_recipients(hh) where invitation_id = r.invitation_id),
     'second@example.com', 'creator reads the recipient');
 
+  -- A guardian invitation's address is for manage_members only (set directly: the app emails only students today).
+  perform hp_test.as_owner();
+  update public.household_invitations set recipient_email = 'coparent@example.com'
+  where id = (select i.id from public.household_invitations i where i.household_id = hh and i.role = 'guardian' order by i.created_at limit 1);
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+
   -- No guardian reads the column directly any more, whatever their flags.
   perform hp_test.expect_error('select recipient_email from public.household_invitations', '42501');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
@@ -146,9 +162,10 @@ begin
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c1');
   perform hp_test.eq((select count(*) from public.household_invitation_recipients(hh)), 0::bigint, 'set-goals guardian gets no recipients');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c2');
-  perform hp_test.eq((select count(*) from public.household_invitation_recipients(hh)), 1::bigint, 'manage-students guardian reads student recipients');
+  perform hp_test.eq((select string_agg(recipient_email, ',') from public.household_invitation_recipients(hh)), 'second@example.com',
+    'manage-students guardian reads student recipients only, not the guardian invitation''s');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c3');
-  perform hp_test.eq((select count(*) from public.household_invitation_recipients(hh)), 1::bigint, 'manage-members guardian reads recipients');
+  perform hp_test.eq((select count(*) from public.household_invitation_recipients(hh)), 2::bigint, 'manage-members guardian reads every recipient');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform hp_test.expect_error(format('select * from public.household_invitation_recipients(%L)', hh), '42501');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');

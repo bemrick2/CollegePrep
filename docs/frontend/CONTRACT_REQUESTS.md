@@ -15,7 +15,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-7 | Institutions with verified records | ✅ live | Comparison suggestions from `institutions_with_verified_records`, four-year schools with costs first |
 | CR-8 | Answer-free help content | ✅ live | `concept_summary` and `sections` selected in the catalog |
 | CR-9 | Institution level, saved schools | ✅ live | `level` from `compare_institutions`; saved schools via `save_/remove_household_school` (browser only for a student with no household) |
-| CR-10 | Canonical exam keys, student exam plan | 🚧 schema in migration `20261006180300`, unapplied on hosted; **app integrated behind `VITE_EXAM_PLAN`** (checked on the local backend with `exam_catalog` loaded from `backend/exam_keys.py`) | AP/CLEP exams with a catalog key live on the account; IB, Statewide Dual Credit and uncatalogued names stay on the device. Open question on guardian permissions: #218 C1 |
+| CR-10 | Canonical exam keys, student exam plan | 🚧 schema in migration `20261006180300`, unapplied on hosted; **app integrated behind `VITE_EXAM_PLAN`** (checked on the local backend with `exam_catalog` loaded from `backend/exam_keys.py`) | AP/CLEP exams with a catalog key live on the account; IB, Statewide Dual Credit and uncatalogued names stay on the device. Writes: the student or a guardian with set-goals (#240, unapplied) |
 | CR-11 | Numeric test minimums on awards | ⏳ open | Single minimums parsed from `test_requirement` text; ranges/tiers shown as "read criteria" |
 | CR-12 | Primary target school | ✅ live | `supportsPrimarySchool = true` in `LiveSource` |
 | CR-13 | Major certainty and saved interests | ✅ live | Read/written through `student_academic_interests`; checked locally |

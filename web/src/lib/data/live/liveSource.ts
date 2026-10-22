@@ -407,10 +407,9 @@ export class LiveSource implements DataSource {
     if (error) fail(error)
     // Who an invitation was emailed to is served separately (#218 C7): only to guardians who can manage members, or
     // manage students for student invitations. Everyone else sees the invitation without the address.
-    const recipients = await rpc<{ invitation_id: string; recipient_email: string }[]>(this.sb, 'household_invitation_recipients', {
-      p_household: householdId,
-    })
-    const emailOf = new Map((recipients ?? []).map((r) => [r.invitation_id, r.recipient_email]))
+    // A backend without the RPC (not migrated yet) still lists the invitations, without addresses.
+    const recipients = await this.sb.rpc('household_invitation_recipients', { p_household: householdId })
+    const emailOf = new Map(((recipients.error ? [] : recipients.data) as { invitation_id: string; recipient_email: string }[] | null ?? []).map((r) => [r.invitation_id, r.recipient_email]))
     return (data ?? []).map((i) => ({ ...i, recipient_email: emailOf.get(i.id as string) ?? null })) as InvitationSummary[]
   }
 
@@ -743,6 +742,12 @@ export class LiveSource implements DataSource {
     return (data ?? []).map((r) => r.institution_key as string)
   }
 
+  async savedSchoolAdders(householdId: string) {
+    const { data, error } = await this.sb.from('household_saved_schools').select('institution_key, added_by').eq('household_id', householdId)
+    if (error) fail(error)
+    return Object.fromEntries((data ?? []).map((r) => [r.institution_key as string, (r.added_by as string | null) ?? null]))
+  }
+
   async saveSchool(householdId: string, institutionKey: string) {
     await rpc<void>(this.sb, 'save_household_school', { p_household: householdId, p_institution_key: institutionKey })
   }
@@ -878,9 +883,11 @@ export class LiveSource implements DataSource {
     const existing = await this.sb.from('student_academic_interests').select('student_id').eq('student_id', studentId).maybeSingle()
     if (existing.error) fail(existing.error)
     const r = existing.data
-      ? await this.sb.from('student_academic_interests').update(row).eq('student_id', studentId)
-      : await this.sb.from('student_academic_interests').insert({ student_id: studentId, ...row })
+      ? await this.sb.from('student_academic_interests').update(row).eq('student_id', studentId).select('student_id')
+      : await this.sb.from('student_academic_interests').insert({ student_id: studentId, ...row }).select('student_id')
     if (r.error) fail(r.error)
+    // Row security refuses an update by matching nothing, without an error (#218 C1): say so instead of "saved".
+    if (!r.data?.length) throw new DataError("You can't change this student's interests", 'forbidden')
   }
 
   async verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]> {

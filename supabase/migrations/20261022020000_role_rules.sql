@@ -26,6 +26,10 @@ begin
   if not public.is_household_member(p_household) then
     raise exception 'Not a member of this household' using errcode = '42501';
   end if;
+  -- Already gone (removed on another device): nothing to do, for any member, as before.
+  if not exists (select 1 from public.household_saved_schools s where s.household_id = p_household and s.institution_key = p_institution_key) then
+    return;
+  end if;
   if not (public.has_household_permission(p_household, 'manage_students')
           or public.has_household_permission(p_household, 'set_goals')
           or exists (select 1 from public.household_saved_schools s
