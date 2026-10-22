@@ -29,6 +29,11 @@ def main():
     branches = sorted(b.strip() for b in git('branch', '-r', '--list', 'origin/pipeline-run/*').splitlines() if b.strip())
     best, runs = {}, []
     cand = {}  # institution_key -> topic -> {approved, rejected, undecided}
+    decisions = {}
+    for dp in sorted((ROOT / 'pipeline/decisions').glob('*.json')):
+        try: dec = json.loads(dp.read_text())
+        except ValueError: continue
+        if isinstance(dec, dict) and dec.get('run'): decisions.setdefault(dec['run'].rstrip('/'), []).append(dec)
     for b in branches:
         for path in git('ls-tree', '-r', '--name-only', b).splitlines():
             if not (path.startswith('pipeline/runs/') and path.endswith('/coverage.json')): continue
@@ -38,10 +43,10 @@ def main():
                          'schools': len(cov.get('rows', []))})
             # Candidates and their review (pipeline/decisions/<ST>-<run>.json on this branch's base): a candidate the reviewer
             # rejected is not pending work, and one never decided still is.
-            st, rn = path.split('/')[2], path.split('/')[3]
-            dp = ROOT / 'pipeline/decisions' / f'{st}-{rn}.json'
-            dec = json.loads(dp.read_text()) if dp.exists() else {}
-            ap = {d['candidate_id'] for d in dec.get('approve', [])}; rj = {d['candidate_id'] for d in dec.get('reject', [])}
+            run_path = path.rsplit('/', 1)[0]
+            ap, rj = set(), set()
+            for dec in decisions.get(run_path, []):  # every decision file for this run (addenda included)
+                ap |= {d['candidate_id'] for d in dec.get('approve', [])}; rj |= {d['candidate_id'] for d in dec.get('reject', [])}
             try: cands = json.loads(git('show', f"{b}:{path.rsplit('/', 1)[0]}/candidates.json"))
             except subprocess.CalledProcessError: cands = []
             for c in cands if isinstance(cands, list) else []:
