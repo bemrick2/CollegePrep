@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useApp } from '../../lib/app'
+import { canEditStudentPlans } from '../../lib/permissions'
 import { BASIS_LABEL, meritAwards, type ReferenceScore } from '../../lib/engine/merit'
 import { useMeritReference } from './useMeritReference'
 import { useInterests } from '../majors/useInterests'
@@ -60,10 +61,7 @@ export function CollegePaths() {
   const cmp = useSavedComparison(COMPARE_YEAR)
   // Who may change the exam plan: the student's own login, or a guardian of the household with the set-goals
   // permission (the same rule as the plan and goals). A view-only guardian sees the plan and changes nothing.
-  const canEditExams =
-    !!activeStudent &&
-    ((!!viewer && activeStudent.linked_user_id === viewer.userId) ||
-      !!ctx?.memberships.some((m) => m.household_id === activeStudent.household_id && m.role === 'guardian' && m.can_set_goals))
+  const canEditExams = canEditStudentPlans(activeStudent, viewer?.userId, ctx)
   const plan = useExamPlan(activeStudent?.id, canEditExams)
   const { exam: examFamily, reference: ref } = useMeritReference(activeStudent?.id)
   const interests = useInterests(activeStudent?.id).profile.interests

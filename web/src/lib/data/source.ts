@@ -118,6 +118,8 @@ export interface DataSource {
   savedSchools(householdId: string): Promise<string[]>
   saveSchool(householdId: string, institutionKey: string): Promise<void>
   removeSchool(householdId: string, institutionKey: string): Promise<void>
+  /** Who saved each school (user id), where the source knows; removal follows it (#218 C6). */
+  savedSchoolAdders?(householdId: string): Promise<Record<string, string | null>>
   verifiedSchools(academicYear: string, state?: string): Promise<InstitutionSearchHit[]>
   /** One saved school the family elevates as its primary target (CR-12). False until the backend supports it;
    *  the UI hides the control and shows no primary while false. */
