@@ -136,7 +136,9 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
       return { exam, acceptance: { value: null, evidence: missing(text, t, tableYear(t)) }, fit: 'not_verified', rows: [], hours: { value: null, evidence: missing(text, t) } }
     }
     const a = accepted.get(m)
-    const fit = fitOf(a, hasPlan)
+    // Only a verified table saying no (below the minimum, or not awarded) is "no credit at this score".
+    const fit: CreditFit =
+      m.status === 'qualifies' ? fitOf(a, hasPlan) : m.status === 'below' || m.status === 'not_awarded' ? 'none' : m.status === 'planned' ? 'planned' : m.status === 'no_table' ? 'not_verified' : 'see_table'
     if (a && fit === 'accepted_not_in_plan')
       unknown('credit', `${inst} awards ${a.course} for ${exam.name}, but this major's plan lists other courses. Whether ${a.course} can substitute isn't published in the records on file.`)
     if (a && a.status === 'school_assigns') unknown('credit', `For ${exam.name}, ${inst} lists more than one course (${a.course}); which one a student gets isn't on file.`)

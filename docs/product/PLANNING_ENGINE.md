@@ -85,8 +85,10 @@ interface CreditLine {
   exam: PlannedExam
   acceptance: Line<ExamMatch>           // examCredit
   /** applies: fills a named plan row. accepted_not_in_plan: credit awarded, plan lists other courses.
-   *  elective_only / unknown as degreeCredit reports them. */
-  fit: 'applies' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none'
+   *  partly / elective_only / unknown as degreeCredit reports them. none: the verified table gives no credit at this
+   *  score. not_verified: the table is unverified or missing. planned: no score yet. see_table: criteria the app
+   *  doesn't read. */
+  fit: 'applies' | 'partly' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none' | 'not_verified' | 'planned' | 'see_table'
   rows: { term: number; label: string; item: string; credits: number | string | null }[]
   hours: Line<number>                   // published hours, or missing (UTK rows have none)
 }
