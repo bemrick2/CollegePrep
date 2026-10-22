@@ -13,9 +13,9 @@ requirements belong to Deep Dive (#153).
 | With every field current | 0 (IPEDS prices are 2023-24, net price 2022-23) |
 | Closed, inactive or missing in provisional HD2024 | 19, flagged, never complete or current |
 | Current school-published tuition (2026-27+, verified) | 181 schools, 6.2% of undergraduates |
-| Merit: verified / partially verified records | 73 / 83 schools |
+| Merit: verified / partially verified records | 76 / 83 schools |
 | Merit: no published score formula (stated by the school) | 2 school-wide (UCF, UF); USC stated for international applicants only |
-| Merit: candidate never reviewed / rejected in review | 30 / 69 |
+| Merit: candidate never reviewed / rejected in review | 0 / 96 (all 930 undecided candidates decided in #262) |
 | Merit: official page found, nothing structured | 1,389 |
 | Merit: searched, not found / inaccessible / not researched | 125 / 272 / 76 |
 | Merit records with a numeric ACT/SAT criterion | 34 schools, 1.7% of undergraduates |
@@ -59,7 +59,7 @@ Field-level detail is in `COMPLETENESS.md`. The queue of every school, ranked by
 
 ## Next batches
 
-1. **Merit candidates never reviewed (30 schools).** Review them in their runs' decision files and promote, starting with BYU-Idaho, Minnesota, Broward, Nevada-Reno, MTSU, UNF, FGCU, EKU and Fordham.
+1. **Merit follow-ups from #262.** Readers for the broken grids (BYU-Idaho, UNR, UAH, Alabama, UAB, Oklahoma Christian, UCA, MTSU's Amt/Yr column; MTSU has no award on file). Re-run with the right year: UNF, Mary Washington, Regent, Lynchburg, Alabama Presidential. Existing verified records to correct by a reviewed change: Louisville's three Mentored Scholarships (competitive, application by Dec. 1, typed institutional_merit; SAT/ACT cell stored as 'ACT 1160 / 24 / SAT 1160 / 24'), Christian Brothers amounts, UTK GPA text, Austin Peay and Thomas More criteria. 910 merit_table candidates typed institutional_other are still undecided.
 2. **Merit statements, schools ranked 101–500.** Run `scan_merit_statements.py --limit-schools 500` and review in context. Record `no_published_score_formula`, superscore and test-optional findings.
 3. **Merit grids from "source found" pages (1,389).**
    - Profile which page layouts the `merit_table/v1` reader misses at the 100 largest schools, then build readers for the common ones (tiered ACT/GPA grids, award lists with criteria).

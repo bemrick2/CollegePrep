@@ -45,21 +45,21 @@ Statuses: verified / partially verified (records in the repository); candidate n
 
 | Policy | Verified | Partially verified | No published score formula (stated) | Candidate never reviewed | Approved, not promoted | Candidates rejected in review | Source found | Searched, not found | Inaccessible | Not researched |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Freshman merit scholarships | 73 | 83 | 2 | 30 | 0 | 69 | 1,389 | 125 | 272 | 76 |
+| Freshman merit scholarships | 76 | 83 | 2 | 0 | 0 | 96 | 1,389 | 125 | 272 | 76 |
 | AP/IB/CLEP credit | 40 | 175 | 0 | 25 | 0 | 133 | 579 | 819 | 272 | 76 |
 | Aid appeals | 1 | 1 | 0 | 236 | 0 | 848 | 227 | 458 | 272 | 76 |
 
-- Also pending: schools with records that still have undecided run candidates: merit 19, exam credit 19, aid appeals 2; schools outside the four-year registry with undecided merit candidates (two-year colleges and changed keys; listed in completeness.json): 5. `baseline/policy/pipeline_attempts.json` is a snapshot: re-run `scripts/harvest_research_status.py` after decisions land.
+- Also pending: schools with records that still have undecided run candidates: merit 0, exam credit 19, aid appeals 2; schools outside the four-year registry with undecided merit candidates (two-year colleges and changed keys; listed in completeness.json): 0. `baseline/policy/pipeline_attempts.json` is a snapshot: re-run `scripts/harvest_research_status.py` after decisions land.
 
-- Schools with a merit record that states an ACT/SAT criterion: 34; a GPA criterion: 100.
+- Schools with a merit record that states an ACT/SAT criterion: 34; a GPA criterion: 103.
 - Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; `baseline/policy/merit_research.json`): 23.
-- Merit records on file (verified or partially verified), enrollment-weighted: 6.2%; with an ACT/SAT criterion: 1.7%.
+- Merit records on file (verified or partially verified), enrollment-weighted: 6.5%; with an ACT/SAT criterion: 1.7%.
 
 ## Degree detail (separate measure, Deep Dive)
 
 Separate measure, owned by Deep Dive (docs/coverage/programs/STATUS.json); never a condition of baseline coverage.
 
-- Covered schools: 70; researched: 683.
+- Covered schools: 73; researched: 683.
 
 ## By state
 
