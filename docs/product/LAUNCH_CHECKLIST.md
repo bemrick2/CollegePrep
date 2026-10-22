@@ -100,7 +100,9 @@ Nothing here runs until the owner lifts the hold. **Record the evidence:** for e
 1. **Disposable copy first, never production first.** Supabase branching needs a paid plan, and the project is on Free. So either restore a `pg_dump` of the live project into local PostgreSQL, or upgrade the plan for branching.
 2. On the copy, apply every pending migration in filename order. Then run what the `database` job in `.github/workflows/validate-data.yml` runs, in the same order: every `supabase/tests/*.sql` file it lists, plus `scripts/test_program_import.py | psql`.
 3. On production, explicitly dispatch `deploy-migrations.yml`. Don't assume deferred pushes replay.
-   - It applies in filename order, **except `20261022050000`**, which is applied only in H2, together with its reserve.
+   - `scripts/apply_migrations.py` applies **every** pending file in filename order, each in its own transaction. It has no option to stop early.
+   - So don't dispatch it until the reserve migration from H2 step 2 exists. The applier then runs `20261022050000` and the reserve straight after it in the same run.
+   - The other route is a reviewed `--until <version>` option on the applier (Research), used to stop at `20261022040000`.
    - After each migration, record `select version from supabase_migrations.schema_migrations order by version desc limit 1`.
 4. Then dispatch `deploy-functions.yml`, then `live-import.yml`. Run reconciliation and the idempotence pass (`SUPABASE_PAUSE.md` step 4).
 5. Validate staging Auth, invitations and sandbox billing (`SUPABASE_PAUSE.md` step 6).
@@ -121,7 +123,10 @@ This step is **blocked by A2.** The reserve must come from human-reviewed items,
      and exists (select 1 from practice_attempts a where a.question_id = q.id and a.benchmark_id is null)
    ```
    **Pass:** no rows.
-2. **Apply in one window, migration first.** Apply `20261022050000` and, in the same apply, set `pool = 'assessment'` on the candidates.
+2. **Apply in one window, migration first.**
+   - The reserve is its own reviewed migration (Research), named after `20261022050000`, so the applier runs it in the same dispatch right after the pool column.
+   - It sets `pool = 'assessment'` for the listed candidate ids, and fails if any id isn't published, human-reviewed and unseen in practice.
+   - No such migration exists yet; it can only be written once A2 has reviewed items.
 3. **Check at the database and REST level, before any client changes:**
    - **(a)** `supabase/tests/assessment_pool.sql` passes on the H1 copy with the same migrations, and `scripts/local/live_stack.sh test` passes on main.
    - **(b)** The reserve is planned per exam version and difficulty:
@@ -135,7 +140,9 @@ This step is **blocked by A2.** The reserve must come from human-reviewed items,
    - **(c)** Use a real student token, for a student with no live check and no reserved attempts:
      - a `practice_questions?pool=eq.assessment` read returns no rows;
      - `start_benchmark` without `p_exam_version` returns 22023.
-4. **Deploy the client in the same window.** Run `scripts/deploy/netlify_export.sh staging origin/main`, then `scripts/deploy/verify_deploy.sh`.
+4. **Deploy the client in the same window.**
+   - Run `scripts/deploy/netlify_export.sh staging origin/main <outdir>`, then upload `<outdir>` to the canonical staging site as `DEPLOYING.md` describes.
+   - Then run `scripts/deploy/verify_deploy.sh https://college-optimizer-staging.netlify.app <merge sha of #248>`.
    - **Don't redeploy staging from main before step 2.** Main's client selects `pool`, so against today's hosted schema every practice read fails with 42703.
 5. Run H3 step 5.
 6. **Before a reserve larger than one check's worth goes live:** resolve #263.
@@ -188,7 +195,7 @@ This step is **blocked by A2.** The reserve must come from human-reviewed items,
       - an attempt on a reserved question with no check (`p_benchmark` null).
    5. Through the REST API with the parent's and guardian (b)'s tokens: `benchmark_questions` and `start_practice_attempt` on the student's open check.
    6. Complete or expire the third check. Then read `practice_questions?pool=eq.assessment` with the student's token.
-   7. Leave a fourth check open past 4 hours, or use the H1 copy and set its `started_at` back 5 hours. Then answer in the open tab.
+   7. Leave a fourth check open past 4 hours, or, as the service role on staging, set that check's `practice_benchmarks.started_at` back 5 hours. Then answer in the open tab.
 
    **Pass:**
    - sessions contain no reserved item (an SQL join of `practice_session_items` to `practice_questions`);
@@ -244,7 +251,7 @@ Local tests use a fake push service, fake FCM and fake mail. **They are not laun
 **Prerequisites:**
 1. The CR-27 and CR-22 migrations are applied. Today they exist only as reference SQL in `scripts/local/proposals/`; Research turns them into migrations (#218 A1–A3).
 2. `send-practice-reminders`, `practice-reminder-action` and `send-weekly-digest` are deployed, each scheduled every 15 minutes (reminders, and the digest in `reminders_off` mode).
-3. These secrets are set, by name only: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_ACTION_SECRET`, `REMINDER_CRON_SECRET`, and `FCM_SERVICE_ACCOUNT` for M2.
+3. These secrets are set, by name only: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_ACTION_SECRET`, `REMINDER_CRON_SECRET`, `APP_ORIGINS`, and `FCM_SERVICE_ACCOUNT` for M2.
 4. A canonical staging build with `VITE_VAPID_PUBLIC_KEY` and `VITE_PRACTICE_REMINDERS=true`. This flag is on for staging only; production waits for H4.
 
 **Devices:**
