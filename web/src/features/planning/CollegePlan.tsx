@@ -30,6 +30,7 @@ const FIT: Record<CreditFit, { tone: 'go' | 'warn' | 'neutral'; label: string }>
   elective_only: { tone: 'neutral', label: 'Elective credit only' },
   unknown: { tone: 'neutral', label: 'Credit; where it counts isn’t on file' },
   none: { tone: 'neutral', label: 'No credit at this score' },
+  not_verified: { tone: 'neutral', label: 'Not verified yet' },
 }
 const STATUS: Record<Roadmap['status'], { tone: 'go' | 'warn' | 'bad'; label: string; text: string }> = {
   ready: { tone: 'go', label: 'Plan, credit tables and cost on file', text: 'The degree plan, this school’s exam-credit tables and its cost are verified records. Anything else is named below.' },

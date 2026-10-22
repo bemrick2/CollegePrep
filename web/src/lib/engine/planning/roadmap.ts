@@ -133,7 +133,7 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     if (!m) {
       const text = t ? `${inst}'s ${label} credit table is on file but not yet verified${notVerifiedWhy(t)}.` : `No ${label} credit table is on file for ${inst}.`
       unknown('credit', text)
-      return { exam, acceptance: { value: null, evidence: missing(text, t, tableYear(t)) }, fit: 'none', rows: [], hours: { value: null, evidence: missing(text, t) } }
+      return { exam, acceptance: { value: null, evidence: missing(text, t, tableYear(t)) }, fit: 'not_verified', rows: [], hours: { value: null, evidence: missing(text, t) } }
     }
     const a = accepted.get(m)
     const fit = fitOf(a, hasPlan)

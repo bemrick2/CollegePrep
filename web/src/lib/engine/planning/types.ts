@@ -49,7 +49,8 @@ export interface Line<T> {
   evidence: Evidence
 }
 
-export type CreditFit = 'applies' | 'partly' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none'
+/** not_verified: the school's table is on file but not verified, or isn't on file; nothing about this score is claimed. */
+export type CreditFit = 'applies' | 'partly' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none' | 'not_verified'
 
 export interface PlanRow {
   term: number
