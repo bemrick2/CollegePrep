@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { AwardListing, CostBasis, CostComponents, CreditLever, InstitutionComparison, ProjectionRow } from '../../lib/data/types'
 import { fullProgram, potentialSaving, termsSaving, type FamilyAid, type FullProgram, type PotentialSaving } from '../../lib/engine/costProjection'
+import { earlyCompletion, withheldReason } from '../../lib/engine/earlyCompletion'
 import { degreeCredit, type DegreeCreditResult, type ExamApplicability, type PlanTerm } from '../../lib/engine/degreeCredit'
 import { summarizeSchool, type CreditPolicy } from '../../lib/engine/examCredit'
 import { labelOf, type SavedInterest } from '../../lib/engine/interests'
@@ -437,9 +438,13 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
   const exam = row.levers!.find((l) => l.kind === 'exam_credits')!
   const prior = row.levers!.find((l) => l.kind === 'prior_credits')!
   const tiers = credit.tiers
-  const all = potentialSaving(row, aid)
-  const narrow = planOnly ? potentialSaving(planOnly, aid) : tiers ? all : null
-  const shown = tiers?.coveredTerms.length ? termsSaving(row, tiers.coveredTerms.length, aid) : null
+  // Time or money saved needs records showing the student could finish sooner, not just credit (earlyCompletion.ts).
+  // None are on file, so every saving below stays withheld; the figures are computed only if that evidence exists.
+  const covered = tiers?.coveredTerms.length ?? 0
+  const early = earlyCompletion(covered)
+  const all = early.supported ? potentialSaving(row, aid) : null
+  const narrow = early.supported ? (planOnly ? potentialSaving(planOnly, aid) : tiers ? all : null) : null
+  const shown = early.supported ? termsSaving(row, covered, aid) : null
   const anyCredit = exam.requested_credits > 0 || prior.requested_credits > 0 || examSummary.courses > 0
   return (
     <section className="border-t border-line px-5 py-4" aria-label={`${name}: credit the student brings`}>
@@ -516,14 +521,22 @@ function CreditSteps({ row, planOnly, credit, examSummary, aid, name }: { row: P
             )}
           </li>
           <li className="rounded-xl bg-surface-2 px-3 py-3">
-            <h4 className="font-semibold text-ink">3. Removes a term</h4>
+            <h4 className="font-semibold text-ink">3. Covers a whole term</h4>
             <p className="mt-1 text-ink-2">
               {tiers?.coveredTerms.length
-                ? `Every course in ${tiers.coveredTerms.map((t) => t.label).join(' and ')} of the published plan is covered. Course order and scheduling can still change this.`
-                : 'Not shown. A term is removed only if the remaining courses can be taken sooner, which depends on course order and the school’s schedule.'}
+                ? `Every course in ${tiers.coveredTerms.map((t) => t.label).join(' and ')} of the published plan is covered. That is coverage, not a shorter degree.`
+                : 'No whole regular semester of the published plan is covered.'}
             </p>
           </li>
         </ol>
+      )}
+
+      {anyCredit && !(all || narrow || shown) && (
+        <div className="mt-3 rounded-xl border border-line px-3 py-3 text-sm">
+          <h4 className="font-semibold text-ink">Time and money saved: not shown</h4>
+          <p className="mt-1 text-ink-2">{withheldReason(early, covered)}</p>
+          <p className="mt-1 text-xs text-ink-3">Ask the school’s registrar and an academic advisor whether this credit lets the student finish sooner.</p>
+        </div>
       )}
 
       {(all || narrow || shown) && (

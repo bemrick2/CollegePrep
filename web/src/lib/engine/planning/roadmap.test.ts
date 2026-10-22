@@ -53,19 +53,34 @@ const profile = (exams: [string, number][]): PlanningProfile => ({
 const projection = { institution_key: 'x', status: 'ok', years: 4, cost: { annual: 30000 } } as unknown as ProjectionRow
 
 describe('planning roadmap (#194)', () => {
-  it('a whole covered term gives an estimated timeline and a potential saving, net of grants entered', () => {
+  it('a whole covered term is credit coverage only: no time or money saving without records that the student could finish sooner', () => {
     const r = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, aid: { grantsPerYear: 4000, loansPerYear: null } })
     expect(r.status).toBe('ready')
     expect(r.plan.value!.terms.map((t) => t.covered)).toEqual([true, false])
-    expect(r.timeline).toMatchObject({ value: { termsCovered: 1, termsInPlan: 2 }, evidence: { state: 'estimate' } })
-    expect(r.savings.value).toMatchObject({ terms: 1, gross: 15000, lostGrants: 2000, net: 13000 })
-    expect(r.savings.evidence.method).toMatch(/Potential only/)
+    expect(r.coverage).toMatchObject({ value: { termsCovered: 1, termsInPlan: 2 }, evidence: { state: 'estimate' } })
+    expect(r.coverage.evidence.method).toMatch(/not a shorter degree/)
+    // Withheld: prerequisites, availability, sequencing and remaining requirements aren't shown by any record.
+    expect(r.earlyCompletion).toEqual({ supported: false, missing: ['prerequisites', 'course_availability', 'sequencing', 'remaining_requirements'] })
+    expect(r.savings.value).toBeNull()
+    expect(r.savings.evidence.missing).toMatch(/prerequisites.*offered.*order.*graduation requirement/s)
+  })
+
+  it('a saving appears only when every completion condition is shown by a verified record', () => {
+    const ok = { verified: true as const, sourceUrl: 'https://example.edu/catalog' }
+    const partial = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok } })
+    expect(partial.savings.value).toBeNull()
+    expect(partial.earlyCompletion.missing).toEqual(['remaining_requirements'])
+    const full = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, aid: { grantsPerYear: 4000, loansPerYear: null }, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok, remaining_requirements: ok } })
+    expect(full.savings.value).toMatchObject({ terms: 1, gross: 15000, lostGrants: 2000, net: 13000 })
+    // Evidence without a source is not evidence.
+    const noSource = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Microeconomics', 4], ['AP English Language', 4]]), projection, completionEvidence: { prerequisites: ok, course_availability: ok, sequencing: ok, remaining_requirements: { verified: true, sourceUrl: '' } } })
+    expect(noSource.savings.value).toBeNull()
   })
 
   it('elective-only and below-minimum credit never fill a row', () => {
     const r = buildRoadmap({ comparison: school(), programKey: 'biz', profile: profile([['AP Art History', 5], ['AP English Language', 3]]), projection })
     expect(r.credit.map((c) => c.fit)).toEqual(['elective_only', 'none'])
-    expect(r.timeline.value).toBeNull()
+    expect(r.coverage.value).toBeNull()
     expect(r.savings.value).toBeNull()
   })
 

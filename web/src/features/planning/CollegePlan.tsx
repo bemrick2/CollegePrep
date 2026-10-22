@@ -259,19 +259,23 @@ function RoadmapView({
         )}
       </Section>
 
-      <Section id="time-heading" title="Time and potential savings">
-        {r.timeline.value ? (
-          <p className="text-sm text-ink-2">
-            Credit covers {r.timeline.value.termsCovered} of {r.timeline.value.termsInPlan} plan terms. {r.timeline.evidence.method}
+      <Section id="time-heading" title="Credit coverage, time and money">
+        <h3 className="text-sm font-bold text-ink">Credit coverage</h3>
+        {r.coverage.value ? (
+          <p className="mt-1 text-sm text-ink-2">
+            Credit covers every course in {r.coverage.value.termsCovered} of {r.coverage.value.termsInPlan} plan terms. {r.coverage.evidence.method}
           </p>
         ) : (
-          <Missing e={r.timeline.evidence} />
+          <Missing e={r.coverage.evidence} />
         )}
+        <h3 className="mt-4 text-sm font-bold text-ink">Time and money saved</h3>
         {r.savings.value ? (
-          <p className="mt-2 text-sm text-ink-2">
+          <p className="mt-1 text-sm text-ink-2">
             <span className="font-semibold text-ink">Potential saving {usd(r.savings.value.net)}</span>. {r.savings.evidence.method}
           </p>
-        ) : null}
+        ) : (
+          <p className="mt-1 text-sm text-ink-2">Not shown. {r.savings.evidence.missing}</p>
+        )}
       </Section>
 
       <Section id="de-heading" title="Dual enrollment">

@@ -55,7 +55,8 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.getByText('$23,736')).toBeInTheDocument()
     expect(screen.getByText(/In-state price shown: home state not entered\. Published for 2026-27\./)).toBeInTheDocument()
     // Nothing is claimed about time or money saved.
-    expect(screen.getByText('No whole plan term is covered by this credit, so no shorter timeline is shown.')).toBeInTheDocument()
+    expect(screen.getByText('No whole plan term is covered by this credit.')).toBeInTheDocument()
+    expect(screen.getByText(/^Not shown\. No whole plan term is covered, so no time or money saved is shown\./)).toBeInTheDocument()
     expect(screen.queryByText(/Potential saving/)).not.toBeInTheDocument()
   }, 30_000)
 
