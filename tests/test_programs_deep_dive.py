@@ -1465,6 +1465,7 @@ class PositionalPlanGridTests(unittest.TestCase):  # SHSU 2026-27 '#plangrid' do
         text = '| Total Hours: 120\n1\nOne.\n9\nNine.\n9\nNine again.\nCourse List'
         self.assertEqual(CL.page_footnotes(text), {'1': 'One.', '9': None})
         self.assertEqual(CL.page_footnotes('| Total Hours: 120\n1\nOne\ncontinued here'), {'1': None})
+        self.assertEqual(CL.page_footnotes('| Total Hours: 120\n1\nOne.\n7\nSeven.\nNotes\nStudents must ...'), {'1': 'One.', '7': 'Seven.'})  # SHSU
         self.assertIn('footnote_definition_unclear', CL.parse_plangrid(self.grid(), {'1': None})[2])
         # the printed total keeps its label; the layout document's own footnote list comes first
         e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
@@ -1478,6 +1479,9 @@ class PositionalPlanGridTests(unittest.TestCase):  # SHSU 2026-27 '#plangrid' do
         [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, {'grids': [g]}, '2026-2027', 'bsee', '| Total Hours: 10\n1\nOne.\nCourse List')
         self.assertIn('plan_heading_label', c['issues'])
         self.assertTrue(CL.GRID_CODE.match('AG_S_TCH 1020') and CL.GRID_CODE.match('ENGLSH 1000'))
+        two = {'grids': [dict(self.grid(), heading='Semester Plan - Electrical Engineering'), dict(self.grid(), heading='Semester Plan - Dual Degree Electrical and Computer Engineering')]}
+        out = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, two, '2026-2027', 'bsee', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertEqual([c['issues'] for c in out], [[], ['plan_heading_label']])  # labelled: the dual degree plan is still held
 
     def test_header_cells_keep_the_header_reading(self):  # UAF grids name their column in each cell's header
         from programs import courseleaf as CL

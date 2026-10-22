@@ -801,7 +801,7 @@ def page_footnotes(text):
         nxt = lines[i + 2] if i + 2 < len(lines) else ''
         # a number printed twice (SHSU BSN '9'), or a definition whose next line neither starts another footnote nor the
         # 'Course List' section (it may continue), is not read: a plan that uses it is held
-        whole = nxt == '' or re.fullmatch(r'\d{1,2}', nxt) or nxt.startswith('Course List')
+        whole = nxt == '' or re.fullmatch(r'\d{1,2}', nxt) or nxt.startswith('Course List') or re.fullmatch(r'Notes:?', nxt)  # SHSU ends the list at 'Notes'
         defs[lines[i]] = None if (lines[i] in defs or not whole) else lines[i + 1]; i += 2
     return defs
 
@@ -828,8 +828,9 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key, page_te
         if len(grids_) > 1 and not labelled: issues.add('multiple_plan_grids')
         # an unlabelled grid headed for a track, concentration, dual degree or double major ('Semester Plan - Dual Degree
         # Electrical Engineering and Computer Engineering', Missouri) is that route's plan, not the program's: held until reviewed
-        if not labelled and re.search(r'\b(dual degree|double major|concentration|track|emphasis|option)\b', t.get('heading') or '', re.I):
-            issues.add('plan_heading_label')
+        heading = t.get('heading') or ''
+        if re.search(r'\b(dual degree|double major)\b', heading, re.I) or (not labelled and re.search(r'\b(concentration|track|emphasis|option)\b', heading, re.I)):
+            issues.add('plan_heading_label')  # another program's plan is held even when labelled; a labelled track plan is keyed to its track
         key = 'roadmap' if len(grids_) == 1 else (road_keys[i - 1] if labelled else f'roadmap-{i}')
         used = sorted({n for term in terms for it in term['items'] for x in [it, *it.get('options', [])] for n in x.get('footnotes', [])}, key=lambda n: (len(n), n))
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
