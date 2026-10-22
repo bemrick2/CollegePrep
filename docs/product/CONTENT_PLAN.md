@@ -189,7 +189,7 @@ The human review runs in the repo and doesn't need the database:
   - `status.csv`, the tracking sheet;
   - `solves-template.csv`.
 - **Import:** `npx vite-node scripts/local/recordEditorial.ts <filled.csv>` imports sign-offs. A row whose hash isn't the current content is refused.
-- **Serving gate:** the ledger doesn't change what's served. Making the serving gate require `humanApproved` is the owner's call (launch checklist A2). The database approval (`approve_practice_question`) is recorded from the ledger once Supabase is back.
+- **Serving gate:** the ledger doesn't change what's served. For **generated** items the database now requires a recorded `human:` review before serving (CR-24, `20261022030000`, unapplied on hosted); for authored items, requiring human approval stays the owner's call (launch checklist A2). The database approval (`approve_practice_question`) is recorded from the ledger once Supabase is back.
 - **Existing items:** the 58 AI-reviewed items enter at stage 3. They are not grandfathered.
 
 ### Gaps this workflow exposes
