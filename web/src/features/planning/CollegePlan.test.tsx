@@ -47,7 +47,7 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.getByText(/120 credit hours in total, as printed/)).toBeInTheDocument()
     // Exam credit: UTC's AP table isn't verified (no year printed), so no credit is claimed.
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
-    expect(within(credit).getAllByText('Not on file')).toHaveLength(2)
+    expect(within(credit).getAllByText('On file, not yet verified')).toHaveLength(2)
     expect(within(credit).getAllByText(/credit table is on file but not yet verified: the values were checked, but the page prints no academic year/).length).toBeGreaterThan(0)
     // Cost by living arrangement, as published.
     expect(screen.getByText('$30,340')).toBeInTheDocument()
@@ -59,15 +59,19 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.queryByText(/Potential saving/)).not.toBeInTheDocument()
   }, 30_000)
 
-  it('UTK: credit accepted from its verified table, but no business plan on file, so where it counts is unknown', async () => {
+  it('UTK: credit tables on file but their academic year is unconfirmed, so no credit is claimed and none is denied', async () => {
     const user = userEvent.setup()
     renderPlan(await family())
     await screen.findByText('Partly on file', {}, { timeout: 10000 })
     await user.selectOptions(screen.getByLabelText('School'), 'utk')
     expect(await screen.findByText('No degree plan on file')).toBeInTheDocument()
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
-    expect(within(credit).getAllByText('Credit; where it counts isn’t on file').length).toBeGreaterThan(0)
-    expect(within(credit).getAllByText('Credit hours not listed in the school’s table.').length).toBeGreaterThan(0)
+    expect(within(credit).getAllByText('On file, not yet verified').length).toBeGreaterThan(0)
+    expect(within(credit).getAllByText(/on file but not yet verified: the values were checked, but the page prints no academic year/).length).toBeGreaterThan(0)
+    // Owner, 2026-10-22: don't imply the credits were rejected or discontinued.
+    expect(within(credit).queryByText('No credit at this score')).not.toBeInTheDocument()
+    expect(within(credit).queryByText('Not on file')).not.toBeInTheDocument()
+    expect(within(credit).queryByText(/reject|discontinu/i)).not.toBeInTheDocument()
   }, 30_000)
 
   it('with no exams entered, unverified credit tables are still named and the page is not "ready"', async () => {

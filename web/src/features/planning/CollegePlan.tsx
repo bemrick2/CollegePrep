@@ -376,7 +376,7 @@ function CreditRow({ c }: { c: CreditLine }) {
           {c.exam.name}
           {c.exam.score != null ? `, score ${c.exam.score}` : ', planned'}
         </span>
-        {f ? <Pill tone={f.tone}>{f.label}</Pill> : <Pill tone="neutral">Not on file</Pill>}
+        {f ? <Pill tone={f.tone}>{f.label}</Pill> : <Pill tone="neutral">{c.acceptance.evidence.verificationStatus ? 'On file, not yet verified' : 'Not on file'}</Pill>}
       </div>
       {c.acceptance.value ? (
         <>
