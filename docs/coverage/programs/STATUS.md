@@ -1372,7 +1372,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of Nebraska-Lincoln | covered | 116 | 124 | 110 | 0 | met | met | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, requirement_groups:layout_not_readable |
+| University of Nebraska-Lincoln | covered | 116 | 124 | 110 | 122 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, requirement_groups:layout_not_readable |
 | University of Nebraska at Omaha | covered | 84 | 87 | 60 | 4 | met | met | met | queued | institution:not_yet_researched |
 | Creighton University | partial | 26 | – | 0 | 36 | queued | queued | met | queued | institution:not_yet_researched |
 | University of Nebraska at Kearney | covered | 77 | 79 | 0 | 10 | met | queued | met | queued | institution:not_yet_researched |
@@ -2162,7 +2162,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | The University of Texas at Dallas | partial | 64 | 69 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:layout_not_readable, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | South Texas College | partial | 4 | – | 0 | 5 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | The University of Texas at El Paso | covered | 83 | 87 | 0 | 211 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
-| Sam Houston State University | partial | 124 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
+| Sam Houston State University | partial | 124 | – | 85 | 174 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
 | San Antonio College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Baylor University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tyler Junior College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
