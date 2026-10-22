@@ -57,7 +57,7 @@ const ORIGIN_LICENSES: Record<Origin, RegExp> = {
   licensed: /^licensed:/,
 }
 /** Official ACT or College Board material: names, products and domains, anywhere in the item or its source. */
-const OFFICIAL = /\b(act,? inc|act\.org|college\s*board|collegeboard(\.org)?|satsuite|bluebook|official\s+(sat|act)|khan academy official sat)\b/i
+const OFFICIAL = /\b(act,? inc|act\.org|actstudent(\.org)?|act academy|college\s*board|collegeboard(\.org)?|satsuite|bluebook|official\s+(sat|act)|khan academy official sat)\b/i
 
 export interface ImportProblem {
   import_id: string
@@ -70,7 +70,7 @@ const ORIGINS: Origin[] = ['human_original', 'ai_drafted', 'adapted_public_domai
 const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length
 /** Stems compared after case, punctuation and spacing are removed, to catch exact and trivially edited duplicates. */
 /** Case, spacing and ordinary punctuation are ignored; math symbols (√ ² π −) are kept, so they still distinguish items. */
-export const stemKey = (s: string) => s.normalize('NFKC').toLowerCase().replace(/[\s.,;:!?'"“”‘’()\[\]-]+/g, ' ').trim()
+export const stemKey = (s: string) => s.normalize('NFKC').replace(/\u2212/g, '-').toLowerCase().replace(/[\s.,;:!?'"“”‘’()\[\]-]+/g, ' ').trim()
 /** Two items are the same question when stem, passage and choices all match (many English items share a stem). */
 export const questionKey = (q: Partial<Pick<FixtureQuestion, 'stem' | 'passage' | 'choices'>>) =>
   stemKey([q.stem ?? '', q.passage ?? '', ...(q.choices ?? []).map((c) => (typeof c === 'string' ? c : c.text))].join(' '))

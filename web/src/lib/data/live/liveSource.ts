@@ -553,10 +553,11 @@ export class LiveSource implements DataSource {
     // The server's pool for this session: published, served, this exam version, with an expected time.
     let poolQuery = this.sb.from('practice_questions').select(QUESTION_COLUMNS).eq('status', 'published').eq('exam_versions.exam_family', examFamily).not('expected_time_seconds', 'is', null)
     if (version) poolQuery = poolQuery.eq('exam_version_id', version)
-    const [picked, poolRows, mine] = await Promise.all([
+    const [picked, poolRows, mine, checkList] = await Promise.all([
       this.sb.from('practice_session_items').select('position, question_id, reason').eq('session_id', id).order('position'),
       poolQuery,
       this.sb.from('practice_attempts').select('question_id, presented_at').eq('student_id', studentId),
+      this.publishedQuestions(examFamily),
     ])
     if (picked.error) fail(picked.error)
     if (poolRows.error) fail(poolRows.error)
@@ -575,7 +576,7 @@ export class LiveSource implements DataSource {
     }
     // The reserve is computed from the same question list progress checks use (publishedQuestions), so practice and
     // checks agree on it exactly.
-    const held = practiceExclusions(examFamily, await this.publishedQuestions(examFamily))
+    const held = practiceExclusions(examFamily, checkList)
     const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
     const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
     const budget = targetMinutes * 60
