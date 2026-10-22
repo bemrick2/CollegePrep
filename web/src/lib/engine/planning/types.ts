@@ -37,6 +37,8 @@ export interface Evidence {
   lastVerifiedAt: string | null
   /** The year the source publishes for (catalog_year or academic_year), never the student's entry year. */
   publishedYear: string | null
+  /** The record's academic_year_basis, e.g. 'source_unlabeled' when the source prints no academic year. */
+  academicYearBasis?: string | null
   method?: string
   missing?: string
 }

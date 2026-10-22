@@ -115,14 +115,19 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.options.every((o) => o.rows.length > 0 && o.evidence.state === 'verified')).toBe(true)
   })
 
-  it('UTK: credit tables and cost verified, but no business plan on file, so the roadmap is blocked; hours missing on every row', () => {
+  it('UTK: credit tables partially verified (academic year unconfirmed, owner-approved 2026-10-22) and no business plan on file, so the roadmap is blocked', () => {
     const r = buildRoadmap({ comparison: comparison('utk', '221759'), programKey: 'management-bsba', profile: persona })
     expect(r.status).toBe('blocked')
     expect(r.plan.value).toBeNull()
     const micro = r.credit.find((x) => x.exam.name === 'AP Microeconomics')!
-    expect(micro.acceptance.evidence.state).toBe('verified')
-    expect(micro.acceptance.value!.status).toBe('qualifies')
-    expect(micro.fit).toBe('unknown')
+    // The table is kept and shown as on file, but not as a fact: its academic year is unconfirmed. Not rejected.
+    expect(micro.acceptance.value).toBeNull()
+    expect(micro.acceptance.evidence).toMatchObject({ state: 'missing', verificationStatus: 'partially_verified' })
+    const why = r.unknowns.map((u) => u.text).find((t) => /AP credit table/.test(t))!
+    expect(why).toMatch(/on file but not yet verified: the values were checked, but the page prints no academic year/)
+    expect(why).not.toMatch(/reject|discontinu|no longer/i)
+    // No fit label is drawn without an acceptance value (CollegePlan CreditRow), so "No credit at this score" never shows here.
+    expect(micro.fit).toBe('none')
     expect(micro.hours.value).toBeNull()
     expect(r.cost.value?.length).toBeGreaterThan(0)
     expect(r.options).toEqual([])
