@@ -24863,6 +24863,88 @@
  "38b5ab9728b8b708": {
   "decision": {
    "candidate_id": "38b5ab9728b8b708",
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 11 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 9 -> 11; new blocks are the footnoted headers 'Select one of the following: 1'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] If interested in taking CHEM 3301, CHEM 3302, or CHEM 3398, you should plan on taking a ca; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#38b5ab9728b8b708) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:01+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 12:10:06 GMT",
+   "page_file": "d975fdae7c34ca870bbb.json.gz",
+   "requested_url": "https://bulletin.temple.edu/undergraduate/science-technology/forensic-chemistry-bs/",
+   "sha256": "d975fdae7c34ca870bbb9328fccfae8861e1bf2c6516f417d4dce86ae731ed18",
+   "title": "Forensic Chemistry BS | Temple University Bulletin",
+   "url": "https://bulletin.temple.edu/undergraduate/science-technology/forensic-chemistry-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "38b5ab9728b8b708~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "38b5ab9728b8b708",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 9 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 10 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 123 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
    "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#38b5ab9728b8b708) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
@@ -24925,88 +25007,6 @@
    {
     "field": "term",
     "snippet": "Spring: 5 items, 15 credits",
-    "value": "Spring"
-   }
-  ],
-  "extractor": "courseleaf_plan/v3",
-  "issues": [],
-  "source": {
-   "fetched_at": "2026-10-07T15:23:01+00:00",
-   "kind": "html",
-   "last_modified": "Wed, 30 Sep 2026 12:10:06 GMT",
-   "page_file": "d975fdae7c34ca870bbb.json.gz",
-   "requested_url": "https://bulletin.temple.edu/undergraduate/science-technology/forensic-chemistry-bs/",
-   "sha256": "d975fdae7c34ca870bbb9328fccfae8861e1bf2c6516f417d4dce86ae731ed18",
-   "title": "Forensic Chemistry BS | Temple University Bulletin",
-   "url": "https://bulletin.temple.edu/undergraduate/science-technology/forensic-chemistry-bs/"
-  },
-  "year_basis": "labeled_in_source"
- },
- "38b5ab9728b8b708~superseded-2026-10-22": {
-  "decision": {
-   "candidate_id": "38b5ab9728b8b708",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#a4540de270ada35f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
-  },
-  "evidence": [
-   {
-    "field": "term",
-    "snippet": "Year 1: 0 items, ? credits",
-    "value": "Year 1"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 7 items, 16 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 8 items, 15 credits",
-    "value": "Spring"
-   },
-   {
-    "field": "term",
-    "snippet": "Year 2: 0 items, ? credits",
-    "value": "Year 2"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 14 items, 15 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 13 items, 16 credits",
-    "value": "Spring"
-   },
-   {
-    "field": "term",
-    "snippet": "Year 3: 0 items, ? credits",
-    "value": "Year 3"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 6 items, 15 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 9 items, 16 credits",
-    "value": "Spring"
-   },
-   {
-    "field": "term",
-    "snippet": "Year 4: 0 items, ? credits",
-    "value": "Year 4"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 5 items, 15 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 7 items, 15 credits",
     "value": "Spring"
    }
   ],
@@ -26069,6 +26069,88 @@
  "3b6ca3cda224a0a9": {
   "decision": {
    "candidate_id": "3b6ca3cda224a0a9",
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 12 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 11 -> 12; new blocks are the footnoted headers 'Select one of the following: 1'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] This course may be selected from one of four Research Methods courses in Biology, Chemistr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#3b6ca3cda224a0a9) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17-18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17-14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15-18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 9-7 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:23:02+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 12:10:04 GMT",
+   "page_file": "2ab1a39c4b26f638614e.json.gz",
+   "requested_url": "https://bulletin.temple.edu/undergraduate/science-technology/general-science-mathematics-with-teaching-bs/",
+   "sha256": "2ab1a39c4b26f638614eeac7825bca562310d2a68376aeb1b2c37fc81e941cd5",
+   "title": "General Science and Mathematics with Teaching BS | Temple University Bulletin",
+   "url": "https://bulletin.temple.edu/undergraduate/science-technology/general-science-mathematics-with-teaching-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3b6ca3cda224a0a9~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "3b6ca3cda224a0a9",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 11 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 6 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 124 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
    "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#3b6ca3cda224a0a9) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
@@ -26116,88 +26198,6 @@
    {
     "field": "term",
     "snippet": "Spring: 10 items, 17 credits",
-    "value": "Spring"
-   },
-   {
-    "field": "term",
-    "snippet": "Year 4: 0 items, ? credits",
-    "value": "Year 4"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 5 items, 15-18 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 3 items, 9-7 credits",
-    "value": "Spring"
-   }
-  ],
-  "extractor": "courseleaf_plan/v3",
-  "issues": [],
-  "source": {
-   "fetched_at": "2026-10-07T15:23:02+00:00",
-   "kind": "html",
-   "last_modified": "Wed, 30 Sep 2026 12:10:04 GMT",
-   "page_file": "2ab1a39c4b26f638614e.json.gz",
-   "requested_url": "https://bulletin.temple.edu/undergraduate/science-technology/general-science-mathematics-with-teaching-bs/",
-   "sha256": "2ab1a39c4b26f638614eeac7825bca562310d2a68376aeb1b2c37fc81e941cd5",
-   "title": "General Science and Mathematics with Teaching BS | Temple University Bulletin",
-   "url": "https://bulletin.temple.edu/undergraduate/science-technology/general-science-mathematics-with-teaching-bs/"
-  },
-  "year_basis": "labeled_in_source"
- },
- "3b6ca3cda224a0a9~superseded-2026-10-22": {
-  "decision": {
-   "candidate_id": "3b6ca3cda224a0a9",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#33b2a64a850c4d25) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
-  },
-  "evidence": [
-   {
-    "field": "term",
-    "snippet": "Year 1: 0 items, ? credits",
-    "value": "Year 1"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 9 items, 17 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 10 items, 16 credits",
-    "value": "Spring"
-   },
-   {
-    "field": "term",
-    "snippet": "Year 2: 0 items, ? credits",
-    "value": "Year 2"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 9 items, 16-17 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 8 items, 17-18 credits",
-    "value": "Spring"
-   },
-   {
-    "field": "term",
-    "snippet": "Year 3: 0 items, ? credits",
-    "value": "Year 3"
-   },
-   {
-    "field": "term",
-    "snippet": "Fall: 12 items, 17-14 credits",
-    "value": "Fall"
-   },
-   {
-    "field": "term",
-    "snippet": "Spring: 15 items, 17 credits",
     "value": "Spring"
    },
    {
@@ -27035,8 +27035,8 @@
  "3d74a89b7d30867a": {
   "decision": {
    "candidate_id": "3d74a89b7d30867a",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 121-125 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#3d74a89b7d30867a) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 3 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 1 -> 3; new blocks are the footnoted headers 'Select one of the following: 3'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [3] Two Recreational Therapy Elective courses (6 credits) are required for graduation.; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#3d74a89b7d30867a) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
   },
   "evidence": [
    {
@@ -27076,12 +27076,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 7 items, 15 credits",
+    "snippet": "Fall: 5 items, 15 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 7 items, 15 credits",
+    "snippet": "Spring: 5 items, 15 credits",
     "value": "Spring"
    },
    {
@@ -27117,8 +27117,8 @@
  "3d74a89b7d30867a~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "3d74a89b7d30867a",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#5e69b9a5c76418b7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 121-125 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#3d74a89b7d30867a) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
   "evidence": [
    {
@@ -27148,7 +27148,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 8 items, 15-17 credits",
+    "snippet": "Spring: 5 items, 15-17 credits",
     "value": "Spring"
    },
    {
@@ -33407,6 +33407,88 @@
   "year_basis": "labeled_in_source"
  },
  "4aebcd54d96a9ea8": {
+  "decision": {
+   "candidate_id": "4aebcd54d96a9ea8",
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [2] Please note that some electives are only offered once a year depending on demand for the c; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#4aebcd54d96a9ea8) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:21:06+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 12:07:04 GMT",
+   "page_file": "8c3e129dce57b3d02b78.json.gz",
+   "requested_url": "https://bulletin.temple.edu/undergraduate/fox-business-management/legal-studies-bba/",
+   "sha256": "8c3e129dce57b3d02b78459c5175ae4e881c10b434876cb7e6e0279b3bd4526c",
+   "title": "Legal Studies BBA | Temple University Bulletin",
+   "url": "https://bulletin.temple.edu/undergraduate/fox-business-management/legal-studies-bba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4aebcd54d96a9ea8~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "4aebcd54d96a9ea8",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -52357,8 +52439,8 @@
  "741139455e6d033d": {
   "decision": {
    "candidate_id": "741139455e6d033d",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours** 121-122 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#741139455e6d033d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 4 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 2 -> 4; new blocks are the footnoted headers 'Select one of the following: 3'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [3] Must earn a grade of \"C\" or better; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#741139455e6d033d) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
   },
   "evidence": [
    {
@@ -52383,12 +52465,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 5 items, 16 credits",
+    "snippet": "Fall: 3 items, 16 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 5 items, 16 credits",
+    "snippet": "Spring: 3 items, 16 credits",
     "value": "Spring"
    },
    {
@@ -52439,8 +52521,8 @@
  "741139455e6d033d~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "741139455e6d033d",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#6e1419c78f7c3468) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours** 121-122 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#741139455e6d033d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
   "evidence": [
    {
@@ -52450,12 +52532,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 7 items, 17 credits",
+    "snippet": "Fall: 5 items, 17 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 6 items, 16 credits",
+    "snippet": "Spring: 4 items, 16 credits",
     "value": "Spring"
    },
    {
@@ -67709,6 +67791,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "93b63b72060e98c5": {
+  "decision": {
+   "candidate_id": "93b63b72060e98c5",
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 0 -> 1; v2 strings re-read as structured items (string->code x21, string->any_of x4, string->text x12); new blocks are the footnoted headers 'Select one of the following: 1,3,4'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Completion of 1) MATH 1015, 2) MATH 1021 or EDUC 1016, and 3) ECED 3107 constitutes the wa; [3] These courses must be completed with a C- or better to be eligible for Candidacy approval;; [4] Students selecting MATH 1021 should do so in consultation with a CEHD advisor. Search Bull; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#8d646dd3e0bf15cf) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:20:25+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 12:05:43 GMT",
+   "page_file": "b0a636dc92ab6349ec91.json.gz",
+   "requested_url": "https://bulletin.temple.edu/undergraduate/education/special-education-prek12-bsed/",
+   "sha256": "b0a636dc92ab6349ec910e867c6a8711f9fbb2c6bcc55069f8e75fd0f537e5d4",
+   "title": "Special Education (Pre-K-12) BSEd | Temple University Bulletin",
+   "url": "https://bulletin.temple.edu/undergraduate/education/special-education-prek12-bsed/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "93eb55792429b40a": {
   "decision": {
    "candidate_id": "93eb55792429b40a",
@@ -70522,6 +70686,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "9993819542312733": {
+  "decision": {
+   "candidate_id": "9993819542312733",
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 0 -> 1; v2 strings re-read as structured items (string->any_of x3, string->text x22, string->code x12); new blocks are the footnoted headers 'Select one of the following: 3, 4'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [3] These courses must be completed with a C- or better to be eligible for Candidacy approval.; [4] Students selecting MATH 1021 should do so in consultation with a CEHD academic advisor. Se; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#9f2fdda277ea142c) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:20:22+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 12:05:41 GMT",
+   "page_file": "941c859dcb9f20ab495a.json.gz",
+   "requested_url": "https://bulletin.temple.edu/undergraduate/education/secondary-education-social-studies-education-bsed/",
+   "sha256": "941c859dcb9f20ab495a5a89b4c9c74b5db15d26e297ba87952f4ea649dd4c7d",
+   "title": "Secondary Education / Social Studies Education BSEd | Temple University Bulletin",
+   "url": "https://bulletin.temple.edu/undergraduate/education/secondary-education-social-studies-education-bsed/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "999cdc17767294a7": {
   "decision": {
    "candidate_id": "999cdc17767294a7",
@@ -71662,6 +71908,88 @@
    "sha256": "fedde8c39444fbba9a2449300d031332985d350fef668df32f64cbdb8da71b89",
    "title": "Civil Engineering, B.S. (Engineering) | Penn State",
    "url": "https://bulletins.psu.edu/undergraduate/colleges/engineering/civil-engineering-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "9ca93107beb4ae6f": {
+  "decision": {
+   "candidate_id": "9ca93107beb4ae6f",
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 0 -> 1; v2 strings re-read as structured items (string->any_of x3, string->text x22, string->code x12); new blocks are the footnoted headers 'Select one of the following: 3, 4'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [3] These courses must be completed with a C- or better to be eligible for Candidacy approval.; [4] Students selecting MATH 1021 should do so in consultation with a CEHD academic advisor. Se; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#2c5e01cda3d5db52) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:20:20+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 12:05:39 GMT",
+   "page_file": "0d941399cd5292be968a.json.gz",
+   "requested_url": "https://bulletin.temple.edu/undergraduate/education/secondary-education-english-education-bsed/",
+   "sha256": "0d941399cd5292be968ace4c9850ab30fd0baaaf5ca19ee0b9d15a5313b42b4f",
+   "title": "Secondary Education / English Education BSEd | Temple University Bulletin",
+   "url": "https://bulletin.temple.edu/undergraduate/education/secondary-education-english-education-bsed/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -90626,8 +90954,8 @@
  "c69918e7ed74db22": {
   "decision": {
    "candidate_id": "c69918e7ed74db22",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 5 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 10 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 123 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
-   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#c69918e7ed74db22) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 7 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 5 -> 7; new blocks are the footnoted headers 'Select one of the following: 2'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [2] Research in Neuroscience (BIOL 4591)/Independent Research II (BIOL 3082) course choice sho; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#c69918e7ed74db22) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
   },
   "evidence": [
    {
@@ -90682,12 +91010,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 9 items, 15 credits",
+    "snippet": "Fall: 7 items, 15 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 8 items, 16 credits",
+    "snippet": "Spring: 6 items, 16 credits",
     "value": "Spring"
    }
   ],
@@ -90708,8 +91036,8 @@
  "c69918e7ed74db22~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "c69918e7ed74db22",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#042fd5cf2820d396) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 5 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 10 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 123 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#c69918e7ed74db22) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
   "evidence": [
    {
@@ -90719,12 +91047,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 7 items, 15 credits",
+    "snippet": "Fall: 5 items, 15 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 9 items, 15 credits",
+    "snippet": "Spring: 4 items, 15 credits",
     "value": "Spring"
    },
    {
@@ -90734,12 +91062,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 7 items, 16 credits",
+    "snippet": "Fall: 4 items, 16 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 8 items, 16 credits",
+    "snippet": "Spring: 5 items, 16 credits",
     "value": "Spring"
    },
    {
@@ -107962,8 +108290,8 @@
  "edbf4b3e33f19f5c": {
   "decision": {
    "candidate_id": "edbf4b3e33f19f5c",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 123 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#edbf4b3e33f19f5c) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 3 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 1 -> 3; new blocks are the footnoted headers 'Select one of the following: 1'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] The Honors versions of these courses are Fall-only courses. If the Honors versions are des; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#edbf4b3e33f19f5c) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
   },
   "evidence": [
    {
@@ -107978,7 +108306,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 6 items, 15 credits",
+    "snippet": "Spring: 4 items, 15 credits",
     "value": "Spring"
    },
    {
@@ -107993,7 +108321,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 6 items, 14-15 credits",
+    "snippet": "Spring: 4 items, 14-15 credits",
     "value": "Spring"
    },
    {
@@ -108049,8 +108377,8 @@
  "edbf4b3e33f19f5c~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "edbf4b3e33f19f5c",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#6ddb2cdd8cc0e9ba) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 123 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence PA/2026-10-07-cat#edbf4b3e33f19f5c) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
   "evidence": [
    {
@@ -108065,7 +108393,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 8 items, 15 credits",
+    "snippet": "Spring: 6 items, 15 credits",
     "value": "Spring"
    },
    {

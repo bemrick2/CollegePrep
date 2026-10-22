@@ -666,7 +666,8 @@ class CourseleafPlanTests(unittest.TestCase):
         for hdr in ('Jax MIX Experience: select one of the following: 1', 'Select one of the following: 2,3'):
             items = CL.parse_grid({'rows': [['Fall', 'Hours'], [hdr, '3'], ['PSY 201', 'A', ''], ['SY 221', 'B', ''], ['', 'Hours', '3']]})[0][0]['items']
             self.assertEqual((items[0]['choose'], items[0]['text']), (1, hdr))
-        for hdr in ('Select one of the following courses 12', 'Note: select one of the following and more', 'select one of the following: 123'):
+        for hdr in ('Select one of the following courses 12', 'Note: select one of the following and more', 'select one of the following: 123',
+                    'students who have not completed MATH 142 or an equivalent course in their first year at another school: select one of the following:'):
             self.assertIsNone(CL.CHOICE_HEADER.match(hdr), hdr)
         # not grouped: a header without credits, options with their own credits, one option, a count not below the options
         for hdr, opts in ((['Select one of the following:', ''], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']]),

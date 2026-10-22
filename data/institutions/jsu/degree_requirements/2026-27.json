@@ -11527,21 +11527,33 @@
           {
             "credit_hours": "13",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "MS 125",
                 "credits": 4,
                 "title": "Calculus I (Jax MIX Communication)"
               },
-              "Jax MIX Experience: History | 3",
-              "Select one of the following: 1 | 3",
               {
-                "code": "CS 230",
-                "title": "Fundamentals of Computing"
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
               },
               {
-                "code": "CS 231",
-                "title": "Computer Programming I"
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "CS 230",
+                    "title": "Fundamentals of Computing"
+                  },
+                  {
+                    "code": "CS 231",
+                    "title": "Computer Programming I"
+                  }
+                ],
+                "text": "Select one of the following: 1"
               },
               {
                 "code": "SSC 101",
@@ -11555,9 +11567,18 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience (History if sequence) 2 | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience (History if sequence) 2"
+              },
               {
                 "code": "MS 126",
                 "credits": 4,
@@ -11585,7 +11606,10 @@
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 227",
                 "credits": 4,
@@ -11603,9 +11627,18 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
-              "Jax MIX Experience: Social/Behavioral Science | 3",
-              "Jax MIX Inquiry: Science | 4",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: Social/Behavioral Science"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
               {
                 "code": "MS 344",
                 "credits": 3,
@@ -11628,8 +11661,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Jax MIX Expression (Literature if sequence) 2 | 3",
-              "Jax Max Experience: Social/Behavioral Science | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression (Literature if sequence) 2"
+              },
+              {
+                "credits": 3,
+                "text": "Jax Max Experience: Social/Behavioral Science"
+              },
               {
                 "code": "CS 306",
                 "credits": 3,
@@ -11640,7 +11679,10 @@
                 "credits": 3,
                 "title": "Mathematics of Artificial Intelligence I"
               },
-              "General Electives | 3"
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -11658,7 +11700,10 @@
                 "credits": 3,
                 "title": "Mathematics of Artificial Intelligence II"
               },
-              "General Electives | 9"
+              {
+                "credits": 9,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -11676,7 +11721,10 @@
                 "credits": 3,
                 "title": "Predictive Analysis"
               },
-              "Math Elective - select one of the following: | 3",
+              {
+                "credits": 3,
+                "text": "Math Elective - select one of the following:"
+              },
               {
                 "code": "MS 309",
                 "title": "Combinatorics"
@@ -11689,7 +11737,10 @@
                 "code": "MS 488",
                 "title": "Mathematics Internship"
               },
-              "General Electives | 9"
+              {
+                "credits": 9,
+                "text": "General Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -11702,7 +11753,10 @@
                 "credits": 3,
                 "title": "Special Topics in Data Science (WI) 1"
               },
-              "General Electives | 12"
+              {
+                "credits": 12,
+                "text": "General Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -11711,7 +11765,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/arts-humanities-sciences/mathematical-computing-information-sciences/mathematics-data-science-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 37 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#a91f8145669ef815."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; differs: blocks 0 -> 1; v2 strings re-read as structured items (string->text x17); new blocks are the footnoted headers 'Select one of the following: 1'; labels, subtotals and rule_text are unchanged; every change is supported by the print; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Grade of C or better is required for these Computer Science (CS) courses.; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#a91f8145669ef815) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#288afd1664f4c221."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -21909,6 +21963,1830 @@
       "source_url": "https://catalog.jsu.edu//undergraduate/social-behavioral-sciences/sociology-political-science/sociology-applied-bs/",
       "verification_status": "verified",
       "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x1, string->text x23); labels, subtotals, rule_text unchanged; all supported Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#fc21019ccb6c51b0) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#921f99851c4e81d3."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "accounting-bachelor-of-science",
+      "requirement_key": "sample-plan",
+      "requirement_kind": "program_plan",
+      "rule_details": {
+        "catalog_year": "2026-2027",
+        "category": "recommended_sequence",
+        "group_type": "sequence",
+        "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
+        "schema": "requirement_group/v1",
+        "source_section": "Sample Plan: Plan of Study Grid",
+        "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "code": "MS 112",
+                "credits": 3,
+                "title": "Precalculus Algebra (or higher excluding MS 204 - Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "CBA 115",
+                "credits": 3,
+                "title": "Business Fundamentals/Orientation"
+              },
+              {
+                "code": "SSC 101",
+                "credits": 0,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "ST 260",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods I"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 221",
+                "credits": 3,
+                "title": "Principles of Microeconomics (Jax MIX Experience)"
+              },
+              {
+                "code": "ACC 200",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "FIN 292",
+                "credits": 3,
+                "title": "Legal and Social Environment"
+              },
+              {
+                "code": "ST 261",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods II"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 222",
+                "credits": 3,
+                "title": "Principles of Macroeconomics (Jax MIX Experience)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "AN 224",
+                    "title": "Introduction to Anthropology"
+                  }
+                ],
+                "text": "Jax MIX Experience: select one of the following: 1"
+              },
+              {
+                "code": "ACC 210",
+                "credits": 3,
+                "title": "Principles of Accounting II"
+              },
+              "CBA 210or CS 201or CS 230 | Information Technology for Businessor Introduction to Information Technologyor Fundamentals of Computing | 3"
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "18",
+            "items": [
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech (Jax MIX Communication)"
+              },
+              {
+                "code": "FIN 301",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGT 301",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "ST 345",
+                "credits": 3,
+                "title": "Introduction to Business Analytics"
+              },
+              {
+                "code": "ACC 310",
+                "credits": 3,
+                "title": "Financial Accounting I"
+              },
+              {
+                "code": "ACC 371",
+                "credits": 3,
+                "title": "Cost Accounting"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 330",
+                "credits": 3,
+                "title": "Business Professionalism"
+              },
+              {
+                "code": "CBA 390",
+                "credits": 3,
+                "title": "Operations and Supply Chain Management"
+              },
+              {
+                "code": "MKT 301",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "code": "ACC 301",
+                "credits": 3,
+                "title": "Accounting Information Systems"
+              },
+              {
+                "code": "ACC 360",
+                "credits": 3,
+                "title": "Financial Accounting II"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 350",
+                "credits": 3,
+                "title": "Business Communications (WI)"
+              },
+              {
+                "code": "MGT 375",
+                "credits": 3,
+                "title": "Introduction to Management Information Systems"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 303",
+                    "title": "Money and Banking"
+                  },
+                  {
+                    "code": "EC 321",
+                    "title": "Intermediate Microeconomics"
+                  },
+                  {
+                    "code": "EC 322",
+                    "title": "Intermediate Macroeconomics"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "ACC 372",
+                "credits": 3,
+                "title": "Income Tax Accounting"
+              },
+              {
+                "code": "ACC 477",
+                "credits": 3,
+                "title": "Auditing"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "code": "CBA 469",
+                "credits": 3,
+                "title": "Business Policy and Strategy"
+              },
+              {
+                "code": "ACC 305",
+                "credits": 3,
+                "title": "Data Analytics for Accounting (WI)"
+              },
+              {
+                "credits": 6,
+                "text": "Accounting Electives 6"
+              },
+              {
+                "credits": 1,
+                "text": "General Elective"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
+          }
+        ]
+      },
+      "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/finance-economics-accounting/accounting-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#bb98973c5f0555fb."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "business-economics-bachelor-of-science",
+      "requirement_key": "sample-plan",
+      "requirement_kind": "program_plan",
+      "rule_details": {
+        "catalog_year": "2026-2027",
+        "category": "recommended_sequence",
+        "group_type": "sequence",
+        "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
+        "schema": "requirement_group/v1",
+        "source_section": "Sample Plan: Plan of Study Grid",
+        "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "code": "MS 112",
+                "credits": 3,
+                "title": "Precalculus Algebra (or higher excluding MS 204 - Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "CBA 115",
+                "credits": 3,
+                "title": "Business Fundamentals/Orientation"
+              },
+              {
+                "code": "SSC 101",
+                "credits": 0,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "ST 260",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods I"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 221",
+                "credits": 3,
+                "title": "Principles of Microeconomics (Jax MIX Experience)"
+              },
+              {
+                "code": "ACC 200",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "FIN 292",
+                "credits": 3,
+                "title": "Legal and Social Environment"
+              },
+              {
+                "code": "ST 261",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods II"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 222",
+                "credits": 3,
+                "title": "Principles of Macroeconomics (Jax MIX Experience)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "AN 224",
+                    "title": "Introduction to Anthropology"
+                  }
+                ],
+                "text": "Jax MIX Experience: select one of the following: 1"
+              },
+              {
+                "code": "ACC 210",
+                "credits": 3,
+                "title": "Principles of Accounting II"
+              },
+              "CBA 210or CS 201or CS 230 | Information Technology for Businessor Introduction to Information Technologyor Fundamentals of Computing | 3"
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 330",
+                "credits": 3,
+                "title": "Business Professionalism"
+              },
+              {
+                "code": "MGT 301",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKT 301",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "code": "ST 345",
+                "credits": 3,
+                "title": "Introduction to Business Analytics"
+              },
+              {
+                "code": "EC 321",
+                "credits": 3,
+                "title": "Intermediate Microeconomics"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "18",
+            "items": [
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech (Jax MIX Communication)"
+              },
+              {
+                "code": "CBA 350",
+                "credits": 3,
+                "title": "Business Communications (WI)"
+              },
+              {
+                "code": "CBA 390",
+                "credits": 3,
+                "title": "Operations and Supply Chain Management"
+              },
+              {
+                "code": "FIN 301",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "EC 303",
+                "credits": 3,
+                "title": "Money and Banking"
+              },
+              {
+                "credits": 3,
+                "text": "Economics Elective 2"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "code": "MGT 375",
+                "credits": 3,
+                "title": "Introduction to Management Information Systems"
+              },
+              {
+                "code": "EC 322",
+                "credits": 3,
+                "title": "Intermediate Macroeconomics"
+              },
+              {
+                "code": "EC 486",
+                "credits": 3,
+                "title": "Econometrics"
+              },
+              {
+                "credits": 4,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 469",
+                "credits": 3,
+                "title": "Business Policy and Strategy"
+              },
+              {
+                "code": "EC 463",
+                "credits": 3,
+                "title": "Senior Seminar in Economics (WI)"
+              },
+              {
+                "credits": 6,
+                "text": "Economics Electives 2"
+              },
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
+          }
+        ]
+      },
+      "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/finance-economics-accounting/business-economics-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#f31379262a26c1db."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "finance-bachelor-of-science",
+      "requirement_key": "sample-plan",
+      "requirement_kind": "program_plan",
+      "rule_details": {
+        "catalog_year": "2026-2027",
+        "category": "recommended_sequence",
+        "group_type": "sequence",
+        "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
+        "schema": "requirement_group/v1",
+        "source_section": "Sample Plan: Plan of Study Grid",
+        "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "code": "MS 112",
+                "credits": 3,
+                "title": "Precalculus Algebra (or higher excluding MS 204 - Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "CBA 115",
+                "credits": 3,
+                "title": "Business Fundamentals/Orientation"
+              },
+              {
+                "code": "SSC 101",
+                "credits": 0,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "ST 260",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods I"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 221",
+                "credits": 3,
+                "title": "Principles of Microeconomics (Jax MIX Experience)"
+              },
+              {
+                "code": "ACC 200",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "FIN 292",
+                "credits": 3,
+                "title": "Legal and Social Environment"
+              },
+              {
+                "code": "ST 261",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods II"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 222",
+                "credits": 3,
+                "title": "Principles of Macroeconomics (Jax MIX Experience)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "AN 224",
+                    "title": "Introduction to Anthropology"
+                  }
+                ],
+                "text": "Jax MIX Experience: select one of the following: 1"
+              },
+              {
+                "code": "ACC 210",
+                "credits": 3,
+                "title": "Principles of Accounting II"
+              },
+              "CBA 210or CS 201or CS 230 | Information Technology for Businessor Introduction to Information Technologyor Fundamentals of Computing | 3"
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 330",
+                "credits": 3,
+                "title": "Business Professionalism"
+              },
+              {
+                "code": "FIN 301",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGT 301",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MGT 375",
+                "credits": 3,
+                "title": "Introduction to Management Information Systems"
+              },
+              {
+                "code": "ST 345",
+                "credits": 3,
+                "title": "Introduction to Business Analytics"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "18",
+            "items": [
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech (Jax MIX Communication)"
+              },
+              {
+                "code": "CBA 390",
+                "credits": 3,
+                "title": "Operations and Supply Chain Management"
+              },
+              {
+                "code": "MKT 301",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 303",
+                    "title": "Money and Banking"
+                  },
+                  {
+                    "code": "EC 321",
+                    "title": "Intermediate Microeconomics"
+                  },
+                  {
+                    "code": "EC 322",
+                    "title": "Intermediate Macroeconomics"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "FIN 441",
+                "credits": 3,
+                "title": "Intermediate Finance"
+              },
+              {
+                "credits": 3,
+                "text": "Finance Electives 2"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "CBA 350",
+                "credits": 3,
+                "title": "Business Communications (WI)"
+              },
+              {
+                "code": "FIN 474",
+                "credits": 3,
+                "title": "Investments"
+              },
+              {
+                "code": "FIN 475",
+                "credits": 3,
+                "title": "Advanced Topics in Finance"
+              },
+              {
+                "credits": 3,
+                "text": "Finance Electives 2"
+              },
+              {
+                "credits": 4,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "12",
+            "items": [
+              {
+                "code": "CBA 469",
+                "credits": 3,
+                "title": "Business Policy and Strategy"
+              },
+              {
+                "code": "FIN 434",
+                "credits": 3,
+                "title": "International Finance"
+              },
+              {
+                "code": "FIN 481",
+                "credits": 3,
+                "title": "Seminar in Finance (WI)"
+              },
+              {
+                "credits": 3,
+                "text": "Finance Electives 2"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
+          }
+        ]
+      },
+      "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/finance-economics-accounting/finance-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#1e6dc93d1321fa78."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "entrepreneurship-bachelor-of-science",
+      "requirement_key": "sample-plan",
+      "requirement_kind": "program_plan",
+      "rule_details": {
+        "catalog_year": "2026-2027",
+        "category": "recommended_sequence",
+        "group_type": "sequence",
+        "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
+        "schema": "requirement_group/v1",
+        "source_section": "Sample Plan: Plan of Study Grid",
+        "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "code": "MS 112",
+                "credits": 3,
+                "title": "Precalculus Algebra (or higher excluding MS 204 - Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "CBA 115",
+                "credits": 3,
+                "title": "Business Fundamentals/Orientation"
+              },
+              {
+                "code": "SSC 101",
+                "credits": 0,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "ST 260",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods I"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 221",
+                "credits": 3,
+                "title": "Principles of Microeconomics (Jax MIX Experience)"
+              },
+              {
+                "code": "ACC 200",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "FIN 292",
+                "credits": 3,
+                "title": "Legal and Social Environment"
+              },
+              {
+                "code": "ST 261",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods II"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 222",
+                "credits": 3,
+                "title": "Principles of Macroeconomics (Jax MIX Experience)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "AN 224",
+                    "title": "Introduction to Anthropology"
+                  }
+                ],
+                "text": "Jax MIX Experience: select one of the following: 1"
+              },
+              {
+                "code": "ACC 210",
+                "credits": 3,
+                "title": "Principles of Accounting II"
+              },
+              "CBA 210or CS 201or CS 230 | Information Technology for Businessor Introduction to Information Technologyor Fundamentals of Computing | 3"
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "FIN 301",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGT 301",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKT 301",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "code": "MGT 330",
+                "credits": 3,
+                "title": "Entrepreneurship"
+              },
+              {
+                "code": "FIN 310",
+                "credits": 3,
+                "title": "Entrepreneurial Finance"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "18",
+            "items": [
+              {
+                "code": "ST 345",
+                "credits": 3,
+                "title": "Introduction to Business Analytics"
+              },
+              {
+                "code": "CBA 330",
+                "credits": 3,
+                "title": "Business Professionalism"
+              },
+              {
+                "code": "CBA 350",
+                "credits": 3,
+                "title": "Business Communications (WI)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 303",
+                    "title": "Money and Banking"
+                  },
+                  {
+                    "code": "EC 321",
+                    "title": "Intermediate Microeconomics"
+                  },
+                  {
+                    "code": "EC 322",
+                    "title": "Intermediate Macroeconomics"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "MGT 340",
+                "credits": 3,
+                "title": "Venture Creation & Innovation"
+              },
+              {
+                "code": "ENT 350",
+                "credits": 3,
+                "title": "Entrepreneurial Leadership"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech"
+              },
+              {
+                "code": "CBA 390",
+                "credits": 3,
+                "title": "Operations and Supply Chain Management"
+              },
+              {
+                "code": "ENT 400",
+                "credits": 3,
+                "title": "The Sustainable Enterprise: Growth and Strategy"
+              },
+              {
+                "code": "COM 345",
+                "credits": 3,
+                "title": "Social Media Strategy"
+              },
+              {
+                "code": "MGT 375",
+                "credits": 3,
+                "title": "Introduction to Management Information Systems"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "code": "CBA 469",
+                "credits": 3,
+                "title": "Business Policy and Strategy"
+              },
+              {
+                "code": "ENT 450",
+                "credits": 3,
+                "title": "Entrepreneurial Incubator/Accelerator Experience"
+              },
+              {
+                "code": "ENT 470",
+                "credits": 3,
+                "title": "Business Startup and Mentorship"
+              },
+              {
+                "credits": 4,
+                "text": "ENT Electives 2"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
+          }
+        ]
+      },
+      "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/management-marketing/entrepreneurship-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#3fe729b518740b0a."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "management-bachelor-of-science",
+      "requirement_key": "sample-plan",
+      "requirement_kind": "program_plan",
+      "rule_details": {
+        "catalog_year": "2026-2027",
+        "category": "recommended_sequence",
+        "group_type": "sequence",
+        "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
+        "schema": "requirement_group/v1",
+        "source_section": "Sample Plan: Plan of Study Grid",
+        "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "code": "MS 112",
+                "credits": 3,
+                "title": "Precalculus Algebra (or higher excluding MS 204 - Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "CBA 115",
+                "credits": 3,
+                "title": "Business Fundamentals/Orientation"
+              },
+              {
+                "code": "SSC 101",
+                "credits": 0,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "ST 260",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods I"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 221",
+                "credits": 3,
+                "title": "Principles of Microeconomics (Jax MIX Experience)"
+              },
+              {
+                "code": "ACC 200",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "FIN 292",
+                "credits": 3,
+                "title": "Legal and Social Environment"
+              },
+              {
+                "code": "ST 261",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods II"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 222",
+                "credits": 3,
+                "title": "Principles of Macroeconomics (Jax MIX Experience)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "AN 224",
+                    "title": "Introduction to Anthropology"
+                  }
+                ],
+                "text": "Jax MIX Experience: select one of the following: 1"
+              },
+              {
+                "code": "ACC 210",
+                "credits": 3,
+                "title": "Principles of Accounting II"
+              },
+              "CBA 210or CS 201or CS 230 | Information Technology for Businessor Introduction to Information Technologyor Fundamentals of Computing | 3"
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 330",
+                "credits": 3,
+                "title": "Business Professionalism"
+              },
+              {
+                "code": "FIN 301",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGT 301",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKT 301",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "code": "ST 345",
+                "credits": 3,
+                "title": "Introduction to Business Analytics"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 390",
+                "credits": 3,
+                "title": "Operations and Supply Chain Management"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 303",
+                    "title": "Money and Banking"
+                  },
+                  {
+                    "code": "EC 321",
+                    "title": "Intermediate Microeconomics"
+                  },
+                  {
+                    "code": "EC 322",
+                    "title": "Intermediate Macroeconomics"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "MGT 305",
+                "credits": 3,
+                "title": "Organizational Behavior"
+              },
+              {
+                "code": "MGT 372",
+                "credits": 3,
+                "title": "The Dynamics of Organizations"
+              },
+              {
+                "code": "MGT 385",
+                "credits": 3,
+                "title": "Human Resource Management (WI)"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech (Jax MIX Communication)"
+              },
+              {
+                "code": "CBA 350",
+                "credits": 3,
+                "title": "Business Communications (WI)"
+              },
+              {
+                "code": "MGT 375",
+                "credits": 3,
+                "title": "Introduction to Management Information Systems"
+              },
+              {
+                "credits": 3,
+                "text": "Management Electives 2"
+              },
+              {
+                "credits": 3,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "CBA 469",
+                "credits": 3,
+                "title": "Business Policy and Strategy"
+              },
+              {
+                "code": "MGT 491",
+                "credits": 3,
+                "title": "Management Seminar"
+              },
+              {
+                "credits": 6,
+                "text": "Management Electives 2"
+              },
+              {
+                "credits": 4,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
+          }
+        ]
+      },
+      "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/management-marketing/management-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#d3b9bb05e2b02673."
+    },
+    {
+      "last_verified_at": "2026-10-06",
+      "program_key": "marketing-bachelor-of-science",
+      "requirement_key": "sample-plan",
+      "requirement_kind": "program_plan",
+      "rule_details": {
+        "catalog_year": "2026-2027",
+        "category": "recommended_sequence",
+        "group_type": "sequence",
+        "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
+        "schema": "requirement_group/v1",
+        "source_section": "Sample Plan: Plan of Study Grid",
+        "terms": [
+          {
+            "items": [],
+            "label": "Freshman",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition Sequence"
+              },
+              {
+                "code": "MS 112",
+                "credits": 3,
+                "title": "Precalculus Algebra (or higher excluding MS 204 - Jax MIX Communication)"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "CBA 115",
+                "credits": 3,
+                "title": "Business Fundamentals/Orientation"
+              },
+              {
+                "code": "SSC 101",
+                "credits": 0,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 4,
+                "text": "Jax MIX Inquiry: Science"
+              },
+              {
+                "code": "ST 260",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods I"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Sophomore",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 221",
+                "credits": 3,
+                "title": "Principles of Microeconomics (Jax MIX Experience)"
+              },
+              {
+                "code": "ACC 200",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "FIN 292",
+                "credits": 3,
+                "title": "Legal and Social Environment"
+              },
+              {
+                "code": "ST 261",
+                "credits": 3,
+                "title": "Statistics/Quantitative Methods II"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature sequence"
+              },
+              {
+                "code": "EC 222",
+                "credits": 3,
+                "title": "Principles of Macroeconomics (Jax MIX Experience)"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "PSY 201",
+                    "title": "Principles of Psychology"
+                  },
+                  {
+                    "code": "SY 221",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "AN 224",
+                    "title": "Introduction to Anthropology"
+                  }
+                ],
+                "text": "Jax MIX Experience: select one of the following: 1"
+              },
+              {
+                "code": "ACC 210",
+                "credits": 3,
+                "title": "Principles of Accounting II"
+              },
+              "CBA 210or CS 201or CS 230 | Information Technology for Businessor Introduction to Information Technologyor Fundamentals of Computing | 3"
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Junior",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "CBA 330",
+                "credits": 3,
+                "title": "Business Professionalism"
+              },
+              {
+                "code": "FIN 301",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGT 301",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKT 301",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "code": "ST 345",
+                "credits": 3,
+                "title": "Introduction to Business Analytics"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "18",
+            "items": [
+              {
+                "code": "EH 141",
+                "credits": 3,
+                "title": "Speech (Jax MIX Communication)"
+              },
+              {
+                "code": "CBA 350",
+                "credits": 3,
+                "title": "Business Communications (WI)"
+              },
+              {
+                "code": "CBA 390",
+                "credits": 3,
+                "title": "Operations and Supply Chain Management"
+              },
+              {
+                "choose": 1,
+                "credits": 3,
+                "options": [
+                  {
+                    "code": "EC 303",
+                    "title": "Money and Banking"
+                  },
+                  {
+                    "code": "EC 321",
+                    "title": "Intermediate Microeconomics"
+                  },
+                  {
+                    "code": "EC 322",
+                    "title": "Intermediate Macroeconomics"
+                  }
+                ],
+                "text": "Select one of the following:"
+              },
+              {
+                "code": "MKT 378",
+                "credits": 3,
+                "title": "Consumer Behavior"
+              },
+              {
+                "credits": 3,
+                "text": "Marketing Electives 2"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Senior",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "MGT 375",
+                "credits": 3,
+                "title": "Introduction to Management Information Systems"
+              },
+              {
+                "code": "MKT 361",
+                "credits": 3,
+                "title": "Sales/Sales Force Management"
+              },
+              {
+                "code": "MKT 395",
+                "credits": 3,
+                "title": "Business-To-Business Marketing"
+              },
+              {
+                "credits": 3,
+                "text": "Marketing Electives 2"
+              },
+              {
+                "credits": 4,
+                "text": "General Electives"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "12",
+            "items": [
+              {
+                "code": "CBA 469",
+                "credits": 3,
+                "title": "Business Policy and Strategy"
+              },
+              {
+                "code": "MKT 488",
+                "credits": 3,
+                "title": "Advertising and Promotions"
+              },
+              {
+                "code": "MKT 495",
+                "credits": 3,
+                "title": "Marketing Strategy (WI)"
+              },
+              {
+                "code": "MKT 497",
+                "credits": 3,
+                "title": "Market Research"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 12
+          }
+        ]
+      },
+      "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/management-marketing/marketing-bs/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#199ea988f22c900c."
     }
   ]
 }

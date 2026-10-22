@@ -28,22 +28,17 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: UWM Course List groups (#250)
+## This PR: choice headers with a label or footnote marks
 
-- UWM `WI/2026-10-22-d01` was re-read by main's Course List reader (after #260, #264). 313 new candidates for verified programs were issue-free.
-- An independent read-only review checked them with its own parser against the stored layout cells, and hand-checked every record. **238 approved, 75 held.** Held:
-  - 12: option or advice lists stored as all_required;
-  - 12: two theatre tracks merged;
-  - 4: wrong rule;
-  - 4: footnote mark in a label;
-  - 3: the plans (7-letter subjects, a flat 'Select one');
-  - 40: section incomplete. 36 of these are exact fragments of a section whose other rows have no candidate; promoting them is a policy question.
-- Verified requirement groups: 15,307 → 15,545.
-- Reader follow-ups:
-  - a table's context sentence ('encouraged to include', 'maximum of 6 credits') should hold the table;
-  - track headings above tables;
-  - sections that mix required rows and choices;
-  - the plan reader's 7-letter subjects.
+- **Reader:** `CHOICE_HEADER` also accepts a printed label before the instruction ('Jax MIX Experience: select one of the following: 1', JSU) and footnote marks after it ('Select one of the following: 1', Texas A&M, Temple). Both stay in the item's text.
+- **Regression:** across the 10,061 stored grids this adds 274 blocks in 161 grids. Flattening every item gives back the items on main exactly.
+- **Re-extraction:** 12 runs. 74 verified plans change, and 6 new JSU plans come from continued grids (#270). The Texas A&M and Temple continued-grid plans stay held by `grid_change_noted`.
+- **Independent review, round 3** (own parser, read-only, 28 checked by hand): **55 approved, 25 held.**
+  - 22 held because a printed footnote that substitutes for, waives or constrains a row is not stored (for example Texas A&M 'MATH 147/151/171 accepted in lieu of MATH 142', Georgian 'only need CJ210 or CJ212').
+  - 3 held because a block is left flat when a label row follows its options.
+- **Promoted:** 49 re-reads with `replaces_promoted`, and 6 new JSU plans. Verified plans 3,511 → 3,517.
+
+**Footnotes (owner rule: preserve substitutions, options and notes).** No plan record stores footnote text, only the markers. The review found that in 68 of the 80 records a referenced footnote concerns electives, substitutions or options. Next reader task: store each grid's printed footnotes in `rule_details.footnotes`, keyed by marker. Then re-read and re-review every plan whose footnotes change a row: the 22 holds here and the plans promoted earlier.
 
 ## Merged on 2026-10-21/22
 
