@@ -15,7 +15,7 @@ Hosted deployment is **held** (`.operations/supabase-live-hold.json`). Owner, 20
 
 Columns:
 - **Implemented:** in the code on `main` or in an open PR, as noted.
-- **Local:** checked by unit and component tests, or by `scripts/local/live_stack.sh test`. That runs every migration plus Design's reference SQL, with real SQL, RLS and RPCs: 56 end-to-end tests with #248.
+- **Local:** checked by unit and component tests, or by `scripts/local/live_stack.sh test`. That runs every migration plus Design's reference SQL, with real SQL, RLS and RPCs: 57 end-to-end tests on main (58 with #269); each run fails if any test is skipped.
 - **Hosted:** checked on the hosted project. **Nothing is hosted-tested since the 2026-10-06 pause.**
 - **Blocked by:** what is still in the way.
 
@@ -50,7 +50,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | A2 | Human editorial review of every published item, including the existing 58 | Content | ⛔ | All 58 are reviewed by AI only. Human-approved: 0 of 58. The tooling is ready (#207: ledger, blind packets, sign-off import, rules enforced by tests). There is no named human approver. |
 | A3 | Privacy policy and terms approved | Owner + Counsel | 🚧 | Drafts and 12 decisions are in #165 (`docs/legal/`). Minimum age (13+ recommended), retention, entity and contacts are needed. |
 | A4 | Data deletion and export path | Research (procedure) + Design (UI) | ⛔ | No deletion or export function exists. Choose manual with a stated response time, or in-app (`DECISIONS.md` #6). |
-| A5 | Hosted Supabase restored, and migration history reconciled before applying anything | Owner (restore) → Research (#122) | ⛔ | Paused. Unapplied on hosted: `20261007120000` cost v2 and `20261007140000` question review (#142), and every migration since, including CR-24 (`20261022030000`) and CR-23 (`20261022050000`); CR-22 once it becomes a migration. Order: `docs/SUPABASE_PAUSE.md` step 4. |
+| A5 | Hosted Supabase restored, and migration history reconciled before applying anything | Owner (restore) → Research (#122) | ⛔ | Paused. Unapplied on hosted (likely, to be confirmed against the live history in H0): `20261006180000`–`20261006180400` (#56), `20261007120000` cost v2, `20261007140000` question review (#142), and every migration since, including `20261022010000` role rules, `20261022040000` C3, including CR-24 (`20261022030000`) and CR-23 (`20261022050000`); CR-22 once it becomes a migration. Order: `docs/SUPABASE_PAUSE.md` step 4. |
 | A6 | Real-account tests: sign-up with email confirmation, two-browser invitation acceptance, RLS with real tokens | Owner (runs the accounts) + Design (script) | ⛔ | Needs A5. The journeys and permissions pass against the local backend (#217). Sign-up, email confirmation and real tokens can't run locally: the local auth is a stub. |
 | A7 | Email sending works | Owner | ⛔ | Verify the Resend domain (`mail.getcimiento.com` DNS) and set the `RESEND_API_KEY` secret. |
 | A8 | Billing works with live Stripe | Owner | ⛔ | Owner setup in `STRIPE_BILLING.md`, then a real checkout, portal and cancel test. It has only been tested with mocks so far. |
@@ -76,105 +76,198 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 
 ## H. Hosted acceptance, step by step
 
-Nothing here runs until the owner lifts the hold. For every step, record the date, who ran it, the build or commit, and the evidence (a screenshot, or the SQL output) in `docs/acceptance/<date>.md`. A step passes only when its "Pass" line holds exactly. Local fakes don't count.
+Nothing here runs until the owner lifts the hold. **Record the evidence:** for every step, write the date, who ran it, the build or commit, and the evidence (a screenshot, or the SQL output) in `docs/acceptance/<date>.md`. Create the folder on first use.
 
-**H0. Before applying anything (Owner, Research):**
-1. Restore the project per `SUPABASE_PAUSE.md`, steps 1–3.
-2. Read the live migration history (step 4). Apply a version only when the live history lacks it and its objects are absent.
+**Rules for every step:**
+- A step passes only when its "Pass" line holds exactly. Local fakes don't count.
+- Secrets are read from shell variables (`$DIGEST_CRON_SECRET`, `$REMINDER_CRON_SECRET`, service-role keys). Never write a value into this file, an evidence file, a PR or an issue.
+- Steps marked "(needs #N)" depend on a PR that must be merged first.
+
+**H0. Before applying anything (Owner, Research).** `SUPABASE_PAUSE.md`, Resume order:
+1. Steps 1–3: resume only the original project and verify accounts, ledger, history, functions and provider retry state.
+2. Step 4: read the live `supabase_migrations.schema_migrations` (version, name, statements) and the objects each pending migration would create.
 3. Before `20261022030000` (rights gate), list published questions. Each needs an allowed license, attribution where required, and an origin, or must be unpublished by a reviewed change.
-4. **Pass:** the live history matches `supabase/migration_history.json` plus the versions you intend to apply, and nothing else.
+4. Step 5, as a reviewed commit:
+   - set `hold=false` in `.operations/supabase-live-hold.json`;
+   - remove the false job gates in `deploy-migrations.yml` and `deploy-functions.yml`;
+   - restore `live-import.yml`'s original `workflow_run` success condition.
 
-**H1. Apply and verify the migrations (Research):**
-1. Apply in filename order on a Supabase branch first, never production first.
-2. On the branch, run every `supabase/tests/*.sql` file the CI `database` job runs, in the same order.
-3. Then apply to production in the same order. After each one, record `select version from supabase_migrations.schema_migrations order by version desc limit 1`.
-4. **Pass:** every SQL suite passes on the branch, and the production history lists each version exactly once.
+**Pass:**
+- The live history equals `supabase/migration_history.json` plus `20261006120000`. That version is applied live but missing from the manifest; reconcile it from the recorded live row, never by reapplying it.
+- Every version you intend to apply is absent from live, and so are its objects.
 
-**H2. Paired releases (Research + Design).** A migration and the client that reads it ship together, with flags still off:
-- **`20261022050000` assessment pool (CR-23 paired release; Research's order, #248):**
-  1. The owner lifts the hold. Apply `20261022050000` together with the earlier unapplied migrations, in filename order (H1).
-  2. In the same apply, mark the reserve (`pool = 'assessment'`). Choose it only from human-reviewed items (A2), spread across difficulties, and never from items a student has seen in practice. A column with no reserve marked would make every check "Not measured".
-  3. Run H2's pass checks and H3 step 5.
-  4. Only then deploy a client built from main. **Don't redeploy staging from main before step 1:** main's client selects `pool`, so against today's hosted schema every practice read fails with 42703.
-  5. **Before a reserve larger than one check's worth goes live:** resolve #263. While any check is open, the whole reserve is readable, and reading without attempting isn't counted as seen. With today's 13-item reserve this exposes nothing extra.
-- **`20261022010000` role rules:** release with #247 (already on main).
-- **`20261006180300` exam plan:** release with `VITE_EXAM_PLAN` still off until H3 step 4 passes.
-- **Pass:**
-  - after the deploy, a signed-in student's `practice_questions` read returns no `pool = 'assessment'` row;
-  - `select section, count(*) from practice_questions where pool = 'assessment' and status = 'published' and review_current group by section` shows the planned reserve.
+**H1. Apply and verify the migrations (Research).**
+1. **Disposable copy first, never production first.** Supabase branching needs a paid plan, and the project is on Free. So either restore a `pg_dump` of the live project into local PostgreSQL, or upgrade the plan for branching.
+2. On the copy, apply every pending migration in filename order. Then run what the `database` job in `.github/workflows/validate-data.yml` runs, in the same order: every `supabase/tests/*.sql` file it lists, plus `scripts/test_program_import.py | psql`.
+3. On production, explicitly dispatch `deploy-migrations.yml`. Don't assume deferred pushes replay.
+   - It applies in filename order, **except `20261022050000`**, which is applied only in H2, together with its reserve.
+   - After each migration, record `select version from supabase_migrations.schema_migrations order by version desc limit 1`.
+4. Then dispatch `deploy-functions.yml`, then `live-import.yml`. Run reconciliation and the idempotence pass (`SUPABASE_PAUSE.md` step 4).
+5. Validate staging Auth, invitations and sandbox billing (`SUPABASE_PAUSE.md` step 6).
 
-**H3. Real accounts on production (Owner runs the accounts; Design writes up the results).** Use real email addresses and two browsers or devices. Prefix every test account name with `qa-`, and archive them afterwards.
-1. **Sign-up:** a parent signs up and confirms by the emailed link (A6, A7). **Pass:** the confirmation email arrives, and sign-in works only after confirming.
-2. **Household:** the parent creates a household and a student, and invites (a) a co-guardian with default permissions, (b) a guardian with view progress only, and (c) the student by invite code, each in a second browser. **Pass:** each invitation is accepted once, and a second use of the same code is refused.
-3. **View-only guardian.** Signed in as guardian (b):
-   - the exam plan and interests are read-only, with no edit controls;
-   - Remove is absent on a school the parent saved;
-   - the invitation list shows no email addresses.
+**Pass:**
+- every suite passes on the copy;
+- the production history lists each applied version exactly once;
+- the import reconciliation shows no differences.
 
-   Then the same three writes and the address read via the REST API with (b)'s token. **Pass:** each write returns zero rows or 42501, and the read returns no address.
-4. **Exam plan on the account:** the student adds AP Calculus AB with score 4 on a phone. **Pass:** the parent's laptop shows it after a reload. Then set `VITE_EXAM_PLAN=true` for a preview deploy only.
-5. **Practice and checks.** Signed in as the student:
-   - Run two practice sessions.
-   - Start the starting check and finish it.
-   - Start a second check.
-   - Via the REST API with the student's token: an attempt on a practice question inside the open check, an attempt on a reserved question with no check, and a `practice_questions` read of `pool = 'assessment'` with no check open.
-   - Via the REST API with the parent's and the view-only guardian's tokens: `benchmark_questions` and `start_practice_attempt` on the student's open check.
-   - Leave a check open past 4 hours (or mark it expired on a branch copy), then answer in the open tab.
+**H2. Paired release: the assessment pool (CR-23; Research + Design; `CONTRACT_REQUESTS.md` CR-23 paired release requirements 1–5).** Flags stay off.
+
+This step is **blocked by A2.** The reserve must come from human-reviewed items, and 0 of 58 are reviewed. The 13-item reserve exists only in the local and demo fixtures; on hosted, those 58 items are unservable.
+
+1. **Choose the candidates.** Pick human-reviewed items (CR-21, CR-24), spread across difficulties. Then confirm no student has seen any of them in practice:
+   ```sql
+   select q.id from practice_questions q
+   where q.id = any(:candidates)
+     and exists (select 1 from practice_attempts a where a.question_id = q.id and a.benchmark_id is null)
+   ```
+   **Pass:** no rows.
+2. **Apply in one window, migration first.** Apply `20261022050000` and, in the same apply, set `pool = 'assessment'` on the candidates.
+3. **Check at the database and REST level, before any client changes:**
+   - **(a)** `supabase/tests/assessment_pool.sql` passes on the H1 copy with the same migrations, and `scripts/local/live_stack.sh test` passes on main.
+   - **(b)** The reserve is planned per exam version and difficulty:
+     ```sql
+     select exam_version_id, section, difficulty, count(*)
+     from practice_questions
+     where pool = 'assessment' and status = 'published' and review_current
+     group by exam_version_id, section, difficulty
+     ```
+     It shows the planned reserve.
+   - **(c)** Use a real student token, for a student with no live check and no reserved attempts:
+     - a `practice_questions?pool=eq.assessment` read returns no rows;
+     - `start_benchmark` without `p_exam_version` returns 22023.
+4. **Deploy the client in the same window.** Run `scripts/deploy/netlify_export.sh staging origin/main`, then `scripts/deploy/verify_deploy.sh`.
+   - **Don't redeploy staging from main before step 2.** Main's client selects `pool`, so against today's hosted schema every practice read fails with 42703.
+5. Run H3 step 5.
+6. **Before a reserve larger than one check's worth goes live:** resolve #263.
+   - While any check is open, the whole reserve is readable.
+   - Reading an item without attempting it isn't counted as seen.
+
+**Other pairings:**
+- **`20261022010000` role rules:** release with #247, already on main.
+- **`20261006180300` exam plan:** release with `VITE_EXAM_PLAN` off until H3 step 4 passes.
+
+**H3. Real accounts on canonical staging, then production (Owner runs the accounts; Design writes up the results).**
+- Use real email addresses and two browsers or devices.
+- Prefix every test account name with `qa-`, and archive the accounts afterwards.
+- The preview site runs in demo mode (no Supabase variables, `DEPLOYING.md`), so it can't test accounts.
+
+1. **Sign-up:** a parent signs up and confirms by the emailed link (A6, A7).
+   **Pass:** the confirmation email arrives, and sign-in works only after confirming.
+2. **Household:** the parent creates a household and a student. In a second browser for each, the parent invites:
+   - (a) a co-guardian with the default permissions;
+   - (b) a guardian with view progress only;
+   - (c) the student, by invite code.
+
+   **Pass:** each invitation is accepted once, and a second use of the same code is refused.
+3. **View-only guardian (#243, #247):**
+   - **In the UI,** signed in as (b):
+     - the exam plan and interests are read-only, with no edit controls;
+     - Remove is absent on a school the parent saved;
+     - the invitation list shows no email addresses.
+   - **Through the REST API,** with (b)'s token:
+     - an insert or update on `student_exam_plan` and on `student_academic_interests` returns 0 rows or 42501;
+     - `rpc/remove_household_school` on the parent's school returns 42501;
+     - `household_invitations?select=recipient_email` returns 42501 (the column is revoked);
+     - `rpc/household_invitation_recipients` returns no rows for (b), and 42501 for the student.
+
+   **Pass:** every result is exactly as listed.
+4. **Exam plan on the account.** This needs `exam_catalog` loaded, after C3 and the reviewed data import.
+   - Build canonical staging with `VITE_EXAM_PLAN=true`.
+   - The student adds AP Calculus AB with a score of 4 on a phone.
 
    **Pass:**
-   - sessions contain no reserved item (SQL join on `practice_session_items`);
-   - the check's items are all `pool = 'assessment'`;
-   - both student API attempts return 22023, and the read returns no rows;
-   - the parent's and guardian's calls return 42501;
-   - the expired tab says "This progress check has ended", with "Start a new check", and the earlier answer is stored once;
-   - a short section is labelled "Shorter";
-   - the second check's repeated sections say "Not a clean comparison" and show no verdict;
-   - "Am I improving?" gives no verdict between checks with different sections or lengths, or with repeats;
+   - a row appears in `student_exam_plan`;
+   - the parent's laptop shows it after a reload;
+   - guardian (b) sees it but can't change it.
+5. **Practice and checks**, signed in as the student (needs #266):
+   1. Run two practice sessions.
+   2. Start the starting check and finish it.
+   3. Start a second check and finish it.
+   4. Start a third check. Through the REST API with the student's token, while it is open:
+      - an attempt on a practice question in the check;
+      - an attempt on a reserved question with no check (`p_benchmark` null).
+   5. Through the REST API with the parent's and guardian (b)'s tokens: `benchmark_questions` and `start_practice_attempt` on the student's open check.
+   6. Complete or expire the third check. Then read `practice_questions?pool=eq.assessment` with the student's token.
+   7. Leave a fourth check open past 4 hours, or use the H1 copy and set its `started_at` back 5 hours. Then answer in the open tab.
+
+   **Pass:**
+   - sessions contain no reserved item (an SQL join of `practice_session_items` to `practice_questions`);
+   - every check item is `pool = 'assessment'`;
+   - both student API attempts return 22023, and the parent's and guardian's calls return 42501;
+   - the read in sub-step 6 returns only reserved items this student has attempted (their ids match `practice_attempts`), and no unattempted reserved item;
+   - the expired tab says "This progress check has ended" with "Start a new check", and the earlier answer is stored once;
+   - **when the reserve is smaller than a check:**
+     - short sections are labelled "Shorter";
+     - the history row shows the same label;
+     - repeated sections say "Not a clean comparison" and show no verdict;
+   - "Am I improving?" gives no verdict between checks with different sections or numbers of answers, or with repeats;
+   - the Benchmarks card shows no "+N" change;
    - no screen shows an ACT or SAT score prediction.
-6. **Cost & credit:** the student has AP scores that earn credit at a saved school with a verified plan. **Pass:**
-   - credit coverage is shown as coverage ("not a shorter degree");
-   - "Time and money saved: not shown" names the missing prerequisites, availability, sequencing and remaining-requirements records;
+6. **Cost & credit** (needs #253). The student has AP scores that earn credit at a saved school with a verified plan.
+   **Pass:**
+   - coverage is shown as coverage ("That is coverage, not a shorter degree.");
+   - "Time and money saved: not shown" names the missing prerequisite, availability, sequencing and remaining-requirement records;
    - no dollar or semester saving appears on Cost & credit, Paths, Compare, the college detail page, the parent dashboard or the pilot plan.
-7. **Rights gate:** as the service role on a branch copy, publish a question with no license. **Pass:** refused.
-8. **Billing (A8):** follow `STRIPE_BILLING.md` in Stripe test mode, then once in live mode with a real card refunded the same day. **Pass:** checkout, portal and cancel each change the entitlement exactly once.
-9. **Parent emails (A7, B2):**
-   - Opt in one parent and run `send-weekly-digest` in dry-run mode.
-   - Then run it for real once.
-   - Then run it again.
+7. **Rights gate:** on the H1 copy, as the service role, publish a question with no license.
+   **Pass:** refused with 23514, citing `practice_questions_rights_gate`.
+8. **Billing (A8):** follow `STRIPE_BILLING.md` in Stripe test mode, on staging with `VITE_BILLING_ENVIRONMENT=sandbox`.
+   **Pass:**
+   - checkout makes the entitlement Active;
+   - cancelling in the portal shows "Ends <date>";
+   - each webhook writes `subscriptions` once.
+
+   One live-mode charge, with a real card refunded the same day, needs the owner's separate go-ahead for live charges. Lifting the Supabase hold doesn't cover it.
+9. **Parent emails (A7, B2).** This needs the CR-22 migration applied and `send-weekly-digest` deployed with `DIGEST_CRON_SECRET`, `RESEND_API_KEY` and `DIGEST_FROM_EMAIL` set by name. Opt in one parent, then call the function three times with header `x-digest-secret: $DIGEST_CRON_SECRET`:
+   1. body `{"mode":"weekly","week_start":"<last Monday>","dry_run":true}`;
+   2. the same without `dry_run`;
+   3. the second call again.
 
    **Pass:**
-   - the dry-run content matches the dashboard;
+   - the dry-run text matches the dashboard;
    - exactly one email arrives;
-   - running it again sends nothing.
+   - the third call reports `already: 1, sent: 0`.
 
 **H4. Flags (Owner, one at a time, each after its step passes):**
 - `VITE_EXAM_PLAN` after H3.4.
 - `VITE_ACCOUNT_SETUP` after the CR-26 migration and H3.1–2.
 - `VITE_PRACTICE_REMINDERS` after CR-27 and R1–R7.
 - `VITE_WEEKLY_DIGEST` after CR-22 and H3.9.
+- `VITE_BILLING_ENABLED` after H3.8. `VITE_BILLING_ENVIRONMENT=sandbox` stays on staging only.
 - `VITE_PLANNING_PILOT` only after the pilot gate (`PLANNING_ENGINE.md`).
-- **Pass:** each production build's env shows exactly the flags whose steps passed.
+
+**Pass:** each production build's env shows exactly the flags whose steps passed.
 
 ## R. Real-device acceptance (reminders and parent emails)
 
 Local tests use a fake push service, fake FCM and fake mail. **They are not launch acceptance.**
+
+**Prerequisites:**
+1. The CR-27 and CR-22 migrations are applied. Today they exist only as reference SQL in `scripts/local/proposals/`; Research turns them into migrations (#218 A1–A3).
+2. `send-practice-reminders`, `practice-reminder-action` and `send-weekly-digest` are deployed, each scheduled every 15 minutes (reminders, and the digest in `reminders_off` mode).
+3. These secrets are set, by name only: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `REMINDER_ACTION_SECRET`, `REMINDER_CRON_SECRET`, and `FCM_SERVICE_ACCOUNT` for M2.
+4. A canonical staging build with `VITE_VAPID_PUBLIC_KEY` and `VITE_PRACTICE_REMINDERS=true`. This flag is on for staging only; production waits for H4.
 
 **Devices:**
 - an iPhone on iOS 16.4 or later, with the web app added to the Home Screen and notifications allowed;
 - an Android phone with current Chrome;
 - a laptop with Chrome.
 
-Repeat everything in the native apps for milestone M2 (`NATIVE_APPS.md` § Acceptance). The student account is the H3 student. Set reminders to 2 minutes from now unless a step says otherwise.
+Repeat everything in the native apps for M2 (`NATIVE_APPS.md` § Acceptance). The student account is the H3 student.
+
+**Timing:**
+- Reminder times are quarter-hours (:00, :15, :30, :45), and the sender runs every 15 minutes.
+- "The next slot" means the next quarter-hour at least 5 minutes ahead.
+- To avoid waiting, call `send-practice-reminders` by hand just after the slot, with header `x-reminder-secret: $REMINDER_CRON_SECRET`.
 
 | # | Check | Steps | Pass | Owner | Status |
 |---|---|---|---|---|---|
-| R1 | Delivery at the chosen time; never in quiet hours, school hours, after today's practice, or past the limits | (a) Set a time 2 min ahead; wait. (b) Set quiet hours covering now and a time inside them. (c) Same with school hours. (d) Finish today's planned practice, then set a time 2 min ahead. (e) Set the daily limit to 1 and two times. | (a) arrives within 2 min of the time; (b)–(d) nothing arrives; (e) exactly one arrives | Owner (devices) + Design | ⛔ hosted held |
-| R2 | One notification per reminder across devices and sender runs | Sign the student in on the iPhone and laptop, both subscribed. Set a time 2 min ahead, and trigger `send-practice-reminders` twice within the same minute | Exactly one device shows exactly one notification; the delivery log has one row | Owner + Design | ⛔ |
-| R3 | A tap opens a 5-minute session | Tap the R1 notification on each phone | The app opens a 5-minute practice session; the delivery is marked opened | Owner + Design | ⛔ |
-| R4 | "Remind me later" | Use the notification button (Android, laptop) or the home-screen card (iPhone) | One reminder arrives 60 ± 2 min later; no email is sent to anyone | Owner + Design | ⛔ |
-| R5 | Turning reminders off in the app | As the student, turn reminders off and confirm the parent notice | Exactly one email arrives in the parent's real inbox; the dashboard says "Emailed to you …" only after it arrived | Owner + Design | ⛔ needs A7 |
+| R1 | Delivery at the chosen time; never in quiet hours, school hours, after today's practice, or past the limits | (a) Set the next slot; wait. (b) Set quiet hours covering the next slot, and that slot. (c) Same with school hours. (d) Finish today's planned practice, then set the next slot. (e) Set the daily limit to 1 and two slots. | (a) arrives in the first sender run at or after the slot (within 15 min); (b)–(d) nothing arrives; (e) exactly one arrives | Owner (devices) + Design | ⛔ hosted held |
+| R2 | One notification per reminder across devices and sender runs | Sign the student in on the iPhone and the laptop, both subscribed. Set the next slot. Just after it, call `send-practice-reminders` twice by hand | Exactly one device shows exactly one notification; `practice_reminder_deliveries` has one row for the slot | Owner + Design | ⛔ |
+| R3 | A tap opens a 5-minute session | Tap the R1 notification on each phone | The app opens a 5-minute practice session, and that delivery's `opened_at` is set | Owner + Design | ⛔ |
+| R4 | "Remind me later" | Use the notification button (Android, laptop) or the home-screen card (iPhone) | One reminder arrives 60–75 min later; no email is sent to anyone | Owner + Design | ⛔ |
+| R5 | Turning reminders off in the app | As the student, turn reminders off and confirm the parent notice | Exactly one email arrives in the parent's real inbox; the dashboard says "Emailed to you …" only after it arrives | Owner + Design | ⛔ needs A7 |
 | R6 | Turning notifications off in device settings | Block notifications in iOS or Android settings, then open the app once | The family sees "blocked in device settings (as of …)" only after that open, never before | Owner + Design | ⛔ |
-| R7 | Reinstall or a new device | Remove and re-add the Home Screen app (iPhone) or clear site data (Android); subscribe again; set a time 2 min ahead | The new device gets it; the old subscription is retired after the push service rejects it | Owner + Design | ⛔ |
+| R7 | Reinstall or a new device | Remove the Home Screen app (iPhone) or clear site data (Android). Wait for one reminder. Then re-add, subscribe, and wait for the next one | After the first reminder, the old row's `notification_devices.gone_at` is set (service-role SQL); the new device gets the next reminder | Owner + Design | ⛔ |
 
 ## D. Launch operations
 
