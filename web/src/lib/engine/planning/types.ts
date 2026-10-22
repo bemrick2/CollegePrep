@@ -2,6 +2,7 @@
 import type { SavedInterest } from '../interests'
 import type { ExamFamily, ExamMatch, PlannedExam } from '../examCredit'
 import type { PotentialSaving } from '../costProjection'
+import type { EarlyCompletion } from '../earlyCompletion'
 
 export type LivingArrangement = 'on_campus' | 'off_campus' | 'with_family'
 
@@ -37,6 +38,8 @@ export interface Evidence {
   lastVerifiedAt: string | null
   /** The year the source publishes for (catalog_year or academic_year), never the student's entry year. */
   publishedYear: string | null
+  /** The record's academic_year_basis, e.g. 'source_unlabeled' when the source prints no academic year. */
+  academicYearBasis?: string | null
   method?: string
   missing?: string
 }
@@ -149,7 +152,14 @@ export interface Roadmap {
   options: ExamOption[]
   dualEnrollment: Line<DualEnrollmentFacts>
   cost: Line<CostByArrangement[]>
+  /**
+   * Whole regular semesters whose every course the credit covers. This is credit COVERAGE, never a shorter degree or a
+   * saving on its own (engine/earlyCompletion.ts).
+   */
+  coverage: Line<{ termsCovered: number; termsInPlan: number }>
+  /** Whether records show the student could actually finish sooner; `missing` names what isn't shown. */
+  earlyCompletion: EarlyCompletion
+  /** A time or dollar saving: only when earlyCompletion is supported. Withheld otherwise, with the reason. */
   savings: Line<PotentialSaving>
-  timeline: Line<{ termsCovered: number; termsInPlan: number }>
   unknowns: Unknown[]
 }

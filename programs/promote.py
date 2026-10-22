@@ -159,10 +159,18 @@ def promote(decisions_path: Path, log=print):
         if status is None:
             raise ValueError(f"{c['candidate_id']} has open issues {c['issues']}; accept_issues with a reason is required")
         rec = dict(c['record']); rec['verification_status'] = status
+        if a.get('partial_coverage'):
+            # the record's own rows match the source exactly, but the printed section holds requirements no record captures
+            # yet (#250 review, UWM): accurate content is kept apart from complete coverage, so the record is partially verified
+            rec['verification_status'] = 'partially_verified'
+            rec['section_coverage'] = 'incomplete'
+            rec['captured_rows_match_source'] = True
+            rec['coverage_note'] = a['partial_coverage']
         mapped = keymap.get((c['institution_key'], c['academic_year'], rec.get('program_key')))
         if mapped: rec['program_key'] = mapped
         note = f" Reviewed {date.today().isoformat()}: {a.get('reason', '').strip()}"
         if a.get('accept_issues'): note += f" Accepted issues {c['issues']}: {a['accept_issues']}"
+        if a.get('partial_coverage'): note += f" Partially verified: the captured rows match the source; the section is incomplete: {a['partial_coverage']}"
         if a.get('replaces_promoted'): note += f" Replaces the record promoted earlier from this candidate: {a['replaces_promoted']}"
         if a.get('replaces_correction'):  # the candidate's record carries no correction reason; the replaced record's goes with it
             note += f" Re-verified after the correction on file (kept in supabase/corrections.json): {a['replaces_correction']}"

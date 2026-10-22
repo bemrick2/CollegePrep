@@ -55,11 +55,9 @@ export function PracticeIndicators({ history, title = 'Practice indicators', who
                         {prev[k].value === null ? (
                           'No earlier data'
                         ) : (
+                          // A plain earlier value, not a trend: no arrow or colour until a change passes the noise rule.
                           <>
-                            <span className={cx('font-semibold tabular', v - prev[k].value! > 0 ? 'text-go' : v - prev[k].value! < 0 ? 'text-warn' : 'text-ink-2')}>
-                              {v - prev[k].value! > 0 ? '▲' : v - prev[k].value! < 0 ? '▼' : '='} {Math.abs(v - prev[k].value!)}
-                            </span>{' '}
-                            vs prior 4 wks
+                            <span className="font-semibold tabular text-ink-2">{prev[k].value}</span> in the prior 4 weeks
                           </>
                         )}
                       </div>

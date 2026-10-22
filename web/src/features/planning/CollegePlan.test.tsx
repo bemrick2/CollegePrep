@@ -47,7 +47,7 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.getByText(/120 credit hours in total, as printed/)).toBeInTheDocument()
     // Exam credit: UTC's AP table isn't verified (no year printed), so no credit is claimed.
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
-    expect(within(credit).getAllByText('Not on file')).toHaveLength(2)
+    expect(within(credit).getAllByText('Academic year unconfirmed')).toHaveLength(2)
     expect(within(credit).getAllByText(/credit table is on file but not yet verified: the values were checked, but the page prints no academic year/).length).toBeGreaterThan(0)
     // Cost by living arrangement, as published.
     expect(screen.getByText('$30,340')).toBeInTheDocument()
@@ -55,19 +55,24 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.getByText('$23,736')).toBeInTheDocument()
     expect(screen.getByText(/In-state price shown: home state not entered\. Published for 2026-27\./)).toBeInTheDocument()
     // Nothing is claimed about time or money saved.
-    expect(screen.getByText('No whole plan term is covered by this credit, so no shorter timeline is shown.')).toBeInTheDocument()
+    expect(screen.getByText('No whole plan term is covered by this credit.')).toBeInTheDocument()
+    expect(screen.getByText(/^Not shown\. No whole plan term is covered, so no time or money saved is shown\./)).toBeInTheDocument()
     expect(screen.queryByText(/Potential saving/)).not.toBeInTheDocument()
   }, 30_000)
 
-  it('UTK: credit accepted from its verified table, but no business plan on file, so where it counts is unknown', async () => {
+  it('UTK: credit tables on file but their academic year is unconfirmed, so no credit is claimed and none is denied', async () => {
     const user = userEvent.setup()
     renderPlan(await family())
     await screen.findByText('Partly on file', {}, { timeout: 10000 })
     await user.selectOptions(screen.getByLabelText('School'), 'utk')
     expect(await screen.findByText('No degree plan on file')).toBeInTheDocument()
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
-    expect(within(credit).getAllByText('Credit; where it counts isn’t on file').length).toBeGreaterThan(0)
-    expect(within(credit).getAllByText('Credit hours not listed in the school’s table.').length).toBeGreaterThan(0)
+    expect(within(credit).getAllByText('Academic year unconfirmed').length).toBeGreaterThan(0)
+    expect(within(credit).getAllByText(/on file but not yet verified: the values were checked, but the page prints no academic year/).length).toBeGreaterThan(0)
+    // Owner, 2026-10-22: don't imply the credits were rejected or discontinued.
+    expect(within(credit).queryByText('No credit at this score')).not.toBeInTheDocument()
+    expect(within(credit).queryByText('Not on file')).not.toBeInTheDocument()
+    expect(within(credit).queryByText(/reject|discontinu/i)).not.toBeInTheDocument()
   }, 30_000)
 
   it('with no exams entered, unverified credit tables are still named and the page is not "ready"', async () => {
@@ -133,4 +138,14 @@ describe('college plan pilot when the flag is off', () => {
     expect(screen.queryByRole('heading', { name: 'College plan' })).not.toBeInTheDocument()
     expect(screen.queryByText(/Partly on file|No degree plan on file/)).not.toBeInTheDocument()
   }, 30_000)
+})
+
+describe('credit pill when no verified table (Design, #257)', () => {
+  it('names an unconfirmed academic year; other partially verified tables and missing tables keep their labels', async () => {
+    const { notOnFileLabel } = await import('./CollegePlan')
+    expect(notOnFileLabel({ verificationStatus: 'partially_verified', academicYearBasis: 'source_unlabeled' })).toBe('Academic year unconfirmed')
+    expect(notOnFileLabel({ verificationStatus: 'partially_verified', academicYearBasis: 'aid_year_in_force_at_review_source_unlabeled' })).toBe('Academic year unconfirmed')
+    expect(notOnFileLabel({ verificationStatus: 'partially_verified', academicYearBasis: 'labeled_in_source' })).toBe('On file, not yet verified')
+    expect(notOnFileLabel({ verificationStatus: null })).toBe('Not on file')
+  })
 })

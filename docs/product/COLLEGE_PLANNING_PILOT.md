@@ -25,7 +25,7 @@ Status key:
 | **Degree requirements and prerequisites** | Partial | <ul><li>`degreeCredit.ts` checks three things separately: is the credit accepted; does the awarded course appear in the major's verified term plan; does it cover a whole term.</li><li>`planItems.ts` (#171) reads every stored plan format.</li></ul> | <ul><li>**Prerequisites: missing**, in both data and code.</li><li>Gen-ed category matching: designations exist only as note text.</li><li>Alternatives printed inside a course title are missed (#192).</li></ul> |
 | **Tuition, housing, scholarships, aid** | Working, partial | <ul><li>`cost_projection` v2 (server, plus a demo copy).</li><li>`residency.ts` for in-state vs out-of-state.</li><li>`merit.ts`: single published test minimums only.</li><li>`costLevers.ts`.</li><li>Federal and state aid tables.</li><li>Family-entered aid in Savings.</li></ul> | <ul><li>Living-arrangement costs are stored (UTK, UTC) but not shown.</li><li>Tuition billing basis (CR-17), loan terms (CR-18) and COA period (CR-20) are open.</li><li>Award tiers and ranges show as "read the criteria".</li></ul> |
 | **Personalized recommendations** | Partial | <ul><li>`actions.ts` (parent actions), `planSummary.ts` (one headline opportunity) and `costLevers.ts`.</li><li>All score- and cost-oriented.</li></ul> | No recommendation of which exams, courses or dual-enrollment classes to take for a target major. |
-| **Graduation timeline and savings** | Partial | `termsSaving` / `potentialSaving`: a potential saving only when whole plan terms are covered, net of grants lost. | <ul><li>No timeline model.</li><li>Hours short of a whole term are shown but never turned into dollars (correct until CR-17).</li></ul> |
+| **Graduation timeline and savings** | Coverage only | Whole regular semesters fully covered by credit are shown as **credit coverage**. Time and money saved are withheld (`earlyCompletion.ts`) until records show prerequisites, course availability, sequencing and remaining requirements allow finishing sooner. | <ul><li>No prerequisite, schedule or sequencing records on file.</li><li>Hours short of a whole term are never turned into dollars.</li></ul> |
 
 ## 2. Pilot data: what the three schools have
 
@@ -137,8 +137,8 @@ So the pilot labels each value with the year it was published. It never projects
 4. Plan coverage:
    - the hours that apply;
    - the terms fully covered;
-   - a graduation-timeline statement only when a whole term is covered.
-5. UTC's published 2026-27 cost of attendance by living arrangement, labeled as 2026-27. A potential saving only per the shared whole-term rule.
+   - credit coverage of whole terms, never a graduation-timeline or dollar claim (those need the four completion records).
+5. UTC's published 2026-27 cost of attendance by living arrangement, labeled as 2026-27. No saving shown: coverage alone doesn't establish earlier completion.
 6. "What we don't know yet", generated from the missing items, e.g. "UTC doesn't publish whether MATH 1950 substitutes for MATH 1830 in this plan".
 
 **Out of slice 1:**

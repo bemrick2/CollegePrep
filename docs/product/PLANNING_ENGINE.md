@@ -13,7 +13,7 @@ and they're deferred until the owner decides (`SUPABASE_DEFERRED.md`).
    their rules:
    - `examCredit`: acceptance of AP, CLEP, IB and Statewide Dual Credit.
    - `planItems` and `degreeCredit`: where credit lands in a plan.
-   - `costProjection`: `termsSaving` and `potentialSaving`.
+   - `costProjection`: `termsSaving`, used only through `earlyCompletion.gatedSaving` (`potentialSaving` is never shown).
    - `residency`: which price applies.
    - `merit`: published single test minimums.
 2. **Every output line carries its evidence.** The line has a state, and if the evidence is missing, the line says what's missing.
@@ -75,8 +75,9 @@ interface Roadmap {
   options: ExamOption[]
   dualEnrollment: Line<{ grades: string[]; minHsGpa: number | null; altMinAct: number | null; perCreditCharge: number | null }>
   cost: Line<{ arrangement: LivingArrangement; annual: number }>[]
-  savings: Line<PotentialSaving>        // whole plan terms covered only (until CR-17)
-  timeline: Line<{ termsCovered: number; termsInPlan: number }>   // value null unless termsCovered > 0
+  coverage: Line<{ termsCovered: number; termsInPlan: number }>   // credit coverage of whole regular semesters; never a saving
+  earlyCompletion: { supported: boolean; missing: CompletionCondition[] }   // engine/earlyCompletion.ts
+  savings: Line<PotentialSaving>        // null unless earlyCompletion.supported (never today)
   unknowns: Unknown[]                   // generated from every `missing` line, deduplicated
 }
 
@@ -117,8 +118,8 @@ No new record type is needed for slice 1.
 | Fit | The awarded course code appears in a row of the major's verified plan, including alternatives printed in titles (#192) | `degreeCredit`, `planItems` |
 | Options ("consider") | For every exam in the verified table: run the fit check at the table's lowest qualifying score. List only exams whose course fills a plan row. Ordered by plan term | `degreeCredit` |
 | Hours | The published `credits_awarded`. A sum of published hours is an `estimate` with that method stated. Null hours are `missing` | `examCredit` |
-| Timeline | Whole plan terms where every item is covered. Otherwise the value is null and the reason is listed | `degreeCredit.coveredTerms` |
-| Savings | `termsSaving` over the verified cost for the chosen living arrangement. "Potential", net of grants the family entered. Never from hours alone (CR-17) | `costProjection` |
+| Coverage | Whole regular semesters (12+ printed hours; not summer, short sessions, quarters or year blocks) where every course is covered. Shown as coverage, never as a shorter degree | `degreeCredit.coveredTerms`, `planItems.planTerms` |
+| Time and money saved | **Withheld** unless verified records show all four: prerequisites met without the covered term, the later courses offered when they'd be taken, the required order allows it, and every remaining graduation requirement still fits. No such records exist, so it's always "Not shown", with what's missing named. When supported: `termsSaving`, "potential", net of grants entered | `earlyCompletion`, `costProjection` |
 | Cost | `living_arrangements[]` from a verified cost record, as published, labeled with its year | new reader; data exists |
 | Dual enrollment | Eligibility fields as published. No course equivalencies until a verified table exists | `credit_policies.dual_enrollment` |
 | Merit | Single published minimums only. Tiers and ranges show "read the criteria" | `merit` |
