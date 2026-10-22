@@ -73,6 +73,7 @@ export function toPublic(q: FixtureQuestion): PublicQuestion {
     expected_time_seconds: q.expected_time_seconds,
     primary_skill_key: q.primary_skill_key,
     hint_count: q.hints.length,
+    pool: null,
   }
 }
 
@@ -573,11 +574,16 @@ export class DemoSource implements DataSource {
     this.commit()
   }
 
-  async startAttempt(studentId: string, questionId: string, sessionId: string | null, _benchmarkId?: string | null) {
+  async startAttempt(studentId: string, questionId: string, sessionId: string | null, benchmarkId?: string | null) {
     const F = await loadFixtures()
     this.requireLinked(studentId)
     const q = F.byId.get(questionId)
     if (!q) throw new DataError('Question is not available', 'invalid')
+    // CR-23, as the server will enforce it: reserved assessment questions only in a progress check, and a check
+    // only on reserved questions.
+    const reserved = practiceExclusions(q.exam_family, F.QUESTIONS).has(questionId)
+    if (benchmarkId && !reserved) throw new DataError('Progress checks use only questions set aside for checks', 'invalid')
+    if (!benchmarkId && reserved) throw new DataError('This question is set aside for progress checks', 'forbidden')
     const id = uid('pa-')
     const now = new Date().toISOString()
     const a: DemoAttempt = {

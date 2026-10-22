@@ -1,0 +1,42 @@
+{
+ "run": "programs/runs/SC/2026-10-07-list",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout",
+ "approve": [
+  {
+   "candidate_id": "c9b9eccf296886cc",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 6 hours of ECON courses 400-level or above 3 | 6\". Printed 'Select 6 hours of ECON courses 400-level or above' is a credit-hour amount, not a course count; the re-extracted elective_pool group with choose_credits 6 has no listed options (an open pool, as printed) and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 6 hours of ECON courses 400-level or above 3 6\" as a number of courses (choose_count 6) (#229)."
+  },
+  {
+   "candidate_id": "e122165de3c87868",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 6 hours from the following: | 6\". Printed 'Select 6 hours from the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 6 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 6 hours from the following: 6\" as a number of courses (choose_count 6) (#229)."
+  },
+  {
+   "candidate_id": "aa75d4d99eea20ce",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 12 hours from the following (no more than 3 hours may come from BMEN 499): 3\". Printed 'Select 12 hours from the following (no more than 3 hours may come from BMEN 499)' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 12 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 12 hours from the following (no more than 3 hours may come from BMEN 499): 3\" as a number of courses (choose_count 12) (#229)."
+  },
+  {
+   "candidate_id": "57fcc6ecdccbfb46",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 9 hours from the following: | 9\". Printed 'Select 9 hours from the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 9 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 9 hours from the following: 9\" as a number of courses (choose_count 9) (#229)."
+  },
+  {
+   "candidate_id": "2eb8962b33548df4",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 3 hours from the following: | 3\". Printed 'Select 3 hours from the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 3 hours from the following: 3\" as a number of courses (choose_count 3) (#229)."
+  },
+  {
+   "candidate_id": "a175ee2caf82aef0",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 3 hours from any JOUR or SPTE course | 3\". Printed 'Select 3 hours from any JOUR or SPTE course' is a credit-hour amount, not a course count; the re-extracted elective_pool group with choose_credits 3 has no listed options (an open pool, as printed) and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 3 hours from any JOUR or SPTE course 3\" as a number of courses (choose_count 3) (#229)."
+  },
+  {
+   "candidate_id": "adecea7523001b64",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Select 3 hours from the following: | 3\". Printed 'Select 3 hours from the following' is a credit-hour amount, not a course count; the re-extracted choose_credits group with choose_credits 3 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Select 3 hours from the following: 3\" as a number of courses (choose_count 3) (#229)."
+  }
+ ]
+}

@@ -161,6 +161,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
               {
@@ -168,7 +173,19 @@
                 "credits": 3,
                 "title": "Introduction to English Studies"
               },
-              "WRT 120or WRT 123 | Effective Writing Ior Effective Writing with Supplemental Writing Workshop | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "WRT 120",
+                    "title": "Effective Writing I"
+                  },
+                  {
+                    "code": "WRT 123",
+                    "title": "Effective Writing with Supplemental Writing Workshop"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MAT 103",
                 "credits": 3,
@@ -180,10 +197,13 @@
                 "credits": 4,
                 "title": "First Year Experience"
               },
-              "Foreign Language 101 | 3"
+              {
+                "credits": 3,
+                "text": "Foreign Language 101"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -198,47 +218,65 @@
                 "credits": 3,
                 "title": "Introduction to Linguistics"
               },
-              "SPK 208or SPK 230 | Public Speakingor Business and Professional Speech Communication | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "SPK 208",
+                    "title": "Public Speaking"
+                  },
+                  {
+                    "code": "SPK 230",
+                    "title": "Business and Professional Speech Communication"
+                  }
+                ],
+                "credits": 3
+              },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Foreign Language 102 | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Foreign Language 102"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
-          },
-          {
-            "credit_hours": "15",
-            "items": [
-              "ENG 206or ENG 296 | Black Critical Theoryor Theory & Criticism in English Studies | 3",
-              "Focus Area/Track Course 1 | 3",
-              "Focus Area/Track Course 2 | 3",
-              "Foreign Language 201 | 3",
-              "Gen Ed Course 1 | 3"
-            ],
-            "label": "Fall",
             "term_index": 3
           },
           {
-            "credit_hours": "15",
-            "items": [
-              "Focus Area/Track Course 3 | 3",
-              "Focus Area/Track Course 4 | 3",
-              "Minor Course 1 | 3",
-              "Foreign Language 202 | 3",
-              "Gen Ed Course 2 | 3",
-              "Year Three"
-            ],
-            "label": "Spring",
+            "items": [],
+            "label": "Year Two",
             "term_index": 4
           },
           {
             "credit_hours": "15",
             "items": [
-              "Focus Area/Track Course 5 | 3",
-              "Focus Area/Track Course 6 | 3",
-              "Minor Course 2 | 3",
-              "Gen Ed Course 3 | 3",
-              "Gen Ed Course 4 | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "ENG 206",
+                    "title": "Black Critical Theory"
+                  },
+                  {
+                    "code": "ENG 296",
+                    "title": "Theory & Criticism in English Studies"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 1"
+              },
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 2"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign Language 201"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 1"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -247,18 +285,60 @@
             "credit_hours": "15",
             "items": [
               {
-                "code": "ENG 400",
                 "credits": 3,
-                "title": "Research Seminar"
+                "text": "Focus Area/Track Course 3"
               },
-              "Focus Area/Track Course 7 | 3",
-              "Focus Area/Track Course 8 | 3",
-              "Minor Course 3 | 3",
-              "Gen Ed Course 5 | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 4"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 1"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign Language 202"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 2"
+              }
             ],
             "label": "Spring",
             "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 5"
+              },
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 6"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 2"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 3"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 4"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -268,13 +348,58 @@
                 "credits": 3,
                 "title": "Research Seminar"
               },
-              "Minor Course 4 | 3",
-              "Minor Course 5 | 3",
-              "Gen Ed Course 6 | 3",
-              "Gen Ed Course 7 | 3"
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 7"
+              },
+              {
+                "credits": 3,
+                "text": "Focus Area/Track Course 8"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 3"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 5"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "code": "ENG 400",
+                "credits": 3,
+                "title": "Research Seminar"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 4"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Course 5"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 6"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course 7"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "14",
@@ -290,18 +415,27 @@
                 "title": "Internship"
               },
               "or Elective",
-              "Minor Course 6 | 3",
-              "Gen Ed Course 8 | 2",
-              "Gen Ed / Elective | 3"
+              {
+                "credits": 3,
+                "text": "Minor Course 6"
+              },
+              {
+                "credits": 2,
+                "text": "Gen Ed Course 8"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed / Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/arts-humanities/english/english-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#3ee75156d48cf889."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#3ee75156d48cf889) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#314672e8735d289e."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -648,9 +782,38 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
-              "PHI 100or PHI 101or PHI 102or PHI 180or PAX 200 | Creating Meaningor World Philosophiesor Introduction to Religious Studiesor Introduction to Ethicsor Introduction to Peace and Conflict Studies | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "PHI 100",
+                    "title": "Creating Meaning"
+                  },
+                  {
+                    "code": "PHI 101",
+                    "title": "World Philosophies"
+                  },
+                  {
+                    "code": "PHI 102",
+                    "title": "Introduction to Religious Studies"
+                  },
+                  {
+                    "code": "PHI 180",
+                    "title": "Introduction to Ethics"
+                  },
+                  {
+                    "code": "PAX 200",
+                    "title": "Introduction to Peace and Conflict Studies"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "WRT 120",
                 "credits": 3,
@@ -661,42 +824,110 @@
                 "credits": 4,
                 "title": "First Year Experience"
               },
-              "Foreign Language 101 | 3",
-              "Gen Ed Distributive Course | 3"
+              {
+                "credits": 3,
+                "text": "Foreign Language 101"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "18",
             "items": [
-              "PHI 150or PHI 190 | Critical Thinking and Problem Solvingor Logic | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "PHI 150",
+                    "title": "Critical Thinking and Problem Solving"
+                  },
+                  {
+                    "code": "PHI 190",
+                    "title": "Logic"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MAT 103",
                 "credits": 3,
                 "title": "Introduction to Mathematics"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Foreign Language 102 | 3",
-              "Gen Ed Distributive Course | 3",
-              "Gen Ed Distributive Course | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Foreign Language 102"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
             "items": [
-              "PHI 202or PHI 203or PHI 204or PHI 205or PHI 270or PHI 272 | Philosophy of Raceor Introduction to Indigenous Philosophyor Yoga, Karma, and Buddhaor Yin-Yang, Dao, and Zenor History of Ancient Philosophyor History of Modern Philosophy | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "PHI 202",
+                    "title": "Philosophy of Race"
+                  },
+                  {
+                    "code": "PHI 203",
+                    "title": "Introduction to Indigenous Philosophy"
+                  },
+                  {
+                    "code": "PHI 204",
+                    "title": "Yoga, Karma, and Buddha"
+                  },
+                  {
+                    "code": "PHI 205",
+                    "title": "Yin-Yang, Dao, and Zen"
+                  },
+                  {
+                    "code": "PHI 270",
+                    "title": "History of Ancient Philosophy"
+                  },
+                  {
+                    "code": "PHI 272",
+                    "title": "History of Modern Philosophy"
+                  }
+                ],
+                "credits": 3
+              },
               "PHI XXX | Philosophy Elective | 3",
-              "Foreign Language 201 | 3",
+              {
+                "credits": 3,
+                "text": "Foreign Language 201"
+              },
               "or Culture Cluster",
-              "Gen Ed Distributive Course | 3",
-              "Gen Ed Distributive Course | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
@@ -707,52 +938,126 @@
                 "credits": 3,
                 "title": "Public Speaking"
               },
-              "Foreign Language 202 | 3",
+              {
+                "credits": 3,
+                "text": "Foreign Language 202"
+              },
               "or Culture Cluster",
-              "Gen Ed Distributive Course | 3",
-              "Gen Ed Distributive Course | 3",
-              "Year Three"
-            ],
-            "label": "Spring",
-            "term_index": 4
-          },
-          {
-            "credit_hours": "15",
-            "items": [
-              "PHI XXX | Philosophy Elective | 3",
-              "Culture Cluster (if needed) | 3",
-              "or Free Elective",
-              "Free Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3"
-            ],
-            "label": "Fall",
-            "term_index": 5
-          },
-          {
-            "credit_hours": "15",
-            "items": [
-              "PHI 3XX or 4XX | Philosophy Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
           },
           {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
+          },
+          {
             "credit_hours": "15",
             "items": [
-              "PHI 405or PHI 407or PHI 412or PHI 430or PHI 434 | Feminist Theoryor Queer Theoryor Ethical Theoriesor African American Philosophyor Contemporary Indigenous Thought | 3",
               "PHI XXX | Philosophy Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Culture Cluster (if needed)"
+              },
+              "or Free Elective",
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 8
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              "PHI 3XX or 4XX | Philosophy Elective | 3",
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "15",
+            "items": [
+              {
+                "any_of": [
+                  {
+                    "code": "PHI 405",
+                    "title": "Feminist Theory"
+                  },
+                  {
+                    "code": "PHI 407",
+                    "title": "Queer Theory"
+                  },
+                  {
+                    "code": "PHI 412",
+                    "title": "Ethical Theories"
+                  },
+                  {
+                    "code": "PHI 430",
+                    "title": "African American Philosophy"
+                  },
+                  {
+                    "code": "PHI 434",
+                    "title": "Contemporary Indigenous Thought"
+                  }
+                ],
+                "credits": 3
+              },
+              "PHI XXX | Philosophy Elective | 3",
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -763,17 +1068,23 @@
                 "title": "Philosophical Concepts and Systems"
               },
               "PHI XXX | Philosophy Elective | 3",
-              "Free Elective | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/arts-humanities/philosophy/philosophy-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#8887ca25088007b7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#8887ca25088007b7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#94825125bdaaa04b."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -2200,6 +2511,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
               {
@@ -2207,17 +2523,52 @@
                 "credits": 3,
                 "title": "Principles of Economics (Macro)"
               },
-              "MAT 112or MAT 113or MAT 115or MAT 131 | Algebra and Functions with Supportor Algebra and Functionsor Algebra, Functions, and Trigonometryor Precalculus | 3",
-              "WRT 120or WRT 123 | Effective Writing Ior Effective Writing with Supplemental Writing Workshop | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "MAT 112",
+                    "title": "Algebra and Functions with Support"
+                  },
+                  {
+                    "code": "MAT 113",
+                    "title": "Algebra and Functions"
+                  },
+                  {
+                    "code": "MAT 115",
+                    "title": "Algebra, Functions, and Trigonometry"
+                  },
+                  {
+                    "code": "MAT 131",
+                    "title": "Precalculus"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "WRT 120",
+                    "title": "Effective Writing I"
+                  },
+                  {
+                    "code": "WRT 123",
+                    "title": "Effective Writing with Supplemental Writing Workshop"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "FYE 100X",
                 "credits": 4,
                 "title": "First Year Experience"
               },
-              "Humanities Gen Ed (excluding PHI) | 3"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed (excluding PHI)"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -2227,14 +2578,58 @@
                 "credits": 3,
                 "title": "Principles of Economics (Micro)"
               },
-              "MAT 143or MAT 161 | Brief Calculusor Calculus I | 3",
-              "CSC 112or GEO 104 | Programming & Data Scienceor Introduction to Geospatial Technology and Analytics | 3",
-              "PHI 101or PHI 150or PHI 180 | World Philosophiesor Critical Thinking and Problem Solvingor Introduction to Ethics | 3",
-              "WRT 2XX | 200-Level WRT Course | 3",
-              "Year Two"
+              {
+                "any_of": [
+                  {
+                    "code": "MAT 143",
+                    "title": "Brief Calculus"
+                  },
+                  {
+                    "code": "MAT 161",
+                    "title": "Calculus I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "CSC 112",
+                    "title": "Programming & Data Science"
+                  },
+                  {
+                    "code": "GEO 104",
+                    "title": "Introduction to Geospatial Technology and Analytics"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PHI 101",
+                    "title": "World Philosophies"
+                  },
+                  {
+                    "code": "PHI 150",
+                    "title": "Critical Thinking and Problem Solving"
+                  },
+                  {
+                    "code": "PHI 180",
+                    "title": "Introduction to Ethics"
+                  }
+                ],
+                "credits": 3
+              },
+              "WRT 2XX | 200-Level WRT Course | 3"
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -2254,11 +2649,26 @@
                 "credits": 3,
                 "title": "Principles of Management"
               },
-              "SPK 208or SPK 230 | Public Speakingor Business and Professional Speech Communication | 3",
-              "Science Gen Ed | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "SPK 208",
+                    "title": "Public Speaking"
+                  },
+                  {
+                    "code": "SPK 230",
+                    "title": "Business and Professional Speech Communication"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Science Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
@@ -2278,12 +2688,22 @@
                 "credits": 3,
                 "title": "Principles of Marketing"
               },
-              "Interdisciplinary Gen Ed | 3",
-              "Behavioral & Social Science Gen Ed (excluding ECO) | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed (excluding ECO)"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -2298,12 +2718,21 @@
                 "credits": 3,
                 "title": "Corporate Finance"
               },
-              "Arts Gen Ed | 3",
-              "Diverse Communities Gen Ed | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Diverse Communities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -2313,7 +2742,19 @@
                 "credits": 3,
                 "title": "Intermediate Financial Management"
               },
-              "FIN 337or ECO 335 | Financial Markets and Institutionsor Money & Banking | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "FIN 337",
+                    "title": "Financial Markets and Institutions"
+                  },
+                  {
+                    "code": "ECO 335",
+                    "title": "Money & Banking"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MGT 313",
                 "credits": 3,
@@ -2324,11 +2765,18 @@
                 "credits": 3,
                 "title": "Production and Operations Management"
               },
-              "FIN, ECO, or ACC Elective | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "FIN, ECO, or ACC Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "15",
@@ -2338,13 +2786,31 @@
                 "credits": 3,
                 "title": "Investments"
               },
-              "FIN 372or ECO 338 | International Financeor International Economics | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "FIN 372",
+                    "title": "International Finance"
+                  },
+                  {
+                    "code": "ECO 338",
+                    "title": "International Economics"
+                  }
+                ],
+                "credits": 3
+              },
               "FIN XXX | FIN Elective | 3",
-              "FIN, ECO, or ACC Elective | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "FIN, ECO, or ACC Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "15",
@@ -2359,18 +2825,27 @@
                 "credits": 3,
                 "title": "Business Policy and Strategy"
               },
-              "Business Elective | 3",
-              "Business Elective | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Business Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Business Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/business-public-management/economics-finance/finance-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#e0bcc956f3e7f3f7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#e0bcc956f3e7f3f7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#d1dac5f9509f0c11."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -2598,6 +3073,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
               {
@@ -2620,10 +3100,13 @@
                 "credits": 4,
                 "title": "First Year Experience"
               },
-              "Gen Ed Distributive Course | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -2638,17 +3121,33 @@
                 "credits": 3,
                 "title": "Environmental Conservation and Sustainability"
               },
-              "SPK 208or SPK 230 | Public Speakingor Business and Professional Speech Communication | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "SPK 208",
+                    "title": "Public Speaking"
+                  },
+                  {
+                    "code": "SPK 230",
+                    "title": "Business and Professional Speech Communication"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MAT 103",
                 "credits": 3,
                 "title": "Introduction to Mathematics"
               },
-              "WRT 2XX | 200-Level Writing Course | 3",
-              "Year Two"
+              "WRT 2XX | 200-Level Writing Course | 3"
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -2663,12 +3162,21 @@
                 "credits": 3,
                 "title": "Intro to Geographic Information Systems"
               },
-              "Cognate Course | 3",
-              "Gen Ed Distributive Course | 3",
-              "Gen Ed Distributive Course | 3"
+              {
+                "credits": 3,
+                "text": "Cognate Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
@@ -2688,12 +3196,22 @@
                 "credits": 3,
                 "title": "Community Engagement Techniques"
               },
-              "Gen Ed Distributive Course | 3",
-              "Gen Ed Distributive Course | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -2708,12 +3226,21 @@
                 "credits": 3,
                 "title": "Land Use Planning"
               },
-              "Major Elective | 3",
-              "Major Elective | 3",
-              "Gen Ed Distributive Course | 3"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -2728,13 +3255,26 @@
                 "credits": 3,
                 "title": "Land Development Controls"
               },
-              "Major Elective | 3",
-              "Gen Ed Distributive Course | 3",
-              "Free Elective | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Distributive Course"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "15",
@@ -2744,13 +3284,34 @@
                 "credits": 3,
                 "title": "Planning Design (Studio A)"
               },
-              "ENG 368or ENG 371 | Business and Organizational Writingor Technical Writing | 3",
-              "Cognate Course | 3",
-              "Major Elective | 3",
-              "Free Elective | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "ENG 368",
+                    "title": "Business and Organizational Writing"
+                  },
+                  {
+                    "code": "ENG 371",
+                    "title": "Technical Writing"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Cognate Course"
+              },
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "15",
@@ -2760,19 +3321,31 @@
                 "credits": 3,
                 "title": "Planning Design (Studio B)"
               },
-              "Cognate Course | 3",
-              "Cognate Course | 3",
-              "Major Elective | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Cognate Course"
+              },
+              {
+                "credits": 3,
+                "text": "Cognate Course"
+              },
+              {
+                "credits": 3,
+                "text": "Major Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/business-public-management/geography-planning/urban-environmental-planning-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#bbe957c4554db44a."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#bbe957c4554db44a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#0ade0971285c36d7."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -4829,6 +5402,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "13",
             "items": [
               {
@@ -4841,7 +5419,19 @@
                 "credits": 3,
                 "title": "Motor Development and Motor Learning"
               },
-              "WRT 120or WRT 123 | Effective Writing Ior Effective Writing with Supplemental Writing Workshop | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "WRT 120",
+                    "title": "Effective Writing I"
+                  },
+                  {
+                    "code": "WRT 123",
+                    "title": "Effective Writing with Supplemental Writing Workshop"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "FYE 100X",
                 "credits": 4,
@@ -4849,7 +5439,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "16",
@@ -4875,11 +5465,18 @@
                 "title": "Introduction to Mathematics (OR HIGHER)"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Science Gen Ed | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -4916,7 +5513,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -4946,11 +5543,18 @@
                 "credits": 3,
                 "title": "Body Systems and Applied Anatomy II"
               },
-              "Behavioral & Social Science Gen Ed | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "19",
@@ -4975,11 +5579,17 @@
                 "credits": 3,
                 "title": "Democracy and Education"
               },
-              "Arts Gen Ed | 3",
-              "Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Science Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "14",
@@ -5008,11 +5618,15 @@
                 "code": "HEA 316",
                 "credits": 3,
                 "title": "ATOD Prevention Education"
-              },
-              "Year Four"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "18",
@@ -5027,12 +5641,21 @@
                 "credits": 3,
                 "title": "Teaching English Language Learners PK-12"
               },
-              "Ethics Gen Ed | 3",
-              "Behavioral & Social Science Gen Ed | 3",
-              "Humanities Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Ethics Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -5049,13 +5672,13 @@
               }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/education-social-work/secondary-education/health-physical-education-bsed/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#66cdaa5fd660cf28."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#66cdaa5fd660cf28) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#abb617d90ce16119."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -6223,6 +6846,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "14",
             "items": [
               {
@@ -6247,7 +6875,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "13",
@@ -6268,11 +6896,18 @@
                 "title": "General Chemistry I Lab"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Speaking Emphasis Gen Ed | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Speaking Emphasis Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -6302,10 +6937,13 @@
                 "credits": 3,
                 "title": "Principles of Economics (Macro)"
               },
-              "Gen Ed Course | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
@@ -6330,11 +6968,18 @@
                 "credits": 3,
                 "title": "Precalculus"
               },
-              "Gen Ed Course | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "16",
@@ -6364,10 +7009,13 @@
                 "credits": 3,
                 "title": "Epidemiology"
               },
-              "Speaking Emphasis Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Speaking Emphasis Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "14",
@@ -6383,10 +7031,13 @@
                 "title": "Introductory Microbiology"
               },
               "ENV XXX | Elective | 3",
-              "Gen Ed Course | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
           },
           {
             "credit_hours": "6",
@@ -6400,11 +7051,15 @@
                 "code": "ENV 462",
                 "credits": 3,
                 "title": "Water Quality and Health"
-              },
-              "Year Four"
+              }
             ],
             "label": "Summer",
-            "term_index": 7
+            "term_index": 10
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -6415,11 +7070,17 @@
                 "title": "Environmental Health Seminar"
               },
               "ENV XXX | Elective | 3",
-              "Ethics Gen Ed | 3",
-              "Gen Ed Course | 3"
+              {
+                "credits": 3,
+                "text": "Ethics Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 8
+            "term_index": 12
           },
           {
             "credit_hours": "12",
@@ -6430,11 +7091,17 @@
                 "title": "Environmental Toxicology"
               },
               "ENV XXX | Elective | 3",
-              "Gen Ed Course | 3",
-              "Gen Ed Course | 3"
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              },
+              {
+                "credits": 3,
+                "text": "Gen Ed Course"
+              }
             ],
             "label": "Spring",
-            "term_index": 9
+            "term_index": 13
           },
           {
             "credit_hours": "12",
@@ -6446,13 +7113,13 @@
               }
             ],
             "label": "Summer",
-            "term_index": 10
+            "term_index": 14
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/health-sciences/public-health-sciences/environmental-health-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#a0ec3489d6ebe271."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#a0ec3489d6ebe271) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#d89659e354d69599."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -6768,16 +7435,233 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "credit_hours": "12",
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "16",
             "items": [
-              "(Nine weeks)",
+              {
+                "code": "BIO 100",
+                "credits": 3,
+                "title": "Basic Biological Science"
+              },
+              {
+                "code": "MAT 113",
+                "credits": 3,
+                "title": "Algebra and Functions"
+              },
+              {
+                "code": "WRT 120",
+                "credits": 3,
+                "title": "Effective Writing I"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SPK 208",
+                    "title": "Public Speaking"
+                  },
+                  {
+                    "code": "SPK 230",
+                    "title": "Business and Professional Speech Communication"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "FYE 100X",
+                "credits": 4,
+                "title": "First Year Experience"
+              }
+            ],
+            "label": "Semester One",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "BIO 259",
+                "credits": 4,
+                "title": "Human Anatomy and Physiology I"
+              },
+              "WRT 2XX | 200-Level WRT Course | 3",
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Diverse Communities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              }
+            ],
+            "label": "Semester Two",
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "code": "CHE 100",
+                "credits": 3,
+                "title": "Concepts of Chemistry"
+              },
+              {
+                "code": "PSY 100",
+                "credits": 3,
+                "title": "Introduction to Psychology"
+              },
+              {
+                "code": "BIO 269",
+                "credits": 4,
+                "title": "Human Anatomy and Physiology II"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
+            ],
+            "label": "Semester Three",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "BIO 204",
+                "credits": 4,
+                "title": "Introductory Microbiology"
+              },
+              {
+                "code": "HEA 210",
+                "credits": 3,
+                "title": "Introduction to Allied Health"
+              },
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Speaing Emphasis Gen Ed"
+              },
+              "or Writing Emphasis Gen Ed",
+              "or Free Elective"
+            ],
+            "label": "Semester Four",
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "code": "HEA 370",
+                "credits": 1,
+                "title": "Medical Terminology"
+              },
+              {
+                "code": "HEA 371",
+                "credits": 2,
+                "title": "Aspects of Respiratory Therapy I"
+              },
+              {
+                "code": "HEA 372",
+                "credits": 3,
+                "title": "Respiratory Anatomy and Physiology"
+              },
+              {
+                "code": "HEA 373",
+                "credits": 3,
+                "title": "Bronchopulmonary Hygiene"
+              },
+              {
+                "code": "HEA 374",
+                "credits": 2,
+                "title": "Oxygen Therapy"
+              },
+              {
+                "credits": 2,
+                "text": "Free Elective"
+              }
+            ],
+            "label": "Semester Five",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "13",
+            "items": [
+              {
+                "code": "HEA 375",
+                "credits": 3,
+                "title": "Cardiopulmonary Disease"
+              },
+              {
+                "code": "HEA 376",
+                "credits": 2,
+                "title": "Aspects of Respiratory Therapy II"
+              },
+              {
+                "code": "HEA 377",
+                "credits": 2,
+                "title": "Pharmacology"
+              },
+              {
+                "code": "HEA 378",
+                "credits": 3,
+                "title": "Respiratory Technology"
+              },
+              {
+                "code": "HEA 379",
+                "credits": 3,
+                "title": "Hemodynamics I"
+              }
+            ],
+            "label": "Semester Six",
+            "term_index": 9
+          },
+          {
+            "credit_hours": "6",
+            "items": [
+              {
+                "text": "(Nine weeks)"
+              },
               {
                 "code": "HEA 380",
                 "credits": 6,
                 "title": "Clinical Practice I"
-              },
-              "Year Four",
-              "Semester Seven",
+              }
+            ],
+            "label": "Summer",
+            "term_index": 10
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "15",
+            "items": [
               {
                 "code": "HEA 472",
                 "credits": 3,
@@ -6807,8 +7691,14 @@
                 "code": "HEA 477",
                 "credits": 3,
                 "title": "Hemodynamics II"
-              },
-              "Semester Eight",
+              }
+            ],
+            "label": "Semester Seven",
+            "term_index": 12
+          },
+          {
+            "credit_hours": "12",
+            "items": [
               {
                 "code": "HEA 435",
                 "credits": 1,
@@ -6825,14 +7715,14 @@
                 "title": "Respiratory Care Clinical Practice III"
               }
             ],
-            "label": "Summer",
-            "term_index": 1
+            "label": "Semester Eight",
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/health-sciences/public-health-sciences/health-science-bs-respiratory-care/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#01e522dc6095a141."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#01e522dc6095a141) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#c0140f15a6b24206."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -6847,6 +7737,11 @@
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
+          {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
           {
             "credit_hours": "16",
             "items": [
@@ -6870,10 +7765,13 @@
                 "credits": 4,
                 "title": "First Year Experience"
               },
-              "Humanities Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -6889,12 +7787,22 @@
                 "credits": 3,
                 "title": "Introduction to Statistics I"
               },
-              "Humanities Gen Ed | 3",
-              "Arts Gen Ed | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -6910,11 +7818,17 @@
                 "title": "Humans and the Environment"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Science Gen Ed (BIO) | 3",
-              "Behavioral & Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Science Gen Ed (BIO)"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "17",
@@ -6924,15 +7838,49 @@
                 "credits": 3,
                 "title": "Chronic and Communicable Diseases"
               },
-              "PHI 150or PHI 180 | Critical Thinking and Problem Solvingor Introduction to Ethics | 3",
-              "SPK 208or SPK 230 | Public Speakingor Business and Professional Speech Communication | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "PHI 150",
+                    "title": "Critical Thinking and Problem Solving"
+                  },
+                  {
+                    "code": "PHI 180",
+                    "title": "Introduction to Ethics"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SPK 208",
+                    "title": "Public Speaking"
+                  },
+                  {
+                    "code": "SPK 230",
+                    "title": "Business and Professional Speech Communication"
+                  }
+                ],
+                "credits": 3
+              },
               "PEA XXX | Elective | 2",
-              "Science Gen Ed (CHE) | 3",
-              "Behavioral & Social Science Gen Ed | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Science Gen Ed (CHE)"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -6948,11 +7896,17 @@
                 "title": "Population Health"
               },
               "HEA XXX | Health Elective | 3",
-              "Speaking Emphasis Gen Ed | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Speaking Emphasis Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -6973,11 +7927,18 @@
                 "title": "Health Law, Economics, Ethics, and Policy"
               },
               "HEA XXX | Health Elective | 3",
-              "Free Elective | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "15",
@@ -6993,11 +7954,17 @@
                 "title": "Health Marketing and Communications"
               },
               "HEA XXX | Health Elective | 3",
-              "Speaking Emphasis Gen Ed | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Speaking Emphasis Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -7011,13 +7978,13 @@
               "HEA XXX | Health Elective | 3"
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/health-sciences/public-health-sciences/public-health-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#384efe7933295ec6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#384efe7933295ec6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#9cc06b38a650a592."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -7244,6 +8211,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "17",
             "items": [
               {
@@ -7273,7 +8245,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "16",
@@ -7295,11 +8267,18 @@
               },
               "or Arts Gen Ed",
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Diverse Communities Gen Ed 1 | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Diverse Communities Gen Ed 1"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -7314,21 +8293,48 @@
                 "credits": 3,
                 "title": "Psychosocial Perspectives of Sports/Recreational Injuries"
               },
-              "MAT 121or SMD 261 | Introduction to Statistics Ior Surface Anatomy | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "MAT 121",
+                    "title": "Introduction to Statistics I"
+                  },
+                  {
+                    "code": "SMD 261",
+                    "title": "Surface Anatomy"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "BIO 269",
                 "credits": 4,
                 "title": "Human Anatomy and Physiology II"
               },
-              "Speaking Emphasis Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Speaking Emphasis Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "18",
             "items": [
-              "SMD 261or MAT 121 | Surface Anatomyor Introduction to Statistics I | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "SMD 261",
+                    "title": "Surface Anatomy"
+                  },
+                  {
+                    "code": "MAT 121",
+                    "title": "Introduction to Statistics I"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "NTD 303",
                 "credits": 3,
@@ -7339,14 +8345,27 @@
                 "credits": 3,
                 "title": "Elements of Physical Science"
               },
-              "Arts Gen Ed | 3",
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
               "or SPK 208",
-              "Humanities Gen Ed | 3",
-              "Writing Emphasis Gen Ed (300/400-Level) | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Writing Emphasis Gen Ed (300/400-Level)"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "18",
@@ -7376,14 +8395,20 @@
                 "credits": 2,
                 "title": "Pharmacology"
               },
-              "Behavioral & Social Science Gen Ed | 3",
-              "Humanities Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
-            "credit_hours": "3",
+            "credit_hours": "17",
             "items": [
               {
                 "code": "SMD 430",
@@ -7414,8 +8439,14 @@
                 "code": "CRL 107",
                 "credits": 1,
                 "title": "General Chemistry Lab for Allied Health Sciences"
-              },
-              "Summer Session I",
+              }
+            ],
+            "label": "Spring",
+            "term_index": 9
+          },
+          {
+            "credit_hours": "7",
+            "items": [
               {
                 "code": "SMD 501",
                 "credits": 4,
@@ -7425,17 +8456,27 @@
                 "code": "SMD 502",
                 "credits": 3,
                 "title": "Prevention & Care of Injury and Illness"
-              },
-              "Summer Session II",
+              }
+            ],
+            "label": "Summer Session I",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "3",
+            "items": [
               {
                 "code": "SMD 512",
                 "credits": 3,
                 "title": "Orthopedic Assessment 1"
-              },
-              "Year Four"
+              }
             ],
-            "label": "Spring",
-            "term_index": 6
+            "label": "Summer Session II",
+            "term_index": 11
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 12
           },
           {
             "credit_hours": "8",
@@ -7457,13 +8498,13 @@
               }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/health-sciences/sports-medicine/sports-medicine-studies-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#d486814d777fd7f2."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#d486814d777fd7f2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#ffcb285d169ebbcd."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -8967,11 +10008,152 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
-            "credit_hours": "17.5",
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "15.5",
             "items": [
-              "Complete clearances and liability insurance",
-              "Year Two",
-              "Semester Three",
+              {
+                "code": "MPT 101",
+                "credits": 1,
+                "title": "Introduction to Music Therapy"
+              },
+              {
+                "code": "MTC 112",
+                "credits": 3,
+                "title": "Theory of Music I"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "VOK 111",
+                    "title": "Applied Lesson"
+                  },
+                  {
+                    "code": "INM 111",
+                    "title": "Applied Lesson"
+                  }
+                ],
+                "credits": "1.5"
+              },
+              {
+                "code": "PIA 150",
+                "credits": 1,
+                "title": "Piano Class I"
+              },
+              {
+                "code": "VOI 150",
+                "credits": 1,
+                "title": "Voice Class"
+              },
+              {
+                "code": "INS 295",
+                "credits": 1,
+                "title": "Guitar Class I"
+              },
+              {
+                "code": "WRT 120",
+                "credits": 3,
+                "title": "Effective Writing I"
+              },
+              {
+                "code": "FYE 100X",
+                "credits": 3,
+                "title": "First Year Experience"
+              },
+              {
+                "credits": 1,
+                "text": "Major Ensemble"
+              },
+              {
+                "text": "Recital Attendance"
+              }
+            ],
+            "label": "Semester One",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "16.5",
+            "items": [
+              {
+                "code": "MPT 240",
+                "credits": 3,
+                "title": "Fundamentals of Music Therapy"
+              },
+              {
+                "code": "MTC 113",
+                "credits": 3,
+                "title": "Theory of Music II"
+              },
+              {
+                "code": "MTC 114",
+                "credits": 2,
+                "title": "Aural Activities I"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "VOK 112",
+                    "title": "Applied Lesson"
+                  },
+                  {
+                    "code": "INM 112",
+                    "title": "Applied Lesson"
+                  }
+                ],
+                "credits": "1.5"
+              },
+              {
+                "code": "PIA 151",
+                "credits": 1,
+                "title": "Piano Class II"
+              },
+              {
+                "code": "INS 195",
+                "credits": 1,
+                "title": "Music Therapy Percussion Techniques"
+              },
+              {
+                "code": "INS 296",
+                "credits": 1,
+                "title": "Guitar Class II"
+              },
+              {
+                "code": "PSY 100",
+                "credits": 3,
+                "title": "Introduction to Psychology"
+              },
+              {
+                "credits": 1,
+                "text": "Major Ensemble"
+              },
+              {
+                "text": "Recital Attendance"
+              }
+            ],
+            "label": "Semester Two",
+            "term_index": 3
+          },
+          {
+            "credit_hours": "0",
+            "items": [
+              {
+                "text": "Complete clearances and liability insurance"
+              }
+            ],
+            "label": "Summer",
+            "term_index": 4
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "18",
+            "items": [
               {
                 "code": "MTC 115",
                 "credits": 2,
@@ -8987,7 +10169,19 @@
                 "credits": 3,
                 "title": "Global Soundscapes: Music, History, and Society"
               },
-              "VOK 211or INM 211 | Applied Lessonor Applied Lesson | 1.5",
+              {
+                "any_of": [
+                  {
+                    "code": "VOK 211",
+                    "title": "Applied Lesson"
+                  },
+                  {
+                    "code": "INM 211",
+                    "title": "Applied Lesson"
+                  }
+                ],
+                "credits": "1.5"
+              },
               {
                 "code": "MUE 220",
                 "credits": 3,
@@ -9003,10 +10197,24 @@
                 "credits": 3,
                 "title": "Music Therapy Principles I (Pediatrics)"
               },
-              "Major Ensemble | 1",
-              "Free Elective | 0.5",
-              "Recital Attendance",
-              "Semester Four",
+              {
+                "credits": 1,
+                "text": "Major Ensemble"
+              },
+              {
+                "credits": "0.5",
+                "text": "Free Elective"
+              },
+              {
+                "text": "Recital Attendance"
+              }
+            ],
+            "label": "Semester Three",
+            "term_index": 6
+          },
+          {
+            "credit_hours": "17.5",
+            "items": [
               {
                 "code": "MTC 214",
                 "credits": 2,
@@ -9017,7 +10225,19 @@
                 "credits": 3,
                 "title": "Western Art Music I"
               },
-              "VOK 212or INM 212 | Applied Lessonor Applied Lesson | 1.5",
+              {
+                "any_of": [
+                  {
+                    "code": "VOK 212",
+                    "title": "Applied Lesson"
+                  },
+                  {
+                    "code": "INM 212",
+                    "title": "Applied Lesson"
+                  }
+                ],
+                "credits": "1.5"
+              },
               {
                 "code": "MPT 193",
                 "credits": 1,
@@ -9028,27 +10248,70 @@
                 "credits": 3,
                 "title": "Music Therapy Principles II (Adults)"
               },
-              "MAT 121or MAT 125 | Introduction to Statistics Ior Introduction to Statistics and Probability | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "MAT 121",
+                    "title": "Introduction to Statistics I"
+                  },
+                  {
+                    "code": "MAT 125",
+                    "title": "Introduction to Statistics and Probability"
+                  }
+                ],
+                "credits": 3
+              },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Major Ensemble | 1",
-              "MT Clinical Music Skills Evaluation 1",
-              "Recital Attendance"
+              {
+                "credits": 1,
+                "text": "Major Ensemble"
+              },
+              {
+                "text": "MT Clinical Music Skills Evaluation 1"
+              },
+              {
+                "text": "Recital Attendance"
+              }
             ],
-            "label": "Summer",
-            "term_index": 1
+            "label": "Semester Four",
+            "term_index": 7
           },
           {
-            "credit_hours": "16",
+            "credit_hours": "0",
             "items": [
-              "Complete clearances & liability insurance",
-              "Year Three",
-              "Semester Five",
+              {
+                "text": "Complete clearances & liability insurance"
+              }
+            ],
+            "label": "Summer",
+            "term_index": 8
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 9
+          },
+          {
+            "credit_hours": "17.5",
+            "items": [
               {
                 "code": "MPT 194",
                 "credits": 1,
                 "title": "Functional Music Skills (Voice)"
               },
-              "MPT 300or MPT 302 | Music Therapy Researchor Music Therapy Telehealth Techniques | 1",
+              {
+                "any_of": [
+                  {
+                    "code": "MPT 300",
+                    "title": "Music Therapy Research"
+                  },
+                  {
+                    "code": "MPT 302",
+                    "title": "Music Therapy Telehealth Techniques"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MPT 301",
                 "credits": 1,
@@ -9069,13 +10332,52 @@
                 "credits": 3,
                 "title": "Developmental Psychology: Lifespan"
               },
-              "BIO 100or BIO 110 | Basic Biological Scienceor General Biology I | 3",
-              "VOK 311or INM 311 | Applied Lessonor Applied Lesson | 1.5",
-              "Major Ensemble | 1",
-              "MT Clinical Music Skills Evaluation 1 retake, if needed",
-              "Level 2 Music Therapy Fieldwork Application",
-              "Recital Attendance",
-              "Semester Six",
+              {
+                "any_of": [
+                  {
+                    "code": "BIO 100",
+                    "title": "Basic Biological Science"
+                  },
+                  {
+                    "code": "BIO 110",
+                    "title": "General Biology I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "VOK 311",
+                    "title": "Applied Lesson"
+                  },
+                  {
+                    "code": "INM 311",
+                    "title": "Applied Lesson"
+                  }
+                ],
+                "credits": "1.5"
+              },
+              {
+                "credits": 1,
+                "text": "Major Ensemble"
+              },
+              {
+                "text": "MT Clinical Music Skills Evaluation 1 retake, if needed"
+              },
+              {
+                "text": "Level 2 Music Therapy Fieldwork Application"
+              },
+              {
+                "text": "Recital Attendance"
+              }
+            ],
+            "label": "Semester Five",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "16",
+            "items": [
               {
                 "code": "MPT 431",
                 "credits": 3,
@@ -9096,23 +10398,81 @@
                 "credits": 3,
                 "title": "Psychopathology"
               },
-              "VOK 312or INM 312 | Applied Lessonor Applied Lesson | 1.5",
-              "CON 311or CON 321 | Instrumental Conducting Ior Choral Conducting I | 1.5",
-              "Major Ensemble | 1",
-              "Interdisciplinary Gen Ed | 3",
-              "MT Clinical Music Skills Evaluation 2",
-              "Recital Attendance"
+              {
+                "any_of": [
+                  {
+                    "code": "VOK 312",
+                    "title": "Applied Lesson"
+                  },
+                  {
+                    "code": "INM 312",
+                    "title": "Applied Lesson"
+                  }
+                ],
+                "credits": "1.5"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "CON 311",
+                    "title": "Instrumental Conducting I"
+                  },
+                  {
+                    "code": "CON 321",
+                    "title": "Choral Conducting I"
+                  }
+                ],
+                "credits": "1.5"
+              },
+              {
+                "credits": 1,
+                "text": "Major Ensemble"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              },
+              {
+                "text": "MT Clinical Music Skills Evaluation 2"
+              },
+              {
+                "text": "Recital Attendance"
+              }
             ],
-            "label": "Summer",
-            "term_index": 2
+            "label": "Semester Six",
+            "term_index": 11
           },
           {
-            "credit_hours": "1",
+            "credit_hours": "0",
             "items": [
-              "Complete clearances & liability insurance",
-              "Year Four",
-              "Semester Seven",
-              "MPT 300or MPT 302 | Music Therapy Researchor Music Therapy Telehealth Techniques | 1",
+              {
+                "text": "Complete clearances & liability insurance"
+              }
+            ],
+            "label": "Summer",
+            "term_index": 12
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 13
+          },
+          {
+            "credit_hours": "17",
+            "items": [
+              {
+                "any_of": [
+                  {
+                    "code": "MPT 300",
+                    "title": "Music Therapy Research"
+                  },
+                  {
+                    "code": "MPT 302",
+                    "title": "Music Therapy Telehealth Techniques"
+                  }
+                ],
+                "credits": 1
+              },
               {
                 "code": "MPT 432",
                 "credits": 3,
@@ -9123,31 +10483,54 @@
                 "credits": 4,
                 "title": "Human Anatomy and Physiology I"
               },
-              "Humanities Gen Ed | 3",
-              "Free Elective | 3",
-              "Free Elective | 3",
-              "MT Clinical Music Skills Evaluation 2 retake, if needed",
-              "Semester Eight",
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "text": "MT Clinical Music Skills Evaluation 2 retake, if needed"
+              }
+            ],
+            "label": "Semester Seven",
+            "term_index": 14
+          },
+          {
+            "credit_hours": "1",
+            "items": [
               {
                 "code": "MPT 492",
                 "credits": 1,
                 "title": "Music Therapy Internship I"
-              },
-              "Summer Session I",
+              }
+            ],
+            "label": "Semester Eight",
+            "term_index": 15
+          },
+          {
+            "credit_hours": "1",
+            "items": [
               {
                 "code": "MPT 493",
                 "credits": 1,
                 "title": "Music Therapy Internship II"
               }
             ],
-            "label": "Summer",
-            "term_index": 3
+            "label": "Summer Session I",
+            "term_index": 16
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/school-of-music/music-education-therapy/music-therapy-bm/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#a663699559c8cd59."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#a663699559c8cd59) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#2692546a38660479."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -12305,6 +13688,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "17-18",
             "items": [
               {
@@ -12322,7 +13710,19 @@
                 "credits": 3,
                 "title": "General Chemistry I"
               },
-              "WRT 120or WRT 123 | Effective Writing Ior Effective Writing with Supplemental Writing Workshop | 3-4",
+              {
+                "any_of": [
+                  {
+                    "code": "WRT 120",
+                    "title": "Effective Writing I"
+                  },
+                  {
+                    "code": "WRT 123",
+                    "title": "Effective Writing with Supplemental Writing Workshop"
+                  }
+                ],
+                "credits": "3-4"
+              },
               {
                 "code": "FYE 100X",
                 "credits": 4,
@@ -12330,7 +13730,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -12359,11 +13759,15 @@
                 "code": "PHY 170",
                 "credits": 4,
                 "title": "Physics I"
-              },
-              "Year Two"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -12395,7 +13799,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -12420,11 +13824,15 @@
                 "credits": 3,
                 "title": "Principles of Economics (Micro)"
               },
-              "WRT 2XX | 200-Level WRT Course | 3",
-              "Year Three"
+              "WRT 2XX | 200-Level WRT Course | 3"
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "17",
@@ -12461,7 +13869,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -12486,11 +13894,18 @@
                 "credits": 3,
                 "title": "Biomechanics for Engineers"
               },
-              "Humanities Gen Ed | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "15",
@@ -12510,11 +13925,17 @@
                 "credits": 3,
                 "title": "Bioprocess Engineering"
               },
-              "Arts Gen Ed | 3",
-              "Interdisciplinary Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "15",
@@ -12539,16 +13960,19 @@
                 "credits": 3,
                 "title": "Artificial Organs and Cryobiology Fundamentals"
               },
-              "Behavioral & Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/biomedical-engineering/biomedical-engineering-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#40a3b4ec9f5f3111."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#40a3b4ec9f5f3111) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#8dc1aa3e883683cd."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -12764,6 +14188,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
               "CHE 103& CRL 103 | General Chemistry Iand General Chemistry I Lab | 4",
@@ -12784,7 +14213,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "17",
@@ -12805,11 +14234,18 @@
                 "credits": 3,
                 "title": "Effective Writing I"
               },
-              "Free Elective | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -12821,10 +14257,12 @@
                 "credits": 4,
                 "title": "Physics I"
               },
-              "Department Safety Exam"
+              {
+                "text": "Department Safety Exam"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
@@ -12836,11 +14274,18 @@
                 "title": "Physics II"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Free Elective | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -12852,22 +14297,35 @@
                 "title": "Chemical Information"
               },
               "CHE 476& CRL 476 | Biochemistry Iand Biochemistry I Lab | 5",
-              "Behavioral & Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "16",
             "items": [
               "CHE 342& CRL 342 | Physical Chemistry IIand Physical Chemistry II Lab | 5",
               "CHE 477& CRL 477 | Biochemistry IIand Biochemistry II Lab | 5",
-              "Humanities Gen Ed | 3",
-              "Arts Gen Ed | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "13",
@@ -12882,12 +14340,21 @@
                 "credits": 1,
                 "title": "Seminar in Chemistry"
               },
-              "Behavioral & Social Science Gen Ed | 3",
-              "Interdisciplinary Gen Ed | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "13",
@@ -12898,17 +14365,23 @@
                 "title": "Inorganic Syntheses Lab"
               },
               "CHE 424& CRL 424 | Advanced Analytical Chemistryand Analytical Chemistry II Lab | 5",
-              "Free Elective | 3",
-              "Free Elective | 3"
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/chemistry/biochemistry-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#bdc752a9084d1131."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#bdc752a9084d1131) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#df6e55feb5db9b2e."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -13108,6 +14581,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "16",
             "items": [
               "CHE 103& CRL 103 | General Chemistry Iand General Chemistry I Lab | 4",
@@ -13128,7 +14606,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "17",
@@ -13144,12 +14622,31 @@
                 "credits": 3,
                 "title": "Effective Writing I"
               },
-              "MAT 121or MAT 125 | Introduction to Statistics Ior Introduction to Statistics and Probability | 3",
-              "Student Elective | 3",
-              "Year Two"
+              {
+                "any_of": [
+                  {
+                    "code": "MAT 121",
+                    "title": "Introduction to Statistics I"
+                  },
+                  {
+                    "code": "MAT 125",
+                    "title": "Introduction to Statistics and Probability"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Student Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -13160,11 +14657,23 @@
                 "credits": 3,
                 "title": "Genetics"
               },
-              "PHY 130or PHY 170 | General Physics Ior Physics I | 4",
+              {
+                "any_of": [
+                  {
+                    "code": "PHY 130",
+                    "title": "General Physics I"
+                  },
+                  {
+                    "code": "PHY 170",
+                    "title": "Physics I"
+                  }
+                ],
+                "credits": 4
+              },
               "WRT 2XX | 200-Level WRT Course | 3"
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -13174,15 +14683,42 @@
                 "credits": 3,
                 "title": "Organic Chemistry II"
               },
-              "PHY 140or PHY 180 | General Physics IIor Physics II | 4",
-              "Behavioral & Social Science Gen Ed | 3",
-              "Humanities Gen Ed | 3",
-              "Student Elective | 3",
-              "Department Safety Examination",
-              "Year Three"
+              {
+                "any_of": [
+                  {
+                    "code": "PHY 140",
+                    "title": "General Physics II"
+                  },
+                  {
+                    "code": "PHY 180",
+                    "title": "Physics II"
+                  }
+                ],
+                "credits": 4
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Student Elective"
+              },
+              {
+                "text": "Department Safety Examination"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "13",
@@ -13205,7 +14741,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "14",
@@ -13216,12 +14752,22 @@
                 "title": "Comparative Vertebrate Physiology 1"
               },
               "CHE XXX | Chemistry Elective 2,3,4 | 4",
-              "Arts Gen Ed | 3",
-              "Student Elective | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Student Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "14",
@@ -13242,10 +14788,13 @@
                 "title": "Medical Ethics"
               },
               "CHE XXX | Chemistry Elective | 3",
-              "Student Elective | 3"
+              {
+                "credits": 3,
+                "text": "Student Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "14",
@@ -13256,18 +14805,27 @@
                 "title": "Seminar in Chemistry"
               },
               "CHE XXX | Chemistry Elective 2,4 | 3",
-              "Humanities Gen Ed | 3",
-              "Student Elective | 3",
-              "Student Elective | 4"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Student Elective"
+              },
+              {
+                "credits": 4,
+                "text": "Student Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/chemistry/chemistry-biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#daa040cc07f9df80."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#daa040cc07f9df80) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#04276b3caab8e410."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -13461,6 +15019,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "15",
             "items": [
               "CHE 103& CRL 103 | General Chemistry Iand General Chemistry I Lab | 4",
@@ -13481,7 +15044,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "17",
@@ -13498,11 +15061,18 @@
                 "title": "Introduction to Ethics"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Free Elective | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "15",
@@ -13516,7 +15086,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
@@ -13527,13 +15097,25 @@
                 "credits": 4,
                 "title": "Physics II"
               },
-              "Arts Gen Ed | 3",
-              "Behavioral and Social Science Gen Ed | 3",
-              "Department Safety Examination",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral and Social Science Gen Ed"
+              },
+              {
+                "text": "Department Safety Examination"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -13552,19 +15134,29 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "17",
             "items": [
               "CHE 342& CRL 342 | Physical Chemistry IIand Physical Chemistry II Lab | 5",
               "CHE 477& CRL 477 | Biochemistry IIand Biochemistry II Lab | 5",
-              "Humanities Gen Ed | 3",
-              "Free Elective | 4",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 4,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "13",
@@ -13579,12 +15171,21 @@
                 "credits": 1,
                 "title": "Seminar in Chemistry"
               },
-              "Arts Gen Ed | 3",
-              "Behavioral and Social Science Gen Ed | 3",
-              "Interdisciplinary Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral and Social Science Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "13",
@@ -13594,13 +15195,13 @@
               "CHE XXX | Chemistry Elective 2 | 3"
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/chemistry/chemistry-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#3b0df862c910a83e."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#3b0df862c910a83e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#8841de6a76d578bf."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -13811,6 +15412,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "15",
             "items": [
               {
@@ -13840,7 +15446,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "15",
@@ -13865,11 +15471,15 @@
                 "credits": 4,
                 "title": "General Biology I"
               },
-              "WRT 2XX | 200-Level WRT Course | 3",
-              "Year Two"
+              "WRT 2XX | 200-Level WRT Course | 3"
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "18",
@@ -13906,7 +15516,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "16",
@@ -13940,11 +15550,15 @@
                 "code": "BIO 210L",
                 "credits": 1,
                 "title": "Genetics Lab"
-              },
-              "Year Three"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -13981,7 +15595,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -14001,12 +15615,22 @@
                 "credits": 3,
                 "title": "Introduction to Ethics"
               },
-              "Humanities Gen Ed | 3",
-              "Arts Gen Ed | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "16",
@@ -14031,11 +15655,17 @@
                 "credits": 4,
                 "title": "Cell Biology"
               },
-              "Interdisciplinary Gen Ed | 3",
-              "Behavioral & Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
@@ -14055,16 +15685,19 @@
                 "credits": 3,
                 "title": "Chemical Toxicology"
               },
-              "Behavioral & Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/chemistry/forensic-toxicological-chemistry-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#ea69bfa7cd4ca4fb."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#ea69bfa7cd4ca4fb) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#adf4b36f025cd3c0."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -14493,6 +16126,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "17",
             "items": [
               {
@@ -14505,16 +16143,31 @@
                 "credits": 3,
                 "title": "Computer Science I"
               },
-              "WRT 120or WRT 123 | Effective Writing Ior Effective Writing with Supplemental Writing Workshop | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "WRT 120",
+                    "title": "Effective Writing I"
+                  },
+                  {
+                    "code": "WRT 123",
+                    "title": "Effective Writing with Supplemental Writing Workshop"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "FYE 100X",
                 "credits": 4,
                 "title": "First Year Experience"
               },
-              "Language 101 | 3"
+              {
+                "credits": 3,
+                "text": "Language 101"
+              }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "17",
@@ -14534,12 +16187,22 @@
                 "credits": 4,
                 "title": "Physics I"
               },
-              "Language 102 | 3",
-              "Behavioral/Social Science Gen Ed | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Language 102"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral/Social Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -14555,24 +16218,49 @@
                 "title": "Linear Algebra"
               },
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Language 201 | 3",
-              "Diverse Communities Gen Ed/Writing Emphasis Course | 3"
+              {
+                "credits": 3,
+                "text": "Language 201"
+              },
+              {
+                "credits": 3,
+                "text": "Diverse Communities Gen Ed/Writing Emphasis Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
             "credit_hours": "15",
             "items": [
-              "Applied Mathematics Elective | 3",
-              "Minor Elective | 3",
-              "Arts Gen Ed | 3",
-              "Language 202 | 3",
-              "Free Elective | 3",
-              "Year Three"
+              {
+                "credits": 3,
+                "text": "Applied Mathematics Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Language 202"
+              },
+              {
+                "credits": 3,
+                "text": "Free Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 4
+            "term_index": 6
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 7
           },
           {
             "credit_hours": "15",
@@ -14587,12 +16275,21 @@
                 "credits": 3,
                 "title": "Mathematical Statistics I"
               },
-              "Minor Elective | 3",
-              "Humanities Gen Ed | 3",
-              "Interdisciplinary Gen Ed/Speaking Emphasis Course | 3"
+              {
+                "credits": 3,
+                "text": "Minor Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Interdisciplinary Gen Ed/Speaking Emphasis Course"
+              }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 8
           },
           {
             "credit_hours": "15",
@@ -14607,42 +16304,82 @@
                 "credits": 3,
                 "title": "Capstone in Mathematics"
               },
-              "Algebra Elective | 3",
-              "Minor Elective | 3",
-              "Humanities Gen Ed | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Algebra Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 9
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 10
           },
           {
             "credit_hours": "13",
             "items": [
-              "Analysis Elective | 3",
-              "Mathematics Elective 1 | 3",
-              "Minor Elective | 3",
-              "Ethics Gen Ed | 3",
-              "Free Elective | 1"
+              {
+                "credits": 3,
+                "text": "Analysis Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Mathematics Elective 1"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Ethics Gen Ed"
+              },
+              {
+                "credits": 1,
+                "text": "Free Elective"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 11
           },
           {
             "credit_hours": "12",
             "items": [
-              "Mathematics Elective 1 | 3",
-              "Minor Elective | 3",
-              "Minor Elective | 3",
-              "Behavioral/Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Mathematics Elective 1"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Minor Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral/Social Science Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/mathematics/mathematics-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#a1716ef7cd67f9b6."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#a1716ef7cd67f9b6) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#a03391aef77e4ccb."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -14767,6 +16504,11 @@
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year One",
+            "term_index": 1
+          },
+          {
             "credit_hours": "15",
             "items": [
               {
@@ -14775,7 +16517,19 @@
                 "title": "General Biology I"
               },
               "CHE 103& CRL 103 | General Chemistry Iand General Chemistry I Lab | 4",
-              "MAT 121or MAT 125 | Introduction to Statistics Ior Introduction to Statistics and Probability | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "MAT 121",
+                    "title": "Introduction to Statistics I"
+                  },
+                  {
+                    "code": "MAT 125",
+                    "title": "Introduction to Statistics and Probability"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "FYE 100X",
                 "credits": 4,
@@ -14783,7 +16537,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 1
+            "term_index": 2
           },
           {
             "credit_hours": "14",
@@ -14795,11 +16549,18 @@
                 "credits": 3,
                 "title": "Effective Writing I"
               },
-              "Humanities Gen Ed | 3",
-              "Year Two"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
+          },
+          {
+            "items": [],
+            "label": "Year Two",
+            "term_index": 4
           },
           {
             "credit_hours": "16",
@@ -14811,13 +16572,16 @@
               },
               "CHE 231& CRL 231 | Organic Chemistry Iand Organic Chemistry I Lab | 6",
               "WRT 2XX | 200-Level WRT Course | 3",
-              "Arts Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Arts Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 3
+            "term_index": 5
           },
           {
-            "credit_hours": "1",
+            "credit_hours": "15",
             "items": [
               {
                 "code": "BIO 211",
@@ -14843,17 +16607,27 @@
                 "code": "STA 311",
                 "credits": 3,
                 "title": "Intro Statistical Computing and Data Management"
-              },
-              "Summer Session II",
+              }
+            ],
+            "label": "Spring",
+            "term_index": 6
+          },
+          {
+            "credit_hours": "1",
+            "items": [
               {
                 "code": "PPD 484",
                 "credits": 1,
                 "title": "Pharmaceutical Internship I"
-              },
-              "Year Three"
+              }
             ],
-            "label": "Spring",
-            "term_index": 4
+            "label": "Summer Session II",
+            "term_index": 7
+          },
+          {
+            "items": [],
+            "label": "Year Three",
+            "term_index": 8
           },
           {
             "credit_hours": "16",
@@ -14881,7 +16655,7 @@
               }
             ],
             "label": "Fall",
-            "term_index": 5
+            "term_index": 9
           },
           {
             "credit_hours": "16",
@@ -14902,11 +16676,18 @@
                 "title": "General Physics II"
               },
               "ENG 371or ENG 375 | Technical Writingor Strategies for Writing in the Workplace | 3",
-              "Student Elective | 3",
-              "Year Four"
+              {
+                "credits": 3,
+                "text": "Student Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 6
+            "term_index": 10
+          },
+          {
+            "items": [],
+            "label": "Year Four",
+            "term_index": 11
           },
           {
             "credit_hours": "16",
@@ -14931,11 +16712,17 @@
                 "credits": 1,
                 "title": "Special Topics in Drug Development 1"
               },
-              "Humanities Gen Ed | 3",
-              "Behavioral & Social Science Gen Ed | 3"
+              {
+                "credits": 3,
+                "text": "Humanities Gen Ed"
+              },
+              {
+                "credits": 3,
+                "text": "Behavioral & Social Science Gen Ed"
+              }
             ],
             "label": "Fall",
-            "term_index": 7
+            "term_index": 12
           },
           {
             "credit_hours": "12-15",
@@ -14947,17 +16734,23 @@
               },
               "PPD XXX | Elective | 3",
               "PPD XXX | Elective | 3",
-              "Diverse Communities Gen Ed | 3",
-              "Free Elective 1 | 0-3"
+              {
+                "credits": 3,
+                "text": "Diverse Communities Gen Ed"
+              },
+              {
+                "credits": "0-3",
+                "text": "Free Elective 1"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 13
           }
         ]
       },
       "source_url": "https://catalog.wcupa.edu/undergraduate/sciences-mathematics/pharmaceutical-product-development/pharmaceutical-product-development-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#4c8de69a78bccb89."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence PA/2026-10-07-cat#4c8de69a78bccb89) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/PA/2026-10-07-cat/evidence.json#f3aa0091abf88551."
     },
     {
       "last_verified_at": "2026-10-07",

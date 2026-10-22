@@ -72,7 +72,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | AL | **in_progress** | 31 | 1 | 6% (needs 80%) | 0 | 27 | 36 |
 | AR | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 23 | 26 |
 | AZ | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 7 | 17 |
-| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 0 | 111 | 172 |
+| CA | **in_progress** | 152 | 5 | 7% (needs 80%) | 1 | 111 | 172 |
 | CO | **in_progress** | 30 | 2 | 23% (needs 80%) | 0 | 24 | 36 |
 | CT | **in_progress** | 26 | 0 | 0% (needs 80%) | 0 | 20 | 31 |
 | DC | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
@@ -91,7 +91,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | MD | **in_progress** | 31 | 1 | 5% (needs 80%) | 0 | 17 | 36 |
 | ME | **in_progress** | 18 | 0 | 0% (needs 80%) | 0 | 12 | 18 |
 | MI | **in_progress** | 51 | 2 | 6% (needs 80%) | 0 | 29 | 51 |
-| MN | **in_progress** | 41 | 1 | 2% (needs 80%) | 0 | 35 | 49 |
+| MN | **in_progress** | 41 | 1 | 2% (needs 80%) | 1 | 35 | 49 |
 | MO | **in_progress** | 58 | 3 | 22% (needs 80%) | 0 | 44 | 66 |
 | MS | **in_progress** | 17 | 0 | 0% (needs 80%) | 0 | 15 | 17 |
 | MT | **in_progress** | 14 | 0 | 0% (needs 80%) | 0 | 12 | 17 |
@@ -103,7 +103,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | NM | **in_progress** | 11 | 0 | 0% (needs 80%) | 0 | 9 | 11 |
 | NV | **in_progress** | 9 | 0 | 0% (needs 80%) | 0 | 6 | 11 |
 | NY | **in_progress** | 193 | 3 | 6% (needs 80%) | 0 | 163 | 207 |
-| OH | **in_progress** | 109 | 3 | 9% (needs 80%) | 0 | 81 | 121 |
+| OH | **in_progress** | 109 | 3 | 9% (needs 80%) | 1 | 81 | 121 |
 | OK | **in_progress** | 28 | 1 | 22% (needs 80%) | 0 | 25 | 29 |
 | OR | **in_progress** | 29 | 10 | 71% (needs 80%) | 0 | 3 | 41 |
 | PA | **in_progress** | 127 | 1 | 0% (needs 80%) | 0 | 97 | 143 |
@@ -254,7 +254,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Antelope Valley Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of California-Merced | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of the People | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| California State University-San Bernardino | covered | 69 | 69 | 0 | 152 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
+| California State University-San Bernardino | covered | 69 | 69 | 0 | 150 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | MiraCosta College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | California State University-Chico | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bakersfield College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -264,7 +264,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Stanford University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Solano Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Clara University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Loyola Marymount University | covered | 62 | 61 | 54 | 148 | met | met | met | queued | admission_rules:not_yet_researched |
+| Loyola Marymount University | covered_open_items | 62 | 61 | 0 | 148 | met | open | met | queued | admission_rules:not_yet_researched |
 | West Los Angeles College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | California Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of San Diego | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -277,7 +277,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | California State University-Monterey Bay | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Sonoma State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of the Pacific | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Biola University | partial | 46 | – | 0 | 86 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Biola University | partial | 46 | – | 0 | 85 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of La Verne | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Shasta College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pepperdine University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -290,7 +290,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Northeastern University Oakland | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Redlands | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Mount Saint Mary's University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Azusa Pacific University | covered | 50 | 52 | 1 | 104 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
+| Azusa Pacific University | covered | 50 | 52 | 1 | 103 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | The Master's University and Seminary | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Pomona College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | University of Massachusetts Global | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -521,7 +521,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Northwest Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Southern College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Rollins College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Stetson University | partial | 45 | – | 0 | 151 | queued | queued | met | queued | institution:not_yet_researched |
+| Stetson University | partial | 45 | – | 0 | 130 | queued | queued | met | queued | institution:not_yet_researched |
 | Saint Leo University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Florida Gateway College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | South Florida State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -586,7 +586,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Abraham Baldwin Agricultural College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Dalton State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Point University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Columbus State University | partial | 26 | 39 | 0 | 21 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Columbus State University | partial | 26 | 39 | 0 | 18 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Clark Atlanta University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Mercer University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Georgia Highlands College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -699,7 +699,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Illinois Urbana-Champaign | partial | 95 | – | 0 | 139 | queued | queued | met | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched |
-| University of Illinois Chicago | partial | 95 | 128 | 81 | 155 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| University of Illinois Chicago | partial | 95 | 128 | 80 | 155 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Illinois State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Loyola University Chicago | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | DePaul University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -870,7 +870,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Kentucky | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Louisville | covered | 81 | 87 | 40 | 153 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Western Kentucky University | covered | 90 | 92 | 0 | 192 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
-| Eastern Kentucky University | covered | 76 | 77 | 37 | 193 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
+| Eastern Kentucky University | covered | 76 | 77 | 35 | 193 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Murray State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Northern Kentucky University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Morehead State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -1151,7 +1151,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Concordia College at Moorhead | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bethel University | covered | 70 | 70 | 0 | 67 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Hamline University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Dunwoody College of Technology | partial | 3 | – | 3 | 0 | queued | met | queued | queued | admission_rules:no_official_statement, catalog:not_yet_researched, requirement_groups:not_yet_researched |
+| Dunwoody College of Technology | partial_unqueued | 3 | – | 1 | 0 | queued | open | queued | queued | admission_rules:no_official_statement, catalog:not_yet_researched, requirement_groups:not_yet_researched |
 | College of Saint Benedict | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Concordia University-Saint Paul | partial | 53 | 73 | 0 | 69 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | St Catherine University | partial | 46 | 52 | 0 | 238 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
@@ -1186,7 +1186,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Ozarks Technical Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Saint Louis Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Washington University in St Louis | partial | 18 | 88 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
-| Saint Louis University | covered | 90 | 90 | 62 | 5 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Saint Louis University | covered | 90 | 90 | 56 | 5 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | University of Missouri-Kansas City | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southeast Missouri State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Missouri University of Science and Technology | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1267,7 +1267,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Montana State University | partial | 13 | 65 | 0 | 2 | queued | queued | met | queued | institution:not_yet_researched |
-| The University of Montana | partial | 55 | 78 | 40 | 162 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| The University of Montana | partial | 55 | 78 | 39 | 162 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Montana State University Billings | partial | 27 | 34 | 0 | 73 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | The University of Montana-Western | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Montana Technological University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -1286,7 +1286,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | North Carolina State University at Raleigh | covered | 178 | 101 | 129 | 512 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
-| University of North Carolina at Chapel Hill | covered | 79 | 75 | 23 | 109 | met | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| University of North Carolina at Chapel Hill | covered | 79 | 75 | 22 | 109 | met | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of North Carolina at Charlotte | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Appalachian State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | East Carolina University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -1374,7 +1374,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Nebraska-Lincoln | covered | 116 | 124 | 110 | 0 | met | met | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, requirement_groups:layout_not_readable |
 | University of Nebraska at Omaha | covered | 84 | 87 | 60 | 4 | met | met | met | queued | institution:not_yet_researched |
-| Creighton University | partial | 26 | – | 0 | 37 | queued | queued | met | queued | institution:not_yet_researched |
+| Creighton University | partial | 26 | – | 0 | 36 | queued | queued | met | queued | institution:not_yet_researched |
 | University of Nebraska at Kearney | covered | 77 | 79 | 0 | 10 | met | queued | met | queued | institution:not_yet_researched |
 | Wayne State College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Bellevue University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1712,16 +1712,16 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Sinclair Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Bowling Green State University-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Toledo | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| University of Akron Main Campus | partial | 99 | – | 64 | 70 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| University of Akron Main Campus | partial | 99 | – | 63 | 70 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | University of Dayton | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Cleveland State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Case Western Reserve University | partial | 7 | – | 0 | 14 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Case Western Reserve University | partial | 7 | – | 0 | 12 | queued | queued | met | met | catalog:not_yet_researched, degree_maps:not_yet_researched |
 | University of Cincinnati-Blue Ash College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Wright State University-Main Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Ohio State University-Newark Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Youngstown State University | covered | 61 | 60 | 46 | 237 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Youngstown State University | covered_open_items | 61 | 60 | 0 | 236 | met | open | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Xavier University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Lorain County Community College | covered | 6 | 5 | 2 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
+| Lorain County Community College | covered | 6 | 5 | 1 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Cedarville University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Cincinnati State Technical and Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of Northwestern Ohio | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1819,7 +1819,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Oklahoma-Norman Campus | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Oklahoma State University-Main Campus | covered | 170 | 184 | 108 | 1012 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| Oklahoma State University-Main Campus | covered | 170 | 184 | 108 | 1000 | met | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | University of Central Oklahoma | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Oral Roberts University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Southwestern Oklahoma State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -1852,7 +1852,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Oregon | covered | 71 | 78 | 58 | 122 | met | met | met | queued | admission_rules:no_official_statement |
-| Oregon State University | covered | 103 | 107 | 89 | 222 | met | met | met | met | – |
+| Oregon State University | covered | 103 | 107 | 88 | 222 | met | met | met | met | – |
 | Chemeketa Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | Portland State University | covered | 70 | 71 | 7 | 0 | met | queued | queued | met | degree_maps:layout_not_readable, requirement_groups:layout_not_readable |
 | Mt Hood Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
@@ -2034,7 +2034,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of South Carolina-Columbia | covered | 98 | 98 | 71 | 350 | met | met | met | queued | admission_rules:not_yet_researched |
+| University of South Carolina-Columbia | covered | 98 | 98 | 70 | 348 | met | met | met | queued | admission_rules:not_yet_researched |
 | Clemson University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Coastal Carolina University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | College of Charleston | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -2161,16 +2161,16 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Austin Community College District | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | The University of Texas at Dallas | covered | 70 | 69 | 0 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, catalog:layout_not_readable, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | South Texas College | partial | 4 | – | 0 | 5 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
-| The University of Texas at El Paso | covered | 83 | 87 | 0 | 212 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
+| The University of Texas at El Paso | covered | 83 | 87 | 0 | 211 | met | queued | met | queued | admission_rules:not_yet_researched, degree_maps:not_yet_researched |
 | Sam Houston State University | partial | 124 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:layout_not_readable |
 | San Antonio College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Baylor University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tyler Junior College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Tarleton State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Christian University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Prairie View A & M University | covered | 36 | 37 | 0 | 46 | met | queued | met | queued | institution:not_yet_researched |
+| Prairie View A & M University | covered | 36 | 37 | 0 | 45 | met | queued | met | queued | institution:not_yet_researched |
 | Stephen F Austin State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| Texas A & M University-Corpus Christi | covered | 50 | 52 | 33 | 137 | met | met | met | queued | institution:not_yet_researched |
+| Texas A & M University-Corpus Christi | covered | 50 | 52 | 33 | 136 | met | met | met | queued | institution:not_yet_researched |
 | Trinity Valley Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Texas Southern University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Laredo College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -2269,7 +2269,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 |---|---|---|---|---|---|---|---|---|---|---|
 | Brigham Young University | partial | 118 | 169 | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | University of Utah | covered | 101 | 101 | 0 | 0 | met | queued | queued | queued | admission_rules:not_yet_researched, degree_maps:layout_not_readable, requirement_groups:layout_not_readable |
-| Utah Valley University | covered | 155 | 155 | 113 | 705 | met | met | met | met | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
+| Utah Valley University | covered | 155 | 155 | 112 | 705 | met | met | met | met | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched |
 | Utah State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Weber State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:fetch_failed |
 | Ensign College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
@@ -2338,7 +2338,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
-| University of Vermont | covered | 92 | 99 | 0 | 161 | met | queued | met | queued | admission_rules:no_official_statement, degree_maps:not_yet_researched |
+| University of Vermont | covered | 92 | 99 | 0 | 159 | met | queued | met | queued | admission_rules:no_official_statement, degree_maps:not_yet_researched |
 | Middlebury College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Vermont State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Norwich University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
@@ -2465,7 +2465,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | West Virginia University | partial | 93 | – | 0 | 222 | queued | queued | met | queued | admission_rules:not_yet_researched, catalog:layout_not_readable, degree_maps:not_yet_researched |
-| Marshall University | covered | 107 | 102 | 76 | 451 | met | met | met | queued | admission_rules:not_yet_researched |
+| Marshall University | covered | 107 | 102 | 75 | 451 | met | met | met | queued | admission_rules:not_yet_researched |
 | Fairmont State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Shepherd University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Concord University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |

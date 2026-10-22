@@ -4,6 +4,7 @@ import { realName, useApp, useAsync } from '../../lib/app'
 import type { ExamFamily, SetupProgress, Student, StudentPlan, TestScore } from '../../lib/data/types'
 import { browserTimeZone, localDate, weekStartOf } from '../../lib/engine/dates'
 import { planBenchmark } from '../../lib/engine/benchmark'
+import { checkQuestions } from '../../lib/engine/freshness'
 import { contentStatus } from '../../lib/engine/freshness'
 import { proposeFirstWeek } from '../../lib/engine/firstWeek'
 import { checkScore } from '../../lib/engine/scoreEntry'
@@ -185,7 +186,7 @@ function SetupFlow(p: {
   const exam: ExamFamily = d.primary ?? (d.intent === 'act' || d.intent === 'sat' ? d.intent : null) ?? existing?.plan?.exam_family ?? 'act'
   const scoreExam: ExamFamily = d.scoreExam ?? exam
   const pool = useAsync(() => source.publishedQuestions(exam), [source, exam])
-  const baseline = pool.data && pool.data.length ? planBenchmark(exam, 'initial', pool.data) : null
+  const baseline = pool.data && pool.data.length ? planBenchmark(exam, 'initial', checkQuestions(exam, pool.data)) : null
   const secondsPerQuestion = useMemo(() => {
     const t = (pool.data ?? []).map((q) => q.expected_time_seconds).filter((x): x is number => typeof x === 'number' && x > 0)
     return t.length ? t.reduce((a, b) => a + b, 0) / t.length : null

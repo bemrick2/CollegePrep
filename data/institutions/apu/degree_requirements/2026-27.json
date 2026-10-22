@@ -2083,8 +2083,9 @@
         "source_section": "Requirements — Electives"
       },
       "source_url": "https://catalog.apu.edu/academics/college-arts-humanities-theology-sciences/school-arts/art/art-ba/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#e9d41a9df92bc1b3."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-07: Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#e9d41a9df92bc1b3. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "The catalog prints \"Select 12 units from the following:\"; the verified group stores it as choose_count 12 (a number of courses), which the printed rule does not support (#229). Printed 'Select 12 units from the following' is a credit amount but is stored as choose_count 12. The re-extracted choose_credits candidate matches the page (the any_of alternatives are printed as 'or' rows), but it carries verify flags, so it is not REPLACE-eligible under the review rule; a REPLACE No exact replacement is available, so the group is no longer verified. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#e9d41a9df92bc1b3."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -3249,10 +3250,58 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Units 124 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "Year I",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "17",
+            "items": [
+              {
+                "code": "CORE 101",
+                "credits": 2,
+                "title": "Cultivating Wellness: Building Habits for Lifelong Well-Being"
+              },
+              {
+                "code": "CORE 100",
+                "credits": 3,
+                "title": "Cornerstones"
+              },
+              {
+                "code": "WRIT 110",
+                "credits": 3,
+                "title": "The Art and Craft of Writing"
+              },
+              {
+                "code": "SOCW 250",
+                "credits": 3,
+                "title": "Helping in a Complex World: Introduction to Social Work"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "SOC 120",
+                    "title": "Introduction to Sociology"
+                  },
+                  {
+                    "code": "PSYC 110",
+                    "title": "General Psychology"
+                  }
+                ],
+                "credits": 3
+              },
+              "MATH 90 | Foundations of Mathematical Reasoning (or ALEKS 30+) | 3"
+            ],
+            "label": "Fall",
+            "term_index": 2
+          },
+          {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "SOT 150",
@@ -3264,27 +3313,40 @@
                 "credits": 4,
                 "title": "Biology and Society"
               },
-              "Visions of the Good Life (Choose 1-Art/Engl/Hist/Phil) | 3",
+              {
+                "credits": 3,
+                "text": "Visions of the Good Life (Choose 1-Art/Engl/Hist/Phil)"
+              },
               {
                 "code": "COMM 111",
                 "credits": 3,
                 "title": "Public Communication (Humanities)"
               },
-              "Humanities | 3",
-              "Units | 16",
-              "Year II"
+              {
+                "credits": 3,
+                "text": "Humanities"
+              }
             ],
             "label": "Spring",
-            "term_index": 1
+            "term_index": 3
           },
           {
+            "items": [],
+            "label": "Year II",
+            "term_index": 4
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "SOT 200",
                 "credits": 3,
                 "title": "Understanding the New Testament: Christ, Redemption, Community, New Creation"
               },
-              "Ancient and Modern Languages I 1 | 3",
+              {
+                "credits": 3,
+                "text": "Ancient and Modern Languages I 1"
+              },
               {
                 "code": "SOCW 310",
                 "credits": 3,
@@ -3295,16 +3357,25 @@
                 "credits": 3,
                 "title": "Policy and the Public Good: Equity, Systems, and Social Responsibility (Humanities)"
               },
-              "Humanities | 3",
-              "Units | 15"
+              {
+                "credits": 3,
+                "text": "Humanities"
+              }
             ],
             "label": "Fall",
-            "term_index": 2
+            "term_index": 5
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Ancient and Modern Languages II 1 | 3",
-              "Humanities | 3",
+              {
+                "credits": 3,
+                "text": "Ancient and Modern Languages II 1"
+              },
+              {
+                "credits": 3,
+                "text": "Humanities"
+              },
               {
                 "code": "SOCW 311",
                 "credits": 3,
@@ -3319,21 +3390,28 @@
                 "code": "SOCW 275",
                 "credits": 3,
                 "title": "Stories, Systems, and Social Change"
-              },
-              "Units | 15",
-              "Year III"
+              }
             ],
             "label": "Spring",
-            "term_index": 3
+            "term_index": 6
           },
           {
+            "items": [],
+            "label": "Year III",
+            "term_index": 7
+          },
+          {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "MATH 130",
                 "credits": 3,
                 "title": "Introduction to Statistics (3 unit elective)"
               },
-              "Elective | 3",
+              {
+                "credits": 3,
+                "text": "Elective"
+              },
               {
                 "code": "SOCW 332",
                 "credits": 3,
@@ -3348,30 +3426,46 @@
                 "code": "SOT 250",
                 "credits": 3,
                 "title": "Theology and the Christian Life"
-              },
-              "Units | 15"
+              }
             ],
             "label": "Fall",
-            "term_index": 4
+            "term_index": 8
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "SOCW 360",
                 "credits": 3,
                 "title": "Facilitating Change with Families and Groups"
               },
-              "SOCW 355 Advanced Case Management | 3",
-              "Upper Division Elective | 3",
-              "Required Social Work Elective | 3",
-              "Upper Division Bible Elective | 3",
-              "Units | 15",
-              "Year IV"
+              {
+                "credits": 3,
+                "text": "SOCW 355 Advanced Case Management"
+              },
+              {
+                "credits": 3,
+                "text": "Upper Division Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Required Social Work Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Upper Division Bible Elective"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 9
           },
           {
+            "items": [],
+            "label": "Year IV",
+            "term_index": 10
+          },
+          {
+            "credit_hours": "17",
             "items": [
               {
                 "code": "SOCW 466",
@@ -3388,19 +3482,25 @@
                 "credits": 3,
                 "title": "Social Work Research Methods"
               },
-              "Minor or Elective Units | 3",
-              "Minor or Elective Units | 3",
+              {
+                "credits": 3,
+                "text": "Minor or Elective Units"
+              },
+              {
+                "credits": 3,
+                "text": "Minor or Elective Units"
+              },
               {
                 "code": "SOCW 333",
                 "credits": 3,
                 "title": "Building Systems for Change: Leadership, Advocacy, and Community Practice"
-              },
-              "Units | 17"
+              }
             ],
             "label": "Fall",
-            "term_index": 6
+            "term_index": 11
           },
           {
+            "credit_hours": "14",
             "items": [
               {
                 "code": "SOCW 468",
@@ -3417,23 +3517,24 @@
                 "credits": 3,
                 "title": "Social Work Research Project"
               },
-              "Minor or Elective | 3",
+              {
+                "credits": 3,
+                "text": "Minor or Elective"
+              },
               {
                 "code": "CORE 450",
                 "credits": 3,
                 "title": "Calling and Character Seminar"
-              },
-              "Units | 14",
-              "Total Units | 124"
+              }
             ],
             "label": "Spring",
-            "term_index": 7
+            "term_index": 12
           }
         ]
       },
       "source_url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/social-work/social-work-bsw/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#1e8fba8592e44fb8."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence CA/2026-10-07-cat#1e8fba8592e44fb8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#d340550103618ab1."
     },
     {
       "last_verified_at": "2026-10-07",

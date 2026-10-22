@@ -2953,6 +2953,42 @@
  "5d87e4f1f40abc8f": {
   "decision": {
    "candidate_id": "5d87e4f1f40abc8f",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose four units from the following: | 4\". Printed 'Choose four units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 4 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose four units from the following: 4\" as a number of courses (choose_count 4) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Requirements (43 units) — Experiential Learning (4)",
+    "value": "Degree Requirements (43 units) — Experiential Learning (4)"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Choose four units from the following: 4",
+    "value": "Choose four units from the following: 4"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "c30f9dd36b1b556f0d8babcdb1a03ac3081bcab19704bf9f513dd4667fa58ebb",
+   "url": "https://catalog.csusb.edu/colleges-schools-departments/arts-letters/communication-studies/leadership-ba/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-07T23:37:59+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 14 Jul 2026 23:44:17 GMT",
+   "page_file": "044b682a3ebe58a0313f.json.gz",
+   "requested_url": "https://catalog.csusb.edu/colleges-schools-departments/arts-letters/communication-studies/leadership-ba/",
+   "sha256": "044b682a3ebe58a0313f9e8c685a6bed4892011b706768b78e92cad557c03263",
+   "title": "Bachelor of Arts in Leadership Communication | CSUSB",
+   "url": "https://catalog.csusb.edu/colleges-schools-departments/arts-letters/communication-studies/leadership-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5d87e4f1f40abc8f~superseded-2026-10-21": {
+  "decision": {
+   "candidate_id": "5d87e4f1f40abc8f",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."
   },
   "evidence": [
@@ -4606,6 +4642,42 @@
   "year_basis": "labeled_in_source"
  },
  "b67adf85772be53b": {
+  "decision": {
+   "candidate_id": "b67adf85772be53b",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose five units from the following: | 5\". Printed 'Choose five units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 5 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose five units from the following: 5\" as a number of courses (choose_count 5) (#229)."
+  },
+  "evidence": [
+   {
+    "field": "source_section",
+    "snippet": "Degree Requirements (69-78 units) — Upper-division requirements (36)",
+    "value": "Degree Requirements (69-78 units) — Upper-division requirements (36)"
+   },
+   {
+    "field": "rule_text",
+    "snippet": "Choose five units from the following: 5",
+    "value": "Choose five units from the following: 5"
+   }
+  ],
+  "extractor": "courselist_html/v1",
+  "issues": [],
+  "layout_source": {
+   "sha256": "fbc69ddb6cde80e0fcabca1de364a28b28d5d54272e76804fd4f8a9e6620f0ce",
+   "url": "https://catalog.csusb.edu/colleges-schools-departments/natural-sciences/geological-sciences/geology-bs/#courselist"
+  },
+  "source": {
+   "fetched_at": "2026-10-07T23:38:34+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 20 May 2026 20:33:18 GMT",
+   "page_file": "b665a60ebea484d0647b.json.gz",
+   "requested_url": "https://catalog.csusb.edu/colleges-schools-departments/natural-sciences/geological-sciences/geology-bs/",
+   "sha256": "b665a60ebea484d0647b89c6e459948c729d6b99fc32fb5d89f03d9928a04f96",
+   "title": "Bachelor of Science in Geology | CSUSB",
+   "url": "https://catalog.csusb.edu/colleges-schools-departments/natural-sciences/geological-sciences/geology-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "b67adf85772be53b~superseded-2026-10-21": {
   "decision": {
    "candidate_id": "b67adf85772be53b",
    "reason": "Standing review (courselist_html/v1): rows verbatim in the stored official page; passed the layout hold rules."

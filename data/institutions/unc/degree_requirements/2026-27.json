@@ -409,8 +409,9 @@
         ]
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/applied-sciences-major-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#658c9c1f3500a53f."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#658c9c1f3500a53f. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
+      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://catalog.unc.edu/undergraduate/programs-study/applied-sciences-major-bs/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (a subtotal printed for a whole term/year is stored on its last sub-term only: [('SPRING semester', '30', ['First Year', 'FALL semester', 'SPRING semester']), ('SPRING semester', '30', ['Sophomore Year', 'FALL semester', 'SPRING semester'])]), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#658c9c1f3500a53f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -421,12 +422,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "30",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -437,17 +442,34 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
               "CHEM 101& 101L | General Descriptive Chemistry Iand Quantitative Chemistry Laboratory I H, F | 4",
-              "BIOL 103or BIOL 104 | How Cells Function For Biodiversity | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "BIOL 103",
+                    "title": "How Cells Function F"
+                  },
+                  {
+                    "code": "BIOL 104",
+                    "title": "Biodiversity"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "BIOL 105L",
                 "credits": 3,
@@ -458,43 +480,88 @@
                 "credits": 4,
                 "title": "Foundations of Statistics and Data Science H, F"
               },
-              "Additional Courses",
-              "Gen Ed and elective courses | 4",
-              "Hours | 30"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 4,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "29",
             "items": [
-              "BIOL 104or BIOL 103 | Biodiversity H, For How Cells Function | 3",
-              "One biology core course (BIOL 220, BIOL 240, BIOL 250, BIOL 260, or Organismal course) | 4",
+              {
+                "any_of": [
+                  {
+                    "code": "BIOL 104",
+                    "title": "Biodiversity H, F"
+                  },
+                  {
+                    "code": "BIOL 103",
+                    "title": "How Cells Function"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 4,
+                "text": "One biology core course (BIOL 220, BIOL 240, BIOL 250, BIOL 260, or Organismal course)"
+              },
               "CHEM 102& 102L | General Descriptive Chemistry IIand Quantitative Chemistry Laboratory II H, F | 4",
-              "Allied science electives (two courses) | 6",
-              "Lifetime Fitness | 1",
-              "Gen Ed and elective courses | 11",
-              "Hours | 29"
+              {
+                "credits": 6,
+                "text": "Allied science electives (two courses)"
+              },
+              {
+                "credits": 1,
+                "text": "Lifetime Fitness"
+              },
+              {
+                "credits": 11,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "30",
             "items": [
-              "Second biology core course (BIOL 220, BIOL 240, BIOL 250, BIOL 260, or Organismal course) | 3-4",
-              "Biology elective (one course) | 3-4",
-              "Allied science electives (two courses) | 6",
-              "Gen Ed and elective courses | 18",
-              "Hours | 30"
+              {
+                "credits": "3-4",
+                "text": "Second biology core course (BIOL 220, BIOL 240, BIOL 250, BIOL 260, or Organismal course)"
+              },
+              {
+                "credits": "3-4",
+                "text": "Biology elective (one course)"
+              },
+              {
+                "credits": 6,
+                "text": "Allied science electives (two courses)"
+              },
+              {
+                "credits": 18,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "31",
             "items": [
-              "Biology electives (two courses) | 6-7",
-              "Supplemental General Education requirement and free electives as needed to complete 120 academic hours and other requirements | 25",
-              "Hours | 31",
-              "Total Hours | 120"
+              {
+                "credits": "6-7",
+                "text": "Biology electives (two courses)"
+              },
+              {
+                "credits": 25,
+                "text": "Supplemental General Education requirement and free electives as needed to complete 120 academic hours and other requirements"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -503,7 +570,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#555ebce769a20c82."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#555ebce769a20c82) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#20eb83a0c6b9880a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -607,12 +674,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "32",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -623,17 +694,25 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
               "CHEM 101& 101L | General Descriptive Chemistry Iand Quantitative Chemistry Laboratory I H, F | 4",
-              "A fundamentals course BIOL 103 or BIOL 104 | 3",
+              {
+                "credits": 3,
+                "text": "A fundamentals course BIOL 103 or BIOL 104"
+              },
               {
                 "code": "BIOL 105L",
                 "credits": 3,
@@ -644,50 +723,88 @@
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable I H, F"
               },
-              "Additional Courses",
-              "Gen Ed courses | 6",
-              "Hours | 32"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 6,
+                "text": "Gen Ed courses"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "30",
             "items": [
-              "The remaining Fundamentals course BIOL 103 or 104 | 3",
-              "Two core BIOL courses | 6",
+              {
+                "credits": 3,
+                "text": "The remaining Fundamentals course BIOL 103 or 104"
+              },
+              {
+                "credits": 6,
+                "text": "Two core BIOL courses"
+              },
               "CHEM 102& 102L | General Descriptive Chemistry IIand Quantitative Chemistry Laboratory II H, F | 4",
               {
                 "code": "CHEM 261",
                 "credits": 3,
                 "title": "Introduction to Organic Chemistry I H"
               },
-              "First course from among COMP, MATH, PHYS, STOR options (see course list on the Requirements tab) | 3-4",
-              "Lifetime Fitness | 1",
-              "Gen Ed and elective courses | 9",
-              "Hours | 30"
+              {
+                "credits": "3-4",
+                "text": "First course from among COMP, MATH, PHYS, STOR options (see course list on the Requirements tab)"
+              },
+              {
+                "credits": 1,
+                "text": "Lifetime Fitness"
+              },
+              {
+                "credits": 9,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "30",
             "items": [
               "PHYS 114or PHYS 118 | General Physics I: For Students of the Life Sciences For Introductory Calculus-based Mechanics and Relativity | 4",
-              "Second course from among COMP, MATH, PHYS, STOR options (see course list on the Requirements tab) | 3-4",
-              "Biology electives (two courses, one with lab) | 7",
-              "Gen Ed and elective courses | 15",
-              "Hours | 30"
+              {
+                "credits": "3-4",
+                "text": "Second course from among COMP, MATH, PHYS, STOR options (see course list on the Requirements tab)"
+              },
+              {
+                "credits": 7,
+                "text": "Biology electives (two courses, one with lab)"
+              },
+              {
+                "credits": 15,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "28",
             "items": [
-              "Biology electives (two courses, one with lab) | 7",
-              "Allied sciences electives (two courses) | 6",
-              "Note: Students who want to pursue research in molecular or cellular biology are highly encouraged to add CHEM 262 and then CHEM 430 (as one of their biology electives). Students who want to pursue a pre-medical or pre-dentistry path are highly encouraged to add CHEM 262 and then CHEM 430 (as one of their biology electives), as well as CHEM 241/L and CHEM 262L.",
-              "Free electives as needed to complete 120 academic hours | 15",
-              "Hours | 28",
-              "Total Hours | 120"
+              {
+                "credits": 7,
+                "text": "Biology electives (two courses, one with lab)"
+              },
+              {
+                "credits": 6,
+                "text": "Allied sciences electives (two courses)"
+              },
+              {
+                "text": "Note: Students who want to pursue research in molecular or cellular biology are highly encouraged to add CHEM 262 and then CHEM 430 (as one of their biology electives). Students who want to pursue a pre-medical or pre-dentistry path are highly encouraged to add CHEM 262 and then CHEM 430 (as one of their biology electives), as well as CHEM 241/L and CHEM 262L."
+              },
+              {
+                "credits": 15,
+                "text": "Free electives as needed to complete 120 academic hours"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -696,7 +813,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biology-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9b307e7aa139c78c."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#9b307e7aa139c78c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#c59e21ea80f15672."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -840,12 +957,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 124-125 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "31-32",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -856,14 +977,22 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric 2"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Global Language through level 3 3 | 3-4",
-              "Major Courses",
+              {
+                "credits": "3-4",
+                "text": "Global Language through level 3 3"
+              },
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "MATH 231",
                 "credits": 4,
@@ -880,15 +1009,17 @@
                 "title": "Introductory Calculus-based Mechanics and Relativity 1, H, F"
               },
               "CHEM 101& 101L | General Descriptive Chemistry Iand Quantitative Chemistry Laboratory I 1, H, F | 4",
-              "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory (or BIOL 102L) H, F | 4",
-              "Hours | 31-32"
+              "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory (or BIOL 102L) H, F | 4"
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "33",
             "items": [
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "MATH 233",
                 "credits": 4,
@@ -911,7 +1042,19 @@
                 "credits": 2,
                 "title": "Biomedical Engineering Design and Manufacturing I"
               },
-              "COMP 116or BMME 201 | Introduction to Scientific Programmingor Computer Methods in Biomedical Engineering | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "COMP 116",
+                    "title": "Introduction to Scientific Programming"
+                  },
+                  {
+                    "code": "BMME 201",
+                    "title": "Computer Methods in Biomedical Engineering"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "BMME 205",
                 "credits": 4,
@@ -922,16 +1065,23 @@
                 "credits": 4,
                 "title": "Materials Science of Biomaterials (Spring only)"
               },
-              "Additional Courses",
-              "Lifetime Fitness | 1",
-              "Hours | 33"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 1,
+                "text": "Lifetime Fitness"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "32",
             "items": [
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "BMME 207",
                 "credits": 4,
@@ -955,17 +1105,27 @@
               "BMME --- | Gateway elective I | 3",
               "BMME --- | Gateway elective 2 | 3",
               "BMME --- | Gateway elective 3 | 3",
-              "STEM Elective | 3",
-              "Additional Courses",
-              "Remaining IDEAs in Action requirements or electives | 6",
-              "Hours | 32"
+              {
+                "credits": 3,
+                "text": "STEM Elective"
+              },
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 6,
+                "text": "Remaining IDEAs in Action requirements or electives"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "28",
             "items": [
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BMME --- | Specialty Elective 1 | 3",
               "BMME --- | Specialty Elective 2 | 3",
               "BMME --- | Specialty Elective 3 | 3",
@@ -980,10 +1140,13 @@
                 "credits": 3,
                 "title": "Biomedical Engineering Senior Design: Product Implementation and Strategy (Spring only)"
               },
-              "Additional Courses",
-              "Remaining IDEAs in Action requirements or electives to reach 124 credits | 10",
-              "Hours | 28",
-              "Total Hours | 124-125"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 10,
+                "text": "Remaining IDEAs in Action requirements or electives to reach 124 credits"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -992,7 +1155,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biomedical-engineering-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#178f6c14c2058ae3."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#178f6c14c2058ae3) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#0b5c0149f92e95c5."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1003,12 +1166,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 70 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "20",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -1019,14 +1186,19 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
               {
                 "code": "MATH 231",
@@ -1037,21 +1209,32 @@
                 "code": "MATH 232",
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable II H, F"
-              },
-              "Hours | 20"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "7",
             "items": [
-              "COMP 110or COMP 116 | Introduction to Programming Hor Introduction to Scientific Programming | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "COMP 110",
+                    "title": "Introduction to Programming H"
+                  },
+                  {
+                    "code": "COMP 116",
+                    "title": "Introduction to Scientific Programming"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MATH 233",
                 "credits": 4,
                 "title": "Calculus of Functions of Several Variables H"
-              },
-              "Hours | 7"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
@@ -1062,6 +1245,7 @@
             "term_index": 3
           },
           {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "BIOS 500H",
@@ -1087,13 +1271,13 @@
                 "code": "MATH 347",
                 "credits": 3,
                 "title": "Linear Algebra for Applications F"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 4
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "BIOS 645",
@@ -1105,13 +1289,24 @@
                 "credits": 4,
                 "title": "Public Health Systems and Solutions (spring only)"
               },
-              "BIOL 103or BIOL 104 | How Cells Function For Biodiversity | 3",
+              {
+                "any_of": [
+                  {
+                    "code": "BIOL 103",
+                    "title": "How Cells Function F"
+                  },
+                  {
+                    "code": "BIOL 104",
+                    "title": "Biodiversity"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "MATH 381",
                 "credits": 3,
                 "title": "Discrete Mathematics (or other approved Discrete Math option) H"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 5
@@ -1122,6 +1317,7 @@
             "term_index": 6
           },
           {
+            "credit_hours": "7",
             "items": [
               {
                 "code": "BIOS 512",
@@ -1137,13 +1333,13 @@
                 "code": "BIOS 691",
                 "credits": 1,
                 "title": "Field Observations in Biostatistics (fall only)"
-              },
-              "Hours | 7"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 7
           },
           {
+            "credit_hours": "7",
             "items": [
               {
                 "code": "BIOS 664",
@@ -1154,9 +1350,7 @@
                 "code": "MATH 521",
                 "credits": 3,
                 "title": "Advanced Calculus I (OR other Upper Level MATH from Approved List) H"
-              },
-              "Hours | 7",
-              "Total Hours | 70"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 8
@@ -1165,7 +1359,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/biostatistics-major-bsph/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#e9e602199500b6af."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#e9e602199500b6af) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#52ea8ee6ce930241."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1749,6 +1943,7 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 126 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
@@ -1758,6 +1953,7 @@
             "term_index": 1
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "IDST 101",
@@ -1770,8 +1966,14 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "Global language level 1 | 3",
-              "One of the following: | 3",
+              {
+                "credits": 3,
+                "text": "Global language level 1"
+              },
+              {
+                "credits": 3,
+                "text": "One of the following:"
+              },
               {
                 "code": "MATH 130",
                 "title": "Precalculus Mathematics 1, F"
@@ -1784,24 +1986,32 @@
                 "code": "STOR 151",
                 "title": "Introduction to Data Analysis"
               },
-              "Lifetime fitness | 1",
-              "Hours | 15"
+              {
+                "credits": 1,
+                "text": "Lifetime fitness"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory 1, H, F | 4",
               "CHEM 102& 102L | General Descriptive Chemistry IIand Quantitative Chemistry Laboratory II 1, H, F | 4",
-              "Global language level 2 | 3",
+              {
+                "credits": 3,
+                "text": "Global language level 2"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "First-Year Seminar or First-Year Launch | 3",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -1812,22 +2022,35 @@
             "term_index": 4
           },
           {
+            "credit_hours": "16",
             "items": [
               "CHEM 241& 241L | Modern Analytical Methods for Separation and Characterizationand Laboratory in Separations and Analytical Characterization of Organic and Biological Compounds H | 4",
-              "CHEM 261 is not required but is recommended for students who have time in their schedules for additional science courses.",
-              "Global language level 3 | 3",
-              "Gen Ed and elective courses | 9",
-              "Hours | 16"
+              {
+                "text": "CHEM 261 is not required but is recommended for students who have time in their schedules for additional science courses."
+              },
+              {
+                "credits": 3,
+                "text": "Global language level 3"
+              },
+              {
+                "credits": 9,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "18",
             "items": [
               "BIOL --- | Biology course (BIOL 202 or BIOL 103 strongly recommended) | 4",
-              "BIOL 252 is not required but is recommended for students who have time in their schedules for additional science courses.",
-              "Gen Ed and elective courses | 14",
-              "Hours | 18"
+              {
+                "text": "BIOL 252 is not required but is recommended for students who have time in their schedules for additional science courses."
+              },
+              {
+                "credits": 14,
+                "text": "Gen Ed and elective courses"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -1838,6 +2061,7 @@
             "term_index": 7
           },
           {
+            "credit_hours": "14",
             "items": [
               "CLSC 410& 410L | Laboratory Mathematicsand Basic and Molecular Laboratory Methods | 3",
               "CLSC 420& 420L | Urinalysis and Body Fluidsand Urinalysis Laboratory | 2",
@@ -1851,27 +2075,31 @@
                 "code": "CLSC 450",
                 "credits": 3,
                 "title": "Immunology"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 8
           },
           {
+            "credit_hours": "19",
             "items": [
               "CLSC 442& 442L | Hematology IIand Hematology II Laboratory | 4",
               "CLSC 462& 462L | Clinical Bacteriologyand Clinical Bacteriology Laboratory | 5",
               "CLSC 470& 470L | Clinical Chemistryand Clinical Chemistry Laboratory | 5",
-              "CLSC 480& 480L | Immunohematologyand Immunohematology Laboratory | 5",
-              "Hours | 19"
+              "CLSC 480& 480L | Immunohematologyand Immunohematology Laboratory | 5"
             ],
             "label": "Spring Semester",
             "term_index": 9
           },
           {
+            "credit_hours": "29",
             "items": [
-              "Clinical Education: Senior clinical education takes place in UNC Hospitals’ laboratories and other clinical laboratories in North Carolina. These laboratories are highly regarded in the field of laboratory medicine, and students have the opportunity to learn the most recent techniques in clinical laboratory science.",
-              "Courses taken during fall or spring semester:",
+              {
+                "text": "Clinical Education: Senior clinical education takes place in UNC Hospitals’ laboratories and other clinical laboratories in North Carolina. These laboratories are highly regarded in the field of laboratory medicine, and students have the opportunity to learn the most recent techniques in clinical laboratory science."
+              },
+              {
+                "text": "Courses taken during fall or spring semester:"
+              },
               {
                 "code": "CLSC 460",
                 "credits": 2,
@@ -1931,9 +2159,7 @@
                 "code": "CLSC 670",
                 "credits": 2,
                 "title": "Clinical Laboratory Science Educational Methods"
-              },
-              "Hours | 29",
-              "Total Hours | 126"
+              }
             ],
             "label": "Senior Year",
             "term_index": 10
@@ -1942,7 +2168,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/clinical-laboratory-science-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#49d0393f58329885."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#49d0393f58329885) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#19f5b169021c7b30."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -1985,12 +2211,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 66-67 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "15-16",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -2001,16 +2231,24 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
-              "One of the following courses: | 3-4",
+              {
+                "credits": "3-4",
+                "text": "One of the following courses:"
+              },
               {
                 "code": "MATH 130",
                 "title": "Precalculus Mathematics F"
@@ -2022,15 +2260,18 @@
               {
                 "code": "MATH 231",
                 "title": "Calculus of Functions of One Variable I H, F"
-              },
-              "Hours | 15-16"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "3",
             "items": [
-              "One of the following courses: | 3",
+              {
+                "credits": 3,
+                "text": "One of the following courses:"
+              },
               {
                 "code": "SOCI 101",
                 "title": "Introduction to Sociology H, F"
@@ -2042,8 +2283,7 @@
               {
                 "code": "ANTH 102",
                 "title": "Introduction to Cultural Anthropology"
-              },
-              "Hours | 3"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
@@ -2054,6 +2294,7 @@
             "term_index": 3
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "HBEH 510",
@@ -2074,13 +2315,13 @@
                 "code": "EPID 600",
                 "credits": 3,
                 "title": "Principles of Epidemiology for Public Health"
-              },
-              "Hours | 12"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 4
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "HBEH 531",
@@ -2097,8 +2338,7 @@
                 "credits": 3,
                 "title": "Principles of Statistical Inference"
               },
-              "--- | Elective course #1 | 3",
-              "Hours | 13"
+              "--- | Elective course #1 | 3"
             ],
             "label": "Spring Semester",
             "term_index": 5
@@ -2109,6 +2349,7 @@
             "term_index": 6
           },
           {
+            "credit_hours": "11",
             "items": [
               {
                 "code": "HBEH 532",
@@ -2124,13 +2365,13 @@
                 "code": "HBEH 691H",
                 "credits": 3,
                 "title": "Honors Research I (optional)"
-              },
-              "Hours | 11"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 7
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "HBEH 571",
@@ -2143,9 +2384,7 @@
                 "code": "HBEH 692H",
                 "credits": 3,
                 "title": "Honors Research II (optional)"
-              },
-              "Hours | 12",
-              "Total Hours | 66-67"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 8
@@ -2154,7 +2393,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/community-global-public-health-major-bsph/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#2730306a8986edf1."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#2730306a8986edf1) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8f26ce40ae387721."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2229,12 +2468,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "30",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -2245,14 +2488,19 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "COMP 110",
                 "credits": 3,
@@ -2269,15 +2517,23 @@
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable I (fulfills FC-QUANT) H, F"
               },
-              "Additional Courses",
-              "Lifetime Fitness | 1",
-              "Electives or IDEAs in Action Requirements | 8",
-              "Hours | 30"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 1,
+                "text": "Lifetime Fitness"
+              },
+              {
+                "credits": 8,
+                "text": "Electives or IDEAs in Action Requirements"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "30",
             "items": [
               {
                 "code": "COMP 211",
@@ -2294,36 +2550,61 @@
                 "credits": 3,
                 "title": "Computer Organization"
               },
-              "An appropriate physical and life sciences IDEAs in Action course | 4",
-              "Two additional IDEAs in Action courses | 6",
-              "Free elective | 11",
-              "Hours | 30"
+              {
+                "credits": 4,
+                "text": "An appropriate physical and life sciences IDEAs in Action course"
+              },
+              {
+                "credits": 6,
+                "text": "Two additional IDEAs in Action courses"
+              },
+              {
+                "credits": 11,
+                "text": "Free elective"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "30",
             "items": [
               {
                 "code": "STOR 155",
                 "credits": 3,
                 "title": "Introduction to Data Models and Inference H, F"
               },
-              "Three upper division COMP electives or approved non-COMP electives | 9",
-              "Four additional IDEAs in Action courses | 12",
-              "Two supplemental General Education courses | 6",
-              "Hours | 30"
+              {
+                "credits": 9,
+                "text": "Three upper division COMP electives or approved non-COMP electives"
+              },
+              {
+                "credits": 12,
+                "text": "Four additional IDEAs in Action courses"
+              },
+              {
+                "credits": 6,
+                "text": "Two supplemental General Education courses"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "30",
             "items": [
-              "Three COMP courses numbered 420 or higher | 9",
-              "One Supplemental General Education course | 3",
-              "IDEAs in Action and free elective courses | 18",
-              "Hours | 30",
-              "Total Hours | 120"
+              {
+                "credits": 9,
+                "text": "Three COMP courses numbered 420 or higher"
+              },
+              {
+                "credits": 3,
+                "text": "One Supplemental General Education course"
+              },
+              {
+                "credits": 18,
+                "text": "IDEAs in Action and free elective courses"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -2332,7 +2613,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#42d0c018c46b9e02."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#42d0c018c46b9e02) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#673c070272f2d792."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2399,12 +2680,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "30",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -2415,14 +2700,19 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "COMP 110",
                 "credits": 3,
@@ -2443,14 +2733,19 @@
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable I H, F"
               },
-              "Additional Courses",
-              "Additional General Education courses | 9",
-              "Hours | 30"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 9,
+                "text": "Additional General Education courses"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "31",
             "items": [
               {
                 "code": "COMP 211",
@@ -2477,14 +2772,20 @@
                 "credits": 4,
                 "title": "Calculus of Functions of Several Variables H"
               },
-              "Two science courses (see requirement course list) | 8",
-              "Two additional General Education courses | 6",
-              "Hours | 31"
+              {
+                "credits": 8,
+                "text": "Two science courses (see requirement course list)"
+              },
+              {
+                "credits": 6,
+                "text": "Two additional General Education courses"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "30",
             "items": [
               {
                 "code": "COMP 455",
@@ -2506,20 +2807,33 @@
                 "credits": 3,
                 "title": "Introduction to Probability H"
               },
-              "Two courses numbered COMP 420 or greater | 6",
-              "Two additional General Education courses | 6",
-              "Electives | 6",
-              "Hours | 30"
+              {
+                "credits": 6,
+                "text": "Two courses numbered COMP 420 or greater"
+              },
+              {
+                "credits": 6,
+                "text": "Two additional General Education courses"
+              },
+              {
+                "credits": 6,
+                "text": "Electives"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "29",
             "items": [
-              "Three courses numbered COMP 420 or greater | 9",
-              "General Education and free elective courses | 20",
-              "Hours | 29",
-              "Total Hours | 120"
+              {
+                "credits": 9,
+                "text": "Three courses numbered COMP 420 or greater"
+              },
+              {
+                "credits": 20,
+                "text": "General Education and free elective courses"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -2528,7 +2842,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#61b96e9ea00945c7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#61b96e9ea00945c7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#f152984decb2d01e."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3095,6 +3409,7 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 51 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
@@ -3104,6 +3419,7 @@
             "term_index": 1
           },
           {
+            "credit_hours": "8",
             "items": [
               {
                 "code": "ECON 101",
@@ -3114,13 +3430,13 @@
                 "code": "MATH 231",
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable I H, F"
-              },
-              "Hours | 8"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "8",
             "items": [
               {
                 "code": "MATH 232",
@@ -3131,8 +3447,7 @@
                 "code": "ECON 400",
                 "credits": 4,
                 "title": "Introduction to Data Science and Econometrics H"
-              },
-              "Hours | 8"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -3143,6 +3458,7 @@
             "term_index": 4
           },
           {
+            "credit_hours": "8",
             "items": [
               {
                 "code": "ECON 410",
@@ -3153,13 +3469,13 @@
                 "code": "MATH 233",
                 "credits": 4,
                 "title": "Calculus of Functions of Several Variables H"
-              },
-              "Hours | 8"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "6",
             "items": [
               {
                 "code": "ECON 420",
@@ -3170,8 +3486,7 @@
                 "code": "ECON 470",
                 "credits": 3,
                 "title": "Econometrics H"
-              },
-              "Hours | 6"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -3182,19 +3497,22 @@
             "term_index": 7
           },
           {
+            "credit_hours": "6",
             "items": [
               "ECON --- | Economics elective course 1 | 3",
-              "ECON --- | Economics elective course 1 | 3",
-              "Hours | 6"
+              "ECON --- | Economics elective course 1 | 3"
             ],
             "label": "Fall Semester",
             "term_index": 8
           },
           {
+            "credit_hours": "6",
             "items": [
               "ECON --- | Economics elective course 1 | 3",
-              "Non-ECON elective course | 3",
-              "Hours | 6"
+              {
+                "credits": 3,
+                "text": "Non-ECON elective course"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 9
@@ -3205,19 +3523,21 @@
             "term_index": 10
           },
           {
+            "credit_hours": "6",
             "items": [
               "ECON --- | Economics electives course 1 | 3",
-              "Non-ECON elective course | 3",
-              "Hours | 6"
+              {
+                "credits": 3,
+                "text": "Non-ECON elective course"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 11
           },
           {
+            "credit_hours": "3",
             "items": [
-              "ECON --- | Economics elective course 1 | 3",
-              "Hours | 3",
-              "Total Hours | 51"
+              "ECON --- | Economics elective course 1 | 3"
             ],
             "label": "Spring Semester",
             "term_index": 12
@@ -3226,7 +3546,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/economics-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#70c249966276a722."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#70c249966276a722) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#69aad655985e5eae."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3486,12 +3806,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 82 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "8",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -3502,40 +3826,42 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch 1 | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch 1"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Global Language through level 3 | varies",
-              "Hours | 8"
+              "Global Language through level 3 | varies"
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "8",
             "items": [
               {
                 "code": "MATH 231",
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable I H, F"
               },
-              "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
-              "Hours | 8"
+              "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4"
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "8",
             "items": [
               "CHEM 101& 101L | General Descriptive Chemistry Iand Quantitative Chemistry Laboratory I H, F | 4",
               {
                 "code": "MATH 232",
                 "credits": 4,
                 "title": "Calculus of Functions of One Variable II H, F"
-              },
-              "Hours | 8"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -3546,19 +3872,55 @@
             "term_index": 4
           },
           {
+            "credit_hours": "7",
             "items": [
               "CHEM 102& 102L | General Descriptive Chemistry IIand Quantitative Chemistry Laboratory II H, F | 4",
-              "BIOL 103or BIOL 104 | How Cells Function For Biodiversity | 3",
-              "Hours | 7"
+              {
+                "any_of": [
+                  {
+                    "code": "BIOL 103",
+                    "title": "How Cells Function F"
+                  },
+                  {
+                    "code": "BIOL 104",
+                    "title": "Biodiversity"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "6",
             "items": [
-              "BIOL 220or BIOL 250 | Molecular Genetics Hor Evolutionary Biology | 3",
-              "COMP 110or COMP 116 | Introduction to Programming Hor Introduction to Scientific Programming | 3",
-              "Hours | 6"
+              {
+                "any_of": [
+                  {
+                    "code": "BIOL 220",
+                    "title": "Molecular Genetics H"
+                  },
+                  {
+                    "code": "BIOL 250",
+                    "title": "Evolutionary Biology"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "COMP 110",
+                    "title": "Introduction to Programming H"
+                  },
+                  {
+                    "code": "COMP 116",
+                    "title": "Introduction to Scientific Programming"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -3569,6 +3931,7 @@
             "term_index": 7
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "CHEM 261",
@@ -3589,13 +3952,13 @@
                 "code": "SPHG 351",
                 "credits": 3,
                 "title": "Foundations of Public Health"
-              },
-              "Hours | 12"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 8
           },
           {
+            "credit_hours": "13",
             "items": [
               {
                 "code": "BIOS 600",
@@ -3616,8 +3979,7 @@
                 "code": "SPHG 352",
                 "credits": 4,
                 "title": "Public Health Systems and Solutions (Public Health Systems & Solutions)"
-              },
-              "Hours | 13"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 9
@@ -3628,6 +3990,7 @@
             "term_index": 10
           },
           {
+            "credit_hours": "10",
             "items": [
               {
                 "code": "ENVR 430",
@@ -3635,13 +3998,16 @@
                 "title": "Health Effects of Environmental Agents"
               },
               "PHYS 118or PHYS 114 | Introductory Calculus-based Mechanics and Relativity H, For General Physics I: For Students of the Life Sciences | 4",
-              "Advanced ENVR Course (Elective) 2 | 3",
-              "Hours | 10"
+              {
+                "credits": 3,
+                "text": "Advanced ENVR Course (Elective) 2"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 11
           },
           {
+            "credit_hours": "10",
             "items": [
               {
                 "code": "ENVR 698",
@@ -3649,9 +4015,10 @@
                 "title": "Senior Capstone Course"
               },
               "PHYS 119or PHYS 115 | Introductory Calculus-based Electromagnetism and Quanta H, For General Physics II: For Students of the Life Sciences | 4",
-              "Advanced ENVR Course (Elective) 2 | 3",
-              "Hours | 10",
-              "Total Hours | 82"
+              {
+                "credits": 3,
+                "text": "Advanced ENVR Course (Elective) 2"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 12
@@ -3660,7 +4027,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-health-sciences-major-bsph/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#00cf1f9cf14e764c."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#00cf1f9cf14e764c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#ba6f44755f3aa0a6."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -3703,12 +4070,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120-122 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "31-32",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -3719,14 +4090,22 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Global Language through level 3 1 | 3-4",
-              "Major Courses",
+              {
+                "credits": "3-4",
+                "text": "Global Language through level 3 1"
+              },
+              {
+                "text": "Major Courses"
+              },
               "CHEM 101& 101L | General Descriptive Chemistry Iand Quantitative Chemistry Laboratory I H, F | 4",
               {
                 "code": "ENEC 201",
@@ -3748,14 +4127,19 @@
                 "credits": 3,
                 "title": "Introduction to Data Models and Inference H, F"
               },
-              "Additional Courses",
-              "Lifetime Fitness | 1",
-              "Hours | 31-32"
+              {
+                "text": "Additional Courses"
+              },
+              {
+                "credits": 1,
+                "text": "Lifetime Fitness"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "30-31",
             "items": [
               "CHEM 102& 102L | General Descriptive Chemistry IIand Quantitative Chemistry Laboratory II H, F | 4",
               {
@@ -3764,35 +4148,92 @@
                 "title": "Introduction to the Environmental Sciences"
               },
               "ENEC 203or EMES 203or ENEC 415 | Introduction to Environmental Science Problem Solvingor Data Analysis for Earth, Marine, and Environmental Sciencesor Environmental Systems Modeling | 3",
-              "One environmental concentration course | 3",
+              {
+                "credits": 3,
+                "text": "One environmental concentration course"
+              },
               "BIOL 101& 101Lor PHYS 114or PHYS 118 | Principles of Biology H, For General Physics I: For Students of the Life Sciencesor Introductory Calculus-based Mechanics and Relativity | 4",
               "BIOL 104or PHYS 115or PHYS 119 | Biodiversity H, For General Physics II: For Students of the Life Sciencesor Introductory Calculus-based Electromagnetism and Quanta | 3-4",
-              "COMP 110or COMP 116or BIOL 222or INLS 560 | Introduction to Programming Hor Introduction to Scientific Programmingor Introduction to Programming with Biological Dataor Introduction to Programming | 3",
-              "Electives or IDEAs in Action Requirements | 6",
-              "Hours | 30-31"
+              {
+                "any_of": [
+                  {
+                    "code": "COMP 110",
+                    "title": "Introduction to Programming H"
+                  },
+                  {
+                    "code": "COMP 116",
+                    "title": "Introduction to Scientific Programming"
+                  },
+                  {
+                    "code": "BIOL 222",
+                    "title": "Introduction to Programming with Biological Data"
+                  },
+                  {
+                    "code": "INLS 560",
+                    "title": "Introduction to Programming"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 6,
+                "text": "Electives or IDEAs in Action Requirements"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "30",
             "items": [
-              "Two courses from the analytical skills core | 6",
-              "Three courses from environmental concentration core | 9",
-              "Two courses from a minor field | 6",
-              "Electives or IDEAs in Action Requirements | 9",
-              "Hours | 30"
+              {
+                "credits": 6,
+                "text": "Two courses from the analytical skills core"
+              },
+              {
+                "credits": 9,
+                "text": "Three courses from environmental concentration core"
+              },
+              {
+                "credits": 6,
+                "text": "Two courses from a minor field"
+              },
+              {
+                "credits": 9,
+                "text": "Electives or IDEAs in Action Requirements"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "29",
             "items": [
-              "ENEC 698or ENEC 694H | Capstone: Analysis and Solution of Environmental Problemsor Honors Project in Environmental Sciences and Studies | 3",
-              "Remaining environmental concentration core | 3",
-              "Remaining minor field courses | 9",
-              "Remaining Electives or IDEAs in Action Requirements to meet 120 academic hour minimum | 14",
-              "Hours | 29",
-              "Total Hours | 120-122"
+              {
+                "any_of": [
+                  {
+                    "code": "ENEC 698",
+                    "title": "Capstone: Analysis and Solution of Environmental Problems"
+                  },
+                  {
+                    "code": "ENEC 694H",
+                    "title": "Honors Project in Environmental Sciences and Studies"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "Remaining environmental concentration core"
+              },
+              {
+                "credits": 9,
+                "text": "Remaining minor field courses"
+              },
+              {
+                "credits": 14,
+                "text": "Remaining Electives or IDEAs in Action Requirements to meet 120 academic hour minimum"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -3801,7 +4242,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/environmental-science-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#2fa863b615caf4bd."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#2fa863b615caf4bd) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#956eaf208377ad47."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4430,12 +4871,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 58 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "19",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -4446,52 +4891,88 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Foreign language level 1 (language 1) | 4",
-              "Foreign language level 2 (language 1) | 4",
-              "Major Courses",
-              "Core course #1 | 3",
-              "Hours | 19"
+              {
+                "credits": 4,
+                "text": "Foreign language level 1 (language 1)"
+              },
+              {
+                "credits": 4,
+                "text": "Foreign language level 2 (language 1)"
+              },
+              {
+                "text": "Major Courses"
+              },
+              {
+                "credits": 3,
+                "text": "Core course #1"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "18",
             "items": [
               {
                 "code": "GLBL 210I",
                 "credits": 3,
                 "title": "Global Issues and Globalization 1"
               },
-              "Foreign language level 3 (language 1) | 3",
-              "Foreign language level 4 (language 1) | 3",
-              "Core methodology/methods course | 3",
-              "Theme/area course (2 courses) | 6",
-              "Hours | 18"
+              {
+                "credits": 3,
+                "text": "Foreign language level 3 (language 1)"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign language level 4 (language 1)"
+              },
+              {
+                "credits": 3,
+                "text": "Core methodology/methods course"
+              },
+              {
+                "credits": 6,
+                "text": "Theme/area course (2 courses)"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
-              "Foreign language level 5 (language 1) OR foreign language level 1 (language 2) | 3",
-              "Foreign language level 6 (language 1) OR foreign language level 2 (language 2) | 3",
-              "Theme/area courses (3 courses) | 9",
-              "Hours | 15"
+              {
+                "credits": 3,
+                "text": "Foreign language level 5 (language 1) OR foreign language level 1 (language 2)"
+              },
+              {
+                "credits": 3,
+                "text": "Foreign language level 6 (language 1) OR foreign language level 2 (language 2)"
+              },
+              {
+                "credits": 9,
+                "text": "Theme/area courses (3 courses)"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "6",
             "items": [
-              "Theme/area courses (2 courses) | 6",
-              "Hours | 6",
-              "Total Hours | 58"
+              {
+                "credits": 6,
+                "text": "Theme/area courses (2 courses)"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -4500,7 +4981,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/global-studies-major-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9d647e8e65d82abc."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#9d647e8e65d82abc) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#11aa953d4966a1eb."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4534,18 +5015,25 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 71-73 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "16",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "ENGL 105",
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -4557,22 +5045,39 @@
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
               {
                 "code": "ECON 101",
                 "credits": 4,
                 "title": "Introduction to Economics H, F"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "6-8",
             "items": [
-              "STOR 120or STOR 155 | Foundations of Statistics and Data Science H, For Introduction to Data Models and Inference | 3-4",
-              "Select one of the following: | 3-4",
+              {
+                "any_of": [
+                  {
+                    "code": "STOR 120",
+                    "title": "Foundations of Statistics and Data Science H, F"
+                  },
+                  {
+                    "code": "STOR 155",
+                    "title": "Introduction to Data Models and Inference"
+                  }
+                ],
+                "credits": "3-4"
+              },
+              {
+                "credits": "3-4",
+                "text": "Select one of the following:"
+              },
               {
                 "code": "MATH 130",
                 "title": "Precalculus Mathematics F"
@@ -4596,15 +5101,17 @@
               {
                 "code": "STOR 113",
                 "title": "Decision Models for Business and Economics"
-              },
-              "Hours | 6-8"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "26",
             "items": [
-              "Fall Semester:",
+              {
+                "text": "Fall Semester:"
+              },
               {
                 "code": "HPM 501",
                 "credits": 1,
@@ -4625,7 +5132,9 @@
                 "credits": 3,
                 "title": "Foundations of Public Health"
               },
-              "Spring Semester:",
+              {
+                "text": "Spring Semester:"
+              },
               {
                 "code": "HPM 503",
                 "credits": 3,
@@ -4641,22 +5150,40 @@
                 "credits": 4,
                 "title": "Public Health Systems and Solutions"
               },
-              "Any Semester in the Junior Year:",
+              {
+                "text": "Any Semester in the Junior Year:"
+              },
               {
                 "code": "EPID 600",
                 "credits": 3,
                 "title": "Principles of Epidemiology for Public Health 3"
               },
-              "Any Semester in the Junior or Senior Year:",
-              "BIOS 600or ECON 400 | Principles of Statistical Inference 1or Introduction to Data Science and Econometrics | 3",
-              "Hours | 26"
+              {
+                "text": "Any Semester in the Junior or Senior Year:"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "BIOS 600",
+                    "title": "Principles of Statistical Inference 1"
+                  },
+                  {
+                    "code": "ECON 400",
+                    "title": "Introduction to Data Science and Econometrics"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "23",
             "items": [
-              "Fall Semester:",
+              {
+                "text": "Fall Semester:"
+              },
               {
                 "code": "HPM 593",
                 "credits": 2,
@@ -4682,7 +5209,9 @@
                 "credits": 3,
                 "title": "Honors Research I (optional elective)"
               },
-              "Spring Semester:",
+              {
+                "text": "Spring Semester:"
+              },
               {
                 "code": "HPM 570",
                 "credits": 3,
@@ -4697,9 +5226,7 @@
                 "code": "HPM 692H",
                 "credits": 3,
                 "title": "Honors Research II (optional elective)"
-              },
-              "Hours | 23",
-              "Total Hours | 71-73"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -4708,7 +5235,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/health-policy-management-major-bsph/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#8ff00fcff3dc22e5."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#8ff00fcff3dc22e5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#9f56e5a7e8c5cbad."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4814,12 +5341,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "30",
             "items": [
-              "First-Year Foundations Courses",
+              {
+                "text": "First-Year Foundations Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -4830,23 +5361,31 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Additional General Education and elective courses | 22",
-              "Hours | 30"
+              {
+                "credits": 22,
+                "text": "Additional General Education and elective courses"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "30",
             "items": [
-              "Additional General Education and elective courses | 30",
-              "Hours | 30"
+              {
+                "credits": 30,
+                "text": "Additional General Education and elective courses"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
@@ -4857,6 +5396,7 @@
             "term_index": 3
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EDUC 257",
@@ -4873,13 +5413,16 @@
                 "credits": 3,
                 "title": "Foundations of Leadership F"
               },
-              "Additional electives | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Additional electives"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 4
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EDUC 472",
@@ -4896,8 +5439,10 @@
                 "credits": 3,
                 "title": "Equity, Leadership, and You"
               },
-              "Additional electives | 6",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Additional electives"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 5
@@ -4908,28 +5453,33 @@
             "term_index": 6
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EDUC 585",
                 "credits": 3,
                 "title": "Activating Human and Organizational Leadership Development"
               },
-              "Additional electives | 12",
-              "Hours | 15"
+              {
+                "credits": 12,
+                "text": "Additional electives"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 7
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "EDUC 695",
                 "credits": 9,
                 "title": "Human and Organizational Leadership Development Capstone"
               },
-              "Additional electives | 6",
-              "Hours | 15",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "Additional electives"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 8
@@ -4938,7 +5488,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/human-org-leadership-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#0f1c40e49e05de1c."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#0f1c40e49e05de1c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#86cc751f33f64d4a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5476,12 +6026,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 72-76 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "8",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -5492,26 +6046,32 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch 1, F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch 1, F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Global Language through level 3 | varies",
-              "Hours | 8"
+              "Global Language through level 3 | varies"
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "8-10",
             "items": [
               {
                 "code": "MUSC 120",
                 "credits": 3,
                 "title": "Foundations in Music 1, F"
               },
-              "Keyboard Skills | 1-3",
+              {
+                "credits": "1-3",
+                "text": "Keyboard Skills"
+              },
               {
                 "code": "MUSC 135",
                 "title": "Jazz Theory"
@@ -5524,22 +6084,31 @@
                 "code": "MUSC 200",
                 "title": "Advanced Individual Lessons in Keyboard H"
               },
-              "Musicianship | 1",
+              {
+                "credits": 1,
+                "text": "Musicianship"
+              },
               {
                 "code": "MUSC 128",
                 "title": "Improvisation Without Borders"
               },
               "MUSC 20x | Individual Lessons | 2",
-              "Ensemble | 1",
-              "Hours | 8-10"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "8-10",
             "items": [
               "MUSC 131& MUSC 130 | Tonal Theory Iand Tonal Musicianship Skills I H | 4",
-              "Keyboard Skills | 1-3",
+              {
+                "credits": "1-3",
+                "text": "Keyboard Skills"
+              },
               {
                 "code": "MUSC 135",
                 "title": "Jazz Theory"
@@ -5553,8 +6122,10 @@
                 "title": "Advanced Individual Lessons in Keyboard H"
               },
               "MUSC 20x | Individual Lessons | 2",
-              "Ensemble | 1",
-              "Hours | 8-10"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -5565,8 +6136,12 @@
             "term_index": 4
           },
           {
+            "credit_hours": "10",
             "items": [
-              "Theory | 3",
+              {
+                "credits": 3,
+                "text": "Theory"
+              },
               {
                 "code": "MUSC 132",
                 "title": "Tonal Theory II H"
@@ -5587,7 +6162,10 @@
                 "code": "MUSC 166",
                 "title": "Introduction to Composition"
               },
-              "Musicianship | 1",
+              {
+                "credits": 1,
+                "text": "Musicianship"
+              },
               {
                 "code": "MUSC 129",
                 "title": "Aural-based Musicianship"
@@ -5602,15 +6180,21 @@
                 "title": "Critical Approaches to Music: Object Lessons"
               },
               "MUSC 2xx | Lessons | 2",
-              "Ensemble | 1",
-              "Hours | 10"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "9",
             "items": [
-              "Theory | 3",
+              {
+                "credits": 3,
+                "text": "Theory"
+              },
               {
                 "code": "MUSC 232",
                 "title": "Theory III H"
@@ -5629,8 +6213,10 @@
                 "title": "Critical Approaches to Music: Critical Moves"
               },
               "MUSC 20x | Individual Lessons | 2",
-              "Ensemble | 1",
-              "Hours | 9"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -5641,6 +6227,7 @@
             "term_index": 7
           },
           {
+            "credit_hours": "9",
             "items": [
               {
                 "code": "MUSC 351",
@@ -5648,19 +6235,24 @@
                 "title": "Critical Approaches to Music: Guided Research H"
               },
               "MUSC 20x | Individual Lessons | 2",
-              "Ensemble | 1",
-              "MUSC --- | Music Elective | 3",
-              "Hours | 9"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              },
+              "MUSC --- | Music Elective | 3"
             ],
             "label": "Fall Semester",
             "term_index": 8
           },
           {
+            "credit_hours": "9",
             "items": [
               "MUSC 20x | Individual Lessons | 2",
-              "Ensemble | 1",
-              "MUSC --- | Music Elective | 6",
-              "Hours | 9"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              },
+              "MUSC --- | Music Elective | 6"
             ],
             "label": "Spring Semester",
             "term_index": 9
@@ -5671,22 +6263,29 @@
             "term_index": 10
           },
           {
+            "credit_hours": "7",
             "items": [
               "MUSC 30x | Senior Presentation (or in spring semester) | 3",
-              "Ensemble | 1",
-              "MUSC --- | Music Elective | 3",
-              "Hours | 7"
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              },
+              "MUSC --- | Music Elective | 3"
             ],
             "label": "Fall Semester",
             "term_index": 11
           },
           {
+            "credit_hours": "4",
             "items": [
-              "Senior Presentation (if not completed in Fall Semester)",
-              "Ensemble | 1",
-              "MUSC --- | Music Elective | 3",
-              "Hours | 4",
-              "Total Hours | 72-76"
+              {
+                "text": "Senior Presentation (if not completed in Fall Semester)"
+              },
+              {
+                "credits": 1,
+                "text": "Ensemble"
+              },
+              "MUSC --- | Music Elective | 3"
             ],
             "label": "Spring Semester",
             "term_index": 12
@@ -5695,7 +6294,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/music-major-bmus/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#1513eae74df3967c."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#1513eae74df3967c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#c34024456f8cd580."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6050,12 +6649,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "30",
             "items": [
-              "First-Year Foundations Courses",
+              {
+                "text": "First-Year Foundations Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -6066,15 +6669,23 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Additional General Education and elective courses | 16",
-              "Major Courses",
+              {
+                "credits": 16,
+                "text": "Additional General Education and elective courses"
+              },
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "POLI 100",
                 "credits": 3,
@@ -6084,38 +6695,51 @@
                 "code": "POLI 150",
                 "credits": 3,
                 "title": "International Relations and Global Politics H, F"
-              },
-              "Hours | 30"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "30",
             "items": [
               "POLI --- | Comparative politics course | 3",
               "POLI --- | Political theory course | 3",
               "POLI --- | Research methods course | 3",
-              "Additional General Education and elective courses | 21",
-              "Hours | 30"
+              {
+                "credits": 21,
+                "text": "Additional General Education and elective courses"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "30",
             "items": [
-              "Two POLI elective courses 1 | 6",
-              "Additional General Education and elective courses | 24",
-              "Hours | 30"
+              {
+                "credits": 6,
+                "text": "Two POLI elective courses 1"
+              },
+              {
+                "credits": 24,
+                "text": "Additional General Education and elective courses"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "30",
             "items": [
-              "Two POLI elective courses 1 | 6",
-              "Additional General Education and elective courses | 24",
-              "Hours | 30",
-              "Total Hours | 120"
+              {
+                "credits": 6,
+                "text": "Two POLI elective courses 1"
+              },
+              {
+                "credits": 24,
+                "text": "Additional General Education and elective courses"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -6124,7 +6748,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/political-science-major-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#0f763007c7b7a5b2."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#0f763007c7b7a5b2) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#5060d7a178e08f25."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6163,12 +6787,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 48 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "18",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -6179,16 +6807,24 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
-              "Take one of the following: | 3",
+              {
+                "credits": 3,
+                "text": "Take one of the following:"
+              },
               {
                 "code": "PSYC 101",
                 "title": "General Psychology F"
@@ -6197,24 +6833,47 @@
                 "code": "PSYC 210",
                 "title": "Statistical Principles of Psychological Research H"
               },
-              "PSYC/NSCI 2xx Program area course",
-              "One additional non-Psychology and Neuroscience Department quantitative reasoning course (FC-QUANT) not used to fulfill the FC-QUANT Gen Ed requirement or any other requirement in the psychology major. | 3",
-              "Hours | 18"
+              {
+                "text": "PSYC/NSCI 2xx Program area course"
+              },
+              {
+                "credits": 3,
+                "text": "One additional non-Psychology and Neuroscience Department quantitative reasoning course (FC-QUANT) not used to fulfill the FC-QUANT Gen Ed requirement or any other requirement in the psychology major."
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "9",
             "items": [
-              "PSYC 210or PSYC 270 | Statistical Principles of Psychological Research Hor Research Methods in Psychology | 3",
-              "PSYC/NSCI 2xx: Program area course | 3",
-              "One non-Psychology and Neuroscience Department course which comes from the Allied Science List | 3",
-              "Hours | 9"
+              {
+                "any_of": [
+                  {
+                    "code": "PSYC 210",
+                    "title": "Statistical Principles of Psychological Research H"
+                  },
+                  {
+                    "code": "PSYC 270",
+                    "title": "Research Methods in Psychology"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "PSYC/NSCI 2xx: Program area course"
+              },
+              {
+                "credits": 3,
+                "text": "One non-Psychology and Neuroscience Department course which comes from the Allied Science List"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "PSYC 270",
@@ -6223,19 +6882,26 @@
               },
               "PSYC/NSCI 2xx | Program area course | 3",
               "PSYC/NSCI 2xx | Program area course | 3",
-              "One additional PSYC and/or NSCI course numbered between 395 and 699. May not include PSYC 493 or NSCI 493. 1 | 3",
-              "Hours | 12"
+              {
+                "credits": 3,
+                "text": "One additional PSYC and/or NSCI course numbered between 395 and 699. May not include PSYC 493 or NSCI 493. 1"
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "9",
             "items": [
               "PSYC/NSCI 2xx | Program area course | 3",
-              "One additional PSYC and/or NSCI course numbered between 395 and 699. May not include PSYC 493 or NSCI 493. 1 | 3",
-              "One additional PSYC and/or NSCI course above 101. May not include PSYC 190 or NSCI 190. 1 | 3",
-              "Hours | 9",
-              "Total Hours | 48"
+              {
+                "credits": 3,
+                "text": "One additional PSYC and/or NSCI course numbered between 395 and 699. May not include PSYC 493 or NSCI 493. 1"
+              },
+              {
+                "credits": 3,
+                "text": "One additional PSYC and/or NSCI course above 101. May not include PSYC 190 or NSCI 190. 1"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -6244,7 +6910,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/psychology-major-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#c2a857101f9999c7."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#c2a857101f9999c7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#be92dfb9eb25e863."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6278,12 +6944,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 66 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "23",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -6294,14 +6964,19 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               "BIOL 101& 101L | Principles of Biologyand Introductory Biology Laboratory H, F | 4",
               "CHEM 101& 101Lor PHYS 114or PHYS 118 | General Descriptive Chemistry I H, For General Physics I: For Students of the Life Sciencesor Introductory Calculus-based Mechanics and Relativity | 4",
               {
@@ -6313,51 +6988,108 @@
                 "code": "PSYC 101",
                 "credits": 3,
                 "title": "General Psychology F"
-              },
-              "Hours | 23"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "16",
             "items": [
-              "Allied science course #1 | 3",
-              "Allied science course #2, with lab | 4",
-              "One additional non-Psychology and Neuroscience Department quantitative reasoning course (FC-QUANT) not used to fulfill the FC-QUANT Gen Ed requirement or any other requirement in the psychology major. | 3",
+              {
+                "credits": 3,
+                "text": "Allied science course #1"
+              },
+              {
+                "credits": 4,
+                "text": "Allied science course #2, with lab"
+              },
+              {
+                "credits": 3,
+                "text": "One additional non-Psychology and Neuroscience Department quantitative reasoning course (FC-QUANT) not used to fulfill the FC-QUANT Gen Ed requirement or any other requirement in the psychology major."
+              },
               {
                 "code": "PSYC 210",
                 "credits": 3,
                 "title": "Statistical Principles of Psychological Research H"
               },
-              "PSYC 220or NSCI 221or NSCI 222or NSCI 225 | Biopsychology Hor Neuropsychopharmacologyor Learningor Sensation and Perception | 3",
-              "Hours | 16"
+              {
+                "any_of": [
+                  {
+                    "code": "PSYC 220",
+                    "title": "Biopsychology H"
+                  },
+                  {
+                    "code": "NSCI 221",
+                    "title": "Neuropsychopharmacology"
+                  },
+                  {
+                    "code": "NSCI 222",
+                    "title": "Learning"
+                  },
+                  {
+                    "code": "NSCI 225",
+                    "title": "Sensation and Perception"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "15",
             "items": [
               {
                 "code": "PSYC 270",
                 "credits": 3,
                 "title": "Research Methods in Psychology"
               },
-              "Two courses chosen from the clinical, developmental, or social list | 6",
-              "Allied science course #3 | 3",
-              "PSYC 230or NSCI 225 | Cognitive Psychology Hor Sensation and Perception | 3",
-              "Hours | 15"
+              {
+                "credits": 6,
+                "text": "Two courses chosen from the clinical, developmental, or social list"
+              },
+              {
+                "credits": 3,
+                "text": "Allied science course #3"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PSYC 230",
+                    "title": "Cognitive Psychology H"
+                  },
+                  {
+                    "code": "NSCI 225",
+                    "title": "Sensation and Perception"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "12",
             "items": [
-              "One PSYC and/or NSCI course chosen from the \"Upper Level Courses for Special Requirement\" (see course list) | 3",
-              "One additional PSYC and/or NSCI course numbered between 395 and 699. May not include PSYC 493 or NSCI 493. | 3",
-              "Allied science course #4 | 3",
-              "One additional PSYC and/or NSCI course above 101 1 | 3",
-              "Hours | 12",
-              "Total Hours | 66"
+              {
+                "credits": 3,
+                "text": "One PSYC and/or NSCI course chosen from the \"Upper Level Courses for Special Requirement\" (see course list)"
+              },
+              {
+                "credits": 3,
+                "text": "One additional PSYC and/or NSCI course numbered between 395 and 699. May not include PSYC 493 or NSCI 493."
+              },
+              {
+                "credits": 3,
+                "text": "Allied science course #4"
+              },
+              {
+                "credits": 3,
+                "text": "One additional PSYC and/or NSCI course above 101 1"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -6366,7 +7098,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/psychology-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#a5a22ea851c862c3."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#a5a22ea851c862c3) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#63542fcec1e8ddae."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6423,12 +7155,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 44 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "15",
             "items": [
-              "First-Year Foundations Courses",
+              {
+                "text": "First-Year Foundations Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -6439,26 +7175,43 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch F | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch F"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
               "Global Language through level 3 | varies",
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "ECON 101",
                 "credits": 4,
                 "title": "Introduction to Economics H, F"
               },
-              "PLCY 101or PLCY 110 | Making Public Policy (Optional, elective credit) Hor Global Policy Issues | 3",
-              "Hours | 15"
+              {
+                "any_of": [
+                  {
+                    "code": "PLCY 101",
+                    "title": "Making Public Policy (Optional, elective credit) H"
+                  },
+                  {
+                    "code": "PLCY 110",
+                    "title": "Global Policy Issues"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "PLCY 210",
@@ -6479,13 +7232,13 @@
                 "code": "STOR 155",
                 "credits": 3,
                 "title": "Introduction to Data Models and Inference (Strongly recommended) H, F"
-              },
-              "Hours | 12"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "10",
             "items": [
               {
                 "code": "PLCY 460",
@@ -6497,22 +7250,35 @@
                 "credits": 3,
                 "title": "Research Design for Public Policy (PLCY 460 is a co- or prerequisite) H"
               },
-              "PLCY 310or ECON 410 | Microeconomic Foundations of Public Policyor Intermediate Microeconomics | 3",
-              "Hours | 10"
+              {
+                "any_of": [
+                  {
+                    "code": "PLCY 310",
+                    "title": "Microeconomic Foundations of Public Policy"
+                  },
+                  {
+                    "code": "ECON 410",
+                    "title": "Intermediate Microeconomics"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "7",
             "items": [
               {
                 "code": "PLCY 698",
                 "credits": 4,
                 "title": "Senior Capstone in Public Policy 1"
               },
-              "Elective credit at 300 level or above | 3",
-              "Hours | 7",
-              "Total Hours | 44"
+              {
+                "credits": 3,
+                "text": "Elective credit at 300 level or above"
+              }
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -6521,7 +7287,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/public-policy-major-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#239b009439be291e."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#239b009439be291e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#fc91abf662de4c26."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6783,12 +7549,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 44 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "14",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -6799,13 +7569,18 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "ITAL 101",
                 "credits": 3,
@@ -6815,13 +7590,13 @@
                 "code": "ITAL 102",
                 "credits": 3,
                 "title": "Elementary Italian II"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "6",
             "items": [
               {
                 "code": "ITAL 203",
@@ -6832,13 +7607,13 @@
                 "code": "ITAL 204",
                 "credits": 3,
                 "title": "Intermediate Italian II"
-              },
-              "Hours | 6"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "12",
             "items": [
               {
                 "code": "ITAL 300",
@@ -6847,20 +7622,18 @@
               },
               "ITAL --- | Italian elective course #1 | 3",
               "ITAL --- | Italian elective course #2 | 3",
-              "ITAL --- | Italian elective course #3 | 3",
-              "Hours | 12"
+              "ITAL --- | Italian elective course #3 | 3"
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "12",
             "items": [
               "ITAL --- | Italian elective course #4 | 3",
               "ITAL --- | Italian elective course #5 | 3",
               "ITAL --- | Italian elective course #6 | 3",
-              "ITAL --- | Italian elective course #7 | 3",
-              "Hours | 12",
-              "Total Hours | 44"
+              "ITAL --- | Italian elective course #7 | 3"
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -6869,7 +7642,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-italian/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#39fd44bca7e10efe."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#39fd44bca7e10efe) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#dfe492730612342f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -6903,12 +7676,16 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 44 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "credit_hours": "14",
             "items": [
-              "First-Year Foundation Courses",
+              {
+                "text": "First-Year Foundation Courses"
+              },
               {
                 "code": "IDST 101",
                 "credits": 1,
@@ -6919,13 +7696,18 @@
                 "credits": 3,
                 "title": "English Composition and Rhetoric"
               },
-              "First-Year Seminar or First-Year Launch | 3",
+              {
+                "credits": 3,
+                "text": "First-Year Seminar or First-Year Launch"
+              },
               {
                 "code": "IDST 111L",
                 "credits": 1,
                 "title": "Data Literacy Lab"
               },
-              "Major Courses",
+              {
+                "text": "Major Courses"
+              },
               {
                 "code": "PORT 101",
                 "credits": 3,
@@ -6935,13 +7717,13 @@
                 "code": "PORT 102",
                 "credits": 3,
                 "title": "Elementary Portuguese II"
-              },
-              "Hours | 14"
+              }
             ],
             "label": "First Year",
             "term_index": 1
           },
           {
+            "credit_hours": "6",
             "items": [
               {
                 "code": "PORT 203",
@@ -6952,31 +7734,29 @@
                 "code": "PORT 204",
                 "credits": 3,
                 "title": "Intermediate Portuguese II"
-              },
-              "Hours | 6"
+              }
             ],
             "label": "Sophomore Year",
             "term_index": 2
           },
           {
+            "credit_hours": "12",
             "items": [
               "PORT --- | Portuguese major course #1 1 | 3",
               "PORT --- | Portuguese major course #2 1 | 3",
               "PORT --- | Portuguese major course #3 1 | 3",
-              "PORT --- | Portuguese major course #4 1 | 3",
-              "Hours | 12"
+              "PORT --- | Portuguese major course #4 1 | 3"
             ],
             "label": "Junior Year",
             "term_index": 3
           },
           {
+            "credit_hours": "12",
             "items": [
               "PORT --- | Portuguese major course #5 1 | 3",
               "PORT --- | Portuguese major course #6 1 | 3",
               "PORT --- | Portuguese major course #7 1 | 3",
-              "PORT --- | Portuguese major course #8 1 | 3",
-              "Hours | 12",
-              "Total Hours | 44"
+              "PORT --- | Portuguese major course #8 1 | 3"
             ],
             "label": "Senior Year",
             "term_index": 4
@@ -6985,7 +7765,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/romance-languages-major-ba-portuguese/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-06: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#96e2635ba1dbaba8."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#96e2635ba1dbaba8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#973b17f26d3bf89d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7096,6 +7876,7 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "rule_text": "Total Hours 65-69 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
@@ -7105,6 +7886,7 @@
             "term_index": 1
           },
           {
+            "credit_hours": "16",
             "items": [
               {
                 "code": "DHYG 236",
@@ -7135,13 +7917,13 @@
                 "code": "DHYG 257L",
                 "credits": 3,
                 "title": "Preclinical Dental Hygiene"
-              },
-              "Hours | 16"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 2
           },
           {
+            "credit_hours": "23",
             "items": [
               {
                 "code": "DHYG 241",
@@ -7183,7 +7965,9 @@
                 "credits": 1,
                 "title": "Radiographic Interpretation"
               },
-              "Summer Session: 1",
+              {
+                "text": "Summer Session: 1"
+              },
               {
                 "code": "DHYG 357",
                 "credits": 2,
@@ -7198,8 +7982,7 @@
                 "code": "DHYG 495",
                 "credits": 2,
                 "title": "Research Methodology 1"
-              },
-              "Hours | 23"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 3
@@ -7210,6 +7993,7 @@
             "term_index": 4
           },
           {
+            "credit_hours": "15-17",
             "items": [
               {
                 "code": "DHYG 351",
@@ -7236,7 +8020,10 @@
                 "credits": 2,
                 "title": "Oral Microbiology"
               },
-              "Dental Hygiene Electives Chosen from: | 1-3",
+              {
+                "credits": "1-3",
+                "text": "Dental Hygiene Electives Chosen from:"
+              },
               {
                 "code": "DHYG 405",
                 "title": "D/PUB HLTH ORG-ADM"
@@ -7248,13 +8035,13 @@
               {
                 "code": "DHYG 691H",
                 "title": "Dental Hygiene Honors I"
-              },
-              "Hours | 15-17"
+              }
             ],
             "label": "Fall Semester",
             "term_index": 5
           },
           {
+            "credit_hours": "11-13",
             "items": [
               {
                 "code": "DHYG 362",
@@ -7276,7 +8063,10 @@
                 "credits": 1,
                 "title": "Dental Ethics and Jurisprudence"
               },
-              "Dental Hygiene Electives Chosen from: | 1-3",
+              {
+                "credits": "1-3",
+                "text": "Dental Hygiene Electives Chosen from:"
+              },
               {
                 "code": "DHYG 421",
                 "title": "INTRO TO CLIN TEACH"
@@ -7288,9 +8078,7 @@
               {
                 "code": "DHYG 692H",
                 "title": "Dental Hygiene Honors II"
-              },
-              "Hours | 11-13",
-              "Total Hours | 65-69"
+              }
             ],
             "label": "Spring Semester",
             "term_index": 6
@@ -7299,7 +8087,7 @@
       },
       "source_url": "https://catalog.unc.edu/undergraduate/programs-study/dental-hygiene-major-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#2d5570ebe730bef9."
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#2d5570ebe730bef9) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/NC/2026-10-06-cat3/evidence.json#a3ab4f9053a1ba3a."
     },
     {
       "last_verified_at": "2026-10-06",

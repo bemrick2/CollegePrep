@@ -368,7 +368,8 @@ describe('weekly plan and parent accountability', () => {
     const base = fam.benchmarks[sid]![0]!
     base.completed_at = new Date(Date.now() - 40 * 86_400_000).toISOString()
     // A mini check made of questions the student has practised many times.
-    const seenAttempts = fam.attempts.filter((a) => a.student_id === sid && a.submitted_at).slice(-6)
+    // Math attempts, since the check below reports a math section.
+    const seenAttempts = fam.attempts.filter((a) => a.student_id === sid && a.submitted_at && a.section === 'math').slice(-6)
     const sec = (section: string, correct: number, answered: number) => ({ section, answered, correct, skipped: 0, accuracy: correct / answered, pacing_ratio: 1, ceiling_difficulty: null })
     const now = new Date()
     for (const a of seenAttempts) {

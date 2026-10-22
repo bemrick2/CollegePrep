@@ -1,0 +1,17 @@
+{
+ "run": "programs/runs/CA/2026-10-07-flag",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout",
+ "approve": [
+  {
+   "candidate_id": "5d87e4f1f40abc8f",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose four units from the following: | 4\". Printed 'Choose four units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 4 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose four units from the following: 4\" as a number of courses (choose_count 4) (#229)."
+  },
+  {
+   "candidate_id": "b67adf85772be53b",
+   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): the printed rule and its options compared with the stored Course List layout; printed: \"Choose five units from the following: | 5\". Printed 'Choose five units from the following' is a unit (credit) amount, not a course count; the re-extracted choose_credits group with choose_credits 5 has the same options as the page and no issues or verify problems.",
+   "replaces_promoted": "the stored group read the printed credit rule \"Choose five units from the following: 5\" as a number of courses (choose_count 5) (#229)."
+  }
+ ]
+}

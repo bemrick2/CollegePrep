@@ -386,9 +386,17 @@ def _program_page_candidates(target, inst, entry, page, today_year):
         # when no section heading names a degree: one program, so its requirement and plan tables are read as the page's
         out = degree_offered_identity(inst, entry, page, today_year)
         if not out: return []  # no program record: plan grids are not read as programs on this path
-        # its printed 4-year plans; the requirement Course Lists are not read here (they include the minor's)
+        # its printed 4-year plans, and its Course Lists read with their layout when the page gives one program record: the
+        # tables after the page's first are held unless their heading names the major's requirements, so the minor's
+        # ('Requirements for Minor Offered by Department'), ACE and college tables are never read as the major's
         from . import courseleaf
-        return out + courseleaf.plantext_candidates(inst, entry, page, out[0]['record']['catalog_year'], out[0]['record']['program_key'])
+        progs = [c for c in out if c['domain'] == 'academic_programs']
+        out = out + courseleaf.plantext_candidates(inst, entry, page, out[0]['record']['catalog_year'], out[0]['record']['program_key'])
+        cl = (target.get('_courselists') or {}).get(entry.get('url'))
+        if cl and len(progs) == 1:
+            prog = progs[0]['record']
+            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], prog['catalog_year'], prog['program_key'], 1, page.text)
+        return out
     if plat == 'courseleaf' and year:
         from . import courseleaf
         have = any(c['domain'] == 'academic_programs' for c in out)
@@ -407,7 +415,7 @@ def _program_page_candidates(target, inst, entry, page, today_year):
         # no plan through courseleaf_plan/v1, so one grid is never read twice
         if have and pg and not any(c['record'].get('requirement_kind') == 'program_plan' for c in out):
             prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
-            out += courseleaf.plangrid_candidates(inst, entry, pg[0], pg[1], year, prog['program_key'])
+            out += courseleaf.plangrid_candidates(inst, entry, pg[0], pg[1], year, prog['program_key'], page.text)
     return out
 
 
@@ -1604,6 +1612,20 @@ def thec_candidates(inst, entry, rows, today_year):
 
 
 
+def shared_plan_keys(cands):
+    """Plans read from different pages under one program and plan key (SHSU engineering technology concentrations, whose
+    pages all name the major; BBA Finance concentrations whose keys are cut at 80 characters) would replace one another:
+    each is held with 'plan_key_shared_by_pages'."""
+    by = {}
+    for c in cands:
+        if c.get('domain') == 'degree_requirements' and c['record'].get('requirement_kind') == 'program_plan':
+            by.setdefault((c['institution_key'], c['record']['program_key'], c['record']['requirement_key']), set()).add(c['source']['url'])
+    for c in cands:
+        if c.get('domain') == 'degree_requirements' and c['record'].get('requirement_kind') == 'program_plan' and \
+                len(by[(c['institution_key'], c['record']['program_key'], c['record']['requirement_key'])]) > 1 and 'plan_key_shared_by_pages' not in c['issues']:
+            c['issues'] = sorted(c['issues'] + ['plan_key_shared_by_pages'])
+
+
 def distinct_candidates(cands):
     """One candidate per id. A page reached by two URLs (http/https, a doubled slash, a list link and a sitemap link;
     TX 2026-10-07-flag3) is read twice with the same stored document, so its candidates repeat with only the fetch
@@ -1619,6 +1641,7 @@ def distinct_candidates(cands):
         for x in (first, c):
             if 'candidate_id_collision' not in x['issues']: x['issues'] = x['issues'] + ['candidate_id_collision']
         out.append(c)
+    shared_plan_keys(out)  # after a page reached by two URLs is kept once
     return out
 
 def extract_run(targets, run_dir, today=None):
