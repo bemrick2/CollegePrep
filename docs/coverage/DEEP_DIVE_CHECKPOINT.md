@@ -42,8 +42,10 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
   - Round 1: 660 of 861 footnote-only re-reads and 109 of 140 others approved. The holds found 4 reader defects (notes of several lines, symbol and letter markers, skipped numbers, inline notes), all fixed.
   - 758 re-reads equal to an approved version are promoted with `replaces_promoted`.
   - 10 plans held by #229 need `replaces_correction`: 5 partially verified LMU/YSU plans and 5 verified plans replaced under #229 corrections.
-  - 323 changed or held re-reads are in a third review.
-- **Totals:** verified plans 3,517 → 3,522. 758 plans now carry their printed footnotes.
+  - The 323 changed or held re-reads went to a third review: 240 approved and promoted, 83 held.
+    - 37 holds are footnote edge cases: a last note of several lines cut short; page text or a site footer swallowed into a note through a distant inline marker; '****' and roman-numeral markers; notes printed after a Course List that follows the grid; Oregon State's legend printed once after its last grid.
+    - 47 holds are flat choice blocks, identical to the records on file.
+- **Totals:** verified plans 3,517 → 3,524. 998 plans now carry their printed footnotes.
 - **Still open:**
   - 113 verified plans at Idaho, Montana and Roosevelt come from pages whose footnotes can't be paired yet.
   - Notes printed after the footnotes with no marker (Texas A&M 'Graduation requirements', LMU 'Notes:') aren't captured; this needs an owner decision.

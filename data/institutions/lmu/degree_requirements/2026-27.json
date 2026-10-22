@@ -313,6 +313,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Note: / Courses containing substantial content related to Asia and/or the Pacific, offered by programs, departments and colleges outside of AAAS, may fulfill upper-division requirements for the ASPA major or minor. Please consult with the ASPA coordinator or Chairperson."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Minimum Semester Hours 111-128 (as printed)",
         "schema": "requirement_group/v1",
@@ -529,7 +535,7 @@
       },
       "source_url": "https://bulletin.lmu.edu/schools-colleges/liberal-arts/asian-american-studies/asian-pacific-studies-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (#229 recovery): re-read by courseleaf_plan/v3 (main after #255) from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals and the printed total; no subtotal, year or total row stored as an item). 12 terms/32 items match printed grid row-for-row (code/title/credits, any_of pairing), every term subtotal matches, no subtotal/heading/total stored as item, rule_text = 'Minimum Semester Hours 111-128' Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-21 #229 downgrade (evidence CA/2026-10-07-cat#1fed490adcf5bfdd) held this plan because the reader then missed a printed header, total or subtotal; the #255 reader reads it and the review confirmed the grid. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#9259ef84ab976416."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#9259ef84ab976416) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#9259ef84ab976416."
     },
     {
       "last_verified_at": "2026-10-07",
@@ -13949,13 +13955,25 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "*",
+            "text": "At least one CMSI/EECE elective courses should be selected from CMSI 3550, CMSI 5350, and EECE 4110 to include applications of probability and statistics."
+          }
+        ],
         "group_type": "sequence",
+        "rule_text": "Minimum Semester Hours 125-127 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
         "terms": [
           {
+            "items": [],
+            "label": "First Year",
+            "term_index": 1
+          },
+          {
+            "credit_hours": "15-16",
             "items": [
-              "Fall | Semester Hours",
               {
                 "code": "ENGR 100",
                 "credits": 3,
@@ -13971,125 +13989,239 @@
                 "credits": 4,
                 "title": "Calculus I"
               },
-              "CHEM 1140 | General Chemistry and Lab for Engineers | 4",
-              "University Core | 3-4",
-              "ORNT 1000 | Intro to LMU for First Years | 0",
-              "Semester Hours | 15-16"
+              {
+                "code": "CHEM 1140",
+                "credits": 4,
+                "title": "General Chemistry and Lab for Engineers"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              },
+              {
+                "code": "ORNT 1000",
+                "credits": 0,
+                "title": "Intro to LMU for First Years"
+              }
             ],
-            "label": "First Year",
-            "term_index": 1
+            "label": "Fall",
+            "term_index": 2
           },
           {
+            "credit_hours": "15-16",
             "items": [
-              "ENGR 1200 | Computational Engineering | 2",
-              "ENGR 1300 | Engineering Visualization | 2",
+              {
+                "code": "ENGR 1200",
+                "credits": 2,
+                "title": "Computational Engineering"
+              },
+              {
+                "code": "ENGR 1300",
+                "credits": 2,
+                "title": "Engineering Visualization"
+              },
               {
                 "code": "MATH 132",
                 "credits": 4,
                 "title": "Calculus II"
               },
-              "PHYS 1100 | Introduction to Mechanics | 4",
-              "University Core | 3-4",
-              "Semester Hours | 15-16"
+              {
+                "code": "PHYS 1100",
+                "credits": 4,
+                "title": "Introduction to Mechanics"
+              },
+              {
+                "credits": "3-4",
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 2
+            "term_index": 3
           },
           {
             "items": [],
             "label": "Sophomore Year",
-            "term_index": 3
-          },
-          {
-            "items": [
-              "EECE 2110 | Circuits I | 3",
-              "EECE 2100 | Circuits I Lab | 1",
-              "CMSI 2820or MATH 266 | Discrete Mathematics for Computer Scienceor Methods of Proof and Discrete Mathematics | 4",
-              "PHYS 2100 | Introduction to Electricity and Magnetism | 4",
-              "University Core | 4",
-              "Semester Hours | 16"
-            ],
-            "label": "Fall",
             "term_index": 4
           },
           {
+            "credit_hours": "16",
             "items": [
-              "EECE 2200 | Sophomore Lab | 1",
-              "EECE 2210 | Circuits II | 3",
-              "EECE 2240 | Introduction to Digital Systems | 4",
+              {
+                "code": "EECE 2110",
+                "credits": 3,
+                "title": "Circuits I"
+              },
+              {
+                "code": "EECE 2100",
+                "credits": 1,
+                "title": "Circuits I Lab"
+              },
+              "CMSI 2820or MATH 266 | Discrete Mathematics for Computer Scienceor Methods of Proof and Discrete Mathematics | 4",
+              {
+                "code": "PHYS 2100",
+                "credits": 4,
+                "title": "Introduction to Electricity and Magnetism"
+              },
+              {
+                "credits": 4,
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 5
+          },
+          {
+            "credit_hours": "14",
+            "items": [
+              {
+                "code": "EECE 2200",
+                "credits": 1,
+                "title": "Sophomore Lab"
+              },
+              {
+                "code": "EECE 2210",
+                "credits": 3,
+                "title": "Circuits II"
+              },
+              {
+                "code": "EECE 2240",
+                "credits": 4,
+                "title": "Introduction to Digital Systems"
+              },
               {
                 "code": "MATH 246",
                 "credits": 4,
                 "title": "Differential Equations and Linear Algebra"
               },
-              "EECE 2212 | Engineering Probability and Statistics | 2",
-              "Semester Hours | 14"
+              {
+                "code": "EECE 2212",
+                "credits": 2,
+                "title": "Engineering Probability and Statistics"
+              }
             ],
             "label": "Spring",
-            "term_index": 5
+            "term_index": 6
           },
           {
             "items": [],
             "label": "Junior Year",
-            "term_index": 6
-          },
-          {
-            "items": [
-              "EECE 3100 | Junior Lab I | 4",
-              "EECE 3130 | Electronics | 4",
-              "EECE 3140 | Microprocessor and Microcontroller Systems | 4",
-              "University Core | 4",
-              "Semester Hours | 16"
-            ],
-            "label": "Fall",
             "term_index": 7
           },
           {
+            "credit_hours": "16",
             "items": [
-              "EECE 3200 | Junior Lab II | 4",
-              "EECE 3210 | Signals and Linear Systems | 4",
-              "CMSI 3630 | Data Structures and Algorithms in Engineering | 4",
-              "University Core | 4",
-              "Semester Hours | 16"
+              {
+                "code": "EECE 3100",
+                "credits": 4,
+                "title": "Junior Lab I"
+              },
+              {
+                "code": "EECE 3130",
+                "credits": 4,
+                "title": "Electronics"
+              },
+              {
+                "code": "EECE 3140",
+                "credits": 4,
+                "title": "Microprocessor and Microcontroller Systems"
+              },
+              {
+                "credits": 4,
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 8
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "EECE 3200",
+                "credits": 4,
+                "title": "Junior Lab II"
+              },
+              {
+                "code": "EECE 3210",
+                "credits": 4,
+                "title": "Signals and Linear Systems"
+              },
+              {
+                "code": "CMSI 3630",
+                "credits": 4,
+                "title": "Data Structures and Algorithms in Engineering"
+              },
+              {
+                "credits": 4,
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 8
+            "term_index": 9
           },
           {
             "items": [],
             "label": "Senior Year",
-            "term_index": 9
-          },
-          {
-            "items": [
-              "EECE 4100 | Senior Lab I | 4",
-              "EECE 4280 | Senior Seminar | 1",
-              "CMSI/EECE Elective * | 4",
-              "CMSI/EECE Elective * | 4",
-              "University Core | 4",
-              "Semester Hours | 17"
-            ],
-            "label": "Fall",
             "term_index": 10
           },
           {
+            "credit_hours": "17",
             "items": [
-              "EECE 4200 | Senior Lab II | 4",
-              "CMSI/EECE Elective * | 4",
-              "University Core | 4",
-              "University Core | 4",
-              "Semester Hours | 16",
-              "Minimum Semester Hours | 125-127"
+              {
+                "code": "EECE 4100",
+                "credits": 4,
+                "title": "Senior Lab I"
+              },
+              {
+                "code": "EECE 4280",
+                "credits": 1,
+                "title": "Senior Seminar"
+              },
+              {
+                "credits": 4,
+                "text": "CMSI/EECE Elective *"
+              },
+              {
+                "credits": 4,
+                "text": "CMSI/EECE Elective *"
+              },
+              {
+                "credits": 4,
+                "text": "University Core"
+              }
+            ],
+            "label": "Fall",
+            "term_index": 11
+          },
+          {
+            "credit_hours": "16",
+            "items": [
+              {
+                "code": "EECE 4200",
+                "credits": 4,
+                "title": "Senior Lab II"
+              },
+              {
+                "credits": 4,
+                "text": "CMSI/EECE Elective *"
+              },
+              {
+                "credits": 4,
+                "text": "University Core"
+              },
+              {
+                "credits": 4,
+                "text": "University Core"
+              }
             ],
             "label": "Spring",
-            "term_index": 11
+            "term_index": 12
           }
         ]
       },
-      "source_url": "https://bulletin.lmu.edu//schools-colleges/science-engineering/electrical-computer-engineering/computer-engineering-bse/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-07: Standing review (courseleaf_plan/v1): rows verbatim in the stored official page; passed the layout hold rules. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#17a68afea3e3086c. Correction 2026-10-21 (#229, owner-approved): partially_verified; see verification_correction_reason.",
-      "verification_correction_reason": "Term-by-term plan read by courseleaf_plan/v1 from https://bulletin.lmu.edu//schools-colleges/science-engineering/electrical-computer-engineering/computer-engineering-bse/ stores rows of the printed Plan of Study Grid that are not courses (term subtotals, year headings or the plan total) as plan items (#229). The corrected reader could not reproduce the grid exactly (printed total row 'Minimum Semester Hours | 125-127' stored as a plan item in the last term; rule_text missing), so the plan is no longer verified; its course rows remain as stored. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#17a68afea3e3086c."
+      "source_url": "https://bulletin.lmu.edu/schools-colleges/science-engineering/electrical-computer-engineering/computer-engineering-bse/",
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added). Replaces the record promoted earlier from this candidate: Plan on file (evidence CA/2026-10-07-cat#17a68afea3e3086c) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan. Re-verified after the correction on file (kept in supabase/corrections.json): The #229 correction held this plan (evidence CA/2026-10-07-cat#17a68afea3e3086c); the re-read reads the printed grid and its footnotes, and the review confirmed them. Evidence: sources/programs/CA/2026-10-07-cat/evidence.json#0dbff16d2bb91a52."
     },
     {
       "last_verified_at": "2026-10-07",

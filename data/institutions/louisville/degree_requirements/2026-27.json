@@ -17541,6 +17541,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "*",
+            "text": "Students in the BS/MA Accelerated Option should consult their advisor about modifying this flight plan for their specific needs."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Minimum Total Hours 121-122 (as printed)",
         "schema": "requirement_group/v1",
@@ -17817,7 +17823,7 @@
       },
       "source_url": "https://catalog.louisville.edu/undergraduate/majors/political-science-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence KY/2026-10-06-cat#4c3ce8d9fea28fbb) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/KY/2026-10-06-cat/evidence.json#168fcaa507438c82."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence KY/2026-10-06-cat#168fcaa507438c82) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/KY/2026-10-06-cat/evidence.json#168fcaa507438c82."
     },
     {
       "last_verified_at": "2026-10-06",

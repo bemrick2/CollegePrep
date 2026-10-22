@@ -1,0 +1,19 @@
+{
+ "run": "programs/runs/CA/2026-10-07-cat",
+ "run_branch": "program-run/*",
+ "reviewer": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere).",
+ "approve": [
+  {
+   "candidate_id": "9259ef84ab976416",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#9259ef84ab976416) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan.",
+   "replaces_correction": "The #229 correction replaced this plan with a reviewed re-read; this re-read keeps that content and adds the grid's printed footnotes, confirmed by the review."
+  },
+  {
+   "candidate_id": "0dbff16d2bb91a52",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added).",
+   "replaces_promoted": "Plan on file (evidence CA/2026-10-07-cat#17a68afea3e3086c) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan.",
+   "replaces_correction": "The #229 correction held this plan (evidence CA/2026-10-07-cat#17a68afea3e3086c); the re-read reads the printed grid and its footnotes, and the review confirmed them."
+  }
+ ]
+}

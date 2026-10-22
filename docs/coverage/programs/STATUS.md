@@ -264,7 +264,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Stanford University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Solano Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | Santa Clara University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
-| Loyola Marymount University | covered | 62 | 61 | 35 | 148 | met | met | met | queued | admission_rules:not_yet_researched |
+| Loyola Marymount University | covered | 62 | 61 | 36 | 148 | met | met | met | queued | admission_rules:not_yet_researched |
 | West Los Angeles College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | California Baptist University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | University of San Diego | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
@@ -699,7 +699,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | School | Status | Verified bachelor's | Listed | Plans | Req. groups | Catalog | Maps | Groups | Admission rules | Queue |
 |---|---|---|---|---|---|---|---|---|---|---|
 | University of Illinois Urbana-Champaign | partial | 95 | – | 0 | 139 | queued | queued | met | queued | admission_rules:no_official_statement, catalog:not_yet_researched, degree_maps:not_yet_researched |
-| University of Illinois Chicago | partial | 95 | 128 | 80 | 155 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
+| University of Illinois Chicago | partial | 95 | 128 | 81 | 155 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:not_yet_researched |
 | Illinois State University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:no_year_label |
 | Loyola University Chicago | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |
 | DePaul University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:not_yet_researched |

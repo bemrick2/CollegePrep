@@ -3912,8 +3912,8 @@
  "0f965c6853b33d11": {
   "decision": {
    "candidate_id": "0f965c6853b33d11",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 6 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-123 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#0f965c6853b33d11) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#0f965c6853b33d11) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -3994,8 +3994,8 @@
  "0f965c6853b33d11~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "0f965c6853b33d11",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#0d7c073e5d6e7214) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 6 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-123 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#0f965c6853b33d11) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
   "evidence": [
    {
@@ -4010,7 +4010,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 7 items, 12-15 credits",
+    "snippet": "Spring: 4 items, 12-15 credits",
     "value": "Spring"
    },
    {
@@ -4020,7 +4020,7 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 11 items, 17 credits",
+    "snippet": "Fall: 5 items, 17 credits",
     "value": "Fall"
    },
    {
@@ -4040,7 +4040,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 12 items, 15 credits",
+    "snippet": "Spring: 5 items, 15 credits",
     "value": "Spring"
    },
    {
@@ -4055,7 +4055,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 8 items, 15 credits",
+    "snippet": "Spring: 5 items, 15 credits",
     "value": "Spring"
    }
   ],
@@ -10392,6 +10392,88 @@
  "2ca80be6845d9610": {
   "decision": {
    "candidate_id": "2ca80be6845d9610",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2ca80be6845d9610) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:04+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:32:12 GMT",
+   "page_file": "8cb99b8dbc41a94e0944.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/management/management-international-business-bsba/",
+   "sha256": "8cb99b8dbc41a94e0944f0adf3c24932154b26521cecec9c7111743b3cf02bf2",
+   "title": "Management with a Major in International Business (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/management/management-international-business-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2ca80be6845d9610~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "2ca80be6845d9610",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#6953d1e89b370dde) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -10781,8 +10863,8 @@
  "2e6627bd0c9d09af": {
   "decision": {
    "candidate_id": "2e6627bd0c9d09af",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 7 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-130 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2e6627bd0c9d09af) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2e6627bd0c9d09af) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -10863,8 +10945,8 @@
  "2e6627bd0c9d09af~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "2e6627bd0c9d09af",
-   "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
-   "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#751f280a995f7b1f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 7 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-130 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2e6627bd0c9d09af) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
   },
   "evidence": [
    {
@@ -10879,7 +10961,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 8 items, 15-18 credits",
+    "snippet": "Spring: 5 items, 15-18 credits",
     "value": "Spring"
    },
    {
@@ -10889,12 +10971,12 @@
    },
    {
     "field": "term",
-    "snippet": "Fall: 11 items, 17 credits",
+    "snippet": "Fall: 5 items, 17 credits",
     "value": "Fall"
    },
    {
     "field": "term",
-    "snippet": "Spring: 7 items, 14-15 credits",
+    "snippet": "Spring: 5 items, 14-15 credits",
     "value": "Spring"
    },
    {
@@ -10909,7 +10991,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 14 items, 15 credits",
+    "snippet": "Spring: 5 items, 15 credits",
     "value": "Spring"
    },
    {
@@ -10924,7 +11006,7 @@
    },
    {
     "field": "term",
-    "snippet": "Spring: 10 items, 14-15 credits",
+    "snippet": "Spring: 5 items, 14-15 credits",
     "value": "Spring"
    }
   ],
@@ -16543,6 +16625,98 @@
   "year_basis": "labeled_in_source"
  },
  "403881e5d8544764": {
+  "decision": {
+   "candidate_id": "403881e5d8544764",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*', '**', '***', '+'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#403881e5d8544764) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 3 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 3 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:54+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:37:05 GMT",
+   "page_file": "49a001616c11c747d78d.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/health-sciences/programs/health-sciences-pre-clinical-studies-bshs/",
+   "sha256": "49a001616c11c747d78d6b2c378160890af743ba2e6ad6dde89fefee8e958a43",
+   "title": "Health Sciences with a Major in Pre-Clinical Studies (BSHS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/health-sciences/programs/health-sciences-pre-clinical-studies-bshs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "403881e5d8544764~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "403881e5d8544764",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",

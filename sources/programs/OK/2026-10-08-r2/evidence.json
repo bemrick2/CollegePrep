@@ -50808,6 +50808,88 @@
  "f399583d38d1cb2a": {
   "decision": {
    "candidate_id": "f399583d38d1cb2a",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['2'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence OK/2026-10-08-r2#f399583d38d1cb2a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T16:35:14+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 24 Sep 2026 15:49:58 GMT",
+   "page_file": "71eb490041c9f04a8b3b.json.gz",
+   "requested_url": "https://catalog.okstate.edu/education-human-sciences/teaching-learning-educational-sciences/elementary-education-bs/",
+   "sha256": "71eb490041c9f04a8b3b4a0926f750985bbf78a10920ecdce7c291c881fb4cf0",
+   "title": "Elementary Education, BS | Oklahoma State University Catalog",
+   "url": "https://catalog.okstate.edu/education-human-sciences/teaching-learning-educational-sciences/elementary-education-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f399583d38d1cb2a~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "f399583d38d1cb2a",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#de4e1e031b39d87d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },

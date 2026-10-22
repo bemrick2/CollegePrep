@@ -6970,6 +6970,52 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Film Foundation courses: 15 cr. total, completion required before advancing in the major: / Required: FILM 109, FILM 111, FILM 180, FILM 181"
+          },
+          {
+            "marker": "2",
+            "text": "Post-Foundation Studio: 6 cr. total (two courses) / Required: FILM 222 / One additional post-foundation studio, select from: FILM 220, FILM 231, FILM 234, or FILM 255"
+          },
+          {
+            "marker": "3",
+            "text": "Contextual Electives: 9 cr. total (three courses) / Required: FILM 303 / Select two additional Contextual electives from the Department of Film, Video, Animation, and New Genres."
+          },
+          {
+            "marker": "4",
+            "text": "Production Electives: 15 cr. total (five courses) / Select five Production electives from the Department of Film, Video, Animation and New Genres."
+          },
+          {
+            "marker": "5",
+            "text": "Portfolio Requirements: 6 cr. total (two courses) / Select two Portfolio electives from the Department of Film, Video, Animation and New Genres."
+          },
+          {
+            "marker": "6",
+            "text": "Professional Practice Electives: 3 cr. total (one course) / Select one Professional Practice/Internship elective from the Department of Film, Video, Animation and New Genres."
+          },
+          {
+            "marker": "7",
+            "text": "Senior Capstone: 9 cr. total (two courses) / Required: FILM 509 / Required: FILM 510"
+          },
+          {
+            "marker": "8",
+            "text": "Department Electives: 6 cr. required (two courses) / Select any two courses offered within the Department of Film, Video, Animation and New Genres."
+          },
+          {
+            "marker": "9",
+            "text": "PSOA Arts Distribution Requirement for FVANG (four courses) / 12 credits outside PSOA / 12 credits within PSOA but outside of FVANG in at least 3 PSOA departments outside of discipline (Art and Design, Dance, Music, and Theater)"
+          },
+          {
+            "marker": "10",
+            "text": "GER Requirements (UWM Core) - 30 cr. total (ten courses) / (2) Communications and Literacy courses (total 6 cr.) / (1) Mathematics and Quantitative Reasoning course (total 3 cr.) / (1) Social and Behavioral Science course (total 3 cr.) / (2) Humanities and Art courses (total 6 cr.) / (2) Natural Science and Wellness courses, one with lab (total 6 cr.) / (2) Civics and Perspectives courses (total 6 cr.)"
+          },
+          {
+            "marker": "11",
+            "text": "General Elective: 6 cr. required (two courses) / Select two courses from anywhere in UWM, including the Department of Film, Video, Animation and New Genres."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Credits 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -7044,28 +7090,31 @@
                 "title": "Digital Filmmaking 2"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "FILM 220",
+                    "title": "16mm Filmmaking"
+                  },
+                  {
+                    "code": "FILM 231",
+                    "title": "Writing for Film"
+                  },
+                  {
+                    "code": "FILM 232",
+                    "title": "Animation I"
+                  },
+                  {
+                    "code": "FILM 234",
+                    "title": "Introduction to the Screenplay"
+                  },
+                  {
+                    "code": "FILM 255",
+                    "title": "Introduction to Digital Arts"
+                  }
+                ],
                 "text": "Select one of the following: 2"
-              },
-              {
-                "code": "FILM 220",
-                "title": "16mm Filmmaking"
-              },
-              {
-                "code": "FILM 231",
-                "title": "Writing for Film"
-              },
-              {
-                "code": "FILM 232",
-                "title": "Animation I"
-              },
-              {
-                "code": "FILM 234",
-                "title": "Introduction to the Screenplay"
-              },
-              {
-                "code": "FILM 255",
-                "title": "Introduction to Digital Arts"
               },
               {
                 "code": "FILM 303",
@@ -7243,7 +7292,7 @@
       },
       "source_url": "https://catalog.uwm.edu/arts-architecture/arts/film/film-bfa/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence WI/2026-10-21-d01#103124ffa37692cf) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/WI/2026-10-21-d01/evidence.json#92d70e4a2fd6f33d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added). Replaces the record promoted earlier from this candidate: Plan on file (evidence WI/2026-10-21-d01#92d70e4a2fd6f33d) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan. Evidence: sources/programs/WI/2026-10-21-d01/evidence.json#92d70e4a2fd6f33d."
     },
     {
       "last_verified_at": "2026-10-21",

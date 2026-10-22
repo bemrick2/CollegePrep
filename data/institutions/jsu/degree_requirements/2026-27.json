@@ -1810,6 +1810,16 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Grade of C or better required for all Area V support courses."
+          },
+          {
+            "marker": "2",
+            "text": "These hours may not be used to satisfy any other major requirements and must be selected from the following subjects: / ACC, BY, CBA, COM, CS, CY, EC, FIN, HPE, MGT, MKT, MS, MSC, NU, PHS, PSY, RT, ST, SY, or from specifically identified courses in ART, AE, AN, ASN, CJ, EH, EM, FCS, GNS, GY, HY, PSC, PST, SH, SPE, and SW."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -2087,7 +2097,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/kinesiology/public-health-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence AL/2026-10-06-cl#3210478cb24f2e69) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#159c97c5936001f2."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#159c97c5936001f2) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#159c97c5936001f2."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -20333,6 +20343,16 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Grade of C or better required for all Pre-Professional courses."
+          },
+          {
+            "marker": "2",
+            "text": "These hours may not be used to satisfy any other major requirements and must be selected from the following subjects: / ACC, BY, CBA, COM, CS, CY, EC, FIN, HPE, MGT, MKT, MS, MSC, NU, PHS, PSY, RT, ST, SY, or from specifically identified courses in ART, AE, AN, ASN, CJ, EH, EM, FCS, GNS, GY, HY, PSC, PST, SH, SPE, and SW."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -20346,7 +20366,10 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "MS 112",
@@ -20358,7 +20381,10 @@
                 "credits": 3,
                 "title": "Principles of Psychology (Jax MIX Experience)"
               },
-              "Jax MIX Experience: History | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
               {
                 "code": "SSC 101",
                 "credits": 0,
@@ -20371,9 +20397,18 @@
           {
             "credit_hours": "17",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience"
+              },
               {
                 "code": "BY 263",
                 "credits": 4,
@@ -20401,7 +20436,10 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "EH 141",
                 "credits": 3,
@@ -20425,8 +20463,23 @@
           {
             "credit_hours": "17",
             "items": [
-              "Jax MIX Expression | 3",
-              "FCS 215or FCS 322 | Introductory Nutrition 1or Normal Nutrition | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "FCS 215",
+                    "title": "Introductory Nutrition 1"
+                  },
+                  {
+                    "code": "FCS 322",
+                    "title": "Normal Nutrition"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "HPE 232",
                 "credits": 2,
@@ -20437,8 +20490,23 @@
                 "credits": 3,
                 "title": "Basic Athletic Training 1"
               },
-              "MS 204or ST 260 | Basic Statistics 1or Statistics/Quantitative Methods I | 3",
-              "ESW Designed Elective | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "MS 204",
+                    "title": "Basic Statistics 1"
+                  },
+                  {
+                    "code": "ST 260",
+                    "title": "Statistics/Quantitative Methods I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "ESW Designed Elective"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -20471,8 +20539,14 @@
                 "credits": 1,
                 "title": "Exercise Physiology Lab"
               },
-              "Advisor Designed Electives 2 | 3",
-              "ESW Designed Electives | 4"
+              {
+                "credits": 3,
+                "text": "Advisor Designed Electives 2"
+              },
+              {
+                "credits": 4,
+                "text": "ESW Designed Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -20490,8 +20564,14 @@
                 "credits": 3,
                 "title": "Exercise Prescription"
               },
-              "Advisor Designed Electives 2 | 4",
-              "ESW Designed Electives | 3"
+              {
+                "credits": 4,
+                "text": "Advisor Designed Electives 2"
+              },
+              {
+                "credits": 3,
+                "text": "ESW Designed Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -20509,7 +20589,10 @@
                 "credits": 3,
                 "title": "Fitness Testing"
               },
-              "Advisor Designed Electives 2 | 9"
+              {
+                "credits": 9,
+                "text": "Advisor Designed Electives 2"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -20540,7 +20623,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/kinesiology/exercise-science-wellness-fitness-wellness-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 38 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#6f19b3fdb0552105."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added). Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#6f19b3fdb0552105) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#09d1e76fa18e5431."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -21135,6 +21218,16 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Grade of C or better required for all Pre-Professional courses."
+          },
+          {
+            "marker": "2",
+            "text": "These hours may not be used to satisfy any other major requirements and must be selected from the following subjects: / ACC, BY, CBA, COM, CS, CY, EC, FIN, HPE, MGT, MKT, MS, MSC, NU, PHS, PSY, RT, ST, SY, or from specifically identified courses in ART, AE, AN, ASN, CJ, EH, EM, FCS, GNS, GY, HY, PSC, PST, SH, SPE, and SW."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -21148,7 +21241,10 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
               {
                 "code": "MS 112",
                 "credits": 3,
@@ -21159,7 +21255,10 @@
                 "credits": 3,
                 "title": "Principles of Psychology (Jax MIX Experience)"
               },
-              "Jax MIX Experience: History | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience: History"
+              },
               "BY 101& BY 103 | Introductory Biology Iand Introductory Biology Lab I (Jax MIX Inquiry) | 4",
               {
                 "code": "SSC 101",
@@ -21173,9 +21272,18 @@
           {
             "credit_hours": "17",
             "items": [
-              "Jax MIX Communication: EH Composition sequence | 3",
-              "Jax MIX Expression: Fine Arts | 3",
-              "Jax MIX Experience | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Communication: EH Composition sequence"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Fine Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Jax MIX Experience"
+              },
               {
                 "code": "BY 263",
                 "credits": 4,
@@ -21208,7 +21316,10 @@
                 "credits": 3,
                 "title": "Speech (Jax MIX Communication)"
               },
-              "Jax MIX Expression: Literature | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression: Literature"
+              },
               {
                 "code": "PSY 222",
                 "credits": 3,
@@ -21227,8 +21338,23 @@
           {
             "credit_hours": "16",
             "items": [
-              "Jax MIX Expression | 3",
-              "FCS 215or FCS 322 | Introductory Nutrition 1or Normal Nutrition | 3",
+              {
+                "credits": 3,
+                "text": "Jax MIX Expression"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "FCS 215",
+                    "title": "Introductory Nutrition 1"
+                  },
+                  {
+                    "code": "FCS 322",
+                    "title": "Normal Nutrition"
+                  }
+                ],
+                "credits": 3
+              },
               {
                 "code": "HPE 121",
                 "credits": 2,
@@ -21244,7 +21370,19 @@
                 "credits": 3,
                 "title": "Basic Athletic Training 1"
               },
-              "MS 204or ST 260 | Basic Statistics 1or Statistics/Quantitative Methods I | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "MS 204",
+                    "title": "Basic Statistics 1"
+                  },
+                  {
+                    "code": "ST 260",
+                    "title": "Statistics/Quantitative Methods I"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -21282,7 +21420,10 @@
                 "credits": 3,
                 "title": "Sport Psychology"
               },
-              "Advisor Designed Electives 2 | 3"
+              {
+                "credits": 3,
+                "text": "Advisor Designed Electives 2"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -21310,7 +21451,10 @@
                 "credits": 3,
                 "title": "Exercise Prescription"
               },
-              "Advisor Designed Electives 2 | 3"
+              {
+                "credits": 3,
+                "text": "Advisor Designed Electives 2"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -21333,7 +21477,10 @@
                 "credits": 3,
                 "title": "Fitness Testing"
               },
-              "Advisor Designed Electives 2 | 6"
+              {
+                "credits": 6,
+                "text": "Advisor Designed Electives 2"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -21364,7 +21511,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/health-professions-wellness/kinesiology/exercise-science-wellness-strength-conditioning-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 40 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#5a32a7bcaf1abfba."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added). Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#5a32a7bcaf1abfba) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#57d7ea73c59fd05e."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -24109,6 +24256,18 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "grid": 1,
+            "marker": "1",
+            "text": "Students may use any of the three options to satisfy this requirement; however, PSY 201 Principles of Psychology (3) is preferred."
+          },
+          {
+            "grid": 2,
+            "marker": "6",
+            "text": "Any Accounting course not already used to meet program requirements may be used to meet Accounting electives."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 59 (as printed, grid 1 of 2); Total Hours 61 (as printed, grid 2 of 2)",
         "schema": "requirement_group/v1",
@@ -24408,7 +24567,7 @@
       },
       "source_url": "https://catalog.jsu.edu//undergraduate/business-industry/finance-economics-accounting/accounting-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. One plan printed as two continued grids (years continuing, same heading); no text between the grids changes the plan. 2 Plan of Study Grids on one JSU page, both under \"2026-2027 Edition\": grid 1 = Freshman+Sophomore (Total Hours 59), grid 2 = Junior+Senior (Total Hours 61); 59+61 = 120; the only text between them is footnote 1 (PSY 201 preferred), which does not change the plan; terms are concatenated in printed order and rule_text carries both totals as printed; 2 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] Students may use any of the three options to satisfy this requirement; however, PSY 201 Pr; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#bb98973c5f0555fb."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '6'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: JSU continued grids: footnote 1 tagged grid 1, footnote 6 tagged grid 2, matching the print. Replaces the record promoted earlier from this candidate: Plan on file (evidence AL/2026-10-06-cl#bb98973c5f0555fb) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/AL/2026-10-06-cl/evidence.json#bb98973c5f0555fb."
     },
     {
       "last_verified_at": "2026-10-06",

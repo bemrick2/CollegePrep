@@ -3109,6 +3109,88 @@
  "168fcaa507438c82": {
   "decision": {
    "candidate_id": "168fcaa507438c82",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence KY/2026-10-06-cat#168fcaa507438c82) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16-17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:18:53+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 15:31:17 GMT",
+   "page_file": "f42a333f10ae64cfde98.json.gz",
+   "requested_url": "https://catalog.louisville.edu/undergraduate/majors/political-science-bs/",
+   "sha256": "f42a333f10ae64cfde984fbfedbf8d45030e7c29d2e049fd098a43764742dadc",
+   "title": "Political Science (BS) | University of Louisville Academic Catalogs",
+   "url": "https://catalog.louisville.edu/undergraduate/majors/political-science-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "168fcaa507438c82~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "168fcaa507438c82",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence KY/2026-10-06-cat#4c3ce8d9fea28fbb) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },

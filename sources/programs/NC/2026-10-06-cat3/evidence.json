@@ -40314,6 +40314,88 @@
  "adeba0d50e6c2039": {
   "decision": {
    "candidate_id": "adeba0d50e6c2039",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence NC/2026-10-06-cat3#adeba0d50e6c2039) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 13 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:23:54+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 17 Aug 2026 18:28:28 GMT",
+   "page_file": "f9cf3fa284752355e697.json.gz",
+   "requested_url": "https://catalog.ncsu.edu/undergraduate/sciences/statistics/statistics-bs/",
+   "sha256": "f9cf3fa284752355e6973c2f8413317ecbc17b4079ff39927ebe591a806b3d3f",
+   "title": "Statistics (BS) < North Carolina State University",
+   "url": "https://catalog.ncsu.edu/undergraduate/sciences/statistics/statistics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "adeba0d50e6c2039~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "adeba0d50e6c2039",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence NC/2026-10-06-cat3#57fa84423a93d175) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },

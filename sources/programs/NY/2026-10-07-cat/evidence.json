@@ -20565,6 +20565,83 @@
  "9f1c120f53987f6f": {
   "decision": {
    "candidate_id": "9f1c120f53987f6f",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['*'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details.",
+   "replaces_promoted": "Plan on file (evidence NY/2026-10-07-cat#9f1c120f53987f6f) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 8 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 6-8 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 2 items, 8 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 8 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 8 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 2 items, 8 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 6 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 6 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T15:21:47+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 02 Oct 2026 20:53:19 GMT",
+   "page_file": "e0328b5d29279bbefd44.json.gz",
+   "requested_url": "https://catalog.pace.edu/undergraduate/schools/dyson-college-arts-sciences/undergraduate-degree-programs/professional-communication-studies-bs/",
+   "sha256": "e0328b5d29279bbefd44aed4695158c63f4fff350aacba763ece394924c0c0a1",
+   "title": "Professional Communication Studies, BS | Pace University New York",
+   "url": "https://catalog.pace.edu/undergraduate/schools/dyson-college-arts-sciences/undergraduate-degree-programs/professional-communication-studies-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "9f1c120f53987f6f~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "9f1c120f53987f6f",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence NY/2026-10-07-cat#11c32322cc578209) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },

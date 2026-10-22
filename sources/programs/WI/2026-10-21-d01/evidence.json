@@ -6067,6 +6067,88 @@
  "92d70e4a2fd6f33d": {
   "decision": {
    "candidate_id": "92d70e4a2fd6f33d",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added).",
+   "replaces_promoted": "Plan on file (evidence WI/2026-10-21-d01#92d70e4a2fd6f33d) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Year 1: 0 items, ? credits",
+    "value": "Year 1"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 2: 0 items, ? credits",
+    "value": "Year 2"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 3: 0 items, ? credits",
+    "value": "Year 3"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Year 4: 0 items, ? credits",
+    "value": "Year 4"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-21T14:38:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "d53ad42d8e37b6370e41.json.gz",
+   "requested_url": "https://catalog.uwm.edu/arts-architecture/arts/film/film-bfa/",
+   "sha256": "d53ad42d8e37b6370e41eb06fdb2e05746f1f375a302ce6e46cabfcfba7108d5",
+   "title": "Film, BFA | UW-Milwaukee Academic Catalog",
+   "url": "https://catalog.uwm.edu/arts-architecture/arts/film/film-bfa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "92d70e4a2fd6f33d~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "92d70e4a2fd6f33d",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence WI/2026-10-21-d01#103124ffa37692cf) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },

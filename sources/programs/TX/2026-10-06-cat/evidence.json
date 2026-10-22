@@ -24599,6 +24599,88 @@
  "426c92900758cdd8": {
   "decision": {
    "candidate_id": "426c92900758cdd8",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2', '3'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence TX/2026-10-06-cat#426c92900758cdd8) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:18+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 28 Sep 2026 17:51:13 GMT",
+   "page_file": "4cbf204a381c3323e3b8.json.gz",
+   "requested_url": "https://catalog.tamu.edu/undergraduate/agriculture-life-sciences/nutrition/nutrition-bs-didactic-dietetics-track/",
+   "sha256": "4cbf204a381c3323e3b8d2f1e3e67e89411c97c098658f68f834e9a306214be2",
+   "title": "Nutrition - BS, Didactic Program in Dietetics Track < Texas A&M Catalogs < Texas A&M University, College Station, TX",
+   "url": "https://catalog.tamu.edu/undergraduate/agriculture-life-sciences/nutrition/nutrition-bs-didactic-dietetics-track/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "426c92900758cdd8~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "426c92900758cdd8",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (2 at term end, 3 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Semester Credit Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x2, string->text x8); labels, subtotals, rule_text unchanged; all supported; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
    "replaces_promoted": "Plan on file (evidence TX/2026-10-06-cat#7800f52f22305a56) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
   },
@@ -32432,6 +32514,88 @@
   "year_basis": "labeled_in_source"
  },
  "5aaa9508fce44512": {
+  "decision": {
+   "candidate_id": "5aaa9508fce44512",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2', '3', '4', '5'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence TX/2026-10-06-cat#5aaa9508fce44512) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 3 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 1 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:10:53+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 28 Sep 2026 18:03:37 GMT",
+   "page_file": "dc32691aede0f2e288b7.json.gz",
+   "requested_url": "https://catalog.tamu.edu/undergraduate/veterinary-medicine-biomedical-sciences/university-studies/biomedical-sciences-university-studies-bs/",
+   "sha256": "dc32691aede0f2e288b702d011835986e57ce77bea34db2a8c58e49998bf2c32",
+   "title": "University Studies - BS, Biomedical Sciences Concentration < Texas A&M Catalogs < Texas A&M University, College Station, TX",
+   "url": "https://catalog.tamu.edu/undergraduate/veterinary-medicine-biomedical-sciences/university-studies/biomedical-sciences-university-studies-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5aaa9508fce44512~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "5aaa9508fce44512",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Semester Credit Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->text x21); labels, subtotals, rule_text unchanged; all supported; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
@@ -51365,6 +51529,88 @@
  "8a912a1107e7661d": {
   "decision": {
    "candidate_id": "8a912a1107e7661d",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2', '3', '4'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence TX/2026-10-06-cat#8a912a1107e7661d) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 18 items, 17 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:05:20+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 28 Sep 2026 17:51:17 GMT",
+   "page_file": "cd31e52c74eff4899fcc.json.gz",
+   "requested_url": "https://catalog.tamu.edu/undergraduate/agriculture-life-sciences/nutrition/nutrition-bs-human-health-track/",
+   "sha256": "cd31e52c74eff4899fccbde18a8f4a9c7b735cd8101598d31ba6889715c13cc1",
+   "title": "Nutrition - BS, Human Health Track < Texas A&M Catalogs < Texas A&M University, College Station, TX",
+   "url": "https://catalog.tamu.edu/undergraduate/agriculture-life-sciences/nutrition/nutrition-bs-human-health-track/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8a912a1107e7661d~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "8a912a1107e7661d",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 6 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Semester Credit Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x1, string->text x17); labels, subtotals, rule_text unchanged; all supported; previously held (FLAT); re-checked by hand: the block now holds the full printed option list",
    "replaces_promoted": "Plan on file (evidence TX/2026-10-06-cat#852995d6464a0e5d) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
   },
@@ -56279,6 +56525,88 @@
    "sha256": "488b92ff6fadaaadc6a0d2ffec75bae3dc8dea313093133873a628d68625a1dd",
    "title": "Finance (BBA) < The University of Texas at Austin",
    "url": "https://catalog.utexas.edu/undergraduate/programs/finance-energy-finance-law-science-bba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "983119f44469568b": {
+  "decision": {
+   "candidate_id": "983119f44469568b",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['1', '2', '3', '4', '5'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. Changes vs old are structural and supported by the print (fields read from strings, terms split, subtotal/total rows removed from items, credit_hours/rule_text/choose added). Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence TX/2026-10-06-cat#71de3983acb1aef6) dropped the grid's printed footnotes (substitutions, options and notes); its rows are now read into fields as printed; the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T10:07:05+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 28 Sep 2026 17:55:33 GMT",
+   "page_file": "324ec13168d248b8ad68.json.gz",
+   "requested_url": "https://catalog.tamu.edu/undergraduate/arts-and-sciences/geography/bs/",
+   "sha256": "324ec13168d248b8ad68ac34b47e954785fba0f13b66245734940544d8010eac",
+   "title": "Geography - BS < Texas A&M Catalogs < Texas A&M University, College Station, TX",
+   "url": "https://catalog.tamu.edu/undergraduate/arts-and-sciences/geography/bs/"
   },
   "year_basis": "labeled_in_source"
  },
