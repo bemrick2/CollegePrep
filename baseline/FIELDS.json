@@ -1,0 +1,534 @@
+{
+ "note": "Field dictionary for baseline/schools. kind: directory, statistic (a measurement NCES reports), published_price (a price the school published for that year), historical_average (an average over a past year's students; never a price, offer or personal estimate). Status codes: verified_current, available_older, not_published_or_na, not_researched, blocked.",
+ "collection_year": "2023-24",
+ "planning_year": "2026-27",
+ "status_sources": {
+  "HD2024.zip": "provisional 2024-25 directory: identity check and closures (sources/ipeds/2024-25)",
+  "FLAGS2023.zip": "survey response status and parent/child reporting (STAT_*, PRCH_*, IDX_*)",
+  "sources/ipeds/2024-25/manifest.json": "files NCES did not serve (HTTP 404 with check date): decides verified_current for statistics"
+ },
+ "fields": [
+  {
+   "key": "identity",
+   "label": "Name, location, website, type and control",
+   "kind": "directory",
+   "period": "IPEDS 2023-24 institutional directory",
+   "columns": [
+    "name",
+    "city",
+    "state",
+    "website_url",
+    "control",
+    "level",
+    "highest_offering",
+    "closed_per_hd2024"
+   ],
+   "sources": [
+    {
+     "file": "HD2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/HD2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "INSTNM": {
+       "title": "Institution (entity) name",
+       "definition": "Institution (entity) name"
+      },
+      "CITY": {
+       "title": "City location of institution",
+       "definition": "City location of institution"
+      },
+      "STABBR": {
+       "title": "State abbreviation",
+       "definition": "US Postal Service state abbreviation. See also FIPS STATE CODE (FIPS)."
+      },
+      "WEBADDR": {
+       "title": "Institution's internet website address",
+       "definition": "Institution's internet website address"
+      },
+      "CONTROL": {
+       "title": "Control of institution",
+       "definition": "A classification of whether an institution is operated by publicly elected or appointed officials or by privately elected or appointed officials and derives its major source of funds from private sources. Public institution - An educational institution whose programs and activities are operated by publicly elected or appointed school officials and which is supported primarily by public funds. Private not-for-profit institution - A private institution in which the individual(s) or agency in control receives no compensation, other than wages, rent, or other expenses for the assumption of risk. These include both independent not-for-profit schools and those affiliated with a religious organization. Private for-profit institution - A private institution in which the individual(s) or agency in control receives compensation other than wages, rent, or other expenses for the assumption of risk."
+      },
+      "ICLEVEL": {
+       "title": "Level of institution",
+       "definition": "A classification of whether an institution’s programs are 4-year or higher (4 year), 2-but-less-than 4-year (2 year), or less than 2-year."
+      },
+      "HLOFFER": {
+       "title": "Highest level of offering",
+       "definition": "Highest level of offering (generated, based on response to IC survey) 0 - Other 1 - Postsecondary award, certificate or diploma of less than one academic year 2 - Postsecondary award, certificate or diploma of at least one but less than two academic years 3 - Associate's degree 4 - Postsecondary award, certificate or diploma of at least two but less than four academic years 5 - Bachelor's degree 6 - Postbaccalaureate certificate 7 - Master's degree 8 - Post-master's certificate 9 - Doctor's degree b - None of the above or no answer -2 - Not applicable, first-professional only -3 - Not Available"
+      }
+     }
+    }
+   ],
+   "current_rule": "current while the provisional 2024-25 directory (HD2024) lists it active under the same name"
+  },
+  {
+   "key": "undergraduate_enrollment",
+   "label": "Undergraduate enrollment (fall headcount)",
+   "kind": "statistic",
+   "period": "Fall 2023",
+   "columns": [
+    "undergraduate_enrollment",
+    "undergraduate_full_time",
+    "undergraduate_part_time"
+   ],
+   "sources": [
+    {
+     "file": "DRVEF2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/DRVEF2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "EFUG": {
+       "title": "Undergraduate enrollment",
+       "definition": "Total undergraduate men and women enrolled for credit in the fall of the academic year. Undergraduate - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. CREDIT - Recognition of attendance or performance in an instructional activity (course or program) that can be applied by a recipient toward the requirements for a degree, diploma, certificate, or other formal award. NOTE: Enrollment reported is of the institution's official fall reporting date or October 15."
+      },
+      "EFUGFT": {
+       "title": "Full-time undergraduate enrollment",
+       "definition": "Full-time undergraduate men and women enrolled for credit in the fall of the academic year. Full-time undergraduate - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate and enrolled for 12 or more semester credits , or 12 or more quarter credits, or 24 or more clock hours a week each term. CREDIT - Recognition of attendance or performance in an instructional activity (course or program) that can be applied by a recipient toward the requirements for a degree, diploma, certificate, or other formal award. NOTE: Enrollment reported is of the institution's official fall reporting date or October 15."
+      },
+      "EFUGPT": {
+       "title": "Part-time undergraduate enrollment",
+       "definition": "Part-time undergraduate men and women enrolled for credit in the fall of the academic year. Part-time undergraduate - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate and enrolled for less than 12 semester credits or quarter credits, or 24 clock hours a week each term. CREDIT - Recognition of attendance or performance in an instructional activity (course or program) that can be applied by a recipient toward the requirements for a degree, diploma, certificate, or other formal award. NOTE: Enrollment reported is of the institution's official fall reporting date or October 15."
+      }
+     }
+    },
+    {
+     "file": "EF2023A.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/EF2023A.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "EFTOTLT": {
+       "title": "Grand total",
+       "definition": "Grand total men and women enrolled for credit during the fall CREDIT - Recognition of attendance or performance in an instructional activity (course or program) that can be applied by a recipient toward the requirements for a degree, diploma, certificate, or other formal award. NOTE: Enrollment reported is of the institution's official fall reporting date or October 15."
+      }
+     },
+     "role": "imputation flag of the all-undergraduate line (EFALEVEL 2)"
+    }
+   ],
+   "current_rule": "a statistic is verified_current while NCES has not served DRVEF2024.zip"
+  },
+  {
+   "key": "admission_rate",
+   "label": "Admission rate, first-time undergraduates",
+   "kind": "statistic",
+   "period": "Fall 2023 applicants",
+   "columns": [
+    "admission_rate_percent",
+    "applications",
+    "admits",
+    "open_admission"
+   ],
+   "sources": [
+    {
+     "file": "DRVADM2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/DRVADM2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "DVADM01": {
+       "title": "Percent admitted - total",
+       "definition": "Percent admitted - total If number of total applicants (APPLCN) > 0 then Percent admitted total (DVADM01) = number of admissions-total(ADMSSN) divided by the total applicants(APPCLN) Ratios are converted to percentages and rounded to the nearest whole number."
+      }
+     }
+    },
+    {
+     "file": "ADM2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/ADM2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "APPLCN": {
+       "title": "Applicants total",
+       "definition": "Please provide the number of first-time, degree/certificate-seeking undergraduate students who applied, were admitted, and enrolled (full or part time) at your institution for the most recent fall period available. Include early decision, early action, and students who began studies during the summer prior to that fall. This is applicable to institutions that have no open admission policy for entering first-time undergraduate students Total number of applicants APPLICANT - An individual who has fulfilled the institution’s requirements to be considered for admission (including payment or waiving of the application fee, if any) and who has been notified of one of the following actions: admission, nonadmission, placement on waiting list, or application withdrawn (by applicant or institution). FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs. EARLY DECISION A plan that allows students to apply and be notified of an admission decision (and financial aid offer, if applicable) well in advance of the regular notification date. Applicants agree to accept an offer of admission and, if admitted, to withdraw their applications from other colleges. There are three possible decision applications: admitted, denied, or not admitted but forwarded for consideration with the regular applicant pool, without prejudice. EARLY ACTION An admission plan that allows students to apply and be notified of an admission decision well in advance of the regular notification dates. If admitted, the candidate is not committed to enroll (unlike early decision). Students may reply to the offer under the college's regular reply policy."
+      },
+      "ADMSSN": {
+       "title": "Admissions total",
+       "definition": "Please provide the number of first-time, degree/certificate-seeking undergraduate students who applied, were admitted, and enrolled (full or part time) at your institution for the most recent fall period available. Include early decision, early action, and students who began studies during the summer prior to that fall. This is applicable to institutions that have no open admission policy for entering first-time undergraduate students Total number of admissions ADMISSIONS - Applicants that have been granted an official offer to enroll in a college or university. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs. EARLY DECISION A plan that allows students to apply and be notified of an admission decision (and financial aid offer, if applicable) well in advance of the regular notification date. Applicants agree to accept an offer of admission and, if admitted, to withdraw their applications from other colleges. There are three possible decision applications: admitted, denied, or not admitted but forwarded for consideration with the regular applicant pool, without prejudice. EARLY ACTION An admission plan that allows students to apply and be notified of an admission decision well in advance of the regular notification dates. If admitted, the candidate is not committed to enroll (unlike early decision). Students may reply to the offer under the college's regular reply policy."
+      }
+     },
+     "role": "imputation flags of the counts"
+    },
+    {
+     "file": "IC2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/IC2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "OPENADMP": {
+       "title": "Open admission policy",
+       "definition": "Does your institution have an open admission policy for all or most entering first-time undergraduate-level students? OPEN ADMISSION - Admission policy whereby the school will accept any student who applies. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school)."
+      }
+     },
+     "role": "open admission: no selection, so no rate"
+    }
+   ],
+   "current_rule": "a statistic is verified_current while NCES has not served ADM2024.zip"
+  },
+  {
+   "key": "test_scores",
+   "label": "ACT/SAT middle 50% of enrolled first-year students, with the test policy",
+   "kind": "statistic",
+   "period": "Fall 2023 enrolled first-time students who submitted scores",
+   "columns": [
+    "test_policy",
+    "sat_ebrw_25",
+    "sat_ebrw_75",
+    "sat_math_25",
+    "sat_math_75",
+    "act_composite_25",
+    "act_composite_75",
+    "percent_submitting_sat",
+    "percent_submitting_act"
+   ],
+   "context": "Percentiles describe enrolled students who submitted scores; at test-optional schools they are not the whole class. SAT section percentiles are never added into a composite.",
+   "sources": [
+    {
+     "file": "ADM2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/ADM2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "SATVR25": {
+       "title": "SAT Evidence-Based Reading and Writing 25th percentile score",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). SAT Evidence-Based Reading and Writing 25th percentile score SAT (SCHOLASTIC APTITUDE TEST) - An examination administered by the Educational Testing Service and used to predict the facility with which an individual will progress in learning college-level academic subjects. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "SATVR75": {
+       "title": "SAT Evidence-Based Reading and Writing 75th percentile score",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). SAT I Evidence-Based Reading and Writing 75th percentile score SAT (SCHOLASTIC APTITUDE TEST) - An examination administered by the Educational Testing Service and used to predict the facility with which an individual will progress in learning college-level academic subjects. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "SATMT25": {
+       "title": "SAT Math 25th percentile score",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). SAT I Math 25th percentile score SAT (SCHOLASTIC APTITUDE TEST) - An examination administered by the Educational Testing Service and used to predict the facility with which an individual will progress in learning college-level academic subjects. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "SATMT75": {
+       "title": "SAT Math 75th percentile score",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). SAT I Math 75th percentile score SAT (SCHOLASTIC APTITUDE TEST) - An examination administered by the Educational Testing Service and used to predict the facility with which an individual will progress in learning college-level academic subjects. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "ACTCM25": {
+       "title": "ACT Composite 25th percentile score",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). ACT Composite 25th percentile score ACT (AMERICAN COLLEGE TESTING PROGRAM) - The ACT assessment program measures educational development and readiness to pursue college-level coursework in English, mathematics, natural science, and social studies. Student performance does not reflect innate ability and is influenced by a student's educational preparedness. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "ACTCM75": {
+       "title": "ACT Composite 75th percentile score",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). ACT Composite 75th percentile score ACT (AMERICAN COLLEGE TESTING PROGRAM) - The ACT assessment program measures educational development and readiness to pursue college-level coursework in English, mathematics, natural science, and social studies. Student performance does not reflect innate ability and is influenced by a student's educational preparedness. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "SATPCT": {
+       "title": "Percent of first-time degree/certificate-seeking students submitting SAT scores",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). Percent submitting SAT scores SAT (SCHOLASTIC APTITUDE TEST) - An examination administered by the Educational Testing Service and used to predict the facility with which an individual will progress in learning college-level academic subjects. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "ACTPCT": {
+       "title": "Percent of first-time degree/certificate-seeking students submitting ACT scores",
+       "definition": "If test scores are required for admission for first-time, degree/certificate-seeking undergraduate students, please provide the following information: the number and percentage of students submitting SAT/ACT scores and the 25th, 50th and 75th percentile scores for each test. Provide data for the most recent group of students for which data are available; include new students admitted the summer prior to that fall. (This is applicable to institutions that have no open admission policy for entering first-time undergraduate students ). Percent submitting ACT scores ACT (AMERICAN COLLEGE TESTING PROGRAM) - The ACT assessment program measures educational development and readiness to pursue college-level coursework in English, mathematics, natural science, and social studies. Student performance does not reflect innate ability and is influenced by a student's educational preparedness. FIRST-TIME STUDENT (UNDERGRADUATE) - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in academic or occupational programs. Also includes students enrolled in the fall term who attended college for the first time in the prior summer term, and students who entered with advanced standing (college credits earned before graduation from high school). DEGREE/CERTIFICATE-SEEKING STUDENTS Students enrolled in courses for credit who are recognized by the institution as seeking a degree or formal award. At the undergraduate level, this is intended to include students enrolled in vocational or occupational programs."
+      },
+      "ADMCON7": {
+       "title": "Admission test scores",
+       "definition": "Please select the option that best describes how your institution uses any of the following data in its undergraduate selection process. Admissions considerations - This question refers to the admission policy for entering first-time undergraduate students. Indicate the types of considerations that are used as part of the selection process for entering first-time degree/certificate-seeking students. For each, select one of the following options: Required to be considered for admission, Not required for admission, but considered if submitted (test optional institutions) Not considered for admission, even if submitted (test blind institutions) This is applicable to institutions that do not have an open admission policy for entering first-time undergraduate students. Admission test scores (SAT,ACT, etc,) ADMISSIONS TEST SCORES - Scores on standardized admissions tests or special admissions tests SAT (SCHOLASTIC APTITUDE TEST) - An examination administered by the Educational Testing Service and used to predict the facility with which an individual will progress in learning college-level academic subjects. ACT (AMERICAN COLLEGE TESTING PROGRAM) - The ACT assessment program measures educational development and readiness to pursue college-level coursework in English, mathematics, natural science, and social studies. Student performance does not reflect innate ability and is influenced by a student's educational preparedness."
+      }
+     }
+    }
+   ],
+   "current_rule": "a statistic is verified_current while NCES has not served ADM2024.zip"
+  },
+  {
+   "key": "tuition_fees",
+   "label": "Published in-state and out-of-state tuition and required fees",
+   "kind": "published_price",
+   "period": "2023-24 academic year (full-time first-time undergraduates)",
+   "columns": [
+    "in_state_tuition",
+    "in_state_fees",
+    "out_of_state_tuition",
+    "out_of_state_fees"
+   ],
+   "sources": [
+    {
+     "file": "IC2023_AY.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/IC2023_AY.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "CHG2AT3": {
+       "title": "Published in-state tuition 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site In-state published tuition for 2023-24 IN-STATE TUITION - The tuition charged by institutions to those students who meet the state's or institution's residency requirements. TUITION - Tuition is the amount of money charged to students for instructional services. Tuition may be charged per term, per course, or per credit. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      },
+      "CHG2AF3": {
+       "title": "Published in-state fees 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site In-state published tuition and required fees for 2023-24 IN-STATE REQUIRED FEES - The fees charged by institutions to those students who meet the state's or institution's residency requirements. REQUIRED FEES - Required fees are fixed sum charged to students for items not covered by tuition and required of such a large proportion of all students that the student who does NOT pay the charge is an exception. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\"."
+      },
+      "CHG3AT3": {
+       "title": "Published out-of-state tuition 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site Out-of-state published tuition for 2023-24 OUT-OF-STATE TUITION - The tuition charged by institutions to those students who do not meet the institution's or state's residency requirements TUITION - Tuition is the amount of money charged to students for instructional services. Tuition may be charged per term, per course, or per credit. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      },
+      "CHG3AF3": {
+       "title": "Published out-of-state fees 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site Out-of-state published tuition and required fees for 2023-24 OUT-OF-STATE REQUIRED FEES - The fees charged by institutions to those students who do not meet the institution's or state's residency requirements REQUIRED FEES - Required fees are fixed sum charged to students for items not covered by tuition and required of such a large proportion of all students that the student who does NOT pay the charge is an exception. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      }
+     }
+    }
+   ],
+   "current_rule": "a price or average for a year before 2026-27 is available_older"
+  },
+  {
+   "key": "housing_food",
+   "label": "On-campus food and housing",
+   "kind": "published_price",
+   "period": "2023-24 academic year",
+   "columns": [
+    "on_campus_food_housing"
+   ],
+   "sources": [
+    {
+     "file": "IC2023_AY.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/IC2023_AY.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "CHG5AY3": {
+       "title": "On campus, food and housing 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, food and housing, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site On campus food and housing charges for 2023-24 Food charges (formerly board charges) - Charges assessed students for an academic year for meals. Housing charges (formerly room charges) - The charges for an academic year for housing accommodations for a typical student sharing a room with one other student. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\"."
+      }
+     }
+    }
+   ],
+   "current_rule": "a price or average for a year before 2026-27 is available_older"
+  },
+  {
+   "key": "cost_of_attendance",
+   "label": "Total cost of attendance, living on campus (NCES total price)",
+   "kind": "published_price",
+   "period": "2023-24 academic year",
+   "columns": [
+    "coa_in_state_on_campus",
+    "coa_out_of_state_on_campus"
+   ],
+   "context": "NCES sums tuition and fees, books and supplies, on-campus food and housing and other expenses. Shown only when every component was reported, not imputed.",
+   "sources": [
+    {
+     "file": "DRVIC2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/DRVIC2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "CINSON": {
+       "title": "Total price for in-state students living on campus 2023-24",
+       "definition": "Cost of attendance for full-time, first-time degree/certificate seeking in-state undergraduate students living on campus for academic year 2023-24. It includes in-state tuition and fees, books and supplies, on campus room and board, and other on campus expenses. cinson=chg2ay3+chg4ay3+chg5ay3+chg6ay3"
+      },
+      "COTSON": {
+       "title": "Total price for out-of-state students living on campus 2023-24",
+       "definition": "Cost of attendance for full-time, first-time degree/certificate seeking out-of-state undergraduate students living on campus for academic year 2023-24. It includes in-out-of-state tuition and fees, books and supplies, on campus room and board, and other on campus expenses. cotson=chg3ay3+chg4ay3+chg5ay3+chg6ay3"
+      }
+     }
+    },
+    {
+     "file": "IC2023_AY.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/IC2023_AY.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "CHG2AT3": {
+       "title": "Published in-state tuition 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site In-state published tuition for 2023-24 IN-STATE TUITION - The tuition charged by institutions to those students who meet the state's or institution's residency requirements. TUITION - Tuition is the amount of money charged to students for instructional services. Tuition may be charged per term, per course, or per credit. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      },
+      "CHG2AF3": {
+       "title": "Published in-state fees 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site In-state published tuition and required fees for 2023-24 IN-STATE REQUIRED FEES - The fees charged by institutions to those students who meet the state's or institution's residency requirements. REQUIRED FEES - Required fees are fixed sum charged to students for items not covered by tuition and required of such a large proportion of all students that the student who does NOT pay the charge is an exception. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\"."
+      },
+      "CHG3AT3": {
+       "title": "Published out-of-state tuition 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site Out-of-state published tuition for 2023-24 OUT-OF-STATE TUITION - The tuition charged by institutions to those students who do not meet the institution's or state's residency requirements TUITION - Tuition is the amount of money charged to students for instructional services. Tuition may be charged per term, per course, or per credit. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      },
+      "CHG3AF3": {
+       "title": "Published out-of-state fees 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site Out-of-state published tuition and required fees for 2023-24 OUT-OF-STATE REQUIRED FEES - The fees charged by institutions to those students who do not meet the institution's or state's residency requirements REQUIRED FEES - Required fees are fixed sum charged to students for items not covered by tuition and required of such a large proportion of all students that the student who does NOT pay the charge is an exception. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      },
+      "CHG4AY3": {
+       "title": "Books and supplies 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site Books and supplies for 2023-24 BOOKS AND SUPPLIES - The average cost of books and supplies for a typical student for an entire academic year (or program). Do not include unusual costs for special groups of students (e.g., engineering or art majors), unless they constitute the majority of students at your institution UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\"."
+      },
+      "CHG5AY3": {
+       "title": "On campus, food and housing 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, food and housing, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site On campus food and housing charges for 2023-24 Food charges (formerly board charges) - Charges assessed students for an academic year for meals. Housing charges (formerly room charges) - The charges for an academic year for housing accommodations for a typical student sharing a room with one other student. UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\"."
+      },
+      "CHG6AY3": {
+       "title": "On campus, other expenses 2023-24",
+       "definition": "Price of attendance for full-time, first-time undergraduate students for the FULL ACADEMIC YEAR: (Tuition and fees, books and supplies, room and board, and other expenses are those amounts used by your financial aid office for determining eligibility for student financial assistance) These data are published at the IPEDS College Navigator Web site On-campus other expenses for 2023-24 OTHER EXPENSES - The amount of money (estimated by the financial aid office) needed by a student to cover expenses such as laundry, transportation, entertainment, and furnishings. (For the purpose of this survey room and board and tuition and fees are not included.) UNDERGRADUATE - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate. FULL-TIME Undergraduate - A student enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term FIRST-TIME FIRST-YEAR STUDENT - A student attending any institution for the first time at the undergraduate level. Includes students enrolled in the fall term who attended college for the first time in the prior summer term. Also includes students who entered with advanced standing (college credits earned before graduation from high school). FIRST-YEAR STUDENT A student who has completed less than the equivalent of 1 full year of undergraduate work; that is, less than 30 semester hours (in a 120-hour degree program) or less than 900 clock hours. ACADEMIC YEAR - The period of time generally extending from September to June; usually equated to 2 semesters or trimesters, 3 quarters, or the period covered by a 4-1-4 plan. Also included are \"Other Academic calendar Systems\" which is a category used to describe \"non-traditional\" calendar systems at 4-year and 2-year degree-granting institutions. These can include schools that offer primarily on-line courses or \"one course at a time\""
+      }
+     },
+     "role": "imputation flags of the components"
+    }
+   ],
+   "current_rule": "a price or average for a year before 2026-27 is available_older"
+  },
+  {
+   "key": "net_price",
+   "label": "Average net price, overall and by family income",
+   "kind": "historical_average",
+   "period": "2022-23 aid year (full-time first-time undergraduates awarded aid)",
+   "columns": [
+    "net_price_average",
+    "net_price_income_0_30000",
+    "net_price_income_30001_48000",
+    "net_price_income_48001_75000",
+    "net_price_income_75001_110000",
+    "net_price_income_over_110000",
+    "net_price_basis"
+   ],
+   "context": "An average over students who received aid in a past year: not a price, not an offer, not a personal estimate. Publics report in-state students (NPIS*), privates all students (NPGRN2, NPT*).",
+   "sources": [
+    {
+     "file": "SFA2223.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/SFA2223.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "NPIST2": {
+       "title": "Average net price-students awarded grant or scholarship aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates paying the in-state or in-district tuition rate who were awarded grant or scholarship aid from federal, state or local governments, or the institution. Other sources of grant aid are excluded. Aid awarded anytime during the full aid year is included. Average net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees (lower of in-district or in-state), books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. Applicable to public institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term. In-state tuition is the tuition charged by institutions to those students who meet the state's or institution's residency requirements. In-district tuition is the tuition charged by the institution to those students residing in the locality in which they attend school and may be a lower rate than in-state tuition if offered by the institution."
+      },
+      "NPIS412": {
+       "title": "Average net price (income 0-30,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates paying the in-state or in-district tuition rate who were awarded title IV federal student aid - INCOME LEVEL (0-30,000). Title IV federal student aid, includes federal grants or federal student loans. Average net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees (lower of in-district or in-state), books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. Applicable to public institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. Title IV aid to students includes grant aid, work study aid, and loan aid. These include: Federal Pell Grant, Federal Supplemental Educational Opportunity Grant (FSEOG), Academic Competitiveness Grant (ACG), National Science and Mathematics Access to Retain Talent Grant (National SMART Grant), Teacher Education Assistance for College and Higher Education (TEACH) Grant, Federal Work-Study, Federal Perkins Loan, Subsidized Direct or FFEL Stafford Loan, and Unsubsidized Direct or FFEL Stafford Loan. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term. In-state tuition is the tuition charged by institutions to those students who meet the state's or institution's residency requirements. In-district tuition is the tuition charged by the institution to those students residing in the locality in which they attend school and may be a lower rate than in-state tuition if offered by the institution."
+      },
+      "NPIS422": {
+       "title": "Average net price (income 30,001-48,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates paying the in-state or in-district tuition rate who were awarded title IV federal student aid - INCOME LEVEL (30,001-48,000). Title IV federal student aid, includes federal grants or federal student loans. Average net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees (lower of in-district or in-state), books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. Applicable to public institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. Title IV aid to students includes grant aid, work study aid, and loan aid. These include: Federal Pell Grant, Federal Supplemental Educational Opportunity Grant (FSEOG), Academic Competitiveness Grant (ACG), National Science and Mathematics Access to Retain Talent Grant (National SMART Grant), Teacher Education Assistance for College and Higher Education (TEACH) Grant, Federal Work-Study, Federal Perkins Loan, Subsidized Direct or FFEL Stafford Loan, and Unsubsidized Direct or FFEL Stafford Loan. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term. In-state tuition is the tuition charged by institutions to those students who meet the state's or institution's residency requirements. In-district tuition is the tuition charged by the institution to those students residing in the locality in which they attend school and may be a lower rate than in-state tuition if offered by the institution."
+      },
+      "NPIS432": {
+       "title": "Average net price (income 48,001-75,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates paying the in-state or in-district tuition rate who were awarded title IV federal student aid - INCOME LEVEL (48,001-75,000). Title IV federal student aid, includes federal grants or federal student loans. Average net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees (lower of in-district or in-state), books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. Applicable to public institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. Title IV aid to students includes grant aid, work study aid, and loan aid. These include: Federal Pell Grant, Federal Supplemental Educational Opportunity Grant (FSEOG), Academic Competitiveness Grant (ACG), National Science and Mathematics Access to Retain Talent Grant (National SMART Grant), Teacher Education Assistance for College and Higher Education (TEACH) Grant, Federal Work-Study, Federal Perkins Loan, Subsidized Direct or FFEL Stafford Loan, and Unsubsidized Direct or FFEL Stafford Loan. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term. In-state tuition is the tuition charged by institutions to those students who meet the state's or institution's residency requirements. In-district tuition is the tuition charged by the institution to those students residing in the locality in which they attend school and may be a lower rate than in-state tuition if offered by the institution."
+      },
+      "NPIS442": {
+       "title": "Average net price (income 75,001-110,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates paying the in-state or in-district tuition rate who were awarded title IV federal student aid - INCOME LEVEL (75,001-110,000). Title IV federal student aid, includes federal grants or federal student loans. Average net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees (lower of in-district or in-state), books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. Applicable to public institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. Title IV aid to students includes grant aid, work study aid, and loan aid. These include: Federal Pell Grant, Federal Supplemental Educational Opportunity Grant (FSEOG), Academic Competitiveness Grant (ACG), National Science and Mathematics Access to Retain Talent Grant (National SMART Grant), Teacher Education Assistance for College and Higher Education (TEACH) Grant, Federal Work-Study, Federal Perkins Loan, Subsidized Direct or FFEL Stafford Loan, and Unsubsidized Direct or FFEL Stafford Loan. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term. In-state tuition is the tuition charged by institutions to those students who meet the state's or institution's residency requirements. In-district tuition is the tuition charged by the institution to those students residing in the locality in which they attend school and may be a lower rate than in-state tuition if offered by the institution."
+      },
+      "NPIS452": {
+       "title": "Average net price (income over 110,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates paying the in-state or in-district tuition rate who were awarded title IV federal student aid - INCOME LEVEL (110,001 or more). Title IV federal student aid, includes federal grants or federal student loans. Average net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees (lower of in-district or in-state), books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. Applicable to public institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. Title IV aid to students includes grant aid, work study aid, and loan aid. These include: Federal Pell Grant, Federal Supplemental Educational Opportunity Grant (FSEOG), Academic Competitiveness Grant (ACG), National Science and Mathematics Access to Retain Talent Grant (National SMART Grant), Teacher Education Assistance for College and Higher Education (TEACH) Grant, Federal Work-Study, Federal Perkins Loan, Subsidized Direct or FFEL Stafford Loan, and Unsubsidized Direct or FFEL Stafford Loan. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term. In-state tuition is the tuition charged by institutions to those students who meet the state's or institution's residency requirements. In-district tuition is the tuition charged by the institution to those students residing in the locality in which they attend school and may be a lower rate than in-state tuition if offered by the institution."
+      },
+      "NPGRN2": {
+       "title": "Average net price-students awarded grant or scholarship aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates who were awarded grant or scholarship aid from federal, state or local governments, or the institution. Other sources of grant aid are excluded. Aid awarded anytime during the full aid year is included. Applicable to private not-for-profit and for-profit institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. These institutions report cost of attendance for the full academic year. Also, applicable to public or private institutions that measure courses primarily by clock hours, or offers primarily occupational programs measured in credit hours with calendar systems that are continuous, or differs by programs. These institutions report financial aid data for students enrolled between the 12-month period (September 1 through August 31) and awarded aid anytime during the full aid year. These institutions report cost of attendance for their largest program for the length of that program. For institutions that report cost of attendance for the full academic year an average yearly net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees, books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. For institutions that report the cost of attendance for their largest program for the length of that program, the cost of attendance is generated as stated above, but is then divided by the number of months to complete the program to produce a monthly cost of attendance. The average amount of federal, state or local government, or institutional grant and scholarship aid is also divided by 12 to produce a monthly average. The average net price is generated by subtracting the average monthly grant and scholarship aid from the average monthly cost of attendance and the difference is multiplied by the number of months to complete the program. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term."
+      },
+      "NPT412": {
+       "title": "Average net price (income 0-30,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates who were awarded title IV federal student aid - INCOME LEVEL (0-30,000). Title IV federal student aid, includes federal grants or federal student loans. Applicable to private not-for-profit and for-profit institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. These institutions report cost of attendance for the full academic year. Also, applicable to public or private institutions that measure courses primarily by clock hours, or offers primarily occupational programs measured in credit hours with calendar systems that are continuous, or differs by programs. These institutions report financial aid data for students enrolled between the 12-month period (September 1 through August 31) and awarded aid anytime during the full aid year. These institutions report cost of attendance for their largest program for the length of that program. For institutions that report cost of attendance for the full academic year an average yearly net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees, books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. For institutions that report the cost of attendance for their largest program for the length of that program, the cost of attendance is generated as stated above, but is then divided by the number of months to complete the program to produce a monthly cost of attendance. The average amount of federal, state or local government, or institutional grant and scholarship aid is also divided by 12 to produce a monthly average. The average net price is generated by subtracting the average monthly grant and scholarship aid from the average monthly cost of attendance and the difference is multiplied by the number of months to complete the program. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term."
+      },
+      "NPT422": {
+       "title": "Average net price (income 30,001-48,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates who were awarded title IV federal student aid - INCOME LEVEL (30,001-48,000). Title IV federal student aid, includes federal grants or federal student loans. Applicable to private not-for-profit and for-profit institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. These institutions report cost of attendance for the full academic year. Also, applicable to public or private institutions that measure courses primarily by clock hours, or offers primarily occupational programs measured in credit hours with calendar systems that are continuous, or differs by programs. These institutions report financial aid data for students enrolled between the 12-month period (September 1 through August 31) and awarded aid anytime during the full aid year. These institutions report cost of attendance for their largest program for the length of that program. For institutions that report cost of attendance for the full academic year an average yearly net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees, books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. For institutions that report the cost of attendance for their largest program for the length of that program, the cost of attendance is generated as stated above, but is then divided by the number of months to complete the program to produce a monthly cost of attendance. The average amount of federal, state or local government, or institutional grant and scholarship aid is also divided by 12 to produce a monthly average. The average net price is generated by subtracting the average monthly grant and scholarship aid from the average monthly cost of attendance and the difference is multiplied by the number of months to complete the program. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term."
+      },
+      "NPT432": {
+       "title": "Average net price (income 48,001-75,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates who were awarded title IV federal student aid - INCOME LEVEL (48,001-75,000). Title IV federal student aid, includes federal grants or federal student loans. Applicable to private not-for-profit and for-profit institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. These institutions report cost of attendance for the full academic year. Also, applicable to public or private institutions that measure courses primarily by clock hours, or offers primarily occupational programs measured in credit hours with calendar systems that are continuous, or differs by programs. These institutions report financial aid data for students enrolled between the 12-month period (September 1 through August 31) and awarded aid anytime during the full aid year. These institutions report cost of attendance for their largest program for the length of that program. For institutions that report cost of attendance for the full academic year an average yearly net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees, books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. For institutions that report the cost of attendance for their largest program for the length of that program, the cost of attendance is generated as stated above, but is then divided by the number of months to complete the program to produce a monthly cost of attendance. The average amount of federal, state or local government, or institutional grant and scholarship aid is also divided by 12 to produce a monthly average. The average net price is generated by subtracting the average monthly grant and scholarship aid from the average monthly cost of attendance and the difference is multiplied by the number of months to complete the program. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term."
+      },
+      "NPT442": {
+       "title": "Average net price (income 75,001-110,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates who were awarded title IV federal student aid - INCOME LEVEL (75,001-110,000). Title IV federal student aid, includes federal grants or federal student loans. Applicable to private not-for-profit and for-profit institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. These institutions report cost of attendance for the full academic year. Also, applicable to public or private institutions that measure courses primarily by clock hours, or offers primarily occupational programs measured in credit hours with calendar systems that are continuous, or differs by programs. These institutions report financial aid data for students enrolled between the 12-month period (September 1 through August 31) and awarded aid anytime during the full aid year. These institutions report cost of attendance for their largest program for the length of that program. For institutions that report cost of attendance for the full academic year an average yearly net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees, books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. For institutions that report the cost of attendance for their largest program for the length of that program, the cost of attendance is generated as stated above, but is then divided by the number of months to complete the program to produce a monthly cost of attendance. The average amount of federal, state or local government, or institutional grant and scholarship aid is also divided by 12 to produce a monthly average. The average net price is generated by subtracting the average monthly grant and scholarship aid from the average monthly cost of attendance and the difference is multiplied by the number of months to complete the program. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term."
+      },
+      "NPT452": {
+       "title": "Average net price (income over 110,000)-students awarded Title IV federal financial aid, 2022-23",
+       "definition": "Average net price for full-time, first-time degree/certificate-seeking undergraduates who were awarded title IV federal student aid - INCOME LEVEL (110,001 or more). Title IV federal student aid, includes federal grants or federal student loans. Applicable to private not-for-profit and for-profit institutions with standard calendar systems (semester, quarter, trimester, 4-1-4) that report financial aid data for students enrolled for the FALL and awarded aid anytime during the full aid year. These institutions report cost of attendance for the full academic year. Also, applicable to public or private institutions that measure courses primarily by clock hours, or offers primarily occupational programs measured in credit hours with calendar systems that are continuous, or differs by programs. These institutions report financial aid data for students enrolled between the 12-month period (September 1 through August 31) and awarded aid anytime during the full aid year. These institutions report cost of attendance for their largest program for the length of that program. For institutions that report cost of attendance for the full academic year an average yearly net price is generated by subtracting the average amount of federal, state or local government, or institutional grant and scholarship aid from the total cost of attendance. Total cost of attendance is the sum of published tuition and required fees, books and supplies and the weighted average room and board and other expenses. The weighted average for room and board and other expenses is generated as follows: (amount for on-campus room, board and other expenses * # of students living on-campus. + amount for off-campus (with family) room, board and other expenses * # of students living off-campus with family + amount for off-campus (not with family) room, board and other expenses * # of students living off-campus not with family) divided by the total # of students. Students whose living arrangements are unknown are excluded from the calculation. For some institutions the # of students by living arrangement will be known, but dollar amounts will not be known. In this case the # of students with no corresponding dollar amount will be excluded from the denominator. For institutions that report the cost of attendance for their largest program for the length of that program, the cost of attendance is generated as stated above, but is then divided by the number of months to complete the program to produce a monthly cost of attendance. The average amount of federal, state or local government, or institutional grant and scholarship aid is also divided by 12 to produce a monthly average. The average net price is generated by subtracting the average monthly grant and scholarship aid from the average monthly cost of attendance and the difference is multiplied by the number of months to complete the program. Full-time, first-time degree/certificate-seeking undergraduates - A student enrolled in a 4- or 5-year bachelor's degree program, an associate's degree program, or a vocational or technical program below the baccalaureate level, who has no prior postsecondary experience, and is enrolled for 12 or more semester credits, or 12 or more quarter credits, or 24 or more clock hours a week each term."
+      }
+     }
+    }
+   ],
+   "current_rule": "a price or average for a year before 2026-27 is available_older"
+  },
+  {
+   "key": "retention_rate",
+   "label": "First-year retention rate (full-time)",
+   "kind": "statistic",
+   "period": "Fall 2022 entering cohort, re-enrolled fall 2023",
+   "columns": [
+    "retention_rate_full_time"
+   ],
+   "sources": [
+    {
+     "file": "EF2023D.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/EF2023D.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "RET_PCF": {
+       "title": "Full-time retention rate, 2023",
+       "definition": "The full-time retention rate is the percent of the (fall full-time cohort from the prior year minus exclusions from the fall full-time cohort) that re-enrolled at the institution as either full- or part-time in the current year"
+      }
+     }
+    }
+   ],
+   "current_rule": "a statistic is verified_current while NCES has not served EF2024D.zip"
+  },
+  {
+   "key": "graduation_rate",
+   "label": "Bachelor's graduation rate (4- and 6-year) and overall rate",
+   "kind": "statistic",
+   "period": "2017 entering cohort, reported 2023-24",
+   "columns": [
+    "bachelors_grad_rate_4yr",
+    "bachelors_grad_rate_6yr",
+    "grad_rate_overall_150pct"
+   ],
+   "sources": [
+    {
+     "file": "DRVGR2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/DRVGR2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "BAGR100": {
+       "title": "4-year Graduation rate - bachelor's degree within 100% of normal time",
+       "definition": "4-year Graduation rate - bachelor’s degree within 100% of normal time The number of students from the adjusted bachelor's degree-seeking cohort, who completed a bachelor's degree within 100 percent of normal time (4-years) divided by the adjusted cohort. Note: Adjusted Cohort is the revised cohort minus exclusions as reported by the institution as of 150 percent of normal time. (6-years)."
+      },
+      "BAGR150": {
+       "title": "6-year Graduation rate - bachelor's degree within 150% of normal time",
+       "definition": "6-year Graduation rate - bachelor’s degree within 150% of normal time The number of students from the adjusted bachelor's degree-seeking cohort, who completed a bachelor's degree within 150 percent of normal time (6-years) divided by the adjusted cohort. Note: Adjusted Cohort is the revised cohort minus exclusions as reported by the institution as of 150 percent of normal time. (6-years)."
+      },
+      "GRRTTOT": {
+       "title": "Graduation rate, total cohort",
+       "definition": "Graduation rate of first-time, full-time degree or certificate-seeking students - 2017 cohort (4-year institutions) and 2020 cohort (less-than-4-year institutions). The graduation rate is the rate required for disclosure and/or reporting purposes under Student Right-to-Know. This rate is calculated as the total number of completers within 150% of normal time divided by the revised cohort minus any allowable exclusions. For 4-year institutions the adjusted cohort is defined by the variable GRTOTLT when GRTYPE=2 and the total completers within 150% of normal time is GRTOTLT when GRTYPE=3. GRTYPE=2 and 3 include both the bachelor's or equivalent degree/certificate-seeking subcohort and the other degree/certificate-seeking subcohort (Table gr2023). For 2-year institutions the adjusted cohort is defined by the variable GRTOTLT when GRTYPE=29 and the total completers within 150% of normal time is GRTOTLT when GRTYPE=30 (Table gr2023). For less-than-2-year institutions the adjusted cohort defined by the variable LINE_50 and the total completers within 150% of normal time is LINE_11 (Table gr2023_L2) Normal time to completion - The amount of time necessary for a student to complete all requirements for a degree or certificate according to the institution's catalog. This is typically 4 years (8 semesters or trimesters, or 12 quarters, excluding summer terms) for a bachelor's degree in a standard term-based institution Allowable exclusions - Those students who may be removed (deleted) from the GRS cohort according to the Student Right-to-Know legislation. These include students who died or were totally and permanently disabled; those who left school to serve in the armed forces; those who left to serve with a foreign aid service of the federal government, such as the Peace Corps; and those who left to serve on official church mission."
+      }
+     }
+    },
+    {
+     "file": "GR2023.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/GR2023.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "GRTOTLT": {
+       "title": "Grand total",
+       "definition": "Grand total (men and women) in cohort"
+      }
+     },
+     "role": "imputation flags of the cohort counts"
+    }
+   ],
+   "current_rule": "a statistic is verified_current while NCES has not served DRVGR2024.zip"
+  },
+  {
+   "key": "fields_and_levels",
+   "label": "Broad fields of study and degree levels awarded",
+   "kind": "statistic",
+   "period": "Awards conferred July 2022 - June 2023",
+   "columns": [
+    "fields_with_bachelors",
+    "degree_levels_awarded"
+   ],
+   "context": "Field families are CIP 2020 two-digit codes with at least one award (first majors). Per-field counts are in baseline/fields_of_study/<year>/<ST>.csv.",
+   "sources": [
+    {
+     "file": "C2023_A.zip",
+     "source_url": "https://nces.ed.gov/ipeds/datacenter/data/C2023_A.zip",
+     "collection_year": "2023-24",
+     "variables": {
+      "CIPCODE": {
+       "title": "CIP Code -  2020 Classification",
+       "definition": "Classification of instrucional Program (CIP) code. A six-digit code in the form xx.xxxx that identifies instructional program specialties within educational institutions. The Classification of Instructional Programs (CIP) provides a taxonomic scheme that supports the accurate tracking and reporting of fields of study and program completions activity. CIP was originally developed by the U.S. Department of Education's National Center for Education Statistics (NCES) in 1980, with revisions occurring in 1985, 1990, 2000, 2010 and 2020. Information on the CIP classification taxonomy, including a crosswalk between CIP 2010 and 2020 is available at https://nces.ed.gov/ipeds/cipcode/resources.aspx?y=56"
+      },
+      "AWLEVEL": {
+       "title": "Award Level code",
+       "definition": "Award level code The twelve award levels under which completions can be reported are: Certificates of less than 12 weeks includes programs of less than 300 clock hours, or, Less than 9 SEMESTER or TRIMESTER credit hours, or Less than 13 QUARTER credit hours Certificates of at least 12 weeks but less than 1 year includes programs of 300-899 clock hours, or 9-29 SEMESTER or TRIMESTER credit hours, or 13-44 QUARTER credit hours Certificates of at least 1 year but less the 2 years includes programs of at least 900, but less than 1800 clock hours, or at least 30, but less than 60 SEMESTER OR TRIMESTER HOURS, or at least 45, but less than 90 QUARTER HOURS Associate's degree Certificates of at least 2 years but less the 4 years includes programs of 1800 or more clock hours, or 60 or more SEMESTER OR TRIMESTER credit hours, or 90 or more QUARTER credit hours Bachelor's degree Postbaccalaureate certificate Master's degree Post-master's certificate Doctor's degree - research/scholarship Doctor's degree - professional practice Doctor's degree - other"
+      },
+      "MAJORNUM": {
+       "title": "First or Second Major",
+       "definition": "First or Second Major"
+      },
+      "CTOTALT": {
+       "title": "Grand total",
+       "definition": "Awards/degrees conferred between July 1, 2022 and June 30, 2023 to all recipients, across all race/ethnicities and both genders"
+      }
+     }
+    }
+   ],
+   "current_rule": "a statistic is verified_current while NCES has not served C2024_A.zip"
+  }
+ ]
+}

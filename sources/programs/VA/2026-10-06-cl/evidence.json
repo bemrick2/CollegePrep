@@ -2427,6 +2427,88 @@
  "09a16694e1291b32": {
   "decision": {
    "candidate_id": "09a16694e1291b32",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 129-130 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#09a16694e1291b32) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 17-18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:13+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:44:18 GMT",
+   "page_file": "cdf3d07270ea32247c89.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/chemistry-biochemistry/biochemistry-secondary-chemistry-education-6-12-bs/",
+   "sha256": "cdf3d07270ea32247c897b8b0de82db2b2fdf5e09996f7743eadfe27be60cc27",
+   "title": "Biochemistry with a Major in Secondary Chemistry Education (6-12) (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/chemistry-biochemistry/biochemistry-secondary-chemistry-education-6-12-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "09a16694e1291b32~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "09a16694e1291b32",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#9ce3066ededb2c3e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -3561,6 +3643,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "0e2ee5306ab39c88": {
+  "decision": {
+   "candidate_id": "0e2ee5306ab39c88",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x2, string->text x20); labels, subtotals, rule_text unchanged; all supported",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2b4363d34cc1e72e) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 14 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 14 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 16 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 14 credits",
+    "value": "Second Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:09+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:42:53 GMT",
+   "page_file": "1aacb3c1a2b470277a4c.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/biological-sciences/biology-one-health-bs/",
+   "sha256": "1aacb3c1a2b470277a4c234ab59c3c46a6854e455a6b2cfcb1c884c47206ff35",
+   "title": "Biology with a Major in Biology-One Health (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/biological-sciences/biology-one-health-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "0eb9f0616c7c8e67": {
   "decision": {
    "candidate_id": "0eb9f0616c7c8e67",
@@ -3746,6 +3910,88 @@
   "year_basis": "labeled_in_source"
  },
  "0f965c6853b33d11": {
+  "decision": {
+   "candidate_id": "0f965c6853b33d11",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 6 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-123 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#0f965c6853b33d11) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 12-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:34+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:41:42 GMT",
+   "page_file": "67e7c7bd8dce8497908e.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-astrophysics-bs/",
+   "sha256": "67e7c7bd8dce8497908e812bb680eba51d80d7dfa1d10f3a2e12e806d4c1b53e",
+   "title": "Physics with a Major in Astrophysics (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-astrophysics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "0f965c6853b33d11~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "0f965c6853b33d11",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -5016,6 +5262,88 @@
  "165eb75f3cb96109": {
   "decision": {
    "candidate_id": "165eb75f3cb96109",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-128 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#165eb75f3cb96109) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 12-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15-18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 10 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:11+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:13:06 GMT",
+   "page_file": "dc661a14855be2c82b6f.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/art/fine-arts-3d-media-material-studies-bfa/",
+   "sha256": "dc661a14855be2c82b6fa15205716f0555c331103e1eee7aff2b7605ec75429a",
+   "title": "Fine Arts with a Major in 3D Media and Material Studies (BFA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/art/fine-arts-3d-media-material-studies-bfa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "165eb75f3cb96109~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "165eb75f3cb96109",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#7518d6bfb0e1f6c7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -5494,6 +5822,88 @@
   "year_basis": "labeled_in_source"
  },
  "19e7aa7ad3ccaacb": {
+  "decision": {
+   "candidate_id": "19e7aa7ad3ccaacb",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 7 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#19e7aa7ad3ccaacb) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 12-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14-17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:37+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:41:34 GMT",
+   "page_file": "dbb9acde54a504e20543.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-professional-bs/",
+   "sha256": "dbb9acde54a504e20543fd72ff93c398533941547314eda9146b813d7102e139",
+   "title": "Physics with a Major in Physics-Professional (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-professional-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "19e7aa7ad3ccaacb~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "19e7aa7ad3ccaacb",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -6012,6 +6422,88 @@
  "1bee9fe92978c67b": {
   "decision": {
    "candidate_id": "1bee9fe92978c67b",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#1bee9fe92978c67b) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:59+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:30:37 GMT",
+   "page_file": "6ac01d06c111bfbb425c.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-network-engineering-bsba/",
+   "sha256": "6ac01d06c111bfbb425c1af65994f4bee04ad8ebcda3ac8a5c7e162b16d43e31",
+   "title": "Information Systems and Technology with a Major in Network Engineering (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-network-engineering-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "1bee9fe92978c67b~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "1bee9fe92978c67b",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#f87da3baf6d9281e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -6201,6 +6693,88 @@
   "year_basis": "labeled_in_source"
  },
  "1d61c63d43a8788d": {
+  "decision": {
+   "candidate_id": "1d61c63d43a8788d",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#1d61c63d43a8788d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:03+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:32:29 GMT",
+   "page_file": "53a2b1705c2f976d9b65.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/management/management-human-resource-bsba/",
+   "sha256": "53a2b1705c2f976d9b65cadafbbda32eab2e71917ea6cbab57631dcc0984a638",
+   "title": "Management with a Major in Human Resource Management (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/management/management-human-resource-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "1d61c63d43a8788d~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "1d61c63d43a8788d",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -7455,6 +8029,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "23d27dace162d6da": {
+  "decision": {
+   "candidate_id": "23d27dace162d6da",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-121 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x3, string->text x13); labels, subtotals, rule_text unchanged; all supported",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#945810c6d4c27759) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 14 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 6 items, 16 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 4 items, 14 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 17 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 17-18 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 2 items, 12 credits",
+    "value": "Second Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:10+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:43:02 GMT",
+   "page_file": "96bf761f99ce624d1d2a.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/biological-sciences/biology-secondary-education-6-12-bs/",
+   "sha256": "96bf761f99ce624d1d2aa294b8f93ae325161ed8d3fa21067c1d79e39e1598a6",
+   "title": "Biology with a Major in Secondary Biology Education (6-12) (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/biological-sciences/biology-secondary-education-6-12-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "23f03b9624b70684": {
   "decision": {
    "candidate_id": "23f03b9624b70684",
@@ -8266,6 +8922,88 @@
   "year_basis": "labeled_in_source"
  },
  "275a4985d1d3a427": {
+  "decision": {
+   "candidate_id": "275a4985d1d3a427",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#275a4985d1d3a427) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:47+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:14:47 GMT",
+   "page_file": "d650fd93a0491e1be8fc.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/english/english-technical-and-professional-writing-ba/",
+   "sha256": "d650fd93a0491e1be8fcd70f392a8152fe16cb95a31678fd71f228cc136165b1",
+   "title": "English with a Major in Technical and Professional Writing (BA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/english/english-technical-and-professional-writing-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "275a4985d1d3a427~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "275a4985d1d3a427",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -9487,6 +10225,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "2c9476c70b9c0cd8": {
+  "decision": {
+   "candidate_id": "2c9476c70b9c0cd8",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-127 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->any_of x1, string->text x24); labels, subtotals, rule_text unchanged; all supported",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#66915619470f84aa) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 6 items, 14 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 6 items, 14-15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 16 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 14-17 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 14-17 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 17 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 16 credits",
+    "value": "Second Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:06+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:42:45 GMT",
+   "page_file": "ba11a101769a971b7cbe.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/biological-sciences/biology-bs/",
+   "sha256": "ba11a101769a971b7cbe0f17b17117675d6bf924033dd432ab8030869731f95e",
+   "title": "Biology (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/biological-sciences/biology-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "2ca80be6845d9610": {
   "decision": {
    "candidate_id": "2ca80be6845d9610",
@@ -9879,6 +10699,88 @@
  "2e6627bd0c9d09af": {
   "decision": {
    "candidate_id": "2e6627bd0c9d09af",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 7 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-130 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2e6627bd0c9d09af) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15-18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16-18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14-15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:35+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:41:25 GMT",
+   "page_file": "ce590000ac28cc14de38.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-bs/",
+   "sha256": "ce590000ac28cc14de385f0729803b02233d967003715c7c4ce92fd4a2fb43aa",
+   "title": "Physics (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2e6627bd0c9d09af~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "2e6627bd0c9d09af",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#751f280a995f7b1f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -10076,6 +10978,88 @@
   "year_basis": "labeled_in_source"
  },
  "2ef477a886ad1635": {
+  "decision": {
+   "candidate_id": "2ef477a886ad1635",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2ef477a886ad1635) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:07+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:28:37 GMT",
+   "page_file": "f192f7afedb8a3065537.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/african-american-studies/african-american-studies-ba/",
+   "sha256": "f192f7afedb8a3065537a817c5383fa9dcfe29f5d48d8302346d51c93ef83230",
+   "title": "African American and African Studies (BA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/african-american-studies/african-american-studies-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2ef477a886ad1635~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "2ef477a886ad1635",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -10465,6 +11449,88 @@
   "year_basis": "labeled_in_source"
  },
  "2fa39e8c734bb232": {
+  "decision": {
+   "candidate_id": "2fa39e8c734bb232",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#2fa39e8c734bb232) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:52+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:30:07 GMT",
+   "page_file": "bfd9a960686c7aaab43d.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/financial-management/financial-management-real-estate-bsba/",
+   "sha256": "bfd9a960686c7aaab43d559f46919b81f97551eb43087fdf39a9029b20680fa7",
+   "title": "Financial Management with a Major in Real Estate (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/financial-management/financial-management-real-estate-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "2fa39e8c734bb232~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "2fa39e8c734bb232",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -12087,6 +13153,88 @@
  "3586b77552aa8bdf": {
   "decision": {
    "candidate_id": "3586b77552aa8bdf",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#3586b77552aa8bdf) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:08+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:28:46 GMT",
+   "page_file": "72fe2f1fdcaa04597954.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/african-american-studies/african-american-studies-bs/",
+   "sha256": "72fe2f1fdcaa0459795491bf74817ea80c21725268341f0833e326ab55dfc41b",
+   "title": "African American and African Studies (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/african-american-studies/african-american-studies-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3586b77552aa8bdf~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "3586b77552aa8bdf",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#ef9f6bde0b46ec42) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -13433,6 +14581,88 @@
  "3a7f5a6108cdec2b": {
   "decision": {
    "candidate_id": "3a7f5a6108cdec2b",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#3a7f5a6108cdec2b) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 13-16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:58+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:30:29 GMT",
+   "page_file": "c1b9fc67f4b318ea9f6e.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-database-bsba/",
+   "sha256": "c1b9fc67f4b318ea9f6e552dbc8e37b3c53858597425de3554e7264466669b6a",
+   "title": "Information Systems and Technology with a Major in Database Administration (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-database-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3a7f5a6108cdec2b~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "3a7f5a6108cdec2b",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#73b2e0733207a608) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -13539,6 +14769,88 @@
   "year_basis": "labeled_in_source"
  },
  "3ad600972a020c38": {
+  "decision": {
+   "candidate_id": "3ad600972a020c38",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#3ad600972a020c38) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 9 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:45+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:14:17 GMT",
+   "page_file": "273eff3c5efcdb1dab20.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/english/english-literature-ba/",
+   "sha256": "273eff3c5efcdb1dab2034d836823e22220222b74478fd7c154c3b691f25ef58",
+   "title": "English with a Major in Literature (BA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/english/english-literature-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3ad600972a020c38~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "3ad600972a020c38",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -14059,6 +15371,88 @@
   "year_basis": "labeled_in_source"
  },
  "3c9f732248453ece": {
+  "decision": {
+   "candidate_id": "3c9f732248453ece",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#3c9f732248453ece) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:50+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:29:46 GMT",
+   "page_file": "3f11a6e9cede74df3a60.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/financial-management/financial-management-finance-bsba/",
+   "sha256": "3f11a6e9cede74df3a60723cfa8b50f8aaef410ef40db66868af9eeb306685e3",
+   "title": "Financial Management with a Major in Finance (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/financial-management/financial-management-finance-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3c9f732248453ece~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "3c9f732248453ece",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -15395,6 +16789,88 @@
   "year_basis": "labeled_in_source"
  },
  "420b6fd5f7a3ac3d": {
+  "decision": {
+   "candidate_id": "420b6fd5f7a3ac3d",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#420b6fd5f7a3ac3d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:18+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:16:35 GMT",
+   "page_file": "9af0fece633fa03b63cb.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/asian-studies/asian-studies-ba/",
+   "sha256": "9af0fece633fa03b63cbfe2edefba84c354e6fff77bca8ccc5641acf80083185",
+   "title": "Asian Studies (BA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/asian-studies/asian-studies-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "420b6fd5f7a3ac3d~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "420b6fd5f7a3ac3d",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -17215,6 +18691,88 @@
  "46f14b0b01f12e6b": {
   "decision": {
    "candidate_id": "46f14b0b01f12e6b",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-121 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#46f14b0b01f12e6b) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 13 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:12+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:44:26 GMT",
+   "page_file": "ab5f4a1fd730633884cf.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/chemistry-biochemistry/biochemistry-research-bs/",
+   "sha256": "ab5f4a1fd730633884cf7d56c530238ae0dfd025b3098cca5c30711b5d23904a",
+   "title": "Biochemistry with a Major in Biochemistry-Research (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/chemistry-biochemistry/biochemistry-research-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "46f14b0b01f12e6b~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "46f14b0b01f12e6b",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#5e1afefbbd37b64e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -19032,6 +20590,88 @@
    "sha256": "ae9713c66610b44ae21877f7be71dba64917cbd5e3425ec6c2a1b4a8ceb4c7a0",
    "title": "Social Work, Bachelor of (B.S.W.) < Virginia Commonwealth University Academic Catalog",
    "url": "https://bulletin.vcu.edu/undergraduate/socialwork/bsw-program/social-work-bsw/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4d5e96118161f5cc": {
+  "decision": {
+   "candidate_id": "4d5e96118161f5cc",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->text x19); labels, subtotals, rule_text unchanged; all supported",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#c221783a68204ea2) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 16 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 2 items, 13-19 credits",
+    "value": "Second Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:32+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:34:32 GMT",
+   "page_file": "1fc72683c154145042f0.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/sport-management-bs/",
+   "sha256": "1fc72683c154145042f0046c953ef8e2de06518849208f6cb76db4568d2312e1",
+   "title": "Sport Management (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/sport-management-bs/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -21008,6 +22648,88 @@
  "59091ade7ae47ff6": {
   "decision": {
    "candidate_id": "59091ade7ae47ff6",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#59091ade7ae47ff6) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:09+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:31:38 GMT",
+   "page_file": "e634b642f29230e0ce2a.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-professional-sales-bsba/",
+   "sha256": "e634b642f29230e0ce2a0c17d9fcd45c1a29c212f9257b0aeb14f28a6c0590db",
+   "title": "Marketing Management with a Major in Professional Sales (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-professional-sales-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "59091ade7ae47ff6~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "59091ade7ae47ff6",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#223f666719c6e99b) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -21609,6 +23331,88 @@
   "year_basis": "labeled_in_source"
  },
  "5bc849731684700f": {
+  "decision": {
+   "candidate_id": "5bc849731684700f",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-128 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#5bc849731684700f) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 12-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 15-18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 10 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:16+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:13:31 GMT",
+   "page_file": "6b285451ed31c07984aa.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/art/fine-arts-photography-print-media-bfa/",
+   "sha256": "6b285451ed31c07984aa59f613cd79c8167e36940521121f09f9894d44698a7f",
+   "title": "Fine Arts with a Major in Photography and Print Media (BFA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/art/fine-arts-photography-print-media-bfa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5bc849731684700f~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "5bc849731684700f",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -26852,6 +28656,98 @@
  "730e6497ba2bf2c4": {
   "decision": {
    "candidate_id": "730e6497ba2bf2c4",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#730e6497ba2bf2c4) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 3 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 3 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 1 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:27+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:34:23 GMT",
+   "page_file": "348d5027c9cae5a0d4ed.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/physical-education-prek-12-health-bs/",
+   "sha256": "348d5027c9cae5a0d4ed80d95df6d142790f3476ebb0ef282914a8c43ec6b966",
+   "title": "Physical Education with a Major in PreK-12 Health and Physical Education (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/physical-education-prek-12-health-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "730e6497ba2bf2c4~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "730e6497ba2bf2c4",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#64086dcafc191527) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -31137,6 +33033,88 @@
  "848f4af3c53f1470": {
   "decision": {
    "candidate_id": "848f4af3c53f1470",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#848f4af3c53f1470) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:25+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:45:20 GMT",
+   "page_file": "3fd610cfaa542e7233f1.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-secondary-education-6-12-bs/",
+   "sha256": "3fd610cfaa542e7233f1d18f9134ec62129df0c4db0ba76c5dff3ce9402c2802",
+   "title": "Mathematics with a Major in Secondary Mathematics Education (6-12) (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-secondary-education-6-12-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "848f4af3c53f1470~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "848f4af3c53f1470",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#21709d1210f5b683) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -33513,6 +35491,93 @@
  "915bc16fdd90aead": {
   "decision": {
    "candidate_id": "915bc16fdd90aead",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#915bc16fdd90aead) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 2 items, 6 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:56+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:47:12 GMT",
+   "page_file": "2423808293ed83acf344.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/joint-school-public-health/epidemiology-biostatistics-and-environmental-health/environmental-health-bs/",
+   "sha256": "2423808293ed83acf34463fb89ffe82cd2d411d645f16fef577cf9c99929ecc7",
+   "title": "Environmental Health (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/joint-school-public-health/epidemiology-biostatistics-and-environmental-health/environmental-health-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "915bc16fdd90aead~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "915bc16fdd90aead",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#c09053e10913dc52) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -34728,6 +36793,98 @@
  "9550865a91634a80": {
   "decision": {
    "candidate_id": "9550865a91634a80",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-123 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#9550865a91634a80) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 7 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 3 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Summer: 1 items, 3 credits",
+    "value": "Summer"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 9-12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:26+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:35:40 GMT",
+   "page_file": "0fda96621c6113be9fe1.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/physical-education-coaching-and-physical-activity-leadership-bs/",
+   "sha256": "0fda96621c6113be9fe15e966835c4ecbc12c7feba27438f80bbb5646ca5b869",
+   "title": "Physical Education with a Major in Coaching and Physical Activity Leadership (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/physical-education-coaching-and-physical-activity-leadership-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "9550865a91634a80~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "9550865a91634a80",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#d3dc5199900b476e) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -34849,6 +37006,88 @@
   "year_basis": "labeled_in_source"
  },
  "956939d1b8e89a8a": {
+  "decision": {
+   "candidate_id": "956939d1b8e89a8a",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#956939d1b8e89a8a) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:22+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:45:36 GMT",
+   "page_file": "8a5944643630a04314a5.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-applied-bs/",
+   "sha256": "8a5944643630a04314a5e8cd4606c653102d594c2d2367223599e7ae11a60be5",
+   "title": "Mathematics with a Major in Applied Mathematics (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-applied-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "956939d1b8e89a8a~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "956939d1b8e89a8a",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -35055,6 +37294,88 @@
   "year_basis": "labeled_in_source"
  },
  "960a058eeb6d068b": {
+  "decision": {
+   "candidate_id": "960a058eeb6d068b",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-122 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#960a058eeb6d068b) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 12 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 1 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:46+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:14:26 GMT",
+   "page_file": "2e7a17488619d0b90b4e.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/english/english-secondary-education-ba/",
+   "sha256": "2e7a17488619d0b90b4e07cac0a3f4b2e1640c055b808c303c899d3ae26dc8a8",
+   "title": "English with a Major in Secondary English Education (6-12) (BA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/english/english-secondary-education-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "960a058eeb6d068b~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "960a058eeb6d068b",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -37162,6 +39483,88 @@
  "9e78339d3aaa2747": {
   "decision": {
    "candidate_id": "9e78339d3aaa2747",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#9e78339d3aaa2747) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:05+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:31:21 GMT",
+   "page_file": "de3a9d46e0f15cb4c31c.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-bsba/",
+   "sha256": "de3a9d46e0f15cb4c31cb39e278792aa425849715bb527d86101c61ae97fc9f3",
+   "title": "Marketing Management with a Major in Marketing (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "9e78339d3aaa2747~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "9e78339d3aaa2747",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#6870dbbba68545b9) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -37591,6 +39994,88 @@
   "year_basis": "labeled_in_source"
  },
  "a062ea4fd75e1792": {
+  "decision": {
+   "candidate_id": "a062ea4fd75e1792",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#a062ea4fd75e1792) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 12 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 1 items, 14 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:40+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:42:24 GMT",
+   "page_file": "4052aecfc0eb8f04cb4b.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/psychology/psychology-bs/",
+   "sha256": "4052aecfc0eb8f04cb4bc82b05694f3273ca7a8d0f7a93b7d7aa84141d838174",
+   "title": "Psychology (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/psychology/psychology-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a062ea4fd75e1792~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "a062ea4fd75e1792",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -39758,6 +42243,88 @@
   "year_basis": "labeled_in_source"
  },
  "aa5f927361d2248d": {
+  "decision": {
+   "candidate_id": "aa5f927361d2248d",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-128 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#aa5f927361d2248d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 12-15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 9 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 15-18 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:06:15+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:13:23 GMT",
+   "page_file": "93e7f1797d5628b4707a.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/art/fine-arts-painting-drawing-bfa/",
+   "sha256": "93e7f1797d5628b4707a4d32db1a00ccc9c44d783cb0a424c5fc0b3c72bdc73c",
+   "title": "Fine Arts with a Major in Painting and Drawing (BFA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/art/fine-arts-painting-drawing-bfa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "aa5f927361d2248d~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "aa5f927361d2248d",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -43569,6 +46136,88 @@
  "ba4fb9096070ac57": {
   "decision": {
    "candidate_id": "ba4fb9096070ac57",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#ba4fb9096070ac57) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:11+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 12:52:34 GMT",
+   "page_file": "5f2c062494ceeee6bc67.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/cybersecurity/cybersecurity-bs/",
+   "sha256": "5f2c062494ceeee6bc674fd69703bbaa821dfefcb3090f8c50252509b26331f6",
+   "title": "Cybersecurity (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/cybersecurity/cybersecurity-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ba4fb9096070ac57~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "ba4fb9096070ac57",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#0eb9f0616c7c8e67) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -44717,6 +47366,88 @@
   "year_basis": "labeled_in_source"
  },
  "c0955abe15de0495": {
+  "decision": {
+   "candidate_id": "c0955abe15de0495",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#c0955abe15de0495) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:21+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:45:28 GMT",
+   "page_file": "5d47cb9b5cbb3e821ee4.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-actuarial-bs/",
+   "sha256": "5d47cb9b5cbb3e821ee4794fb51206047d127378ec0dc3aed7d2f1a4a306a8ae",
+   "title": "Mathematics with a Major in Actuarial Mathematics (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-actuarial-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c0955abe15de0495~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "c0955abe15de0495",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -46846,6 +49577,88 @@
   "year_basis": "labeled_in_source"
  },
  "ca905d2ab1c7311a": {
+  "decision": {
+   "candidate_id": "ca905d2ab1c7311a",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#ca905d2ab1c7311a) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:01+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:32:56 GMT",
+   "page_file": "2d918ba6a7f8950aeacd.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/management/entrepreneurship-bsba/",
+   "sha256": "2d918ba6a7f8950aeacdb425406ba3c758b98ec14b8922373ded0cf32f6a0e74",
+   "title": "Management with a Major in Entrepreneurship (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/management/entrepreneurship-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ca905d2ab1c7311a~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "ca905d2ab1c7311a",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -49650,6 +52463,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "d6818baf6733021f": {
+  "decision": {
+   "candidate_id": "d6818baf6733021f",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total; differs: only printed rows re-read as structured items (string->text x22); labels, subtotals, rule_text unchanged; all supported",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#bcd8b295e56ce89a) stored a printed choice block as separate items, so every option read as required (and its rows as printed strings); the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 16 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 15 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 6 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 2 items, 12 credits",
+    "value": "Second Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:24+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:34:15 GMT",
+   "page_file": "11f77c30342af5df0ed7.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/park-recreation-tourism-studies-bs/",
+   "sha256": "11f77c30342af5df0ed73223565ec8fcd8eb34a00f5af4487a7d875f8de2fdc6",
+   "title": "Park, Recreation and Tourism Studies with a Major in Park and Recreation Management (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/park-recreation-tourism-studies-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "d69db0e0a1f23170": {
   "decision": {
    "candidate_id": "d69db0e0a1f23170",
@@ -50120,6 +53015,88 @@
   "year_basis": "labeled_in_source"
  },
  "d831268cad6ce4f6": {
+  "decision": {
+   "candidate_id": "d831268cad6ce4f6",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#d831268cad6ce4f6) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:25+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:34:40 GMT",
+   "page_file": "4082cd595a4b526d67c9.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/park-recreation-tourism-studies-hospitality-management-bs/",
+   "sha256": "4082cd595a4b526d67c99bf7894644657221888674f3af34917c72e82d8d2993",
+   "title": "Park, Recreation and Tourism Studies with a Major in Tourism and Hospitality Management (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/education/human-movement-studies-special-education/park-recreation-tourism-studies-hospitality-management-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d831268cad6ce4f6~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "d831268cad6ce4f6",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -51303,6 +54280,88 @@
  "ddc2c9424715d991": {
   "decision": {
    "candidate_id": "ddc2c9424715d991",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#ddc2c9424715d991) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:24+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:45:45 GMT",
+   "page_file": "d1c5fb7a2afbe12a81b2.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-big-data-analytics-bs/",
+   "sha256": "d1c5fb7a2afbe12a81b2230a8112b3010055bee2eb1905c4a93826b838aa83bf",
+   "title": "Mathematics with a Major in Big Data Analytics (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-big-data-analytics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ddc2c9424715d991~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "ddc2c9424715d991",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#feeb419283214a3a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -51885,6 +54944,88 @@
  "df119de08fb40555": {
   "decision": {
    "candidate_id": "df119de08fb40555",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#df119de08fb40555) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:57+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:30:59 GMT",
+   "page_file": "0c1771af37f02e3e1d06.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-business-analytics-bsba/",
+   "sha256": "0c1771af37f02e3e1d066d27ae8e428555b0277454b3338fdc2c33f02c8ce0d2",
+   "title": "Information Systems and Technology with a Major in Business Analytics (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-business-analytics-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "df119de08fb40555~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "df119de08fb40555",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#0594615fcadb7b92) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -52084,6 +55225,88 @@
   "year_basis": "labeled_in_source"
  },
  "df7dd00ab02ba7c5": {
+  "decision": {
+   "candidate_id": "df7dd00ab02ba7c5",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#df7dd00ab02ba7c5) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:06+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:31:29 GMT",
+   "page_file": "7712d4d0af689013181e.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-digital-bsba/",
+   "sha256": "7712d4d0af689013181ee0e38ab7dd63352bf46a2f48368a2b71a97886ea0a89",
+   "title": "Marketing Management with a Major in Digital Marketing (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-digital-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "df7dd00ab02ba7c5~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "df7dd00ab02ba7c5",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -52882,6 +56105,88 @@
  "e4ae673b4a86dbdc": {
   "decision": {
    "candidate_id": "e4ae673b4a86dbdc",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#e4ae673b4a86dbdc) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 15 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 12 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:08:07+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:31:59 GMT",
+   "page_file": "1db9ec903e0e75c7feb1.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-insights-innovation-bsba/",
+   "sha256": "1db9ec903e0e75c7feb18c4f9c668d8e73fb9e98f158932db24b8366a18c3060",
+   "title": "Marketing Management with a Major in Marketing Insights & Innovation (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/marketing/marketing-insights-innovation-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e4ae673b4a86dbdc~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "e4ae673b4a86dbdc",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#791c37248c275e28) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -53438,6 +56743,88 @@
  "e7084b064fab2472": {
   "decision": {
    "candidate_id": "e7084b064fab2472",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#e7084b064fab2472) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:26+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:45:53 GMT",
+   "page_file": "770a064a75f0d9b298dd.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-statistics-biostatistics-bs/",
+   "sha256": "770a064a75f0d9b298ddcb0552406c54f050d3ad298b3a07098fb86cec2027ea",
+   "title": "Mathematics with a Major in Statistics/Biostatistics (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/mathematics-statistics/mathematics-statistics-biostatistics-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e7084b064fab2472~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "e7084b064fab2472",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#828db32c2dc06e3a) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -53753,6 +57140,88 @@
   "year_basis": "labeled_in_source"
  },
  "e74ef8bfdfc07a95": {
+  "decision": {
+   "candidate_id": "e74ef8bfdfc07a95",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#e74ef8bfdfc07a95) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 13 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 14 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 3 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:09:38+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:41:51 GMT",
+   "page_file": "b2416b6e3f4dcad7fd8d.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-secondary-education-6-12-bs/",
+   "sha256": "b2416b6e3f4dcad7fd8dc61be3756360c86147aed949c356461f812f558ed06b",
+   "title": "Physics with a Major in Secondary Physics Education (6-12) (BS) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/sciences/physics/physics-secondary-education-6-12-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e74ef8bfdfc07a95~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "e74ef8bfdfc07a95",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -54922,6 +58391,88 @@
  "ec52d15be25ed1f9": {
   "decision": {
    "candidate_id": "ec52d15be25ed1f9",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#ec52d15be25ed1f9) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:54+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:29:55 GMT",
+   "page_file": "feeff7baddf39ba219b3.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/financial-management/risk-management-insurance-bsba/",
+   "sha256": "feeff7baddf39ba219b36571e6dc500758b55b1e5c9ee171d46cba3dabe035ac",
+   "title": "Financial Management with a Major in Risk Management and Insurance (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/financial-management/risk-management-insurance-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ec52d15be25ed1f9~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "ec52d15be25ed1f9",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#7089830d94b9b4f0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -55292,6 +58843,88 @@
   "year_basis": "labeled_in_source"
  },
  "ed1cdbefb826229e": {
+  "decision": {
+   "candidate_id": "ed1cdbefb826229e",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#ed1cdbefb826229e) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 6 items, 18 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:56+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:31:12 GMT",
+   "page_file": "f7bd25a23ae273a80733.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-business-analytics-and-intelligence-bsba/",
+   "sha256": "f7bd25a23ae273a80733274c2fbde266f1d69571dd0c6f64a266cb5dabac45a8",
+   "title": "Information Systems and Technology with a Major in Business Analytics and Intelligence (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/information-systems-technology/information-systems-technology-business-analytics-and-intelligence-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ed1cdbefb826229e~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "ed1cdbefb826229e",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -57700,6 +61333,88 @@
  "f8c8e2b137ebcac3": {
   "decision": {
    "candidate_id": "f8c8e2b137ebcac3",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#f8c8e2b137ebcac3) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 12 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 8 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 9 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:21+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:22:14 GMT",
+   "page_file": "adc2255fe46a6f4adf06.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/arts-letters/political-science-geography/international-studies-ba/",
+   "sha256": "adc2255fe46a6f4adf0604c5e8efc941df95060aae1b854c83b7ac13652e428a",
+   "title": "International Studies (BA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/arts-letters/political-science-geography/international-studies-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f8c8e2b137ebcac3~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "f8c8e2b137ebcac3",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence VA/2026-10-06-cl#0590372094a3321c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -58506,6 +62221,88 @@
   "year_basis": "labeled_in_source"
  },
  "fbbbb9f92726dcc1": {
+  "decision": {
+   "candidate_id": "fbbbb9f92726dcc1",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours 120-126 (as printed)' = printed total; previously held (TRUNCATED); re-checked by hand: the block now holds the full printed option list",
+   "replaces_promoted": "Plan on file (evidence VA/2026-10-06-cl#fbbbb9f92726dcc1) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman: 0 items, ? credits",
+    "value": "Freshman"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 14-17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 13-16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore: 0 items, ? credits",
+    "value": "Sophomore"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 6 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior: 0 items, ? credits",
+    "value": "Junior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior: 0 items, ? credits",
+    "value": "Senior"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-06T11:07:51+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 24 Aug 2026 13:30:20 GMT",
+   "page_file": "a05396f49b0aa742e731.json.gz",
+   "requested_url": "https://catalog.odu.edu/undergraduate/business/financial-management/financial-management-personal-financial-planning-bsba/",
+   "sha256": "a05396f49b0aa742e7312cc4e10916ebc05104f137fdb6f9e89064d9485b424f",
+   "title": "Financial Management with a Major in Personal Financial Planning (BSBA) < Old Dominion University",
+   "url": "https://catalog.odu.edu/undergraduate/business/financial-management/financial-management-personal-financial-planning-bsba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "fbbbb9f92726dcc1~superseded-2026-10-22": {
   "decision": {
    "candidate_id": "fbbbb9f92726dcc1",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",

@@ -1,0 +1,470 @@
+{
+ "source": "scripts/build_baseline.py over pinned IPEDS 2023-24 files (sources/ipeds/2023-24/manifest.json) and the registry",
+ "in_scope_schools": 2119,
+ "in_scope_rule": "Every four-year school in pipeline/registry/<ST>.json (docs/coverage/baseline/UNIVERSE.md)",
+ "baseline_complete": 2004,
+ "baseline_complete_rule": "every essential field is verified_current, available_older or not_published_or_na, and the school is listed active in the provisional 2024-25 directory",
+ "baseline_complete_and_all_current": 0,
+ "closed_or_inactive_per_hd2024": 19,
+ "undergraduate_enrollment_total": 10533478,
+ "schools_without_enrollment_weight": 3,
+ "enrollment_weighted_complete_share": 0.9854,
+ "fields": {
+  "identity": {
+   "label": "Name, location, website, type and control",
+   "period": "IPEDS 2023-24 institutional directory",
+   "kind": "directory",
+   "verified_current": 1986,
+   "available_older": 133,
+   "not_published_or_na": 0,
+   "not_researched": 0,
+   "blocked": 0,
+   "resolved_share": 1.0,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": []
+  },
+  "undergraduate_enrollment": {
+   "label": "Undergraduate enrollment (fall headcount)",
+   "period": "Fall 2023",
+   "kind": "statistic",
+   "verified_current": 2099,
+   "available_older": 18,
+   "not_published_or_na": 0,
+   "not_researched": 2,
+   "blocked": 0,
+   "resolved_share": 0.9991,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": [
+    [
+     "did not respond to the IPEDS EF survey (not imputed)",
+     2
+    ]
+   ]
+  },
+  "admission_rate": {
+   "label": "Admission rate, first-time undergraduates",
+   "period": "Fall 2023 applicants",
+   "kind": "statistic",
+   "verified_current": 1603,
+   "available_older": 11,
+   "not_published_or_na": 505,
+   "not_researched": 0,
+   "blocked": 0,
+   "resolved_share": 1.0,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": []
+  },
+  "test_scores": {
+   "label": "ACT/SAT middle 50% of enrolled first-year students, with the test policy",
+   "period": "Fall 2023 enrolled first-time students who submitted scores",
+   "kind": "statistic",
+   "verified_current": 1048,
+   "available_older": 3,
+   "not_published_or_na": 981,
+   "not_researched": 87,
+   "blocked": 0,
+   "resolved_share": 0.9589,
+   "enrollment_weighted_resolved_share": 0.9865,
+   "top_reasons_not_researched": [
+    [
+     "no scores reported to IPEDS (policy: Not required for admission, but considered if submitted (Test Optional))",
+     80
+    ],
+    [
+     "no scores reported to IPEDS (policy: Required to be considered for admission)",
+     7
+    ]
+   ]
+  },
+  "tuition_fees": {
+   "label": "Published in-state and out-of-state tuition and required fees",
+   "period": "2023-24 academic year (full-time first-time undergraduates)",
+   "kind": "published_price",
+   "verified_current": 0,
+   "available_older": 2030,
+   "not_published_or_na": 85,
+   "not_researched": 4,
+   "blocked": 0,
+   "resolved_share": 0.9981,
+   "enrollment_weighted_resolved_share": 0.9997,
+   "top_reasons_not_researched": [
+    [
+     "no 2023-24 academic-year price record",
+     4
+    ]
+   ]
+  },
+  "housing_food": {
+   "label": "On-campus food and housing",
+   "period": "2023-24 academic year",
+   "kind": "published_price",
+   "verified_current": 0,
+   "available_older": 1683,
+   "not_published_or_na": 432,
+   "not_researched": 4,
+   "blocked": 0,
+   "resolved_share": 0.9981,
+   "enrollment_weighted_resolved_share": 0.9997,
+   "top_reasons_not_researched": [
+    [
+     "no 2023-24 academic-year price record",
+     4
+    ]
+   ]
+  },
+  "cost_of_attendance": {
+   "label": "Total cost of attendance, living on campus (NCES total price)",
+   "period": "2023-24 academic year",
+   "kind": "published_price",
+   "verified_current": 0,
+   "available_older": 1683,
+   "not_published_or_na": 432,
+   "not_researched": 4,
+   "blocked": 0,
+   "resolved_share": 0.9981,
+   "enrollment_weighted_resolved_share": 0.9997,
+   "top_reasons_not_researched": [
+    [
+     "no NCES total price",
+     4
+    ]
+   ]
+  },
+  "net_price": {
+   "label": "Average net price, overall and by family income",
+   "period": "2022-23 aid year (full-time first-time undergraduates awarded aid)",
+   "kind": "historical_average",
+   "verified_current": 0,
+   "available_older": 1968,
+   "not_published_or_na": 142,
+   "not_researched": 9,
+   "blocked": 0,
+   "resolved_share": 0.9958,
+   "enrollment_weighted_resolved_share": 0.9998,
+   "top_reasons_not_researched": [
+    [
+     "NCES analyst-corrected value (flag C), withheld pending review",
+     6
+    ],
+    [
+     "did not respond to the IPEDS SFA survey (not imputed)",
+     3
+    ]
+   ]
+  },
+  "retention_rate": {
+   "label": "First-year retention rate (full-time)",
+   "period": "Fall 2022 entering cohort, re-enrolled fall 2023",
+   "kind": "statistic",
+   "verified_current": 1814,
+   "available_older": 16,
+   "not_published_or_na": 285,
+   "not_researched": 4,
+   "blocked": 0,
+   "resolved_share": 0.9981,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": [
+    [
+     "did not respond to the IPEDS EF survey (not imputed)",
+     2
+    ],
+    [
+     "no retention record",
+     2
+    ]
+   ]
+  },
+  "graduation_rate": {
+   "label": "Bachelor's graduation rate (4- and 6-year) and overall rate",
+   "period": "2017 entering cohort, reported 2023-24",
+   "kind": "statistic",
+   "verified_current": 1981,
+   "available_older": 15,
+   "not_published_or_na": 122,
+   "not_researched": 1,
+   "blocked": 0,
+   "resolved_share": 0.9995,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": [
+    [
+     "did not respond to the IPEDS GR survey (not imputed)",
+     1
+    ]
+   ]
+  },
+  "fields_and_levels": {
+   "label": "Broad fields of study and degree levels awarded",
+   "period": "Awards conferred July 2022 - June 2023",
+   "kind": "statistic",
+   "verified_current": 0,
+   "available_older": 2114,
+   "not_published_or_na": 5,
+   "not_researched": 0,
+   "blocked": 0,
+   "resolved_share": 1.0,
+   "enrollment_weighted_resolved_share": 1.0,
+   "top_reasons_not_researched": []
+  }
+ },
+ "current_published_tuition": {
+  "note": "Separate from IPEDS: a school-published tuition record for 2026-27 or later in data/institutions, verified against the official page (pipeline research). IPEDS tuition stays available_older.",
+  "verified_schools": 181,
+  "partially_verified_schools": 4,
+  "enrollment_weighted_verified": 0.0624
+ },
+ "policy_layer": {
+  "note": "Separate measure. From research records in data/institutions/<folder>/ (awards of type institutional_merit, AP/IB/CLEP credit policies, appeals). not_researched means no record yet, never that the school has no policy.",
+  "merit": {
+   "source_found": 1389,
+   "not_researched": 76,
+   "candidates_rejected": 96,
+   "partially_verified": 83,
+   "searched_not_found": 125,
+   "source_inaccessible": 272,
+   "verified": 76,
+   "no_published_score_formula": 2
+  },
+  "exam_credit": {
+   "searched_not_found": 819,
+   "source_found": 579,
+   "candidates_rejected": 133,
+   "verified": 40,
+   "not_researched": 76,
+   "source_inaccessible": 272,
+   "partially_verified": 175,
+   "candidate_in_run": 25
+  },
+  "aid_appeals": {
+   "searched_not_found": 458,
+   "candidates_rejected": 848,
+   "source_found": 227,
+   "candidate_in_run": 236,
+   "not_researched": 76,
+   "source_inaccessible": 272,
+   "partially_verified": 1,
+   "verified": 1
+  },
+  "schools_with_records_and_pending_candidates": {
+   "merit": 0,
+   "exam_credit": 19,
+   "aid_appeals": 2
+  },
+  "pending_candidates_outside_registry": [],
+  "merit_score_linked_schools": 34,
+  "merit_gpa_linked_schools": 103,
+  "merit_research_findings_schools": 23,
+  "merit_on_file_enrollment_weighted": 0.0648,
+  "merit_score_linked_enrollment_weighted": 0.0168
+ },
+ "degree_detail": {
+  "note": "Separate measure, owned by Deep Dive (docs/coverage/programs/STATUS.json); never a condition of baseline coverage.",
+  "covered_schools": 73,
+  "researched_schools": 683
+ },
+ "by_state": {
+  "AK": {
+   "schools": 6,
+   "complete": 6
+  },
+  "AL": {
+   "schools": 31,
+   "complete": 29
+  },
+  "AR": {
+   "schools": 26,
+   "complete": 26
+  },
+  "AZ": {
+   "schools": 17,
+   "complete": 17
+  },
+  "CA": {
+   "schools": 152,
+   "complete": 138
+  },
+  "CO": {
+   "schools": 30,
+   "complete": 28
+  },
+  "CT": {
+   "schools": 26,
+   "complete": 26
+  },
+  "DC": {
+   "schools": 9,
+   "complete": 9
+  },
+  "DE": {
+   "schools": 5,
+   "complete": 5
+  },
+  "FL": {
+   "schools": 92,
+   "complete": 86
+  },
+  "GA": {
+   "schools": 59,
+   "complete": 57
+  },
+  "HI": {
+   "schools": 8,
+   "complete": 8
+  },
+  "IA": {
+   "schools": 33,
+   "complete": 32
+  },
+  "ID": {
+   "schools": 10,
+   "complete": 10
+  },
+  "IL": {
+   "schools": 71,
+   "complete": 63
+  },
+  "IN": {
+   "schools": 52,
+   "complete": 51
+  },
+  "KS": {
+   "schools": 31,
+   "complete": 28
+  },
+  "KY": {
+   "schools": 30,
+   "complete": 29
+  },
+  "LA": {
+   "schools": 30,
+   "complete": 30
+  },
+  "MA": {
+   "schools": 78,
+   "complete": 73
+  },
+  "MD": {
+   "schools": 31,
+   "complete": 28
+  },
+  "ME": {
+   "schools": 18,
+   "complete": 18
+  },
+  "MI": {
+   "schools": 51,
+   "complete": 50
+  },
+  "MN": {
+   "schools": 41,
+   "complete": 41
+  },
+  "MO": {
+   "schools": 58,
+   "complete": 54
+  },
+  "MS": {
+   "schools": 17,
+   "complete": 15
+  },
+  "MT": {
+   "schools": 14,
+   "complete": 14
+  },
+  "NC": {
+   "schools": 63,
+   "complete": 57
+  },
+  "ND": {
+   "schools": 14,
+   "complete": 14
+  },
+  "NE": {
+   "schools": 23,
+   "complete": 21
+  },
+  "NH": {
+   "schools": 14,
+   "complete": 13
+  },
+  "NJ": {
+   "schools": 52,
+   "complete": 45
+  },
+  "NM": {
+   "schools": 11,
+   "complete": 10
+  },
+  "NV": {
+   "schools": 9,
+   "complete": 9
+  },
+  "NY": {
+   "schools": 193,
+   "complete": 183
+  },
+  "OH": {
+   "schools": 109,
+   "complete": 102
+  },
+  "OK": {
+   "schools": 28,
+   "complete": 27
+  },
+  "OR": {
+   "schools": 29,
+   "complete": 26
+  },
+  "PA": {
+   "schools": 127,
+   "complete": 118
+  },
+  "RI": {
+   "schools": 12,
+   "complete": 12
+  },
+  "SC": {
+   "schools": 37,
+   "complete": 36
+  },
+  "SD": {
+   "schools": 15,
+   "complete": 13
+  },
+  "TN": {
+   "schools": 43,
+   "complete": 41
+  },
+  "TX": {
+   "schools": 118,
+   "complete": 114
+  },
+  "UT": {
+   "schools": 12,
+   "complete": 12
+  },
+  "VA": {
+   "schools": 49,
+   "complete": 47
+  },
+  "VT": {
+   "schools": 10,
+   "complete": 8
+  },
+  "WA": {
+   "schools": 58,
+   "complete": 58
+  },
+  "WI": {
+   "schools": 43,
+   "complete": 43
+  },
+  "WV": {
+   "schools": 19,
+   "complete": 19
+  },
+  "WY": {
+   "schools": 5,
+   "complete": 5
+  }
+ }
+}

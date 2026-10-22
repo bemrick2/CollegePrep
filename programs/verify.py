@@ -23,7 +23,7 @@ def squash(s):
 def code_in(text, code):
     # 'IT222' (no space), 'ENG/FILM 366' (cross-listed), 'B A 324' / 'CM CORE 1001' (a subject of several words, printed
     # with no-break spaces: UT Austin, UNI)
-    m = re.match(r'^([A-Z]{1,5}(?:\s[A-Z]{1,5})*(?:/[A-Z]{1,5})*)\s?(\d.*)$', code.strip())
+    m = re.match(r'^([A-Z][A-Z&]{0,7}(?:\s[A-Z&]{1,5})*(?:/[A-Z&]{1,8})*)\s?(\d.*)$', code.strip())  # 'ARTHIST 101' (UWM), 'F&W ECOL 248' (UW-Madison)
     if not m: return re.search(rf'\b{re.escape(code)}\b', text, re.I) is not None
     subj, num = m.groups()
     subj_re = r'\s+'.join(re.escape(w) for w in subj.split())
@@ -134,7 +134,7 @@ def check_candidate(c, text, other=None):
         wrapped = c.get('extractor') == 'clearpath_plan/v1'  # two-column PDF: wrapped titles are printed in pieces
         items = list(rd.get('courses', []))
         for term in rd.get('terms', []) or []:
-            items += [i for i in term.get('items', []) if isinstance(i, dict)]
+            items += [x for i in term.get('items', []) if isinstance(i, dict) for x in [i, *i.get('options', [])] if isinstance(x, dict)]  # a choice block's options too
         for i in [i for i in items if i.get('any_of')]:  # alternatives printed in one cell (courseleaf_plan/v3)
             if not alternatives_printed(text, i['any_of']): probs.append(f"alternatives {' / '.join(a.get('code', '') for a in i['any_of'])} not printed as stored")
         for i in [i for i in items if i.get('marker')]:

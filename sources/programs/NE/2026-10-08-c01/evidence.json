@@ -15042,6 +15042,73 @@
  "cac011b94670c309": {
   "decision": {
    "candidate_id": "cac011b94670c309",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. courseleaf_plantext/v1 record read from the printed text plan (Year N: Fall/Spring, N credits), not the grid; all 8 terms, items, credits and subtotals match the text; no choice block; unchanged from file",
+   "replaces_promoted": "Plan on file (evidence NE/2026-10-08-c01#cac011b94670c309) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "plan_title",
+    "snippet": "Software Engineering",
+    "value": "Software Engineering"
+   },
+   {
+    "field": "term",
+    "snippet": "16 creditsYear 1: Fall",
+    "value": "Year 1: Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "15 creditsYear 1: Spring",
+    "value": "Year 1: Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "17 creditsYear 2: Fall",
+    "value": "Year 2: Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "14 creditsYear 2: Spring",
+    "value": "Year 2: Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "16 creditsYear 3: Fall",
+    "value": "Year 3: Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "15 creditsYear 3: Spring",
+    "value": "Year 3: Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "15 creditsYear 4: Fall",
+    "value": "Year 4: Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "15 creditsYear 4: Spring",
+    "value": "Year 4: Spring"
+   }
+  ],
+  "extractor": "courseleaf_plantext/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:40:03+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 30 Sep 2026 20:18:39 GMT",
+   "page_file": "1cef187435e7ac30e271.json.gz",
+   "requested_url": "https://catalog.unl.edu/undergraduate/engineering/software/",
+   "sha256": "1cef187435e7ac30e27121c77a49f1a34308e8465432cd0c2e01b96bb5fbea2e",
+   "title": "Software Engineering < University of Nebraska–Lincoln",
+   "url": "https://catalog.unl.edu/undergraduate/engineering/software/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "cac011b94670c309~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "cac011b94670c309",
    "reason": "Independent plan review 2026-10-21 (all 176 checked mechanically against the printed plan rows; 36 plans on 30 pages checked line by line): correct (mechanical check): parser and render-diff both match the printed block exactly (8 terms, 41 rows); term row credits sum to printed credit_hours."
   },
   "evidence": [

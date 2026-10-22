@@ -24448,24 +24448,27 @@
             "credit_hours": "13",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "E 316L",
+                    "title": "British Literature"
+                  },
+                  {
+                    "code": "E 316M",
+                    "title": "American Literature"
+                  },
+                  {
+                    "code": "E 316N",
+                    "title": "World Literature"
+                  },
+                  {
+                    "code": "E 316P",
+                    "title": "Masterworks of Literature"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "E 316L",
-                "title": "British Literature"
-              },
-              {
-                "code": "E 316M",
-                "title": "American Literature"
-              },
-              {
-                "code": "E 316N",
-                "title": "World Literature"
-              },
-              {
-                "code": "E 316P",
-                "title": "Masterworks of Literature"
               },
               {
                 "code": "S W 312",
@@ -24514,20 +24517,23 @@
             "credit_hours": "6",
             "items": [
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "GOV 306C",
+                    "title": "Politics and Government in Contemporary Texas"
+                  },
+                  {
+                    "code": "GOV 312L",
+                    "title": "Issues and Policies in American Government"
+                  },
+                  {
+                    "code": "GOV 312P",
+                    "title": "Constitutional Principles: Core Texts"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "GOV 306C",
-                "title": "Politics and Government in Contemporary Texas"
-              },
-              {
-                "code": "GOV 312L",
-                "title": "Issues and Policies in American Government"
-              },
-              {
-                "code": "GOV 312P",
-                "title": "Constitutional Principles: Core Texts"
               },
               {
                 "credits": 3,
@@ -24663,7 +24669,7 @@
       },
       "source_url": "https://catalog.utexas.edu/undergraduate/programs/social-work-bsw/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#fa0406a8d2ca4da3) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#6fb9f7fec2f95481."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 122 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#6fb9f7fec2f95481) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#6fb9f7fec2f95481."
     },
     {
       "last_verified_at": "2026-10-06",

@@ -4056,20 +4056,23 @@
                 "text": "CHEM 4023 and CHEM 4033 offered every other spring"
               },
               {
+                "choose": 1,
                 "credits": 2,
+                "options": [
+                  {
+                    "code": "CHEM 3532",
+                    "title": "Physical Chemistry Laboratory"
+                  },
+                  {
+                    "code": "CHEM 4022",
+                    "title": "Modern Methods of Chemical Analysis Laboratory"
+                  },
+                  {
+                    "code": "CHEM 4322",
+                    "title": "Advanced Organic Chemistry Laboratory (Fall only)"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "CHEM 3532",
-                "title": "Physical Chemistry Laboratory"
-              },
-              {
-                "code": "CHEM 4022",
-                "title": "Modern Methods of Chemical Analysis Laboratory"
-              },
-              {
-                "code": "CHEM 4322",
-                "title": "Advanced Organic Chemistry Laboratory (Fall only)"
               },
               {
                 "code": "CHEM 4990",
@@ -4167,7 +4170,7 @@
       },
       "source_url": "https://catalog.okstate.edu/arts-sciences/chemistry/chemistry-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#861ccf34211cf13c) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#006930edf6c0e34d."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-08-r2#006930edf6c0e34d) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#006930edf6c0e34d."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -28697,40 +28700,46 @@
                 "title": "Intermediate Apparel Assembly"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1223",
+                    "title": "International Freshman Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  },
+                  {
+                    "code": "ENGL 3323",
+                    "title": "Technical Writing"
+                  }
+                ],
                 "text": "Select one of the following:"
               },
               {
-                "code": "ENGL 1213",
-                "title": "Composition II"
-              },
-              {
-                "code": "ENGL 1223",
-                "title": "International Freshman Composition II"
-              },
-              {
-                "code": "ENGL 1413",
-                "title": "Critical Analysis and Writing II"
-              },
-              {
-                "code": "ENGL 3323",
-                "title": "Technical Writing"
-              },
-              {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "MATH 1483",
+                    "title": "Mathematical Functions and Their Uses (Q)"
+                  },
+                  {
+                    "code": "MATH 1513",
+                    "title": "College Algebra (Q)"
+                  },
+                  {
+                    "code": "MATH 2103",
+                    "title": "Business Calculus (Q)"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MATH 1483",
-                "title": "Mathematical Functions and Their Uses (Q)"
-              },
-              {
-                "code": "MATH 1513",
-                "title": "College Algebra (Q)"
-              },
-              {
-                "code": "MATH 2103",
-                "title": "Business Calculus (Q)"
               },
               {
                 "credits": 3,
@@ -28767,20 +28776,23 @@
                 "title": "Textile Science (LN)"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "HIST 1103",
-                "title": "Survey of American History"
-              },
-              {
-                "code": "HIST 1483",
-                "title": "American History to 1865 (H)"
-              },
-              {
-                "code": "HIST 1493",
-                "title": "American History Since 1865 (DH)"
               },
               {
                 "code": "EDHS 3111",
@@ -28992,7 +29004,7 @@
       },
       "source_url": "https://catalog.okstate.edu/education-human-sciences/design-merchandising/apparel-design-technology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#821df456a4250cb8) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#21df7d81127d4c78."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 3 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 122 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-08-r2#21df7d81127d4c78) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#21df7d81127d4c78."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -29195,52 +29207,61 @@
                 "title": "Design Theory and Processes for Design and Merchandising"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1123",
+                    "title": "International Freshman Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
                 "text": "Select one of the following:"
               },
               {
-                "code": "ENGL 1113",
-                "title": "Composition I"
-              },
-              {
-                "code": "ENGL 1123",
-                "title": "International Freshman Composition I"
-              },
-              {
-                "code": "ENGL 1313",
-                "title": "Critical Analysis and Writing I"
-              },
-              {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
                 "text": "Select one of the following:"
               },
               {
-                "code": "HIST 1103",
-                "title": "Survey of American History"
-              },
-              {
-                "code": "HIST 1483",
-                "title": "American History to 1865 (H)"
-              },
-              {
-                "code": "HIST 1493",
-                "title": "American History Since 1865 (DH)"
-              },
-              {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "MATH 1483",
+                    "title": "Mathematical Functions and Their Uses (Q)"
+                  },
+                  {
+                    "code": "MATH 1513",
+                    "title": "College Algebra (Q)"
+                  },
+                  {
+                    "code": "MATH 2103",
+                    "title": "Business Calculus (Q)"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "MATH 1483",
-                "title": "Mathematical Functions and Their Uses (Q)"
-              },
-              {
-                "code": "MATH 1513",
-                "title": "College Algebra (Q)"
-              },
-              {
-                "code": "MATH 2103",
-                "title": "Business Calculus (Q)"
               },
               {
                 "code": "UNIV 1111",
@@ -29260,24 +29281,27 @@
                 "title": "Textile Science (LN)"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1223",
+                    "title": "International Freshman Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  },
+                  {
+                    "code": "ENGL 3323",
+                    "title": "Technical Writing"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENGL 1213",
-                "title": "Composition II"
-              },
-              {
-                "code": "ENGL 1223",
-                "title": "International Freshman Composition II"
-              },
-              {
-                "code": "ENGL 1413",
-                "title": "Critical Analysis and Writing II"
-              },
-              {
-                "code": "ENGL 3323",
-                "title": "Technical Writing"
               },
               {
                 "code": "POLS 1113",
@@ -29522,7 +29546,7 @@
       },
       "source_url": "https://catalog.okstate.edu/education-human-sciences/design-merchandising/fashion-merchandising-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#a86e729bdfd49de5) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#e6f1dc85f4ff1cb8."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-08-r2#e6f1dc85f4ff1cb8) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#e6f1dc85f4ff1cb8."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -31535,24 +31559,27 @@
                 "title": "American Government"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "GEOL 1014",
+                    "title": "Geology and Human Affairs (LN)"
+                  },
+                  {
+                    "code": "GEOL 1224",
+                    "title": "Evolution of the Earth (LN)"
+                  },
+                  {
+                    "code": "PBIO 1404",
+                    "title": "Plant Biology (LN)"
+                  },
+                  {
+                    "code": "NREM 1014",
+                    "title": "Introduction to Natural History (LN)"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "GEOL 1014",
-                "title": "Geology and Human Affairs (LN)"
-              },
-              {
-                "code": "GEOL 1224",
-                "title": "Evolution of the Earth (LN)"
-              },
-              {
-                "code": "PBIO 1404",
-                "title": "Plant Biology (LN)"
-              },
-              {
-                "code": "NREM 1014",
-                "title": "Introduction to Natural History (LN)"
               }
             ],
             "label": "Spring",
@@ -31641,14 +31668,17 @@
                 "title": "Infant and Child Development"
               },
               {
+                "choose": 1,
                 "credits": 4,
+                "options": [
+                  {
+                    "code": "BIOL 1114",
+                    "title": "Introductory Biology (LN)"
+                  },
+                  "BIOL 1113& BIOL 1111 | Introductory Biology (N)and Introductory Biology Laboratory (LN)"
+                ],
                 "text": "Select one of the following:"
               },
-              {
-                "code": "BIOL 1114",
-                "title": "Introductory Biology (LN)"
-              },
-              "BIOL 1113& BIOL 1111 | Introductory Biology (N)and Introductory Biology Laboratory (LN)",
               {
                 "code": "MATH 3603",
                 "credits": 3,
@@ -31811,7 +31841,7 @@
       },
       "source_url": "https://catalog.okstate.edu/education-human-sciences/human-development-family-science/early-childhood-education-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#5a4ae94a413c8d81) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#3e29f634fa190863."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (1 at term end, 1 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 125 (as printed)' = printed total; previously held (FLAT); re-checked by hand: the block now holds the full printed option list Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-08-r2#3e29f634fa190863) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#3e29f634fa190863."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -32525,20 +32555,23 @@
                 "text": "3 Hour Controlled Elective (PSYC 1113 recommended)"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  },
+                  {
+                    "code": "ENGL 3323",
+                    "title": "Technical Writing"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENGL 1213",
-                "title": "Composition II"
-              },
-              {
-                "code": "ENGL 1413",
-                "title": "Critical Analysis and Writing II"
-              },
-              {
-                "code": "ENGL 3323",
-                "title": "Technical Writing"
               },
               {
                 "code": "EDHS 3111",
@@ -32758,7 +32791,7 @@
       },
       "source_url": "https://catalog.okstate.edu/education-human-sciences/nutritional-sciences/allied-health-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#de7ac183b5082440) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#248733a15bea1422."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-08-r2#248733a15bea1422) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#248733a15bea1422."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -33316,20 +33349,23 @@
                 "title": "Elementary Statistics (Q)"
               },
               {
+                "choose": 1,
                 "credits": 3,
+                "options": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  },
+                  {
+                    "code": "ENGL 3323",
+                    "title": "Technical Writing"
+                  }
+                ],
                 "text": "Select one of the following:"
-              },
-              {
-                "code": "ENGL 1213",
-                "title": "Composition II"
-              },
-              {
-                "code": "ENGL 1413",
-                "title": "Critical Analysis and Writing II"
-              },
-              {
-                "code": "ENGL 3323",
-                "title": "Technical Writing"
               },
               {
                 "code": "EDHS 3111",
@@ -33555,7 +33591,7 @@
       },
       "source_url": "https://catalog.okstate.edu/education-human-sciences/nutritional-sciences/human-nutrition-pre-medical-sciences-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence OK/2026-10-08-r2#69e850048f9fef74) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#01ac7c24d01fa545."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-08-r2#01ac7c24d01fa545) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/OK/2026-10-08-r2/evidence.json#01ac7c24d01fa545."
     },
     {
       "last_verified_at": "2026-10-08",

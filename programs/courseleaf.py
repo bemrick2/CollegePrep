@@ -186,7 +186,9 @@ def parse_grid(t):
         m = ONE.match(cells[0]) if cells and cells[0] else None
         # a decimal credit is kept as printed ('1.5', West Chester B.M. 2026-27 ensembles), never rounded or dropped
         hours = cells[-1] if len(cells) >= 2 and re.fullmatch(r'\d{1,2}(?:\.\d{1,2})?(\s*-\s*\d{1,2}(?:\.\d{1,2})?)?', cells[-1] or '') else None
-        if m:
+        if m and len(cells) >= 3 and cells[-1] and not hours:
+            cur['items'].append(' | '.join(nonempty))  # '.5', '3 or 4', '1 (0)' (EKU, UIC, Montana): kept as printed, never dropped
+        elif m:
             item = {'code': f'{m.group(1)} {m.group(2)}', 'title': cells[1] if len(cells) > 2 else ''}
             if hours: item['credits'] = int(hours) if hours.isdigit() else hours
             if milestones and len(cells) == 4 and cells[2]: item['milestone'] = cells[2]
@@ -200,7 +202,86 @@ def parse_grid(t):
             item = plan_item(cells, milestones)
             cur['items'].append(item if item is not None else ' | '.join(nonempty))
     t['_total_label'] = total_label[0]
+    for term in terms: term['items'] = choice_blocks(term['items'])
     return terms, total
+
+
+CHOICE_HEADER = re.compile(r'^(?:select|choose)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?(?:of|from)\s+the\s+following\s*:?$', re.I)
+COUNT_WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+
+
+def _option_row(x):
+    """A blank-credit course row that can be one option of a printed choice block: a course or alternatives read into
+    fields, or a course row kept as printed ('PHIL/DASC 357E | Ethics', 'GEOL 101& GEOL 102 | Geology', Texas A&M, Marshall)."""
+    if isinstance(x, dict):
+        return ('code' in x or 'any_of' in x) and not set(x) & {'credits', 'milestone', 'marker'}
+    parts = x.split(' | ')
+    return bool(OPTION_CODE.match(parts[0])) and not PLAN_CREDITS.match(parts[-1])
+
+
+OPTION_CODE = re.compile(r'^[A-Z][A-Z&]{1,7}(?:/[A-Z&]{1,8})*(?:\s[A-Z&]{1,5})?\s?\d{3,5}[A-Z]?(?:\s?(?:/|&|or)\s?.*\d{3,5}[A-Z]?)?$')
+
+
+def _credited(x):
+    """A row that prints its own credits, which ends a choice block."""
+    if isinstance(x, dict): return 'credits' in x
+    return bool(PLAN_CREDITS.match(x.split(' | ')[-1]))
+
+
+def choice_blocks(items):
+    """A printed choice block as one item. 'Select one of the following: | 3' followed by two or more course rows whose credit
+    cells are blank (EKU, LMU, Temple 2026-27) is {'choose': 1, 'text': header, 'credits': 3, 'options': [...]}: the options
+    are not each required. The options run to the next row that prints credits, or to the term's end, and every row in that
+    run must be a course row; otherwise (a text row such as 'GEP Humanities' among them) the block is not grouped, so it is
+    never cut short. A header that prints no credits or no count, options with their own credits, or fewer options than
+    the count plus one stay as printed rows."""
+    out, i = [], 0
+    while i < len(items):
+        it = items[i]
+        m = CHOICE_HEADER.match(it.get('text', '')) if isinstance(it, dict) and set(it) == {'text', 'credits'} else None
+        j = i + 1
+        while m and j < len(items) and not _credited(items[j]):
+            j += 1
+        run = items[i + 1:j]
+        n = (COUNT_WORDS.get(m.group(1).lower()) or int(m.group(1))) if m else None
+        if m and len(run) >= 2 and n < len(run) and all(_option_row(x) for x in run):
+            out.append({'choose': n, 'text': it['text'], 'credits': it['credits'], 'options': run}); i = j
+        else:
+            out.append(it); i += 1
+    return out
+
+
+YEAR_ORDER = {**{w: k for k, w in enumerate(('first year', 'second year', 'third year', 'fourth year', 'fifth year'), 1)},
+              **{w: k for k, w in enumerate(('freshman year', 'sophomore year', 'junior year', 'senior year'), 1)},
+              **{w: k for k, w in enumerate(('freshman', 'sophomore', 'junior', 'senior'), 1)},
+              **{f'year {k}': k for k in range(1, 6)}}
+
+
+GRID_CHANGE = re.compile(r'\b(in place of|instead of|replac\w*|substitut\w*|add(?:s|ed)?|also take|must take|will take|take[sn]?)\b[^.]{0,80}?\b[A-Z]{2,5}\s?\d{3}'
+                         r'|\b[A-Z]{2,5}\s?\d{3}\b[^.]{0,80}?\b(in place of|instead of|replaces?)\b', re.I)
+
+
+def grid_change_noted(page):
+    """A sentence printed between continued plan grids that changes the plan for this program ('Business Honors students take
+    BUSN 125 in place of BUSN 101', 'MIS majors add ISTM 250', Texas A&M 2026-27): the merged grids would not show it, so
+    the plan is held."""
+    lines = [l.strip() for l in page.text.splitlines() if l.strip()]
+    caps = [k for k, l in enumerate(lines) if l in ('Plan of Study Grid', 'Degree Map')]
+    if len(caps) < 2: return False
+    between = lines[caps[0] + 1:caps[-1]]
+    return any(GRID_CHANGE.search(l) for l in between if not l.startswith('|'))
+
+
+def continued_grids(parsed, headings):
+    """Several grids that print one plan: the same heading over each, and year headings that continue from grid to grid
+    ('First Year' | 'Second Year', 'Third Year', 'Fourth Year'), one year after another with none repeated or skipped."""
+    if len(parsed) < 2 or len(set(headings)) != 1 or not headings[0]: return False
+    seq = []
+    for terms, _ in parsed:
+        years = [YEAR_ORDER.get(t['label'].strip().lower()) for t in terms if not t['items'] and not t.get('credit_hours')]
+        if not years or None in years or not terms or terms[0]['items'] or terms[0].get('credit_hours'): return False
+        seq += years
+    return seq == list(range(seq[0], seq[0] + len(seq))) and seq[0] == 1
 
 
 def extract(inst, entry, page, year, year_line, have_program):
@@ -224,6 +305,15 @@ def extract(inst, entry, page, year, year_line, have_program):
                                [{'field': 'program_name', 'value': name, 'snippet': page.title[:200]},
                                 {'field': 'catalog_year', 'value': year, 'snippet': year_line[:200]}], entry, EXTRACTOR, {'program_key': pkey}))
     headings = [(t.get('heading') or '').strip() for t in gs]
+    if continued_grids(parsed, headings):
+        # Texas A&M prints one plan as two grids under the same heading ('First Year' / 'Second Year' ... 'Fourth Year'),
+        # each with its own printed total: one plan, its terms in printed order, each total kept as printed (never summed)
+        terms = [dict(t, term_index=k) for k, t in enumerate((t for ts, _ in parsed for t in ts), 1)]
+        totals = '; '.join(f"{g.get('_total_label') or 'Total Credits'} {tot} (as printed, grid {k} of {len(gs)})" for k, (g, (_, tot)) in enumerate(zip(gs, parsed), 1) if tot)
+        merged = {'heading': headings[0], 'caption': gs[0].get('caption'), '_total_label': None,
+                  '_unread_label': any(g.get('_unread_label') for g in gs), '_subtotal_spans': any(g.get('_subtotal_spans') for g in gs), '_rule_text': totals}
+        gs, parsed, headings = [merged], [(terms, None)], [headings[0]]
+        if grid_change_noted(page): merged['_grid_change_note'] = True
     # UO prints one 'Degree Map' per award under its own heading ('Bachelor of Science in Computer Science'): distinct
     # headings label the plans, so several grids are not ambiguous there.
     # a tab or section heading ('Semester Sequence', 'Plan Requirements', '2026-2027 Edition', 'ALL') does not name a plan
@@ -243,11 +333,13 @@ def extract(inst, entry, page, year, year_line, have_program):
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
               'terms': terms, 'source_section': (headings[i - 1] if labelled else single_label if single_label else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
+        if gs[i - 1].get('_rule_text'): rd['rule_text'] = gs[i - 1]['_rule_text']
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')
+        if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out
@@ -287,7 +379,13 @@ def _num(w):
 # One course code as printed: 'BIOL 101', 'IT222' (Purdue Global prints no space), 'ENGL 1302' / 'DANC 1100R' (TAMUSA, UVU:
 # four digits and a suffix letter), 'ENG/FILM 366' (WKU: one cross-listed course, kept as printed so the list is not cut).
 # A placeholder subject ('XXXX 1201', SHSU 2026-27 applied lessons) is not a course code.
-CODE = r'(?!X{3,}\b|X{3,}\d)[A-Z]{1,5}(?:/[A-Z]{1,5})*\s?\d{3,4}[A-Z]?'
+# UWM 2026-27 prints subjects of up to seven letters and of two words ('ARTHIST 101', 'BUS ADM 201', 'BIO SCI 150')
+# UW-Madison prints eight letters and '&' ('AGROECOL 101', 'F&W ECOL 248', 'I&C SCI 31'); a connective or other word printed in
+# capitals before a number is not a subject ('OR BIL 412', 'MINOR IN 300', 'GRADES 101')
+SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\s[A-Z])(?!(?:HOURS|GRADES|MINOR|TOTAL|LEVEL)\b)[A-Z][A-Z&]{0,7}'  # 'OR 541' / 'AT 310' are subjects; hyphenated subjects ('INTER-AG 155') are held by CODEISH, not read
+CODE = rf'(?!X{{3,}}\b|X{{3,}}\d){SUBJ}(?:\s[A-Z&]{{1,5}})?(?:/[A-Z&]{{1,8}})*\s?\d{{3,4}}[A-Z]?'
+# a row that starts like a course but is not one code (joined, cross-listed, ranged): held as complex, never dropped
+CODEISH = re.compile(r'^[A-Z][A-Z&]{0,9}(?:-[A-Z]{1,4})?[\s/]|^[A-Z][A-Z&]{1,9}\d')  # also 'COMPLITTHT 3120', 'E&ES215 & E&ES216'
 CODE_CELL = re.compile(rf'^{CODE}$')
 OR_ROW = re.compile(rf'^or\s+({CODE})$')
 # Rows that print more than one course in the code cell are held with a reason naming the shape (issue #95 recovery).
@@ -344,7 +442,7 @@ def course_list_groups(table):
                 cur['issues'].add('alternative_without_course')
             continue
         is_code = bool(CODE_CELL.match(first))
-        complex_code = not is_code and bool(re.match(r'^[A-Z]{1,5}[\s/]', first)) and bool(re.search(r'\d{3}', first)) and len(first) < 40
+        complex_code = not is_code and bool(CODEISH.match(first.replace('\u200b', ''))) and bool(re.search(r'\d{3}', first)) and len(first) < 40
         has_credits = len(cells) >= 2 and bool(CREDIT_CELL.match(cells[-1]))
         if SELECT.match(LEAD_IN.sub('', first)):
             close()
@@ -446,9 +544,10 @@ def _row(r):
     title = strip_marks((cells[1].get('text') or '').strip(), cells[1].get('sup_tail')) if len(cells) > 2 or (len(cells) == 2 and first.get('colspan', 1) == 1) else ''
     cls = set(r.get('classes') or []) | set(first.get('spans') or [])
     return {'text': text, 'title': title, 'credits': credits if CREDIT_CELL.match(credits) else '', 'indent': bool(first.get('indent')),
-            'inner': bool(first.get('inner_indent')) or '&' in text, 'header': bool(cls & {'areaheader', 'areasubheader'}),
+            # '&' outside the subject joins courses; 'F&W ECOL 448' is one course
+            'inner': bool(first.get('inner_indent')) or bool(re.search(r'\s&\s|\d.*&', text)), 'header': bool(cls & {'areaheader', 'areasubheader'}),
             'or': 'orclass' in cls or text.lower().startswith('or '), 'code': bool(CODE_CELL.match(text)),
-            'codeish': bool(re.match(r'^[A-Z]{1,5}[\s/]', text)) and bool(re.search(r'\d{3}', text)) and len(text) < 45}
+            'codeish': bool(CODEISH.match(text.replace('\u200b', ''))) and bool(re.search(r'\d{3}', text)) and len(text) < 90}
 
 
 def _course(rw):
@@ -583,6 +682,11 @@ def html_groups(table, program_awards=1, extra_issues=None):
 SUBSTITUTE = re.compile(r'substitut|replac|in lieu|waiv|exception|equivalent|or above|\(or\b|may count|proficiency|placement', re.I)
 MAIN_TABLE = re.compile(r'\b((major|degree|pre-major|program) requirements|curriculum|core)\b', re.I)
 PARALLEL = re.compile(r'^(.+?)\s*(\([^)]+\)\s*Major Requirements|Major\s*[-–]\s*.+)$', re.I)
+# a pick from this table: 'Complete one course from:', 'Choose one course from the following', 'Select One:'; never a degree total
+# ('requires a minimum of 120 total hours', 'must complete 40 courses in total')
+CONTEXT_PICK = re.compile(r'\b(select|choose|complete|take)\s+(one|two|three|four|five|six|[1-9])\s+(?:(?:course|class)(?:e?s)?\s+)?(?:of|from)\s*(?:the\s+following|the\s+list|this\s+list|:)'
+                          r'|^\s*(select|choose)\s+(one|two|three|four|five|six|[1-9])\s*:?\s*$', re.I | re.M)
+GER_BOILERPLATE = re.compile(r'body of knowledge as a context for specialization', re.I)  # UWM 2026-27 General Education Requirements
 TRACK_PROSE = re.compile(r'\b(choose one track|focus areas?|specializations?|concentrations?|tracks? from|one of the following (tracks|options|concentrations|areas))\b', re.I)
 NOT_REQUIREMENT_HEADING = re.compile(r'^(contact information|program educational objectives|double-counting policy|internships?|learning outcomes|'
                                      r'student learning outcomes|program learning outcomes|overview|admission|advising)$', re.I)
@@ -594,7 +698,8 @@ def substitution_codes(page_text):
     codes = set()
     for line in (page_text or '').split('\n'):
         if re.search(r'substitut|in lieu|waive|may be replaced|placement (exam|test)|proficiency (exam|test)', line, re.I):
-            found = {re.sub(r'\s+', ' ', m) for m in re.findall(r'\b[A-Z]{2,5}[\s\u00a0]\d{3}[A-Z]?\b', line)}
+            # 'in lieu of PHYSICS 125A' (UCI), 'STAT 1772 will substitute for SOC SCI 2020' (UNI)
+            found = {re.sub(r'\s+', ' ', m) for m in re.findall(r'\b[A-Z][A-Z&]{1,7}(?:[\s\u00a0][A-Z&]{1,5})?[\s\u00a0]\d{3,4}[A-Z]?\b', line)}
             codes |= found or {'*footnote*'}  # a note naming no course ('Placement test may waive the course requirement.')
     return codes
 
@@ -629,7 +734,11 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
         extra = set()
         if idx > 0 and not MAIN_TABLE.search(heading): extra.add('secondary_table')
         if parallel and PARALLEL.match(heading): extra.add('parallel_tables')
-        if CONTEXT_CHOICE.search(t.get('context') or '') or TRACK_PROSE.search(t.get('context') or ''): tracks_from_here = True
+        # UWM's general education paragraph ('... a broad body of knowledge as a context for specialization') is not a choice
+        ctx = GER_BOILERPLATE.sub('', t.get('context') or '')
+        if CONTEXT_CHOICE.search(ctx) or TRACK_PROSE.search(ctx): tracks_from_here = True
+        # 'Complete one course from:' / 'Select One:' / 'a minimum of ...' printed above the table: its rows are choices
+        if CONTEXT_PICK.search(ctx): extra.add('context_says_choose')
         if tracks_from_here: extra.add('context_says_choose_among_tables')
         # the nearest heading can be the department's GPA policy printed above the table (TAMUSA 'Department withdrawal')
         label = '' if NOT_REQUIREMENT_HEADING.match(heading) or re.search(r'\b(probation|withdrawal)\b', heading, re.I) else heading

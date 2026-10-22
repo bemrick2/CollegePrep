@@ -421,6 +421,19 @@ class CourseleafPlanTests(unittest.TestCase):
         out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', same, [], []), '2026-2027', '', True)
                if c['domain'] == 'degree_requirements']
         self.assertTrue(all(c['issues'] == ['multiple_plan_grids'] for c in out))
+        g2 = {'caption': 'Degree Map', 'heading': 'Degree Map', 'rows': [['Second Year'], ['Fall'], ['CS 313', 'Data Structures', '4'],
+                                                                        ['', 'Credits', '4'], ['', 'Total Credits', '4']]}
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', [self.grid('Degree Map'), g2], [], []),
+                                     '2026-2027', '', True) if c['domain'] == 'degree_requirements']  # one plan printed in two grids (Texas A&M)
+        self.assertEqual([(c['record']['requirement_key'], c['issues']) for c in out], [('sample-plan', [])])
+        rd = out[0]['record']['rule_details']
+        self.assertEqual([(t['term_index'], t['label']) for t in rd['terms']], [(1, 'First Year'), (2, 'Fall'), (3, 'Second Year'), (4, 'Fall')])
+        self.assertEqual(rd['rule_text'], 'Total Credits 180 (as printed, grid 1 of 2); Total Credits 4 (as printed, grid 2 of 2)')
+        txt = ('Computer Science BA/BS\nPlan of Study Grid\n| First Year\nHonors students take CS 211 in place of CS 210.\nPlan of Study Grid\n'
+               '| Second Year')
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page(txt, 'Computer Science BA/BS', [self.grid('Degree Map'), g2], [], []),
+                                     '2026-2027', '', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual([c['issues'] for c in out], [['grid_change_noted']])
         # headings alike for their first 80 characters (LMU 2026-27 math-placement plans) still give distinct keys and ids
         h = 'Model 4-Year Plan\u2013Bachelor of Business Administration\u2013Finance Major Curriculum\u2013Math placement MATH '
         alike = [self.grid(h + '101'), self.grid(h + '110')]
@@ -639,6 +652,71 @@ class CourseleafPlanTests(unittest.TestCase):
             out = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g(h) for h in heads], [], []), '2026-2027', '', True)
             self.assertEqual([c['issues'] for c in out], [['multiple_plan_grids'], ['multiple_plan_grids']], heads)
 
+    def test_printed_choice_block_is_one_item(self):  # EKU, LMU, Temple 2026-27: 'Select one of the following: | 3' and blank-credit options
+        from programs import courseleaf as CL
+        rows = [['Fall', 'Hours'], ['ENG 101', 'Comp', '3'], ['Select one of the following:', '3'], ['ANTH 376', 'Quant', ''], ['BIOL 350', 'Biostat', ''],
+                ['MATH 101', 'Algebra', '3'], ['Choose two courses from the following:', '6'], ['ART 101', 'A', ''], ['ART 102', 'B', ''], ['ART 103', 'C', ''],
+                ['', 'Hours', '15']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual(items[1], {'choose': 1, 'text': 'Select one of the following:', 'credits': 3,
+                                    'options': [{'code': 'ANTH 376', 'title': 'Quant'}, {'code': 'BIOL 350', 'title': 'Biostat'}]})
+        self.assertEqual(items[2], {'code': 'MATH 101', 'title': 'Algebra', 'credits': 3})  # a row with credits ends the block
+        self.assertEqual((items[3]['choose'], len(items[3]['options'])), (2, 3))
+        # not grouped: a header without credits, options with their own credits, one option, a count not below the options
+        for hdr, opts in ((['Select one of the following:', ''], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']]),
+                          (['Select one of the following:', '3'], [['ANTH 376', 'Q', '3'], ['BIOL 350', 'B', '3']]),
+                          (['Select one of the following:', '3'], [['ANTH 376', 'Q', '']]),
+                          (['Select two of the following:', '6'], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']]),
+                          (['Select one elective:', '3'], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']])):
+            items = CL.parse_grid({'rows': [['Fall', 'Hours'], hdr, *opts, ['', 'Hours', '3']]})[0][0]['items']
+            self.assertFalse(any(isinstance(i, dict) and 'choose' in i for i in items), hdr)
+            self.assertEqual(len(items), 1 + len(opts))
+        # options printed as cross-listed or paired codes are options too; a text row among them leaves the block flat,
+        # never cut short (#plan-choices review: Texas A&M 'ANSC 326/FSTC 326', NCSU 'GEP Humanities')
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 326/FSTC 326', 'B', ''],
+                ['GEOL 101& GEOL 102', 'C', ''], ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual(len(items[0]['options']), 3)
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 102', 'B', ''], ['GEP Humanities', ''],
+                ['MATH 101', 'Algebra', '3'], ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']
+        self.assertEqual((len(items), any(isinstance(i, dict) and 'choose' in i for i in items)), (5, False))
+        rows = [['Fall', 'Hours'], ['Select one of the following:', '3'], ['ANSC 101', 'A', ''], ['ANSC 102', 'B', ''], ['Elective', 'Any', '3'],
+                ['', 'Hours', '6']]
+        items = CL.parse_grid({'rows': rows})[0][0]['items']  # a printed row with credits, kept as a string, ends the block
+        self.assertEqual((len(items[0]['options']), items[1]), (2, 'Elective | Any | 3'))
+
+    def test_verify_reads_choice_options(self):
+        from programs import verify as V
+        c = {'candidate_id': 'x', 'domain': 'degree_requirements', 'extractor': 'courseleaf_plan/v3', 'evidence': [], 'source': {'url': 'u'},
+             'record': {'program_key': 'p', 'requirement_key': 'sample-plan', 'rule_details': {'terms': [{'label': 'Fall', 'items': [
+                 {'choose': 1, 'text': 'Select one of the following:', 'credits': 3, 'options': [{'code': 'ANTH 376', 'title': 'Quant'}, {'code': 'BIOL 350', 'title': 'Biostat'}]}]}]}}}
+        text = 'Fall\nSelect one of the following: 3\nANTH 376 Quant\nBIOL 350 Biostat\nUndergraduate Catalog 2026-2027'
+        self.assertEqual(V.check_candidate(c, text), [])
+        self.assertIn('course BIOL 350 not in source', V.check_candidate(c, text.replace('BIOL 350', 'BIOL 351')))
+
+    def test_plan_printed_as_continued_grids(self):  # Texas A&M Biology BA, JSU, Temple 2026-27: one plan in two grids
+        from programs import courseleaf as CL
+        g1 = {'heading': 'Biology - BA', 'rows': [['First Year'], ['Fall', 'Semester Credit Hours'], ['BIOL 111', 'Intro', '4'], ['', 'Semester Credit Hours', '4'],
+                                                  ['Second Year'], ['Fall', 'Semester Credit Hours'], ['BIOL 213', 'Genetics', '4'], ['', 'Semester Credit Hours', '4'],
+                                                  ['', 'Total Semester Credit Hours', '8']]}
+        g2 = {'heading': 'Biology - BA', 'rows': [['Third Year'], ['Fall', 'Semester Credit Hours'], ['BIOL 351', 'Micro', '4'], ['', 'Semester Credit Hours', '4'],
+                                                  ['', 'Total Semester Credit Hours', '4']]}
+        p = [CL.parse_grid(dict(g1)), CL.parse_grid(dict(g2))]
+        self.assertTrue(CL.continued_grids(p, ['Biology - BA', 'Biology - BA']))
+        self.assertFalse(CL.continued_grids(p, ['Biology - BA', 'Zoology - BS']))
+        self.assertFalse(CL.continued_grids(p[::-1], ['Biology - BA', 'Biology - BA']))  # years must run from the first, in order
+        self.assertFalse(CL.continued_grids([p[0], p[0]], ['Biology - BA', 'Biology - BA']))  # a repeated year is another plan
+        self.assertFalse(CL.continued_grids([p[0], p[0]], ['', '']))
+        p3 = CL.parse_grid(dict(g2, rows=[['Fourth Year']] + g2['rows'][1:]))  # 'Third Year' | 'Fourth Year': no first year printed
+        self.assertFalse(CL.continued_grids([p[1], p3], ['Biology - BA', 'Biology - BA']))
+        # a note between the grids that changes the plan holds it (Texas A&M Business, Temple)
+        note = 'Plan of Study Grid\n| First Year\nFinance: Students intending to major in Finance must add FINC 210 to freshman year.\nPlan of Study Grid\n| Third Year'
+        self.assertTrue(CL.grid_change_noted(type('P', (), {'text': note})()))
+        plain = 'Plan of Study Grid\n| First Year\nUpper-Level Program (Year 3 & 4)\nPlan of Study Grid\n| Third Year'
+        self.assertFalse(CL.grid_change_noted(type('P', (), {'text': plain})()))
+        self.assertTrue(CL.grid_change_noted(type('P', (), {'text': plain.replace('Upper-Level', 'Option to take ARCH 2123 instead of ARCH 2121. Upper-Level')})()))
+
     def test_decimal_course_credits_kept_as_printed(self):  # West Chester B.M. 2026-27: '1.5', '0.5'
         from programs import courseleaf as CL
         t = {'rows': [['Semester One', 'Credits'], ['MUS 101', 'Theory I', '1.5'], ['MUE 100', 'Ensemble', '0.5'], ['MUS 102', 'Lab', '1-1.5'],
@@ -646,6 +724,12 @@ class CourseleafPlanTests(unittest.TestCase):
         terms, _ = CL.parse_grid(t)
         self.assertEqual([i.get('credits') for i in terms[0]['items']], ['1.5', '0.5', '1-1.5', 3])
         self.assertEqual(terms[0]['credit_hours'], '6.5')
+        # a credit cell that is not a plain number keeps the row as printed (#229 recovery review: EKU, UIC, Montana)
+        t = {'rows': [['Semester One', 'Credits'], ['CED 200', 'Clinical II', '.5'], ['HIST 419', 'Civics', '3 or 4'], ['THTR 103', 'House', '1 (0)'],
+                      ['ENG 101', 'Composition', '3']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual(terms[0]['items'][:3], ['CED 200 | Clinical II | .5', 'HIST 419 | Civics | 3 or 4', 'THTR 103 | House | 1 (0)'])
+        self.assertEqual(terms[0]['items'][3], {'code': 'ENG 101', 'title': 'Composition', 'credits': 3})
 
     def test_course_titled_total_and_unknown_term_header(self):  # #238 review: UNO HRM, EKU EHS; UMT 'Autumn | Hours'
         from programs import courseleaf as CL
@@ -986,6 +1070,10 @@ class CourseListGroupTests(unittest.TestCase):
                           ('Major Courses', 'all_required', 1, None, None, []), ('Major Courses', 'choose_credits', 2, None, 9, [])])
         self.assertEqual(g[0][1]['courses'][1], {'any_of': [{'code': 'MATH 241', 'title': 'Calculus I', 'credits': 4}, {'code': 'MATH 251Z', 'title': 'Differential Calculus'}]})
 
+    def test_row_led_by_a_zero_width_space_is_held(self):  # UW-Madison prints U+200B inside joined code cells
+        g = self.groups([['BIOL 101', 'A', '3'], ['\u200bAGROECOL 370 & GENETICS 528', 'B', '3']])
+        self.assertIn('complex_course_row', g[0][1]['issues'])
+
     def test_unrepresentable_rows_are_held(self):
         g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
                          ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
@@ -1178,6 +1266,46 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         tracks = self.table([('c', 'J 101', 'E', '4')], heading='Major Requirements', context='Students choose one track from the following.')
         out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [tracks], '2026-2027', 'media', 1)
         self.assertIn('context_says_choose_among_tables', out[0]['issues'])
+        # UWM 2026-27: the general education paragraph is not a choice among the tables after it
+        ger = self.table([('c', 'ENGL 102', 'Writing', '3')], heading='General Education Requirements (GER)',
+                         context='They provide a broad body of knowledge as a context for specialization.')
+        major = self.table([('c', 'ARTH 101', 'Ancient Art', '3')], heading='Major Requirements')
+        out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [major, ger, self.table([('c', 'ART 101', 'Drawing', '3')], heading='Major Requirements')], '2026-2027', 'art', 1)
+        self.assertEqual([sorted(c['issues']) for c in out], [[], ['secondary_table'], []])
+        for code, ok in (('AGROECOL 101', True), ('F&W ECOL 248', True), ('I&C SCI 31', False), ('CURRINS 301', True), ('BUS ADM 201', True),
+                         ('OR BIL 412', False), ('MINOR IN 300', False), ('GRADES 101', False), ('HOURS AT 300', False), ('AND CHEM 101', False)):
+            self.assertEqual(bool(CL.CODE_CELL.match(code)), ok, code)
+        # a long-subject row that is not one code is held, never dropped (UWM 'CURRINS/EXCEDUC 612', UNI 'ENGLISH 3772/5772')
+        g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', 'CURRINS/EXCEDUC 612', 'Cross-listed', '3')], heading='Major Requirements'))
+        self.assertEqual([c['code'] for c in g[0][1]['courses']], ['CURRINS 301', 'CURRINS/EXCEDUC 612'])  # one cross-listed course, as printed
+        for row in ('ENGLISH 3772/5772', 'PHYSICS 111A- 111B', 'AGROECOL\u200b/ENTOM 101'):
+            g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertIn('complex_course_row', g[0][1]['issues'], row)
+        for text in ('Complete one course from:', 'Choose one course from the following:', 'Select One:', 'A student needs to take one of the following courses'):
+            self.assertTrue(CL.CONTEXT_PICK.search(text), text)
+        for text in ('A baccalaureate degree requires a minimum of 120 total hours to graduate.', 'Students must complete 40 courses in total.',
+                     'Students must earn a minimum of C- in each course.', 'Majors must take three courses: CAS 140, CAS 141, CAS 142.', 'Majors must take 120 credits.'):
+            self.assertFalse(CL.CONTEXT_PICK.search(text), text)
+        for code in ('AT 310', 'OR 541', 'F&W ECOL 448'):
+            self.assertTrue(CL.CODE_CELL.match(code), code)
+        g = CL.html_groups(self.table([('c', 'F&W ECOL 448', 'Ecology', '3'), ('c', 'AT 310', 'Athletic Training', '3')], heading='Major Requirements'))
+        self.assertEqual(([c['code'] for c in g[0][1]['courses']], g[0][1]['issues']), (['F&W ECOL 448', 'AT 310'], set()))
+        g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', 'PLANTSCI/\u200bPL PATH 261 & PL PATH/\u200bPLANTSCI 262', 'Joined', '3')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # a long joined row is held, never dropped
+        for row in ('E&ES215 & E&ES216', 'COMPLITTHT 3120'):  # Wesleyan, WUSTL: held, never dropped
+            g = CL.html_groups(self.table([('c', 'BIOL 101', 'A', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertTrue(g[0][1]['issues'], row)
+        g = CL.html_groups(self.table([('c', 'INTER-AG 155', 'Seminar', '1'), ('c', 'AN SCI 135', 'Seminar', '1')], heading='Major Requirements'))
+        self.assertTrue(g[0][1]['issues'])  # UW-Madison: a hyphenated subject is not read yet, so the group is held, never shortened
+        ctx = self.table([('c', 'ARTS 101', 'Drawing', '3'), ('c', 'ARTS 102', 'Painting', '3')], heading='Major Requirements', context='Complete one course from:')
+        self.assertIn('context_says_choose', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [ctx], '2026-2027', 'x', 1)[0]['issues'])
+        self.assertEqual(CL.substitution_codes('STAT 1772 will substitute for SOC SCI 2020.\nCourses in lieu of PHYSICS 125A'), {'STAT 1772', 'SOC SCI 2020', 'PHYSICS 125A'})
+        uwm = self.table([('c', 'ARTHIST 101', 'Ancient Art', '3'), ('c', 'BUS ADM 201', 'Business', '3')], heading='Major Requirements')
+        self.assertEqual([c['code'] for c in CL.html_groups(uwm)[0][1]['courses']], ['ARTHIST 101', 'BUS ADM 201'])
+        from programs import verify as V
+        self.assertTrue(V.code_in('ARTHIST\xa0101 Ancient Art', 'ARTHIST 101'))
+        spec = self.table([('c', 'X 101', 'A', '3')], heading='Major Requirements', context='Students must choose one specialization.')
+        self.assertIn('context_says_choose_among_tables', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [spec], '2026-2027', 'x', 1)[0]['issues'])
 
     def test_credits_overview_is_not_the_first_table(self):  # TAMUSA 2026-27 (issue #95 recovery)
         from programs import courseleaf as CL
@@ -2736,6 +2864,9 @@ class KeptRecordTests(unittest.TestCase):
                 self.assertIsNone(P.kept_record(c('g', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}))  # a new review may update it
                 self.assertIsNone(P.kept_record(c('f', 'fixed'), {'program_key': 'fixed'}, {'k': 'x'}, {'f'}, {'replaces_promoted': 'award from school page'}))
                 self.assertIn('correction', P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_promoted': 'x'}))
+                self.assertIsNone(P.kept_record(c('a', 'policy'), {'program_key': 'policy'}, {'k': 'x'}, set(), {'replaces_correction': 'reader fixed'}))
+                self.assertIsNone(P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set(), {'replaces_correction': 'reader fixed'}))
+                self.assertIn('correction', P.kept_record(c('b', 'listed'), {'program_key': 'listed'}, {'k': 'x'}, set(), {'replaces_correction': ''}))
                 self.assertIsNone(P.kept_record(c('n', 'new'), {'program_key': 'new'}, {'k': 'x'}, set()))
             finally:
                 P.ROOT, PP.ROOT = old, oldp
@@ -2775,6 +2906,18 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 arch = json.loads((ev / 'evidence.json').read_text())
                 self.assertEqual(arch['c2']['decision']['reason'], 'award found')
                 self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c2~superseded-')], ['first review'])
+                # #229 recovery: a reviewed re-extraction replaces a corrected record only with 'replaces_correction'
+                c3 = {**c, 'record': {**c['record'], 'institution_key': 'k', 'academic_year': '2026-27', 'last_verified_at': '2026-10-22'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c3) + '\n')
+                arch['c1'] = {'decision': {'candidate_id': 'c1', 'reason': 'earlier'}}; (ev / 'evidence.json').write_text(json.dumps(arch))
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c1', 'reason': 'rechecked', 'replaces_correction': 'reader now reads the total'}]}))
+                P.promote(dec, log=logs.append)
+                recs = json.loads((f / '2026-27.json').read_text())['records']; self.assertEqual(len(recs), 2); rec = recs[0]
+                self.assertEqual(rec['verification_status'], 'verified')
+                self.assertNotIn('verification_correction_reason', rec)
+                self.assertIn('Re-verified after the correction on file (kept in supabase/corrections.json): reader now reads the total', rec['notes'])
+                arch = json.loads((ev / 'evidence.json').read_text())
+                self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c1~superseded-')], ['earlier'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 
