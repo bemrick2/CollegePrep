@@ -173,9 +173,7 @@ def grid_footnotes(page):
         while j < stop:
             m, first = mark(lines[j])
             if m is None or hard(lines[j]): break
-            if m.isdigit():
-                if int(m) <= last_num: break
-                last_num = int(m)
+            if m.isdigit(): last_num = int(m)  # a number not above the last one ends the notes (checked where the last note is found)
             body = [first] if first else []
             j += 1
             while j < stop and not hard(lines[j]) and mark(lines[j])[0] is None:

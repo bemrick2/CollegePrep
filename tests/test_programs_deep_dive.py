@@ -2966,6 +2966,8 @@ class PlanFootnoteTests(unittest.TestCase):
         self.assertEqual(CL.grid_footnotes(self.page(last))[0][1]['text'], 'Choose one group as follows: / Group A: ANTH 301 / Group B: ANTH 302')
         sym = txt.replace('1\nMATH 147 accepted in lieu of MATH 142.\n2\n', '+\nMATH 147 accepted in lieu of MATH 142.\n^\n')
         self.assertEqual([x['marker'] for x in CL.grid_footnotes(self.page(sym))[0]], ['+', '^'])  # Oregon State, Tulane
+        row = txt.replace('Select from ANTH 200-499.\nTotal Program Hours 120', 'Select one of the following:\n| ANTH 301 | 3')
+        self.assertEqual(CL.grid_footnotes(self.page(row))[0][-1]['text'], 'Select one of the following:')  # a table row is never a note's text
         inline = txt.replace('Total Program Hours 120', '**This document serves as a guide.\nTotal Program Hours 120')
         self.assertEqual(CL.grid_footnotes(self.page(inline))[0][-1], {'marker': '**', 'text': 'This document serves as a guide.'})  # Slippery Rock
         two = txt.replace('Total Program Hours 120', 'Plan of Study Grid\n| Third Year\n| | Total Hours | 4\n3\nTwo courses must be writing intensive.')
@@ -2977,6 +2979,10 @@ class PlanFootnoteTests(unittest.TestCase):
         self.assertEqual((out[0]['record']['rule_details']['footnotes'][0]['marker'], out[0]['issues']), ('1', []))
         out = [c for c in CL.extract({'institution_key': 'k'}, e, self.page('Biology - BA'), '2026-2027', '', True) if c['domain'] == 'degree_requirements']
         self.assertEqual(out[0]['issues'], ['footnotes_not_read'])
+        g2 = {'caption': 'Plan of Study Grid', 'heading': 'Biology - BA', 'rows': [['Second Year'], ['Fall', 'Hours'], ['BIOL 213', 'Genetics', '4'], ['', 'Total Hours', '4']]}
+        p2 = self.page('Biology - BA'); p2.tables.append(g2)  # one plan in two continued grids; footnotes cannot be paired: held
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, p2, '2026-2027', '', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual([c['issues'] for c in out], [['footnotes_not_read']])
         from programs import verify as V
         c = [c for c in CL.extract({'institution_key': 'k'}, e, self.page(txt), '2026-2027', '', True) if c['domain'] == 'degree_requirements'][0]
         self.assertNotIn('footnote 1 not verbatim', V.check_candidate(c, txt + '\nUndergraduate Catalog 2026-2027'))

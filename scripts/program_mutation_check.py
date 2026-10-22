@@ -7,7 +7,7 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
-    ('programs/courseleaf.py', "                if int(m) <= last_num: break", "                pass"),
+    ('programs/courseleaf.py', "(mark(lines[j])[0].isdigit() and int(mark(lines[j])[0]) <= last_num)", "False"),
     ('programs/courseleaf.py', "                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)", "                    keep.append(l)"),
     ('programs/courseleaf.py', "                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)", "                    if False: keep.append(l)"),
     ('programs/courseleaf.py', "FOOTNOTE_MARK = re.compile(r'^(\\d{1,2}|[a-zA-Z]|[*†‡§#+^]{1,3})$')", "FOOTNOTE_MARK = re.compile(r'^(\\d{1,2}|[*†‡§#]+)$')"),
