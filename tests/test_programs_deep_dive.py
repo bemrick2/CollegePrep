@@ -487,9 +487,41 @@ class CourseleafPlanTests(unittest.TestCase):
         k = {'rows': [['', 'Semester One', 'Credits'], ['', 'UC 10001', 'FLASHES 101', '1'], ['', '', 'Credit Hours', '1'], ['', '', 'Minimum Total Credit Hours:', '121']]}
         terms, total = CL.parse_grid(k)
         self.assertEqual((terms[0]['items'], terms[0]['credit_hours'], total), ([{'code': 'UC 10001', 'title': 'FLASHES 101', 'credits': 1}], '1', '121'))
-        u = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32']]}
-        CL.parse_grid(u)
+        u = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32'],
+                      ['Spring', 'Semester Hours'], ['ENGR 200', 'Design', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '30-32']]}
+        terms, total = CL.parse_grid(u)
         self.assertTrue(u.get('_unread_label'))  # a per-year credit row is not placed by guess
+        self.assertIsNone(total)  # the last year's row is not the plan total
+        v = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '107-128']]}
+        terms, total = CL.parse_grid(v)  # LMU: printed once, as the grid's last row: the plan total
+        self.assertEqual((total, v['_total_label'], v.get('_unread_label'), terms[0]['items']), ('107-128', 'Minimum Semester Hours', None, [{'code': 'ENGR 100', 'title': 'Intro', 'credits': 3}]))
+
+    def test_subsessions_and_spanning_subtotals(self):  # SLU, Marshall, YSU 2026-27 (#229 downgrades)
+        from programs import courseleaf as CL
+        t = {'rows': [['Year One'], ['Spring', 'Credits'], ['Spring 1', ''], ['CORE Requirement', '3'], ['Spring 2', ''], ['CORE Requirement', '3'], ['', 'Credits', '6'],
+                      ['Summer'], ['General Elective', '3'], ['', 'Credits', '3']]}
+        terms, _ = CL.parse_grid(t)
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in terms],
+                         [('Year One', None, 0), ('Spring', '6', 0), ('Spring 1', None, 1), ('Spring 2', None, 1), ('Summer', '3', 1)])
+        self.assertFalse(t.get('_subtotal_spans'))
+        m = {'rows': [['Second Semester', 'Credit Hours'], ['MI 301', 'A', '17'], ['Summer', ''], ['Statistics', '3'], ['', 'Credit Hours', '20']]}
+        terms, _ = CL.parse_grid(m)
+        self.assertTrue(m.get('_subtotal_spans'))
+        self.assertEqual([x.get('credit_hours') for x in terms], [None, None])  # never placed on one of the two terms
+        own = {'rows': [['Spring', 'Credits'], ['Full Spring Term', '3'], ['Spring 2', ''], ['CORE Requirement', '3'], ['', 'Credits', '6']]}
+        CL.parse_grid(own); self.assertTrue(own.get('_subtotal_spans'))  # the parent has its own rows: not a parent of sessions
+        each = {'rows': [['Fall', 'Credits'], ['Fall 1', ''], ['A 101', 'A', '3'], ['', 'Credits', '3'], ['Fall 2', ''], ['B 101', 'B', '6'], ['', 'Credits', '6']]}
+        CL.parse_grid(each); self.assertTrue(each.get('_subtotal_spans'))  # sessions with their own subtotals are not placed by guess
+        from pipeline import text as T
+        [c] = CL.extract({'institution_key': 'k'}, {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'},
+                         T.Page('Medical Imaging, B.S.', 'Medical Imaging, B.S.', [dict(m, caption='Plan of Study Grid')], [], []), '2026-2027', '', True)
+        self.assertIn('subtotal_spans_terms', c['issues'])
+        after = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'Minimum Semester Hours', '107-128'], ['* See advisor']]}
+        self.assertIsNone(CL.parse_grid(after)[1])  # not the grid's last row: not read as the total
+        lab = {'rows': [['Fall', 'Semester Hours'], ['ENGR 100', 'Intro', '3'], ['', 'Semester Hours', '3'], ['', 'minimum semester hours', 'TBD']]}
+        self.assertIsNone(CL.parse_grid(lab)[1])
+        y = {'rows': [['Year 1'], ['Fall', 'S.H.'], ['BUS 1500', 'Foundations of Business', '3'], ['', 'Semester Hours', '3']]}
+        self.assertEqual([(x['label'], x.get('credit_hours'), len(x['items'])) for x in CL.parse_grid(y)[0]], [('Year 1', None, 0), ('Fall', '3', 1)])
 
     def test_track_plans_labelled_by_printed_heading(self):  # several grids under distinct headings
         from programs import courseleaf as CL
@@ -501,6 +533,28 @@ class CourseleafPlanTests(unittest.TestCase):
                          [('physical-geography', 'Physical Geography', ['plan_heading_label']), ('human-geography', 'Human Geography', ['plan_heading_label'])])
         same = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g('Plan'), g('Plan')], [], []), '2026-2027', '', True)
         self.assertEqual([c['issues'] for c in same], [['multiple_plan_grids'], ['multiple_plan_grids']])
+
+    def test_single_plan_labelled_by_printed_track(self):  # CU Boulder 2026-27 Geography BS, Classics BA
+        from programs import courseleaf as CL
+        from pipeline import text as T
+        g = {'caption': 'Plan of Study Grid', 'heading': 'Recommended Four-Year Plan of Study', 'rows': [['Fall', 'Credits'], ['GEOG 1001', 'Intro', '3']]}
+        e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        def plan(text):
+            [c] = CL.extract({'institution_key': 'k'}, e, T.Page(text, 'Geography - Bachelor of Science (BS)', [g], [], []), '2026-2027', '', True)
+            return c['record']['rule_details']['source_section'], c['issues']
+        self.assertEqual(plan('Recommended Four-Year Plan of Study\nDepending on which track students follow.\nPhysical Geography Concentration Plan\nPlan of Study Grid\n| x'),
+                         ('Physical Geography Concentration Plan', ['plan_heading_label']))
+        self.assertEqual(plan('Recommended Four-Year Plan of Study\nStudents fulfill Gen Ed. The below plan is for the Greek and/or Latin Language and Literature track of the major. For other plans, see the department.\nPlan of Study Grid'),
+                         ('The below plan is for the Greek and/or Latin Language and Literature track of the major.', ['plan_heading_label']))
+        for text in ('Recommended Four-Year Plan of Study\n| Concentration Track | 3\nPlan of Study Grid', 'Recommended Four-Year Plan of Study\nChoose a Concentration:\nPlan of Study Grid',
+                     'Recommended Four-Year Plan of Study\n' + 'Concentration ' * 12 + '\nPlan of Study Grid'):
+            self.assertEqual(plan(text)[1], [], text)  # a table row, a lead-in ending ':' and a long line are not labels
+        g2 = dict(g, heading='Physical Geography Concentration Plan')
+        [c] = CL.extract({'institution_key': 'k'}, e, T.Page('Physical Geography Concentration Plan\nPlan of Study Grid', 'Geography - Bachelor of Science (BS)', [g2], [], []), '2026-2027', '', True)
+        self.assertEqual(c['issues'], [])  # the line is the grid's own heading, not a label above it
+        for text in ('Recommended Four-Year Plan of Study\nPlan of Study Grid', 'Recommended Four-Year Plan of Study\n(120 credits minimum)\nPlan of Study Grid',
+                     'Recommended Four-Year Plan of Study\nStudents choose a concentration.\nPlan of Study Grid'):
+            self.assertEqual(plan(text), ('Sample Plan: Plan of Study Grid', []), text)
 
     def test_printed_term_labels_and_multiword_subjects(self):  # #229 re-extraction
         from programs import courseleaf as CL, verify as V
@@ -538,6 +592,35 @@ class CourseleafPlanTests(unittest.TestCase):
         bad = json.loads(json.dumps(c)); items = bad['record']['rule_details']['terms'][0]['items']
         items[0]['any_of'][1]['code'] = 'SPAD 285'; items[1]['marker'] = '#'
         self.assertEqual(sorted(check_candidate(bad, page)), ['alternatives SPAD 281 / SPAD 285 not printed as stored', 'item marker not printed'])
+
+    def test_shared_plan_keys_and_per_area_counts(self):  # #249 review: SHSU concentrations, UNL ACE rows
+        from programs import extract as X2
+        mk = lambda url, rk='roadmap': {'domain': 'degree_requirements', 'institution_key': 'k', 'source': {'url': url}, 'issues': [],
+                                        'record': {'program_key': 'bs-engineering-technology', 'requirement_key': rk, 'requirement_kind': 'program_plan'}}
+        cands = [dict(mk('u/a'), candidate_id='1'), dict(mk('u/b'), candidate_id='2'), dict(mk('u/c', 'roadmap-2'), candidate_id='3')]
+        out = X2.distinct_candidates(cands)
+        self.assertEqual([c['issues'] for c in out], [['plan_key_shared_by_pages'], ['plan_key_shared_by_pages'], []])
+
+    def test_review_followups_v3(self):  # second independent review of #241
+        from programs import courseleaf as CL, verify as V
+        from pipeline import text as T
+        self.assertIsNone(CL.plan_item(['X 101or X 102', 'Intro (or Honors Intro)', '3'], False))  # a '(or' in the title cell
+        self.assertFalse(V.marker_printed('| Important! | ASL\xa019201 | Elementary ASL I | 4', '!', 'ASL 19201'))
+        page = '| MATH\xa0101\n\nor MATH\xa01025\n| Calculus\n\nor Honors Calculus\n| 4'
+        self.assertFalse(V.alternatives_printed(page, [{'code': 'MATH 101', 'title': 'Calculus'}, {'code': 'MATH 102', 'title': 'Honors Calculus'}]))
+        self.assertFalse(V.alternatives_printed(page, [{'code': 'MATH 101'}, {'code': 'MATH 102'}]))
+        self.assertTrue(V.alternatives_printed(page, [{'code': 'MATH 101', 'title': 'Calculus'}, {'code': 'MATH 1025', 'title': 'Honors Calculus'}]))
+        other = page + '\n| ENGL\xa0101\n\nor ENGL\xa0102\n| Writing\n\nor Honors Writing\n| 3'
+        self.assertFalse(V.alternatives_printed(other, [{'code': 'ENGL 101', 'title': 'Calculus'}, {'code': 'ENGL 102', 'title': 'Honors Calculus'}]))
+        self.assertTrue(CL.TERM.match('Spring III'))
+        q = {'rows': [['Fall', 'Credits'], ['OT 101', 'Intro', '3'], ['DOCTORAL YEAR 2', ''], ['OT 801', 'Practice', '3']]}
+        CL.parse_grid(q); self.assertTrue(q.get('_unread_label'))
+        r = {'rows': [['Fall', 'Credits'], ['OT 101', 'Intro', '3'], ['Apply to the major in Year 2!', '']]}
+        CL.parse_grid(r); self.assertFalse(r.get('_unread_label'))
+        g = lambda h: {'caption': 'Plan of Study Grid', 'heading': h, 'rows': [['Fall', 'Credits'], ['GEOG 101', 'Intro', '3']]}
+        e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        out = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g('School of Engineering'), g('Physical Geography')], [], []), '2026-2027', '', True)
+        self.assertEqual([c['issues'] for c in out], [['multiple_plan_grids'], ['multiple_plan_grids']])
 
     def test_review_findings_v3(self):  # independent review of #241
         from programs import courseleaf as CL
@@ -935,6 +1018,15 @@ class CourseListHtmlTests(unittest.TestCase):
 
 class CourseListLayoutGroupTests(unittest.TestCase):
     TR = '<tr class="{c}"><td{span}>{a}</td>{rest}</tr>'
+
+    def test_per_area_counts_and_rule_hours(self):  # #249 review: UNL 2026-27
+        from programs import courseleaf as CL
+        g = CL.html_groups(self.table([('rule', 'Select one course each from ACE outcomes 5, 7, and 9', '', '9'), ('opt', 'ANTH 110', 'A'), ('opt', 'HIST 100', 'B')]))
+        self.assertIn('count_per_area', g[0][1]['issues'])
+        g = CL.html_groups(self.table([('rule', 'Select 48 hours of Electives/Minor', '', '45'), ('opt', 'ANTH 110', 'A')]))
+        self.assertIn('rule_credits_differ_from_hours', g[0][1]['issues'])
+        g = CL.html_groups(self.table([('rule', 'Select 6 hours of the following', '', '6'), ('opt', 'ANTH 110', 'A'), ('opt', 'HIST 100', 'B')]))
+        self.assertFalse({'count_per_area', 'rule_credits_differ_from_hours'} & g[0][1]['issues'])
 
     def table(self, rows, heading='Major Requirements', context=''):
         from programs.courselist_html import course_lists
@@ -1390,6 +1482,91 @@ class RoadmapGridTests(unittest.TestCase):  # UAF 2026-27 roadmaps (#151 reader 
         self.assertIn('roadmap grid document not in run', check_candidate(out[0], 'page text', lambda sha: ''))
 
 
+class PositionalPlanGridTests(unittest.TestCase):  # SHSU 2026-27 '#plangrid' documents: no column headers on the cells
+    @staticmethod
+    def cell(text, cls=None, span=1, sups=None, indent=False):
+        c = {'text': text, 'classes': [cls] if cls else [], 'colspan': span, 'indent': indent, 'spans': []}
+        if cls in ('codecol', 'hourscol'): c['header'] = 'undefined' + cls
+        if sups: c['sups'] = [sups]; c['sup_tail'] = sups
+        return c
+
+    def grid(self, sum_fall='7', total='Total Hours: 10'):
+        C = self.cell
+        row = lambda cls, *cells: {'classes': cls, 'cells': list(cells)}
+        return {'heading': 'Bachelor of Science, Major in Biology', 'rows': [
+            row(['plangridyear', 'firstrow'], C('First Year', span=4)),
+            row(['plangridterm'], C('Fall'), C('Hours', 'hourscol'), C('Spring'), C('Hours', 'hourscol')),
+            row(['even'], C('BIOL 24031', 'codecol', sups='1'), C('4', 'hourscol'), C('ENGL 1302', 'codecol'), C('3', 'hourscol')),
+            row(['odd'], C('', span=2), C('Component Area II', 'codecol'), C('0', 'hourscol')),
+            row(['even'], C('MATH 1314', 'codecol'), C('3', 'hourscol'), C('', span=2)),
+            row(['plangridsum'], C(''), C(sum_fall, 'hourscol'), C(''), C('3', 'hourscol')),
+            row(['plangridtotal', 'lastrow'], C(total, span=4))]}
+
+    def test_columns_by_position_footnotes_and_sums(self):
+        from programs import courseleaf as CL
+        terms, total, issues = CL.parse_plangrid(self.grid(), {'1': 'Satisfies Core Curriculum requirement for Component Area III.'})
+        self.assertEqual([(t['label'], t.get('credit_hours'), t['items']) for t in terms],
+                         [('First Year Fall', '7', [{'code': 'BIOL 2403', 'credits': 4, 'footnotes': ['1']}, {'code': 'MATH 1314', 'credits': 3}]),
+                          ('First Year Spring', '3', [{'code': 'ENGL 1302', 'credits': 3}, {'text': 'Component Area II', 'credits': 0}])])
+        self.assertEqual((total, issues), ('10', set()))
+
+    def test_printed_sums_hold_the_plan(self):
+        from programs import courseleaf as CL
+        self.assertIn('term_hours_differ', CL.parse_plangrid(self.grid(sum_fall='8', total='Total Hours: 11'), {'1': 'x'})[2])
+        self.assertIn('total_hours_differ', CL.parse_plangrid(self.grid(total='Total Hours: 12'), {'1': 'x'})[2])
+        self.assertIn('footnote_not_defined', CL.parse_plangrid(self.grid(), {})[2])
+        g = self.grid(); g['rows'][2]['cells'][1]['classes'] = []  # an hours cell without its column class
+        self.assertIn('grid_cell_without_column', CL.parse_plangrid(g, {'1': 'x'})[2])
+
+    def test_footnotes_printed_after_the_total(self):
+        from programs import courseleaf as CL
+        text = '| Total Hours: 120\n\n1\n\nSatisfies Core Curriculum requirement.\n\n2\n\nSee listing below.\n\nCourse List\n\n3\n'
+        self.assertEqual(CL.page_footnotes(text), {'1': 'Satisfies Core Curriculum requirement.', '2': 'See listing below.'})
+        self.assertEqual(CL.page_footnotes('no total here\n1\nx'), {})
+
+    def test_pr249_review_holds(self):  # independent review of #249
+        from programs import courseleaf as CL
+        # an item with no hours in a summed term; the total is checked even when one term is summed
+        g = self.grid(); g['rows'][4]['cells'][1]['text'] = ''
+        self.assertIn('term_item_without_hours', CL.parse_plangrid(g, {'1': 'x'})[2])
+        self.assertEqual(CL._sum_issues([{'credit_hours': '3', 'items': [{'credits': 3}]}], '4'), {'total_hours_differ'})
+        # two-digit footnotes; a number printed twice or a definition that may continue is not read
+        g = self.grid(); g['rows'][2]['cells'][0].update(text='BIOL 240312', sups=['12'], sup_tail='12')
+        terms, _, issues = CL.parse_plangrid(g, {'12': 'Twelve.'})
+        self.assertEqual((terms[0]['items'][0], issues), ({'code': 'BIOL 2403', 'credits': 4, 'footnotes': ['12']}, set()))
+        text = '| Total Hours: 120\n1\nOne.\n9\nNine.\n9\nNine again.\nCourse List'
+        self.assertEqual(CL.page_footnotes(text), {'1': 'One.', '9': None})
+        self.assertEqual(CL.page_footnotes('| Total Hours: 120\n1\nOne\ncontinued here'), {'1': None})
+        self.assertEqual(CL.page_footnotes('| Total Hours: 120\n1\nOne.\n7\nSeven.\nNotes\nStudents must ...'), {'1': 'One.', '7': 'Seven.'})  # SHSU
+        self.assertIn('footnote_definition_unclear', CL.parse_plangrid(self.grid(), {'1': None})[2])
+        # the printed total keeps its label; the layout document's own footnote list comes first
+        e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, {'grids': [self.grid()]}, '2026-2027', 'bio', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertEqual((c['record']['rule_details']['rule_text'], c['record']['rule_details']['footnotes'], c['issues']), ('Total Hours 10 (as printed)', {'1': 'One.'}, []))
+        doc = {'grids': [self.grid()], 'footnotes': [{'rows': [{'cells': [{'text': '1 -- From the document.'}]}]}]}
+        [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, doc, '2026-2027', 'bio', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertEqual(c['record']['rule_details']['footnotes'], {'1': 'From the document.'})
+        # a route's grid (Missouri dual degree) is held; Missouri codes with underscores are codes
+        g = self.grid(); g['heading'] = 'Semester Plan - Dual Degree Electrical Engineering and Computer Engineering'
+        [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, {'grids': [g]}, '2026-2027', 'bsee', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertIn('plan_heading_label', c['issues'])
+        self.assertTrue(CL.GRID_CODE.match('AG_S_TCH 1020') and CL.GRID_CODE.match('ENGLSH 1000'))
+        g = self.grid(); g['heading'] = 'Physical Geography Concentration'
+        [c] = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, {'grids': [g]}, '2026-2027', 'geog', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertIn('plan_heading_label', c['issues'])  # an unlabelled grid for one concentration
+        two = {'grids': [dict(self.grid(), heading='Semester Plan - Electrical Engineering'), dict(self.grid(), heading='Semester Plan - Dual Degree Electrical and Computer Engineering')]}
+        out = CL.plangrid_candidates({'institution_key': 'k'}, e, {'url': 'u#plangrid'}, two, '2026-2027', 'bsee', '| Total Hours: 10\n1\nOne.\nCourse List')
+        self.assertEqual([c['issues'] for c in out], [[], ['plan_heading_label']])  # labelled: the dual degree plan is still held
+
+    def test_header_cells_keep_the_header_reading(self):  # UAF grids name their column in each cell's header
+        from programs import courseleaf as CL
+        g = self.grid()
+        for r in g['rows']:
+            for c in r['cells']: c['header'] = 'nothing'
+        g['rows'][2]['cells'][0]['header'] = 'year0_Term1_codecol'
+        self.assertEqual(CL.parse_plangrid(g, {'1': 'x'})[0], [])  # header mode: no term row ids, so no terms; never positional
+
+
 class FootnoteMarkerTests(unittest.TestCase):  # issue #129: TAMUSA 'Strategic Management 3', UF 'Principles of Journalism 1'
     def test_trailing_superscripts_are_markers_not_title(self):
         from programs.courselist_html import course_lists
@@ -1681,6 +1858,17 @@ class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed
         self.assertEqual([(c['extractor'], c['record']['program_key']) for c in out],
                          [('degree_offered/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science'),
                           ('courseleaf_plantext/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science')])
+        # the page's Course Lists are read with their layout, keyed to its one program record
+        url = 'https://catalog.unl.edu/undergraduate/arts-sciences/anthropology/'
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_courselists': {url: ({'url': url + '#courselist'}, ['tables'])}}
+        from unittest import mock
+        with mock.patch('programs.courseleaf.html_candidates', return_value=['group']) as hc:
+            out = X._program_page_candidates(tgt, {'institution_key': 'ipeds-181464'}, {'url': url, 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}, pg, '2026-27')
+        self.assertEqual((out[-1], hc.call_args[0][3:6]), ('group', (['tables'], '2026-2027', 'anthropology-bachelor-of-arts-or-bachelor-of-science')))
+        two = [dict(o, record=dict(o['record'], program_key=k)) for o in out[:1] for k in ('a-ba', 'a-bs')]
+        with mock.patch('programs.extract.degree_offered_identity', return_value=two), mock.patch('programs.courseleaf.html_candidates', return_value=['group']) as hc:
+            X._program_page_candidates(tgt, {'institution_key': 'ipeds-181464'}, {'url': url, 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}, pg, '2026-27')
+        self.assertFalse(hc.called)  # two program records: the Course Lists are not attributed by guess
 
 
 class NamedHeaderYearTests(unittest.TestCase):  # SHSU 2026-27: 'Undergraduate Catalog' / '2026-2027'; print menu '2025-2026 Catalog'

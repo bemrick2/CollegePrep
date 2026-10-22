@@ -37,11 +37,15 @@ def lined(text):
 
 
 def alternatives_printed(text, alts):
-    """The alternatives' codes, and their titles, are printed together in the order stored, one per line."""
+    """The alternatives' codes are printed as one whole cell, one per line in the order stored, and their titles as the
+    next cell of the same row ('| DSMR 464' / 'or DSMR 496' / '| Merchandising Analytics' / 'or Senior Problem ...')."""
     t = lined(text)
-    codes = '\nor '.join(a.get('code', '') for a in alts)
+    codes = '\nor '.join(re.escape(a.get('code', '')) for a in alts)
     titles = [a['title'] for a in alts if a.get('title')]
-    return codes in t and (not titles or '\nor '.join(titles) in t)
+    cell_end = r'[ \t]*(?=\||\n|$)'
+    if not titles:
+        return re.search(rf'(?m)^\|?[ \t]*{codes}{cell_end}', t) is not None
+    return re.search(rf'(?m)^\|?[ \t]*{codes}[ \t]*\n?\|[ \t]*' + '\nor '.join(re.escape(x) for x in titles) + cell_end, t) is not None
 
 
 def marker_printed(text, marker, code):
