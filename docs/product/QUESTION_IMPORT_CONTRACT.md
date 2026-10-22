@@ -4,7 +4,7 @@ This is for the separate question-bank workstream. It defines how original quest
 
 **The one rule:** an imported question is a **draft**. It is never shown to a student until all three gates have passed:
 1. the human editorial stages 3–8 (`CONTENT_PLAN.md` §5, recorded in the editorial ledger, #207);
-2. the rights gate (CR-24);
+2. the rights gate (CR-24, Research's #245): an allowed license, attribution where needed, and a recorded origin; a generated item is served only with a `human:` review;
 3. the review approval (`approve_practice_question`, CR-21).
 
 Generating a question, by a person or an AI, confers nothing. Passing the validator below only means the item is well-formed enough to start stage 3.
@@ -51,10 +51,10 @@ At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()`
 | `expected_time_seconds` | yes | Integer, 10–600 | same |
 | `primary_skill_key` | yes | Must exist in the skill taxonomy | `practice_question_skills` |
 | `strategies` | optional | `{strategy_key, role, is_fastest, explanation}` | `practice_question_strategies` |
-| `origin` | yes | `human_original`, `ai_drafted`, `adapted_public_domain`, `adapted_cc_by`, `licensed` | ledger |
+| `origin` | yes | `human_original`, `ai_drafted`, `adapted_public_domain`, `adapted_cc_by`, `licensed` | `origin` (CR-24): `ai_drafted` → `generated`, `licensed` → `licensed`, the rest → `authored`. A `generated` item is served only after a `human:` review |
 | `author` | yes | A named person, or `ai:<model>` for an AI draft. Every later reviewer must differ from the author | ledger `author` |
-| `license` | yes | One of CR-24's set: `original-owned`, `us-federal-pd`, `public-domain`, `cc-by-4.0`, `licensed:<vendor>` | `license` |
-| `source_attribution` | when the license needs it | Required for `public-domain`, `us-federal-pd`, `cc-by-4.0`, `licensed:*`. Official ACT or College Board material is refused without written permission | `source_attribution` |
+| `license` | yes | One of CR-24's set (#245): `original-owned`, `us-federal-pd`, `public-domain`, `cc-by-4.0`, `cc-by-sa-4.0`, `licensed:<vendor>` | `license` |
+| `source_attribution` | when the license needs it | Required for `cc-by-4.0`, `cc-by-sa-4.0` and `licensed:*` (the server's rule), and here also for `public-domain` and `us-federal-pd` so stage 3 can check the source. Official ACT or College Board material is refused without written permission | `source_attribution` |
 | `source_url` | optional | Where an adapted source came from | ledger |
 | `requested_pool` | yes | `practice` or `assessment`. A request only: the content lead assigns the final pool before any student sees the item | none (the content lead sets `pool`, CR-23, in review) |
 | `status` | no | Absent or `draft`. Anything else is refused | `status` (always `draft` on import) |

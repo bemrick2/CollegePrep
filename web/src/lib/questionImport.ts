@@ -9,9 +9,20 @@ import type { FixtureQuestion } from './data/demo/fixtures'
 
 export const IMPORT_CONTRACT = 'question_import/v1'
 
-/** CR-24's proposed set. `licensed:<vendor>` needs a signed license on file before stage 3 can pass. */
-export const ALLOWED_LICENSES = /^(original-owned|us-federal-pd|public-domain|cc-by-4\.0|licensed:[a-z0-9][a-z0-9-]{1,60})$/
-const NEEDS_ATTRIBUTION = /^(public-domain|cc-by-4\.0|licensed:|us-federal-pd)/
+/** CR-24's set (Research, #245). `licensed:<vendor>` needs a signed license on file before stage 3 can pass. */
+export const ALLOWED_LICENSES = /^(original-owned|us-federal-pd|public-domain|cc-by-4\.0|cc-by-sa-4\.0|licensed:[a-z0-9][a-z0-9-]{0,62})$/
+/** Stricter than the server (which needs attribution for CC and licensed items only): an adapted public-domain
+ *  source must be named too, so stage 3 can check it. */
+const NEEDS_ATTRIBUTION = /^(public-domain|cc-by-4\.0|cc-by-sa-4\.0|licensed:|us-federal-pd)/
+
+/** The database's `practice_questions.origin` (CR-24) for each import origin. A generated item needs a human review. */
+export const DB_ORIGIN: Record<Origin, 'authored' | 'generated' | 'licensed'> = {
+  human_original: 'authored',
+  ai_drafted: 'generated',
+  adapted_public_domain: 'authored',
+  adapted_cc_by: 'authored',
+  licensed: 'licensed',
+}
 
 export type Origin = 'human_original' | 'ai_drafted' | 'adapted_public_domain' | 'adapted_cc_by' | 'licensed'
 
@@ -42,7 +53,7 @@ const ORIGIN_LICENSES: Record<Origin, RegExp> = {
   human_original: /^original-owned$/,
   ai_drafted: /^original-owned$/,
   adapted_public_domain: /^(public-domain|us-federal-pd)$/,
-  adapted_cc_by: /^cc-by-4\.0$/,
+  adapted_cc_by: /^cc-by(-sa)?-4\.0$/,
   licensed: /^licensed:/,
 }
 /** Official ACT or College Board material: names, products and domains, anywhere in the item or its source. */
@@ -128,7 +139,7 @@ export function validateImport(items: unknown[], skills: { skill_key: string; ex
     if (q.origin !== 'ai_drafted' && /^ai:/i.test(q.author ?? '')) bad('origin', 'an "ai:" author means origin ai_drafted')
     if (ORIGINS.includes(q.origin as Origin) && ALLOWED_LICENSES.test(q.license ?? '') && !ORIGIN_LICENSES[q.origin as Origin].test(q.license!))
       bad('license', `${q.license} doesn't fit origin ${q.origin}`)
-    if (!ALLOWED_LICENSES.test(q.license ?? '')) bad('license', 'one of original-owned, us-federal-pd, public-domain, cc-by-4.0, licensed:<vendor>')
+    if (!ALLOWED_LICENSES.test(q.license ?? '')) bad('license', 'one of original-owned, us-federal-pd, public-domain, cc-by-4.0, cc-by-sa-4.0, licensed:<vendor>')
     else if (NEEDS_ATTRIBUTION.test(q.license!) && !(typeof q.source_attribution === 'string' && q.source_attribution.trim()))
       bad('source_attribution', `required for ${q.license}`)
     if (OFFICIAL.test([q.source_attribution, q.source_url, q.stem, q.passage].filter(Boolean).join(' ')))
