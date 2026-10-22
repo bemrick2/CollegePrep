@@ -1315,6 +1315,57 @@ class RoadmapGridTests(unittest.TestCase):  # UAF 2026-27 roadmaps (#151 reader 
         self.assertIn('roadmap grid document not in run', check_candidate(out[0], 'page text', lambda sha: ''))
 
 
+class PositionalPlanGridTests(unittest.TestCase):  # SHSU 2026-27 '#plangrid' documents: no column headers on the cells
+    @staticmethod
+    def cell(text, cls=None, span=1, sups=None, indent=False):
+        c = {'text': text, 'classes': [cls] if cls else [], 'colspan': span, 'indent': indent, 'spans': []}
+        if cls in ('codecol', 'hourscol'): c['header'] = 'undefined' + cls
+        if sups: c['sups'] = [sups]; c['sup_tail'] = sups
+        return c
+
+    def grid(self, sum_fall='7', total='Total Hours: 10'):
+        C = self.cell
+        row = lambda cls, *cells: {'classes': cls, 'cells': list(cells)}
+        return {'heading': 'Bachelor of Science, Major in Biology', 'rows': [
+            row(['plangridyear', 'firstrow'], C('First Year', span=4)),
+            row(['plangridterm'], C('Fall'), C('Hours', 'hourscol'), C('Spring'), C('Hours', 'hourscol')),
+            row(['even'], C('BIOL 24031', 'codecol', sups='1'), C('4', 'hourscol'), C('ENGL 1302', 'codecol'), C('3', 'hourscol')),
+            row(['odd'], C('', span=2), C('Component Area II', 'codecol'), C('0', 'hourscol')),
+            row(['even'], C('MATH 1314', 'codecol'), C('3', 'hourscol'), C('', span=2)),
+            row(['plangridsum'], C(''), C(sum_fall, 'hourscol'), C(''), C('3', 'hourscol')),
+            row(['plangridtotal', 'lastrow'], C(total, span=4))]}
+
+    def test_columns_by_position_footnotes_and_sums(self):
+        from programs import courseleaf as CL
+        terms, total, issues = CL.parse_plangrid(self.grid(), {'1': 'Satisfies Core Curriculum requirement for Component Area III.'})
+        self.assertEqual([(t['label'], t.get('credit_hours'), t['items']) for t in terms],
+                         [('First Year Fall', '7', [{'code': 'BIOL 2403', 'credits': 4, 'footnotes': ['1']}, {'code': 'MATH 1314', 'credits': 3}]),
+                          ('First Year Spring', '3', [{'code': 'ENGL 1302', 'credits': 3}, {'text': 'Component Area II', 'credits': 0}])])
+        self.assertEqual((total, issues), ('10', set()))
+
+    def test_printed_sums_hold_the_plan(self):
+        from programs import courseleaf as CL
+        self.assertIn('term_hours_differ', CL.parse_plangrid(self.grid(sum_fall='8', total='Total Hours: 11'), {'1': 'x'})[2])
+        self.assertIn('total_hours_differ', CL.parse_plangrid(self.grid(total='Total Hours: 12'), {'1': 'x'})[2])
+        self.assertIn('footnote_not_defined', CL.parse_plangrid(self.grid(), {})[2])
+        g = self.grid(); g['rows'][2]['cells'][1]['classes'] = []  # an hours cell without its column class
+        self.assertIn('grid_cell_without_column', CL.parse_plangrid(g, {'1': 'x'})[2])
+
+    def test_footnotes_printed_after_the_total(self):
+        from programs import courseleaf as CL
+        text = '| Total Hours: 120\n\n1\n\nSatisfies Core Curriculum requirement.\n\n2\n\nSee listing below.\n\nCourse List\n\n3\n'
+        self.assertEqual(CL.page_footnotes(text), {'1': 'Satisfies Core Curriculum requirement.', '2': 'See listing below.'})
+        self.assertEqual(CL.page_footnotes('no total here\n1\nx'), {})
+
+    def test_header_cells_keep_the_header_reading(self):  # UAF grids name their column in each cell's header
+        from programs import courseleaf as CL
+        g = self.grid()
+        for r in g['rows']:
+            for c in r['cells']: c['header'] = 'nothing'
+        g['rows'][2]['cells'][0]['header'] = 'year0_Term1_codecol'
+        self.assertEqual(CL.parse_plangrid(g, {'1': 'x'})[0], [])  # header mode: no term row ids, so no terms; never positional
+
+
 class FootnoteMarkerTests(unittest.TestCase):  # issue #129: TAMUSA 'Strategic Management 3', UF 'Principles of Journalism 1'
     def test_trailing_superscripts_are_markers_not_title(self):
         from programs.courselist_html import course_lists

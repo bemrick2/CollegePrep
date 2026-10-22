@@ -65,6 +65,17 @@ MUTS = [
     ('programs/courseleaf.py', "|^(first|second|third|fourth|fifth|sixth|seventh|eighth)\\s+semester$|^semester\\s+(one|two|three|four|five|six|seven|eight)$'\n", "'\n"),
     ('programs/courseleaf.py', "                  r'|^(1st|2nd|3rd|[4-8]th)\\s+semester$', re.I)", "                  r'', re.I)"),
     # courseleaf_plan/v3 item fields, labels and checks (#229, #230)
+    # positional plan grids (SHSU 2026-27 '#plangrid' documents)
+    ('programs/courseleaf.py', "                cols = [_Col(year, pos if kinds[0] == 'codecol' else pos - 1, kinds[0])] if len(kinds) == 1 else []", "                cols = [_Col(year, pos, kinds[0])] if len(kinds) == 1 else []"),
+    ('programs/courseleaf.py', "        pos += int(c.get('colspan') or 1)", "        pos += 1"),
+    ('programs/courseleaf.py', "    if positional:  # columns found by position are checked against the printed sums", "    if False:  # columns found by position are checked against the printed sums"),
+    ('programs/courseleaf.py', "        if not ((lo, hi) == ch or (ch[0] == ch[1] and lo <= ch[0] <= hi)): out.add('term_hours_differ')", "        pass"),
+    ('programs/courseleaf.py', "        if not ((lo, hi) == tot or (tot[0] == tot[1] and lo <= tot[0] <= hi)): out.add('total_hours_differ')", "        pass"),
+    ('programs/courseleaf.py', "    positional = not any(GRID_COL.match(h)", "    positional = True or not any(GRID_COL.match(h)"),
+    ('programs/courseleaf.py', "    while i + 1 < len(lines) and re.fullmatch(r'\\d{1,2}', lines[i]):", "    while i + 1 < len(lines):"),
+    ('programs/courseleaf.py', "    defs = {} if doc.get('footnotes') else page_footnotes(page_text)", "    defs = {}"),
+    ('programs/courseleaf.py', "F?\\d{3,4}[A-Z]?)$')  # 'MATH F251X' (UAF), 'BIOL 2403'", "F?\\d{3}[A-Z]?)$')  # 'MATH F251X' (UAF), 'BIOL 2403'"),
+    ('programs/courseleaf.py', "            if m: total = m.group(2); t['_total_label'] = m.group(1)", "            if m: total = m.group(2)"),
     ('programs/courseleaf.py', "\\s\\d{3,5}[A-Z]?'  # five digits", "\\s\\d{3,4}[A-Z]?'  # five digits"),
     ('programs/courseleaf.py', "        if cells[1] and len(titles) != len(codes): return None", "        if False: return None"),
     ('programs/courseleaf.py', "    if last and not PLAN_CREDITS.match(last): return None", "    pass"),

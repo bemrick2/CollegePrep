@@ -383,7 +383,7 @@ def _program_page_candidates(target, inst, entry, page, today_year):
         # no plan through courseleaf_plan/v1, so one grid is never read twice
         if have and pg and not any(c['record'].get('requirement_kind') == 'program_plan' for c in out):
             prog = next(c['record'] for c in out if c['domain'] == 'academic_programs')
-            out += courseleaf.plangrid_candidates(inst, entry, pg[0], pg[1], year, prog['program_key'])
+            out += courseleaf.plangrid_candidates(inst, entry, pg[0], pg[1], year, prog['program_key'], page.text)
     return out
 
 
