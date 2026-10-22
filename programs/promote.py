@@ -29,7 +29,7 @@ from pathlib import Path
 from backend.catalog import ROOT
 from backend.store import natural_key
 from pipeline.promote import status_for, _upsert, _file_for
-from .extract import THEC_PAGE
+from .extract import THEC_PAGE, MULTI_AWARD_NAME
 from .match import split_catalog_name
 
 FIELDS = ('admission_type', 'internal_transfer')
@@ -82,8 +82,11 @@ def program_keymap(approvals, cands, folders):
         for r in (old or {}).get('records', []):
             # a page that prints several degrees (department_section/v1) is the URL of each; a record already on file
             # under its own key is never mapped onto a sibling's key
+            # nor is a degree split from a page titled for several awards ('Biology (BA, BS)', UT Dallas) mapped onto that
+            # page's combined record: each printed degree is its own program
             same_url = (r.get('program_url') == c['record'].get('program_url') and c['record']['program_key'] not in on_file_keys
-                        and c['extractor'] != 'department_section/v1')
+                        and c['extractor'] != 'department_section/v1'
+                        and not (c['extractor'] == 'edition_program/v1' and MULTI_AWARD_NAME.match(r.get('program_name', ''))))
             # A state-inventory record (THEC) for the same major and award becomes this catalog record: one program, the
             # catalog's stronger evidence, the inventory's CIP kept (exact name + award match only, programs.match).
             same_inventory_program = (r.get('program_url') == THEC_PAGE and c['record'].get('program_url') != THEC_PAGE

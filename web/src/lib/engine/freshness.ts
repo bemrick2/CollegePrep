@@ -1,5 +1,6 @@
 import type { AttemptRecord, BenchmarkSummary, ExamFamily } from '../data/types'
-import { MINI_PER_SECTION } from './benchmark'
+import type { PoolStatus } from '../data/source'
+import { MINI_PER_SECTION, PER_SECTION } from './benchmark'
 
 /**
  * Fresh questions, repeats and the reserved assessment pool, per student (CR-23, #218 B1).
@@ -61,6 +62,8 @@ export interface SectionContent {
 
 export interface ContentStatus {
   exam: ExamFamily
+  /** False when the source hides reserved items and couldn't give their counts: reserved figures are then unknown. */
+  reserveKnown: boolean
   sections: SectionContent[]
   freshForPractice: number
   /** Every section's practice is review only. */
@@ -87,23 +90,54 @@ export function reservedIds(exam: ExamFamily, pool: Q[], perSection: Readonly<Re
   return held
 }
 
-export function contentStatus(exam: ExamFamily, pool: Q[], seen: Set<string>): ContentStatus {
+/** The reserved pool as counts (what the server's assessment_pool_status returns), from questions the source can see. */
+export function poolStatusOf(exam: ExamFamily, pool: Q[], seen: Set<string>): PoolStatus[] {
   const reserved = reservedIds(exam, pool)
-  const sections = [...new Set(pool.filter((q) => q.exam_family === exam).map((q) => q.section))].map((section) => {
-    const qs = pool.filter((q) => q.exam_family === exam && q.section === section)
-    const seenN = qs.filter((q) => seen.has(q.id)).length
-    const res = qs.filter((q) => reserved.has(q.id))
-    const resUnseen = res.filter((q) => !seen.has(q.id)).length
-    const practiceUnseen = qs.filter((q) => !reserved.has(q.id) && !seen.has(q.id)).length
-    return { section, total: qs.length, seen: seenN, unseen: qs.length - seenN, reserved: res.length, reservedUnseen: resUnseen, heldForCheck: res.length, freshForPractice: practiceUnseen }
+  const by = new Map<string, PoolStatus>()
+  for (const q of pool)
+    if (q.exam_family === exam && reserved.has(q.id)) {
+      const x = by.get(q.section) ?? { section: q.section, reserved: 0, unseen: 0 }
+      x.reserved++
+      if (!seen.has(q.id)) x.unseen++
+      by.set(q.section, x)
+    }
+  return [...by.values()]
+}
+
+/**
+ * `counts`: the reserved pool as the server counts it (assessment_pool_status). Pass it when the source hides reserved
+ * content (live); null means the server couldn't say, so reserved figures are unknown. Omit it when `pool` holds every
+ * question (demo, tests).
+ */
+export function contentStatus(exam: ExamFamily, pool: Q[], seen: Set<string>, counts?: PoolStatus[] | null): ContentStatus {
+  const reserved = reservedIds(exam, pool)
+  const known = counts !== null
+  const res = counts ?? (counts === undefined ? poolStatusOf(exam, pool, seen) : [])
+  const mine = pool.filter((q) => q.exam_family === exam)
+  const names = [...new Set([...mine.map((q) => q.section), ...res.map((x) => x.section)])]
+  const sections = names.map((section) => {
+    const practice = mine.filter((q) => q.section === section && !reserved.has(q.id))
+    const r = res.find((x) => x.section === section) ?? { reserved: 0, unseen: 0 }
+    const practiceSeen = practice.filter((q) => seen.has(q.id)).length
+    return {
+      section,
+      total: practice.length + r.reserved,
+      seen: practiceSeen + (r.reserved - r.unseen),
+      unseen: practice.length - practiceSeen + r.unseen,
+      reserved: r.reserved,
+      reservedUnseen: r.unseen,
+      heldForCheck: r.reserved,
+      freshForPractice: practice.length - practiceSeen,
+    }
   })
   return {
     exam,
+    reserveKnown: known,
     sections,
     freshForPractice: sections.reduce((n, s) => n + s.freshForPractice, 0),
     practiceAllReview: sections.length > 0 && sections.every((s) => s.freshForPractice === 0),
     reviewOnlySections: sections.filter((s) => s.freshForPractice === 0).map((s) => s.section),
-    checkShortSections: sections.filter((s) => s.reservedUnseen < (MINI_PER_SECTION[exam][s.section] ?? 0)).map((s) => s.section),
+    checkShortSections: known ? sections.filter((s) => s.reservedUnseen < (MINI_PER_SECTION[exam][s.section] ?? 0)).map((s) => s.section) : [],
   }
 }
 
@@ -151,15 +185,34 @@ export interface CheckSectionPlan {
 
 /** What a check can be, per section, from the reserved pool alone (rules 1–5 above). */
 export function checkPlan(exam: ExamFamily, wantedPerSection: Record<string, number>, pool: Q[], seen: Set<string>): CheckSectionPlan[] {
-  const reserved = checkQuestions(exam, pool)
+  return checkPlanFromCounts(wantedPerSection, poolStatusOf(exam, pool, seen))
+}
+
+/** The same plan from counts only (the server hides reserved content until a check opens). */
+export function checkPlanFromCounts(wantedPerSection: Record<string, number>, counts: PoolStatus[]): CheckSectionPlan[] {
   return Object.entries(wantedPerSection).map(([section, wanted]) => {
-    const qs = reserved.filter((q) => q.section === section)
-    const unseenN = qs.filter((q) => !seen.has(q.id)).length
-    const count = Math.min(wanted, qs.length)
-    const unseen = Math.min(count, unseenN)
+    const c = counts.find((x) => x.section === section) ?? { reserved: 0, unseen: 0 }
+    const count = Math.min(wanted, c.reserved)
+    const unseen = Math.min(count, c.unseen)
     const repeats = count - unseen
     return { section, wanted, count, unseen, repeats, status: count === 0 ? 'not_measured' : repeats > 0 ? 'with_repeats' : 'fresh', shortened: count > 0 && count < wanted }
   })
+}
+
+/**
+ * The next question an open check shows in a section, from the check's own reserved items (the server's
+ * benchmark_questions): unseen first, nearest the target difficulty, then repeats. Never anything else.
+ */
+export function pickCheckItem<T extends { question: Q; seen_before: boolean }>(items: T[], section: string, target: number, used: Set<string>): T | null {
+  const open = items.filter((i) => i.question.section === section && !used.has(i.question.id))
+  const nearest = (xs: T[]) =>
+    xs.reduce<T | null>((best, x) => {
+      if (!best) return x
+      const d = Math.abs((x.question.difficulty ?? 3) - target)
+      const bd = Math.abs((best.question.difficulty ?? 3) - target)
+      return d < bd || (d === bd && x.question.id < best.question.id) ? x : best
+    }, null)
+  return nearest(open.filter((i) => !i.seen_before)) ?? nearest(open)
 }
 
 export const seenSet = (attempts: Pick<AttemptRecord, 'question_id'>[]) => new Set(attempts.map((a) => a.question_id))
@@ -185,4 +238,11 @@ export function benchmarkRepeats(b: BenchmarkSummary, history: Pick<AttemptRecor
     if (before) out.set(a.section, (out.get(a.section) ?? 0) + 1)
   }
   return out
+}
+
+/** A check's size from the reserved pool's counts: per section the check's length or the reserve, whichever is smaller.
+ *  Minutes are an estimate from `secondsPerQuestion` (1.3x for students new to the format, as planBenchmark). */
+export function checkSize(exam: ExamFamily, kind: keyof (typeof PER_SECTION)['act'], counts: PoolStatus[], secondsPerQuestion = 60): { questions: number; minutes: number } {
+  const questions = Object.entries(PER_SECTION[exam][kind]).reduce((n, [section, want]) => n + Math.min(want, counts.find((c) => c.section === section)?.reserved ?? 0), 0)
+  return { questions, minutes: Math.round((questions * secondsPerQuestion * 1.3) / 60) }
 }

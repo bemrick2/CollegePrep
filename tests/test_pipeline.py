@@ -2007,3 +2007,14 @@ class CatalogNameTests(unittest.TestCase):
         self.assertEqual(name('Program: Biology, B.S. - Middle Tennessee State University - Acalog ACMS'), 'Biology, B.S.')
         self.assertEqual(name('Accounting, BBA - 2026-2027 Catalog'), 'Accounting, BBA')
         self.assertEqual(name('Nursing - BSN'), 'Nursing')  # unchanged: no comma before the award
+        # JHU 2026-27: the page's first heading prints the whole dashed name, so the dash is part of it
+        hn = lambda t, h: C.program_name(T.Page('', t, [], [], h))
+        jhu = 'Bachelor of Music in Performance - Piano'
+        self.assertEqual(hn(jhu + ' | Johns Hopkins University Academic Catalogue', [jhu, 'Peabody Institute']), jhu)
+        self.assertEqual(hn(jhu + ' | Johns Hopkins University Academic Catalogue', ['Bachelor of Music in Performance \u200b- Piano']), jhu)
+        self.assertEqual(hn(jhu + ' | X', ['Peabody Institute']), 'Bachelor of Music in Performance')  # heading differs
+        self.assertEqual(hn('Piano - Performance | X', ['Piano - Performance']), 'Piano')  # no degree before the dash
+        for t in ('B.F.A. in Art - Studio Arts Specialization', 'B.S.Ed. in Special Education - PreK-12',
+                  'Bachelor of Science in Nursing - Licensure (B.S.)', 'Bachelor of Arts in History - Double Major',
+                  'Bachelor of Science in Nursing - Fall Start', 'Mathematics, Associate of Science - Ohio Transfer Pathway'):
+            self.assertEqual(hn(t + ' | X', [t]), t.split(' - ')[0], t)
