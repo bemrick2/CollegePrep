@@ -60,7 +60,7 @@ def existing_records(keys, state=None):
     return out
 
 
-def extract_run(registry, run: Run, today_year):
+def extract_run(registry, run: Run, today_year, existing=None):
     insts = {i['institution_key']: i for i in registry['institutions']}
     insts[f"state-{registry['state']}"] = {'institution_key': f"state-{registry['state']}", 'state': registry['state'], 'control': 'state'}
     out = []
@@ -76,7 +76,41 @@ def extract_run(registry, run: Run, today_year):
                 out.append({'candidate_id': f'error-{fn.__module__}-{e["page_file"]}', 'domain': None,
                             'institution_key': inst['institution_key'], 'issues': [f'extractor_error:{type(exc).__name__}: {exc}'],
                             'source': {'url': e['url']}, 'extractor': fn.__module__, 'evidence': [], 'record': {}})
-    return dedupe(out)
+    return dedupe(residency_twins(out, existing or {}))
+
+
+def residency_twins(cands, existing):
+    """AL (UAH, UA, UAB), VA (UMW), NV (UNR): one school prints the same award name on its in-state and out-of-state (or
+    WUE, or Tennessee-resident) pages with different criteria and amounts. Award identity is the name, so each is named by
+    its scope instead of colliding: the residency when every twin has a different one, otherwise the table's own label
+    (year removed). A twin whose plain name is already on file from its own page keeps that name."""
+    groups, copies = defaultdict(list), defaultdict(list)
+    for c in cands:
+        if c.get('domain') == 'awards' and c['record'].get('award_name'):
+            if not copies[c['candidate_id']]: groups[natural_key('awards', c['record'])].append(c)
+            copies[c['candidate_id']].append(c)  # one document fetched twice (with and without a trailing slash)
+    for key, group in groups.items():
+        docs = {c['source'].get('sha256') or c['source']['url'] for c in group}
+        if len(docs) < 2 or len({json.dumps(_comparable(c['record']), sort_keys=True) for c in group}) < 2: continue
+        res = [c['record'].get('residency_requirement') for c in group]
+        scopes = [(c.get('checks') or {}).get('table_scope') or '' for c in group]
+        if all(res) and len(set(res)) == len(group): labels = res
+        elif all(scopes) and len(set(scopes)) == len(group): labels = scopes
+        else: continue
+        on_file = {str(r.get('source_url')).rstrip('/') for _, d, r in existing.get(group[0]['institution_key'], []) if d == 'awards' and natural_key(d, r) == key}
+        base = group[0]['record']['award_name']
+        scoped_on_file = {}  # source page -> the scoped name already on file for it (kept, so a record's identity does not move)
+        for _, d, r in existing.get(group[0]['institution_key'], []):
+            if d == 'awards' and r.get('academic_year') == group[0]['record'].get('academic_year') and str(r.get('award_name', '')).startswith(base + ' ('):
+                scoped_on_file[str(r.get('source_url')).rstrip('/')] = r['award_name']
+        for c, label in zip(group, labels):
+            urls = [x['source']['url'].rstrip('/') for x in copies[c['candidate_id']]]
+            if any(u in on_file for u in urls): continue
+            name = next((scoped_on_file[u] for u in urls if u in scoped_on_file), f'{base} ({label})')
+            for x in copies[c['candidate_id']]:
+                x['record']['award_name'] = name
+                x['checks'] = {**x.get('checks', {}), 'scoped_name': name[len(base) + 2:-1]}
+    return cands
 
 
 # Facts a school spreads over several pages (eligibility on one, prices on another). Candidates from
@@ -415,7 +449,7 @@ def review(registry, run: Run, today=None):
     today_year = T.current_academic_year(today or date.today())
     keys = {i['institution_key'] for i in registry['institutions']}
     existing = existing_records(keys, registry['state'])
-    cands = diff(adopt_program_keys(extract_run(registry, run, today_year), existing), existing)
+    cands = diff(adopt_program_keys(extract_run(registry, run, today_year, existing), existing), existing)
     verify = verify_existing(registry, run, existing)
     cov = coverage(registry, run, cands, existing, today_year)
     cov['quality'] = quality(run, cands)

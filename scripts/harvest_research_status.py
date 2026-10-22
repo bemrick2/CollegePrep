@@ -47,6 +47,12 @@ def main():
             ap, rj = set(), set()
             for dec in decisions.get(run_path, []):  # every decision file for this run (addenda included)
                 ap |= {d['candidate_id'] for d in dec.get('approve', [])}; rj |= {d['candidate_id'] for d in dec.get('reject', [])}
+            # A candidate id decided in two files (the same document re-read by a fixed reader yields the same id): an approval
+            # wins over a rejection, and a decision that names the one it overrides ("supersedes_decision") wins over both.
+            for dec in decisions.get(run_path, []):
+                for kind, mine, other in (('approve', ap, rj), ('reject', rj, ap)):
+                    for d in dec.get(kind, []):
+                        if d.get('supersedes_decision'): mine.add(d['candidate_id']); other.discard(d['candidate_id'])
             try: cands = json.loads(git('show', f"{b}:{path.rsplit('/', 1)[0]}/candidates.json"))
             except subprocess.CalledProcessError: cands = []
             for c in cands if isinstance(cands, list) else []:
