@@ -362,9 +362,17 @@ def _program_page_candidates(target, inst, entry, page, today_year):
         # when no section heading names a degree: one program, so its requirement and plan tables are read as the page's
         out = degree_offered_identity(inst, entry, page, today_year)
         if not out: return []  # no program record: plan grids are not read as programs on this path
-        # its printed 4-year plans; the requirement Course Lists are not read here (they include the minor's)
+        # its printed 4-year plans, and its Course Lists read with their layout when the page gives one program record: the
+        # tables after the page's first are held unless their heading names the major's requirements, so the minor's
+        # ('Requirements for Minor Offered by Department'), ACE and college tables are never read as the major's
         from . import courseleaf
-        return out + courseleaf.plantext_candidates(inst, entry, page, out[0]['record']['catalog_year'], out[0]['record']['program_key'])
+        progs = [c for c in out if c['domain'] == 'academic_programs']
+        out = out + courseleaf.plantext_candidates(inst, entry, page, out[0]['record']['catalog_year'], out[0]['record']['program_key'])
+        cl = (target.get('_courselists') or {}).get(entry.get('url'))
+        if cl and len(progs) == 1:
+            prog = progs[0]['record']
+            out += courseleaf.html_candidates(inst, entry, cl[0], cl[1], prog['catalog_year'], prog['program_key'], 1, page.text)
+        return out
     if plat == 'courseleaf' and year:
         from . import courseleaf
         have = any(c['domain'] == 'academic_programs' for c in out)

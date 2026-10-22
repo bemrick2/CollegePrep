@@ -1673,6 +1673,13 @@ class PlanTextTests(unittest.TestCase):  # UNL 2026-2027 '4-Year Plans': printed
         self.assertEqual([(c['extractor'], c['record']['program_key']) for c in out],
                          [('degree_offered/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science'),
                           ('courseleaf_plantext/v1', 'anthropology-bachelor-of-arts-or-bachelor-of-science')])
+        # the page's Course Lists are read with their layout, keyed to its one program record
+        url = 'https://catalog.unl.edu/undergraduate/arts-sciences/anthropology/'
+        tgt = {'catalog': {'platform': 'courseleaf'}, '_courselists': {url: ({'url': url + '#courselist'}, ['tables'])}}
+        from unittest import mock
+        with mock.patch('programs.courseleaf.html_candidates', return_value=['group']) as hc:
+            out = X._program_page_candidates(tgt, {'institution_key': 'ipeds-181464'}, {'url': url, 'sha256': 's', 'fetched_at': '2026-10-08T00:00:00'}, pg, '2026-27')
+        self.assertEqual((out[-1], hc.call_args[0][3:6]), ('group', (['tables'], '2026-2027', 'anthropology-bachelor-of-arts-or-bachelor-of-science')))
 
 
 class NamedHeaderYearTests(unittest.TestCase):  # SHSU 2026-27: 'Undergraduate Catalog' / '2026-2027'; print menu '2025-2026 Catalog'

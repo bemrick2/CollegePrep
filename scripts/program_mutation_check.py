@@ -66,6 +66,8 @@ MUTS = [
     ('programs/courseleaf.py', "                  r'|^(1st|2nd|3rd|[4-8]th)\\s+semester$', re.I)", "                  r'', re.I)"),
     # courseleaf_plan/v3 item fields, labels and checks (#229, #230)
     # positional plan grids (SHSU 2026-27 '#plangrid' documents)
+    ('programs/extract.py', "        if cl and len(progs) == 1:", "        if False:"),
+    ('programs/extract.py', "        if cl and len(progs) == 1:", "        if cl:"),
     ('programs/courseleaf.py', " and not prev.endswith(('.', ':')) and TRACK_WORD.search(prev):", " and not prev.endswith(('.', ':')):"),
     ('programs/courseleaf.py', "            if TRACK_SENTENCE.search(sent): return sent.strip()", "            pass"),
     ('programs/courseleaf.py', " else ['plan_heading_label'] if (track_labels or single_label) else []", " else ['plan_heading_label'] if track_labels else []"),
