@@ -1,5 +1,5 @@
 import type { BenchmarkSummary, Strategy, TrapType } from '../../lib/data/types'
-import { SECTION_LABEL, pacingVerdict } from '../../lib/engine/benchmark'
+import { PER_SECTION, SECTION_LABEL, SECTION_ORDER, pacingVerdict } from '../../lib/engine/benchmark'
 import { compareProgress, type SectionChange } from '../../lib/engine/progressCheck'
 import { benchmarkRepeats } from '../../lib/engine/freshness'
 import type { AttemptRecord } from '../../lib/data/types'
@@ -40,8 +40,14 @@ export function BenchmarkResults({
 }) {
   const repeatsOf = (b: BenchmarkSummary) => (b.id === summary.id && currentRepeats ? currentRepeats : benchmarkRepeats(b, attempts))
   const comparison = summary.kind === 'initial' ? null : compareProgress(summary, history, repeatsOf)
-  const ownRepeats = [...repeatsOf(summary).values()].reduce((n, x) => n + x, 0)
   const m = summary.metrics
+  // Repeats per section: the app's count or the server's (metrics v2), whichever is larger.
+  const repeatsIn = (section: string) => Math.max(repeatsOf(summary).get(section) ?? 0, m.sections.find((x) => x.section === section)?.repeats ?? 0)
+  const ownRepeats = m.sections.reduce((n, x) => n + repeatsIn(x.section), 0)
+  // Shortened: fewer questions than this kind of check asks for, because too few were set aside for checks.
+  const wanted = (section: string) => PER_SECTION[summary.exam_family]?.[summary.kind]?.[section] ?? 0
+  const shortened = m.sections.filter((x) => summary.kind !== 'full' && x.answered + x.skipped < wanted(x.section))
+  const unmeasured = (SECTION_ORDER[summary.exam_family] ?? []).filter((sec) => !m.sections.some((x) => x.section === sec))
   const trapName = (k: string) => traps.find((t) => t.trap_key === k)?.name ?? k.replace(/_/g, ' ')
   const certain = m.calibration.find((c) => c.confidence === 3)
   const guess = m.calibration.find((c) => c.confidence === 1)
@@ -74,6 +80,18 @@ export function BenchmarkResults({
             isn't new evidence of improvement.
           </Notice>
         )}
+        {(shortened.length > 0 || unmeasured.length > 0) && (
+          <Notice tone="warn" title="A shorter check than usual">
+            <ul className="grid list-disc gap-1 pl-5">
+              {shortened.map((x) => (
+                <li key={x.section}>
+                  {SECTION_LABEL[x.section] ?? x.section}: {x.answered + x.skipped} of {wanted(x.section)} questions. Too few questions are set aside for checks, so this section's result rests on fewer answers.
+                </li>
+              ))}
+              {unmeasured.length > 0 && <li>Not measured: {unmeasured.map((x) => SECTION_LABEL[x] ?? x).join(', ')}. No check questions were available.</li>}
+            </ul>
+          </Notice>
+        )}
         {comparison?.baseline && <Comparison changes={comparison.sinceBaseline} title={`Since your baseline (${formatShortDate(comparison.baseline.completed_at.slice(0, 10))})`} />}
         {comparison?.sinceLast && comparison.previous && <Comparison changes={comparison.sinceLast} title={`Since your last check (${formatShortDate(comparison.previous.completed_at.slice(0, 10))})`} />}
         <Card>
@@ -82,7 +100,11 @@ export function BenchmarkResults({
             {m.sections.map((s) => (
               <div key={s.section}>
                 <div className="mb-1.5 flex items-baseline justify-between gap-2 text-sm">
-                  <span className="font-semibold text-ink">{SECTION_LABEL[s.section] ?? s.section}</span>
+                  <span className="flex flex-wrap items-center gap-2 font-semibold text-ink">
+                    {SECTION_LABEL[s.section] ?? s.section}
+                    {shortened.includes(s) && <Pill tone="warn">Shorter</Pill>}
+                    {repeatsIn(s.section) > 0 && <Pill tone="neutral">{repeatsIn(s.section)} seen before</Pill>}
+                  </span>
                   <span className="tabular text-ink-2">
                     {s.correct}/{s.answered} · {pct(s.accuracy)}
                     {s.ceiling_difficulty ? ` · up to level ${s.ceiling_difficulty}` : ''}

@@ -181,6 +181,10 @@ end $$;
 do $$
 declare b uuid; a uuid; m jsonb;
 begin
+  -- CR-23: the benchmark's items are reserved (assessment) items.
+  perform hp_test.as_owner();
+  update public.practice_questions set pool = 'assessment' where id in ('30000000-0000-0000-0000-000000000001',
+    '30000000-0000-0000-0000-000000000003', '30000000-0000-0000-0000-000000000004', '30000000-0000-0000-0000-000000000007');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial')$q$, current_setting('t.st')), '42501');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
@@ -209,12 +213,13 @@ begin
   perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', current_setting('t.st'),
     '30000000-0000-0000-0000-000000000008', b), '22023', '%open benchmark%');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform hp_test.check((select completed_at is not null and metrics->>'definition' = 'v1' from public.practice_benchmarks where id = b),
+  perform hp_test.check((select completed_at is not null and metrics->>'definition' = 'v2' from public.practice_benchmarks where id = b),
     'guardian reads the benchmark');
   perform hp_test.eq((select count(*) from public.practice_attempts where benchmark_id = b), 4::bigint, 'attempts grouped');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
   perform hp_test.eq((select count(*) from public.practice_benchmarks), 0::bigint, 'guardian without view_progress reads nothing');
   perform hp_test.as_owner();
+  update public.practice_questions set pool = 'practice' where pool = 'assessment';
 end $$;
 
 -- CR-4 cost_projection: verified, exact-year data only; only capped prior credits are counted.

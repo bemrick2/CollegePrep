@@ -90,8 +90,14 @@ describe.skipIf(!URL_)('LiveSource against the local backend', () => {
   it('student takes the starting benchmark (baseline) and the server scores it', async () => {
     const pool = await student.publishedQuestions('act')
     expect(pool.length).toBeGreaterThan(5)
+    // CR-23: practice questions only, until a check opens.
+    expect(pool.every((q) => q.pool === 'practice')).toBe(true)
     const bm = await student.startBenchmark(studentId, 'initial', 'act')
-    const used = pool.slice(0, 4)
+    // The check's own reserved items, from the server.
+    const items = await student.benchmarkQuestions(bm)
+    expect(items.length).toBeGreaterThan(3)
+    expect(items.every((i) => i.question.pool === 'assessment' && !i.seen_before)).toBe(true)
+    const used = items.slice(0, 4).map((i) => i.question)
     const ids: string[] = []
     for (const [i, q] of used.entries()) {
       const a = await student.startAttempt(studentId, q.id, null, bm)

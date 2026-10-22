@@ -3,7 +3,8 @@ import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
 import { FULL_FORM_READY, PER_SECTION, SECTION_LABEL, SECTION_ORDER, computeMetrics, nextDifficulty, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
-import { checkPlan, checkQuestions, nextCheckQuestion } from '../../lib/engine/freshness'
+import { checkPlanFromCounts, pickCheckItem, type CheckSectionPlan } from '../../lib/engine/freshness'
+import type { CheckItem } from '../../lib/data/source'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -44,8 +45,11 @@ export function Benchmark() {
   // Everything this student has answered, for fresh-first selection and for marking repeats in the results.
   const answered = useAsync(() => (student ? source.attemptHistory(student.id, '1970-01-01T00:00:00Z') : Promise.resolve([])), [source, student?.id])
   const seenBefore = useMemo(() => new Set((answered.data ?? []).map((a) => a.question_id)), [answered.data])
-  // CR-23: a check uses the reserved assessment pool only, never practice questions (engine/freshness.ts).
-  const reserved = useMemo(() => (pool.data ? checkQuestions(exam, pool.data) : null), [pool.data, exam])
+  // CR-23: a check uses the reserved assessment pool only, never practice questions. Its content stays hidden until the
+  // check opens, so before that the plan comes from counts (assessment_pool_status); null = the source can't say.
+  const poolStatus = useAsync(() => (student ? source.assessmentPoolStatus(student.id, exam) : Promise.resolve(null)), [source, student?.id, exam])
+  // The open check's own reserved items (benchmark_questions), once it has started.
+  const [items, setItems] = useState<CheckItem[] | null>(null)
   const catalog = useCatalog(exam)
 
   const [kind, setKind] = useState<BenchmarkKind | null>(null)
@@ -66,6 +70,8 @@ export function Benchmark() {
     returning: false,
     startedAt: '',
     benchmarkId: null as string | null,
+    items: [] as CheckItem[],
+    plan: null as BenchmarkPlan | null,
   })
 
   // The home screen links straight to the kind that is due (?kind=mini|full); otherwise use the schedule.
@@ -74,12 +80,24 @@ export function Benchmark() {
   const defaultKind: BenchmarkKind =
     (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || (asked === 'full' && FULL_FORM_READY) ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
   const chosenKind = kind ?? defaultKind
-  const bplan: BenchmarkPlan | null = useMemo(() => (reserved ? planBenchmark(exam, chosenKind, reserved) : null), [reserved, exam, chosenKind])
+  const wanted = (k: BenchmarkKind) => Object.fromEntries(SECTION_ORDER[exam].map((sec) => [sec, PER_SECTION[exam][k][sec] ?? 0]))
   // What the reserved pool allows, per section: fresh, with repeats (no verdict), shortened, or not measured.
-  const poolPlan = useMemo(
-    () => (pool.data ? checkPlan(exam, Object.fromEntries(SECTION_ORDER[exam].map((sec) => [sec, PER_SECTION[exam][chosenKind][sec] ?? 0])), pool.data, seenBefore) : []),
-    [pool.data, exam, chosenKind, seenBefore],
+  const poolPlan: CheckSectionPlan[] | null = useMemo(
+    () => (poolStatus.data ? checkPlanFromCounts(wanted(chosenKind), poolStatus.data) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [poolStatus.data, exam, chosenKind],
   )
+  // Before the check opens: its size from the counts (time from practice questions' expected times, as an estimate).
+  const avgSecs = useMemo(() => {
+    const t = (pool.data ?? []).map((q) => q.expected_time_seconds ?? 60)
+    return t.length ? t.reduce((a, b) => a + b, 0) / t.length : 60
+  }, [pool.data])
+  const planOf = (p: CheckSectionPlan[]): BenchmarkPlan => {
+    const sections = p.filter((x) => x.count > 0).map((x) => ({ section: x.section, count: x.count }))
+    const total = sections.reduce((n, x) => n + x.count, 0)
+    return { exam, kind: chosenKind, sections, totalQuestions: total, expectedMinutes: Math.round((total * avgSecs * 1.3) / 60) }
+  }
+  const bplan: BenchmarkPlan | null = items ? run.current.plan : poolPlan ? planOf(poolPlan) : null
   const section = bplan?.sections[sectionIdx]
 
   const present = useCallback(
@@ -110,13 +128,13 @@ export function Benchmark() {
 
   /** Decides what comes next within the section, or ends it. */
   const advance = useCallback(async () => {
-    if (!bplan || !section || !reserved) return
+    if (!bplan || !section) return
     const r = run.current
     if (!r.returning && r.served < section.count) {
-      // Unseen reserved questions first, so the check measures more than recall; reserved repeats only when the
-      // section's unseen ones run out (that section then gets no verdict). Never a practice question.
-      const q = nextCheckQuestion(exam, pool.data!, section.section, r.target, r.used, seenBefore)
-      if (q) return present(q)
+      // From this check's own reserved items: unseen first, so the check measures more than recall; repeats only when
+      // the section's unseen ones run out (that section then gets no verdict). Never a practice question.
+      const next = pickCheckItem(r.items, section.section, r.target, r.used)
+      if (next) return present(next.question)
     }
     const back = r.skipped.shift()
     if (back) {
@@ -125,7 +143,7 @@ export function Benchmark() {
     }
     setCurrent(null)
     setPhase(sectionIdx + 1 >= bplan.sections.length ? 'done' : 'break')
-  }, [bplan, section, reserved, pool.data, exam, present, resume, sectionIdx, seenBefore])
+  }, [bplan, section, present, resume, sectionIdx])
 
   // When the run ends, save the summary.
   useEffect(() => {
@@ -148,9 +166,10 @@ export function Benchmark() {
   }, [phase, summary, student, records, chosenKind, exam, source])
 
   if (!student) return <Navigate to="/student" replace />
-  if (plan.loading || pool.loading || history.loading || answered.loading) return <PageLoading />
+  if (plan.loading || pool.loading || history.loading || answered.loading || poolStatus.loading) return <PageLoading />
 
-  if (!bplan || bplan.totalQuestions === 0)
+  // Known to be empty (counts, or the open check's items): no check can be taken.
+  if (bplan && bplan.totalQuestions === 0)
     return (
       <div className="mx-auto max-w-xl p-6">
         <EmptyState
@@ -169,9 +188,9 @@ export function Benchmark() {
     run.current = { ...run.current, used: run.current.used, served: 0, target: 3, skipped: [], returning: false }
     setSectionIdx(idx)
     setPhase('running')
-    const sec = bplan.sections[idx]!
-    const q = nextCheckQuestion(exam, pool.data!, sec.section, 3, run.current.used, seenBefore)
-    if (q) await present(q).catch((e: Error) => setError(e.message))
+    const sec = run.current.plan!.sections[idx]!
+    const next = pickCheckItem(run.current.items, sec.section, 3, run.current.used)
+    if (next) await present(next.question).catch((e: Error) => setError(e.message))
   }
 
   const finishAttempt = async (opts: { confidence?: Confidence; skipped?: boolean }) => {
@@ -250,25 +269,27 @@ export function Benchmark() {
             {chosenKind === 'initial' ? "Let's find your starting point" : 'Check how far you have come'}
           </h1>
           <p className="mt-2 text-ink-2">
-            {EXAM_NAME[exam]} benchmark · {bplan.totalQuestions} questions · about {bplan.expectedMinutes} minutes. It adapts as you go, so it is shorter than a full test.
+            {bplan
+              ? `${EXAM_NAME[exam]} benchmark · ${bplan.totalQuestions} questions · about ${bplan.expectedMinutes} minutes. It adapts as you go, so it is shorter than a full test.`
+              : `${EXAM_NAME[exam]} benchmark. Its length is set when it starts, from the questions set aside for checks. It adapts as you go, so it is shorter than a full test.`}
           </p>
           {chosenKind === 'mini' && !FULL_FORM_READY && (
             <p className="mt-2 text-sm text-ink-3">
               A full-length check isn't available yet. It needs its own set of questions that never appear in practice, and those haven't been written.
             </p>
           )}
-          <PoolNotice plan={poolPlan} />
+          {poolPlan && <PoolNotice plan={poolPlan} />}
           {options.length > 1 && (
             <div className="mt-6 grid gap-3">
               {options.map((k) => {
-                const p = planBenchmark(exam, k, reserved!)
+                const p = poolStatus.data ? planOf(checkPlanFromCounts(wanted(k), poolStatus.data)) : null
                 return (
                   <ChoiceCard
                     key={k}
                     selected={chosenKind === k}
                     onClick={() => setKind(k)}
                     title={k === 'mini' ? 'Mini benchmark' : 'Full benchmark'}
-                    description={`${p.totalQuestions} questions · ~${p.expectedMinutes} min${k === 'full' ? ' · best before a real test' : ' · every 4–6 weeks'}`}
+                    description={`${p ? `${p.totalQuestions} questions · ~${p.expectedMinutes} min` : 'Length set when it starts'}${k === 'full' ? ' · best before a real test' : ' · every 4–6 weeks'}`}
                   />
                 )
               })}
@@ -290,8 +311,14 @@ export function Benchmark() {
               run.current.startedAt = new Date().toISOString()
               setBusy(true)
               try {
-                run.current.benchmarkId = await source.startBenchmark(student.id, chosenKind, exam)
-                void startSection(0)
+                const id = await source.startBenchmark(student.id, chosenKind, exam)
+                run.current.benchmarkId = id
+                // The check's own reserved items, now readable; its plan is sized from them.
+                const list = await source.benchmarkQuestions(id, student.id, exam)
+                run.current.items = list
+                run.current.plan = planBenchmark(exam, chosenKind, list.map((i) => i.question))
+                setItems(list)
+                if (run.current.plan.totalQuestions > 0) void startSection(0)
               } catch (e) {
                 setError((e as Error).message)
               } finally {
@@ -299,7 +326,7 @@ export function Benchmark() {
               }
             }}
           >
-            Start {SECTION_LABEL[bplan.sections[0]!.section]}
+            {bplan?.sections[0] ? `Start ${SECTION_LABEL[bplan.sections[0].section]}` : 'Start the check'}
           </Button>
         </div>
       </div>
@@ -307,8 +334,9 @@ export function Benchmark() {
   }
 
   if (phase === 'break') {
-    const next = bplan.sections[sectionIdx + 1]!
-    const doneSec = bplan.sections[sectionIdx]!
+    const bp = run.current.plan!
+    const next = bp.sections[sectionIdx + 1]!
+    const doneSec = bp.sections[sectionIdx]!
     return (
       <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-md flex-col items-center justify-center px-4 text-center">
         <div className="anim-pop text-5xl" aria-hidden>
@@ -316,9 +344,9 @@ export function Benchmark() {
         </div>
         <h1 className="display mt-4 text-3xl font-semibold text-ink">{SECTION_LABEL[doneSec.section]} done</h1>
         <p className="mt-2 text-ink-2">
-          Section {sectionIdx + 2} of {bplan.sections.length} is {SECTION_LABEL[next.section]} ({next.count} questions). Take a breath, stretch, then go.
+          Section {sectionIdx + 2} of {bp.sections.length} is {SECTION_LABEL[next.section]} ({next.count} questions). Take a breath, stretch, then go.
         </p>
-        <ProgressBar value={sectionIdx + 1} max={bplan.sections.length} label="Sections complete" className="mt-6" />
+        <ProgressBar value={sectionIdx + 1} max={bp.sections.length} label="Sections complete" className="mt-6" />
         <Button size="lg" block className="mt-8" onClick={() => void startSection(sectionIdx + 1)}>
           Start {SECTION_LABEL[next.section]}
         </Button>
@@ -328,7 +356,7 @@ export function Benchmark() {
 
   if (phase === 'done') {
     if (!summary) return <PageLoading />
-    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} attempts={answered.data ?? []} currentRepeats={repeatsIn(records, seenBefore)} />
+    return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} attempts={answered.data ?? []} currentRepeats={repeatsIn(records, new Set([...seenBefore, ...(items ?? []).filter((i) => i.seen_before).map((i) => i.question.id)]))} />
   }
 
   const answeredInSection = records.filter((r) => r.section === section?.section).length
@@ -347,7 +375,7 @@ export function Benchmark() {
         <div className="flex-1">
           <div className="mb-1 flex justify-between text-xs font-semibold text-ink-3">
             <span>
-              {SECTION_LABEL[section!.section]} · section {sectionIdx + 1} of {bplan.sections.length}
+              {SECTION_LABEL[section!.section]} · section {sectionIdx + 1} of {(run.current.plan ?? bplan)!.sections.length}
             </span>
             <span className="tabular">
               {Math.min(answeredInSection + 1, section!.count)} / {section!.count}
@@ -406,7 +434,7 @@ function Rule({ icon, text }: { icon: React.ReactNode; text: string }) {
 }
 
 /** Says, before the check starts, where the reserved pool can't give a fully fresh, full-length section. */
-function PoolNotice({ plan }: { plan: ReturnType<typeof checkPlan> }) {
+function PoolNotice({ plan }: { plan: CheckSectionPlan[] }) {
   const off = plan.filter((p) => p.status === 'not_measured')
   const repeats = plan.filter((p) => p.status === 'with_repeats')
   const short = plan.filter((p) => p.shortened)

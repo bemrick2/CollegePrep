@@ -285,6 +285,8 @@ export interface SectionMetrics {
   pacing_ratio: number | null
   /** Highest difficulty answered correctly, from the adaptive staircase. */
   ceiling_difficulty: number | null
+  /** CR-23 (server metrics v2): scored answers on questions seen before this check. Any repeat: no verdict. */
+  repeats?: number
 }
 
 export interface BenchmarkMetrics {

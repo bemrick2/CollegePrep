@@ -8,6 +8,7 @@
 import { createHash } from 'node:crypto'
 import { QUESTIONS, SKILLS, STRATEGIES, TRAPS } from '../../src/lib/data/demo/fixtures'
 import { REVIEW_RECORD, isReviewed } from '../../src/lib/data/demo/questionReview'
+import { practiceExclusions } from '../../src/lib/engine/freshness'
 
 const q = (s: string | null | undefined) => (s == null ? 'null' : `'${s.replace(/'/g, "''")}'`)
 const j = (v: unknown) => `${q(JSON.stringify(v))}::jsonb`
@@ -44,6 +45,8 @@ for (const s of STRATEGIES)
 for (const t of TRAPS)
   out.push(`insert into public.trap_types(id, trap_key, name, description) values (${q(uid(`tr:${t.trap_key}`))}, ${q(t.trap_key)}, ${q(t.name)}, ${q(t.description)}) on conflict do nothing;`)
 
+// CR-23: the demo's reserve (engine/freshness.ts, one mini check per section) is the local server's assessment pool.
+const reserve = new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)])
 const label = (d: number) => (d <= 2 ? 'easy' : d === 3 ? 'medium' : 'hard')
 for (const x of QUESTIONS) {
   const id = uid(`q:${x.id}`)
@@ -57,7 +60,7 @@ for (const x of QUESTIONS) {
   const accepted = x.answer_format === 'numeric' ? x.accepted_answers.filter((a) => /^-?([0-9]+\.?[0-9]*|\.[0-9]+|[0-9]+\/[0-9]+)$/.test(a.replace(/\s/g, ''))) : x.accepted_answers
   const remember = x.remember && x.remember.trim().split(/\s+/).length <= 16 ? x.remember : null
   out.push(
-    `insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices, answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, passage_id, remember_text, source_attribution, license, origin) values (${q(id)}, ${q(ev)}, ${q(uid(`qt:${x.exam_family}:${x.answer_format}`))}, ${q(x.section)}, ${x.difficulty}, ${q(label(x.difficulty))}, ${q(x.stem)}, ${j(x.choices)}, ${q(x.answer_format)}, ${j(accepted)}, ${j(x.hints)}, ${q(x.teaching_explanation)}, ${q(x.strategy_explanation)}, ${x.expected_time_seconds}, ${isReviewed(x) ? "'published'" : "'draft'"}, ${passage}, ${q(remember)}, 'Prep & Price original demo item', 'original-owned', 'generated') on conflict do nothing;`,
+    `insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices, answer_format, accepted_answers, hints, teaching_explanation, strategy_explanation, expected_time_seconds, status, passage_id, remember_text, source_attribution, license, origin, pool) values (${q(id)}, ${q(ev)}, ${q(uid(`qt:${x.exam_family}:${x.answer_format}`))}, ${q(x.section)}, ${x.difficulty}, ${q(label(x.difficulty))}, ${q(x.stem)}, ${j(x.choices)}, ${q(x.answer_format)}, ${j(accepted)}, ${j(x.hints)}, ${q(x.teaching_explanation)}, ${q(x.strategy_explanation)}, ${x.expected_time_seconds}, ${isReviewed(x) ? "'published'" : "'draft'"}, ${passage}, ${q(remember)}, 'Prep & Price original demo item', 'original-owned', 'generated', ${q(reserve.has(x.id) ? 'assessment' : 'practice')}) on conflict do nothing;`,
   )
   out.push(`insert into public.practice_question_skills(question_id, skill_id, is_primary) values (${q(id)}, ${q(uid(`sk:${x.primary_skill_key}`))}, true) on conflict do nothing;`)
   for (const d of x.distractors)

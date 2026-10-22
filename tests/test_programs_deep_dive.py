@@ -2837,6 +2837,21 @@ class ProgramKeymapTests(unittest.TestCase):
         finally:
             P._records = old
 
+    def test_degrees_split_from_a_two_award_page_keep_their_own_keys(self):  # UT Dallas 'Biology (BA, BS)'
+        from programs import promote as P
+        U = 'https://catalog.x.edu/bio'
+        on_file = {'records': [{'program_key': 'biology-ba-bs', 'program_url': U, 'program_name': 'Biology (BA, BS)'}]}
+        cand = lambda cid, key, ext: {'candidate_id': cid, 'domain': 'academic_programs', 'institution_key': 'k', 'academic_year': '2026-27',
+                                      'extractor': ext, 'record': {'program_key': key, 'program_url': U, 'program_name': key}}
+        cands = {c['candidate_id']: c for c in [cand('a', 'biology-ba', 'edition_program/v1'), cand('b', 'biology-bs', 'edition_program/v1'),
+                                                 cand('c', 'biology-bs', 'catalog_program/v1')]}
+        old = P._records; P._records = lambda *a: on_file
+        try:
+            self.assertEqual(P.program_keymap([{'candidate_id': 'a'}, {'candidate_id': 'b'}], cands, {'k': 'x'}), {})
+            self.assertEqual(P.program_keymap([{'candidate_id': 'c'}], cands, {'k': 'x'}), {('k', '2026-27', 'biology-bs'): 'biology-ba-bs'})
+        finally:
+            P._records = old
+
 
 class FolderOwnershipTests(unittest.TestCase):
     def test_a_folder_two_registries_claim_receives_no_records(self):
@@ -3352,6 +3367,34 @@ class CatalogCountTests(unittest.TestCase):
             got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
         self.assertEqual(got, ['c1', 'c3'])
 
+    def test_on_file_recount_credits_each_keyed_record_on_a_two_degree_page(self):  # UT Dallas 'Biology (BA, BS)'
+        import tempfile
+        from programs.catalog_counts import on_file_approvals
+        u = 'https://catalog.x.edu/bio'
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); run = d / 'run'; run.mkdir()
+            cands = [('c1', 'Bachelor of Arts in Biology', 'biology-ba'), ('c2', 'Bachelor of Science in Biology', 'biology-bs'),
+                     ('c3', 'Bachelor of Science in Biology', 'biology-bs')]  # a second reading of the same record
+            (run / 'candidates.jsonl').write_text('\n'.join(json.dumps({'candidate_id': i, 'institution_key': 'k', 'domain': 'academic_programs',
+                'record': {'program_name': n, 'program_url': u, 'program_key': pk}, 'source': {'requested_url': u}}) for i, n, pk in cands) + '\n')
+            f = d / 'data/institutions/x/academic_programs'; f.mkdir(parents=True)
+            rec = lambda pk, n: {'program_key': pk, 'program_name': n, 'program_url': u, 'source_url': u, 'credential_level': 'bachelor', 'verification_status': 'verified'}
+            (f / '2026-27.json').write_text(json.dumps({'records': [rec('biology-ba', 'Bachelor of Arts in Biology'), rec('biology-bs', 'Bachelor of Science in Biology')]}))
+            got = [a['candidate_id'] for a in on_file_approvals(run, 'x', 'k', root=d)]
+        self.assertEqual(got, ['c1', 'c2'])
+
+    def test_edition_page_titled_for_two_awards(self):  # UT Dallas 2026
+        from programs.extract import edition_degrees
+        from pipeline import text as T
+        page = lambda *h: T.Page('', 'Biology (BA, BS) - UT Dallas 2026 Undergraduate Catalog', [], [], list(h))
+        both = page('School', 'Biology (BA, BS)', 'Bachelor of Arts in Biology', 'Faculty', 'Bachelor of Science in Biology')
+        self.assertEqual([(n, k) for n, k, _ in edition_degrees('Biology (BA, BS)', both)],
+                         [('Bachelor of Arts in Biology', 'biology-ba'), ('Bachelor of Science in Biology', 'biology-bs')])
+        one = page('School', 'Biology (BA, BS)', 'Bachelor of Arts in Biology')  # the BS heading isn't printed: not split
+        self.assertEqual([n for n, _, _ in edition_degrees('Biology (BA, BS)', one)], ['Biology (BA, BS)'])
+        self.assertEqual([n for n, _, _ in edition_degrees('Animation and Games (BA)', page('Animation and Games (BA)'))], ['Animation and Games (BA)'])
+        self.assertEqual([n for n, _, _ in edition_degrees('Arts (BA, BX)', page('Bachelor of Arts in Arts'))], ['Arts (BA, BX)'])  # unknown award
+
     def test_programs_az_table_count(self):  # Colorado State 2026-27 Programs A-Z table
         import tempfile, gzip
         from programs.catalog_counts import table_entries
@@ -3425,6 +3468,67 @@ class CatalogCountTests(unittest.TestCase):
         self.assertTrue(b.endswith("Not recorded (names separated by ' | '): BA in Mathematics | Bachelor of Arts in Education."), b)
         self.assertEqual(whole_degree('Bachelor of Science in Human Resource Management'), whole_degree('Human Resource Management (BS)'))
         self.assertIsNone(whole_degree('Education (BA) with EC-6 Core Subjects'))
+
+    def test_tracks_combined_tracks_and_delivery_variants(self):  # YSU 2026-27 program list
+        import tempfile
+        from programs.catalog_counts import entries, track_of_listed
+        u = 'https://catalog.x.edu/'
+        listing = [('Bachelor of Arts in Multimedia Communication', u + 'mmc', 'bachelor'),
+                   ('Bachelor of Arts in Multimedia Communication, Public Relations Track', u + 'mmc-pr', 'bachelor'),
+                   ("Bachelor of Arts in Multimedia Communication, Bachelor's to Master's Track", u + 'mmc-ma', 'bachelor'),
+                   ('Bachelor of Science in Computer Science', u + 'cs', 'bachelor'),
+                   ('Bachelor of Science in Computer Science Cybersecurity Track', u + 'cs-cyber', 'bachelor'),
+                   ('Bachelor of Science in Respiratory Care', u + 'rc', 'bachelor'),
+                   ('Bachelor of Science in Respiratory Care with Advanced Placement Option to Master of Respiratory Care', u + 'rc-m', 'bachelor'),
+                   ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex', 'bachelor'),
+                   ('Bachelor of Science in Applied Science Exercise Science - MAT Track', u + 'ex/mat-track', 'bachelor'),
+                   ('Bachelor of Arts in Biochemistry', u + 'biochem', 'bachelor'),
+                   ('Bachelor of Science in Biochemistry - Research Track', u + 'biochem/research-track', 'bachelor'),  # another award: counted
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis', 'bachelor'),
+                   ('Bachelor of Science in Geographic Information Science (online)', u + 'gis-online', 'bachelor'),
+                   ('Bachelor of Fine Arts in Graphic Design (Online)', u + 'gd-online', 'bachelor'),
+                   ('Bachelor of Science in Chemistry Track', u + 'chem-track', 'bachelor')]  # no 'Chemistry' degree listed: counted
+        records = [('Bachelor of Arts in Multimedia Communication', u + 'mmc'), ('Bachelor of Science in Computer Science', u + 'cs'),
+                   ('Bachelor of Science in Respiratory Care', u + 'rc'), ('Bachelor of Science in Applied Science in Exercise Science', u + 'ex'),
+                   ('Bachelor of Science in Geographic Information Science', u + 'gis'), ('Bachelor of Fine Arts in Graphic Design', u + 'gd-online'),
+                   ('Bachelor of Arts in Biochemistry', u + 'biochem')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # the online degree has its own entry and page: a program of its own (not merged into the campus degree)
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (10, 7), b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Bachelor of Science in Biochemistry - Research Track | "
+                                   "Bachelor of Science in Chemistry Track | Bachelor of Science in Geographic Information Science (online)."), b)
+        degrees = {('multimediacommunication', 'ba')}
+        self.assertTrue(track_of_listed('Bachelor of Arts in Multimedia Communication Sports Track', degrees))
+        self.assertFalse(track_of_listed('Bachelor of Science in Multimedia Communication Sports Track', degrees))  # another award
+        self.assertFalse(track_of_listed('Bachelor of Arts in Multimedia Communication', degrees))  # the degree itself
+
+    def test_jhu_combined_policy_and_double_degree_entries(self):  # JHU 2026-27 program list
+        import tempfile
+        from programs.catalog_counts import entries, whole_degree
+        u = 'https://catalog.x.edu/'
+        listing = [('Biology, Bachelor of Arts/Master of Science', u + 'bio-ba-ms', 'bachelor'),
+                   ("Bachelor's/Master's Degrees", u + 'ba-ma', 'bachelor'),
+                   ("Requirements for a Bachelor's Degree", u + 'reqs', 'bachelor'),
+                   ("Peabody-Homewood Double Degree ProgramPeabody InstituteBachelor's", u + 'double', 'bachelor'),
+                   ('Bachelor of Fine Arts in Dance (BFA)', u + 'dance', 'bachelor'),
+                   ('Bachelor of Music in Performance - Piano', u + 'piano', 'bachelor'),
+                   ('Biology, Bachelor of Arts', u + 'bio', 'bachelor'),
+                   ('Physics, Bachelor of Science', u + 'phys', 'bachelor')]
+        records = [('Bachelor of Fine Arts in Dance', u + 'dance-other-page'), ('Bachelor of Music in Performance - Piano', u + 'piano'),
+                   ('Biology, Bachelor of Arts', u + 'bio')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # combined (2), policy page, double degree: not programs; Dance credited by its whole-degree identity
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (4, 3), b)
+        self.assertIn("Biology, Bachelor of Arts/Master of Science", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Physics, Bachelor of Science."), b)
+        self.assertEqual(whole_degree('Bachelor of Fine Arts in Dance (BFA)'), whole_degree('Bachelor of Fine Arts in Dance'))
+        self.assertIsNone(whole_degree('Bachelor of Science in Dance (BA)'))  # two awards: not one degree
 
     def test_only_reviewed_approvals_count(self):
         import tempfile

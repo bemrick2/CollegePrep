@@ -107,6 +107,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_role_rules.sql
       - name: Test practice grading, recommendations, estimates and progress
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_engine.sql
+      - name: Reserved assessment pool (CR-23)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/assessment_pool.sql
       - name: CR-14 program-depth fields
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/program_depth.sql
       - name: Front-end contract tests (issue #37)
