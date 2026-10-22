@@ -530,10 +530,15 @@ def html_groups(table, program_awards=1, extra_issues=None):
                 elif crd:
                     cur['type'] = 'choose_credits'; cur['choose_credits'] = _num(crd.group(1))
                     if re.search(r'\d\s*-\s*\d', rw['text']): cur['issues'].add('credit_range')
+                    # 'Select 48 hours of Electives/Minor | 45' (UNL): the rule and its hours cell disagree
+                    if (rw['credits'] or '').strip().isdigit() and cur['choose_credits'] != int(rw['credits']): cur['issues'].add('rule_credits_differ_from_hours')
                 else:
                     m = re.match(r'^(one|two|three|four|five|six|\d+)\b', rw['text'], re.I)
                     if m: cur['type'] = 'choose_courses'; w = m.group(1).lower(); cur['choose_count'] = NUMBER_WORDS.get(w) or int(w)
                     else: cur['issues'].add('choose_number_not_printed')
+                # 'Select one course each from ACE outcomes 5, 7, and 9 | 9' (UNL): one per area, so the number of courses is
+                # not printed as a count
+                if re.search(r'\beach\b', rule, re.I): cur['issues'].add('count_per_area')
                 continue
             was_choice = cur is not None and cur['type'] != 'all_required' and not rw['credits']
             close()  # any other non-indented text row (a requirement printed as text) ends the group; it is not a group itself
@@ -645,7 +650,8 @@ def html_candidates(inst, entry, cl_entry, tables, year, program_key, program_aw
 # rule. Nothing is inferred: a cell without a column, an indented row with no open rule in its column, or a marker that is
 # not at the end of a cell holds the plan.
 PLANGRID_EXTRACTOR = 'courseleaf_plangrid/v1'
-GRID_CODE = re.compile(r'^([A-Z]{2,5})\s(F?\d{3,4}[A-Z]?)$')  # 'MATH F251X' (UAF), 'BIOL 2403' (SHSU: four digits)
+# 'MATH F251X' (UAF), 'BIOL 2403' (SHSU: four digits), 'ENGLSH 1000' / 'AG_S_TCH 1020' (Missouri)
+GRID_CODE = re.compile(r'^([A-Z]{2,5}|[A-Z][A-Z_]{1,8})\s(F?\d{3,4}[A-Z]?)$')
 GRID_COL = re.compile(r'^(year\d+)_(Term\d+)_(codecol|hourscol)$')
 GRID_CHOICE = re.compile(r'^(?:complete|select|choose|take)\s+(?:one|two|three|\d+)\s+of\s+the\s+following\s*:?$', re.I)
 RECOMMENDED = re.compile(r'\s*\(\*\)$')
@@ -743,6 +749,7 @@ def parse_plangrid(t, footnote_defs):
             if marks:
                 item['footnotes'] = marks
                 if any(n not in footnote_defs for n in marks): issues.add('footnote_not_defined')
+                elif any(footnote_defs[n] is None for n in marks): issues.add('footnote_definition_unclear')
             if code.get('indent'):
                 if st['open'] is None: issues.add('indented_row_without_rule'); st['term']['items'].append(item)
                 else: st['open'].setdefault('options', []).append(item)
@@ -791,7 +798,11 @@ def page_footnotes(text):
     if start is None: return defs
     i = start + 1
     while i + 1 < len(lines) and re.fullmatch(r'\d{1,2}', lines[i]):
-        defs[lines[i]] = lines[i + 1]; i += 2
+        nxt = lines[i + 2] if i + 2 < len(lines) else ''
+        # a number printed twice (SHSU BSN '9'), or a definition whose next line neither starts another footnote nor the
+        # 'Course List' section (it may continue), is not read: a plan that uses it is held
+        whole = nxt == '' or re.fullmatch(r'\d{1,2}', nxt) or nxt.startswith('Course List')
+        defs[lines[i]] = None if (lines[i] in defs or not whole) else lines[i + 1]; i += 2
     return defs
 
 
@@ -815,11 +826,15 @@ def plangrid_candidates(inst, entry, grid_entry, doc, year, program_key, page_te
         terms, total, issues = parse_plangrid(t, defs)
         if not terms: continue
         if len(grids_) > 1 and not labelled: issues.add('multiple_plan_grids')
+        # an unlabelled grid headed for a track, concentration, dual degree or double major ('Semester Plan - Dual Degree
+        # Electrical Engineering and Computer Engineering', Missouri) is that route's plan, not the program's: held until reviewed
+        if not labelled and re.search(r'\b(dual degree|double major|concentration|track|emphasis|option)\b', t.get('heading') or '', re.I):
+            issues.add('plan_heading_label')
         key = 'roadmap' if len(grids_) == 1 else (road_keys[i - 1] if labelled else f'roadmap-{i}')
         used = sorted({n for term in terms for it in term['items'] for x in [it, *it.get('options', [])] for n in x.get('footnotes', [])}, key=lambda n: (len(n), n))
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
               'terms': terms, 'source_section': (heads[i - 1] if labelled else (t.get('heading') or 'Roadmap').strip() + (f' {i} of {len(grids_)}' if len(grids_) > 1 else ''))}
-        if used: rd['footnotes'] = {n: defs[n] for n in used if n in defs}
+        if used: rd['footnotes'] = {n: defs[n] for n in used if defs.get(n)}
         if total: rd['rule_text'] = f"{t.get('_total_label') or 'Total Credits'} {total} (as printed)"
         rec = {'program_key': program_key, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': term['label'], 'snippet': f"{term['label']}: {len(term['items'])} items, {term.get('credit_hours', '?')} credits"} for term in terms]

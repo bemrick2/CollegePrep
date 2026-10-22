@@ -1588,6 +1588,20 @@ def thec_candidates(inst, entry, rows, today_year):
 
 
 
+def shared_plan_keys(cands):
+    """Plans read from different pages under one program and plan key (SHSU engineering technology concentrations, whose
+    pages all name the major; BBA Finance concentrations whose keys are cut at 80 characters) would replace one another:
+    each is held with 'plan_key_shared_by_pages'."""
+    by = {}
+    for c in cands:
+        if c.get('domain') == 'degree_requirements' and c['record'].get('requirement_kind') == 'program_plan':
+            by.setdefault((c['institution_key'], c['record']['program_key'], c['record']['requirement_key']), set()).add(c['source']['url'])
+    for c in cands:
+        if c.get('domain') == 'degree_requirements' and c['record'].get('requirement_kind') == 'program_plan' and \
+                len(by[(c['institution_key'], c['record']['program_key'], c['record']['requirement_key'])]) > 1 and 'plan_key_shared_by_pages' not in c['issues']:
+            c['issues'] = sorted(c['issues'] + ['plan_key_shared_by_pages'])
+
+
 def distinct_candidates(cands):
     """One candidate per id. A page reached by two URLs (http/https, a doubled slash, a list link and a sitemap link;
     TX 2026-10-07-flag3) is read twice with the same stored document, so its candidates repeat with only the fetch
@@ -1709,6 +1723,7 @@ def extract_run(targets, run_dir, today=None):
                         'program_list_links': lists[key]['counts'], 'candidates': n_c,
                         'evidence': sum(1 for x in evidence if x['institution_key'] == key)}
     cands = distinct_candidates(cands)
+    shared_plan_keys(cands)
     d = Path(run_dir)
     (d / 'program_lists.json').write_text(json.dumps(lists, indent=1, ensure_ascii=False) + '\n')
     with (d / 'candidates.jsonl').open('w') as f:

@@ -66,6 +66,14 @@ MUTS = [
     ('programs/courseleaf.py', "                  r'|^(1st|2nd|3rd|[4-8]th)\\s+semester$'\n", ""),
     # courseleaf_plan/v3 item fields, labels and checks (#229, #230)
     # positional plan grids (SHSU 2026-27 '#plangrid' documents)
+    ('programs/courseleaf.py', "                if re.search(r'\\beach\\b', rule, re.I): cur['issues'].add('count_per_area')", "                pass"),
+    ('programs/courseleaf.py', " and cur['choose_credits'] != int(rw['credits']): cur['issues'].add('rule_credits_differ_from_hours')", " and False: pass"),
+    ('programs/extract.py', "    shared_plan_keys(cands)\n", ""),
+    ('programs/extract.py', "                len(by[(c['institution_key'], c['record']['program_key'], c['record']['requirement_key'])]) > 1", "                len(by[(c['institution_key'], c['record']['program_key'], c['record']['requirement_key'])]) > 2"),
+    ('programs/courseleaf.py', "        defs[lines[i]] = None if (lines[i] in defs or not whole) else lines[i + 1]; i += 2", "        defs[lines[i]] = lines[i + 1]; i += 2"),
+    ('programs/courseleaf.py', "                elif any(footnote_defs[n] is None for n in marks): issues.add('footnote_definition_unclear')", "                pass"),
+    ('programs/courseleaf.py', "        if not labelled and re.search(r'\\b(dual degree|double major|concentration|track|emphasis|option)\\b', t.get('heading') or '', re.I):", "        if False:"),
+    ('programs/courseleaf.py', "GRID_CODE = re.compile(r'^([A-Z]{2,5}|[A-Z][A-Z_]{1,8})\\s", "GRID_CODE = re.compile(r'^([A-Z]{2,5})\\s"),
     ('programs/courseleaf.py', "        if cells[1] and re.search(r'(^|[\\s(])or(\\s|$)|or$', cells[1]): return None", "        if cells[1] and re.search(r'(^|[\\s])or(\\s|$)|or$', cells[1]): return None"),
     ('programs/verify.py', "    return re.search(rf'^\\|\\s*{re.escape(marker)}\\s*\\|\\s*{code_re}\\s*\\|', lined(text), re.M) is not None", "    return re.search(rf'{re.escape(marker)}\\s*\\|\\s*{code_re}\\s*', lined(text), re.M) is not None"),
     ('programs/courseleaf.py', "|prerequisite courses|school of .+)$'", "|prerequisite courses|school of law)$'"),
@@ -82,7 +90,7 @@ MUTS = [
     ('programs/courseleaf.py', "    positional = not any(GRID_COL.match(h)", "    positional = True or not any(GRID_COL.match(h)"),
     ('programs/courseleaf.py', "    while i + 1 < len(lines) and re.fullmatch(r'\\d{1,2}', lines[i]):", "    while i + 1 < len(lines):"),
     ('programs/courseleaf.py', "    defs = {} if doc.get('footnotes') else page_footnotes(page_text)", "    defs = {}"),
-    ('programs/courseleaf.py', "F?\\d{3,4}[A-Z]?)$')  # 'MATH F251X' (UAF), 'BIOL 2403'", "F?\\d{3}[A-Z]?)$')  # 'MATH F251X' (UAF), 'BIOL 2403'"),
+    ('programs/courseleaf.py', "\\s(F?\\d{3,4}[A-Z]?)$')\nGRID_COL", "\\s(F?\\d{3}[A-Z]?)$')\nGRID_COL"),
     ('programs/courseleaf.py', "            if m: total = m.group(2); t['_total_label'] = m.group(1)", "            if m: total = m.group(2)"),
     ('programs/courseleaf.py', "        if cells[1] and re.search(r'(^|[\\s(])or(\\s|$)|or$', cells[1]): return None", "        pass"),
     ('programs/courseleaf.py', "|term credits|semester total|term total)$', re.I)", "|term credits)$', re.I)"),
