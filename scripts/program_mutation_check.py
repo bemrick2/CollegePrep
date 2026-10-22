@@ -7,6 +7,10 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/courseleaf.py', "CHOICE_HEADER = re.compile(r'^(?:[A-Z][^:]{0,60}:\\s*)?(?:select", "CHOICE_HEADER = re.compile(r'^(?:select"),
+    ('programs/courseleaf.py', "r'(?:of|from)\\s+the\\s+following\\s*:?(?:\\s*\\d{1,2}(?:\\s*,\\s*\\d{1,2})*)?$', re.I)", "r'(?:of|from)\\s+the\\s+following\\s*:?$', re.I)"),
+    ('programs/courseleaf.py', "r'(?:of|from)\\s+the\\s+following\\s*:?(?:\\s*\\d{1,2}(?:\\s*,\\s*\\d{1,2})*)?$', re.I)", "r'(?:of|from)\\s+the\\s+following.*', re.I)"),
+    ('programs/courseleaf.py', "CHOICE_HEADER = re.compile(r'^(?:[A-Z][^:]{0,60}:\\s*)?(?:select", "CHOICE_HEADER = re.compile(r'^(?:.*:\\s*)?(?:select"),
     ('programs/courseleaf.py', "        if grid_change_noted(page): merged['_grid_change_note'] = True", "        pass"),
     ('programs/courseleaf.py', "        if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')", "        pass"),
     ('programs/courseleaf.py', "    return any(GRID_CHANGE.search(l) for l in between if not l.startswith('|'))", "    return False"),
@@ -23,7 +27,7 @@ MUTS = [
     ('programs/courseleaf.py', "    return bool(PLAN_CREDITS.match(x.split(' | ')[-1]))", "    return False"),
     ('programs/courseleaf.py', "    for term in terms: term['items'] = choice_blocks(term['items'])", "    pass"),
     ('programs/courseleaf.py', "if isinstance(it, dict) and set(it) == {'text', 'credits'} else None", "if isinstance(it, dict) else None"),
-    ('programs/courseleaf.py', "(?:of|from)\\s+the\\s+following\\s*:?$', re.I)", "', re.I)"),
+    ('programs/courseleaf.py', "r'(?:of|from)\\s+the\\s+following\\s*:?(?:\\s*\\d{1,2}(?:\\s*,\\s*\\d{1,2})*)?$', re.I)", "r'', re.I)"),
     ('programs/verify.py', "for x in [i, *i.get('options', [])] if isinstance(x, dict)]", "for x in [i] if isinstance(x, dict)]"),
     ('programs/courseleaf.py', "        if m and len(cells) >= 3 and cells[-1] and not hours:", "        if False:"),
     ('programs/courseleaf.py', "SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO)\\s[A-Z])(?!(?:HOURS|GRADES|MINOR|TOTAL|LEVEL)\\b)[A-Z][A-Z&]{0,7}'", "SUBJ = r'[A-Z][A-Z&]{0,7}'"),

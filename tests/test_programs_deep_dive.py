@@ -662,6 +662,12 @@ class CourseleafPlanTests(unittest.TestCase):
                                     'options': [{'code': 'ANTH 376', 'title': 'Quant'}, {'code': 'BIOL 350', 'title': 'Biostat'}]})
         self.assertEqual(items[2], {'code': 'MATH 101', 'title': 'Algebra', 'credits': 3})  # a row with credits ends the block
         self.assertEqual((items[3]['choose'], len(items[3]['options'])), (2, 3))
+        # a printed label before the instruction and footnote marks after it are kept in the text (JSU, Texas A&M, Temple)
+        for hdr in ('Jax MIX Experience: select one of the following: 1', 'Select one of the following: 2,3'):
+            items = CL.parse_grid({'rows': [['Fall', 'Hours'], [hdr, '3'], ['PSY 201', 'A', ''], ['SY 221', 'B', ''], ['', 'Hours', '3']]})[0][0]['items']
+            self.assertEqual((items[0]['choose'], items[0]['text']), (1, hdr))
+        for hdr in ('Select one of the following courses 12', 'Note: select one of the following and more', 'select one of the following: 123'):
+            self.assertIsNone(CL.CHOICE_HEADER.match(hdr), hdr)
         # not grouped: a header without credits, options with their own credits, one option, a count not below the options
         for hdr, opts in ((['Select one of the following:', ''], [['ANTH 376', 'Q', ''], ['BIOL 350', 'B', '']]),
                           (['Select one of the following:', '3'], [['ANTH 376', 'Q', '3'], ['BIOL 350', 'B', '3']]),
