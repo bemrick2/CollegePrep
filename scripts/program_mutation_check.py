@@ -456,7 +456,8 @@ MUTS = [
     ('programs/extract.py', "    doc = None if awards else document_award(head, award_docs)", "    doc = None"),
     ('programs/verify.py', "src = norm(other(ev['sha256'])) if (ev.get('sha256') and ev['sha256'] != c['source'].get('sha256') and other and other(ev['sha256'])) else t", "src = t + ' ' + ' '.join(norm(other(x)) for x in [ev.get('sha256')] if x and other and other(x)) if False else t"),
     ('programs/extract.py', "    unqualified = COLLEGE_QUALIFIER.sub('', printed)", "    unqualified = printed"),
-    ('programs/promote.py', "                  if cid in prior and (v.get('decision') or {}).get('replaces_promoted')}", "                  if False}"),
+    ('programs/promote.py', "if cid in prior and ((v.get('decision') or {}).get('replaces_promoted') or (v.get('decision') or {}).get('replaces_correction'))}", "if False}"),
+    ('programs/promote.py', " or (v.get('decision') or {}).get('replaces_correction'))}", ")}"),
     # ODU 2026-27 list rows run the award on to filter labels; 'BS-MBA' is combined; NROTC is commissioning (2026-10-21)
     ('programs/catalog_counts.py', "            if f: pr = pr[:f.start()]; filtered += 1", "            pass"),
     ('programs/catalog_counts.py', "ROTC = re.compile(r'\\bN?ROTC\\b')", "ROTC = re.compile(r'\\bROTC\\b')"),
