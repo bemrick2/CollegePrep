@@ -3198,6 +3198,31 @@ class CatalogCountTests(unittest.TestCase):
         self.assertEqual(whole_degree('Bachelor of Science in Human Resource Management'), whole_degree('Human Resource Management (BS)'))
         self.assertIsNone(whole_degree('Education (BA) with EC-6 Core Subjects'))
 
+    def test_jhu_combined_policy_and_double_degree_entries(self):  # JHU 2026-27 program list
+        import tempfile
+        from programs.catalog_counts import entries, whole_degree
+        u = 'https://catalog.x.edu/'
+        listing = [('Biology, Bachelor of Arts/Master of Science', u + 'bio-ba-ms', 'bachelor'),
+                   ("Bachelor's/Master's Degrees", u + 'ba-ma', 'bachelor'),
+                   ("Requirements for a Bachelor's Degree", u + 'reqs', 'bachelor'),
+                   ("Peabody-Homewood Double Degree ProgramPeabody InstituteBachelor's", u + 'double', 'bachelor'),
+                   ('Bachelor of Fine Arts in Dance (BFA)', u + 'dance', 'bachelor'),
+                   ('Bachelor of Music in Performance - Piano', u + 'piano', 'bachelor'),
+                   ('Biology, Bachelor of Arts', u + 'bio', 'bachelor'),
+                   ('Physics, Bachelor of Science', u + 'phys', 'bachelor')]
+        records = [('Bachelor of Fine Arts in Dance', u + 'dance-other-page'), ('Bachelor of Music in Performance - Piano', u + 'piano'),
+                   ('Biology, Bachelor of Arts', u + 'bio')]
+        with tempfile.TemporaryDirectory() as d:
+            d = self.run_dir(d, listing, records)
+            e = entries(d, d / 'dec.json', ['k'])[0]
+        b = e['completeness_basis']
+        # combined (2), policy page, double degree: not programs; Dance credited by its whole-degree identity
+        self.assertEqual((e['listed_bachelor_programs'], e['verified_listed_programs']), (4, 3), b)
+        self.assertIn("Biology, Bachelor of Arts/Master of Science", b)
+        self.assertTrue(b.endswith("Not recorded (names separated by ' | '): Physics, Bachelor of Science."), b)
+        self.assertEqual(whole_degree('Bachelor of Fine Arts in Dance (BFA)'), whole_degree('Bachelor of Fine Arts in Dance'))
+        self.assertIsNone(whole_degree('Bachelor of Science in Dance (BA)'))  # two awards: not one degree
+
     def test_only_reviewed_approvals_count(self):
         import tempfile
         from programs.catalog_counts import entries

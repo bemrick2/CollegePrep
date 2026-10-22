@@ -24,8 +24,9 @@ COMB = re.compile(r"Accelerated.*(\bM\.?[AS]\b\.?|\bMBA\b|\bMPA\b|Master)|Schola
                   r"Dual Acceptance|and MBA\b|to MBA|\bB\.?[AS]\.?/\s?M\.?[AS]\b|\bM\.[AS]\.|/\s?(DDS|MD|PharmD|DPT|OTD)\b|\(B[AS]/D|"
                   r"(?-i:\bB[A-Z]{1,4}/M[A-Z]{1,3}\b)|(?-i:\bB[A-Z]{1,4}-M(?:S|A|[A-Z]{2,3})\b)|"  # ODU '..., BS-MBA' (a hyphenated single award such as 'BS-MT' is not combined); La Salle 'Accounting, BSBA/MBA (4 year)'
                   r"\bto\b.*(?-i:\bM[A-Z]{0,4}\b).*\bAccelerated\b|Dual Degree Acceptance|\bB\.?[AS]\.?/.*\bM\.\s?B\.\s?A\b|"
-                  r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)", re.I)  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
-GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$", re.I)
+                  r"(?-i:,\s*B[A-Z]{1,3}\s+to\s+[^,]+,\s*M[A-Z]{1,5}\b)|"
+                  r"(?-i:\bBachelor of [A-Z][a-z]+(?: [A-Z][a-z]+)*\s*/\s*Master of\b)|^Bachelor's/Master's\b", re.I)  # JHU 2026-27 'Biology, Bachelor of Arts/Master of Science'; the 'Bachelor's/Master's Degrees' heading  # Roosevelt 'Biology, BA to Secondary Education, MA Accelerated Program'; Georgian 'B.S./... M.B.A.'
+GENERIC = re.compile(r"^(Bachelor's (Degree|Concentration|Degree Programs)|Department of .*)$|: Bachelor's Degree\b|Minor, Certificate|Graduate Certificate|\bRoadmap\b|\b(Graduation|Continuance)\s+(Requirements|Regulations)\b|\bReadmission\b|\(Secondary Major\)|^Minor in\b|General Education Requirements|\(Double Major\)|^Bachelor's and Master's Degree Programs$|^Requirements for a Bachelor's Degree$|\bDouble Degree Program", re.I)
 ROTC = re.compile(r'\bN?ROTC\b')
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source'}
 # UTEP 2026-27 cards run the name into the card's category labels: 'BBA in AccountingBusiness, Management, & Marketing
@@ -66,7 +67,8 @@ def card_name(printed):
 
 
 SPELLED = {'arts': 'ba', 'science': 'bs', 'fine arts': 'bfa', 'music': 'bm', 'business administration': 'bba'}
-WHOLE_DEGREE = [re.compile(r'^Bachelor of (?P<long>Arts|Science|Fine Arts|Music|Business Administration) in (?P<base>[^,:()]+?)$'),
+# 'Bachelor of Fine Arts in Dance (BFA)' (JHU) repeats its award: the same degree, when the parenthesis names it.
+WHOLE_DEGREE = [re.compile(r'^Bachelor of (?P<long>Arts|Science|Fine Arts|Music|Business Administration) in (?P<base>[^,:()]+?)(?: \((?P<same>(?-i:B[A-Z]{1,3}))\))?$'),
                 re.compile(r'^(?P<award>(?-i:B[A-Z]{1,3})) in (?P<base>[^,:()]+?)$'),
                 re.compile(r'^(?P<base>[^,:()]+?) \((?P<award>(?-i:B[A-Z]{1,3}))\)$'),
                 re.compile(r'^(?P<base>[^,:()]+?), (?P<award>(?-i:B[A-Z]{1,3}))$')]
@@ -80,6 +82,8 @@ def whole_degree(name):
         m = rx.match(n)
         if m:
             award = SPELLED[m.group('long').lower()] if 'long' in rx.groupindex else m.group('award').lower()
+            if 'same' in rx.groupindex and m.group('same') and m.group('same').lower() != award:
+                return None  # 'Bachelor of Science in X (BA)' names two awards: not one whole degree
             return re.sub(r'\W+', '', m.group('base')).lower(), award
     return None
 
