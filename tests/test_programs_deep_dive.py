@@ -986,6 +986,10 @@ class CourseListGroupTests(unittest.TestCase):
                           ('Major Courses', 'all_required', 1, None, None, []), ('Major Courses', 'choose_credits', 2, None, 9, [])])
         self.assertEqual(g[0][1]['courses'][1], {'any_of': [{'code': 'MATH 241', 'title': 'Calculus I', 'credits': 4}, {'code': 'MATH 251Z', 'title': 'Differential Calculus'}]})
 
+    def test_row_led_by_a_zero_width_space_is_held(self):  # UW-Madison prints U+200B inside joined code cells
+        g = self.groups([['BIOL 101', 'A', '3'], ['\u200bAGROECOL 370 & GENETICS 528', 'B', '3']])
+        self.assertIn('complex_course_row', g[0][1]['issues'])
+
     def test_unrepresentable_rows_are_held(self):
         g = self.groups([['PH 211& PH 212', 'PHYSICS', '8'], ['Select one of the following math pairs:', '4-7'], ['MTH 251Z& MTH 252Z', 'CALCULUS', '8'],
                          ['Select an additional 7 credits from courses that count toward either major.', '7'], ['Capstone', ''], ['ANTH 209', 'Business Anthropology', '4'],
