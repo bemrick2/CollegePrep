@@ -103,6 +103,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/billing.sql
       - name: Emailed student invitations
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/invitation_email.sql
+      - name: Household role rules (#218 C1, C6, C7)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_role_rules.sql
       - name: Test practice grading, recommendations, estimates and progress
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_engine.sql
       - name: CR-14 program-depth fields
