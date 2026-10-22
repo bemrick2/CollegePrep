@@ -15,7 +15,12 @@ function lastTwoChecks(benchmarks: BenchmarkSummary[], history: AttemptRecord[])
   if (byDate.length < 2) return null
   const to = byDate.at(-1)!
   const from = byDate.at(-2)!
-  const count = (b: BenchmarkSummary) => [...benchmarkRepeats(b, history).values()].reduce((n, x) => n + x, 0)
+  // Repeats from the server's own count (complete_benchmark v2) when it has one, else from attempt history; the larger.
+  const count = (b: BenchmarkSummary) =>
+    Math.max(
+      [...benchmarkRepeats(b, history).values()].reduce((n, x) => n + x, 0),
+      (b.metrics.sections ?? []).reduce((n, x) => n + (x.repeats ?? 0), 0),
+    )
   return { from, to, repeats: count(from) + count(to) }
 }
 import { ImprovingCard } from '../../components/ImprovingCard'

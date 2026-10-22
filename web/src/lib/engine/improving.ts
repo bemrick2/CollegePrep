@@ -35,6 +35,14 @@ export function improvementVerdict(check: CheckPair | null, week: { recent: Coun
         headline: 'Not a clean comparison yet',
         detail: `${check.repeats} ${check.repeats === 1 ? 'question' : 'questions'} in the last two checks had been seen before. Recall isn't new evidence, so the change isn't judged.`,
       }
+    // A shortened or partly unmeasured check covers a different mix of sections: overall totals aren't comparable.
+    const shape = (b: BenchmarkSummary) => (b.metrics.sections ?? []).map((x) => `${x.section}:${x.answered}`).sort().join(',')
+    if (shape(check.from) !== shape(check.to))
+      return {
+        tone: 'neutral',
+        headline: 'Not a like-for-like comparison',
+        detail: "The last two checks didn't cover the same sections with the same number of questions, so their totals aren't compared. Each check's results show its sections.",
+      }
     const now = { correct: check.to.metrics.correct, answered: check.to.metrics.answered }
     const then = { correct: check.from.metrics.correct, answered: check.from.metrics.answered }
     const j = judgeChange(now, then)

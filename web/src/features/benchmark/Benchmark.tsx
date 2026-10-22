@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
+import { DataError } from '../../lib/data/source'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
 import { FULL_FORM_READY, PER_SECTION, SECTION_LABEL, SECTION_ORDER, computeMetrics, nextDifficulty, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
 import { checkPlanFromCounts, pickCheckItem, type CheckSectionPlan } from '../../lib/engine/freshness'
@@ -59,6 +60,10 @@ export function Benchmark() {
   const [records, setRecords] = useState<BenchmarkRecord[]>([])
   const [summary, setSummary] = useState<BenchmarkSummary | null>(null)
   const [error, setError] = useState<string | null>(null)
+  // After an answer is saved, a failure to move on must not resubmit it: `stalled` offers "Continue" (advance only),
+  // and `ended` means the server closed the check (expired), so only a new check can follow.
+  const [stalled, setStalled] = useState(false)
+  const [ended, setEnded] = useState(false)
   const [busy, setBusy] = useState(false)
 
   // Mutable run state that doesn't drive rendering directly.
@@ -231,12 +236,29 @@ export function Benchmark() {
         },
       ])
       if (!run.current.returning) run.current.target = nextDifficulty(run.current.target, res.is_correct)
-      await advance()
     } catch (e) {
       current.clock.start()
       setError(e instanceof Error ? e.message : 'Could not save that answer')
-    } finally {
       setBusy(false)
+      return
+    }
+    // Saved. From here a failure only affects what comes next; the answer is never sent again.
+    setCurrent(null)
+    await moveOn()
+    setBusy(false)
+  }
+
+  const moveOn = async () => {
+    setError(null)
+    setStalled(false)
+    try {
+      await advance()
+    } catch (e) {
+      if (e instanceof DataError && e.code === 'invalid') setEnded(true)
+      else {
+        setError(e instanceof Error ? e.message : 'Could not load the next question')
+        setStalled(true)
+      }
     }
   }
 
@@ -249,7 +271,8 @@ export function Benchmark() {
       // ignore
     }
     run.current.skipped.push({ ...current, skipEvents: current.skipEvents + 1 })
-    await advance()
+    setCurrent(null)
+    await moveOn()
   }
 
   if (phase === 'intro') {
@@ -402,7 +425,25 @@ export function Benchmark() {
             }
           />
         )}
-        {error && <Notice tone="bad" className="mt-4">{error}</Notice>}
+        {ended ? (
+          <Notice tone="warn" title="This progress check has ended" className="mt-4">
+            <p>Your answers so far are saved, but this check can't continue (checks close 4 hours after they start). Start a new check for a result.</p>
+            <Button className="mt-3" onClick={() => navigate(0)}>
+              Start a new check
+            </Button>
+          </Notice>
+        ) : (
+          error && (
+            <Notice tone="bad" className="mt-4">
+              <p>{error}</p>
+              {stalled && (
+                <Button variant="secondary" className="mt-3" disabled={busy} onClick={() => void moveOn()}>
+                  Continue
+                </Button>
+              )}
+            </Notice>
+          )
+        )}
       </div>
       <div className="sticky bottom-0 -mx-4 border-t border-line bg-bg/95 px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur">
         <div className="mx-auto grid max-w-xl gap-3">
