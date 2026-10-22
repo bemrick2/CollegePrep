@@ -2,8 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useApp, useAsync } from '../../lib/app'
 import type { BenchmarkSummary, Confidence, ExamFamily, PublicQuestion } from '../../lib/data/types'
-import { FULL_FORM_READY, PER_SECTION, SECTION_LABEL, SECTION_ORDER, computeMetrics, nextDifficulty, pickNext, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
-import { checkPlan, checkQuestions } from '../../lib/engine/freshness'
+import { FULL_FORM_READY, PER_SECTION, SECTION_LABEL, SECTION_ORDER, computeMetrics, nextDifficulty, planBenchmark, type BenchmarkKind, type BenchmarkPlan, type BenchmarkRecord, benchmarkSchedule } from '../../lib/engine/benchmark'
+import { checkPlan, checkQuestions, nextCheckQuestion } from '../../lib/engine/freshness'
 import { ActiveClock } from '../practice/useAttempt'
 import { QuestionView, ConfidenceBar } from '../practice/QuestionView'
 import { Button, ButtonLink, ChoiceCard, EmptyState, Notice, PageLoading, ProgressBar } from '../../components/ui'
@@ -115,7 +115,7 @@ export function Benchmark() {
     if (!r.returning && r.served < section.count) {
       // Unseen reserved questions first, so the check measures more than recall; reserved repeats only when the
       // section's unseen ones run out (that section then gets no verdict). Never a practice question.
-      const q = pickNext(reserved.filter((x) => !seenBefore.has(x.id)), section.section, r.target, r.used) ?? pickNext(reserved, section.section, r.target, r.used)
+      const q = nextCheckQuestion(exam, pool.data!, section.section, r.target, r.used, seenBefore)
       if (q) return present(q)
     }
     const back = r.skipped.shift()
@@ -125,7 +125,7 @@ export function Benchmark() {
     }
     setCurrent(null)
     setPhase(sectionIdx + 1 >= bplan.sections.length ? 'done' : 'break')
-  }, [bplan, section, reserved, present, resume, sectionIdx, seenBefore])
+  }, [bplan, section, reserved, pool.data, exam, present, resume, sectionIdx, seenBefore])
 
   // When the run ends, save the summary.
   useEffect(() => {
@@ -170,7 +170,7 @@ export function Benchmark() {
     setSectionIdx(idx)
     setPhase('running')
     const sec = bplan.sections[idx]!
-    const q = pickNext(reserved!.filter((x) => !seenBefore.has(x.id)), sec.section, 3, run.current.used) ?? pickNext(reserved!, sec.section, 3, run.current.used)
+    const q = nextCheckQuestion(exam, pool.data!, sec.section, 3, run.current.used, seenBefore)
     if (q) await present(q).catch((e: Error) => setError(e.message))
   }
 

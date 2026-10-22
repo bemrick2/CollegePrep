@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { QUESTIONS, SKILLS } from './data/demo/fixtures'
 import { IMPORT_CONTRACT, questionKey, validateImport, type ImportedQuestion } from './questionImport'
 
-const skills = new Set(SKILLS.map((s) => s.skill_key))
+const skills = SKILLS
 /** An existing fixture, dressed as an import, so the validator is tested against real-quality content. */
 function asImport(i = 0, extra: Partial<ImportedQuestion> = {}): ImportedQuestion {
   const { id, ...q } = QUESTIONS[i]!
@@ -26,6 +26,26 @@ describe('question import contract (question_import/v1)', () => {
       'source_attribution: official ACT or College Board material is not accepted without written permission',
     )
     expect(problems([asImport(0, { origin: 'ai_drafted', author: 'Jordan Lee' })])).toContain('author: an AI draft names its model as "ai:<model>"')
+    expect(problems([asImport(0, { author: 'ai:' })])).toContain('author: an AI draft names its model as "ai:<model>"')
+    expect(problems([asImport(0, { origin: 'human_original', author: 'ai:model-x' })])).toContain('origin: an "ai:" author means origin ai_drafted')
+    expect(problems([asImport(0, { origin: 'licensed', license: 'original-owned' })])).toContain("license: original-owned doesn't fit origin licensed")
+    expect(problems([asImport(0, { origin: 'adapted_public_domain', license: 'public-domain', source_attribution: 'x', source_url: 'https://satsuite.collegeboard.org/practice' })])).toContain(
+      'source_attribution: official ACT or College Board material is not accepted without written permission',
+    )
+    expect(problems([asImport(0, { origin: 'adapted_public_domain', license: 'public-domain', source_attribution: 'x', source_url: 'https://www.act.org/content/dam/act/test.pdf' })]).some((p) => p.includes('official'))).toBe(true)
+  })
+
+  it('refuses fields outside the contract, so no id, pool, approval or hash can ride along', () => {
+    expect(problems([{ ...asImport(0), pool: 'assessment', approved: true, content_hash: 'x' }])).toEqual(
+      expect.arrayContaining([expect.stringMatching(/^pool: not a field/), expect.stringMatching(/^approved: not a field/), expect.stringMatching(/^content_hash: not a field/)]),
+    )
+  })
+
+  it('refuses empty hints, empty choice text, and a skill from the other exam', () => {
+    const q = asImport(0)
+    expect(problems([{ ...q, hints: [''] }]).some((p) => p.startsWith('hints'))).toBe(true)
+    const sat = SKILLS.find((k) => k.exam_family === 'sat')!.skill_key
+    expect(problems([{ ...q, primary_skill_key: sat }])).toContain('primary_skill_key: a skill from the other exam')
   })
 
   it('rejects broken items: key not a choice, missing rationale, unknown skill, long remember line', () => {

@@ -97,6 +97,8 @@ export interface PublicQuestion {
   expected_time_seconds: number | null
   primary_skill_key: string | null
   hint_count: number
+  /** CR-23: 'assessment' items are for progress checks only. Absent until the source serves the column. */
+  pool?: 'practice' | 'assessment' | null
 }
 
 export interface DistractorRationale {

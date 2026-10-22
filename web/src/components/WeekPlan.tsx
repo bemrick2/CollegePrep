@@ -223,6 +223,7 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
     </p>
   ) : null
   const held = content.sections.reduce((n, x) => n + x.heldForCheck, 0)
+  const reservedUnseen = content.sections.reduce((n, x) => n + x.reservedUnseen, 0)
   if (content.practiceAllReview)
     return (
       <Notice tone="warn" title="No new practice questions left">
@@ -231,7 +232,7 @@ export function FreshContentNotice({ content, name }: { content: ContentStatus |
             <>
               {you}
               {name ? ' has' : "'ve"} seen every {EXAM[content.exam]} practice question. Another {held} are set aside for progress checks only and never
-              appear in practice, so a check measures real progress.
+              appear in practice{reservedUnseen > 0 ? ', so the next check can measure real progress' : ''}.
             </>
           ) : (
             <>

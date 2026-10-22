@@ -81,8 +81,8 @@ export function PracticeSession() {
           title="The questions left are set aside for progress checks"
           action={<ButtonLink to="/student/benchmark">Go to progress checks</ButtonLink>}
         >
-          Progress checks use their own questions, which never appear in practice, so a check measures real progress instead of questions you already
-          know. There's nothing else to practise right now. Take a check when one is due, or come back when more questions are added.
+          Progress checks use their own questions, which never appear in practice. There's nothing else to practise right now. Take a check when one is
+          due, or come back when more questions are added.
         </EmptyState>
       </div>
     )

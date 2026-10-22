@@ -1,5 +1,6 @@
 // Validate a question-bank import batch (docs/product/QUESTION_IMPORT_CONTRACT.md) before it enters review.
 // Usage: npx vite-node scripts/validateQuestionImport.ts <batch.jsonl>
+// Duplicates are checked against the app's fixture bank; check against the hosted bank too once it is back.
 // Exit 0: every item is a well-formed draft for stage 3. Exit 1: problems, one per line. Nothing is published,
 // imported or written; this only reads the file.
 import { readFileSync } from 'node:fs'
@@ -22,7 +23,7 @@ lines.forEach((l, i) => {
     parseErrors++
   }
 })
-const problems = validateImport(items, new Set(SKILLS.map((s) => s.skill_key)), new Set(QUESTIONS.map(questionKey)))
+const problems = validateImport(items, SKILLS, new Set(QUESTIONS.map(questionKey)))
 for (const p of problems) console.log(`${p.import_id}\t${p.field}\t${p.problem}`)
 console.error(`${items.length} items read; ${problems.length + parseErrors} problems. Passing items are drafts only: review stages 3–8 and the rights gate decide publication.`)
 process.exit(problems.length + parseErrors ? 1 : 0)

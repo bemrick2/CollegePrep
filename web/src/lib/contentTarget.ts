@@ -51,6 +51,8 @@ export interface BankSize {
 /** Unique items the bank needs for a target. Practice and reserved items are separate; reserved never enter practice. */
 export function bankSize(t: ContentTarget = PROVISIONAL_TARGET): BankSize {
   if (t.plannedReview < 0 || t.plannedReview > 1) throw new Error('plannedReview must be between 0 and 1')
+  if (!(t.questionsPerWeek > 0) || !(t.weeks > 0) || !(t.headroom >= 0)) throw new Error('questionsPerWeek and weeks must be positive, headroom not negative')
+  if (Object.values(t.reservedPerSection ?? {}).some((n) => !(n >= 0))) throw new Error('reservedPerSection values must not be negative')
   const practiceShown = t.questionsPerWeek * t.weeks
   const practiceUnique = Math.ceil(practiceShown * (1 - t.plannedReview) * (1 + t.headroom))
   const reservedPerSection = t.reservedPerSection ?? defaultReservedPerSection(t.exam, t.weeks)

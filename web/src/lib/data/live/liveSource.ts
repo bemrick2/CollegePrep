@@ -573,7 +573,9 @@ export class LiveSource implements DataSource {
       const t = (r.presented_at as string | null) ?? ''
       if (!lastSeen.has(q) || t > lastSeen.get(q)!) lastSeen.set(q, t)
     }
-    const held = practiceExclusions(examFamily, pool, new Set(lastSeen.keys()))
+    // The reserve is computed from the same question list progress checks use (publishedQuestions), so practice and
+    // checks agree on it exactly.
+    const held = practiceExclusions(examFamily, await this.publishedQuestions(examFamily))
     const kept: { position: number; question_id: string; reason: string }[] = (picked.data ?? []).filter((i) => !held.has(i.question_id))
     const secs = new Map(pool.map((q) => [q.id, q.expected_time_seconds ?? 60]))
     const budget = targetMinutes * 60

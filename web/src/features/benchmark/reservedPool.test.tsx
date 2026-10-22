@@ -31,6 +31,14 @@ describe('reserved assessment pool (CR-23) on the demo source', () => {
       const s = await src.startSession(sid, 30, 'act')
       for (const it of s.items) expect(reserved.has(it.question.id)).toBe(false)
     }
+    // With every practice question already answered, sessions are review of practice items and still never reserved.
+    for (const q of F.QUESTIONS.filter((x) => x.exam_family === 'act' && !reserved.has(x.id))) {
+      const a = await src.startAttempt(sid, q.id, null)
+      await src.submitAttempt(a, { answer: q.accepted_answers[0]!, activeMs: 30_000 })
+    }
+    const review = await src.startSession(sid, 30, 'act')
+    expect(review.items.length).toBeGreaterThan(0)
+    for (const it of review.items) expect([reserved.has(it.question.id), it.seen_before]).toEqual([false, true])
     const one = [...reserved][0]!
     await expect(src.startAttempt(sid, one, null)).rejects.toMatchObject({ code: 'forbidden' })
   })

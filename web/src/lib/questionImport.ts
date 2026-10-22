@@ -31,6 +31,23 @@ export interface ImportedQuestion extends Omit<FixtureQuestion, 'id'> {
   status?: string
 }
 
+/** Every field a line may carry. Anything else (an id, a pool, an approval, a hash) is refused, never passed on. */
+const ALLOWED_KEYS = new Set([
+  'contract', 'import_id', 'exam_family', 'section', 'difficulty', 'stem', 'passage', 'choices', 'answer_format', 'accepted_answers',
+  'expected_time_seconds', 'primary_skill_key', 'hints', 'teaching_explanation', 'strategy_explanation', 'remember', 'distractors',
+  'strategies', 'origin', 'author', 'license', 'source_attribution', 'source_url', 'requested_pool', 'status',
+])
+/** Which licenses each origin may carry. */
+const ORIGIN_LICENSES: Record<Origin, RegExp> = {
+  human_original: /^original-owned$/,
+  ai_drafted: /^original-owned$/,
+  adapted_public_domain: /^(public-domain|us-federal-pd)$/,
+  adapted_cc_by: /^cc-by-4\.0$/,
+  licensed: /^licensed:/,
+}
+/** Official ACT or College Board material: names, products and domains, anywhere in the item or its source. */
+const OFFICIAL = /\b(act,? inc|act\.org|college\s*board|collegeboard(\.org)?|satsuite|bluebook|official\s+(sat|act)|khan academy official sat)\b/i
+
 export interface ImportProblem {
   import_id: string
   field: string
@@ -41,7 +58,8 @@ const SECTIONS: Record<string, string[]> = { act: ['english', 'math', 'reading',
 const ORIGINS: Origin[] = ['human_original', 'ai_drafted', 'adapted_public_domain', 'adapted_cc_by', 'licensed']
 const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length
 /** Stems compared after case, punctuation and spacing are removed, to catch exact and trivially edited duplicates. */
-export const stemKey = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+/** Case, spacing and ordinary punctuation are ignored; math symbols (√ ² π −) are kept, so they still distinguish items. */
+export const stemKey = (s: string) => s.normalize('NFKC').toLowerCase().replace(/[\s.,;:!?'"“”‘’()\[\]-]+/g, ' ').trim()
 /** Two items are the same question when stem, passage and choices all match (many English items share a stem). */
 export const questionKey = (q: Partial<Pick<FixtureQuestion, 'stem' | 'passage' | 'choices'>>) =>
   stemKey([q.stem ?? '', q.passage ?? '', ...(q.choices ?? []).map((c) => (typeof c === 'string' ? c : c.text))].join(' '))
@@ -50,7 +68,8 @@ export const questionKey = (q: Partial<Pick<FixtureQuestion, 'stem' | 'passage' 
  * Validates a batch. `skillKeys`: the taxonomy's skill keys; `existingStems`: stemKey of every item already in the
  * bank (any status), from questionKey. Returns every problem found; an empty list means each item may enter the pipeline as a draft.
  */
-export function validateImport(items: unknown[], skillKeys: Set<string>, existingStems: Set<string> = new Set()): ImportProblem[] {
+export function validateImport(items: unknown[], skills: { skill_key: string; exam_family: string }[], existingStems: Set<string> = new Set()): ImportProblem[] {
+  const skillExam = new Map(skills.map((k) => [k.skill_key, k.exam_family]))
   const out: ImportProblem[] = []
   const ids = new Set<string>()
   const stems = new Map<string, string>()
@@ -58,6 +77,8 @@ export function validateImport(items: unknown[], skillKeys: Set<string>, existin
     const q = (raw ?? {}) as Partial<ImportedQuestion>
     const id = typeof q.import_id === 'string' && q.import_id ? q.import_id : `#${i + 1}`
     const bad = (field: string, problem: string) => out.push({ import_id: id, field, problem })
+    for (const k of Object.keys(q)) if (!ALLOWED_KEYS.has(k)) bad(k, 'not a field of the contract; remove it (ids, pools, approvals and hashes are assigned in review)')
+    const nonEmpty = (v: unknown) => typeof v === 'string' && v.trim() !== ''
     if (q.contract !== IMPORT_CONTRACT) bad('contract', `must be "${IMPORT_CONTRACT}"`)
     if (!/^[a-z0-9][a-z0-9_-]{2,80}$/.test(q.import_id ?? '')) bad('import_id', 'lowercase letters, digits, - or _, 3–81 characters')
     else if (ids.has(q.import_id!)) bad('import_id', 'duplicated in this batch')
@@ -77,23 +98,25 @@ export function validateImport(items: unknown[], skillKeys: Set<string>, existin
       else stems.set(k, id)
     }
     if (!Number.isInteger(q.expected_time_seconds) || q.expected_time_seconds! < 10 || q.expected_time_seconds! > 600) bad('expected_time_seconds', 'an integer, 10–600')
-    if (!skillKeys.has(q.primary_skill_key ?? '')) bad('primary_skill_key', 'not a skill in the taxonomy')
+    if (!skillExam.has(q.primary_skill_key ?? '')) bad('primary_skill_key', 'not a skill in the taxonomy')
+    else if (skillExam.get(q.primary_skill_key!) !== q.exam_family) bad('primary_skill_key', 'a skill from the other exam')
 
     const answers = Array.isArray(q.accepted_answers) ? q.accepted_answers : []
     if (!answers.length || answers.some((a) => typeof a !== 'string' || !a.trim())) bad('accepted_answers', 'at least one non-empty answer')
     if (q.answer_format === 'choice') {
       const keys: string[] = Array.isArray(q.choices) ? q.choices.map((c) => String(c?.key ?? '')) : []
-      if (keys.length < 2 || keys.some((k) => typeof k !== 'string' || !k) || new Set(keys).size !== keys.length) bad('choices', 'at least two choices with unique keys')
+      if (keys.length < 2 || keys.some((k) => !k) || new Set(keys).size !== keys.length) bad('choices', 'at least two choices with unique keys')
+      if ((q.choices ?? []).some((c) => !nonEmpty(typeof c === 'string' ? c : c?.text))) bad('choices', 'every choice has text')
       if (answers.length !== 1) bad('accepted_answers', 'a choice question has exactly one key')
       else if (!keys.includes(String(answers[0]))) bad('accepted_answers', 'the key is not one of the choices')
-      const rationaleFor = new Set((q.distractors ?? []).map((d) => d?.choice))
+      const rationaleFor = new Set((q.distractors ?? []).filter((d) => nonEmpty(d?.rationale)).map((d) => d?.choice))
       for (const k of keys) if (k !== answers[0] && !rationaleFor.has(k)) bad('distractors', `no rationale for wrong choice ${k}`)
     } else if (q.answer_format === 'numeric') {
       // Accepted spellings may carry a unit or sign as students type them ("$63", "−5"), but each must contain a number.
       if (answers.some((a) => !/^[$−-]?\s*(\d+(\.\d+)?|\.\d+|\d+\/\d+)\s*%?$/.test(String(a).trim()))) bad('accepted_answers', 'numeric answers are numbers or fractions')
     } else bad('answer_format', 'choice or numeric')
 
-    if (!Array.isArray(q.hints) || !q.hints.length) bad('hints', 'at least one hint that does not give the answer away')
+    if (!Array.isArray(q.hints) || !q.hints.length || !q.hints.every(nonEmpty)) bad('hints', 'at least one hint, none empty, none giving the answer away')
     if (typeof q.teaching_explanation !== 'string' || !q.teaching_explanation.trim()) bad('teaching_explanation', 'required')
     if (typeof q.strategy_explanation !== 'string' || !q.strategy_explanation.trim()) bad('strategy_explanation', 'required')
     if (typeof q.remember === 'string' && words(q.remember) > 16) bad('remember', 'at most 16 words')
@@ -101,14 +124,17 @@ export function validateImport(items: unknown[], skillKeys: Set<string>, existin
     // Provenance and rights (CR-24). Checked again by a person at stage 3; this only rejects what can't pass.
     if (!ORIGINS.includes(q.origin as Origin)) bad('origin', ORIGINS.join(', '))
     if (typeof q.author !== 'string' || !q.author.trim()) bad('author', 'a named person, or "ai:<model>"')
-    if (q.origin === 'ai_drafted' && !/^ai:/.test(q.author ?? '')) bad('author', 'an AI draft names its model as "ai:<model>"')
+    if (q.origin === 'ai_drafted' && !/^ai:\S{2,}/.test(q.author ?? '')) bad('author', 'an AI draft names its model as "ai:<model>"')
+    if (q.origin !== 'ai_drafted' && /^ai:/i.test(q.author ?? '')) bad('origin', 'an "ai:" author means origin ai_drafted')
+    if (ORIGINS.includes(q.origin as Origin) && ALLOWED_LICENSES.test(q.license ?? '') && !ORIGIN_LICENSES[q.origin as Origin].test(q.license!))
+      bad('license', `${q.license} doesn't fit origin ${q.origin}`)
     if (!ALLOWED_LICENSES.test(q.license ?? '')) bad('license', 'one of original-owned, us-federal-pd, public-domain, cc-by-4.0, licensed:<vendor>')
     else if (NEEDS_ATTRIBUTION.test(q.license!) && !(typeof q.source_attribution === 'string' && q.source_attribution.trim()))
       bad('source_attribution', `required for ${q.license}`)
-    if ((q.origin === 'adapted_cc_by') !== (q.license === 'cc-by-4.0')) bad('license', 'adapted_cc_by and cc-by-4.0 go together')
-    if (/\b(act,? inc|college board|bluebook|official sat|official act)\b/i.test(`${q.source_attribution ?? ''} ${q.source_url ?? ''}`))
+    if (OFFICIAL.test([q.source_attribution, q.source_url, q.stem, q.passage].filter(Boolean).join(' ')))
       bad('source_attribution', 'official ACT or College Board material is not accepted without written permission')
 
+    // A request only: the content lead sets the pool in review; the import path never writes this to the pool column.
     if (q.requested_pool !== 'practice' && q.requested_pool !== 'assessment') bad('requested_pool', 'practice or assessment')
   })
   return out

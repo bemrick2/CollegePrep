@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { BenchmarkSummary } from '../data/types'
-import { benchmarkRepeats, checkPlan, checkQuestions, contentStatus, firstAnswers, practiceExclusions, type Q } from './freshness'
+import { benchmarkRepeats, checkPlan, checkQuestions, contentStatus, firstAnswers, nextCheckQuestion, practiceExclusions, type Q } from './freshness'
 
 // ACT mini check: english 3, math 4, reading 3, science 3.
 const qs = (section: string, n: number, diffs: number[] = []): Q[] => Array.from({ length: n }, (_, i) => ({ id: `${section}-${String(i).padStart(2, '0')}`, section, exam_family: 'act', difficulty: diffs[i] ?? 3 }))
@@ -53,10 +53,22 @@ describe('when the reserved pool is too small for a check', () => {
     expect(big.find((p) => p.section === 'math')).toMatchObject({ wanted: 8, count: 4, shortened: true, status: 'fresh' })
   })
 
-  it('never fills a check with practice questions', () => {
-    const ids = new Set(checkQuestions('act', pool).map((q) => q.id))
-    expect(ids.size).toBe(7)
-    for (const q of pool) if (!ids.has(q.id)) expect(practiceExclusions('act', pool).has(q.id)).toBe(false)
+  it('never fills a check with practice questions, even when every reserved question is used or seen', () => {
+    const reserved = new Set(checkQuestions('act', pool).map((q) => q.id))
+    expect(reserved.size).toBe(7)
+    const used = new Set<string>()
+    const seen = new Set(['math-01'])
+    const order: string[] = []
+    for (let i = 0; i < 6; i++) {
+      const q = nextCheckQuestion('act', pool, 'math', 3, used, seen)
+      if (!q) break
+      used.add(q.id)
+      order.push(q.id)
+    }
+    // Unseen reserved first, then the reserved repeat, then nothing: 8 practice math questions remain unused.
+    expect(order).toEqual(['math-02', 'math-03', 'math-08', 'math-01'])
+    expect(order.every((id) => reserved.has(id))).toBe(true)
+    expect(nextCheckQuestion('act', pool, 'english', 3, new Set(), new Set())).toBeNull()
   })
 })
 

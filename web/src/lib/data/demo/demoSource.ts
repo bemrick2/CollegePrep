@@ -73,6 +73,7 @@ export function toPublic(q: FixtureQuestion): PublicQuestion {
     expected_time_seconds: q.expected_time_seconds,
     primary_skill_key: q.primary_skill_key,
     hint_count: q.hints.length,
+    pool: null,
   }
 }
 

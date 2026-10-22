@@ -56,7 +56,7 @@ At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()`
 | `license` | yes | One of CR-24's set: `original-owned`, `us-federal-pd`, `public-domain`, `cc-by-4.0`, `licensed:<vendor>` | `license` |
 | `source_attribution` | when the license needs it | Required for `public-domain`, `us-federal-pd`, `cc-by-4.0`, `licensed:*`. Official ACT or College Board material is refused without written permission | `source_attribution` |
 | `source_url` | optional | Where an adapted source came from | ledger |
-| `requested_pool` | yes | `practice` or `assessment`. A request only: the content lead assigns the final pool before any student sees the item | `pool` (CR-23) |
+| `requested_pool` | yes | `practice` or `assessment`. A request only: the content lead assigns the final pool before any student sees the item | none (the content lead sets `pool`, CR-23, in review) |
 | `status` | no | Absent or `draft`. Anything else is refused | `status` (always `draft` on import) |
 
 ## Validation
@@ -64,6 +64,7 @@ At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()`
 `npx vite-node scripts/validateQuestionImport.ts <batch.jsonl>` (run from `web/`) reads the batch and changes nothing. It prints one problem per line and exits 1 if any are found. The rules are in `web/src/lib/questionImport.ts` and are tested against every current fixture.
 
 **Checked automatically:**
+- **Allow-listed fields:** a line carrying any field not in the table above (an id, a pool, an approval, a hash) is refused.
 - **Shape:** every required field; enums; difficulty and time ranges; the key is one of the choices; every wrong choice has a rationale; numeric answers are numbers; `remember` length; the skill exists.
 - **Duplicates:** within the batch and against the bank. Stem, passage and choices are compared after ignoring case, spacing and punctuation.
 - **Never published on arrival:** any status other than `draft` is refused.
@@ -72,7 +73,10 @@ At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()`
   - attribution is required where the license needs it;
   - `adapted_cc_by` must go with `cc-by-4.0`;
   - official ACT or College Board sources are refused;
-  - an AI draft must name its model.
+  - origin and license must fit each other (an original item is `original-owned`; an adapted public-domain item is `public-domain` or `us-federal-pd`; and so on);
+  - an AI draft must name its model, and an `ai:` author must be an AI draft;
+  - ACT and College Board names and domains are refused in the source, URL, stem and passage. This is a screen, not proof: stage 3 still checks every source by hand.
+- **Duplicates** are checked against the app's fixture bank; once hosted is back, check against the hosted bank too.
 
 **Checked by people, in the ledger (not automatable):**
 - **Stage 3, rights:** proof of originality or license (a URL, contract or license text), and the attribution text.

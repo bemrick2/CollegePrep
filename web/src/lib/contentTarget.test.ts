@@ -15,5 +15,6 @@ describe('provisional content target (planning only, not launch approval)', () =
     expect(bankSize({ ...PROVISIONAL_TARGET, weeks: 52, questionsPerWeek: 20, plannedReview: 0 }).reserved).toBe(157)
     expect(bankSize({ ...PROVISIONAL_TARGET, reservedPerSection: { english: 30, math: 30, reading: 30, science: 30 } }).reserved).toBe(120)
     expect(() => bankSize({ ...PROVISIONAL_TARGET, plannedReview: 1.5 })).toThrow()
+    expect(() => bankSize({ ...PROVISIONAL_TARGET, weeks: -1 })).toThrow()
   })
 })

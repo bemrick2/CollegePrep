@@ -350,7 +350,7 @@ In the app and the local database, an item is served only if a review approved i
 5. Practice items never fill a check, and the reserve never shrinks to give practice more.
 
 **Client today:**
-- `reservedIds` uses each question's `pool` when the source serves it. Otherwise it assigns a fixed reserve, `RESERVED_PER_SECTION` per section (default ACT 3/4/3/3, SAT 4/4), mid-difficulty first, then by id. The reserve doesn't rotate, and seeing an item doesn't release it to practice.
+- `reservedIds` uses each question's `pool` once the source serves it (no source does yet). Otherwise it assigns a reserve, `RESERVED_PER_SECTION` per section (default ACT 3/4/3/3, SAT 4/4), mid-difficulty first, then by id. Seeing an item never releases it to practice. The assignment is fixed only for a fixed bank: publishing or retiring a question can move it, which is one reason the server column is needed.
 - Demo: sessions exclude the reserve. `startAttempt` refuses a reserved item outside a check and a practice item inside one.
 - Live: `startSession` drops reserved items from the server's pick and refills only from practice items.
 - Until the migration merges, the live server can't refuse a cross-pool attempt.
@@ -359,7 +359,10 @@ In the app and the local database, an item is served only if a review approved i
 - `complete_benchmark` metrics: `repeats` per section.
 - `student_skill_estimates`: `first_answers` and `first_answer_accuracy`.
 
-**Once the column exists:** add `pool` to `QUESTION_COLUMNS` in `LiveSource` (the client already prefers it), and seed the demo fixture reserve into it.
+**Merge order, once the column exists (important):**
+1. The migration must seed the reserve (`pool = 'assessment'`) before or with server enforcement. Once any question carries a mark, the client treats unmarked questions as practice, so an unseeded column would empty the reserve.
+2. The client must read `pool` (add it to `QUESTION_COLUMNS`; `toPublic` passes it through) in the same release that turns on server refusal. Otherwise checks would send the client's own reserve, and the server would refuse those attempts.
+3. Seed the demo fixtures' reserve into the column the same way.
 
 ## CR-24. Rights gate on published questions
 

@@ -20,6 +20,9 @@ import { MINI_PER_SECTION } from './benchmark'
  *
  * Where the pool comes from: a question's `pool` when the source provides one (the CR-23 column). Until then the
  * reserve is assigned here, deterministically (mid-difficulty first, then id), RESERVED_PER_SECTION per section.
+ * That assignment is fixed only while the bank is: publishing or retiring a question can move it, which is why the
+ * server column (CR-23) replaces it. When the column arrives, the migration must seed the reserve before the client
+ * reads `pool`: once any question carries a mark, unmarked questions count as practice.
  */
 export type QuestionPool = 'practice' | 'assessment'
 
@@ -36,11 +39,10 @@ export interface Q {
  * worth (ACT 3/4/3/3, SAT 4/4), because today's bank is small. The planning target for the bank workstream is in
  * lib/contentTarget.ts.
  */
-export let RESERVED_PER_SECTION: Record<ExamFamily, Record<string, number>> = MINI_PER_SECTION
-/** Tests and configuration only. */
-export function setReservedPerSection(v: Record<ExamFamily, Record<string, number>>) {
-  RESERVED_PER_SECTION = v
-}
+export const RESERVED_PER_SECTION: Readonly<Record<ExamFamily, Readonly<Record<string, number>>>> = Object.freeze({
+  act: Object.freeze({ ...MINI_PER_SECTION.act }),
+  sat: Object.freeze({ ...MINI_PER_SECTION.sat }),
+})
 
 export interface SectionContent {
   section: string
@@ -72,7 +74,7 @@ export interface ContentStatus {
 const nearMiddle = (a: Q, b: Q) => Math.abs((a.difficulty ?? 3) - 3) - Math.abs((b.difficulty ?? 3) - 3) || (a.id < b.id ? -1 : 1)
 
 /** The reserved assessment pool for one exam: the source's marks when it has them, otherwise the fixed assignment. */
-export function reservedIds(exam: ExamFamily, pool: Q[], perSection: Record<string, number> = RESERVED_PER_SECTION[exam]): Set<string> {
+export function reservedIds(exam: ExamFamily, pool: Q[], perSection: Readonly<Record<string, number>> = RESERVED_PER_SECTION[exam]): Set<string> {
   const mine = pool.filter((q) => q.exam_family === exam)
   if (mine.some((q) => q.pool != null)) return new Set(mine.filter((q) => q.pool === 'assessment').map((q) => q.id))
   const held = new Set<string>()
@@ -114,6 +116,23 @@ export function practiceExclusions(exam: ExamFamily, pool: Q[], _seen?: Set<stri
 export function checkQuestions<T extends Q>(exam: ExamFamily, pool: T[]): T[] {
   const ids = reservedIds(exam, pool)
   return pool.filter((q) => ids.has(q.id))
+}
+
+/**
+ * The next question a check shows in a section: an unseen reserved question nearest the target difficulty, else a
+ * reserved repeat (the section then gets no verdict). Never a practice question; null when the section's reserve is
+ * used up in this run.
+ */
+export function nextCheckQuestion<T extends Q>(exam: ExamFamily, pool: T[], section: string, target: number, used: Set<string>, seen: Set<string>): T | null {
+  const reserved = checkQuestions(exam, pool).filter((q) => q.section === section && !used.has(q.id))
+  const nearest = (qs: T[]) =>
+    qs.reduce<T | null>((best, q) => {
+      if (!best) return q
+      const d = Math.abs((q.difficulty ?? 3) - target)
+      const bd = Math.abs((best.difficulty ?? 3) - target)
+      return d < bd || (d === bd && q.id < best.id) ? q : best
+    }, null)
+  return nearest(reserved.filter((q) => !seen.has(q.id))) ?? nearest(reserved)
 }
 
 export interface CheckSectionPlan {
