@@ -7,8 +7,13 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
-    ('programs/courseleaf.py', "CODE = r'(?!X{3,}\\b|X{3,}\\d)[A-Z]{1,7}(?:\\s[A-Z]{1,5})?(?:/", "CODE = r'(?!X{3,}\\b|X{3,}\\d)[A-Z]{1,5}(?:/"),
-    ('programs/verify.py', "    m = re.match(r'^([A-Z]{1,7}(?:", "    m = re.match(r'^([A-Z]{1,5}(?:"),
+    ('programs/courseleaf.py', "SUBJ = r'(?!(?:OR|AND|IN|OF|AT|TO|HOURS|GRADES|MINOR|TOTAL|LEVEL)\\b)[A-Z][A-Z&]{0,7}'", "SUBJ = r'[A-Z][A-Z&]{0,7}'"),
+    ('programs/courseleaf.py', "CODEISH = re.compile(r'^[A-Z][A-Z&]{0,7}[\\s/]')", "CODEISH = re.compile(r'^[A-Z]{1,5}[\\s/]')"),
+    ('programs/courseleaf.py', "        if CONTEXT_PICK.search(ctx): extra.add('context_says_choose')", "        pass"),
+    ('programs/courseleaf.py', "CODEISH.match(first.replace('\\u200b', ''))", "CODEISH.match(first)"),
+    ('programs/courseleaf.py', "(?:[\\s\\u00a0][A-Z&]{1,5})?[\\s\\u00a0]\\d{3,4}[A-Z]?\\b', line)}", "[\\s\\u00a0]\\d{3}[A-Z]?\\b', line)}"),
+    ('programs/courseleaf.py', "{SUBJ}(?:\\s[A-Z&]{{1,5}})?", "[A-Z]{{1,5}}"),
+    ('programs/verify.py', "    m = re.match(r'^([A-Z][A-Z&]{0,7}(?:", "    m = re.match(r'^([A-Z]{1,5}(?:"),
     ('programs/courseleaf.py', "        ctx = GER_BOILERPLATE.sub('', t.get('context') or '')", "        ctx = t.get('context') or ''"),
     ('programs/courseleaf.py', "        if CONTEXT_CHOICE.search(ctx) or TRACK_PROSE.search(ctx): tracks_from_here = True", "        if CONTEXT_CHOICE.search(ctx): tracks_from_here = True"),
     ('programs/extract.py', "            if m and m.group(1) == ed['year'][:4] and", "            if m and"),
@@ -82,7 +87,7 @@ MUTS = [
     ('programs/courseleaf.py', "                  r'|^term\\s+\\d$|^(1st|2nd|3rd|[4-6]th)\\s+year$|^year\\s+(i|ii|iii|iv|v)$|^semester\\s+(i|ii|iii|iv|v|vi|vii|viii)$'\n", ""),
     ('programs/courseleaf.py', "                  r'|^any\\s+quarter$|^variable$|^(autumn|fall|winter|spring|summer)\\s+or\\s+(autumn|fall|winter|spring|summer)$', re.I)", "                  r'', re.I)"),
     ('programs/verify.py', "    subj_re = r'\\s+'.join(re.escape(w) for w in subj.split())", "    subj_re = re.escape(subj)"),
-    ('programs/verify.py', "    m = re.match(r'^([A-Z]{1,7}(?:\\s[A-Z]{1,5})*(?:/[A-Z]{1,5})*)\\s?(\\d.*)$', code.strip())", "    m = re.match(r'^([A-Z]{1,7}(?:/[A-Z]{1,5})*)\\s?(\\d.*)$', code.strip())"),
+    ('programs/verify.py', "(?:\\s[A-Z&]{1,5})*(?:/[A-Z&]{1,8})*)\\s?(\\d.*)$', code.strip())  # 'ARTHIST", "(?:/[A-Z&]{1,8})*)\\s?(\\d.*)$', code.strip())  # 'ARTHIST"),
     ('programs/courseleaf.py', "\\s\\d{3,5}[A-Z]?'  # five digits", "\\s\\d{3,4}[A-Z]?'  # five digits"),
     ('programs/courseleaf.py', "        if cells[1] and len(titles) != len(codes): return None", "        if False: return None"),
     ('programs/courseleaf.py', "    if last and not PLAN_CREDITS.match(last): return None", "    pass"),
@@ -103,7 +108,7 @@ MUTS = [
     ('programs/courseleaf.py', "            t['_unread_label'] = True\n        if TERM", "            pass\n        if TERM"),
     ('programs/courseleaf.py', "^(fall|autumn|winter|spring|summer)(", "^(fall|winter|spring|summer)("),
     ('programs/courseleaf.py', "|hours|units|SCH)\\b', re.I)", "|hours|units)\\b', re.I)"),
-    ('programs/courseleaf.py', "CODE = r'(?!X{3,}\\b|X{3,}\\d)[A-Z]{1,7}", "CODE = r'[A-Z]{1,7}"),
+    ('programs/courseleaf.py', "CODE = rf'(?!X{{3,}}\\b|X{{3,}}\\d){SUBJ}", "CODE = rf'{SUBJ}"),
     ('programs/courseleaf.py', "        if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')", "        pass"),
     ('programs/extract.py', "    if len(rows) != 1: return []\n    value = re.sub", "    if not rows: return []\n    value = re.sub"),
     ('programs/extract.py', "    if not DEGREE_OFFERED_VALUE.fullmatch(value): return []", "    if not value: return []"),
@@ -160,7 +165,7 @@ MUTS = [
     ('programs/extract.py', " or credential_of(re.sub(r'(?<=[a-z.])(?=[A-Z][a-z])', ' ', label))", ""),
     ('programs/extract.py', "r'\\bprior\\s+to\\s+application\\b|", "r'"),
     # issue #95 recovery: printed code shapes, specific hold reasons, held rows reported not dropped
-    ('programs/courseleaf.py', "(?:/[A-Z]{1,5})*\\s?\\d{3,4}[A-Z]?'\nCODE_CELL", "(?:/[A-Z]{1,5})*\\s\\d{3,4}[A-Z]?'\nCODE_CELL"),
+    ('programs/courseleaf.py', "(?:/[A-Z&]{{1,8}})*\\s?\\d{{3,4}}[A-Z]?'\n", "(?:/[A-Z&]{{1,8}})*\\s\\d{{3,4}}[A-Z]?'\n"),
     ('programs/courseleaf.py', "    if PAIR_CODE.search(text): return {'complex_course_row', 'lecture_lab_pair_code'}", "    pass"),
     ('programs/courseleaf.py', "            if g['type'] == 'all_required' and not g['issues']: return", "            if g['type'] == 'all_required': return"),
     ('programs/courseleaf.py', "                rule = LEAD_IN.sub('', rw['text'])", "                rule = rw['text']"),

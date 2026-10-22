@@ -1092,6 +1092,18 @@ class CourseListLayoutReviewTests(unittest.TestCase):
         major = self.table([('c', 'ARTH 101', 'Ancient Art', '3')], heading='Major Requirements')
         out = CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [major, ger, self.table([('c', 'ART 101', 'Drawing', '3')], heading='Major Requirements')], '2026-2027', 'art', 1)
         self.assertEqual([sorted(c['issues']) for c in out], [[], ['secondary_table'], []])
+        for code, ok in (('AGROECOL 101', True), ('F&W ECOL 248', True), ('I&C SCI 31', False), ('CURRINS 301', True), ('BUS ADM 201', True),
+                         ('OR BIL 412', False), ('MINOR IN 300', False), ('GRADES 101', False), ('HOURS AT 300', False), ('AND CHEM 101', False)):
+            self.assertEqual(bool(CL.CODE_CELL.match(code)), ok, code)
+        # a long-subject row that is not one code is held, never dropped (UWM 'CURRINS/EXCEDUC 612', UNI 'ENGLISH 3772/5772')
+        g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', 'CURRINS/EXCEDUC 612', 'Cross-listed', '3')], heading='Major Requirements'))
+        self.assertEqual([c['code'] for c in g[0][1]['courses']], ['CURRINS 301', 'CURRINS/EXCEDUC 612'])  # one cross-listed course, as printed
+        for row in ('ENGLISH 3772/5772', 'PHYSICS 111A- 111B', 'AGROECOL\u200b/ENTOM 101'):
+            g = CL.html_groups(self.table([('c', 'CURRINS 301', 'Teaching', '3'), ('c', row, 'Joined', '3')], heading='Major Requirements'))
+            self.assertIn('complex_course_row', g[0][1]['issues'], row)
+        ctx = self.table([('c', 'ARTS 101', 'Drawing', '3'), ('c', 'ARTS 102', 'Painting', '3')], heading='Major Requirements', context='Complete one course from:')
+        self.assertIn('context_says_choose', CL.html_candidates({'institution_key': 'k'}, e, {'url': 'u'}, [ctx], '2026-2027', 'x', 1)[0]['issues'])
+        self.assertEqual(CL.substitution_codes('STAT 1772 will substitute for SOC SCI 2020.\nCourses in lieu of PHYSICS 125A'), {'STAT 1772', 'SOC SCI 2020', 'PHYSICS 125A'})
         uwm = self.table([('c', 'ARTHIST 101', 'Ancient Art', '3'), ('c', 'BUS ADM 201', 'Business', '3')], heading='Major Requirements')
         self.assertEqual([c['code'] for c in CL.html_groups(uwm)[0][1]['courses']], ['ARTHIST 101', 'BUS ADM 201'])
         from programs import verify as V
