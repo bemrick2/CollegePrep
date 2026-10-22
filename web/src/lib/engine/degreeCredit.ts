@@ -1,5 +1,5 @@
 import type { ExamMatch } from './examCredit'
-import { COURSE_NUMBER, entryCodes, readTermItems, scanCodes, type PlanTermLike } from './planItems'
+import { COURSE_NUMBER, entryCodes, isRequirement, planTerms, scanCodes, type PlanTermLike } from './planItems'
 
 /**
  * Three different questions about credit a student brings, answered only from verified records:
@@ -51,23 +51,27 @@ interface PlanItem {
   any: string[]
   /** Or all codes of one of these combinations ("CHEM 102+103"). */
   combos: string[][]
+  /** The term holds more than one semester; it is never reported as a covered term. */
+  multiTerm: boolean
 }
 
 function planItems(terms: PlanTerm[]): PlanItem[] {
-  return terms.flatMap((t, i) =>
-    readTermItems(t).map((e) => {
-      const base = { term: t.term_index ?? i + 1, label: t.label ?? `Term ${t.term_index ?? i + 1}`, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
+  // Heading terms have no rows; inline headings and printed subtotals aren't requirements (#230).
+  return planTerms(terms).flatMap((t) =>
+    t.entries.filter(isRequirement).map((e) => {
+      const base = { term: t.termIndex, label: t.label, multiTerm: t.multiTerm, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
       // A structured course, or a choice among options: any one of its codes.
       if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [] }
-      // Free text: "A or B" is any one; "CHEM 102+103" is a combination that counts only when all were awarded.
+      // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
+      // count only when all were awarded.
       const combos: string[][] = []
       const any: string[] = []
       let subject: string | null = null
-      for (const seg of e.text.toUpperCase().split(/[,/]|\bOR\b/)) {
+      for (const seg of e.text.toUpperCase().split(/[,/]|\bOR\b|(?<=\d[A-Z]?)OR\b/)) {
         const scan = scanCodes(seg, subject)
         subject = scan.subject
         const codes = scan.codes
-        if (seg.includes('+') && codes.length > 1) combos.push(codes)
+        if (/[+&]|\bAND\b/.test(seg) && codes.length > 1) combos.push(codes)
         else any.push(...codes)
       }
       return { ...base, any, combos }
@@ -166,7 +170,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
 
   const byTerm = new Map<number, PlanItem[]>()
   for (const it of items) byTerm.set(it.term, [...(byTerm.get(it.term) ?? []), it])
-  const coveredTerms = [...byTerm.entries()].filter(([, its]) => its.length > 0 && its.every((x) => used.has(x))).map(([term, its]) => ({ term, label: its[0]!.label }))
+  const coveredTerms = [...byTerm.entries()].filter(([, its]) => its.length > 0 && !its[0]!.multiTerm && its.every((x) => used.has(x))).map(([term, its]) => ({ term, label: its[0]!.label }))
 
   return {
     accepted,

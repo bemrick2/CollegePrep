@@ -12,14 +12,16 @@ import { degreeCredit, type ExamApplicability } from '../degreeCredit'
 import { FAMILY_LABEL, examOptions, matchExam, policyKindOf, type CreditPolicy, type ExamFamily, type ExamMatch, type IbLevel, type PlannedExam } from '../examCredit'
 import { termsSaving, type FamilyAid } from '../costProjection'
 import { pickCost } from '../residency'
-import type { PlanTermLike } from '../planItems'
-import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
+import { planTerms, type PlanTermLike } from '../planItems'
+import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanCourseRow, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
 
 type Rec = Record<string, unknown>
 
 export interface RoadmapInput {
   comparison: InstitutionComparison
   programKey: string
+  /** Which of the major's plans (requirement_key); default the first one printed. */
+  planKey?: string | null
   profile: PlanningProfile
   /** The school's cost_projection row (server in live, projectRow in demo). Savings need it. */
   projection?: ProjectionRow | null
@@ -74,9 +76,11 @@ function fitOf(a: ExamApplicability | undefined, hasPlan: boolean): CreditFit {
   }
 }
 
-const rowsOf = (a: ExamApplicability | undefined): PlanRow[] => (a?.matched ?? []).map((m) => ({ term: m.term, label: m.label, item: m.item, credits: m.credits }))
+/** `numberOf` turns the stored term_index into the term's number as shown (year headings aren't numbered). */
+const rowsOf = (a: ExamApplicability | undefined, numberOf: (termIndex: number) => number): PlanRow[] =>
+  (a?.matched ?? []).map((m) => ({ term: numberOf(m.term), label: m.label, item: m.item, credits: m.credits }))
 
-export function buildRoadmap({ comparison: c, programKey, profile, projection = null, aid = { grantsPerYear: null, loansPerYear: null } }: RoadmapInput): Roadmap {
+export function buildRoadmap({ comparison: c, programKey, planKey = null, profile, projection = null, aid = { grantsPerYear: null, loansPerYear: null } }: RoadmapInput): Roadmap {
   const domain = (d: string) => ((c.domains as Record<string, Rec[] | undefined>)[d] ?? []) as Rec[]
   const inst = str(c.institution?.display_name) ?? c.institution_key
   const program = domain('academic_programs').find((p) => p.program_key === programKey) ?? null
@@ -85,11 +89,17 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
 
   // Plan: the major's verified term-by-term plan, and its printed total.
   const reqs = domain('degree_requirements').filter((r) => r.program_key === programKey)
-  const planRec = reqs.find((r) => r.requirement_kind === 'program_plan') ?? null
-  const planDetails = (planRec?.rule_details ?? null) as { catalog_year?: string; terms?: PlanTermLike[] } | null
+  // A major can have several plans (tracks, concentrations; up to 12 per program). Each is named by its printed
+  // title, source_section, so the family can pick the one they mean.
+  const planRecs = reqs.filter((r) => r.requirement_kind === 'program_plan')
+  const plans = planRecs.map((r) => ({ key: String(r.requirement_key ?? ''), title: str((r.rule_details as Rec | undefined)?.source_section) }))
+  const planRec = planRecs.find((r) => planKey != null && r.requirement_key === planKey) ?? planRecs[0] ?? null
+  const planDetails = (planRec?.rule_details ?? null) as { catalog_year?: string; source_section?: string; rule_text?: string; terms?: PlanTermLike[] } | null
   const catalogYear = str(planDetails?.catalog_year) ?? str(planRec?.academic_year)
   const terms = verified(planRec) ? (planDetails?.terms ?? []) : []
-  const hasPlan = terms.length > 0
+  const termViews = planTerms(terms)
+  const hasPlan = termViews.length > 0
+  const numberOf = (termIndex: number) => termViews.find((t) => t.termIndex === termIndex)?.number ?? termIndex
   const totalRec = reqs.find((r) => r.requirement_kind === 'total_credits' && verified(r)) ?? null
   if (!planRec) unknown('plan', `${inst} has no term-by-term plan on file for this major, so credit can be shown as accepted but not where it counts.`)
   else if (!hasPlan) unknown('plan', `${inst}'s plan for this major is on file but not yet verified${notVerifiedWhy(planRec)}.`)
@@ -132,7 +142,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
       exam,
       acceptance: { value: m, evidence: ev },
       fit,
-      rows: rowsOf(a),
+      rows: rowsOf(a, numberOf),
       hours: a ? (a.hours != null ? { value: a.hours, evidence: ev } : { value: null, evidence: missing(`No hours listed for ${exam.name}.`, t) }) : { value: null, evidence: ev },
     }
   })
@@ -154,7 +164,7 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
             const a = degreeCredit([m], terms).accepted[0]
             if (!a || (a.status !== 'applies' && a.status !== 'partly')) continue
             if (options.some((x) => x.examName === o.name && x.course === a.course && x.level !== level)) continue
-            options.push({ family: fam, examName: o.name, minimumText: m.earned[0]!.minimumText, level, course: a.course ?? '', rows: rowsOf(a), hours: a.hours, evidence: evidence(p as unknown as Rec, tableYear(p as unknown as Rec)) })
+            options.push({ family: fam, examName: o.name, minimumText: m.earned[0]!.minimumText, level, course: a.course ?? '', rows: rowsOf(a, numberOf), hours: a.hours, evidence: evidence(p as unknown as Rec, tableYear(p as unknown as Rec)) })
           }
         }
       }
@@ -214,7 +224,19 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
   }
 
   // Timeline and savings: whole plan terms only.
-  const termList = [...new Map(terms.map((t, i) => [t.term_index ?? i + 1, t])).entries()].map(([term, t]) => ({ term, label: t.label ?? `Term ${term}`, covered: dc.coveredTerms.some((x) => x.term === term) }))
+  const termList = termViews.map((t) => ({
+    term: t.number,
+    label: t.label,
+    group: t.group,
+    creditHours: t.creditHours,
+    rows: t.entries.filter((e) => e.kind !== 'subtotal').map(
+      (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text) }),
+    ),
+    covered: dc.coveredTerms.some((x) => x.term === t.termIndex),
+    multiTerm: t.multiTerm,
+  }))
+  if (termList.some((t) => t.multiTerm))
+    unknown('timeline', `${inst}'s plan prints some years as one block, so whether credit covers a whole term isn't checked for those years.`)
   const covered = dc.coveredTerms.length
   const timeline: Roadmap['timeline'] =
     hasPlan && covered > 0
@@ -239,8 +261,13 @@ export function buildRoadmap({ comparison: c, programKey, profile, projection = 
     target: { institutionKey: c.institution_key, programKey, programName: str(program?.program_name), programVerified: verified(program), institutionName: str(c.institution?.display_name) },
     status: !hasPlan ? 'blocked' : allCreditVerified && cost.value ? 'ready' : 'partial',
     plan: hasPlan
-      ? { value: { catalogYear, terms: termList, totalCredits: num(totalRec?.minimum_credits) }, evidence: evidence(planRec, catalogYear) }
+      ? {
+          value: { catalogYear, title: str(planDetails?.source_section), terms: termList, totalCredits: num(totalRec?.minimum_credits), totalText: str(planDetails?.rule_text) },
+          evidence: evidence(planRec, catalogYear),
+        }
       : { value: null, evidence: missing(planRec ? 'Plan on file but not verified.' : 'No plan on file.', planRec, catalogYear) },
+    plans,
+    planKey: planRec ? String(planRec.requirement_key ?? '') || null : null,
     credit,
     options,
     dualEnrollment,

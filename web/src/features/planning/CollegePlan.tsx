@@ -5,7 +5,7 @@ import { useHomeState } from '../../lib/homeState'
 import type { InstitutionComparison } from '../../lib/data/types'
 import { buildRoadmap } from '../../lib/engine/planning/roadmap'
 import { projectRow } from '../../lib/engine/costProjection'
-import type { CreditFit, CreditLine, Evidence, LivingArrangement, Roadmap } from '../../lib/engine/planning/types'
+import type { CreditFit, CreditLine, Evidence, LivingArrangement, Roadmap, TermCoverage } from '../../lib/engine/planning/types'
 import { formatShortDate } from '../../lib/engine/dates'
 import { useExamPlan } from '../colleges/useExamPlan'
 import { CollegesTabs } from '../colleges/CollegesTabs'
@@ -44,6 +44,7 @@ export function CollegePlan() {
   const [fx, setFx] = useState<Fixture | null>(null)
   const [school, setSchool] = useState('utc')
   const [program, setProgram] = useState('management-b-s-b-a')
+  const [planKey, setPlanKey] = useState<string | null>(null)
   const [arrangement, setArrangement] = useState<LivingArrangement>('on_campus')
   useEffect(() => {
     let live = true
@@ -75,10 +76,11 @@ export function CollegePlan() {
     return buildRoadmap({
       comparison,
       programKey: program,
+      planKey,
       profile: { gradeLevel: activeStudent?.grade_level ?? null, graduationYear: activeStudent?.graduation_year ?? null, homeState, interests: [], exams, livingArrangement: arrangement },
       projection: projectRow(comparison, comparison.academic_year, { residency, cost_basis: 'cost_of_attendance' }),
     })
-  }, [comparison, program, programs, homeState, exams, arrangement, activeStudent])
+  }, [comparison, program, planKey, programs, homeState, exams, arrangement, activeStudent])
 
   if (!PLANNING_PILOT) return null
   if (!fx) return <PageLoading />
@@ -94,7 +96,7 @@ export function CollegePlan() {
       <div className="grid gap-4 md:grid-cols-2 lg:max-w-3xl">
         <label className="grid gap-1.5 text-sm font-semibold text-ink">
           School
-          <select className={inputClass} value={school} onChange={(e) => setSchool(e.target.value)}>
+          <select className={inputClass} value={school} onChange={(e) => (setSchool(e.target.value), setPlanKey(null))}>
             {fx.schools.map((s) => (
               <option key={s.institution_key} value={s.institution_key}>
                 {String(s.institution.display_name ?? s.institution_key)}
@@ -104,7 +106,7 @@ export function CollegePlan() {
         </label>
         <label className="grid gap-1.5 text-sm font-semibold text-ink">
           Major
-          <select className={inputClass} value={program} onChange={(e) => setProgram(e.target.value)}>
+          <select className={inputClass} value={program} onChange={(e) => (setProgram(e.target.value), setPlanKey(null))}>
             {programs.map((p) => (
               <option key={p.key} value={p.key}>
                 {p.verified ? p.name : `${p.name} (listing not yet verified)`}
@@ -119,6 +121,7 @@ export function CollegePlan() {
           r={roadmap}
           who={who}
           examCount={exams.length}
+          onPlan={setPlanKey}
           arrangement={arrangement}
           onArrangement={setArrangement}
           priceFor={
@@ -140,6 +143,7 @@ function RoadmapView({
   r,
   who,
   examCount,
+  onPlan,
   arrangement,
   onArrangement,
   priceFor,
@@ -147,6 +151,7 @@ function RoadmapView({
   r: Roadmap
   who: string
   examCount: number
+  onPlan: (key: string) => void
   arrangement: LivingArrangement
   onArrangement: (a: LivingArrangement) => void
   priceFor: string
@@ -171,19 +176,28 @@ function RoadmapView({
         title="Degree plan"
         subtitle={plan ? `${r.target.programName ?? r.target.programKey}${plan.catalogYear ? `, ${plan.catalogYear} catalog` : ''}` : r.target.programVerified ? undefined : 'This school’s listing of the major isn’t verified yet'}
       >
+        {r.plans.length > 1 && (
+          <label className="mb-4 grid max-w-md gap-1.5 text-sm font-semibold text-ink">
+            Plan or track ({r.plans.length} printed for this major)
+            <select className={inputClass} value={r.planKey ?? ''} onChange={(e) => onPlan(e.target.value)}>
+              {r.plans.map((p, i) => (
+                <option key={p.key} value={p.key}>
+                  {p.title ?? `Plan ${i + 1} (untitled by the school)`}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
         {plan ? (
           <>
-            <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {plan.terms.map((t) => (
-                <li key={t.term} className={cx('rounded-xl border p-3 text-sm', t.covered ? 'border-go/40 bg-go-soft' : 'border-line')}>
-                  <div className="font-semibold text-ink">Term {t.term}</div>
-                  <div className="mt-0.5 text-xs text-ink-3">{t.label}</div>
-                  {t.covered && <div className="mt-1 text-xs font-semibold text-go-strong">Fully covered by credit</div>}
-                </li>
-              ))}
-            </ul>
+            {plan.title && r.plans.length <= 1 && <p className="mb-3 text-sm font-semibold text-ink">{plan.title}</p>}
+            <PlanTerms terms={plan.terms} />
             <p className="mt-3 text-sm text-ink-2">
-              {plan.totalCredits != null ? `${plan.totalCredits} credit hours in total, as printed. ` : ''}
+              {plan.totalCredits != null
+                ? `${plan.totalCredits} credit hours in total, as printed. `
+                : plan.totalText
+                  ? `Total as printed: ${plan.totalText.replace(/\s*\(as printed\)\s*$/i, '')}. `
+                  : ''}
               <SourceNote e={r.plan.evidence} />
             </p>
           </>
@@ -285,6 +299,59 @@ function RoadmapView({
         )}
       </Section>
     </>
+  )
+}
+
+/** The plan's terms under their year headings, every row as printed. Year headings are not terms (#230). */
+function PlanTerms({ terms }: { terms: TermCoverage[] }) {
+  const groups: { heading: string | null; terms: TermCoverage[] }[] = []
+  for (const t of terms) {
+    const last = groups[groups.length - 1]
+    if (last && last.heading === t.group) last.terms.push(t)
+    else groups.push({ heading: t.group, terms: [t] })
+  }
+  return (
+    <div className="grid gap-4">
+      {groups.map((g, gi) => (
+        <div key={`${g.heading ?? 'plan'}-${gi}`}>
+          {g.heading && <h3 className="mb-2 text-sm font-bold text-ink">{g.heading}</h3>}
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {g.terms.map((t) => (
+              <li key={t.term} className={cx('rounded-xl border p-3 text-sm', t.covered ? 'border-go/40 bg-go-soft' : 'border-line')}>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="font-semibold text-ink">
+                    Term {t.term}: {t.label}
+                  </span>
+                  {t.creditHours != null && <span className="text-xs text-ink-3">{String(t.creditHours)} credit hours, as printed</span>}
+                </div>
+                {t.covered && <div className="mt-1 text-xs font-semibold text-go-strong">Fully covered by credit</div>}
+                {t.multiTerm && <div className="mt-1 text-xs text-ink-3">Printed as one block of more than one term, so whole-term coverage isn’t checked.</div>}
+                <ul className="mt-2 grid gap-1 text-xs text-ink-2">
+                  {t.rows.map((x, i) =>
+                    x.kind === 'heading' ? (
+                      <li key={i} className="pt-1 font-semibold text-ink">
+                        {x.text}
+                      </li>
+                    ) : (
+                      <li key={i} className="flex justify-between gap-3">
+                        <span>
+                          {x.code ? <span className="font-semibold text-ink">{x.code}</span> : null}
+                          {x.code ? (x.title ? ` ${x.title}` : '') : x.text}
+                          {x.options.length > 0 && <span className="block text-ink-3">Any one of: {x.options.join('; ')}</span>}
+                          {x.milestone && <span className="block text-ink-3">Milestone: {x.milestone}</span>}
+                          {x.note && <span className="block text-ink-3">Note: {x.note}</span>}
+                        </span>
+                        {x.credits != null && <span className="shrink-0 tabular-nums">{String(x.credits)}</span>}
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   )
 }
 
