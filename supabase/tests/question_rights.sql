@@ -18,6 +18,8 @@ begin
       source_attribution = 'Someone', origin = 'authored' where id = %L$s$, lic, q), '23514');
   end loop;
   perform hp_test.expect_error(format($s$update public.practice_questions set status = 'published', license = 'original-owned' where id = %L$s$, q), '23514');  -- no origin
+  perform hp_test.expect_error(format($s$update public.practice_questions set status = 'published', license = null,
+    source_attribution = 'Someone', origin = 'authored' where id = %L$s$, q), '23514');  -- no license
   foreach lic in array array['cc-by-4.0', 'cc-by-sa-4.0', 'licensed:acme-prep'] loop
     perform hp_test.expect_error(format($s$update public.practice_questions set status = 'published', license = %L,
       source_attribution = '  ', origin = 'licensed' where id = %L$s$, lic, q), '23514');  -- attribution required
@@ -45,6 +47,12 @@ begin
   perform set_config('t.g', g::text, true);
   perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'loader v2 checks')$s$, g), '22023', '%human%');
   perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'model: self-check')$s$, g), '22023', '%human%');
+  perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'inhuman: automated check')$s$, g), '22023', '%human%');
+  perform hp_test.expect_error(format($s$select public.approve_practice_question(%L, 'checked by a human: no')$s$, g), '22023', '%human%');
+  -- Even with the trigger skipped, a generated row can't be stored current without a human review.
+  set local session_replication_role = replica;
+  perform hp_test.expect_error(format($s$update public.practice_questions set review_current = true, review_method = 'loader' where id = %L$s$, g), '23514');
+  set local session_replication_role = origin;
   perform public.approve_practice_question(g, 'loader v2 checks', now(), 'changes_needed');  -- a non-approval may be recorded
   update public.practice_questions set status = 'published' where id = g;
   -- Writing an approval directly (bypassing the RPC) still doesn't make it servable.

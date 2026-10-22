@@ -19,6 +19,11 @@
 -- `alter database ... set collegeprep.fixture_approvals = 'on'` (scripts/local/live_stack.sh does; hosted never does,
 -- and no client, import or service_role session can set a database-level setting).
 --
+-- What the database can and can't establish. It enforces the rules above for whatever origin and method are recorded.
+-- It can't tell who drafted an item or whether a person really reviewed it: the importer must label origin honestly,
+-- and a 'human:' method is the approver's attestation (the editorial ledger names the people). A draft may have no
+-- origin yet (it then counts as not generated); origin must be set before publishing.
+--
 -- Nothing is backfilled: if a database already holds published questions without a valid license or origin, this
 -- migration stops (the check is validated) rather than silently changing what is served.
 
@@ -44,12 +49,12 @@ revoke all on function public.question_review_counts(text, text) from public, an
 
 create function public.question_license_allowed(p_license text) returns boolean
 language sql immutable set search_path = '' as $$
-  select p_license in ('original-owned', 'public-domain', 'us-federal-pd', 'cc-by-4.0', 'cc-by-sa-4.0')
-    or coalesce(p_license ~ '^licensed:[a-z0-9][a-z0-9-]{0,62}$', false)
+  select coalesce(p_license in ('original-owned', 'public-domain', 'us-federal-pd', 'cc-by-4.0', 'cc-by-sa-4.0')
+    or p_license ~ '^licensed:[a-z0-9][a-z0-9-]{0,62}$', false)
 $$;
 create function public.question_license_needs_attribution(p_license text) returns boolean
 language sql immutable set search_path = '' as $$
-  select p_license in ('cc-by-4.0', 'cc-by-sa-4.0') or coalesce(p_license like 'licensed:%', false)
+  select coalesce(p_license in ('cc-by-4.0', 'cc-by-sa-4.0') or p_license like 'licensed:%', false)
 $$;
 grant execute on function public.question_license_allowed(text) to anon, authenticated, service_role;
 grant execute on function public.question_license_needs_attribution(text) to anon, authenticated, service_role;
@@ -59,6 +64,11 @@ alter table public.practice_questions add constraint practice_questions_rights_g
     public.question_license_allowed(license)
     and (not public.question_license_needs_attribution(license) or length(btrim(coalesce(source_attribution, ''))) > 0)
     and origin is not null));
+
+-- Defence in depth: even if the trigger below is skipped (a restore with triggers disabled, session_replication_role),
+-- a generated row can't be stored as current without a human: (or local fixture:) review method.
+alter table public.practice_questions add constraint practice_questions_generated_review check (
+  not review_current or origin is distinct from 'generated' or coalesce(review_method ~* '^(human|fixture):', false));
 
 -- A generated item's approval counts only when a human review recorded it.
 create or replace function public.practice_question_review_sync() returns trigger
@@ -86,7 +96,7 @@ begin
   from public.practice_questions q where q.id = p_question for update;
   if v_hash is null then raise exception 'Unknown question' using errcode = '22023'; end if;
   if p_status = 'approved' and not public.question_review_counts(v_origin, p_method) then
-    raise exception 'A generated question is approved only by a recorded human review (method ''human: ...'')'
+    raise exception 'A generated question is approved only by a recorded human review (method ''human: ...''; ''fixture: ...'' only where collegeprep.fixture_approvals is on)'
       using errcode = '22023';
   end if;
   update public.practice_questions set review_status = p_status, reviewed_at = coalesce(p_reviewed_at, now()),

@@ -115,6 +115,8 @@ All functions use `search_path = ''`. Client RPCs and policy helpers are executa
 - `review_status` (`approved`, `changes_needed`, `rejected`), `reviewed_at`, `review_method` and `content_hash` record the review. `public.approve_practice_question(id, method, reviewed_at, status)` (service role only) stores the server hash of the current content, `public.practice_question_content_hash()`.
 - The hash (sha256) covers exam version, type, section, stem, choices, answer format, accepted answers, hints, explanations, `remember_text`, the passage, skill tags, distractors and strategy links. Difficulty, calibration, expected time, blueprint, attribution, license and status are excluded, so recalibration keeps an approval.
 - Triggers keep `review_current` in step: any content edit, including a child-row or passage edit, sets it false until the question is approved again. `review_current` cannot be set directly, and edits are never blocked.
+
+**Rights and origin (CR-24).** Publishing needs an allowed `license` (`original-owned`, `public-domain`, `us-federal-pd`, `cc-by-4.0`, `cc-by-sa-4.0`, `licensed:<vendor>`), `source_attribution` for `cc-by-*` and `licensed:*`, and an `origin` (`authored`, `generated`, `licensed`). A `generated` item is `review_current` only with a `human:` review method (`fixture:` counts only in the local stack), and stays `generated`.
 - The question, skill-link, strategy-link and passage read policies, `start_practice_attempt`, and the recommender behind `recommend_practice_set` and `start_practice_session` all require it. Clients can read `review_current`; the other review columns are not granted.
 
 **Hidden until submission.** Clients never receive these:
