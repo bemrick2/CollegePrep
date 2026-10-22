@@ -502,6 +502,22 @@ class CourseleafPlanTests(unittest.TestCase):
         same = CL.extract({'institution_key': 'k'}, e, T.Page('Geography, BA', 'Geography, BA', [g('Plan'), g('Plan')], [], []), '2026-2027', '', True)
         self.assertEqual([c['issues'] for c in same], [['multiple_plan_grids'], ['multiple_plan_grids']])
 
+    def test_single_plan_labelled_by_printed_track(self):  # CU Boulder 2026-27 Geography BS, Classics BA
+        from programs import courseleaf as CL
+        from pipeline import text as T
+        g = {'caption': 'Plan of Study Grid', 'heading': 'Recommended Four-Year Plan of Study', 'rows': [['Fall', 'Credits'], ['GEOG 1001', 'Intro', '3']]}
+        e = {'url': 'u', 'sha256': 's', 'fetched_at': '2026-10-06T00:00:00'}
+        def plan(text):
+            [c] = CL.extract({'institution_key': 'k'}, e, T.Page(text, 'Geography - Bachelor of Science (BS)', [g], [], []), '2026-2027', '', True)
+            return c['record']['rule_details']['source_section'], c['issues']
+        self.assertEqual(plan('Recommended Four-Year Plan of Study\nDepending on which track students follow.\nPhysical Geography Concentration Plan\nPlan of Study Grid\n| x'),
+                         ('Physical Geography Concentration Plan', ['plan_heading_label']))
+        self.assertEqual(plan('Recommended Four-Year Plan of Study\nStudents fulfill Gen Ed. The below plan is for the Greek and/or Latin Language and Literature track of the major. For other plans, see the department.\nPlan of Study Grid'),
+                         ('The below plan is for the Greek and/or Latin Language and Literature track of the major.', ['plan_heading_label']))
+        for text in ('Recommended Four-Year Plan of Study\nPlan of Study Grid', 'Recommended Four-Year Plan of Study\n(120 credits minimum)\nPlan of Study Grid',
+                     'Recommended Four-Year Plan of Study\nStudents choose a concentration.\nPlan of Study Grid'):
+            self.assertEqual(plan(text), ('Sample Plan: Plan of Study Grid', []), text)
+
     def test_verify_alternatives_printed_in_one_cell(self):
         from programs import verify as V
         self.assertTrue(V.alt_code_in('SPAD 281or SPAD 284 Principles', 'SPAD 281'))

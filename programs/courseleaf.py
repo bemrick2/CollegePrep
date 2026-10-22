@@ -97,6 +97,29 @@ def labelled_keys(heads, make):
             for i, (k, h) in enumerate(zip(keys, heads))]
 
 
+TRACK_WORD = re.compile(r'\b(concentration|track|emphasis|option)\b', re.I)
+TRACK_SENTENCE = re.compile(r'\b(?:the\s+)?(?:below|following|above)\s+plan\s+is\s+for\s+the\s+.{3,120}?\b(?:track|concentration|option|emphasis)\b', re.I)
+
+
+def single_plan_label(page, heading):
+    """A track named for a page's only plan grid, as printed: the line right above the 'Plan of Study Grid' caption when it
+    is a short label naming a concentration, track, emphasis or option ('Physical Geography Concentration Plan', CU
+    Boulder Geography BS), or the sentence between the grid's heading and its caption that says which track the plan is for
+    ('The below plan is for the Greek and/or Latin Language and Literature track of the major.', CU Boulder Classics BA).
+    None otherwise; nothing is inferred from the program name."""
+    lines = [l.strip() for l in page.text.splitlines() if l.strip()]
+    caps = [i for i, l in enumerate(lines) if l in ('Plan of Study Grid', 'Degree Map')]
+    if len(caps) != 1 or caps[0] == 0: return None
+    k = caps[0]; prev = lines[k - 1]
+    if prev != heading and not prev.startswith('|') and len(prev) <= 120 and not prev.endswith(('.', ':')) and TRACK_WORD.search(prev):
+        return prev
+    j = max((i for i, l in enumerate(lines[:k]) if l == heading), default=None) if heading else None
+    for l in (lines[j + 1:k] if j is not None else []):
+        for sent in re.split(r'(?<=\.)\s+', l):
+            if TRACK_SENTENCE.search(sent): return sent.strip()
+    return None
+
+
 def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
@@ -175,6 +198,7 @@ def extract(inst, entry, page, year, year_line, have_program):
     # other headings name a track, concentration or route ('Physical Geography', 'Greek'): the plan is labelled by its printed
     # heading and held until a reviewer confirms each heading names a plan of this program (not a tab or another section)
     track_labels = labelled and not all(re.search(r'\bbachelor\b', h, re.I) for h in headings)
+    single_label = single_plan_label(page, headings[0]) if len(parsed) == 1 else None
     plan_keys = labelled_keys(headings, slug) if labelled else []
     for i, (terms, total) in enumerate(parsed, 1):
         if not terms: continue
@@ -184,11 +208,11 @@ def extract(inst, entry, page, year, year_line, have_program):
             key = 'sample-plan' if len(parsed) == 1 else f'sample-plan-{i}'
         caption = (gs[i - 1].get('caption') or 'Plan of Study Grid').strip()
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
-              'terms': terms, 'source_section': (headings[i - 1] if labelled else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
+              'terms': terms, 'source_section': (headings[i - 1] if labelled else single_label if single_label else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
-        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if track_labels else []
+        issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))

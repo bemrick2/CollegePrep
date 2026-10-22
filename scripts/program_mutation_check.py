@@ -66,6 +66,9 @@ MUTS = [
     ('programs/courseleaf.py', "                  r'|^(1st|2nd|3rd|[4-8]th)\\s+semester$', re.I)", "                  r'', re.I)"),
     # courseleaf_plan/v3 item fields, labels and checks (#229, #230)
     # positional plan grids (SHSU 2026-27 '#plangrid' documents)
+    ('programs/courseleaf.py', " and not prev.endswith(('.', ':')) and TRACK_WORD.search(prev):", " and not prev.endswith(('.', ':')):"),
+    ('programs/courseleaf.py', "            if TRACK_SENTENCE.search(sent): return sent.strip()", "            pass"),
+    ('programs/courseleaf.py', " else ['plan_heading_label'] if (track_labels or single_label) else []", " else ['plan_heading_label'] if track_labels else []"),
     ('programs/courseleaf.py', "                cols = [_Col(year, pos if kinds[0] == 'codecol' else pos - 1, kinds[0])] if len(kinds) == 1 else []", "                cols = [_Col(year, pos, kinds[0])] if len(kinds) == 1 else []"),
     ('programs/courseleaf.py', "        pos += int(c.get('colspan') or 1)", "        pos += 1"),
     ('programs/courseleaf.py', "    if positional:  # columns found by position are checked against the printed sums", "    if False:  # columns found by position are checked against the printed sums"),
