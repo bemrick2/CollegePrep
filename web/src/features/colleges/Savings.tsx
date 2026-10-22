@@ -89,7 +89,7 @@ export function Savings() {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-sm text-ink-3">Colleges & cost</p>
-          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">Cost & savings</h1>
+          <h1 className="display text-[30px] font-semibold leading-tight text-ink md:text-[36px]">Cost & credit</h1>
           <p className="mt-1 max-w-2xl text-sm text-ink-2">
             Each school's published {YEAR} price, split into what the school bills and what living there costs. Credit counts only where the school's own
             rules allow it. Grants and loans are your numbers, never guessed.
