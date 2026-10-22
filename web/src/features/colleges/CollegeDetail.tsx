@@ -88,9 +88,11 @@ export function CollegeDetail() {
                 </Button>
               )}
               {isSaved ? (
-                <Button variant="ghost" size="sm" onClick={() => void saved.remove(key)}>
-                  Remove from your colleges
-                </Button>
+                saved.canRemove(key) && (
+                  <Button variant="ghost" size="sm" onClick={() => void saved.remove(key)}>
+                    Remove from your colleges
+                  </Button>
+                )
               ) : (
                 <Button variant="brand" size="sm" disabled={saved.keys.length >= saved.max} onClick={() => void saved.add(key)}>
                   Save to your colleges
@@ -99,6 +101,11 @@ export function CollegeDetail() {
             </>
           }
         />
+        {saved.error && (
+          <p role="alert" className="text-sm text-bad">
+            {saved.error}
+          </p>
+        )}
       </div>
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-14">
