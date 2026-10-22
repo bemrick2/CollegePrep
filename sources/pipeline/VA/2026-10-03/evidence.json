@@ -2509,7 +2509,8 @@
  "3e9e1c15290f1986": {
   "decision": {
    "candidate_id": "3e9e1c15290f1986",
-   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Provost Award (Out-of-State Merit Scholarship)', $7,000; criteria as printed: GPA 3.60; Min. SAT/ACT: 1200/25."
+   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Provost Award (Out-of-State Merit Scholarship)', $7,000; criteria as printed: GPA 3.60; Min. SAT/ACT: 1200/25.",
+   "supersede": "Adds the footnote the header 'Min. SAT/ACT*' points to, copied as printed under the table: '*SAT Combined or ACT Composite'. Name, amounts and criteria unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -2526,6 +2527,11 @@
     "field": "test_requirement",
     "snippet": "Provost Award | 3.60 | 1200/25 | $7,000",
     "value": "Min. SAT/ACT: 1200/25"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*SAT Combined or ACT Composite",
+    "value": "*SAT Combined or ACT Composite"
    }
   ],
   "extractor": "merit_table/v1",
@@ -2540,6 +2546,44 @@
    "title": "Out-of-State Merit Scholarship - Admissions",
    "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "3e9e1c15290f1986",
+     "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Provost Award (Out-of-State Merit Scholarship)', $7,000; criteria as printed: GPA 3.60; Min. SAT/ACT: 1200/25."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Provost Award | 3.60 | 1200/25 | $7,000",
+      "value": "$7,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Provost Award | 3.60 | 1200/25 | $7,000",
+      "value": "3.60"
+     },
+     {
+      "field": "test_requirement",
+      "snippet": "Provost Award | 3.60 | 1200/25 | $7,000",
+      "value": "Min. SAT/ACT: 1200/25"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:31:06+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "24bd59c491a0b3ce6e82.json.gz",
+     "requested_url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/",
+     "sha256": "24bd59c491a0b3ce6e8241cb7152971a5f9a0c3f5dc2b334dc04c3f544b60d51",
+     "title": "Out-of-State Merit Scholarship - Admissions",
+     "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
+    },
+    "year_basis": "labeled_entering_class"
+   }
+  ],
   "year_basis": "labeled_entering_class"
  },
  "3eb0ac8f55dcb6b1": {
@@ -3405,7 +3449,8 @@
  "656605897d669a17": {
   "decision": {
    "candidate_id": "656605897d669a17",
-   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/, 2026-27 via labeled_in_source): 'Founder’s Scholarship', $23,000; criteria as printed: GPA 3.5+."
+   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/, 2026-27 via labeled_in_source): 'Founder’s Scholarship', $23,000; criteria as printed: GPA 3.5+.",
+   "supersede": "Adds the footnote the header 'Minimum GPA* to qualify' points to, copied as printed under the table: '*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.' Name, amount and GPA unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -3417,6 +3462,11 @@
     "field": "gpa_requirement",
     "snippet": "Founder’s Scholarship | $23,000 | 3.5+",
     "value": "3.5+"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.",
+    "value": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale."
    }
   ],
   "extractor": "merit_table/v1",
@@ -3431,6 +3481,39 @@
    "title": "Scholarships & Financial Aid | University of Lynchburg",
    "url": "https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "656605897d669a17",
+     "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/, 2026-27 via labeled_in_source): 'Founder’s Scholarship', $23,000; criteria as printed: GPA 3.5+."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Founder’s Scholarship | $23,000 | 3.5+",
+      "value": "$23,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Founder’s Scholarship | $23,000 | 3.5+",
+      "value": "3.5+"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:30:14+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "87cbf2c6e221dd4800a3.json.gz",
+     "requested_url": "https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/",
+     "sha256": "87cbf2c6e221dd4800a38209a1c60ce8100902bf73f68f9f293ce0f09f89efd6",
+     "title": "Scholarships & Financial Aid | University of Lynchburg",
+     "url": "https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/"
+    },
+    "year_basis": "labeled_in_source"
+   }
+  ],
   "year_basis": "labeled_in_source"
  },
  "66d3c254d3506d41": {
@@ -4838,7 +4921,8 @@
  "837f002a6feec94e": {
   "decision": {
    "candidate_id": "837f002a6feec94e",
-   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Eagle Award (Out-of-State Merit Scholarship)', $7,000; criteria as printed: GPA 3.25; Min. SAT/ACT: 1100/22."
+   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Eagle Award (Out-of-State Merit Scholarship)', $7,000; criteria as printed: GPA 3.25; Min. SAT/ACT: 1100/22.",
+   "supersede": "Adds the footnote the header 'Min. SAT/ACT*' points to, copied as printed under the table: '*SAT Combined or ACT Composite'. Name, amounts and criteria unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -4855,6 +4939,11 @@
     "field": "test_requirement",
     "snippet": "Eagle Award | 3.25 | 1100/22 | $7,000",
     "value": "Min. SAT/ACT: 1100/22"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*SAT Combined or ACT Composite",
+    "value": "*SAT Combined or ACT Composite"
    }
   ],
   "extractor": "merit_table/v1",
@@ -4869,12 +4958,51 @@
    "title": "Out-of-State Merit Scholarship - Admissions",
    "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "837f002a6feec94e",
+     "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Eagle Award (Out-of-State Merit Scholarship)', $7,000; criteria as printed: GPA 3.25; Min. SAT/ACT: 1100/22."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Eagle Award | 3.25 | 1100/22 | $7,000",
+      "value": "$7,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Eagle Award | 3.25 | 1100/22 | $7,000",
+      "value": "3.25"
+     },
+     {
+      "field": "test_requirement",
+      "snippet": "Eagle Award | 3.25 | 1100/22 | $7,000",
+      "value": "Min. SAT/ACT: 1100/22"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:31:06+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "24bd59c491a0b3ce6e82.json.gz",
+     "requested_url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/",
+     "sha256": "24bd59c491a0b3ce6e8241cb7152971a5f9a0c3f5dc2b334dc04c3f544b60d51",
+     "title": "Out-of-State Merit Scholarship - Admissions",
+     "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
+    },
+    "year_basis": "labeled_entering_class"
+   }
+  ],
   "year_basis": "labeled_entering_class"
  },
  "841d875c14ba4b16": {
   "decision": {
    "candidate_id": "841d875c14ba4b16",
-   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Blue & Gray Award (Out-of-State Merit Scholarship)', $5,000; criteria as printed: GPA 3.00; Min. SAT/ACT: 1000/20."
+   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Blue & Gray Award (Out-of-State Merit Scholarship)', $5,000; criteria as printed: GPA 3.00; Min. SAT/ACT: 1000/20.",
+   "supersede": "Adds the footnote the header 'Min. SAT/ACT*' points to, copied as printed under the table: '*SAT Combined or ACT Composite'. Name, amounts and criteria unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -4891,6 +5019,11 @@
     "field": "test_requirement",
     "snippet": "Blue & Gray Award | 3.00 | 1000/20 | $5,000",
     "value": "Min. SAT/ACT: 1000/20"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*SAT Combined or ACT Composite",
+    "value": "*SAT Combined or ACT Composite"
    }
   ],
   "extractor": "merit_table/v1",
@@ -4905,6 +5038,44 @@
    "title": "Out-of-State Merit Scholarship - Admissions",
    "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "841d875c14ba4b16",
+     "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Blue & Gray Award (Out-of-State Merit Scholarship)', $5,000; criteria as printed: GPA 3.00; Min. SAT/ACT: 1000/20."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Blue & Gray Award | 3.00 | 1000/20 | $5,000",
+      "value": "$5,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Blue & Gray Award | 3.00 | 1000/20 | $5,000",
+      "value": "3.00"
+     },
+     {
+      "field": "test_requirement",
+      "snippet": "Blue & Gray Award | 3.00 | 1000/20 | $5,000",
+      "value": "Min. SAT/ACT: 1000/20"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:31:06+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "24bd59c491a0b3ce6e82.json.gz",
+     "requested_url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/",
+     "sha256": "24bd59c491a0b3ce6e8241cb7152971a5f9a0c3f5dc2b334dc04c3f544b60d51",
+     "title": "Out-of-State Merit Scholarship - Admissions",
+     "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
+    },
+    "year_basis": "labeled_entering_class"
+   }
+  ],
   "year_basis": "labeled_entering_class"
  },
  "843872ca5ddb2be6": {
@@ -5217,7 +5388,8 @@
  "8c3df3fdab95a7ec": {
   "decision": {
    "candidate_id": "8c3df3fdab95a7ec",
-   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/, 2026-27 via labeled_in_source): 'Hopwood Scholarship', $25,000; criteria as printed: GPA 4.0+."
+   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/, 2026-27 via labeled_in_source): 'Hopwood Scholarship', $25,000; criteria as printed: GPA 4.0+.",
+   "supersede": "Adds the footnote the header 'Minimum GPA* to qualify' points to, copied as printed under the table: '*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.' Name, amount and GPA unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -5229,6 +5401,11 @@
     "field": "gpa_requirement",
     "snippet": "Hopwood Scholarship | $25,000 | 4.0+",
     "value": "4.0+"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.",
+    "value": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale."
    }
   ],
   "extractor": "merit_table/v1",
@@ -5243,6 +5420,39 @@
    "title": "Undergraduate Financial Aid | University of Lynchburg",
    "url": "https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "8c3df3fdab95a7ec",
+     "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/, 2026-27 via labeled_in_source): 'Hopwood Scholarship', $25,000; criteria as printed: GPA 4.0+."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Hopwood Scholarship | $25,000 | 4.0+",
+      "value": "$25,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Hopwood Scholarship | $25,000 | 4.0+",
+      "value": "4.0+"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:30:33+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "d9d1e53abad895bd3cc2.json.gz",
+     "requested_url": "https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/",
+     "sha256": "d9d1e53abad895bd3cc2898d67eed7c41333e5c4a350a3b5ecf087648ed25486",
+     "title": "Undergraduate Financial Aid | University of Lynchburg",
+     "url": "https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/"
+    },
+    "year_basis": "labeled_in_source"
+   }
+  ],
   "year_basis": "labeled_in_source"
  },
  "8d12d37d3f3e3b00": {
@@ -5732,7 +5942,8 @@
  "96d778c6565060d4": {
   "decision": {
    "candidate_id": "96d778c6565060d4",
-   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Presidential Award (Out-of-State Merit Scholarship)', $9,000; criteria as printed: GPA 4.00; Min. SAT/ACT: 1300/27."
+   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Presidential Award (Out-of-State Merit Scholarship)', $9,000; criteria as printed: GPA 4.00; Min. SAT/ACT: 1300/27.",
+   "supersede": "Adds the footnote the header 'Min. SAT/ACT*' points to, copied as printed under the table: '*SAT Combined or ACT Composite'. Name, amounts and criteria unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -5749,6 +5960,11 @@
     "field": "test_requirement",
     "snippet": "Presidential Award | 4.00 | 1300/27 | $9,000",
     "value": "Min. SAT/ACT: 1300/27"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*SAT Combined or ACT Composite",
+    "value": "*SAT Combined or ACT Composite"
    }
   ],
   "extractor": "merit_table/v1",
@@ -5763,6 +5979,44 @@
    "title": "Out-of-State Merit Scholarship - Admissions",
    "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "96d778c6565060d4",
+     "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Presidential Award (Out-of-State Merit Scholarship)', $9,000; criteria as printed: GPA 4.00; Min. SAT/ACT: 1300/27."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Presidential Award | 4.00 | 1300/27 | $9,000",
+      "value": "$9,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Presidential Award | 4.00 | 1300/27 | $9,000",
+      "value": "4.00"
+     },
+     {
+      "field": "test_requirement",
+      "snippet": "Presidential Award | 4.00 | 1300/27 | $9,000",
+      "value": "Min. SAT/ACT: 1300/27"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:31:06+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "24bd59c491a0b3ce6e82.json.gz",
+     "requested_url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/",
+     "sha256": "24bd59c491a0b3ce6e8241cb7152971a5f9a0c3f5dc2b334dc04c3f544b60d51",
+     "title": "Out-of-State Merit Scholarship - Admissions",
+     "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
+    },
+    "year_basis": "labeled_entering_class"
+   }
+  ],
   "year_basis": "labeled_entering_class"
  },
  "9740068e684ff51d": {
@@ -8076,7 +8330,8 @@
  "cdb262d42f1b4b49": {
   "decision": {
    "candidate_id": "cdb262d42f1b4b49",
-   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/, 2026-27 via labeled_in_source): 'Trustee Scholarship', $21,000; criteria as printed: GPA 3.0+."
+   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/, 2026-27 via labeled_in_source): 'Trustee Scholarship', $21,000; criteria as printed: GPA 3.0+.",
+   "supersede": "Adds the footnote the header 'Minimum GPA* to qualify' points to, copied as printed under the table: '*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.' Name, amount and GPA unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -8088,6 +8343,11 @@
     "field": "gpa_requirement",
     "snippet": "Trustee Scholarship | $21,000 | 3.0+",
     "value": "3.0+"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.",
+    "value": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale."
    }
   ],
   "extractor": "merit_table/v1",
@@ -8102,6 +8362,39 @@
    "title": "Undergraduate Financial Aid | University of Lynchburg",
    "url": "https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "cdb262d42f1b4b49",
+     "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/, 2026-27 via labeled_in_source): 'Trustee Scholarship', $21,000; criteria as printed: GPA 3.0+."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Trustee Scholarship | $21,000 | 3.0+",
+      "value": "$21,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Trustee Scholarship | $21,000 | 3.0+",
+      "value": "3.0+"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:30:33+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "d9d1e53abad895bd3cc2.json.gz",
+     "requested_url": "https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/",
+     "sha256": "d9d1e53abad895bd3cc2898d67eed7c41333e5c4a350a3b5ecf087648ed25486",
+     "title": "Undergraduate Financial Aid | University of Lynchburg",
+     "url": "https://www.lynchburg.edu/admissions/cost-and-affordability/undergraduate-financial-aid/"
+    },
+    "year_basis": "labeled_in_source"
+   }
+  ],
   "year_basis": "labeled_in_source"
  },
  "d16f41ee433df846": {
@@ -8439,7 +8732,8 @@
  "d7ba9985f7eddd2f": {
   "decision": {
    "candidate_id": "d7ba9985f7eddd2f",
-   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Aerie Award', $1,000; criteria as printed: GPA <3.00; Min. SAT/ACT: <1000/20."
+   "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Aerie Award', $1,000; criteria as printed: GPA <3.00; Min. SAT/ACT: <1000/20.",
+   "supersede": "Adds the footnote the header 'Min. SAT/ACT*' points to, copied as printed under the table: '*SAT Combined or ACT Composite'. Name, amounts and criteria unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -8456,6 +8750,11 @@
     "field": "test_requirement",
     "snippet": "Aerie Award | <3.00 | <1000/20 | $1,000",
     "value": "Min. SAT/ACT: <1000/20"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*SAT Combined or ACT Composite",
+    "value": "*SAT Combined or ACT Composite"
    }
   ],
   "extractor": "merit_table/v1",
@@ -8470,6 +8769,44 @@
    "title": "Out-of-State Merit Scholarship - Admissions",
    "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "d7ba9985f7eddd2f",
+     "reason": "UMW out-of-state merit (formula: 'Min. GPA' and 'Min. SAT/ACT*' with '*SAT Combined or ACT Composite'; 'students must live on campus to receive the full award'). The test cell is now copied with its header ('Min. SAT/ACT: ...') instead of being labelled ACT; year from 'enroll for Fall 2027' (entering class, partially_verified by rule). Checked against the archived page (https://www.umw.edu/admissions/out-of-state-merit-scholarship/, 2027-28 via labeled_entering_class): 'Aerie Award', $1,000; criteria as printed: GPA <3.00; Min. SAT/ACT: <1000/20."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Aerie Award | <3.00 | <1000/20 | $1,000",
+      "value": "$1,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Aerie Award | <3.00 | <1000/20 | $1,000",
+      "value": "<3.00"
+     },
+     {
+      "field": "test_requirement",
+      "snippet": "Aerie Award | <3.00 | <1000/20 | $1,000",
+      "value": "Min. SAT/ACT: <1000/20"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:31:06+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "24bd59c491a0b3ce6e82.json.gz",
+     "requested_url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/",
+     "sha256": "24bd59c491a0b3ce6e8241cb7152971a5f9a0c3f5dc2b334dc04c3f544b60d51",
+     "title": "Out-of-State Merit Scholarship - Admissions",
+     "url": "https://www.umw.edu/admissions/out-of-state-merit-scholarship/"
+    },
+    "year_basis": "labeled_entering_class"
+   }
+  ],
   "year_basis": "labeled_entering_class"
  },
  "d8dede536cb1cda6": {
@@ -8603,7 +8940,8 @@
  "de2dddc60506f6ba": {
   "decision": {
    "candidate_id": "de2dddc60506f6ba",
-   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/, 2026-27 via labeled_in_source): 'Presidential Scholarship', $20,000; criteria as printed: GPA 2.5+."
+   "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/, 2026-27 via labeled_in_source): 'Presidential Scholarship', $20,000; criteria as printed: GPA 2.5+.",
+   "supersede": "Adds the footnote the header 'Minimum GPA* to qualify' points to, copied as printed under the table: '*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.' Name, amount and GPA unchanged from the record promoted from this same page earlier on 2026-10-22."
   },
   "evidence": [
    {
@@ -8615,6 +8953,11 @@
     "field": "gpa_requirement",
     "snippet": "Presidential Scholarship | $20,000 | 2.5+",
     "value": "2.5+"
+   },
+   {
+    "field": "footnotes",
+    "snippet": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale.",
+    "value": "*Weighted GPA is used to determine scholarship eligibility. GPA on a 100-point scale is converted to a 4.0 scale."
    }
   ],
   "extractor": "merit_table/v1",
@@ -8629,6 +8972,39 @@
    "title": "Scholarships & Financial Aid | University of Lynchburg",
    "url": "https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/"
   },
+  "superseded": [
+   {
+    "decision": {
+     "candidate_id": "de2dddc60506f6ba",
+     "reason": "Lynchburg automatic merit (page: 'All full-time admitted students are automatically considered for academic scholarships ... no separate scholarship application is required'; header 'Minimum GPA* to qualify'). Year from the table's own lead 'Merit scholarships for 2026-27 range from $16,000-$25,000 annually', not the VTAG/Pell year labels elsewhere on the page. Checked against the archived page (https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/, 2026-27 via labeled_in_source): 'Presidential Scholarship', $20,000; criteria as printed: GPA 2.5+."
+    },
+    "evidence": [
+     {
+      "field": "award_amount_text",
+      "snippet": "Presidential Scholarship | $20,000 | 2.5+",
+      "value": "$20,000"
+     },
+     {
+      "field": "gpa_requirement",
+      "snippet": "Presidential Scholarship | $20,000 | 2.5+",
+      "value": "2.5+"
+     }
+    ],
+    "extractor": "merit_table/v1",
+    "issues": [],
+    "source": {
+     "fetched_at": "2026-10-03T10:30:14+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "87cbf2c6e221dd4800a3.json.gz",
+     "requested_url": "https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/",
+     "sha256": "87cbf2c6e221dd4800a38209a1c60ce8100902bf73f68f9f293ce0f09f89efd6",
+     "title": "Scholarships & Financial Aid | University of Lynchburg",
+     "url": "https://www.lynchburg.edu/student-life/student-support/solutions-center/managing-costs/scholarships-financial-aid/"
+    },
+    "year_basis": "labeled_in_source"
+   }
+  ],
   "year_basis": "labeled_in_source"
  },
  "df31a734ff987b07": {

@@ -51,9 +51,9 @@ Statuses: verified / partially verified (records in the repository); candidate n
 
 - Also pending: schools with records that still have undecided run candidates: merit 0, exam credit 19, aid appeals 2; schools outside the four-year registry with undecided merit candidates (two-year colleges and changed keys; listed in completeness.json): 0. `baseline/policy/pipeline_attempts.json` is a snapshot: re-run `scripts/harvest_research_status.py` after decisions land.
 
-- Schools with a merit record that states an ACT/SAT criterion: 38; a GPA criterion: 109.
+- Schools with a merit record that states an ACT/SAT criterion: 39; a GPA criterion: 109.
 - Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; `baseline/policy/merit_research.json`): 23.
-- Merit records on file (verified or partially verified), enrollment-weighted: 7.0%; with an ACT/SAT criterion: 2.0%.
+- Merit records on file (verified or partially verified), enrollment-weighted: 7.0%; with an ACT/SAT criterion: 2.1%.
 
 ## Degree detail (separate measure, Deep Dive)
 

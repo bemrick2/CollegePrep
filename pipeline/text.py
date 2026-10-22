@@ -49,13 +49,14 @@ class _Parser(HTMLParser):
             prior = [l.strip() for l in ''.join(self.out[-60:]).split('\n') if l.strip()]
             lead = prior[-1][:200] if prior else ''
             self.stack.append({'caption': '', 'heading': self.last_heading, 'year_heading': self.year_heading,
-                               'lead': lead, 'rows': [], 'row': None, 'cell': None})
+                               'lead': lead, 'rows': [], 'row': None, 'cell': None, 'spans': [], 'span_row': None, 'span': (1, 1)})
         elif self.stack:
             t = self.stack[-1]
-            if tag == 'tr': t['row'] = []
+            if tag == 'tr': t['row'] = []; t['span_row'] = []
             elif tag in CELL:
-                if t['row'] is None: t['row'] = []
+                if t['row'] is None: t['row'] = []; t['span_row'] = []
                 t['cell'] = []
+                t['span'] = (_span(a.get('rowspan')), _span(a.get('colspan')))
             elif tag == 'caption': t['cell'] = []
 
     def handle_endtag(self, tag):
@@ -75,16 +76,21 @@ class _Parser(HTMLParser):
         t = self.stack[-1]
         if tag in CELL and t['cell'] is not None:
             (t['row'] if t['row'] is not None else []).append(squash(''.join(t['cell']))); t['cell'] = None
+            if t['span_row'] is not None: t['span_row'].append(list(t['span']))
         elif tag == 'caption' and t['cell'] is not None:
             t['caption'] = squash(''.join(t['cell'])); t['cell'] = None
         elif tag == 'tr' and t['row'] is not None:
-            if any(c for c in t['row']): t['rows'].append(t['row'])
+            if any(c for c in t['row']):
+                t['rows'].append(t['row']); t['spans'].append(t['span_row'] or [[1, 1]] * len(t['row']))
             t['row'] = None
         elif tag == 'table':
             done = self.stack.pop()
             if done['rows']:
-                self.tables.append({'caption': done['caption'], 'heading': done['heading'],
-                                    'year_heading': done['year_heading'], 'lead': done['lead'], 'rows': done['rows']})
+                table = {'caption': done['caption'], 'heading': done['heading'],
+                         'year_heading': done['year_heading'], 'lead': done['lead'], 'rows': done['rows']}
+                if any(x != [1, 1] for r in done['spans'] for x in r):
+                    table['spans'] = done['spans']  # [rowspan, colspan] per printed cell; see expand_spans
+                self.tables.append(table)
 
     def handle_data(self, data):
         if self.skip: return
@@ -93,6 +99,42 @@ class _Parser(HTMLParser):
         if self.link: self.link[1].append(data)
         if self.heading is not None: self.heading.append(data)
         if self.stack and self.stack[-1]['cell'] is not None: self.stack[-1]['cell'].append(data)
+
+
+def _span(v) -> int:
+    try:
+        return max(1, min(int(str(v).strip()), 50))
+    except (TypeError, ValueError):
+        return 1
+
+
+def expand_spans(table):
+    """The table's rows on the printed grid, or None when the parse recorded no spans (older archives). A cell merged down
+    several rows (rowspan) appears in each row it covers; a cell merged across columns (colspan) stays in its first column
+    and the columns it covers are empty, so no value is ever copied sideways into another column."""
+    spans = table.get('spans')
+    if not spans or len(spans) != len(table.get('rows') or []): return None
+    out, pending = [], {}  # column -> [rows still covered, text]
+    for row, sp in zip(table['rows'], spans):
+        if len(sp) != len(row): return None
+        grid, col = [], 0
+        def carry():
+            nonlocal col
+            while col in pending:
+                left, text = pending[col]
+                grid.append(text)
+                if left <= 1: del pending[col]
+                else: pending[col][0] = left - 1
+                col += 1
+        for text, (rs, cs) in zip(row, sp):
+            carry()
+            for k in range(cs):
+                grid.append(text if k == 0 else '')
+                if rs > 1: pending[col] = [rs - 1, text if k == 0 else '']
+                col += 1
+        carry()
+        out.append(grid)
+    return out
 
 
 def squash(s: str) -> str:

@@ -98,11 +98,18 @@ def residency_twins(cands, existing):
         elif all(scopes) and len(set(scopes)) == len(group): labels = scopes
         else: continue
         on_file = {str(r.get('source_url')).rstrip('/') for _, d, r in existing.get(group[0]['institution_key'], []) if d == 'awards' and natural_key(d, r) == key}
+        base = group[0]['record']['award_name']
+        scoped_on_file = {}  # source page -> the scoped name already on file for it (kept, so a record's identity does not move)
+        for _, d, r in existing.get(group[0]['institution_key'], []):
+            if d == 'awards' and r.get('academic_year') == group[0]['record'].get('academic_year') and str(r.get('award_name', '')).startswith(base + ' ('):
+                scoped_on_file[str(r.get('source_url')).rstrip('/')] = r['award_name']
         for c, label in zip(group, labels):
-            if any(x['source']['url'].rstrip('/') in on_file for x in copies[c['candidate_id']]): continue
+            urls = [x['source']['url'].rstrip('/') for x in copies[c['candidate_id']]]
+            if any(u in on_file for u in urls): continue
+            name = next((scoped_on_file[u] for u in urls if u in scoped_on_file), f'{base} ({label})')
             for x in copies[c['candidate_id']]:
-                x['record']['award_name'] = f"{x['record']['award_name']} ({label})"
-                x['checks'] = {**x.get('checks', {}), 'scoped_name': label}
+                x['record']['award_name'] = name
+                x['checks'] = {**x.get('checks', {}), 'scoped_name': name[len(base) + 2:-1]}
     return cands
 
 

@@ -81,7 +81,11 @@ ENTERING_TERM = re.compile(r'\b(?:enroll(?:s|ing)?|enter(?:s|ing)?|start(?:s|ing
 STATEMENT_MERIT = re.compile(r'scholarship|merit|\bawards?\b', re.I)
 # VA (Lynchburg): "VTAG is currently $5,000 for the 2023-24 academic year" is a state grant's year, not the merit table's.
 STATEMENT_OTHER_AID = re.compile(r'fafsa|\bvtag\b|\bpell\b|federal|\bgrants?\b|\bloans?\b|work[- ]study|cost\s+of\s+attendance|need[- ]based|'
-                                 r'transfer|\bgraduate\b|tax\s+year', re.I)
+                                 r'transfer|\bgraduate\b|tax\s+year|'
+                                 # IN (Manchester): "student-athletes enrolling Fall 2027 ... athletic scholarships" dates another program
+                                 r'athlet|\bsports?\b|esports|\bband\b|music|theat(?:er|re)|\bchoir\b|\brotc\b|dual[- ]enrollment|summer\s+(?:camp|program|bridge)', re.I)
+# MI (Andrews): "Prior to Fall 2023" and TX (LCU): "(1280 beginning Fall 2023)" say when something changed, not who enters
+CHANGE_BEFORE = re.compile(r'\b(?:prior\s+to|before|until|through|since|as\s+of|beginning|starting)\s+(?:with\s+|in\s+)?(?:the\s+)?$', re.I)
 STATEMENT_FRESHMAN = re.compile(r'freshm[ae]n|first[- ]year|first[- ]time|new\s+students?', re.I)
 CURRENT_TERM = re.compile(r'\b(?:fall|spring|summer)\s+(20\d{2})\b', re.I)
 LABELED = {'labeled_in_title', 'labeled_in_heading', 'labeled_in_source', 'labeled_in_url'}
@@ -97,14 +101,32 @@ def page_year_statement(page):
         if STATEMENT_OTHER_AID.search(s): continue
         if STATEMENT_MERIT.search(s):
             for m in AID_YEAR_STATEMENT.finditer(s):
-                if re.search(r'\b(?:beginning|since|starting)\s+(?:in\s+)?(?:the\s+)?$', s[:m.start()], re.I): continue  # OK (OBU): when a program began
+                if re.search(r'\b(?:beginning|since|starting)\s+(?:in\s+)?(?:the\s+)?$', s[:m.start()], re.I) and not \
+                        re.search(r'(?:freshm[ae]n|students?|first[- ]years?)\s+(?:beginning|starting)\s+(?:in\s+)?(?:the\s+)?$', s[:m.start()], re.I):
+                    continue  # OK (OBU): when a program began; MA (Elms) "for freshmen beginning in the 2024-2025 academic year" is the class
                 aid |= set(T.year_labels(next(g for g in m.groups() if g)))
         elif not STATEMENT_FRESHMAN.search(s): continue  # NV (UNR WUE): "Must be a new freshman* starting Fall 2027"
         for m in ENTERING_TERM.finditer(s):
+            verb = m.group(0).split()[0].lower()
+            if verb.startswith(('begin', 'start')) and not re.search(r'(?:freshm[ae]n|students?|first[- ]years?|class)\W{0,2}\s+(?:who\s+(?:are\s+)?)?$', s[:m.start()], re.I):
+                continue  # TX (LCU): "(1280 beginning Fall 2023)" is when a threshold changed; "freshmen beginning in Fall 2027" enter
+            if CHANGE_BEFORE.search(s[:m.start()]): continue
             term.add(T.academic_year(int(m.group(1) or m.group(2))))
     if len(aid) == 1: return next(iter(aid)), 'labeled_in_source'
     if not aid and len(term) == 1: return next(iter(term)), 'labeled_entering_class'
     return None, None
+
+
+def current_terms(page, today_year):
+    """Fall or spring terms of the current cycle printed outside other programs (VA: Regent's Fall 2026 / Spring 2027 calendar).
+    A term in a transfer, grant, athletics or summer-program sentence, or a summer term, says nothing about the merit chart
+    (MA: Elms transfer table, OH: JCU legacy grant, CA: UCSC 'Summer 2026')."""
+    out = []
+    for s in re.split(r'(?<=[.!?])\s+|\n+', page.text[:60000]):
+        if STATEMENT_OTHER_AID.search(s): continue
+        out += [m.group(0) for m in CURRENT_TERM.finditer(s) if not m.group(0).lower().startswith('summer') and int(m.group(1)) >= int(today_year[:4])
+                and not CHANGE_BEFORE.search(s[:m.start()])]
+    return out
 
 
 def record_year(page, t, year, basis, issues, today_year):
@@ -119,16 +141,17 @@ def record_year(page, t, year, basis, issues, today_year):
     if basis in LABELED and labels and set(labels) <= since and max(labels) < year:
         labels = {}  # PA (Lancaster Bible): "Effective 2024-25, first-time freshmen ..." is when the scale began; the page is labelled 2026-27
     if len(labels) == 1: return done(next(iter(labels)), 'labeled_in_source')
-    cls = ENTERING_CLASS.search(own) if not labels else None
-    if cls:
-        return done(T.academic_year(int(cls.group(1) or cls.group(2))), 'labeled_entering_class')  # the class entering that fall
+    cls = next((m for m in ENTERING_CLASS.finditer(own) if not CHANGE_BEFORE.search(own[:m.start()])), None) if not labels else None
+    cls_year = T.academic_year(int(cls.group(1) or cls.group(2))) if cls else None
+    if cls and not (basis in LABELED and cls_year < year):  # MI (Andrews): "Prior to Fall 2023" is not the class the table is for
+        return done(cls_year, 'labeled_entering_class')  # the class entering that fall
     stated, stated_basis = page_year_statement(page)
     # IA (Grand View): one outside award's "for the 2023-2024 academic year" does not re-date a page labelled 2026-27; a statement
     # outranks the page label only when it is not older (KY: Louisville's "entering ... Fall 2027" beside 2026-2027 FAFSA notes)
     if stated and not (basis in LABELED and stated < year): return done(stated, stated_basis)
     under = T.year_labels(t.get('year_heading') or '')
     if len(under) == 1: return done(next(iter(under)), 'labeled_in_heading')
-    if basis in LABELED and year < today_year and any(int(y) >= int(today_year[:4]) for y in CURRENT_TERM.findall(page.text[:60000])):
+    if basis in LABELED and year < today_year and current_terms(page, today_year):
         # VA (Regent): "Aid for 2023-24" statistics and FAFSA notes beside a current chart (Fall 2026 dates) do not date the chart.
         return today_year, 'source_unlabeled', clean + [f'stale_page_label_beside_current_terms:{year}']
     return year, basis, issues
@@ -213,17 +236,17 @@ def _list_awards(t, header, body, title, award_type):
         test, gpa, act, sat, combined = gpa, None, None, None, None
     if clt in (name, gpa, act, sat, test, criteria): clt = None
     if name is None: name = 0
-    body = _fill_spans(header, body, name)
+    body, inherited = _fill_spans(header, body, name)
     used = {i for i in (name, amount, gpa, act, sat, clt, test, criteria, renewal) if i is not None} | set(amount_cols)
     if criteria == name: criteria = None  # the threshold column is the row label (tier rows below)
     # UTK In-State Volunteer: "ACT / SAT | Annual Award" - the score column labels the rows, the page names the award.
-    threshold_cols = sorted({i for i in (gpa, act, sat, test) if i is not None}) if name in (gpa, act, sat, test) else []
+    threshold_cols = sorted({i for i in (gpa, act, sat, test, clt) if i is not None}) if name in (gpa, act, sat, test) else []
     threshold_label = bool(threshold_cols)
-    gpa_col = gpa
-    if threshold_label: gpa, act, sat, test = None, None, None, None  # every threshold column labels the row instead
+    gpa_col, clt_col = gpa, clt
+    if threshold_label: gpa, act, sat, test, clt = None, None, None, None, None  # every threshold column labels the row instead (TX: UD's CLT too)
     clean = lambda h: h.strip().strip('*').strip()
     if amount is None and gpa is None and act is None and sat is None and test is None and criteria is None: return []
-    out = []
+    out, section = [], ''
     for ri, row in enumerate(body):
         if name > 0 and len(row) < len(header): continue  # AR (UCA): merged cells shifted this row; its columns no longer line up
         cells = list(row) + [''] * (len(header) - len(row))
@@ -234,7 +257,7 @@ def _list_awards(t, header, body, title, award_type):
             out[-1][0]['_issues'] = out[-1][0].get('_issues', []) + ['alternative_criteria_row']
             continue
         nm = cells[name].strip()
-        if not nm or len(nm) > 120 or T.money_values(nm): continue
+        if not nm or len(nm) > 120 or T.money_values(nm) or PLACEHOLDER.match(nm): continue  # CT (WCSU): 'Varies' is not a name
         if threshold_label and not re.search(r'\d', nm): continue  # "OR" between tier rows
         if not threshold_label and (NOT_NAME.search(nm) or NOT_AWARD_NAME.search(nm)): continue
         if nm.endswith(':') or len(nm.split()) > 12: continue  # worked examples and sentences, not award names
@@ -243,11 +266,14 @@ def _list_awards(t, header, body, title, award_type):
         amt, g, a, s, tst, crit, ren, cl = (x if not (PLACEHOLDER.match(x) or PHONE.search(x) or '@' in x or YES_NO.fullmatch(x)) else '' for x in (get(amount), get(gpa), get(act), get(sat), get(test), get(criteria), get(renewal), get(clt)))
         if amount_cols:
             amt = '; '.join(f'{clean(header[i])}: {get(i)}' for i in amount_cols if get(i) and not PLACEHOLDER.match(get(i)))
+        split = amount_cols and len({'out' if re.search(r'out[- ]of[- ]state|non[- ]?res', header[i], re.I) else 'in' for i in amount_cols}) > 1
         if combined is not None and SCORE.search(tst) and not re.search(r'\b(act|sat)\b', tst, re.I):
             tst = f'{clean(header[combined])}: {tst}'  # the header says which number is which test
         nm, merged_gpa = _split_name(nm)
         if merged_gpa and not g: g = merged_gpa
-        if not (amt or g or a or s or tst or crit): continue
+        if not (amt or g or a or s or tst or crit):
+            if sum(1 for c in cells if c.strip()) == 1 and not threshold_label: section = nm  # "Alabama Residents" above its rows
+            continue
         lo, hi = _amounts(amt)
         outside = re.sub(r'\([^)]*\)', '', amt)
         if (re.search(r'semester\s+basis|per\s+semester|/\s*semester', outside, re.I) or re.search(r'\$[\d,.]+\s+(?:for\s+)?(?:the\s+)?(?:fall|spring)\b', outside, re.I)) \
@@ -272,7 +298,7 @@ def _list_awards(t, header, body, title, award_type):
         rec = {'award_name': f"{title}: {nm}" if tier_row else nm, 'award_type': award_type}
         if threshold_label:  # UTK Out-of-State Volunteer: "4.0+ | 34-36/1490-1600 | $18,000" and "4.0+ | 30-33/... | $9,000"
             parts = [(i, get(i)) for i in threshold_cols if get(i)]
-            rec['award_name'] = f"{title}: " + ', '.join(f'{clean(header[i])} {v}' for i, v in parts)
+            rec['award_name'] = f"{title}: " + ', '.join(f'{clean(header[i])} {v}' for i, v in parts if i != clt_col)  # names stay as before CLT was read
             for i, v in parts:
                 if i == gpa_col and re.search(r'\d\.\d', header[i]) and re.search(r'\b(act|sat)\b', v, re.I):
                     # USM: the header is a GPA band and the rows are test ranges ("3.0 - 3.24 GPA" over "23 - 25 ACT Score")
@@ -288,6 +314,8 @@ def _list_awards(t, header, body, title, award_type):
         if amt: rec['award_amount_text'] = amt
         if re.search(r'\bfor\s+(the\s+)?freshman\s+year|\bone[\s–-]*time\b|\bnon[\s-]*renewable\b', amt, re.I):
             rec['renewable'] = False  # UL Lafayette: "$1,000 for freshman year"
+        if split:  # WV (Shepherd), VA (UMW test-optional): one column per residency - no single range spans both
+            lo = hi = None; rec['_issues'] = rec.get('_issues', []) + ['amount_by_residency']
         if hi is not None:
             if lo is not None: rec['award_min'] = lo
             if not rec_open_max: rec['award_max'] = hi
@@ -306,9 +334,15 @@ def _list_awards(t, header, body, title, award_type):
         if thresholds: rec['thresholds'] = thresholds
         if any(re.fullmatch(r'\s*(or|and|&)\s*', c, re.I) for c in cells):
             rec['_issues'] = ['threshold_logic_column']  # AR (ATU): an "or"/"&" column says whether GPA and test are both required
+        if section:
+            rec['_section'] = section
+            res = PAGE_RESIDENCY.search(section)
+            if res: rec['residency_requirement'] = 'Out-of-state' if re.search(r'out|non', res.group(0), re.I) else 'In-state'
         rec['_tier'] = {k: v for k, v in (('test', tst), ('act', a), ('sat', s), ('clt', cl), ('gpa', g), ('criteria', crit), ('amount_text', amt)) if v}
         rec['_rest'] = tuple(cells[i] for i in range(len(header)) if i not in used and not multi_year.search(header[i]))
-        out.append((rec, ' | '.join(cells)))
+        if any(cells[i].strip() for i in inherited[ri] & used):
+            rec['_issues'] = rec.get('_issues', []) + ['merged_cell_inferred']  # a field comes from a cell this row did not print
+        out.append((rec, ' | '.join(c for i, c in enumerate(cells) if i not in inherited[ri])))
     if threshold_label: labels = {}
     else: labels = {'test': '' if combined is not None else clean(header[test]) if test is not None else '', 'act': 'ACT', 'sat': 'SAT', 'clt': 'CLT',
                     'gpa': clean(header[gpa]) if gpa is not None else 'GPA', 'criteria': '', 'amount_text': ''}
@@ -333,15 +367,18 @@ def _kind(c):
 def _fill_spans(header, body, name):
     """AR (UCA): cells merged down several rows (rowspan) are printed once, so later rows are short and their cells shift left.
     A short row is re-aligned only when exactly one placement fits every cell to its column's kind (text, GPA, amount, date as
-    seen in the full rows), preferring placements that keep the row's own award name; the merged cells take the value of the row above."""
+    seen in the full rows), preferring placements that keep the row's own award name; the merged cells take the value of the row above.
+    Archived pages lost the rowspan/colspan markup, so which cells were merged is an inference: (rows, inherited) where inherited[i]
+    holds the columns of row i that were not printed in that row. Evidence quotes only printed cells, and a record whose fields use
+    an inherited cell is held for review (CA: Skyline "TastyPlacement | All Students" printed no amount)."""
     width = len(header)
     full = [r for r in body if len(r) == width]
-    if not full or all(len(r) >= width for r in body): return body
+    if not full or all(len(r) >= width for r in body): return body, [frozenset()] * len(body)
     col_kind = [Counter(_kind(r[i]) for r in full).most_common(1)[0][0] for i in range(width)]
-    out, prev = [], None
+    out, prev, inherited = [], None, []
     for r in body:
         if len(r) >= width or prev is None or len(r) * 2 < width:  # at least half the row must be its own
-            out.append(r)
+            out.append(r); inherited.append(frozenset())
             if len(r) == width: prev = r
             continue
         fits = [keep for keep in itertools.combinations(range(width), len(r)) if all(_kind(c) == col_kind[i] for c, i in zip(r, keep))]
@@ -351,11 +388,12 @@ def _fill_spans(header, body, name):
         continues = any(_kind(c) in ('number', 'gpa') for c in r) and not any(_kind(c) == 'text' for c in r)
         fits = named or (fits if continues else [])
         if len(fits) != 1:
-            out.append(r); continue
+            out.append(r); inherited.append(frozenset()); continue
         filled = list(prev)
         for c, i in zip(r, fits[0]): filled[i] = c
         out.append(filled); prev = filled
-    return out
+        inherited.append(frozenset(range(width)) - set(fits[0]))
+    return out, inherited
 
 
 def _level_grid(t, rows, page):
@@ -383,7 +421,9 @@ def _level_grid(t, rows, page):
             lv['cells'].append(c)
     if len(levels) < 2: return []
     title = (t.get('heading') or t.get('caption') or 'Merit scholarship matrix').strip()
-    tests = ' and '.join(hh[0].strip() for hh in heads)
+    tests = ' / '.join(hh[0].strip() for hh in heads)
+    required = re.search(r'\bACT\s+OR\s+SAT\s+(?:IS\s+)?REQUIRED\b', page.text, re.I)  # NV (UNR): "ACT OR SAT REQUIRED"
+    open_to = re.search(r'\b(?:[Oo]pen|[Aa]vailable|[Ll]imited)\s+to\s+([A-Z][a-z]+(?:\s[A-Z][a-z]+)?)\s+residents\b', page.text)  # "Open to Nevada residents"
     out = []
     for nm, lv in levels.items():
         amounts, source = lv['amounts'], 'cell'
@@ -393,8 +433,8 @@ def _level_grid(t, rows, page):
         if len({T.money_values(a)[0] for a in amounts}) == 1:
             amounts = amounts[:1]  # "$750 /year" and "($750/yr)" print one amount: the first as printed
         rec = {'award_name': nm, 'award_type': 'institutional_merit', 'award_tiers': lv['tiers'],
-               'test_requirement': f"Tiers by {t.get('lead') or 'GPA'} (rows) and {tests} (columns) in the table '{title}': "
-                                   f"{len(lv['tiers'])} qualifying combinations listed in award_tiers",
+               'test_requirement': f"Tiers by {t.get('lead') or 'GPA'} (rows) and the {tests} column headers in the table '{title}'"
+                                   + (f" (page: '{required.group(0)}')" if required else '') + f": {len(lv['tiers'])} qualifying combinations listed in award_tiers",
                'eligibility_summary': f'Listed under: {title}'}  # NV (UNR): the matrix label says who it is for ("... for WUE recipients")
         issues = []
         if len(amounts) == 1:
@@ -403,13 +443,14 @@ def _level_grid(t, rows, page):
         else:
             issues.append('level_amount_not_found' if not amounts else 'level_amount_conflict')
         if issues: rec['_issues'] = issues
+        if open_to: rec['_open_to'] = open_to.group(1)
         raw = f'{title}: ' + ' | '.join(lv['cells'][:6]) + (f' (amount from the page legend: {nm} {next(iter(amounts))})' if source == 'legend' and len(amounts) == 1 else '')
         out.append((rec, raw))
     return out
 
 
 def _drop_private(rec):
-    for k in ('_tier', '_rest'): rec.pop(k, None)
+    for k in ('_tier', '_rest', '_section'): rec.pop(k, None)
     return rec
 
 
@@ -417,9 +458,12 @@ def _group_rows(out, labels):
     """AL (UAH, UA, UAB): one award printed on several rows, each with its own test-score and GPA pairing (and sometimes its own
     amount) -> one record whose award_tiers keep every row as printed. Keeping only the first row would misstate eligibility."""
     by = {}
-    for rec, raw in out: by.setdefault(rec['award_name'], []).append((rec, raw))
+    for rec, raw in out: by.setdefault((rec['award_name'], rec.get('_section', '')), []).append((rec, raw))  # one award per printed section
     merged = []
-    for name, grp in by.items():
+    sections = Counter(name for name, _ in by)
+    for (name, sec), grp in by.items():
+        if sections[name] > 1 and sec:  # one name under two sections of the table ("Alabama Residents" / "Non-Residents")
+            for r, _ in grp: r['award_name'] = f'{name} ({sec})'
         if len(grp) == 1 or not all(set(r['_tier']) - {'amount_text'} for r, _ in grp) or len({json.dumps(r['_tier'], sort_keys=True) for r, _ in grp}) == 1:
             merged.extend((_drop_private(r), raw) for r, raw in grp); continue  # AL (Wallace State): repeated names without criteria are not tiers
         recs = [r for r, _ in grp]
@@ -441,6 +485,10 @@ def _group_rows(out, labels):
         issues = sorted({i for r in recs for i in r.get('_issues', [])})
         if len({r['_rest'] for r in recs}) > 1:
             issues.append('multi_row_award_extra_column')  # another column also varies between the rows; the tiers do not show it
+        crit = {}
+        for t in tiers: crit.setdefault(json.dumps({k: v for k, v in t.items() if k != 'amount_text'}, sort_keys=True), set()).add(t.get('amount_text'))
+        if any(len(v) > 1 for v in crit.values()):
+            issues.append('tier_criteria_repeat')  # the same criteria print two amounts: an unread column or section tells them apart
         if issues: rec['_issues'] = issues
         merged.append((rec, ' || '.join(raw for _, raw in grp)))
     return merged
@@ -489,6 +537,24 @@ def _grid_award(t, header, body, context):
     return [(rec, ' || '.join([' | '.join(header)] + evidence_rows))]
 
 
+def table_footnotes(page, header, rows):
+    """Footnotes a header points to with asterisks, copied as printed from the lines after the table: VA (Lynchburg) 'Minimum
+    GPA* to qualify' -> '*Weighted GPA is used to determine scholarship eligibility...', FL (UNF) 'Amount (per year)*' -> '*The
+    amounts are based on 30 credit-hour enrollment'. Only the first matching line after the table counts."""
+    marks = sorted({len(m.group(0)) for h in header for m in re.finditer(r'\*+', h)})
+    if not marks or not rows: return []
+    last = next((c.strip() for c in reversed(rows[-1]) if c.strip()), '')
+    start = page.text.find('| ' + header[0].strip()) if header[0].strip() else -1
+    end = page.text.find(last, max(start, 0)) if last else -1
+    if end < 0: return []
+    tail = page.text[end:end + 2000]
+    out = []
+    for n in marks:
+        m = re.search(r'^\s*(\*{' + str(n) + r'}(?!\*)\s*\S.{2,300}?)\s*$', tail, re.M)
+        if m: out.append(m.group(1).strip())
+    return out
+
+
 def extract(inst, entry, page, today_year):
     if not page.tables or common.professional_source(entry, page) or common.international_source(entry, page): return []
     if not SCHOLARSHIP_CONTEXT.search(page.title + ' ' + ' '.join(page.headings[:6]) + ' ' + entry.get('url', '')):
@@ -500,7 +566,7 @@ def extract(inst, entry, page, today_year):
     year, basis, issues = common.resolve_year(page, entry, today_year)
     out = []
     for t in page.tables:
-        rows = [r for r in t['rows'] if any(c.strip() for c in r)]
+        rows = [r for r in (T.expand_spans(t) or t['rows']) if any(c.strip() for c in r)]  # the printed grid when spans were recorded
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
@@ -544,12 +610,16 @@ def extract(inst, entry, page, today_year):
         # MO (Southwest Baptist): the same heading over a different table is another year's version; which is which is unclear
         twins = [o for o in page.tables if o is not t and (o.get('heading') or '') == (t.get('heading') or '') and o.get('heading')
                  and o.get('rows') and o['rows'][0] == t['rows'][0] and o['rows'] != t['rows']]
-        if not found or (not shaped and len(found) < 2): continue  # one stray row is not a scholarship table
+        if not found or (not shaped and len(found) < 2 and not found[0][0].get('award_tiers')): continue  # one stray row is not a scholarship table
+        # (IN: Marian Scholar, VT: Champlain - one award printed on several tier rows is a table)
         rec_year, rec_basis, rec_issues = record_year(page, t, year, basis, issues, today_year)
+        notes = table_footnotes(page, header, rows)
         for rec, raw in found:
             row_issues = rec.pop('_issues', []) + (['duplicate_table_versions'] if twins else [])
+            if notes and not shaped: rec['footnotes'] = notes
             ev = [{'field': k, 'value': v, 'snippet': raw[:300]} for k, v in rec.items()
                   if k in {'award_amount_text', 'gpa_requirement', 'test_requirement', 'award_tiers', 'eligibility_summary', 'renewal_requirements'}]
+            ev += [{'field': 'footnotes', 'value': n, 'snippet': n} for n in rec.get('footnotes', [])]
             if not ev: continue
             res = PAGE_RESIDENCY.search(page.title + ' ' + context)
             if res and 'residency_requirement' not in rec:  # "In-State Freshman Scholarships" (AL: UAB has same-named awards per residency)
@@ -557,6 +627,14 @@ def extract(inst, entry, page, today_year):
             home = STATES.get(inst.get('state') or '')
             if home and 'residency_requirement' not in rec and re.search(rf'(?<!non-)(?<!non )\b{home}\s+residents?\b', page.title + ' ' + context, re.I):
                 rec['residency_requirement'] = 'In-state'  # FL (UNF): "Florida Resident Merit-Based (Freshmen)"
+            open_to = rec.pop('_open_to', None)
+            if open_to and home and open_to == home and 'residency_requirement' not in rec:
+                rec['residency_requirement'] = 'In-state'  # NV (UNR): the matrix page says "Open to Nevada residents"
+            if home and 'residency_requirement' not in rec and re.search(rf'\bnon[- ]{home}\s+residents?\b', page.title + ' ' + context, re.I):
+                rec['residency_requirement'] = 'Out-of-state'  # WV (Concord): "Non-West Virginia Residents"
+            other = re.search(r'(?<!non-)(?<!non )(?<!west )(?<!west-)\b(' + '|'.join(v for v in STATES.values() if v != home) + r')\s+residents?\b', page.title + ' ' + context, re.I)
+            if other and 'residency_requirement' not in rec:
+                rec['residency_requirement'] = other.group(0)  # AL (UAH): "Freshman Tennessee Resident Academic Scholarships"
             # AZ (Northland Pioneer): a page-navigation heading ('Social Media') is not where the award is listed
             nav = re.search(r'social\s+media|quick\s+links|follow\s+us|connect\s+with\s+us|related\s+links|footer|navigation|\bmenu\b|academic\s+calendar', context, re.I)
             if context.strip() and not nav and not re.search(r'scholarship|award|grant|fellowship', context, re.I) and 'eligibility_summary' not in rec:
