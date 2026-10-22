@@ -224,7 +224,8 @@ export interface PotentialSaving {
   net: number
 }
 
-/** A saving under the projection's stated assumptions (credit applies, schedule allows). Never a confirmed shorter degree. */
+/** Not shown anywhere (#253): all accepted credit ÷ 15 is not evidence of a shorter degree. Kept for the server's
+ *  CR-4 parity tests only; never display it. */
 export function potentialSaving(row: ProjectionRow, aid: FamilyAid, termsPerYear = 2): PotentialSaving | null {
   const s = row.credit_savings
   if (row.status !== 'ok' || !s || s.terms_saved <= 0) return null

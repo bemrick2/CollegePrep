@@ -251,6 +251,39 @@ def choice_blocks(items):
     return out
 
 
+YEAR_ORDER = {**{w: k for k, w in enumerate(('first year', 'second year', 'third year', 'fourth year', 'fifth year'), 1)},
+              **{w: k for k, w in enumerate(('freshman year', 'sophomore year', 'junior year', 'senior year'), 1)},
+              **{w: k for k, w in enumerate(('freshman', 'sophomore', 'junior', 'senior'), 1)},
+              **{f'year {k}': k for k in range(1, 6)}}
+
+
+GRID_CHANGE = re.compile(r'\b(in place of|instead of|replac\w*|substitut\w*|add(?:s|ed)?|also take|must take|will take|take[sn]?)\b[^.]{0,80}?\b[A-Z]{2,5}\s?\d{3}'
+                         r'|\b[A-Z]{2,5}\s?\d{3}\b[^.]{0,80}?\b(in place of|instead of|replaces?)\b', re.I)
+
+
+def grid_change_noted(page):
+    """A sentence printed between continued plan grids that changes the plan for this program ('Business Honors students take
+    BUSN 125 in place of BUSN 101', 'MIS majors add ISTM 250', Texas A&M 2026-27): the merged grids would not show it, so
+    the plan is held."""
+    lines = [l.strip() for l in page.text.splitlines() if l.strip()]
+    caps = [k for k, l in enumerate(lines) if l in ('Plan of Study Grid', 'Degree Map')]
+    if len(caps) < 2: return False
+    between = lines[caps[0] + 1:caps[-1]]
+    return any(GRID_CHANGE.search(l) for l in between if not l.startswith('|'))
+
+
+def continued_grids(parsed, headings):
+    """Several grids that print one plan: the same heading over each, and year headings that continue from grid to grid
+    ('First Year' | 'Second Year', 'Third Year', 'Fourth Year'), one year after another with none repeated or skipped."""
+    if len(parsed) < 2 or len(set(headings)) != 1 or not headings[0]: return False
+    seq = []
+    for terms, _ in parsed:
+        years = [YEAR_ORDER.get(t['label'].strip().lower()) for t in terms if not t['items'] and not t.get('credit_hours')]
+        if not years or None in years or not terms or terms[0]['items'] or terms[0].get('credit_hours'): return False
+        seq += years
+    return seq == list(range(seq[0], seq[0] + len(seq))) and seq[0] == 1
+
+
 def extract(inst, entry, page, year, year_line, have_program):
     """Candidates for the plan grids of one page; `year` is the printed catalog year label (e.g. '2026-2027')."""
     gs = grids(page)
@@ -272,6 +305,15 @@ def extract(inst, entry, page, year, year_line, have_program):
                                [{'field': 'program_name', 'value': name, 'snippet': page.title[:200]},
                                 {'field': 'catalog_year', 'value': year, 'snippet': year_line[:200]}], entry, EXTRACTOR, {'program_key': pkey}))
     headings = [(t.get('heading') or '').strip() for t in gs]
+    if continued_grids(parsed, headings):
+        # Texas A&M prints one plan as two grids under the same heading ('First Year' / 'Second Year' ... 'Fourth Year'),
+        # each with its own printed total: one plan, its terms in printed order, each total kept as printed (never summed)
+        terms = [dict(t, term_index=k) for k, t in enumerate((t for ts, _ in parsed for t in ts), 1)]
+        totals = '; '.join(f"{g.get('_total_label') or 'Total Credits'} {tot} (as printed, grid {k} of {len(gs)})" for k, (g, (_, tot)) in enumerate(zip(gs, parsed), 1) if tot)
+        merged = {'heading': headings[0], 'caption': gs[0].get('caption'), '_total_label': None,
+                  '_unread_label': any(g.get('_unread_label') for g in gs), '_subtotal_spans': any(g.get('_subtotal_spans') for g in gs), '_rule_text': totals}
+        gs, parsed, headings = [merged], [(terms, None)], [headings[0]]
+        if grid_change_noted(page): merged['_grid_change_note'] = True
     # UO prints one 'Degree Map' per award under its own heading ('Bachelor of Science in Computer Science'): distinct
     # headings label the plans, so several grids are not ambiguous there.
     # a tab or section heading ('Semester Sequence', 'Plan Requirements', '2026-2027 Edition', 'ALL') does not name a plan
@@ -291,11 +333,13 @@ def extract(inst, entry, page, year, year_line, have_program):
         rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
               'terms': terms, 'source_section': (headings[i - 1] if labelled else single_label if single_label else f'Sample Plan: {caption}' + (f' {i} of {len(parsed)}' if len(parsed) > 1 else ''))}
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
+        if gs[i - 1].get('_rule_text'): rd['rule_text'] = gs[i - 1]['_rule_text']
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
         if gs[i - 1].get('_unread_label'): issues.append('unread_label_row')
         if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')
+        if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out

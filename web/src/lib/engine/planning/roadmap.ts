@@ -11,6 +11,7 @@ import type { InstitutionComparison, ProjectionRow } from '../../data/types'
 import { degreeCredit, type ExamApplicability } from '../degreeCredit'
 import { FAMILY_LABEL, examOptions, matchExam, policyKindOf, type CreditPolicy, type ExamFamily, type ExamMatch, type IbLevel, type PlannedExam } from '../examCredit'
 import { termsSaving, type FamilyAid } from '../costProjection'
+import { gatedSaving, withheldReason, type CompletionEvidence } from '../earlyCompletion'
 import { pickCost } from '../residency'
 import { planTerms, type PlanTermLike } from '../planItems'
 import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanCourseRow, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
@@ -26,6 +27,8 @@ export interface RoadmapInput {
   /** The school's cost_projection row (server in live, projectRow in demo). Savings need it. */
   projection?: ProjectionRow | null
   aid?: FamilyAid
+  /** Verified records that the student could finish sooner (earlyCompletion.ts). None exist today. */
+  completionEvidence?: CompletionEvidence
 }
 
 const str = (v: unknown): string | null => (typeof v === 'string' && v.trim() ? v.trim() : null)
@@ -37,6 +40,7 @@ function evidence(r: Rec | null | undefined, year: string | null, extra: Partial
     state: verified(r) ? 'verified' : 'missing',
     sourceUrl: str(r?.source_url) ?? str(r?.policy_url),
     verificationStatus: str(r?.verification_status),
+    academicYearBasis: str(r?.academic_year_basis),
     lastVerifiedAt: str(r?.last_verified_at),
     publishedYear: year,
     ...extra,
@@ -80,7 +84,7 @@ function fitOf(a: ExamApplicability | undefined, hasPlan: boolean): CreditFit {
 const rowsOf = (a: ExamApplicability | undefined, numberOf: (termIndex: number) => number): PlanRow[] =>
   (a?.matched ?? []).map((m) => ({ term: numberOf(m.term), label: m.label, item: m.item, credits: m.credits }))
 
-export function buildRoadmap({ comparison: c, programKey, planKey = null, profile, projection = null, aid = { grantsPerYear: null, loansPerYear: null } }: RoadmapInput): Roadmap {
+export function buildRoadmap({ comparison: c, programKey, planKey = null, completionEvidence = {}, profile, projection = null, aid = { grantsPerYear: null, loansPerYear: null } }: RoadmapInput): Roadmap {
   const domain = (d: string) => ((c.domains as Record<string, Rec[] | undefined>)[d] ?? []) as Rec[]
   const inst = str(c.institution?.display_name) ?? c.institution_key
   const program = domain('academic_programs').find((p) => p.program_key === programKey) ?? null
@@ -237,27 +241,32 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, profil
   }))
   const skipped = new Set(termList.map((t) => t.notChecked).filter(Boolean))
   if (skipped.has('multi_term')) unknown('timeline', `${inst}'s plan prints some years as one block, so whether credit covers a whole term isn't checked for those years.`)
-  if (skipped.has('short_term')) unknown('timeline', 'Summer and other short sessions are never counted as a term saved.')
-  if (skipped.has('quarter_calendar')) unknown('timeline', `${inst}'s plan uses quarters; terms saved are counted only for semester plans, so none are shown.`)
-  if (skipped.has('hours')) unknown('timeline', 'Terms with fewer than 12 printed credit hours, or none printed, are never counted as a term saved.')
+  if (skipped.has('short_term')) unknown('timeline', 'Summer and other short sessions are never counted as a covered term.')
+  if (skipped.has('quarter_calendar')) unknown('timeline', `${inst}'s plan uses quarters; whole-term coverage is checked only for semester plans.`)
+  if (skipped.has('hours')) unknown('timeline', 'Terms with fewer than 12 printed credit hours, or none printed, are never counted as a covered term.')
   const covered = dc.coveredTerms.length
-  const timeline: Roadmap['timeline'] =
+  const coverage: Roadmap['coverage'] =
     hasPlan && covered > 0
       ? {
           value: { termsCovered: covered, termsInPlan: termList.length },
           evidence: {
             ...evidence(planRec, catalogYear),
             state: 'estimate',
-            method: 'Whole plan terms whose every row is covered by credit the school awards. Finishing early also depends on course sequencing and the school’s schedule.',
+            method: 'Whole regular semesters (12 or more printed hours) whose every course is covered by credit the school awards. This is credit coverage, not a shorter degree.',
           },
         }
-      : { value: null, evidence: missing(hasPlan ? 'No whole plan term is covered by this credit, so no shorter timeline is shown.' : 'No verified plan, so no timeline can be shown.', planRec, catalogYear) }
-  if (hasPlan && covered === 0) unknown('timeline', 'No whole plan term is covered, so no graduation timeline or dollar saving is shown. Credit hours alone may not lower a flat-rate tuition bill.')
+      : { value: null, evidence: missing(hasPlan ? 'No whole plan term is covered by this credit.' : 'No verified plan, so coverage can’t be checked.', planRec, catalogYear) }
 
-  const saving = covered > 0 && projection ? termsSaving(projection, covered, aid) : null
+  // Time or money saved needs more than coverage: records showing the student could really finish sooner.
+  const { early, saving } = gatedSaving(covered, () => (projection ? termsSaving(projection, covered, aid) : null), completionEvidence, {
+    institutionKey: c.institution_key,
+    planKey: planRec ? String(planRec.requirement_key ?? '') || null : null,
+    terms: dc.coveredTerms.map((t) => t.term),
+  })
   const savings: Roadmap['savings'] = saving
-    ? { value: saving, evidence: { ...evidence(planRec, c.academic_year), state: 'estimate', method: 'Potential only: the published price of the covered terms, held at this year’s price, minus grants entered for those terms.' } }
-    : { value: null, evidence: missing(covered > 0 ? `No verified cost projection for ${inst}.` : 'No whole plan term is covered, so no saving is counted.', null, c.academic_year) }
+    ? { value: saving, evidence: { ...evidence(planRec, c.academic_year), state: 'estimate', method: 'Potential only: the published price of the terms no longer needed, held at this year’s price, minus grants entered for those terms.' } }
+    : { value: null, evidence: missing(early.supported ? `No verified cost projection for ${inst}.` : withheldReason(early, hasPlan ? covered : -1), null, c.academic_year) }
+  if (!saving) unknown('timeline', savings.evidence.missing!)
 
   const allCreditVerified = credit.every((x) => x.acceptance.evidence.state === 'verified') && examTables.length > 0 && examTables.every(verified)
   return {
@@ -276,7 +285,8 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, profil
     dualEnrollment,
     cost,
     savings,
-    timeline,
+    coverage,
+    earlyCompletion: early,
     unknowns,
   }
 }

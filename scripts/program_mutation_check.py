@@ -7,6 +7,17 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/promote.py', "            rec['verification_status'] = 'partially_verified'", "            pass"),
+    ('programs/promote.py', "        if a.get('partial_coverage'):\n", "        if False:\n"),
+    ('programs/promote.py', "            rec['captured_rows_match_source'] = True", "            pass"),
+    ('programs/courseleaf.py', "        if grid_change_noted(page): merged['_grid_change_note'] = True", "        pass"),
+    ('programs/courseleaf.py', "        if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')", "        pass"),
+    ('programs/courseleaf.py', "    return any(GRID_CHANGE.search(l) for l in between if not l.startswith('|'))", "    return False"),
+    ('programs/courseleaf.py', "    if continued_grids(parsed, headings):", "    if False:"),
+    ('programs/courseleaf.py', "    if len(parsed) < 2 or len(set(headings)) != 1 or not headings[0]: return False", "    if len(parsed) < 2: return False"),
+    ('programs/courseleaf.py', "    return seq == list(range(seq[0], seq[0] + len(seq))) and seq[0] == 1", "    return True"),
+    ('programs/courseleaf.py', "    return seq == list(range(seq[0], seq[0] + len(seq))) and seq[0] == 1", "    return seq == list(range(seq[0], seq[0] + len(seq)))"),
+    ('programs/courseleaf.py', "        if gs[i - 1].get('_rule_text'): rd['rule_text'] = gs[i - 1]['_rule_text']", "        pass"),
     ('programs/courseleaf.py', "        if m and len(run) >= 2 and n < len(run) and all(_option_row(x) for x in run):", "        if m and len(run) >= 2 and n < len(run):"),
     ('programs/courseleaf.py', "        if m and len(run) >= 2 and n < len(run) and all(_option_row(x) for x in run):", "        if m and len(run) >= 1 and all(_option_row(x) for x in run):"),
     ('programs/courseleaf.py', "        while m and j < len(items) and not _credited(items[j]):", "        while m and j < len(items) and _option_row(items[j]):"),

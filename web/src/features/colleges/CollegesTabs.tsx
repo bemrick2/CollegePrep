@@ -13,7 +13,7 @@ export function CollegesTabs() {
         Compare
       </NavLink>
       <NavLink to="/colleges/savings" className={tab}>
-        Cost & savings
+        Cost & credit
       </NavLink>
       <NavLink to="/colleges/paths" className={tab}>
         Paths

@@ -421,6 +421,19 @@ class CourseleafPlanTests(unittest.TestCase):
         out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', same, [], []), '2026-2027', '', True)
                if c['domain'] == 'degree_requirements']
         self.assertTrue(all(c['issues'] == ['multiple_plan_grids'] for c in out))
+        g2 = {'caption': 'Degree Map', 'heading': 'Degree Map', 'rows': [['Second Year'], ['Fall'], ['CS 313', 'Data Structures', '4'],
+                                                                        ['', 'Credits', '4'], ['', 'Total Credits', '4']]}
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page('Computer Science BA/BS', 'Computer Science BA/BS', [self.grid('Degree Map'), g2], [], []),
+                                     '2026-2027', '', True) if c['domain'] == 'degree_requirements']  # one plan printed in two grids (Texas A&M)
+        self.assertEqual([(c['record']['requirement_key'], c['issues']) for c in out], [('sample-plan', [])])
+        rd = out[0]['record']['rule_details']
+        self.assertEqual([(t['term_index'], t['label']) for t in rd['terms']], [(1, 'First Year'), (2, 'Fall'), (3, 'Second Year'), (4, 'Fall')])
+        self.assertEqual(rd['rule_text'], 'Total Credits 180 (as printed, grid 1 of 2); Total Credits 4 (as printed, grid 2 of 2)')
+        txt = ('Computer Science BA/BS\nPlan of Study Grid\n| First Year\nHonors students take CS 211 in place of CS 210.\nPlan of Study Grid\n'
+               '| Second Year')
+        out = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page(txt, 'Computer Science BA/BS', [self.grid('Degree Map'), g2], [], []),
+                                     '2026-2027', '', True) if c['domain'] == 'degree_requirements']
+        self.assertEqual([c['issues'] for c in out], [['grid_change_noted']])
         # headings alike for their first 80 characters (LMU 2026-27 math-placement plans) still give distinct keys and ids
         h = 'Model 4-Year Plan\u2013Bachelor of Business Administration\u2013Finance Major Curriculum\u2013Math placement MATH '
         alike = [self.grid(h + '101'), self.grid(h + '110')]
@@ -681,6 +694,28 @@ class CourseleafPlanTests(unittest.TestCase):
         text = 'Fall\nSelect one of the following: 3\nANTH 376 Quant\nBIOL 350 Biostat\nUndergraduate Catalog 2026-2027'
         self.assertEqual(V.check_candidate(c, text), [])
         self.assertIn('course BIOL 350 not in source', V.check_candidate(c, text.replace('BIOL 350', 'BIOL 351')))
+
+    def test_plan_printed_as_continued_grids(self):  # Texas A&M Biology BA, JSU, Temple 2026-27: one plan in two grids
+        from programs import courseleaf as CL
+        g1 = {'heading': 'Biology - BA', 'rows': [['First Year'], ['Fall', 'Semester Credit Hours'], ['BIOL 111', 'Intro', '4'], ['', 'Semester Credit Hours', '4'],
+                                                  ['Second Year'], ['Fall', 'Semester Credit Hours'], ['BIOL 213', 'Genetics', '4'], ['', 'Semester Credit Hours', '4'],
+                                                  ['', 'Total Semester Credit Hours', '8']]}
+        g2 = {'heading': 'Biology - BA', 'rows': [['Third Year'], ['Fall', 'Semester Credit Hours'], ['BIOL 351', 'Micro', '4'], ['', 'Semester Credit Hours', '4'],
+                                                  ['', 'Total Semester Credit Hours', '4']]}
+        p = [CL.parse_grid(dict(g1)), CL.parse_grid(dict(g2))]
+        self.assertTrue(CL.continued_grids(p, ['Biology - BA', 'Biology - BA']))
+        self.assertFalse(CL.continued_grids(p, ['Biology - BA', 'Zoology - BS']))
+        self.assertFalse(CL.continued_grids(p[::-1], ['Biology - BA', 'Biology - BA']))  # years must run from the first, in order
+        self.assertFalse(CL.continued_grids([p[0], p[0]], ['Biology - BA', 'Biology - BA']))  # a repeated year is another plan
+        self.assertFalse(CL.continued_grids([p[0], p[0]], ['', '']))
+        p3 = CL.parse_grid(dict(g2, rows=[['Fourth Year']] + g2['rows'][1:]))  # 'Third Year' | 'Fourth Year': no first year printed
+        self.assertFalse(CL.continued_grids([p[1], p3], ['Biology - BA', 'Biology - BA']))
+        # a note between the grids that changes the plan holds it (Texas A&M Business, Temple)
+        note = 'Plan of Study Grid\n| First Year\nFinance: Students intending to major in Finance must add FINC 210 to freshman year.\nPlan of Study Grid\n| Third Year'
+        self.assertTrue(CL.grid_change_noted(type('P', (), {'text': note})()))
+        plain = 'Plan of Study Grid\n| First Year\nUpper-Level Program (Year 3 & 4)\nPlan of Study Grid\n| Third Year'
+        self.assertFalse(CL.grid_change_noted(type('P', (), {'text': plain})()))
+        self.assertTrue(CL.grid_change_noted(type('P', (), {'text': plain.replace('Upper-Level', 'Option to take ARCH 2123 instead of ARCH 2121. Upper-Level')})()))
 
     def test_decimal_course_credits_kept_as_printed(self):  # West Chester B.M. 2026-27: '1.5', '0.5'
         from programs import courseleaf as CL
@@ -2883,6 +2918,15 @@ class PromoteKeepsCorrectionsTests(unittest.TestCase):
                 self.assertIn('Re-verified after the correction on file (kept in supabase/corrections.json): reader now reads the total', rec['notes'])
                 arch = json.loads((ev / 'evidence.json').read_text())
                 self.assertEqual([v['decision']['reason'] for k, v in arch.items() if k.startswith('c1~superseded-')], ['earlier'])
+                # #250 (UWM): rows that match the source but leave part of the printed section uncaptured are partially verified
+                c4 = {**c, 'candidate_id': 'c4', 'record': {'program_key': 'chem', 'program_name': 'Chemistry Major', 'credential_level': 'bachelor', 'program_url': 'https://u/chem'}}
+                (run / 'candidates.jsonl').write_text(json.dumps(c4) + '\n')
+                dec.write_text(json.dumps({'run': 'programs/runs/ZZ/r', 'approve': [{'candidate_id': 'c4', 'reason': 'rows match', 'partial_coverage': 'section also prints CHEM 400'}]}))
+                P.promote(dec, log=logs.append)
+                rec = next(r for r in json.loads((f / '2026-27.json').read_text())['records'] if r['program_key'] == 'chem')
+                self.assertEqual((rec['verification_status'], rec['section_coverage'], rec['captured_rows_match_source'], rec['coverage_note']),
+                                 ('partially_verified', 'incomplete', True, 'section also prints CHEM 400'))
+                self.assertIn('Partially verified: the captured rows match the source; the section is incomplete: section also prints CHEM 400', rec['notes'])
             finally:
                 P.ROOT, PP.ROOT = old, oldp
 
