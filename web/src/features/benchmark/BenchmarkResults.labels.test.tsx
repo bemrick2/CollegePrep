@@ -19,8 +19,8 @@ describe('check results say when a check was shortened, repeated or partly unmea
   it('a shortened starting check names each short section and the unmeasured ones', () => {
     render(<MemoryRouter><BenchmarkResults summary={summary('initial', '2026-10-01T10:00:00Z', [sec('english', 3, 2), sec('reading', 3, 1), sec('science', 3, 3)])} traps={[]} /></MemoryRouter>)
     expect(screen.getByText('A shorter check than usual')).toBeInTheDocument()
-    expect(screen.getByText(/English: 3 of 7 questions/)).toBeInTheDocument()
-    expect(screen.getByText(/Not measured: Math\. No check questions were available\./)).toBeInTheDocument()
+    expect(screen.getByText(/English: 3 answered, of the 7 questions this check usually asks/)).toBeInTheDocument()
+    expect(screen.getByText(/Not measured: Math\. No answers in this check/)).toBeInTheDocument()
     expect(screen.getAllByText('Shorter').length).toBe(3)
   })
 

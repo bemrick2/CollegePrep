@@ -35,4 +35,12 @@ describe('costLevers', () => {
     // No lever ever states a dollar saving.
     expect(l.some((x) => /save|saving/i.test(x.title + x.detail))).toBe(false)
   })
+
+  it('earned exam credit is described as coverage only, never as a shorter degree (#253)', () => {
+    const l = costLevers({ ...base, credit: { courses: 4, publishedHours: 30 } as never, reference: { value: 29, basis: 'target' } })
+    const c = l.find((x) => x.key === 'credit')!
+    expect(c.detail).toMatch(/^30 published credit hours\. Credit coverage only: a shorter degree also depends on prerequisites, course offerings, course order and the remaining requirements\.$/)
+    expect(c.detail).not.toMatch(/semester|shortens/i)
+  })
 })
+

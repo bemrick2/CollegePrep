@@ -28,23 +28,17 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: printed choice blocks in plans
+## This PR: choice headers with a label or footnote marks
 
-- **Reader:** `choice_blocks` in `programs/courseleaf.py`. A printed 'Select/Choose <N> [courses] of|from the following[:]' header with a credit cell, followed by two or more blank-credit course rows, becomes one item: `{choose, text, credits, options}`. That is the plangrid shape `web/src/lib/engine/planItems.ts` already reads (#230).
-  - Before this change, every option read as a required course.
-  - The options run to the next row that prints credits, or to the term's end. Every row in that run must be a course row, either read into fields or kept as a printed course string such as 'ANSC 326/FSTC 326' or 'GEOL 101& GEOL 102'. Otherwise the block stays flat, so it is never cut short.
-  - `verify` checks each option.
-- **Regression over the 10,061 stored grids:** 1,961 blocks in 902 grids. Flattening every new item gives back the old items exactly.
-- **Independent review, read-only, own parser, two rounds:**
-  - The first round found blocks cut short at printed-string options; that was fixed.
-  - The second round covered 349 records: 342 approved, 7 held.
-  - The 7 holds are blocks left flat because a label or note row follows them. Those records stay as on file. The follow-up is to end the run at a non-course row that is directly followed by another header.
-- **Promoted 342 reviewed re-reads:** `programs/decisions/*-plans-choices.json`, with `replaces_promoted`.
-  - 233 are grouping only.
-  - 99 also turn courseleaf_plan/v2 printed strings into fields (Texas A&M 78, JSU, ODU, Temple, SRU).
-  - 9 LMU plans held by the #229 correction for flat choice blocks are re-verified with `replaces_correction`.
-- **Shared plan keys checked:** all 14 verified plans whose key two pages share came from the program's main page, not a concentration page.
-  - Texas A&M Environmental Studies BS is printed under two colleges, which is Research's program-list question.
+- **Reader:** `CHOICE_HEADER` also accepts a printed label before the instruction ('Jax MIX Experience: select one of the following: 1', JSU) and footnote marks after it ('Select one of the following: 1', Texas A&M, Temple). Both stay in the item's text.
+- **Regression:** across the 10,061 stored grids this adds 274 blocks in 161 grids. Flattening every item gives back the items on main exactly.
+- **Re-extraction:** 12 runs. 74 verified plans change, and 6 new JSU plans come from continued grids (#270). The Texas A&M and Temple continued-grid plans stay held by `grid_change_noted`.
+- **Independent review, round 3** (own parser, read-only, 28 checked by hand): **55 approved, 25 held.**
+  - 22 held because a printed footnote that substitutes for, waives or constrains a row is not stored (for example Texas A&M 'MATH 147/151/171 accepted in lieu of MATH 142', Georgian 'only need CJ210 or CJ212').
+  - 3 held because a block is left flat when a label row follows its options.
+- **Promoted:** 49 re-reads with `replaces_promoted`, and 6 new JSU plans. Verified plans 3,511 → 3,517.
+
+**Footnotes (owner rule: preserve substitutions, options and notes).** No plan record stores footnote text, only the markers. The review found that in 68 of the 80 records a referenced footnote concerns electives, substitutions or options. Next reader task: store each grid's printed footnotes in `rule_details.footnotes`, keyed by marker. Then re-read and re-review every plan whose footnotes change a row: the 22 holds here and the plans promoted earlier.
 
 ## Merged on 2026-10-21/22
 

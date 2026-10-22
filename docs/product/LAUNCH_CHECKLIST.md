@@ -296,7 +296,7 @@ Repeat everything in the native apps for M2 (`NATIVE_APPS.md` § Acceptance). Th
 - **Parent dashboard:** last-week recap, this week's goal, and an email preview.
   - Emails are sent only by the edge function, and only when it has a delivery record.
   - The function is tested locally end to end with a fake mail server; it has not been deployed.
-- **Cost & credit view:** accepted credit, credit in the major's plan and whole-term coverage kept separate. Time and money saved are withheld without completion records (#253).
+- **Cost & credit view:** accepted credit, credit that applies to the plan, and whole-term coverage kept separate (#150). Time and money saved are withheld without completion records (#253).
 - **Invitations:** two credentials, 72 h, single use, rate-limited, codes stored hashed.
 
 ## Research dependencies
