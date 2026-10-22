@@ -73,6 +73,9 @@ Official basis: https://supabase.com/docs/guides/platform/free-project-pausing
    practice_questions; each needs an allowed license, attribution where required
    and an origin, or must be unpublished, by a reviewed change. The migration
    refuses to apply otherwise rather than altering what is served.
+   Then 20261022050000_assessment_pool (CR-23) together with the web build that
+   reads `pool` and calls `benchmark_questions`, marking the reserve in the same
+   apply (docs/frontend/CONTRACT_REQUESTS.md, CR-23 paired release requirements).
 5. In a reviewed commit set hold=false, remove false job gates from migration
    and function workflows, and restore live-import's original workflow_run
    success condition. Explicitly dispatch migrations/functions/import in order;
