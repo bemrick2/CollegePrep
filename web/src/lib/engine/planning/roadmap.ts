@@ -37,6 +37,7 @@ function evidence(r: Rec | null | undefined, year: string | null, extra: Partial
     state: verified(r) ? 'verified' : 'missing',
     sourceUrl: str(r?.source_url) ?? str(r?.policy_url),
     verificationStatus: str(r?.verification_status),
+    academicYearBasis: str(r?.academic_year_basis),
     lastVerifiedAt: str(r?.last_verified_at),
     publishedYear: year,
     ...extra,

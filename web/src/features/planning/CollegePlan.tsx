@@ -367,6 +367,12 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
   )
 }
 
+/** Design (#257): a table on file whose source prints no academic year says so; never "rejected" or "discontinued". */
+export function notOnFileLabel(e: { verificationStatus: string | null; academicYearBasis?: string | null }): string {
+  if (!e.verificationStatus) return 'Not on file'
+  return /unlabeled/.test(e.academicYearBasis ?? '') ? 'Academic year unconfirmed' : 'On file, not yet verified'
+}
+
 function CreditRow({ c }: { c: CreditLine }) {
   const f = c.acceptance.value ? FIT[c.fit] : null
   return (
@@ -376,7 +382,7 @@ function CreditRow({ c }: { c: CreditLine }) {
           {c.exam.name}
           {c.exam.score != null ? `, score ${c.exam.score}` : ', planned'}
         </span>
-        {f ? <Pill tone={f.tone}>{f.label}</Pill> : <Pill tone="neutral">Not on file</Pill>}
+        {f ? <Pill tone={f.tone}>{f.label}</Pill> : <Pill tone="neutral">{notOnFileLabel(c.acceptance.evidence)}</Pill>}
       </div>
       {c.acceptance.value ? (
         <>

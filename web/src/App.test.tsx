@@ -9,6 +9,7 @@ import { emptyStore } from './lib/data/demo/store'
 import { sampleFamily } from './lib/data/demo/seed'
 import { writeInterests } from './lib/interestStore'
 import { examKey } from './lib/engine/examCredit'
+import comparisonSnapshot from './lib/data/demo/comparison-snapshot.json'
 
 /** The family's stated home state (the sample family lives in Tennessee). */
 function livingIn<T extends { households: { id: string }[] }>(state: string, store: T): T {
@@ -24,6 +25,16 @@ function renderAt(path: string, source: DemoSource) {
       </AppProvider>
     </MemoryRouter>,
   )
+}
+
+
+/** Test fixture only, never the demo's data: the bundled snapshot with UTK's six prior-learning tables marked verified,
+ *  so the credit screens (Paths exam picker, Savings credit steps and potential savings) stay covered while the real
+ *  tables are partially verified (academic year unconfirmed, owner-approved 2026-10-22). */
+function verifiedCreditFixture() {
+  const snap = JSON.parse(JSON.stringify(comparisonSnapshot)) as { institutions: { institution_key: string; domains: { credit_policies?: { verification_status?: string }[] } }[] }
+  for (const r of snap.institutions.find((i) => i.institution_key === 'utk')!.domains.credit_policies ?? []) r.verification_status = 'verified'
+  return snap as never
 }
 
 describe('app flows', () => {
@@ -124,12 +135,10 @@ describe('app flows', () => {
     await user.click(screen.getAllByRole('button', { name: 'Make top choice' })[0]!)
     expect(await screen.findByText('Top choice')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Clear top choice' })).toBeInTheDocument()
-    await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
-    expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
-    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
-    expect(screen.getByText('Needs 3+ (yours: 2)')).toBeInTheDocument()
-    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '5')
-    expect(screen.getByText('Your 5 earns credit')).toBeInTheDocument()
+    // UTK's exam-credit tables are partially verified since 2026-10-22 (academic year unconfirmed), so no exam is matched
+    // to them and none is said to earn or miss credit. The matching itself is covered by degreeCredit.test.ts.
+    expect(screen.getByText('None of your saved four-year schools has a verified exam-credit table yet.')).toBeInTheDocument()
+    expect(screen.queryByText(/earns credit|Needs \d\+/)).not.toBeInTheDocument()
     expect(screen.queryByText(/saved?\s+\$/i)).not.toBeInTheDocument()
     localStorage.clear()
   })
@@ -204,6 +213,79 @@ describe('app flows', () => {
     // The full program assumes no credit.
     expect(within(utk).getByText(/no credit assumed/)).toBeInTheDocument()
     expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$147,976')
+    // UTK's exam-credit tables are partially verified (academic year unconfirmed, 2026-10-22): none is counted, and the
+    // student's scores are not said to miss credit.
+    const steps = within(utk).getByRole('region', { name: /credit the student brings/ })
+    expect(within(steps).getByText(/No verified exam-credit table is on file for University of Tennessee, Knoxville yet, so exam credit isn't counted/)).toBeInTheDocument()
+    expect(within(steps).queryByText(/No exam scores that earn credit here/)).not.toBeInTheDocument()
+    // Family numbers: grants and loans for every year of the full program; year-round living added separately.
+    await user.type(within(utk).getByLabelText('Offered to you, per year'), '4000')
+    await user.type(within(utk).getByLabelText('You plan to borrow, per year'), '5500')
+    await user.type(within(utk).getByLabelText('Summer and break living, per year'), '3000')
+    // 147,976 + 12,000 year-round - 16,000 grants = 143,976; borrowed 22,000.
+    expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$143,976')
+    expect(within(utk).getByText('Borrowed (you repay this)').nextSibling).toHaveTextContent('$22,000')
+    expect(within(steps).queryByText(/up to \$/)).not.toBeInTheDocument()
+    // A school with only a total published says what is missing instead of guessing.
+    const other = screen.getByRole('article', { name: 'Lipscomb University' })
+    expect(within(other).getByText('One published price for all students')).toBeInTheDocument()
+    expect(within(other).getByText(/Not published separately: tuition, required fees/)).toBeInTheDocument()
+    await user.click(screen.getByRole('radio', { name: 'Tuition and fees only' }))
+    expect(await within(await screen.findByRole('article', { name: 'Lipscomb University' })).findByRole('button', { name: 'Count full cost of attendance instead' })).toBeInTheDocument()
+  })
+
+  it('[verified-table fixture] college paths match exam scores to the school\'s published table without estimating savings', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-221908']))
+    renderAt('/colleges/paths', new DemoSource(livingIn('TN', sampleFamily('parent')), { snapshot: verifiedCreditFixture() }))
+    expect(await screen.findByRole('heading', { name: 'College paths' })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'University of Tennessee, Knoxville' })).toBeInTheDocument()
+    // The 2-year school is not a route card, and no transfer is implied.
+    expect(screen.queryByRole('heading', { name: 'Northeast State Community College' })).not.toBeInTheDocument()
+    expect(screen.getByText(/appears here only once a verified transfer agreement/)).toBeInTheDocument()
+    // Merit: published single minimums only, compared with the target (27), never stated as eligibility.
+    expect(screen.getAllByText('ACT 31+').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('4 above target').length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Compared with the target of 27/).length).toBeGreaterThan(0)
+    // Ways to lower the cost: verified levers, conservative merit status, no dollar total.
+    expect(screen.getAllByRole('heading', { name: 'Ways to lower this cost' }).length).toBeGreaterThan(0)
+    expect(screen.getByText('4 more ACT points reaches 4 merit awards (ACT 31+)')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: /^Show \d+ more$/ }))
+    expect(screen.getByText('3 need-based or access programs')).toBeInTheDocument()
+    // Elevate one school as the primary target; it moves first.
+    await user.click(screen.getAllByRole('button', { name: 'Make top choice' })[0]!)
+    expect(await screen.findByText('Top choice')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Clear top choice' })).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('Add an exam'), screen.getByRole('option', { name: 'AP Calculus AB' }))
+    expect(await screen.findByText('Needs 3+')).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '2')
+    expect(screen.getByText('Needs 3+ (yours: 2)')).toBeInTheDocument()
+    await user.selectOptions(screen.getByLabelText('AP Calculus AB score'), '5')
+    expect(screen.getByText('Your 5 earns credit')).toBeInTheDocument()
+    expect(screen.queryByText(/saved?\s+\$/i)).not.toBeInTheDocument()
+    localStorage.clear()
+  })
+  it('[verified-table fixture] cost & savings: full program first; accepted credit vs credit for the major vs a removed term; savings only as potential', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
+    const store = livingIn('TN', sampleFamily('parent'))
+    const sid = store.students[0]!.id
+    writeInterests(sid, { certainty: 'sure', interests: [{ kind: 'major', key: 'computer-science', focus: true }] })
+    // Five 3-hour elective AP credits from UTK's own table, plus Calculus AB (MATH 125) and AP CS A (COSC 101).
+    const ap = (name: string, score: number) => ({ family: 'AP', key: examKey('AP', name), name, score })
+    localStorage.setItem(
+      `pp-exam-plan:${sid}`,
+      JSON.stringify([ap('AP Art History', 4), ap('AP Drawing', 5), ap('AP 2-D Art and Design', 4), ap('AP 3-D Art and Design', 5), ap('AP Business with Personal Finance', 4), ap('AP Calculus AB', 3), ap('AP Computer Science A', 4)]),
+    )
+    renderAt('/colleges/savings', new DemoSource(store, { snapshot: verifiedCreditFixture() }))
+    const utk = await screen.findByRole('article', { name: 'University of Tennessee, Knoxville' })
+    // The published academic year, by part, and the period stated.
+    expect(within(utk).getByText('Tuition').nextSibling).toHaveTextContent('$11,560')
+    expect(within(utk).getByText('Housing and food').nextSibling).toHaveTextContent('$14,738')
+    expect(within(utk).getByText('Cost of attendance, academic year').nextSibling).toHaveTextContent('$36,994')
+    // The full program assumes no credit.
+    expect(within(utk).getByText(/no credit assumed/)).toBeInTheDocument()
+    expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$147,976')
     // 1. Accepted: 15 hours from the school's table.  2. For the CS plan: none of it.  3. No term shown removed.
     const steps = within(utk).getByRole('region', { name: /credit the student brings/ })
     expect(within(steps).getByText(/Exam credit: 15 credits from the school's own table/)).toBeInTheDocument()
@@ -230,7 +312,6 @@ describe('app flows', () => {
     await user.click(screen.getByRole('radio', { name: 'Tuition and fees only' }))
     expect(await within(await screen.findByRole('article', { name: 'Lipscomb University' })).findByRole('button', { name: 'Count full cost of attendance instead' })).toBeInTheDocument()
   })
-
   it('compare places the target against the published middle 50%, without predicting admission', async () => {
     localStorage.setItem('pp-compare', JSON.stringify(['utk', 'ipeds-219976']))
     renderAt('/colleges/compare', new DemoSource(livingIn('TN', sampleFamily('parent'))))

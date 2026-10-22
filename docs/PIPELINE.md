@@ -72,6 +72,10 @@ year with basis `labeled_in_url` (promoted as `partially_verified`, flagged stal
 recorded as the year in force at review with `academic_year_basis:
 aid_year_in_force_at_review_source_unlabeled` (never `verified`, enforced by validation). Mixed
 labels → `ambiguous_year_labels` exception. Older labels are kept as that year (history) and flagged.
+A record found after promotion to print no year label is downgraded (owner-approved, `supabase/corrections.json`)
+with `academic_year_basis: source_unlabeled`: the page's year is unconfirmed, and unlike the
+`..._in_force_at_review_...` basis no year in force is asserted (UTK's prior-learning tables, 2026-10-22). Both
+contain `source_unlabeled`, so validation keeps either from `verified`.
 
 ### Exception queue
 A candidate with any issue is an exception, never promoted silently: `conflicting_sources`
