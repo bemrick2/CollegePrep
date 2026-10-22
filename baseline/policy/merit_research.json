@@ -1,0 +1,229 @@
+{
+ "note": "Reviewed findings about how a school awards freshman merit scholarships, each a verbatim sentence from an official page already fetched by the national pipeline (evidence retained in evidence-store). A finding never states an amount or threshold it does not quote, never infers an SAT equivalent, and never presents a competitive award as an expected offer. score_formula no_published_score_formula = the school states it has no fixed or pre-set criteria (different from not_researched and from source_inaccessible). Found with scripts/scan_merit_statements.py; every finding is read in context before it is recorded.",
+ "fields": {
+  "score_formula": "no_published_score_formula | (a grid is recorded as awards records instead)",
+  "superscore_for_merit": "used | not_used | not_used_act",
+  "test_optional_scholarship_rule": "what the school says about scholarships for applicants without scores",
+  "score_use_for_merit": "which score is used, as stated"
+ },
+ "schools": {
+  "ipeds-100751": {
+   "institution_key": "ipeds-100751",
+   "name": "The University of Alabama",
+   "findings": [
+    {
+     "field": "superscore_for_merit",
+     "value": "not_used",
+     "quote": "We will not superscore for automatic, merit-based scholarships.",
+     "source_url": "https://admissions.ua.edu/faq",
+     "evidence": {
+      "branch": "pipeline-run/al-2026-10-03",
+      "run": "pipeline/runs/AL/2026-10-03",
+      "page_file": "2f4af44e09064570bab4.json.gz",
+      "blob": "c57346f181fbb5c5ef2af26ebf205aad651e258a",
+      "commit": "a869b9c3f189"
+     },
+     "retrieved_on": "2026-10-03",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-106397": {
+   "institution_key": "ipeds-106397",
+   "name": "University of Arkansas",
+   "findings": [
+    {
+     "field": "superscore_for_merit",
+     "value": "used",
+     "quote": "The University of Arkansas calculates ACT and SAT superscores for admission and scholarship",
+     "source_url": "https://admissions.uark.edu/apply/test-scores-and-applying.php",
+     "evidence": {
+      "branch": "pipeline-run/ar-2026-10-03",
+      "run": "pipeline/runs/AR/2026-10-03",
+      "page_file": "59f04085eab016d6130f.json.gz",
+      "blob": "1a4c3cc5d6db01ca2a7ad5d80748665802c4d685",
+      "commit": "688766849e48"
+     },
+     "retrieved_on": "2026-10-03",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-132903": {
+   "institution_key": "ipeds-132903",
+   "name": "University of Central Florida",
+   "findings": [
+    {
+     "field": "score_formula",
+     "value": "no_published_score_formula",
+     "quote": "No, there are not fixed criteria for UCF merit scholarships.",
+     "source_url": "https://www.ucf.edu/admissions/undergraduate/question/are-there-fixed-criteria-for-ucf-scholarships/",
+     "evidence": {
+      "branch": "pipeline-run/fl-2026-10-03",
+      "run": "pipeline/runs/FL/2026-10-03",
+      "page_file": "4bb0d3cdce0d1c9e7519.json.gz",
+      "blob": "956934bdca52611ee9a363e6abc1f16feece9eac",
+      "commit": "f915c69f5fbd"
+     },
+     "retrieved_on": "2026-10-03",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-134130": {
+   "institution_key": "ipeds-134130",
+   "name": "University of Florida",
+   "findings": [
+    {
+     "field": "score_formula",
+     "value": "no_published_score_formula",
+     "quote": "Because there are no pre-set criteria, students with similar test scores, grades, extracurricular activities, etc. may receive different scholarship decisions.",
+     "source_url": "https://www.admissions.ufl.edu/cost-and-aid/scholarships",
+     "evidence": {
+      "branch": "pipeline-run/fl-2026-10-03",
+      "run": "pipeline/runs/FL/2026-10-03",
+      "page_file": "cc30060ca590fe52110f.json.gz",
+      "blob": "f54086ed6239373802f7db04aa32d22a0d6c5ba8",
+      "commit": "f915c69f5fbd"
+     },
+     "retrieved_on": "2026-10-03",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-159391": {
+   "institution_key": "ipeds-159391",
+   "name": "Louisiana State University and Agricultural & Mechanical College",
+   "findings": [
+    {
+     "field": "superscore_for_merit",
+     "value": "used",
+     "quote": "LSU considers super score for admission and scholarship evaluation.",
+     "source_url": "https://www.lsu.edu/admissions/apply/freshman.php",
+     "evidence": {
+      "branch": "pipeline-run/la-2026-10-03",
+      "run": "pipeline/runs/LA/2026-10-03",
+      "page_file": "1a55a9e59104f44cef83.json.gz",
+      "blob": "096ebd940b53d5e7b919bda3b308f81ffa79ae30",
+      "commit": "b4c10b69931c"
+     },
+     "retrieved_on": "2026-10-03",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-171100": {
+   "institution_key": "ipeds-171100",
+   "name": "Michigan State University",
+   "findings": [
+    {
+     "field": "test_optional_scholarship_rule",
+     "value": "eligible_without_scores",
+     "quote": "Students who choose to apply without a test score will be eligible for scholarships based on high school performance and a holistic review of their application material.",
+     "source_url": "https://admissions.msu.edu/cost-aid/scholarships/first-year",
+     "evidence": {
+      "branch": "pipeline-run/mi-2026-10-05",
+      "run": "pipeline/runs/MI/2026-10-05",
+      "page_file": "893cae75647c9031cee4.json.gz",
+      "blob": "3413a0c61f8340856e1da6bd1631a2a7771bbfec",
+      "commit": "9a1ae046956e"
+     },
+     "retrieved_on": "2026-10-05",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    },
+    {
+     "field": "superscore_for_merit",
+     "value": "not_used",
+     "quote": "MSU does not superscore tests.",
+     "source_url": "https://admissions.msu.edu/cost-aid/scholarships/first-year",
+     "evidence": {
+      "branch": "pipeline-run/mi-2026-10-05",
+      "run": "pipeline/runs/MI/2026-10-05",
+      "page_file": "893cae75647c9031cee4.json.gz",
+      "blob": "3413a0c61f8340856e1da6bd1631a2a7771bbfec",
+      "commit": "9a1ae046956e"
+     },
+     "retrieved_on": "2026-10-05",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    },
+    {
+     "field": "score_use_for_merit",
+     "value": "best_single_test",
+     "quote": "Should you choose to submit a test score, only your best ACT or SAT test score will be used.",
+     "source_url": "https://admissions.msu.edu/cost-aid/scholarships/first-year",
+     "evidence": {
+      "branch": "pipeline-run/mi-2026-10-05",
+      "run": "pipeline/runs/MI/2026-10-05",
+      "page_file": "893cae75647c9031cee4.json.gz",
+      "blob": "3413a0c61f8340856e1da6bd1631a2a7771bbfec",
+      "commit": "9a1ae046956e"
+     },
+     "retrieved_on": "2026-10-05",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-174066": {
+   "institution_key": "ipeds-174066",
+   "name": "University of Minnesota-Twin Cities",
+   "findings": [
+    {
+     "field": "superscore_for_merit",
+     "value": "not_used_act",
+     "quote": "The UMN does not accept and will not use ACT superscores to determine admission or scholarship decisions.",
+     "source_url": "https://admissions.tc.umn.edu/admissions/freshman-admission/act-sat-information",
+     "evidence": {
+      "branch": "pipeline-run/mn-2026-10-04",
+      "run": "pipeline/runs/MN/2026-10-04",
+      "page_file": "26c27d079f12fa6a6b7e.json.gz",
+      "blob": "1661adf0e4d9d8252d8dacf3386489e8dd953587",
+      "commit": "5e2bf1e47480"
+     },
+     "retrieved_on": "2026-10-04",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  },
+  "ipeds-228459": {
+   "institution_key": "ipeds-228459",
+   "name": "Texas State University",
+   "findings": [
+    {
+     "field": "test_optional_scholarship_rule",
+     "value": "assured_requires_scores_merit_available_test_optional",
+     "quote": "Assured scholarships are offered to qualifying students with SAT or ACT scores, and Merit Scholarships are available to qualifying test-optional students.",
+     "source_url": "https://onestop.txst.edu/financial-aid/scholarships/freshman.html",
+     "evidence": {
+      "branch": "pipeline-run/tx-2026-10-04",
+      "run": "pipeline/runs/TX/2026-10-04",
+      "page_file": "326e450d932db5447fa0.json.gz",
+      "blob": "cd02d131f1b8bdf29b7474a4a78fa287d21a93a8",
+      "commit": "622e88bb8b8d"
+     },
+     "retrieved_on": "2026-10-04",
+     "academic_year_basis": "source_unlabeled",
+     "reviewed_on": "2026-10-22",
+     "review_note": "Sentence read in its page context: it states the school's freshman merit-scholarship practice."
+    }
+   ]
+  }
+ }
+}

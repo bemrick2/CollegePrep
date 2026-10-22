@@ -440,7 +440,7 @@ def field_doc(L):
 
 # ---- policy layer and degree detail: separate measures, read from what research has recorded ----
 MERIT_TYPES = {'institutional_merit'}
-POLICY_STATUSES = ('verified', 'partially_verified', 'candidate_in_run', 'source_found', 'searched_not_found', 'source_inaccessible',
+POLICY_STATUSES = ('verified', 'partially_verified', 'no_published_score_formula', 'candidate_in_run', 'source_found', 'searched_not_found', 'source_inaccessible',
                    'not_researched')
 
 
@@ -461,6 +461,8 @@ def policy_status(reg):
     att_p = ROOT / 'baseline/policy/pipeline_attempts.json'
     attempts = json.loads(att_p.read_text())['schools'] if att_p.exists() else {}
     topic = {'merit': 'merit_scholarships', 'aid_appeals': 'aid_appeals'}
+    mr_p = ROOT / 'baseline/policy/merit_research.json'
+    research = json.loads(mr_p.read_text())['schools'] if mr_p.exists() else {}
     out = {}
     for i in reg:
         k = i['institution_key']; s = {}
@@ -470,6 +472,9 @@ def policy_status(reg):
             seen = [a.get(t, {}).get('status') for t in (['ap_credit', 'ib_credit', 'clep_credit'] if layer == 'exam_credit' else [topic[layer]])]
             if any(r.get('verification_status') == 'verified' for r in rs): s[layer] = 'verified'
             elif rs: s[layer] = 'partially_verified'
+            elif layer == 'merit' and any(f['field'] == 'score_formula' and f['value'] == 'no_published_score_formula'
+                                          for f in (research.get(k) or {}).get('findings', [])):
+                s[layer] = 'no_published_score_formula'  # the school states there are no fixed criteria (quoted)
             elif any(x in ('candidate_ready', 'candidate_exception', 'verified_current', 'partially_verified_current') for x in seen):
                 s[layer] = 'candidate_in_run'      # extracted in a run, not yet reviewed and promoted
             elif 'source_found' in seen: s[layer] = 'source_found'  # official page found, nothing structured yet
@@ -518,6 +523,8 @@ def report(rows, secs, reg):
     _CACHE['policy'] = pol
     pl['merit_score_linked_schools'] = sum(1 for s in pol.values() if s['merit_score_linked'])
     pl['merit_gpa_linked_schools'] = sum(1 for s in pol.values() if s['merit_gpa_linked'])
+    mr_p = ROOT / 'baseline/policy/merit_research.json'
+    pl['merit_research_findings_schools'] = len(json.loads(mr_p.read_text())['schools']) if mr_p.exists() else 0
     ew = lambda keys: round(sum(w(r) for r in rows if r['institution_key'] in keys) / W, 4) if W else 0
     pl['merit_on_file_enrollment_weighted'] = ew({k for k, s in pol.items() if s['merit'] in ('verified', 'partially_verified')})
     pl['merit_score_linked_enrollment_weighted'] = ew({k for k, s in pol.items() if s['merit_score_linked']})
@@ -577,13 +584,15 @@ def markdown(rep):
           'Statuses: verified / partially verified (records in the repository); candidate in a run (extracted, awaiting review and '
           'promotion); source found (official page found, nothing structured yet); searched, not found (the crawl found no page: '
           'never "no policy"); source inaccessible (fetch failed or blocked); not researched.', '',
-          '| Policy | Verified | Partially verified | Candidate in a run | Source found | Searched, not found | Inaccessible | Not researched |',
-          '|---|---|---|---|---|---|---|---|']
+          '| Policy | Verified | Partially verified | No published score formula (stated) | Candidate in a run | Source found | Searched, not found | Inaccessible | Not researched |',
+          '|---|---|---|---|---|---|---|---|---|']
     for layer, label in [('merit', 'Freshman merit scholarships'), ('exam_credit', 'AP/IB/CLEP credit'), ('aid_appeals', 'Aid appeals')]:
         c = p[layer]
         L.append(f"| {label} | " + ' | '.join(f"{c.get(x, 0):,}" for x in POLICY_STATUSES) + ' |')
     L += ['', f"- Schools with a merit record that states an ACT/SAT criterion: {p['merit_score_linked_schools']:,}; a GPA criterion: "
           f"{p['merit_gpa_linked_schools']:,}.",
+          f"- Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; "
+          f"`baseline/policy/merit_research.json`): {p['merit_research_findings_schools']}.",
           f"- Merit records on file (verified or partially verified), enrollment-weighted: {p['merit_on_file_enrollment_weighted']:.1%}; "
           f"with an ACT/SAT criterion: {p['merit_score_linked_enrollment_weighted']:.1%}.", '',
           '## Degree detail (separate measure, Deep Dive)', '', rep['degree_detail']['note'], '',

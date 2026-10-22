@@ -43,13 +43,14 @@ Separate measure. From research records in data/institutions/<folder>/ (awards o
 
 Statuses: verified / partially verified (records in the repository); candidate in a run (extracted, awaiting review and promotion); source found (official page found, nothing structured yet); searched, not found (the crawl found no page: never "no policy"); source inaccessible (fetch failed or blocked); not researched.
 
-| Policy | Verified | Partially verified | Candidate in a run | Source found | Searched, not found | Inaccessible | Not researched |
-|---|---|---|---|---|---|---|---|
-| Freshman merit scholarships | 73 | 83 | 175 | 1,315 | 125 | 272 | 76 |
-| AP/IB/CLEP credit | 40 | 175 | 158 | 579 | 819 | 272 | 76 |
-| Aid appeals | 1 | 1 | 1,084 | 227 | 458 | 272 | 76 |
+| Policy | Verified | Partially verified | No published score formula (stated) | Candidate in a run | Source found | Searched, not found | Inaccessible | Not researched |
+|---|---|---|---|---|---|---|---|---|
+| Freshman merit scholarships | 73 | 83 | 2 | 175 | 1,313 | 125 | 272 | 76 |
+| AP/IB/CLEP credit | 40 | 175 | 0 | 158 | 579 | 819 | 272 | 76 |
+| Aid appeals | 1 | 1 | 0 | 1,084 | 227 | 458 | 272 | 76 |
 
 - Schools with a merit record that states an ACT/SAT criterion: 39; a GPA criterion: 103.
+- Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; `baseline/policy/merit_research.json`): 8.
 - Merit records on file (verified or partially verified), enrollment-weighted: 6.2%; with an ACT/SAT criterion: 2.4%.
 
 ## Degree detail (separate measure, Deep Dive)
