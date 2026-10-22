@@ -41,25 +41,25 @@ export function improvementVerdict(check: CheckPair | null, week: { recent: Coun
       return {
         tone: 'neutral',
         headline: 'Not a like-for-like comparison',
-        detail: "The last two checks didn't cover the same sections with the same number of questions, so their totals aren't compared. Each check's results show its sections.",
+        detail: "The last two checks don't have answers in the same sections with the same number of answers, so their totals aren't compared. Each check's results show its sections.",
       }
     const now = { correct: check.to.metrics.correct, answered: check.to.metrics.answered }
     const then = { correct: check.from.metrics.correct, answered: check.from.metrics.answered }
     const j = judgeChange(now, then)
     const d = j.delta == null ? 0 : Math.round(j.delta * 100)
     const pair = `${now.correct}/${now.answered} vs ${then.correct}/${then.answered} on the check before`
-    if (j.verdict === 'up') return { tone: 'go', headline: `Improving: +${d} pts since the last check`, detail: `${pair}. Bigger than chance usually produces.` }
-    if (j.verdict === 'down') return { tone: 'warn', headline: `Down ${-d} pts since the last check`, detail: `${pair}. One check can be an off day; the next one shows whether it holds.` }
+    if (j.verdict === 'up') return { tone: 'go', headline: `Improving: +${d} percentage points right since the last check`, detail: `${pair}. Bigger than chance usually produces.` }
+    if (j.verdict === 'down') return { tone: 'warn', headline: `Down ${-d} percentage points right since the last check`, detail: `${pair}. One check can be an off day; the next one shows whether it holds.` }
     if (j.verdict === 'too_few') return { tone: 'neutral', headline: 'Too few answers to tell', detail: `${pair}. Checks need more answers to compare.` }
-    return { tone: 'neutral', headline: 'About the same as the last check', detail: `${pair} (${d >= 0 ? '+' : ''}${d} pts), within normal variation.` }
+    return { tone: 'neutral', headline: 'About the same as the last check', detail: `${pair} (${d >= 0 ? '+' : ''}${d} percentage points), within normal variation.` }
   }
   const { recent, prior } = week
   const j = judgeChange({ correct: recent.correct, answered: recent.n }, { correct: prior.correct, answered: prior.n })
   if (j.verdict !== 'too_few' && recent.n >= 5 && prior.n >= 5) {
     const d = pts(recent) - pts(prior)
     const pair = `${pts(recent)}% this week vs ${pts(prior)}% last week, first answers only`
-    if (j.verdict === 'up') return { tone: 'go', headline: `Improving: +${d} pts this week`, detail: pair }
-    if (j.verdict === 'down') return { tone: 'warn', headline: `Down ${-d} pts this week`, detail: `${pair}. Harder questions can do this; watch the trend.` }
+    if (j.verdict === 'up') return { tone: 'go', headline: `Improving: +${d} percentage points right this week`, detail: pair }
+    if (j.verdict === 'down') return { tone: 'warn', headline: `Down ${-d} percentage points right this week`, detail: `${pair}. Harder questions can do this; watch the trend.` }
     return { tone: 'neutral', headline: 'Holding steady', detail: `${pair}. Within normal variation.` }
   }
   const need = Math.max(0, 5 - recent.n)

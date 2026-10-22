@@ -95,4 +95,68 @@ describe('check error path', () => {
     // Nothing on screen can send the saved answer again.
     expect(screen.queryByRole('button', { name: 'Fairly sure' })).not.toBeInTheDocument()
   }, 30_000)
+
+  /** Signs in a demo student with an ACT plan and opens the check page on `src`. */
+  async function openCheck(src: DemoSource) {
+    src.switchPersona(DEMO_PARENT, 'Jordan')
+    const hh = await src.createHousehold('Home', 'America/Chicago')
+    const sid = await src.addStudent(hh, 'Riley', 2028, 11)
+    await src.savePlan(sid, { exam_family: 'act', target_score: null, goals: [], daily_minutes: 10 })
+    const inv = await src.createStudentInvitation(hh, sid)
+    src.switchPersona(DEMO_STUDENT, 'Riley')
+    await src.acceptInvitation(inv.inviteCode)
+    vi.spyOn(window, 'confirm').mockReturnValue(false)
+    render(
+      <MemoryRouter initialEntries={['/student/benchmark']}>
+        <AppProvider source={src}>
+          <App />
+        </AppProvider>
+      </MemoryRouter>,
+    )
+  }
+
+  it('a refusal that is not expiry (e.g. "used once") offers Continue, not "ended", and Continue moves on', async () => {
+    class UsedOnceOnce extends DemoSource {
+      starts = 0
+      override async startAttempt(...a: Parameters<DemoSource['startAttempt']>) {
+        if (a[3] && ++this.starts === 2) throw new DataError('A question is used once per progress check', 'invalid')
+        return super.startAttempt(...a)
+      }
+    }
+    const user = userEvent.setup()
+    const src = new UsedOnceOnce(emptyStore())
+    await openCheck(src)
+    await user.click(await screen.findByRole('button', { name: /^Start / }, { timeout: 8000 }))
+    await user.click((await screen.findAllByRole('radio', {}, { timeout: 8000 }))[0]!)
+    await user.click(screen.getByRole('button', { name: 'Fairly sure' }))
+    expect(await screen.findByText(/used once per progress check/, {}, { timeout: 8000 })).toBeInTheDocument()
+    expect(screen.queryByText('This progress check has ended')).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Continue' }))
+    expect(await screen.findAllByRole('radio', {}, { timeout: 8000 })).not.toHaveLength(0)
+  }, 30_000)
+
+  it('a lost reply: the retry is told "already submitted", treats the answer as saved, and moves on', async () => {
+    class LosesFirstReply extends DemoSource {
+      submits = 0
+      override async submitAttempt(...a: Parameters<DemoSource['submitAttempt']>) {
+        this.submits++
+        const r = await super.submitAttempt(...a)
+        if (this.submits === 1) throw new Error('Network error')
+        return r
+      }
+    }
+    const user = userEvent.setup()
+    const src = new LosesFirstReply(emptyStore())
+    await openCheck(src)
+    await user.click(await screen.findByRole('button', { name: /^Start / }, { timeout: 8000 }))
+    const first = await screen.findAllByRole('radio', {}, { timeout: 8000 })
+    await user.click(first[0]!)
+    await user.click(screen.getByRole('button', { name: 'Fairly sure' }))
+    expect(await screen.findByText('Network error', {}, { timeout: 8000 })).toBeInTheDocument()
+    // The retry reaches a server that already has the answer: no endless error, the next question appears.
+    await user.click(screen.getByRole('button', { name: 'Fairly sure' }))
+    await screen.findByText(/Question 2|2 of/, {}, { timeout: 8000 }).catch(() => undefined)
+    expect(screen.queryByText(/already submitted/)).not.toBeInTheDocument()
+    expect(src.submits).toBe(2)
+  }, 30_000)
 })

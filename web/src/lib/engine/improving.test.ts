@@ -8,7 +8,7 @@ const pair = (to: [number, number], from: [number, number], repeats = 0) => ({ t
 
 describe('improvementVerdict (same rule as the progress-check comparison)', () => {
   it('check to check: a clear change on enough answers, noise called noise', () => {
-    expect(improvementVerdict(pair([24, 27], [12, 27]), wk(0, 0, 0, 0))).toMatchObject({ tone: 'go', headline: 'Improving: +44 pts since the last check' })
+    expect(improvementVerdict(pair([24, 27], [12, 27]), wk(0, 0, 0, 0))).toMatchObject({ tone: 'go', headline: 'Improving: +44 percentage points right since the last check' })
     expect(improvementVerdict(pair([15, 27], [13, 27]), wk(0, 0, 0, 0))).toMatchObject({ tone: 'neutral', headline: 'About the same as the last check' })
     expect(improvementVerdict(pair([8, 27], [20, 27]), wk(0, 0, 0, 0)).tone).toBe('warn')
   })
@@ -23,7 +23,7 @@ describe('improvementVerdict (same rule as the progress-check comparison)', () =
     expect(v.headline).not.toMatch(/Improving/)
   })
   it('weekly fallback on first answers only, with the same noise rule', () => {
-    expect(improvementVerdict(null, wk(20, 18, 20, 8)).headline).toBe('Improving: +50 pts this week')
+    expect(improvementVerdict(null, wk(20, 18, 20, 8)).headline).toBe('Improving: +50 percentage points right this week')
     expect(improvementVerdict(null, wk(10, 8, 10, 7)).headline).toBe('Holding steady')
     expect(improvementVerdict(null, wk(2, 2, 10, 5))).toMatchObject({ headline: 'Too early to tell', detail: expect.stringMatching(/About 3 more new questions/) })
   })

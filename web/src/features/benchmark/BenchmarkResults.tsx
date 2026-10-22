@@ -85,10 +85,10 @@ export function BenchmarkResults({
             <ul className="grid list-disc gap-1 pl-5">
               {shortened.map((x) => (
                 <li key={x.section}>
-                  {SECTION_LABEL[x.section] ?? x.section}: {x.answered + x.skipped} of {wanted(x.section)} questions. Too few questions are set aside for checks, so this section's result rests on fewer answers.
+                  {SECTION_LABEL[x.section] ?? x.section}: {x.answered + x.skipped} answered of the {wanted(x.section)} questions this check usually asks. Either too few questions are set aside for checks or some were left blank; either way the result rests on fewer answers.
                 </li>
               ))}
-              {unmeasured.length > 0 && <li>Not measured: {unmeasured.map((x) => SECTION_LABEL[x] ?? x).join(', ')}. No check questions were available.</li>}
+              {unmeasured.length > 0 && <li>Not measured: {unmeasured.map((x) => SECTION_LABEL[x] ?? x).join(', ')}. No answers in this check: no check questions were available, or every one was left blank.</li>}
             </ul>
           </Notice>
         )}

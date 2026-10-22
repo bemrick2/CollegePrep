@@ -318,7 +318,8 @@ function Panel({ student, o, onRefresh }: { student: Student; o: StudentOverview
                 size="md"
                 value={trend.recent.acc === null ? '—' : `${Math.round(trend.recent.acc * 100)}%`}
                 label="Accuracy, 7 days"
-                sub={trend.prior.acc === null || trend.recent.acc === null ? `${trend.recent.n} answered` : `${trend.recent.acc >= trend.prior.acc ? '▲' : '▼'} from ${Math.round(trend.prior.acc * 100)}%`}
+                // No arrow: a difference between two weeks isn't a trend until it passes the noise rule (the improving card).
+                sub={trend.prior.acc === null || trend.recent.acc === null ? `${trend.recent.n} answered` : `${trend.recent.n} answered · ${Math.round(trend.prior.acc * 100)}% the 7 days before`}
               />
             </div>
             <div>

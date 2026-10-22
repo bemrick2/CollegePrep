@@ -4,7 +4,7 @@ import { useApp } from '../../lib/app'
 import { Card, CardHeader, EmptyState, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
 import { Chart } from '../../components/icons'
 import { addDays, formatDuration, formatShortDate, localDate } from '../../lib/engine/dates'
-import { SECTION_LABEL, SECTION_ORDER, pacingVerdict } from '../../lib/engine/benchmark'
+import { PER_SECTION, SECTION_LABEL, SECTION_ORDER, pacingVerdict } from '../../lib/engine/benchmark'
 import { improvementVerdict, type CheckPair } from '../../lib/engine/improving'
 import { benchmarkRepeats } from '../../lib/engine/freshness'
 import type { AttemptRecord, BenchmarkSummary } from '../../lib/data/types'
@@ -22,6 +22,19 @@ function lastTwoChecks(benchmarks: BenchmarkSummary[], history: AttemptRecord[])
       (b.metrics.sections ?? []).reduce((n, x) => n + (x.repeats ?? 0), 0),
     )
   return { from, to, repeats: count(from) + count(to) }
+}
+
+/** The labels a check's results carry, for its row in the history list: shorter, repeats, sections not measured. */
+function checkFlags(b: BenchmarkSummary, history: AttemptRecord[]): string[] {
+  const secs = b.metrics.sections ?? []
+  const wanted = (s: string) => PER_SECTION[b.exam_family]?.[b.kind]?.[s] ?? 0
+  const repeatsFromHistory = benchmarkRepeats(b, history)
+  const repeats = secs.reduce((n, x) => n + Math.max(repeatsFromHistory.get(x.section) ?? 0, x.repeats ?? 0), 0)
+  const flags: string[] = []
+  if (b.kind !== 'full' && secs.some((x) => x.answered + x.skipped < wanted(x.section))) flags.push('Shorter')
+  if ((SECTION_ORDER[b.exam_family] ?? []).some((s) => !secs.some((x) => x.section === s))) flags.push('Not all sections measured')
+  if (repeats > 0) flags.push(`${repeats} seen before`)
+  return flags
 }
 import { ImprovingCard } from '../../components/ImprovingCard'
 import { recentTrend, useStudentOverview, type StudentOverview } from '../student/useStudentOverview'
@@ -172,6 +185,15 @@ function Body({ o, heading, who }: { o: StudentOverview; heading: string; who?: 
                 <span className="min-w-0 flex-1">
                   <span className="block font-semibold capitalize text-ink">{b.kind} benchmark</span>
                   <span className="text-xs text-ink-3">{formatShortDate(b.completed_at)} · {b.metrics.answered} answered</span>
+                  {checkFlags(b, o.history).length > 0 && (
+                    <span className="mt-1 flex flex-wrap gap-1">
+                      {checkFlags(b, o.history).map((f) => (
+                        <Pill key={f} tone="warn">
+                          {f}
+                        </Pill>
+                      ))}
+                    </span>
+                  )}
                 </span>
                 <span className="text-right"><span className="block text-lg font-semibold tabular text-ink">{b.metrics.accuracy === null ? '—' : `${Math.round(b.metrics.accuracy * 100)}%`}</span><span className="block text-xs text-ink-3">right, practice</span></span>
               </button>

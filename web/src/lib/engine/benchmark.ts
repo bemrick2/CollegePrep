@@ -214,41 +214,6 @@ export function nextBenchmarkDue(history: BenchmarkSummary[], today: Date = new 
   return { kind: s.kind, inDays: s.inDays }
 }
 
-export interface BenchmarkChange {
-  from: BenchmarkSummary
-  to: BenchmarkSummary
-  /** Accuracy change in percentage points; null when either side has no answers. */
-  accuracyPts: number | null
-  /** Change in median time vs expected (negative = faster). */
-  pacingDelta: number | null
-  sections: { section: string; accuracyPts: number | null; ceilingDelta: number | null }[]
-}
-
-/** Latest benchmark vs the one before. Adaptive benchmarks change difficulty, so the hardest level answered
- *  correctly (ceiling) is reported next to accuracy; neither is an official score change. */
-export function benchmarkImprovement(history: BenchmarkSummary[]): BenchmarkChange | null {
-  const byDate = [...history].sort((a, b) => a.completed_at.localeCompare(b.completed_at))
-  if (byDate.length < 2) return null
-  const to = byDate[byDate.length - 1]!
-  const from = byDate[byDate.length - 2]!
-  const pts = (a: number | null, b: number | null) => (a === null || b === null ? null : Math.round((b - a) * 100))
-  const sections = to.metrics.sections.map((s) => {
-    const p = from.metrics.sections.find((x) => x.section === s.section)
-    return {
-      section: s.section,
-      accuracyPts: pts(p?.accuracy ?? null, s.accuracy),
-      ceilingDelta: p?.ceiling_difficulty != null && s.ceiling_difficulty != null ? s.ceiling_difficulty - p.ceiling_difficulty : null,
-    }
-  })
-  return {
-    from,
-    to,
-    accuracyPts: pts(from.metrics.accuracy, to.metrics.accuracy),
-    pacingDelta:
-      from.metrics.pacing_ratio === null || to.metrics.pacing_ratio === null ? null : Math.round((to.metrics.pacing_ratio - from.metrics.pacing_ratio) * 100) / 100,
-    sections,
-  }
-}
 
 /** Attempt ids that belong to benchmarks, so benchmark work never counts as (or replaces) daily practice. */
 export function benchmarkAttemptIds(history: BenchmarkSummary[]): Set<string> {
