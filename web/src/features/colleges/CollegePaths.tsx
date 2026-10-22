@@ -16,7 +16,6 @@ import type { InstitutionComparison } from '../../lib/data/types'
 import {
   EXAM_FAMILIES,
   FAMILY_LABEL,
-  HOURS_PER_SEMESTER,
   examOptions,
   summarizeSchool,
   type CreditPolicy,
@@ -104,7 +103,7 @@ export function CollegePaths() {
             <Section
               id="routes-heading"
               title="Routes at each school"
-              subtitle="Standard path first, then what could lower the cost or shorten the degree"
+              subtitle="Standard path first, then what could lower the cost"
               action={<HomeStateControl />}
             >
               {cmp.canSetPrimary && !cmp.primary && four.length > 1 && (
@@ -140,7 +139,8 @@ export function CollegePaths() {
           <p className="max-w-3xl border-t border-line pt-6 text-sm text-ink-3">
             <span className="font-semibold text-ink-2">How to read this.</span> Exam credit is matched to each school's published table for {COMPARE_YEAR};
             whether a course counts toward a specific major is the school's decision. We don't estimate semesters or money saved: many schools charge a flat
-            full-time rate, and credit shortens a degree only when it covers required courses.
+            full-time rate. Credit that covers required courses is only one condition for finishing sooner; prerequisites, when courses are offered,
+            the required course order and the remaining requirements also have to allow it.
           </p>
         </>
       )}
@@ -348,7 +348,6 @@ function PathCard({
     }[]
   )[0]
   const name = outlook.name
-  const semesters = Math.floor(credit.publishedHours / HOURS_PER_SEMESTER)
   const levers = schoolLevers(c, exams, exam, reference)
 
   return (
@@ -455,12 +454,6 @@ function PathCard({
                             </>
                           )}
                         </p>
-                        {semesters > 0 && (
-                          <p className="mt-1 text-xs text-ink-3">
-                            That's about {semesters} semester
-                            {semesters === 1 ? '' : 's'} of hours, which can shorten the degree only if the courses count toward its requirements.
-                          </p>
-                        )}
                         <ul className="mt-3 grid gap-2">
                           {credit.matches.map((m) => (
                             <MatchRow key={m.exam.key} m={m} />

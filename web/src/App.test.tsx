@@ -293,7 +293,7 @@ describe('app flows', () => {
     expect(within(steps).getByText('AP Art History').parentElement).toHaveTextContent('elective credit only')
     expect(within(steps).getByText('AP Computer Science A').parentElement).toHaveTextContent('COSC 101: not a course this plan uses')
     expect(within(steps).getByText('AP Calculus AB').parentElement).toHaveTextContent('MATH 125: not a course this plan uses')
-    expect(within(steps).getByText(/^Not shown\. A term is removed only if/)).toBeInTheDocument()
+    expect(within(steps).getByText('No whole regular semester of the published plan is covered.')).toBeInTheDocument()
     // Family numbers: grants and loans for every year of the full program; year-round living added separately.
     await user.type(within(utk).getByLabelText('Offered to you, per year'), '4000')
     await user.type(within(utk).getByLabelText('You plan to borrow, per year'), '5500')
@@ -301,10 +301,11 @@ describe('app flows', () => {
     // 147,976 + 12,000 year-round - 16,000 grants = 143,976; borrowed 22,000.
     expect(within(utk).getByText('Net price').nextSibling).toHaveTextContent('$143,976')
     expect(within(utk).getByText('Borrowed (you repay this)').nextSibling).toHaveTextContent('$22,000')
-    // Potential only: one term of full cost (18,497) minus the grant for that term (2,000); none for the CS plan.
-    expect(within(steps).getByText('Not a shorter degree')).toBeInTheDocument()
-    expect(within(steps).getByText('If all accepted credit counts toward the degree').nextSibling).toHaveTextContent('up to $16,497')
-    expect(within(steps).getByText('Counting only credit that matches the Computer Science Major, BS in Computer Science plan').nextSibling).toHaveTextContent('Not a full term')
+    // No time or dollar saving: credit alone (15 hours) doesn't show the student could finish sooner. Withheld, and why.
+    expect(within(steps).getByText('Time and money saved: not shown')).toBeInTheDocument()
+    expect(within(steps).getByText(/No whole plan term is covered, so no time or money saved is shown/)).toBeInTheDocument()
+    expect(within(steps).queryByText(/up to \$/)).not.toBeInTheDocument()
+    expect(within(steps).queryByText('If all accepted credit counts toward the degree')).not.toBeInTheDocument()
     // A school with only a total published says what is missing instead of guessing.
     const other = screen.getByRole('article', { name: 'Lipscomb University' })
     expect(within(other).getByText('One published price for all students')).toBeInTheDocument()

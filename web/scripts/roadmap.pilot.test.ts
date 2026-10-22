@@ -96,8 +96,8 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(by['AP Statistics']!.fit).toBe('accepted_not_in_plan')
     expect(r.credit.filter((x) => x.fit === 'applies').reduce((s, x) => s + (x.hours.value ?? 0), 0)).toBe(12)
     expect(r.unknowns.map((u) => u.text)).toEqual(expect.arrayContaining([expect.stringMatching(/awards MATH 1950 for AP Calculus AB, but this major's plan lists other courses/)]))
-    // Timeline and savings: no whole term covered, so none shown.
-    expect(r.timeline.value).toBeNull()
+    // Coverage and savings: no whole term covered, so none shown.
+    expect(r.coverage.value).toBeNull()
     expect(r.savings.value).toBeNull()
     // Cost by arrangement, as published, labelled with its year.
     expect(r.cost.value).toEqual(
