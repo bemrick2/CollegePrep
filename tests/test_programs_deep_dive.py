@@ -703,6 +703,12 @@ class CourseleafPlanTests(unittest.TestCase):
         self.assertFalse(CL.continued_grids(p[::-1], ['Biology - BA', 'Biology - BA']))  # years must run from the first, in order
         self.assertFalse(CL.continued_grids([p[0], p[0]], ['Biology - BA', 'Biology - BA']))  # a repeated year is another plan
         self.assertFalse(CL.continued_grids([p[0], p[0]], ['', '']))
+        # a note between the grids that changes the plan holds it (Texas A&M Business, Temple)
+        note = 'Plan of Study Grid\n| First Year\nFinance: Students intending to major in Finance must add FINC 210 to freshman year.\nPlan of Study Grid\n| Third Year'
+        self.assertTrue(CL.grid_change_noted(type('P', (), {'text': note})()))
+        plain = 'Plan of Study Grid\n| First Year\nUpper-Level Program (Year 3 & 4)\nPlan of Study Grid\n| Third Year'
+        self.assertFalse(CL.grid_change_noted(type('P', (), {'text': plain})()))
+        self.assertTrue(CL.grid_change_noted(type('P', (), {'text': plain.replace('Upper-Level', 'Option to take ARCH 2123 instead of ARCH 2121. Upper-Level')})()))
 
     def test_decimal_course_credits_kept_as_printed(self):  # West Chester B.M. 2026-27: '1.5', '0.5'
         from programs import courseleaf as CL

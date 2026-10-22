@@ -7,6 +7,9 @@ the same file. Each mutant breaks one rule; tests/test_programs_deep_dive.py mus
 import shutil, subprocess, sys
 
 MUTS = [
+    ('programs/courseleaf.py', "        if grid_change_noted(page): merged['_grid_change_note'] = True", "        pass"),
+    ('programs/courseleaf.py', "        if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')", "        pass"),
+    ('programs/courseleaf.py', "    return any(GRID_CHANGE.search(l) for l in between if not l.startswith('|'))", "    return False"),
     ('programs/courseleaf.py', "    if continued_grids(parsed, headings):", "    if False:"),
     ('programs/courseleaf.py', "    if len(parsed) < 2 or len(set(headings)) != 1 or not headings[0]: return False", "    if len(parsed) < 2: return False"),
     ('programs/courseleaf.py', "    return seq == list(range(seq[0], seq[0] + len(seq))) and seq[0] == 1", "    return True"),
