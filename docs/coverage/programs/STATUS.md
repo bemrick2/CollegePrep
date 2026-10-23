@@ -2099,7 +2099,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | The University of Tennessee-Knoxville | partial | 1 | 99 | 1 | 0 | queued | met | queued | met | catalog:bot_challenge, requirement_groups:not_yet_researched |
 | Middle Tennessee State University | partial | 0 | 97 | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Memphis | partial | 0 | 62 | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| The University of Tennessee-Chattanooga | partial_unqueued | 121 | – | 16 | 121 | queued | open | met | queued | admission_rules:not_yet_researched, catalog:bot_challenge |
+| The University of Tennessee-Chattanooga | partial_unqueued | 121 | – | 15 | 121 | queued | open | met | queued | admission_rules:not_yet_researched, catalog:bot_challenge |
 | East Tennessee State University | partial | 0 | 71 | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Tennessee Technological University | partial | 29 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Tennessee State University | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |

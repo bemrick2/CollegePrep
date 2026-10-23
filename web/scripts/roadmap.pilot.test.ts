@@ -56,16 +56,17 @@ const persona: PlanningProfile = {
 const have = existsSync(join(ROOT, 'institutions/utc')) && existsSync(join(ROOT, 'institutions/utk'))
 
 describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (#194)', () => {
-  it('UTC Management today: plan and cost verified (#206); credit tables not verified (no year printed), so credit is listed as missing, never shown', () => {
+  it('UTC Management today: the plan is on file but not verified (a printed note isn’t captured, 2026-10-23), so it isn’t shown and no credit is placed in it', () => {
     const r = buildRoadmap({ comparison: comparison('utc', '221740'), programKey: 'management-b-s-b-a', profile: persona })
-    expect(r.status).toBe('partial')
+    expect(r.status).toBe('blocked')
     expect(r.target.programName).toBe('Management, B.S.B.A.')
-    expect(r.plan.evidence.state).toBe('verified')
-    expect(r.plan.value).toMatchObject({ catalogYear: '2026-2027', totalCredits: 120 })
-    expect(r.plan.value!.terms).toHaveLength(8)
-    expect(r.credit.every((x) => x.acceptance.value === null && x.acceptance.evidence.state === 'missing')).toBe(true)
+    expect(r.plan.value).toBeNull()
+    expect(r.plan.evidence).toMatchObject({ state: 'missing', verificationStatus: 'partially_verified', notesCapture: 'incomplete', missing: 'Plan on file but not verified.' })
+    // Never "no plan": the plan exists, and the reason it isn't shown is stated.
+    expect(r.unknowns.find((u) => u.topic === 'plan')?.text).toMatch(/plan for this major is on file but not yet verified: its course rows were checked, but a note printed with it, which can change what it requires, isn’t captured yet/)
+    expect(r.credit.every((x) => x.acceptance.value === null && x.rows.length === 0)).toBe(true)
     expect(r.options).toEqual([])
-    // #206: verified from the raw 2026-27 PDF; shown as published, by living arrangement.
+    // #206: cost verified from the raw 2026-27 PDF; shown as published, by living arrangement.
     expect(r.cost.evidence).toMatchObject({ state: 'verified', publishedYear: '2026-27' })
     expect(r.cost.value).toEqual(
       expect.arrayContaining([
@@ -74,18 +75,35 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
         { arrangement: 'with_family', annual: 23736 },
       ]),
     )
+    expect(r.coverage.value).toBeNull()
     expect(r.savings.value).toBeNull()
     expect(r.unknowns.map((u) => u.text)).toEqual(
       expect.arrayContaining([
         expect.stringMatching(/AP credit table is on file but not yet verified: the values were checked, but the page prints no academic year/),
         expect.stringMatching(/dual-enrollment policy is on file but not yet verified/),
+        expect.stringMatching(/No verified plan for a saved major is on file, so no time or money saved is shown/),
       ]),
     )
     expect(r.unknowns.some((u) => u.topic === 'cost')).toBe(false)
   })
 
-  it('UTC Management once #191 verifies the tables and cost: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
-    const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs'])
+  it('the plan reason wording covers every unverified plan: notes missing with or without reviewed rows, and other statuses', () => {
+    const withPlan = (patch: Rec) => {
+      const c = comparison('utc', '221740')
+      const reqs = (c.domains.degree_requirements as Rec[]).map((r) => (r.program_key === 'management-b-s-b-a' && r.requirement_kind === 'program_plan' ? { ...r, ...patch } : r))
+      return buildRoadmap({ comparison: { ...c, domains: { ...c.domains, degree_requirements: reqs } as never }, programKey: 'management-b-s-b-a', profile: persona })
+    }
+    const why = (r: ReturnType<typeof withPlan>) => r.unknowns.find((u) => u.topic === 'plan')?.text ?? ''
+    expect(why(withPlan({ captured_rows_reviewed: false }))).toMatch(/not yet verified: a note printed with it, which can change what it requires, isn’t captured yet/)
+    for (const status of ['unverified', 'stale']) {
+      const r = withPlan({ verification_status: status, notes_capture: undefined })
+      expect(r).toMatchObject({ status: 'blocked', plan: { value: null, evidence: { verificationStatus: status, missing: 'Plan on file but not verified.' } } })
+    }
+  })
+
+  // Scenario, not today's data: the plan's note captured and its replacement reviewed (#218), and #191's tables verified.
+  it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
+    const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
     const r = buildRoadmap({ comparison: c, programKey: 'management-b-s-b-a', profile: persona, projection: projectRow(c, '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance' }) })
     expect(r.status).toBe('ready')
     const by = Object.fromEntries(r.credit.map((x) => [x.exam.name, x]))
