@@ -1,0 +1,993 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6037cf4335794acb",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 7
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Total:",
+    "snippet": "Total: | $33,728 | $39,608 | $55,760",
+    "value": 33728
+   },
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $11,760 | $17,640 | $33,792",
+    "value": 11760
+   },
+   {
+    "field": "on_campus:University Fee",
+    "snippet": "University Fee | $914 | $914 | $914",
+    "value": 914
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,330 | $1,330 | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "on_campus:Housing/Food",
+    "snippet": "Housing/Food | $15,690 | $15,690 | $15,690",
+    "value": 15690
+   },
+   {
+    "field": "on_campus:Personal Expense",
+    "snippet": "Personal Expense | $2,698 | $2,698 | $2,698",
+    "value": 2698
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $1,336 | $1,336 | $1,336",
+    "value": 1336
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-141574",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1330,
+   "components": {
+    "Books & Supplies": 1330,
+    "Housing/Food": 15690,
+    "Personal Expense": 2698,
+    "Total:": 33728,
+    "Transportation": 1336,
+    "Tuition": 11760,
+    "University Fee": 914
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": 914,
+   "notes": "Extracted by cost_table/v2 from the table \"Total Investment for undergraduate 2026-2027: Total Investment for undergraduate 2026-2027: Cost of Attendance\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 15690,
+   "residency": "in_state",
+   "source_url": "https://manoa.hawaii.edu/admissions/financing/index.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 33728,
+   "tuition": 11760,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2ee10aa73f697b9c650a.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/admissions/financing/index.html",
+   "sha256": "2ee10aa73f697b9c650ae5955a0a1edf94364e33739a4a2d25492b270a836fb2",
+   "title": "University of Hawai‘i at Mānoa - Undergraduate - Investing in your future - COST & TYPES OF AID",
+   "url": "https://manoa.hawaii.edu/admissions/financing/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "349af12502752d7b",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 7
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Total:",
+    "snippet": "Total: | $33,728 | $39,608 | $55,760",
+    "value": 39608
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $11,760 | $17,640 | $33,792",
+    "value": 17640
+   },
+   {
+    "field": "column:University Fee",
+    "snippet": "University Fee | $914 | $914 | $914",
+    "value": 914
+   },
+   {
+    "field": "column:Books & Supplies",
+    "snippet": "Books & Supplies | $1,330 | $1,330 | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "column:Housing/Food",
+    "snippet": "Housing/Food | $15,690 | $15,690 | $15,690",
+    "value": 15690
+   },
+   {
+    "field": "column:Personal Expense",
+    "snippet": "Personal Expense | $2,698 | $2,698 | $2,698",
+    "value": 2698
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,336 | $1,336 | $1,336",
+    "value": 1336
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "residency_unknown",
+   "conflicting_sources:https://manoa.hawaii.edu/fas/cost/2026-2027-cost-of-attendance/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1330,
+   "components": {
+    "Books & Supplies": 1330,
+    "Housing/Food": 15690,
+    "Personal Expense": 2698,
+    "Total:": 39608,
+    "Transportation": 1336,
+    "Tuition": 17640,
+    "University Fee": 914
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": 914,
+   "notes": "Extracted by cost_table/v2 from the table \"Total Investment for undergraduate 2026-2027: Total Investment for undergraduate 2026-2027: Cost of Attendance\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://manoa.hawaii.edu/admissions/financing/index.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 39608,
+   "tuition": 17640,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2ee10aa73f697b9c650a.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/admissions/financing/index.html",
+   "sha256": "2ee10aa73f697b9c650ae5955a0a1edf94364e33739a4a2d25492b270a836fb2",
+   "title": "University of Hawai‘i at Mānoa - Undergraduate - Investing in your future - COST & TYPES OF AID",
+   "url": "https://manoa.hawaii.edu/admissions/financing/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "2f667a693763d98a",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 7
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Total:",
+    "snippet": "Total: | $33,728 | $39,608 | $55,760",
+    "value": 55760
+   },
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $11,760 | $17,640 | $33,792",
+    "value": 33792
+   },
+   {
+    "field": "on_campus:University Fee",
+    "snippet": "University Fee | $914 | $914 | $914",
+    "value": 914
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,330 | $1,330 | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "on_campus:Housing/Food",
+    "snippet": "Housing/Food | $15,690 | $15,690 | $15,690",
+    "value": 15690
+   },
+   {
+    "field": "on_campus:Personal Expense",
+    "snippet": "Personal Expense | $2,698 | $2,698 | $2,698",
+    "value": 2698
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $1,336 | $1,336 | $1,336",
+    "value": 1336
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-141574",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1330,
+   "components": {
+    "Books & Supplies": 1330,
+    "Housing/Food": 15690,
+    "Personal Expense": 2698,
+    "Total:": 55760,
+    "Transportation": 1336,
+    "Tuition": 33792,
+    "University Fee": 914
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": 914,
+   "notes": "Extracted by cost_table/v2 from the table \"Total Investment for undergraduate 2026-2027: Total Investment for undergraduate 2026-2027: Cost of Attendance\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 15690,
+   "residency": "out_of_state",
+   "source_url": "https://manoa.hawaii.edu/admissions/financing/index.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 55760,
+   "tuition": 33792,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2ee10aa73f697b9c650a.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/admissions/financing/index.html",
+   "sha256": "2ee10aa73f697b9c650ae5955a0a1edf94364e33739a4a2d25492b270a836fb2",
+   "title": "University of Hawai‘i at Mānoa - Undergraduate - Investing in your future - COST & TYPES OF AID",
+   "url": "https://manoa.hawaii.edu/admissions/financing/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "f9725518d82efa3a",
+  "checks": {
+   "columns": 3,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition (12 credits)",
+    "snippet": "Tuition (12 credits) | $11,520 | $11,520 | $11,520",
+    "value": 11520
+   },
+   {
+    "field": "with_parents_or_family:Fees",
+    "snippet": "Fees | $882 | $882 | $882",
+    "value": 882
+   },
+   {
+    "field": "with_parents_or_family:Books and Supplies",
+    "snippet": "Books and Supplies | $1,404 | $1,404 | $1,404",
+    "value": 1404
+   },
+   {
+    "field": "with_parents_or_family:Housing",
+    "snippet": "Housing | $4,520 | $7,852 | $13,558",
+    "value": 4520
+   },
+   {
+    "field": "with_parents_or_family:Food",
+    "snippet": "Food | $6,068 | $7,364 | $6,676",
+    "value": 6068
+   },
+   {
+    "field": "with_parents_or_family:Personal Expenses",
+    "snippet": "Personal Expenses | $2,778 | $2,778 | $2,778",
+    "value": 2778
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $2,556 | $1,278 | $2,556",
+    "value": 2556
+   },
+   {
+    "field": "with_parents_or_family:Total",
+    "snippet": "Total | $29,728 | $33,078 | $39,374",
+    "value": 29728
+   },
+   {
+    "field": "on_campus:Tuition (12 credits)",
+    "snippet": "Tuition (12 credits) | $11,520 | $11,520 | $11,520",
+    "value": 11520
+   },
+   {
+    "field": "on_campus:Fees",
+    "snippet": "Fees | $882 | $882 | $882",
+    "value": 882
+   },
+   {
+    "field": "on_campus:Books and Supplies",
+    "snippet": "Books and Supplies | $1,404 | $1,404 | $1,404",
+    "value": 1404
+   },
+   {
+    "field": "on_campus:Housing",
+    "snippet": "Housing | $4,520 | $7,852 | $13,558",
+    "value": 7852
+   },
+   {
+    "field": "on_campus:Food",
+    "snippet": "Food | $6,068 | $7,364 | $6,676",
+    "value": 7364
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | $2,778 | $2,778 | $2,778",
+    "value": 2778
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $2,556 | $1,278 | $2,556",
+    "value": 1278
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | $29,728 | $33,078 | $39,374",
+    "value": 33078
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition (12 credits)",
+    "snippet": "Tuition (12 credits) | $11,520 | $11,520 | $11,520",
+    "value": 11520
+   },
+   {
+    "field": "off_campus_not_with_family:Fees",
+    "snippet": "Fees | $882 | $882 | $882",
+    "value": 882
+   },
+   {
+    "field": "off_campus_not_with_family:Books and Supplies",
+    "snippet": "Books and Supplies | $1,404 | $1,404 | $1,404",
+    "value": 1404
+   },
+   {
+    "field": "off_campus_not_with_family:Housing",
+    "snippet": "Housing | $4,520 | $7,852 | $13,558",
+    "value": 13558
+   },
+   {
+    "field": "off_campus_not_with_family:Food",
+    "snippet": "Food | $6,068 | $7,364 | $6,676",
+    "value": 6676
+   },
+   {
+    "field": "off_campus_not_with_family:Personal Expenses",
+    "snippet": "Personal Expenses | $2,778 | $2,778 | $2,778",
+    "value": 2778
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $2,556 | $1,278 | $2,556",
+    "value": 2556
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | $29,728 | $33,078 | $39,374",
+    "value": 39374
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "residency_unknown",
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": 1404,
+   "components": {
+    "Books and Supplies": 1404,
+    "Fees": 882,
+    "Food": 7364,
+    "Housing": 7852,
+    "Personal Expenses": 2778,
+    "Total": 33078,
+    "Transportation": 1278,
+    "Tuition (12 credits)": 11520
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "with_parents_or_family",
+     "column_header": "Living with Parents",
+     "components": {
+      "Books and Supplies": 1404,
+      "Fees": 882,
+      "Food": 6068,
+      "Housing": 4520,
+      "Personal Expenses": 2778,
+      "Total": 29728,
+      "Transportation": 2556,
+      "Tuition (12 credits)": 11520
+     },
+     "total_cost_of_attendance": 29728
+    },
+    {
+     "arrangement": "on_campus",
+     "column_header": "Living On-Campus",
+     "components": {
+      "Books and Supplies": 1404,
+      "Fees": 882,
+      "Food": 7364,
+      "Housing": 7852,
+      "Personal Expenses": 2778,
+      "Total": 33078,
+      "Transportation": 1278,
+      "Tuition (12 credits)": 11520
+     },
+     "total_cost_of_attendance": 33078
+    },
+    {
+     "arrangement": "off_campus_not_with_family",
+     "column_header": "Living Off-Campus",
+     "components": {
+      "Books and Supplies": 1404,
+      "Fees": 882,
+      "Food": 6676,
+      "Housing": 13558,
+      "Personal Expenses": 2778,
+      "Total": 39374,
+      "Transportation": 2556,
+      "Tuition (12 credits)": 11520
+     },
+     "total_cost_of_attendance": 39374
+    }
+   ],
+   "mandatory_fees": 882,
+   "notes": "Extracted by cost_table/v2 from the table \"2025-2026 Cost of Attendance 2025-2026 Cost of Attendance \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://manoa.hawaii.edu/fas/cost/2025-2026-cost-of-attendance/",
+   "total_cost_of_attendance": 33078,
+   "tuition": 11520,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:09:12+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "74b2712fe561a6573e39.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/cost/2025-2026-cost-of-attendance/",
+   "sha256": "74b2712fe561a6573e39ce32b68347f3514937599ef5b276bdcff21697478b1a",
+   "title": "2025-2026 Cost of Attendance | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/cost/2025-2026-cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "1ce90bf712985309",
+  "checks": {
+   "columns": 3,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition (12 credits)",
+    "snippet": "Tuition (12 credits) | $11,760 | $11,760 | $11,760",
+    "value": 11760
+   },
+   {
+    "field": "with_parents_or_family:Fees",
+    "snippet": "Fees | $914 | $914 | $914",
+    "value": 914
+   },
+   {
+    "field": "with_parents_or_family:Books and Supplies",
+    "snippet": "Books and Supplies | $1,330 | $1,330 | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "with_parents_or_family:Housing",
+    "snippet": "Housing | $4,600 | $8,222 | $13,478",
+    "value": 4600
+   },
+   {
+    "field": "with_parents_or_family:Food",
+    "snippet": "Food | $6,148 | $7,468 | $6,762",
+    "value": 6148
+   },
+   {
+    "field": "with_parents_or_family:Personal Expenses",
+    "snippet": "Personal Expenses | $2,698 | $2,698 | $2,698",
+    "value": 2698
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $2,670 | $1,336 | $2,670",
+    "value": 2670
+   },
+   {
+    "field": "with_parents_or_family:Total",
+    "snippet": "Total | $30,120 | $33,728 | $39,612",
+    "value": 30120
+   },
+   {
+    "field": "on_campus:Tuition (12 credits)",
+    "snippet": "Tuition (12 credits) | $11,760 | $11,760 | $11,760",
+    "value": 11760
+   },
+   {
+    "field": "on_campus:Fees",
+    "snippet": "Fees | $914 | $914 | $914",
+    "value": 914
+   },
+   {
+    "field": "on_campus:Books and Supplies",
+    "snippet": "Books and Supplies | $1,330 | $1,330 | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "on_campus:Housing",
+    "snippet": "Housing | $4,600 | $8,222 | $13,478",
+    "value": 8222
+   },
+   {
+    "field": "on_campus:Food",
+    "snippet": "Food | $6,148 | $7,468 | $6,762",
+    "value": 7468
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | $2,698 | $2,698 | $2,698",
+    "value": 2698
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $2,670 | $1,336 | $2,670",
+    "value": 1336
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | $30,120 | $33,728 | $39,612",
+    "value": 33728
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition (12 credits)",
+    "snippet": "Tuition (12 credits) | $11,760 | $11,760 | $11,760",
+    "value": 11760
+   },
+   {
+    "field": "off_campus_not_with_family:Fees",
+    "snippet": "Fees | $914 | $914 | $914",
+    "value": 914
+   },
+   {
+    "field": "off_campus_not_with_family:Books and Supplies",
+    "snippet": "Books and Supplies | $1,330 | $1,330 | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "off_campus_not_with_family:Housing",
+    "snippet": "Housing | $4,600 | $8,222 | $13,478",
+    "value": 13478
+   },
+   {
+    "field": "off_campus_not_with_family:Food",
+    "snippet": "Food | $6,148 | $7,468 | $6,762",
+    "value": 6762
+   },
+   {
+    "field": "off_campus_not_with_family:Personal Expenses",
+    "snippet": "Personal Expenses | $2,698 | $2,698 | $2,698",
+    "value": 2698
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $2,670 | $1,336 | $2,670",
+    "value": 2670
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | $30,120 | $33,728 | $39,612",
+    "value": 39612
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "residency_unknown",
+   "conflicting_sources:https://manoa.hawaii.edu/admissions/financing/index.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1330,
+   "components": {
+    "Books and Supplies": 1330,
+    "Fees": 914,
+    "Food": 7468,
+    "Housing": 8222,
+    "Personal Expenses": 2698,
+    "Total": 33728,
+    "Transportation": 1336,
+    "Tuition (12 credits)": 11760
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "with_parents_or_family",
+     "column_header": "Living with Parents",
+     "components": {
+      "Books and Supplies": 1330,
+      "Fees": 914,
+      "Food": 6148,
+      "Housing": 4600,
+      "Personal Expenses": 2698,
+      "Total": 30120,
+      "Transportation": 2670,
+      "Tuition (12 credits)": 11760
+     },
+     "total_cost_of_attendance": 30120
+    },
+    {
+     "arrangement": "on_campus",
+     "column_header": "Living On-Campus",
+     "components": {
+      "Books and Supplies": 1330,
+      "Fees": 914,
+      "Food": 7468,
+      "Housing": 8222,
+      "Personal Expenses": 2698,
+      "Total": 33728,
+      "Transportation": 1336,
+      "Tuition (12 credits)": 11760
+     },
+     "total_cost_of_attendance": 33728
+    },
+    {
+     "arrangement": "off_campus_not_with_family",
+     "column_header": "Living Off-Campus",
+     "components": {
+      "Books and Supplies": 1330,
+      "Fees": 914,
+      "Food": 6762,
+      "Housing": 13478,
+      "Personal Expenses": 2698,
+      "Total": 39612,
+      "Transportation": 2670,
+      "Tuition (12 credits)": 11760
+     },
+     "total_cost_of_attendance": 39612
+    }
+   ],
+   "mandatory_fees": 914,
+   "notes": "Extracted by cost_table/v2 from the table \"2026-2027 Cost of Attendance 2026-2027 Cost of Attendance \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://manoa.hawaii.edu/fas/cost/2026-2027-cost-of-attendance/",
+   "total_cost_of_attendance": 33728,
+   "tuition": 11760,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:09:21+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "543212b7f9d74c4401be.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/cost/2026-2027-cost-of-attendance/",
+   "sha256": "543212b7f9d74c4401be95670d3fe6a293dd6bcb96face1f509573b25d5a3ec8",
+   "title": "2026-2027 Cost of Attendance | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/cost/2026-2027-cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "a0c6d5dd3333276c",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Submit a Satisfactory Academic Progress (SAP) Appeal Form and include the following: Extenuating circumstances, such as serious personal illness or injury, death or illness of a family member, unexpected employment or work issues or other extenuating circumstances, which prevented you from meeting UH Mānoa’s Financial Aid SAP.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "For students whose SAP appeal is approved, a SAP Academic Plan will be sent to you.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://manoa.hawaii.edu/fas/forms/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://manoa.hawaii.edu/fas/financial-aid-policies/satisfactory-academic-progress-sap-policy/",
+   "process_summary": "Submit a Satisfactory Academic Progress (SAP) Appeal Form and include the following: Extenuating circumstances, such as serious personal illness or injury, death or illness of a family member, unexpected employment or work issues or other extenuating circumstances, which prevented you from meeting UH Mānoa’s Financial Aid SAP.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://manoa.hawaii.edu/fas/financial-aid-policies/satisfactory-academic-progress-sap-policy/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:31+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "5d1be01f95b081d9a2fa.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/financial-aid-policies/satisfactory-academic-progress-sap-policy/",
+   "sha256": "5d1be01f95b081d9a2fa1d669617c4d404c00bb150150054a00b21b3ae247407",
+   "title": "Financial Aid Satisfactory Academic Progress (SAP) Policy | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/financial-aid-policies/satisfactory-academic-progress-sap-policy/"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "d960cac195cb2c02",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Appeal Forms 2026-2027 Satisfactory Academic Progress Appeal To be completed by students who have not met the requirements to sustain their financial aid and wish to appeal.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://manoa.hawaii.edu/fas/financial-aid-policies/satisfactory-academic-progress-sap-policy/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://manoa.hawaii.edu/fas/forms/",
+   "process_summary": "Appeal Forms 2026-2027 Satisfactory Academic Progress Appeal To be completed by students who have not met the requirements to sustain their financial aid and wish to appeal.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://manoa.hawaii.edu/fas/forms/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:35+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "805e123bfd13bf55bc7a.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/forms/",
+   "sha256": "805e123bfd13bf55bc7a5ea77f8f477ad66190b3fa22e9b88de19115b9b849d6",
+   "title": "Forms | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/forms/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "302aa676ef5d7cc1",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Spring 2027 deadline: April 16, 2027. 2026-2027 Dependent Student Professional Judgement Form for a dependent student to use if you or your parents’ finances have changed significantly. 2026-2027 Independent Student Professional Judgement Form for an independent student to use if you or your family’s finances have changed significantly.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://manoa.hawaii.edu/fas/understanding-your-offer/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://manoa.hawaii.edu/fas/forms/",
+   "process_summary": "Spring 2027 deadline: April 16, 2027. 2026-2027 Dependent Student Professional Judgement Form for a dependent student to use if you or your parents’ finances have changed significantly. 2026-2027 Independent Student Professional Judgement Form for an independent student to use if you or your family’s finances have changed significantly.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://manoa.hawaii.edu/fas/forms/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:35+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "805e123bfd13bf55bc7a.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/forms/",
+   "sha256": "805e123bfd13bf55bc7a5ea77f8f477ad66190b3fa22e9b88de19115b9b849d6",
+   "title": "Forms | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/forms/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "21153997c2aa7418",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "LEARN MORE ABOUT DISBURSEMENT & REFUNDS Special Circumstances If you or anyone in your household (spouse, parent, or both parents) has been affected financially by extenuating circumstances (loss of a job, death of a spouse/parent, divorce/legal separation, etc.), please visit the Forms page and complete the necessary Professional Judgement Appeal form.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://manoa.hawaii.edu/fas/forms/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://manoa.hawaii.edu/fas/understanding-your-offer/",
+   "process_summary": "LEARN MORE ABOUT DISBURSEMENT & REFUNDS Special Circumstances If you or anyone in your household (spouse, parent, or both parents) has been affected financially by extenuating circumstances (loss of a job, death of a spouse/parent, divorce/legal separation, etc.), please visit the Forms page and complete the necessary Professional Judgement Appeal form.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://manoa.hawaii.edu/fas/understanding-your-offer/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:13:29+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "bc47aff73d133d347779.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/understanding-your-offer/",
+   "sha256": "bc47aff73d133d34777978c572f1a78a90d6a0c53e69f1216a91c673d9c33407",
+   "title": "Understanding Your Offer | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/understanding-your-offer/"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "56e655bad3ada93e",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "You may include additional educational costs such as a computer expense, airfare, childcare or medical expenses, please reach out to finaid@hawaii.edu to request the Cost of Attendance Increase form.",
+    "value": "budget_increase"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-141574",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "budget_increase",
+   "institution_key": "ipeds-141574",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://manoa.hawaii.edu/fas/understanding-your-offer/",
+   "process_summary": "You may include additional educational costs such as a computer expense, airfare, childcare or medical expenses, please reach out to finaid@hawaii.edu to request the Cost of Attendance Increase form.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://manoa.hawaii.edu/fas/understanding-your-offer/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:13:29+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "bc47aff73d133d347779.json.gz",
+   "requested_url": "https://manoa.hawaii.edu/fas/understanding-your-offer/",
+   "sha256": "bc47aff73d133d34777978c572f1a78a90d6a0c53e69f1216a91c673d9c33407",
+   "title": "Understanding Your Offer | Financial Aid Services",
+   "url": "https://manoa.hawaii.edu/fas/understanding-your-offer/"
+  },
+  "year_basis": "ambiguous_year_labels"
+ }
+]
