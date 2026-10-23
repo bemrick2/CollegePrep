@@ -90,7 +90,8 @@ def residency(h, home=None, private=False):
         return 'district'
     # MN (UMN Duluth): "Midwest nonresident" is the MSEP exchange rate for listed states, not the out-of-state rate.
     if re.search(r'\b(?:midwest|msep|wue|reciprocity)\W+non-?\s?resident', h, re.I): return 'named_other_state'
-    if re.search(r'out[- ]of[- ]state|non-?\s?resident|\bresidents?\s+of\s+other\s+states', h, re.I): return 'out_of_state'
+    # MD (UMD): "Residents of the District of Columbia, Other States, and Other Countries" is the out-of-state rate.
+    if re.search(r'out[- ]of[- ]state|non-?\s?resident|\bresidents?\s+of\s+other\s+states|\bresidents?\s+of\b.{0,40}\bother\s+states\b', h, re.I): return 'out_of_state'
     named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
              if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
     if named:

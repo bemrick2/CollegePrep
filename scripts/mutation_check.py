@@ -108,6 +108,7 @@ MUTS = [
     ('pipeline/extractors/programmap.py', 'cont = last and (last[1] is None or wrapped or', 'cont = last and (last[1] is None or'),
     ('pipeline/extractors/merit.py', "        return done(cls_year, 'labeled_entering_class')", "        return done(cls_year, 'labeled_in_source')"),
     ('pipeline/extractors/costs.py', 'return []  # budgets for less-than-full-time enrollment', 'pass  # budgets for less-than-full-time enrollment'),
+    ('pipeline/extractors/costs.py', "|\\bresidents?\\s+of\\b.{0,40}\\bother\\s+states\\b', h, re.I): return 'out_of_state'", "', h, re.I): return 'out_of_state'"),
     ('pipeline/extractors/costs.py', "and not re.search(r'out[- ]of[- ](?:district|state)|non-?\\s?resident|international', h, re.I):\n        return 'district'", ":\n        return 'district'"),
     ('pipeline/extractors/merit.py', 'criteria = next((i for i, h in enumerate(header) if i != renewal and', 'criteria = next((i for i, h in enumerate(header) if'),
     ('pipeline/extractors/transfer.py', 'return []  # hour counts there are award or reverse-transfer conditions', 'pass  # hour counts there are award or reverse-transfer conditions'),
