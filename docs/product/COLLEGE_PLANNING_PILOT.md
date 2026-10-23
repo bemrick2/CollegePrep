@@ -48,6 +48,14 @@ Counts come from `data/institutions/{utk,utc,mtsu}`. The app shows `verified` re
 - **Verified, and would show:** the Management plan.
 - **Partially verified, so hidden:** exam credit and cost.
 
+> **Update 2026-10-23.** Under the owner's decision of 2026-10-23, every UTC business plan in the pilot, Management included, is now partially verified. Each one prints a note the record doesn't store. Management's is the footnote on its "Elective (ENGL 1010 or 1011)*" row: *"If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required."*
+> - **What the page shows:** "Degree plan not yet verified". It says the plan is on file, names the missing note, and shows no terms.
+> - **What it places:** no credit into the plan, and no coverage or saving.
+> - **What's still verified:** the cost (verified since #206).
+> - **What's still unverified:** exam credit (no academic year printed).
+> - **Record:** the corrections entry in `supabase/corrections.json`.
+> - **Way back to verified:** a replacement that captures the note and passes independent review, recorded with `replaces_correction`.
+
 ### Credit check: the existing engine on the pilot persona
 
 I ran the current engine (`examCredit` → `degreeCredit`) on a fictional student with these planned scores:
