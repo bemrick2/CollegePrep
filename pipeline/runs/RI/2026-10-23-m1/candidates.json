@@ -1,0 +1,462 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "1c3856dba5990249",
+  "checks": {
+   "fields": [
+    "min_grade"
+   ]
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "You will need to earn a grade of “C” or better in order for a class to be considered for transfer.",
+    "value": "C"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-217484",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "institution_key": "ipeds-217484",
+   "last_verified_at": "2026-10-23",
+   "min_grade": "C",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://web.uri.edu/admission/transfer/transfer-resources/",
+   "source_url": "https://web.uri.edu/admission/transfer/transfer-resources/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:28+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "3d2dd161b39c7df411ee.json.gz",
+   "requested_url": "https://web.uri.edu/admission/transfer/transfer-resources/",
+   "sha256": "3d2dd161b39c7df411eeaf2ff13791434141593fae41471439529cc47a3945b6",
+   "title": "Transfer Resources – Undergraduate Admission",
+   "url": "https://web.uri.edu/admission/transfer/transfer-resources/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "a915deefbfe79a2f",
+  "checks": {
+   "fields": [
+    "act_25",
+    "act_50",
+    "act_75",
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year",
+    "sat_composite_25",
+    "sat_composite_50",
+    "sat_composite_75",
+    "sat_math_25",
+    "sat_math_50",
+    "sat_math_75"
+   ]
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied           4368     23100            553                 0   28021",
+    "value": 28021
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted     3179     17302            411                 0   20892",
+    "value": 20892
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled              1284        2113           34                 0   3431",
+    "value": 3431
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                     1090                      1210                       1310",
+    "value": [
+     1090,
+     1210,
+     1310
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                           520                       590                       645",
+    "value": [
+     520,
+     590,
+     645
+    ]
+   },
+   {
+    "field": "act_25..75",
+    "snippet": "ACT Composite                      25                        28                         31",
+    "value": [
+     25,
+     28,
+     31
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-217484",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "act_25": 25,
+   "act_50": 28,
+   "act_75": 31,
+   "admits": 20892,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 28021,
+   "enrolled": 3431,
+   "entering_fall_year": 2025,
+   "institution_key": "ipeds-217484",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2025-26 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "sat_composite_25": 1090,
+   "sat_composite_50": 1210,
+   "sat_composite_75": 1310,
+   "sat_math_25": 520,
+   "sat_math_50": 590,
+   "sat_math_75": 645,
+   "source_url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-PDF-2025-2026_fillablePDF.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:29+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 07 Jul 2026 16:17:47 GMT",
+   "page_file": "21bd459ce8a5b74b8cb7.json.gz",
+   "requested_url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-PDF-2025-2026_fillablePDF.pdf",
+   "sha256": "21bd459ce8a5b74b8cb726d056a0ed6abcd991cb5ff5ff79240cedee24e2102c",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-PDF-2025-2026_fillablePDF.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "f6da6fac986e9049",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees:",
+    "snippet": "Tuition and Fees: | $29,844",
+    "value": 29844
+   },
+   {
+    "field": "column:Housing and Food:",
+    "snippet": "Housing and Food: | $16,704",
+    "value": 16704
+   },
+   {
+    "field": "column:Total:",
+    "snippet": "Total: | $46,548*",
+    "value": 46548
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-217484",
+  "issues": [
+   "residency_unknown"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Housing and Food:": 16704,
+    "Total:": 46548,
+    "Tuition and Fees:": 29844
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-217484",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" New England Regional Tuition  New England Regional Tuition Program: Estimated Costs for 2026-2027\"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://web.uri.edu/admission/regional-tuition-majors/",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 46548,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 29844,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:40+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f19bc28d0bfa24aee7ab.json.gz",
+   "requested_url": "https://web.uri.edu/admission/regional-tuition-majors/",
+   "sha256": "f19bc28d0bfa24aee7ab7bb38c257551fbd2483ef925c8faf6380ca6896071c1",
+   "title": "New England Regional Tuition – Undergraduate Admission",
+   "url": "https://web.uri.edu/admission/regional-tuition-majors/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "dd522f941dee5bc8",
+  "checks": {
+   "columns": 3,
+   "components_reconcile": true,
+   "rows": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $14,630 | $34,834 | $25,604",
+    "value": 14630
+   },
+   {
+    "field": "column:Required Fees",
+    "snippet": "Required Fees | $2,312 | $2,312 | $2,312",
+    "value": 2312
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $16,942 | $37,146 | $27,916",
+    "value": 16942
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $14,630 | $34,834 | $25,604",
+    "value": 34834
+   },
+   {
+    "field": "column:Required Fees",
+    "snippet": "Required Fees | $2,312 | $2,312 | $2,312",
+    "value": 2312
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $16,942 | $37,146 | $27,916",
+    "value": 37146
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $14,630 | $34,834 | $25,604",
+    "value": 25604
+   },
+   {
+    "field": "column:Required Fees",
+    "snippet": "Required Fees | $2,312 | $2,312 | $2,312",
+    "value": 2312
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $16,942 | $37,146 | $27,916",
+    "value": 27916
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-217484",
+  "issues": [
+   "arrangement_unlabeled",
+   "residency_unknown",
+   "stale_year_label:2024-25"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "books_supplies": null,
+   "components": {
+    "Required Fees": 2312,
+    "Total": 16942,
+    "Tuition": 14630
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-217484",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Instate",
+     "components": {
+      "Required Fees": 2312,
+      "Total": 16942,
+      "Tuition": 14630
+     },
+     "total_cost_of_attendance": 16942
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Outstate",
+     "components": {
+      "Required Fees": 2312,
+      "Total": 37146,
+      "Tuition": 34834
+     },
+     "total_cost_of_attendance": 37146
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Regional",
+     "components": {
+      "Required Fees": 2312,
+      "Total": 27916,
+      "Tuition": 25604
+     },
+     "total_cost_of_attendance": 27916
+    }
+   ],
+   "mandatory_fees": 2312,
+   "notes": "Extracted by cost_table/v2 from the table \"Annual Undergraduate Tuition and Fees 2024-25 Annual Undergraduate Tuition and Fees 2024-25 \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://web.uri.edu/tuition-billing/annual-undergraduate-tuition-and-fees-2024-25/",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 16942,
+   "tuition": 14630,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "13355c53c85a09d7a90c.json.gz",
+   "requested_url": "https://web.uri.edu/tuition-billing/annual-undergraduate-tuition-and-fees-2024-25/",
+   "sha256": "13355c53c85a09d7a90c56ab91c961b02a8cc04acc517d3582d872a0cedcc21e",
+   "title": "Annual Undergraduate Tuition and Fees 2024-25 – Tuition and Billing",
+   "url": "https://web.uri.edu/tuition-billing/annual-undergraduate-tuition-and-fees-2024-25/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "63190f917d968c98",
+  "checks": {
+   "fields": [
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year",
+    "sat_composite_25",
+    "sat_composite_50",
+    "sat_composite_75",
+    "sat_math_25",
+    "sat_math_50",
+    "sat_math_75"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied          4410      22040            537                  26987",
+    "value": 26987
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted    3289      15824            362                  19475",
+    "value": 19475
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled             1287         1679           29                  2995",
+    "value": 2995
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                     1020                      1170                       1260",
+    "value": [
+     1020,
+     1170,
+     1260
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                           500                       570                       630",
+    "value": [
+     500,
+     570,
+     630
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-217484",
+  "issues": [
+   "stale_year_label:2024-25"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "admits": 19475,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 26987,
+   "enrolled": 2995,
+   "entering_fall_year": 2024,
+   "institution_key": "ipeds-217484",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2024-25 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "sat_composite_25": 1020,
+   "sat_composite_50": 1170,
+   "sat_composite_75": 1260,
+   "sat_math_25": 500,
+   "sat_math_50": 570,
+   "sat_math_75": 630,
+   "source_url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-2024-2025-fillable.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:26+00:00",
+   "kind": "pdf",
+   "last_modified": "Thu, 26 Jun 2025 14:15:53 GMT",
+   "page_file": "1c923b2db732c41b00d4.json.gz",
+   "requested_url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-2024-2025-fillable.pdf",
+   "sha256": "1c923b2db732c41b00d4f82ef7c0b4c3222e90b1cbb284c77981a187611af3df",
+   "title": "Common Data Set 2024-2025",
+   "url": "https://web.uri.edu/ir/wp-content/uploads/sites/276/CDS-2024-2025-fillable.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ }
+]
