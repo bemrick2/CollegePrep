@@ -4,14 +4,27 @@
 //   solves-template.csv     the sheet solvers fill in and recordEditorial.ts imports
 //   review-<exam>-<section>.html full items with key and explanations, for stages 5-7 (never give these to solvers)
 //
-//   npx vite-node scripts/local/editorialPackets.ts <out-dir>
+//   npx vite-node scripts/local/editorialPackets.ts <out-dir> [--ids id1,id2,...]
+//
+// --ids limits every file to a review batch (docs/product/QUESTION_REVIEW_WORKFLOW.md). Unknown ids are an error.
+// status.csv's track column is the current assignment (reserved for checks, or practice); the content lead confirms it.
 import { mkdirSync, writeFileSync } from 'node:fs'
-import { QUESTIONS, type FixtureQuestion } from '../../src/lib/data/demo/fixtures'
+import { QUESTIONS as ALL, type FixtureQuestion } from '../../src/lib/data/demo/fixtures'
+import { practiceExclusions } from '../../src/lib/engine/freshness'
 import { contentHash } from '../../src/lib/data/demo/questionReview'
 import { editorialState, STAGE_NAME } from '../../src/lib/data/demo/editorialLedger'
 
 const out = process.argv[2]
-if (!out) throw new Error('usage: editorialPackets.ts <out-dir>')
+if (!out || out.startsWith('--')) throw new Error('usage: editorialPackets.ts <out-dir> [--ids id1,id2,...]')
+const idsArg = process.argv.indexOf('--ids')
+const wanted = idsArg > 0 ? (process.argv[idsArg + 1] ?? '').split(',').map((s) => s.trim()).filter(Boolean) : null
+if (wanted) {
+  const unknown = wanted.filter((id) => !ALL.some((q) => q.id === id))
+  if (unknown.length || !wanted.length) throw new Error(`unknown or missing ids: ${unknown.join(', ') || '(none given)'}`)
+}
+const QUESTIONS = wanted ? ALL.filter((q) => wanted.includes(q.id)) : ALL
+const reserved = new Set([...practiceExclusions('act', ALL), ...practiceExclusions('sat', ALL)])
+const track = (q: FixtureQuestion) => (reserved.has(q.id) ? 'assessment_candidate' : 'practice_candidate')
 mkdirSync(out, { recursive: true })
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
@@ -50,11 +63,11 @@ ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<l
 
 const rows = QUESTIONS.map((q) => {
   const s = editorialState(q)
-  return [q.id, q.exam_family, q.section, q.difficulty, contentHash(q), `${s.passed} ${STAGE_NAME[s.passed]}`, s.next ? `${s.next} ${STAGE_NAME[s.next]}` : 'approved', s.problems.join('; ')]
+  return [q.id, q.exam_family, q.section, q.difficulty, track(q), contentHash(q), `${s.passed} ${STAGE_NAME[s.passed]}`, s.next ? `${s.next} ${STAGE_NAME[s.next]}` : 'approved', s.problems.join('; ')]
 })
-writeFileSync(`${out}/status.csv`, [['id', 'exam', 'section', 'difficulty', 'hash', 'passed', 'next', 'problems'], ...rows].map((r) => r.map(csv).join(',')).join('\n') + '\n')
+writeFileSync(`${out}/status.csv`, [['id', 'exam', 'section', 'difficulty', 'track', 'hash', 'passed', 'next', 'problems'], ...rows].map((r) => r.map(csv).join(',')).join('\n') + '\n')
 writeFileSync(
   `${out}/solves-template.csv`,
-  [['id', 'stage', 'by', 'date', 'result', 'hash', 'answer', 'seconds', 'license', 'note'], ...QUESTIONS.map((q) => [q.id, 4, '', '', 'pass', contentHash(q), '', '', '', ''])].map((r) => r.map(csv).join(',')).join('\n') + '\n',
+  [['id', 'stage', 'by', 'date', 'result', 'hash', 'answer', 'seconds', 'license', 'note'], ...QUESTIONS.flatMap((q) => [1, 2].map(() => [q.id, 4, '', '', 'pass', contentHash(q), '', '', '', '']))].map((r) => r.map(csv).join(',')).join('\n') + '\n',
 )
-console.log(`${QUESTIONS.length} items, ${groups.size} packets; ${rows.filter((r) => r[6] === 'approved').length} human-approved`)
+console.log(`${QUESTIONS.length} items, ${groups.size} packets; ${rows.filter((r) => r[7] === 'approved').length} human-approved`)
