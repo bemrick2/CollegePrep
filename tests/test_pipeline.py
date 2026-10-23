@@ -1488,6 +1488,26 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual(costs.residency('resident students', 'KY'), 'in_state')  # public tuition tables (Ashland)
         self.assertEqual(costs.residency('nonresident', 'KY', private=True), 'out_of_state')
 
+    def test_in_district_column_is_district_residency(self):
+        """Regression (TX: Lone Star, Austin CC): 'In-District' columns were merged with 'Out-of-District' as residency unknown."""
+        self.assertEqual(costs.residency('in-district', 'TX'), 'district')
+        self.assertEqual(costs.residency('in-district student not living at home', 'TX'), 'district')
+        self.assertIsNone(costs.residency('out-of-district', 'TX'))
+        self.assertEqual(costs.residency('out-of-state student not living at home in-district', 'TX'), 'out_of_state')
+        rows = [['', 'In-District', 'Out-of-District', 'Out of State / International'],
+                ['Tuition and Fees', '$3,330', '$7,470', '$9,390'], ['Books and Supplies', '$2,450', '$2,450', '$2,450'],
+                ['TOTAL', '$5,780', '$9,920', '$11,840']]
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Cost of Attendance</h2><table>'
+                + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</table></body></html>')
+        got = {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'TX', 'control': 'public'},
+                                                                   {**ENTRY, 'url': 'https://x.edu/cost-of-attendance'},
+                                                                   T.parse_html(html.encode(), 'https://x.edu/cost-of-attendance'), '2026-27')}
+        self.assertEqual(got['district']['record']['tuition_and_mandatory_fees'], 3330)
+        self.assertEqual(got['district']['record']['components']['TOTAL'], 5780)
+        self.assertEqual(got['out_of_state']['record']['tuition_and_mandatory_fees'], 9390)
+        self.assertIn('residency_unknown', got['not_applicable']['issues'])  # Out-of-District alone stays unknown
+        self.assertEqual(got['not_applicable']['record']['tuition_and_mandatory_fees'], 7470)
+
     def test_dual_gpa_ranges_and_course_scoped_tiers(self):
         """Regression (KY: Thomas More '2.5 to 2.79 GPA' -> 2.79; KCTCS technical-course 2.0 GPA shown as the general minimum)."""
         html = (b'<html><head><title>Dual Credit</title></head><body><p>Students admitted with an unweighted 2.5 to 2.79 GPA may only take one course.</p>'

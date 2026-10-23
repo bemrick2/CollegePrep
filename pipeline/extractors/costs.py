@@ -84,6 +84,10 @@ def residency(h, home=None, private=False):
     # MN: "MN Resident & Non Resident" (UMN Crookston) and "SMSU does not charge out-of-state tuition" are one rate for all.
     if re.search(r'\bno\s+out[- ](?:of[- ])?state|\bnot\s+charge\s+out[- ]of[- ]state|'
                  r'\bresidents?\s*(?:&|and|/)\s*non-?\s?residents?', h, re.I): return 'not_applicable'
+    # TX (Lone Star, Austin CC, Galveston): a community college's "In-District" column is the district rate. A header that also
+    # names out-of-district or out-of-state pricing is left to the rules below.
+    if re.search(r'\bin[- ]district\b', h, re.I) and not re.search(r'out[- ]of[- ](?:district|state)|non-?\s?resident|international', h, re.I):
+        return 'district'
     # MN (UMN Duluth): "Midwest nonresident" is the MSEP exchange rate for listed states, not the out-of-state rate.
     if re.search(r'\b(?:midwest|msep|wue|reciprocity)\W+non-?\s?resident', h, re.I): return 'named_other_state'
     if re.search(r'out[- ]of[- ]state|non-?\s?resident|\bresidents?\s+of\s+other\s+states', h, re.I): return 'out_of_state'
