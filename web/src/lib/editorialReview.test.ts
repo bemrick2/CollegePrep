@@ -1,0 +1,256 @@
+import { describe, expect, it } from 'vitest'
+import { QUESTIONS } from './data/demo/fixtures'
+import { EDITORIAL_LEDGER, type Ledger } from './data/demo/editorialLedger'
+import { REVIEWERS } from './data/demo/reviewerRegistry'
+import { testId, testReviewers } from './data/demo/testReviewers'
+import { testOnlyBatch } from './__fixtures__/TEST_ONLY_importBatch'
+import { csvRows, itemsFromBank, itemsFromRegistry, packetFiles, recordSignoffs, selectItems, SIGNOFF_COLUMNS, stateOf, type ReviewItem } from './editorialReview'
+import * as QC from './questionCandidates'
+import { emptyRegistry, intake, retire, rightsHash, setTrack, latest } from './questionCandidates'
+
+const R = testReviewers()
+const AT = '2026-10-23'
+const TODAY = '2026-10-23'
+const EMPTY: Ledger = { items: {} }
+
+/** A TEST-ONLY batch taken in (as if the app's bank were empty, since its lines are re-dressed bank items). */
+function batch(n = 4) {
+  return intake(emptyRegistry(), testOnlyBatch(n), 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+}
+const row = (item: ReviewItem, stage: number, who: string, extra: Record<string, string> = {}) => ({
+  id: item.id,
+  stage: String(stage),
+  reviewer_id: testId(who),
+  by: who,
+  date: TODAY,
+  result: 'pass',
+  hash: item.content_hash,
+  rights_hash: stage === 3 ? (item.rights_hash ?? '') : '',
+  answer: stage === 4 ? item.question.accepted_answers[0]! : '',
+  seconds: '',
+  license: stage === 3 ? 'original' : '',
+  note: '',
+  ...extra,
+})
+const fullRows = (item: ReviewItem) => [row(item, 3, 'Lee Rights'), row(item, 4, 'Sam Solver'), row(item, 4, 'Ana Solver'), row(item, 5, 'Sam Solver'), row(item, 6, 'Kim Fair'), row(item, 7, 'Ed Copy'), row(item, 8, 'Pat Lead')]
+
+describe('review items from an imported batch (labelled TEST-ONLY fixtures, not the real banks)', () => {
+  it('takes the latest version of every candidate that isn’t retired, with its rights version and every author', () => {
+    let reg = batch(3)
+    const [a, b] = testOnlyBatch(3)
+    reg = intake(reg, [{ ...a!, teaching_explanation: 'A clearer explanation.', author: 'Ed Editor' }], 'TEST-ONLY-rev.jsonl', AT, new Map()).registry
+    reg = retire(reg, b!.import_id, testId('Pat Lead'), 'test', AT, undefined, R)
+    const items = itemsFromRegistry(reg)
+    expect(items.map((i) => i.id)).toEqual([a!.import_id, testOnlyBatch(3)[2]!.import_id])
+    const first = items[0]!
+    expect(first).toMatchObject({ source: 'import', batch: 'TEST-ONLY-rev.jsonl', authors: ['Jo Writer', 'Ed Editor'], content_hash: latest(reg.candidates[a!.import_id]!).content_hash })
+    expect(first.rights_hash).toBe(rightsHash(latest(reg.candidates[a!.import_id]!)))
+    expect(first.question.teaching_explanation).toBe('A clearer explanation.')
+  })
+
+  it('selecting a batch: an unknown or empty id list is an error, never a fall-back to every item', () => {
+    const items = itemsFromRegistry(batch(3))
+    expect(() => selectItems(items, ['test-only-nope'])).toThrow(/unknown or missing ids: test-only-nope/)
+    expect(() => selectItems(items, [])).toThrow(/unknown or missing ids/)
+    expect(selectItems(items, [items[1]!.id]).map((i) => i.id)).toEqual([items[1]!.id])
+  })
+})
+
+describe('review packets for an imported batch', () => {
+  const items = itemsFromRegistry(batch(4))
+  const files = packetFiles(items, EMPTY, R, 'Imported batch')
+
+  it('blind packets carry no key, hints or explanations; review copies and templates carry the hashes', () => {
+    const blind = Object.entries(files).filter(([n]) => n.startsWith('blind-')).map(([, t]) => t).join('\n')
+    expect(blind).not.toBe('')
+    for (const i of items) {
+      expect(blind).toContain(i.content_hash)
+      expect(blind).not.toContain(i.question.teaching_explanation)
+      for (const h of i.question.hints) expect(blind).not.toContain(h)
+    }
+    expect(blind).not.toContain('(key)')
+    const review = Object.entries(files).filter(([n]) => n.startsWith('review-')).map(([, t]) => t).join('\n')
+    for (const i of items) expect(review).toContain(`rights ${i.rights_hash}`)
+  })
+
+  it('templates: two blind-solve rows per item, and stage-3 rows carrying the exact rights version', () => {
+    const solves = csvRows(files['solves-template.csv']!)
+    expect(solves).toHaveLength(items.length * 2)
+    expect(solves.every((r) => r.stage === '4' && r.reviewer_id === '' && r.rights_hash === '')).toBe(true)
+    const sign = csvRows(files['signoffs-template.csv']!)
+    expect(Object.keys(sign[0]!)).toEqual([...SIGNOFF_COLUMNS])
+    for (const i of items) expect(sign.find((r) => r.id === i.id && r.stage === '3')!.rights_hash).toBe(i.rights_hash)
+    const status = csvRows(files['status.csv']!)
+    expect(status.map((r) => [r.source, r.batch, r.next])).toEqual(items.map(() => ['import', 'TEST-ONLY-batch.jsonl', '3 Rights check']))
+  })
+
+  it('the app’s own bank still works the same way, without rights versions', () => {
+    const bank = itemsFromBank(QUESTIONS, new Set(), EDITORIAL_LEDGER)
+    expect(bank).toHaveLength(QUESTIONS.length)
+    expect(bank.every((i) => i.source === 'bank' && i.rights_hash === undefined && i.authors[0] === 'AI (Claude)')).toBe(true)
+  })
+})
+
+describe('recording sign-offs', () => {
+  const reg = batch(2)
+  const items = itemsFromRegistry(reg)
+  const it0 = items[0]!
+
+  it('an imported item reviewed in full by authorized test reviewers becomes eligible, item by item', () => {
+    const tracked = setTrack(reg, it0.id, it0.track, testId('Pat Lead'), 'test', AT, new Set(), R)
+    const r = recordSignoffs(EMPTY, items, fullRows(it0), R, TODAY)
+    expect(r.refused).toEqual([])
+    expect(r.added).toBe(7)
+    expect(stateOf(it0, r.ledger, R).humanApproved).toBe(true)
+    expect(QC.eligibility(tracked.candidates[it0.id]!, r.ledger, R).eligible).toBe(true)
+    // The other item in the batch was not reviewed and stays ineligible.
+    expect(QC.eligibility(tracked.candidates[items[1]!.id]!, r.ledger, R).eligible).toBe(false)
+    expect(EMPTY.items).toEqual({}) // the input ledger is unchanged
+  })
+
+  it('with the real reviewer registry (empty) every row is refused: no appointment is assumed', () => {
+    const r = recordSignoffs(EMPTY, items, fullRows(it0), REVIEWERS, TODAY)
+    expect(r.added).toBe(0)
+    expect(r.refused).toHaveLength(7)
+    expect(r.refused[0]).toMatch(/is not an active reviewer authorized for rights/)
+  })
+
+  it('refuses, never guesses: unknown item, bad stage, wrong role, author signing, stale hash or rights version, bad result or date', () => {
+    const cases: [Record<string, string>, RegExp][] = [
+      [{ ...row(it0, 3, 'Lee Rights'), id: 'test-only-missing' }, /unknown item/],
+      [{ ...row(it0, 3, 'Lee Rights'), stage: '9' }, /bad stage/],
+      [{ ...row(it0, 3, 'Lee Rights'), stage: '3.0' }, /bad stage/],
+      [row(it0, 3, 'Ana Solver'), /not an active reviewer authorized for rights/],
+      [row(it0, 8, 'Jo Writer'), /is an author of this item and can’t sign stage 8/],
+      [row(it0, 4, 'Jo Writer'), /is an author of this item/],
+      [{ ...row(it0, 4, 'Sam Solver'), hash: 'old' }, /is not the current content/],
+      [{ ...row(it0, 3, 'Lee Rights'), rights_hash: 'old-rights' }, /is not the current rights version/],
+      [{ ...row(it0, 3, 'Lee Rights'), rights_hash: '' }, /is not the current rights version/],
+      [{ ...row(it0, 5, 'Sam Solver'), result: 'passed' }, /result must be "pass" or "fail"/],
+      [{ ...row(it0, 5, 'Sam Solver'), result: 'failed' }, /result must be "pass" or "fail"/],
+      [{ ...row(it0, 5, 'Sam Solver'), result: '' }, /result must be "pass" or "fail"/],
+      [{ ...row(it0, 5, 'Sam Solver'), date: '10/23/2026' }, /must be YYYY-MM-DD/],
+      [{ ...row(it0, 5, 'Sam Solver'), date: '2099-01-01' }, /not in the future/],
+      [{ ...row(it0, 4, 'Sam Solver'), answer: '' }, /records the answer given/],
+      [{ ...row(it0, 2, 'Lee Rights'), by: 'Someone' }, /author comes from the import/],
+    ]
+    for (const [r, why] of cases) {
+      const out = recordSignoffs(EMPTY, items, [r], R, TODAY)
+      expect(out.added, String(why)).toBe(0)
+      expect(out.refused.join(' '), String(why)).toMatch(why)
+    }
+  })
+
+  it('an unfilled template row is skipped, not refused; "FAIL" in capitals is a fail', () => {
+    const blank = { id: it0.id, stage: '4', reviewer_id: '', by: '', date: '', result: '', hash: it0.content_hash, rights_hash: '', answer: '', seconds: '', license: '', note: '' }
+    expect(recordSignoffs(EMPTY, items, [blank], R, TODAY)).toMatchObject({ added: 0, refused: [] })
+    const out = recordSignoffs(EMPTY, items, [row(it0, 6, 'Kim Fair', { result: 'FAIL', note: 'stereotype' })], R, TODAY)
+    expect(out.ledger.items[it0.id]!.signoffs[0]!.result).toBe('fail')
+  })
+})
+
+describe('recording sign-offs: a recorded fail is never erased (regression, #276 finding)', () => {
+  const reg = batch(1)
+  const items = itemsFromRegistry(reg)
+  const it0 = items[0]!
+  const fails = (l: Ledger, stage: number) => l.items[it0.id]!.signoffs.filter((s) => s.stage === stage && s.result === 'fail')
+
+  it('a later pass by the same reviewer does not remove their fail; the stage stays failed', () => {
+    let l = recordSignoffs(EMPTY, items, fullRows(it0), R, TODAY).ledger
+    l = recordSignoffs(l, items, [row(it0, 6, 'Kim Fair', { result: 'fail', note: 'assumes a car' })], R, TODAY).ledger
+    l = recordSignoffs(l, items, [row(it0, 6, 'Kim Fair', { result: 'pass', note: 'changed my mind' })], R, TODAY).ledger
+    expect(fails(l, 6)).toHaveLength(1)
+    expect(stateOf(it0, l, R)).toMatchObject({ humanApproved: false, next: 6, problems: expect.arrayContaining(['stage 6 failed: assumes a car']) })
+  })
+
+  it('another reviewer’s pass, under a name that canonically matches, does not remove the fail', () => {
+    // Two different registered people whose names are the same words in another order.
+    const reviewers = testReviewers({ [testId('Kim Fair')]: { display_name: 'Li Wang' }, [testId('Ed Copy')]: { display_name: 'Wang Li', roles: ['fairness', 'copyedit'] } })
+    let l = recordSignoffs(EMPTY, items, fullRows(it0), reviewers, TODAY).ledger
+    l = recordSignoffs(l, items, [row(it0, 6, 'Kim Fair', { result: 'fail', note: 'flagged by Li Wang' })], reviewers, TODAY).ledger
+    l = recordSignoffs(l, items, [row(it0, 6, 'Ed Copy', { result: 'pass', by: 'Wang Li' })], reviewers, TODAY).ledger
+    expect(fails(l, 6)).toHaveLength(1)
+    expect(stateOf(it0, l, reviewers).humanApproved).toBe(false)
+  })
+
+  it('a second fail is kept alongside the first; a newer pass replaces only the same reviewer’s earlier pass', () => {
+    let l = recordSignoffs(EMPTY, items, [row(it0, 5, 'Sam Solver', { result: 'fail', note: 'two answers defensible' })], R, TODAY).ledger
+    l = recordSignoffs(l, items, [row(it0, 5, 'Sam Solver', { result: 'fail', note: 'still two answers' })], R, TODAY).ledger
+    expect(fails(l, 5)).toHaveLength(2)
+    let p = recordSignoffs(EMPTY, items, [row(it0, 7, 'Ed Copy', { note: 'first' })], R, TODAY).ledger
+    p = recordSignoffs(p, items, [row(it0, 7, 'Ed Copy', { note: 'second' })], R, TODAY).ledger
+    expect(p.items[it0.id]!.signoffs.filter((s) => s.stage === 7).map((s) => s.note)).toEqual(['second'])
+  })
+
+  it('a fail on the current rights version blocks; one on an earlier rights version does not', () => {
+    let reg2 = setTrack(reg, it0.id, it0.track, testId('Pat Lead'), 'test', AT, new Set(), R)
+    let l = recordSignoffs(EMPTY, items, fullRows(it0), R, TODAY).ledger
+    l = recordSignoffs(l, items, [row(it0, 3, 'Lee Rights', { result: 'fail', note: 'v1 source unproven' })], R, TODAY).ledger
+    expect(QC.eligibility(reg2.candidates[it0.id]!, l, R).eligible).toBe(false)
+    // A new rights version (source added); its own rights check passes the same day.
+    reg2 = intake(reg2, [{ ...testOnlyBatch(1)[0]!, source_url: 'https://example.org/original-draft' }], 'TEST-ONLY-rev.jsonl', AT, new Map()).registry
+    const v2 = itemsFromRegistry(reg2)[0]!
+    expect(v2.rights_hash).not.toBe(it0.rights_hash)
+    l = recordSignoffs(l, [v2], [row(v2, 3, 'Lee Rights')], R, TODAY).ledger
+    expect(QC.eligibility(reg2.candidates[it0.id]!, l, R).eligible).toBe(true)
+    expect(fails(l, 3)).toHaveLength(1) // the old fail is still on record
+  })
+})
+
+describe('recording sign-offs: review findings', () => {
+  const reg = batch(1)
+  const items = itemsFromRegistry(reg)
+  const it0 = items[0]!
+
+  it('a fail is recorded from anyone (it can only block), including an author’s own fairness fail', () => {
+    const stranger = recordSignoffs(EMPTY, items, [{ ...row(it0, 6, 'Kim Fair', { result: 'fail', note: 'flag' }), reviewer_id: 'rv-unknown' }], R, TODAY)
+    expect(stranger).toMatchObject({ added: 1, refused: [] })
+    const own = recordSignoffs(EMPTY, items, [row(it0, 6, 'Jo Writer', { result: 'fail', note: 'my own concern' })], R, TODAY)
+    expect(own).toMatchObject({ added: 1, refused: [] })
+    expect(stateOf(it0, own.ledger, R)).toMatchObject({ humanApproved: false })
+    // A fail still has to name the current content.
+    expect(recordSignoffs(EMPTY, items, [row(it0, 6, 'Kim Fair', { result: 'fail', hash: 'old' })], R, TODAY).refused.join(' ')).toMatch(/not the current content/)
+  })
+
+  it('a partly filled row is refused, not skipped; seconds must be a whole number', () => {
+    const partial = { id: it0.id, stage: '5', reviewer_id: '', by: '', date: '', result: '', hash: it0.content_hash, rights_hash: '', answer: '', seconds: '', license: '', note: 'looks fine' }
+    expect(recordSignoffs(EMPTY, items, [partial], R, TODAY).refused.join(' ')).toMatch(/result must be "pass" or "fail"/)
+    expect(recordSignoffs(EMPTY, items, [row(it0, 4, 'Sam Solver', { seconds: 'abc' })], R, TODAY).refused.join(' ')).toMatch(/seconds must be a whole number/)
+  })
+
+  it('nothing is recorded against a registry with problems', () => {
+    const twin = testReviewers({ [testId('Ana Solver')]: { display_name: 'Sam Solver' } })
+    const r = recordSignoffs(EMPTY, items, fullRows(it0), twin, TODAY)
+    expect(r.added).toBe(0)
+    expect(r.refused[0]).toMatch(/reviewer registry has problems/)
+  })
+})
+
+describe('recording authorship for the app’s bank (stage 2)', () => {
+  const bank = itemsFromBank(QUESTIONS.slice(0, 1), new Set(), EMPTY)
+  const b0 = bank[0]!
+  const author = (who: string, name: string, extra: Record<string, string> = {}) => ({ ...row(b0, 2, who), note: name, ...extra })
+
+  it('needs an active content lead who isn’t an author, and the current hash', () => {
+    expect(recordSignoffs(EMPTY, bank, [author('Ana Solver', 'Jo Writer')], R, TODAY).refused.join(' ')).toMatch(/not an active content lead/)
+    expect(recordSignoffs(EMPTY, bank, [{ ...author('Pat Lead', 'Jo Writer'), hash: 'old' }], R, TODAY).refused.join(' ')).toMatch(/not the current content/)
+    expect(recordSignoffs(EMPTY, bank, [{ ...author('Pat Lead', ''), note: '' }], R, TODAY).refused.join(' ')).toMatch(/author’s name/)
+    // A content lead who is an author can't record the item's authorship.
+    const jo = recordSignoffs(EMPTY, bank, [author('Pat Lead', 'Jo Writer')], R, TODAY).ledger
+    expect(recordSignoffs(jo, itemsFromBank(QUESTIONS.slice(0, 1), new Set(), jo), [author('Jo Writer', 'Someone Else')], R, TODAY).refused.join(' ')).toMatch(/is an author of this item and can’t record its authorship/)
+    const ok = recordSignoffs(EMPTY, bank, [author('Pat Lead', 'Jo Writer')], R, TODAY)
+    expect(ok).toMatchObject({ added: 1, refused: [] })
+    expect(ok.ledger.items[b0.id]).toMatchObject({ author: 'Jo Writer', authors: ['AI (Claude)', 'Jo Writer'] })
+  })
+
+  it('authors are append-only: renaming the author never lets the earlier one approve, even in the same run', () => {
+    const rows = [author('Pat Lead', 'Jo Writer'), author('Claude Debussy', 'Someone Else'), row(b0, 8, 'Jo Writer')]
+    const r = recordSignoffs(EMPTY, bank, rows, R, TODAY)
+    expect(r.ledger.items[b0.id]!.authors).toEqual(['AI (Claude)', 'Jo Writer', 'Someone Else'])
+    expect(r.refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 8/)
+    // And in the ledger state, Jo stays excluded.
+    const later = recordSignoffs(r.ledger, itemsFromBank(QUESTIONS.slice(0, 1), new Set(), r.ledger), [row(b0, 8, 'Jo Writer')], R, TODAY)
+    expect(later.refused.join(' ')).toMatch(/is an author/)
+  })
+})
+
