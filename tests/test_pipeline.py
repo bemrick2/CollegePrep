@@ -1496,6 +1496,9 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual(costs.residency('out-of-state student not living at home in-district', 'TX'), 'out_of_state')
         # MD (UMD): the District of Columbia is not a district rate, and this heading is the out-of-state table.
         self.assertEqual(costs.residency('2026-2027 residents of the district of columbia, other states, and other countries', 'MD'), 'out_of_state')
+        # IN (Manchester): a "Non-Residential" (commuter) budget at a private college is not out-of-state.
+        self.assertIsNone(costs.residency('non-residential undergraduate', 'IN', private=True))
+        self.assertEqual(costs.residency('non-resident', 'IN'), 'out_of_state')
         rows = [['', 'In-District', 'Out-of-District', 'Out of State / International'],
                 ['Tuition and Fees', '$3,330', '$7,470', '$9,390'], ['Books and Supplies', '$2,450', '$2,450', '$2,450'],
                 ['TOTAL', '$5,780', '$9,920', '$11,840']]
