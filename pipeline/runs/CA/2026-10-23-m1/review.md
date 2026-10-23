@@ -1,0 +1,2607 @@
+# Review queue — CA (2026-27)
+
+Pages fetched: 2381; failures: 246. Candidates: 185 (11 without issues, 174 exceptions). Re-verification upgrades proposed: 0.
+
+## Coverage by category
+
+| category | verified_current | partially_verified_current | candidate_ready | candidate_exception | source_found | not_found | fetch_failed |
+|---|---|---|---|---|---|---|---|
+| tuition_fees | 17 | 2 | 1 | 11 | 11 | 1 | 213 |
+| cost_of_attendance | 10 | 2 | 1 | 5 | 18 | 1 | 219 |
+| admissions_tests | 1 | 0 | 0 | 0 | 26 | 1 | 228 |
+| common_data_set | 1 | 0 | 0 | 0 | 4 | 23 | 228 |
+| merit_scholarships | 4 | 1 | 0 | 0 | 27 | 0 | 224 |
+| ap_credit | 2 | 5 | 0 | 5 | 14 | 8 | 222 |
+| clep_credit | 2 | 2 | 0 | 3 | 11 | 13 | 225 |
+| ib_credit | 0 | 2 | 0 | 5 | 11 | 11 | 227 |
+| dual_enrollment | 3 | 11 | 0 | 0 | 12 | 13 | 217 |
+| transfer_credit | 0 | 13 | 2 | 0 | 24 | 0 | 217 |
+| statewide_articulation | 0 | 0 | 0 | 0 | 14 | 13 | 229 |
+| residency | 0 | 0 | 0 | 0 | 25 | 2 | 229 |
+| degree_requirements | 12 | 0 | 0 | 0 | 20 | 2 | 222 |
+| aid_appeals | 0 | 0 | 0 | 23 | 3 | 1 | 229 |
+
+## Ready for review (11)
+
+### `m6b52dc6749613a4` Bakersfield College — credit_policies 2026-27 · policy_kind=dual_enrollment [same] (source_unlabeled)
+- source: https://www.bakersfieldcollege.edu/academics/early-college/index.html (sha256 3427bc1d739c)
+- checks: {"fields": ["min_hs_gpa"], "merged_pages": 2, "tiers": 1}
+  - eligibility_tier: 2.0 ⟵ “maintenance of a cumulative GPA of 2.0 or higher (includes institutional and transfer”
+  - eligibility_tier: 2.0 ⟵ “maintenance of a cumulative GPA of 2.0 or higher (includes institutional and transfer”
+### `6791badad4f8f93d` California Polytechnic State University-San Luis Obispo — costs 2026-27 · residency=out_of_state [same] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/costs-and-affordability/undergraduate-costs-attendance-2026-2027 (sha256 e4f9bd13055b)
+- checks: {"columns": 1, "rows": 3}
+  - off_campus_not_with_family:Non-CA Resident Tuition and Fees (30u @$471/unit): 14130 ⟵ “Non-CA Resident Tuition and Fees (30u @$471/unit) | $14,130”
+  - off_campus_not_with_family:Non-CA Resident Opportunity Fee *: 8804 ⟵ “Non-CA Resident Opportunity Fee * | $8,804”
+  - off_campus_not_with_family:Non-Resident Total(Colleges of Business or Liberal Arts): 66040 ⟵ “Non-Resident Total(Colleges of Business or Liberal Arts) | $66,040”
+### `66ba10082461d7dc` California State Polytechnic University-Pomona — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.cpp.edu/admissions/international/transfer.shtml (sha256 c5951f9ee804)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C- ⟵ “English Proficiency Waivers: If all transfer criteria (60 units and “Golden Four” with grade of C- or better) have been completed at a U.S. institution If some of your transfer criteria (60 units and “Golden Four” with grade of C- or better) have been completed at a foreign college or university, then you must take the TOEFL, IELTS or Duolingo exam and earn the minimum score indicated above.”
+  - min_grade: C- ⟵ “English Proficiency Waivers: If all transfer criteria (60 units and “Golden Four” with grade of C- or better) have been completed at a U.S. institution If some of your transfer criteria (60 units and “Golden Four” with grade of C- or better) have been completed at a foreign college or university, then you must take the TOEFL, IELTS or Duolingo exam and earn the minimum score indicated above.”
+### `a70ee7ea40c0e563` California State University-Northridge — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.csun.edu/admissions-financial-aid/after-you-apply/wue (sha256 10fce53f2d5b)
+- checks: {"columns": 1, "rows": 5}
+  - column:Resident tuition and mandatory fees per term: 4164 ⟵ “Resident tuition and mandatory fees per term | Formula: $3,419 (tuition) + $745 (fees) | $4,164”
+  - column:Nonresident tuition plus resident tuition and fees per term: 11229 ⟵ “Nonresident tuition plus resident tuition and fees per term | Formula: $7,065 ($471 x 15 units) + $4,164 | $11,229”
+  - column:WUE tuition (150% of resident tuition) and fees per term: 5873.5 ⟵ “WUE tuition (150% of resident tuition) and fees per term | Formula: $5,128.50 (WUE tuition) + $745 (fees) | $5,873.50”
+  - column:WUE savings per term: 5355.5 ⟵ “WUE savings per term | Formula: $11,229 (nonresident tuition and fees) minus $5,873.50 (WUE tuition and fees) | $5,355.50”
+  - column:WUE annual savings (two terms): 10711 ⟵ “WUE annual savings (two terms) | Formula: $5,355.50 (WUE savings) x 2 terms | $10,711”
+### `c06bc525d334bf8a` California State University-Northridge — costs 2026-27 · residency=in_state [same] (labeled_in_source)
+- source: https://www.csun.edu/admissions-financial-aid/cost-financial-aid (sha256 66bf96086a19)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 7}
+  - with_parents_or_family:Tuition and Fees*: 8328 ⟵ “Tuition and Fees* | $8,328”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1438 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,438”
+  - with_parents_or_family:Housing and Food: 9530 ⟵ “Housing and Food | $9,530”
+  - with_parents_or_family:Transportation: 1808 ⟵ “Transportation | $1,808”
+  - with_parents_or_family:Personal/Miscellaneous: 2798 ⟵ “Personal/Miscellaneous | $2,798”
+  - with_parents_or_family:Loan Fees: 76 ⟵ “Loan Fees | $76”
+  - with_parents_or_family:TOTAL: 23978 ⟵ “TOTAL | $23,978”
+### `d1aaea56eed89b2c` California State University-Sacramento — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html (sha256 dde418820e26)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - column:Tuition Fee: 10484.0 ⟵ “Tuition Fee | $3,419.00 | $5,129.00 | $10,484.00”
+  - column:Associated Students Inc. Fee: 94.0 ⟵ “Associated Students Inc. Fee | $94.00 | $94.00 | $94.00”
+  - column:Intercollegiate Athletics/Spirit Leaders Fee: 246.0 ⟵ “Intercollegiate Athletics/Spirit Leaders Fee | $246.00 | $246.00 | $246.00”
+  - column:Transportation Fee: 29.0 ⟵ “Transportation Fee | $29.00 | $29.00 | $29.00”
+  - column:Recreation, Intramural, and Sports Club Fee: 70.0 ⟵ “Recreation, Intramural, and Sports Club Fee | $70.00 | $70.00 | $70.00”
+  - column:University Union/WELL Fee: 482.0 ⟵ “University Union/WELL Fee | $482.00 | $482.00 | $482.00”
+  - column:Health Facilities Fee: 31.0 ⟵ “Health Facilities Fee | $31.00 | $31.00 | $31.00”
+  - column:Instructional Related Activities Fee: 256.0 ⟵ “Instructional Related Activities Fee | $256.00 | $256.00 | $256.00”
+  - column:Student Health & Counseling Services Fee: 198.0 ⟵ “Student Health & Counseling Services Fee | $198.00 | $198.00 | $198.00”
+  - column:State Hornet Fee: 3.0 ⟵ “State Hornet Fee | $3.00 | $3.00 | $3.00”
+  - column:Total Semester Costs: 11893.0 ⟵ “Total Semester Costs | $4,828.00 | $6,538.00 | $11,893.00”
+### `e866a7c34dfc2849` California State University-San Marcos — costs 2026-27 · residency=in_state [same] (labeled_in_source)
+- source: https://www.csusm.edu/finaid/costofattendance/index.html (sha256 36019cbf6675)
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition Fee: 6838 ⟵ “Tuition Fee | $6,838 | $6,838 | $6,838”
+  - with_parents_or_family:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - with_parents_or_family:Meals: 3332 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - with_parents_or_family:Housing: 6512 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - with_parents_or_family:Transportation: 2834 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - with_parents_or_family:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - with_parents_or_family:Total: 26500 ⟵ “Total | $26,500 | $30,866 | $39,916”
+  - on_campus:Tuition Fee: 6838 ⟵ “Tuition Fee | $6,838 | $6,838 | $6,838”
+  - on_campus:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - on_campus:Meals: 3368 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - on_campus:Housing: 12020 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - on_campus:Transportation: 1656 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - on_campus:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - on_campus:Total: 30866 ⟵ “Total | $26,500 | $30,866 | $39,916”
+  - off_campus_not_with_family:Tuition Fee: 6838 ⟵ “Tuition Fee | $6,838 | $6,838 | $6,838”
+  - off_campus_not_with_family:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - off_campus_not_with_family:Meals: 7854 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - off_campus_not_with_family:Housing: 15248 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - off_campus_not_with_family:Transportation: 2992 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - off_campus_not_with_family:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - off_campus_not_with_family:Total: 39916 ⟵ “Total | $26,500 | $30,866 | $39,916”
+### `f704d4fb14bd2630` California State University-San Marcos — costs 2026-27 · residency=out_of_state [same] (labeled_in_source)
+- source: https://www.csusm.edu/finaid/costofattendance/index.html (sha256 36019cbf6675)
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition Fee: 18790 ⟵ “Tuition Fee | $18,790 | $18,790 | $18,790”
+  - with_parents_or_family:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - with_parents_or_family:Meals: 3332 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - with_parents_or_family:Housing: 6512 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - with_parents_or_family:Transportation: 2834 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - with_parents_or_family:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - with_parents_or_family:Total: 38452 ⟵ “Total | $38,452 | $42,818 | $51,868”
+  - on_campus:Tuition Fee: 18790 ⟵ “Tuition Fee | $18,790 | $18,790 | $18,790”
+  - on_campus:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - on_campus:Meals: 3368 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - on_campus:Housing: 12020 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - on_campus:Transportation: 1656 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - on_campus:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - on_campus:Total: 42818 ⟵ “Total | $38,452 | $42,818 | $51,868”
+  - off_campus_not_with_family:Tuition Fee: 18790 ⟵ “Tuition Fee | $18,790 | $18,790 | $18,790”
+  - off_campus_not_with_family:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - off_campus_not_with_family:Meals: 7854 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - off_campus_not_with_family:Housing: 15248 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - off_campus_not_with_family:Transportation: 2992 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - off_campus_not_with_family:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - off_campus_not_with_family:Total: 51868 ⟵ “Total | $38,452 | $42,818 | $51,868”
+### `m134202b61d5e3a5` San Diego Mesa College — credit_policies 2026-27 · policy_kind=dual_enrollment [changed] (source_unlabeled)
+- source: https://www.sdmesa.edu/student-support/dual-enrollment/_assets/HSPowerpoint.pdf (sha256 22a65ab33c61)
+- checks: {"fields": ["min_hs_gpa"], "merged_pages": 2, "tiers": 1}
+- change dual_enrollment: `{'college_gpa_to_continue': 2.0}` → `{'college_gpa_to_continue': 2.0, 'eligibility_tiers': [{'grades': [], 'min_hs_gpa': 2.5, 'line': 'üMinimum HS GPA of 2.5 or higher; 3.0 Recommended'}], 'min_hs_gpa': 2.5}`
+  - college_gpa_to_continue: 2.0 ⟵ “Students must maintain a 2.0 grade point average each semester in all college work.”
+  - eligibility_tier: 2.5 ⟵ “üMinimum HS GPA of 2.5 or higher; 3.0 Recommended”
+### `m5953a6673d4e7f9` San Jose State University — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.sjsu.edu/admissions/international-transfer/admission-requirements/csu-eligibility-requirements/index.php (sha256 883bf2fd09d7)
+- checks: {"fields": ["min_grade"], "merged_pages": 2}
+  - min_grade: C- ⟵ “Complete a transferable A2/1A and B4/2 college course with a grade of "C-" or better.”
+  - min_grade: C- ⟵ “Step 11 - Complete all required courses with grades of “C-” or better by the end of the Spring term You cannot use summer coursework immediately prior to the fall term of admission to meet transfer admission requirements.”
+### `642c9dda6ea2f8d6` University of the People — transfer_policies 2026-27 [same] (source_unlabeled)
+- source: https://www.uopeople.edu/wp-content/uploads/2026/09/Transfer-Credit-Policy-09022026.pdf (sha256 160b68fd81ee)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Each course considered for transfer must have a grade of “C” or above.”
+
+## Exceptions (174)
+
+### `243d00b165459ee3` Antelope Valley Community College District — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.avc.edu/sites/default/files/studentservices/finaid/SAP%20Policy.pdf (sha256 e96c7ff82ec9)
+- issues: semantic_review_required, conflicting_sources:https://www.avc.edu/financial-aid-scholarships/disbursement-and-refund-information,https://www.avc.edu/financial-aid-scholarships/eligibility
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “EXCEPTIONS Students who have extenuating circumstances may appeal for an exception to the satisfactory academic progress regulations.”
+  - sentence: sap_appeal ⟵ “Students granted an exception will be placed on probation, must meet satisfactory academic progress standards and abide by the conditions determined by the Appeal Committee during the probationary period.”
+### `2f064cc57d206d8a` Antelope Valley Community College District — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.avc.edu/financial-aid-scholarships/eligibility (sha256 a35f53231612)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.avc.edu/financial-aid-scholarships/disbursement-and-refund-information,https://www.avc.edu/sites/default/files/studentservices/finaid/SAP%20Policy.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “If you no longer meet Satisfactory Academic progress you can submit a SAP Appeal to the Financial Aid office.”
+### `c5a74a68c99d194b` Antelope Valley Community College District — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.avc.edu/financial-aid-scholarships/special-circumstances (sha256 0d8dedbead71)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Dependency Override Appeal If you are unable to provide parent information on your financial aid application due to an extenuating circumstance contact the Financial Aid Office.”
+### `eb5946e9de31e313` Antelope Valley Community College District — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.avc.edu/financial-aid-scholarships/disbursement-and-refund-information (sha256 f65d6d8b2df8)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.avc.edu/financial-aid-scholarships/eligibility,https://www.avc.edu/sites/default/files/studentservices/finaid/SAP%20Policy.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Disbursement Frequently Asked Questions If you are not currently in good academic standing you need to submit a SAP appeal to our office.”
+### `41c1b3da285c8d3e` Bakersfield College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.bakersfieldcollege.edu/enrollment-aid/financial-aid/appeals/satisfactory-academic-progress-sap.html (sha256 cb4b57c3333a)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Deadline to Submit Appeal The SAP appeal, with all attached documentation, must be received by the Financial Aid Office no later than 10 days prior to the end of the semester in order to be reviewed.”
+  - sentence: sap_appeal ⟵ “For instance, if you submitted your SAP appeal in January, and it was approved, you would only qualify for aid for the Spring semester, not the previous Fall.”
+### `b9a0369b99065140` Bakersfield College — appeals 2022-23 [new] (labeled_in_source)
+- source: https://www.bakersfieldcollege.edu/enrollment-aid/financial-aid/appeals/appeal-for-financial-aid-reinstatement-instructions.html (sha256 5030c387ae73)
+- issues: stale_year_label:2022-23, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Download the SAP Appeal Statement Form.”
+  - sentence: sap_appeal ⟵ “Complete and upload passing test results for the following Financial Aid TV (FATV) Appeal Counseling sessions: Understanding the Pell Lifetime Eligibility Used (LEU) and its Effects Upload the SAP Appeal by typing your Name in the box indicated on the PDF fillable Signed Statement Request form and electronically submitting it by pressing the Continue button.”
+  - sentence: sap_appeal ⟵ “All questions must be answered on the SAP Appeal Statement Form to be considered complete for submission.”
+### `cb486dcec83a0ff4` Bakersfield College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.bakersfieldcollege.edu/enrollment-aid/financial-aid/index.html (sha256 e8461c8a2ec5)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Get Answers 24/7/365 at FATV Office of Financial Aid You Can Afford College Resources Consumer InformationFREE Financial Literacy with CashCourseHelpful LinksWorkshopsForms Things to Know FSA IDFinancial Aid Frequently Asked QuestionsPrograms OverviewVerification ProcessProfessional Judgement - Special/Unusual Circumstances Consortium Agreements Consortium Agreements allow students enrolled at mor”
+### `131011a4f39b8bf7` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals (sha256 cd372e210bed)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/first-year-student/cost-and-aid,https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals,https://www.calpoly.edu/admissions/transfer-student/accepted/checklist,https://www.calpoly.edu/admissions/transfer-student/cost-and-aid,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Not Selected Residency Returning Students Waitlist Cal Poly Admissions Office admissions@calpoly.edu 805-756-2311 1 Grand Avenue, San Luis Obispo, CA 93407 805-756-1111 Global Footer Primary University Home My Cal Poly Portal Social Media Directory Campus Map Campus Safety Global Footer Secondary Privacy Notice Website Feedback Web Accessibility Statement Title IX Campus Annu”
+### `586a07d028f53353` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/admissions/transfer-student/accepted/checklist (sha256 cf34def2a2cc)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/first-year-student/cost-and-aid,https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals,https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals,https://www.calpoly.edu/admissions/transfer-student/cost-and-aid,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Not Selected Residency Returning Students Waitlist Cal Poly Admissions Office admissions@calpoly.edu 805-756-2311 1 Grand Avenue, San Luis Obispo, CA 93407 805-756-1111 Global Footer Primary University Home My Cal Poly Portal Social Media Directory Campus Map Campus Safety Global Footer Secondary Privacy Notice Website Feedback Web Accessibility Statement Title IX Campus Annu”
+### `9f6fa35e9970c567` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals (sha256 cceebd397cf4)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/first-year-student/cost-and-aid,https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals,https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals,https://www.calpoly.edu/admissions/transfer-student/accepted/checklist,https://www.calpoly.edu/admissions/transfer-student/cost-and-aid,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Completing Senior Project/Thesis If you are working on your senior project or a thesis, your grades while the project is in progress will reflect as RP.”
+### `9f90dae075534846` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/admissions/first-year-student/cost-and-aid (sha256 ad8b6563f394)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals,https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals,https://www.calpoly.edu/admissions/transfer-student/accepted/checklist,https://www.calpoly.edu/admissions/transfer-student/cost-and-aid,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Not Selected Residency Returning Students Waitlist Cal Poly Admissions Office admissions@calpoly.edu 805-756-2311 1 Grand Avenue, San Luis Obispo, CA 93407 805-756-1111 Global Footer Primary University Home My Cal Poly Portal Social Media Directory Campus Map Campus Safety Global Footer Secondary Privacy Notice Website Feedback Web Accessibility Statement Title IX Campus Annu”
+### `a83358b760efbaa9` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/admissions/transfer-student/cost-and-aid (sha256 8b3942f6e971)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/first-year-student/cost-and-aid,https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals,https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals,https://www.calpoly.edu/admissions/transfer-student/accepted/checklist,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Not Selected Residency Returning Students Waitlist Cal Poly Admissions Office admissions@calpoly.edu 805-756-2311 1 Grand Avenue, San Luis Obispo, CA 93407 805-756-1111 Global Footer Primary University Home My Cal Poly Portal Social Media Directory Campus Map Campus Safety Global Footer Secondary Privacy Notice Website Feedback Web Accessibility Statement Title IX Campus Annu”
+### `b647f446224b1152` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals (sha256 640feeaf6103)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/first-year-student/cost-and-aid,https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals,https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals,https://www.calpoly.edu/admissions/transfer-student/accepted/checklist,https://www.calpoly.edu/admissions/transfer-student/cost-and-aid,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “If you or your family have experienced significant financial changes or unusual circumstances, you may be able to submit a Special Circumstances appeal for review.”
+  - sentence: need_based_special_circumstances ⟵ “Because Special Circumstances appeals require individualized review and supporting documentation, processing times may be lengthy and we are unable to estimate the potential impact of an appeal or provide an average adjustment amount.”
+### `c852778aeda494b0` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/admissions/not-selected/admission-decision-appeals (sha256 b44163ccf56b)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/admissions/first-year-student/cost-and-aid,https://www.calpoly.edu/admissions/residency-for-tuition-purposes/appeals,https://www.calpoly.edu/admissions/transfer-student/accepted/checklist,https://www.calpoly.edu/admissions/transfer-student/cost-and-aid,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals,https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Not Selected Residency Returning Students Waitlist Cal Poly Admissions Office admissions@calpoly.edu 805-756-2311 1 Grand Avenue, San Luis Obispo, CA 93407 805-756-1111 Global Footer Primary University Home My Cal Poly Portal Social Media Directory Campus Map Campus Safety Global Footer Secondary Privacy Notice Website Feedback Web Accessibility Statement Title IX Campus Annu”
+### `da869425874d03ee` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals (sha256 cceebd397cf4)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals/satisfactory-academic-progress-appeal
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “If you choose not to appeal and maintain satisfactory academic progress for the year, you will automatically be reconsidered for financial aid eligibility the following year.”
+### `f030a3a351d8c4e7` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals/satisfactory-academic-progress-appeal (sha256 71f3d3b7dfc2)
+- issues: semantic_review_required, conflicting_sources:https://www.calpoly.edu/financial-aid/manage-your-financial-aid/policies/satisfactory-academic-progress/appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “The SAP Appeal is used by students who are not meeting SAP requirements and wish to request reconsideration of their financial aid eligibility.”
+### `f46e26f8c96c39a9` California Polytechnic State University-San Luis Obispo — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/manage-your-financial-aid/special-circumstance-appeals (sha256 640feeaf6103)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “These appeals are reviewed individually through a federally authorized process called Professional Judgment, which allows financial aid administrators to evaluate documented circumstances within established federal guidelines.”
+### `3aea189d5dafed5d` California Polytechnic State University-San Luis Obispo — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/costs-and-affordability/undergraduate-costs-attendance-2025-26 (sha256 389221d992c0)
+- issues: multiple_total_rows, stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 18}
+  - on_campus:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 15039 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $15,039”
+  - on_campus:Tuition and Fees (College of Science and Math or College of Business): 14037 ⟵ “Tuition and Fees (College of Science and Math or College of Business) | $14,037”
+  - on_campus:Tuition and Fees (College of Liberal Arts): 14037 ⟵ “Tuition and Fees (College of Liberal Arts) | $14,037”
+  - on_campus:Non-Resident Tuition: 13320 ⟵ “Non-Resident Tuition | $13,320”
+  - on_campus:Opportunity Fee: 8646 ⟵ “Opportunity Fee | $8,646”
+  - on_campus:Total Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 37005 ⟵ “Total Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $37,005”
+  - on_campus:Total Tuition and Fees (College of Science and Math or College of Business): 36003 ⟵ “Total Tuition and Fees (College of Science and Math or College of Business) | $36,003”
+  - on_campus:Total Tuition and Fees (College of Liberal Arts): 36003 ⟵ “Total Tuition and Fees (College of Liberal Arts) | $36,003”
+  - on_campus:Books and Materials: 1119 ⟵ “Books and Materials | $1,119”
+  - on_campus:Housing: 12045 ⟵ “Housing | $12,045”
+  - on_campus:Meals: 7398 ⟵ “Meals | $7,398”
+  - on_campus:Miscellaneous Costs: 2526 ⟵ “Miscellaneous Costs | $2,526”
+  - on_campus:Transportation: 1410 ⟵ “Transportation | $1,410”
+  - on_campus:Loan Fees: 72 ⟵ “Loan Fees | $72”
+  - on_campus:Total Non-Tuition and Fee Expenses: 24570 ⟵ “Total Non-Tuition and Fee Expenses | $24,570”
+  - on_campus:Total (Colleges of Engineering, Architecture or Agriculture): 61575 ⟵ “Total (Colleges of Engineering, Architecture or Agriculture) | $61,575”
+  - on_campus:Total (College of Science and Math or College of Business): 60573 ⟵ “Total (College of Science and Math or College of Business) | $60,573”
+  - on_campus:Total (College of Liberal Arts): 60573 ⟵ “Total (College of Liberal Arts) | $60,573”
+### `4ae3114b543dbfbb` California Polytechnic State University-San Luis Obispo — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/costs-and-affordability/undergraduate-costs-attendance-2025-26 (sha256 389221d992c0)
+- issues: multiple_total_rows, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 3, "rows": 13}
+  - on_campus:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 15039 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $15,039 | $15,039 | $15,039”
+  - on_campus:Tuition and Fees (College of Science and Math or College of Business): 14037 ⟵ “Tuition and Fees (College of Science and Math or College of Business) | $14,037 | $14,037 | $14,037”
+  - on_campus:Tuition and Fees (College of Liberal Arts): 14037 ⟵ “Tuition and Fees (College of Liberal Arts) | $14,037 | $14,037 | $14,037”
+  - on_campus:Books and Materials: 1119 ⟵ “Books and Materials | $1,119 | $1,119 | $1,119”
+  - on_campus:Housing: 15882 ⟵ “Housing | $15,882 | $13,761 | $4,734”
+  - on_campus:Meals: 6804 ⟵ “Meals | $6,804 | $7,146 | $7,101”
+  - on_campus:Miscellaneous Costs: 2526 ⟵ “Miscellaneous Costs | $2,526 | $3,132 | $4,140”
+  - on_campus:Transportation: 1410 ⟵ “Transportation | $1,410 | $2,583 | $1,818”
+  - on_campus:Loan Fees: 72 ⟵ “Loan Fees | $72 | $72 | $72”
+  - on_campus:Total Non-Tuition and Fee Expenses: 27813 ⟵ “Total Non-Tuition and Fee Expenses | $27,813 | $27,813 | $18,984”
+  - on_campus:Total (Colleges of Engineering, Architecture or Agriculture): 42852 ⟵ “Total (Colleges of Engineering, Architecture or Agriculture) | $42,852 | $42,852 | $34,023”
+  - on_campus:Total (College of Science and Math or College of Business): 41850 ⟵ “Total (College of Science and Math or College of Business) | $41,850 | $41,850 | $33,021”
+  - on_campus:Total (College of Liberal Arts): 41850 ⟵ “Total (College of Liberal Arts) | $41,850 | $41,850 | $33,021”
+  - off_campus_not_with_family:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 15039 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $15,039 | $15,039 | $15,039”
+  - off_campus_not_with_family:Tuition and Fees (College of Science and Math or College of Business): 14037 ⟵ “Tuition and Fees (College of Science and Math or College of Business) | $14,037 | $14,037 | $14,037”
+  - off_campus_not_with_family:Tuition and Fees (College of Liberal Arts): 14037 ⟵ “Tuition and Fees (College of Liberal Arts) | $14,037 | $14,037 | $14,037”
+  - off_campus_not_with_family:Books and Materials: 1119 ⟵ “Books and Materials | $1,119 | $1,119 | $1,119”
+  - off_campus_not_with_family:Housing: 13761 ⟵ “Housing | $15,882 | $13,761 | $4,734”
+  - off_campus_not_with_family:Meals: 7146 ⟵ “Meals | $6,804 | $7,146 | $7,101”
+  - off_campus_not_with_family:Miscellaneous Costs: 3132 ⟵ “Miscellaneous Costs | $2,526 | $3,132 | $4,140”
+  - off_campus_not_with_family:Transportation: 2583 ⟵ “Transportation | $1,410 | $2,583 | $1,818”
+  - off_campus_not_with_family:Loan Fees: 72 ⟵ “Loan Fees | $72 | $72 | $72”
+  - off_campus_not_with_family:Total Non-Tuition and Fee Expenses: 27813 ⟵ “Total Non-Tuition and Fee Expenses | $27,813 | $27,813 | $18,984”
+  - off_campus_not_with_family:Total (Colleges of Engineering, Architecture or Agriculture): 42852 ⟵ “Total (Colleges of Engineering, Architecture or Agriculture) | $42,852 | $42,852 | $34,023”
+  - off_campus_not_with_family:Total (College of Science and Math or College of Business): 41850 ⟵ “Total (College of Science and Math or College of Business) | $41,850 | $41,850 | $33,021”
+  - … 14 more rows
+### `9e4c7b2483dc1735` California Polytechnic State University-San Luis Obispo — costs 2025-26 · residency=in_state [new] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/costs-and-affordability/undergraduate-costs-attendance-2025-26 (sha256 389221d992c0)
+- issues: multiple_total_rows, stale_year_label:2025-26
+- checks: {"columns": 3, "rows": 13}
+  - on_campus:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 14175 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $14,175 | $14,175 | $14,175”
+  - on_campus:Tuition and Fees (Colleges of Science and Math or College of Business): 13425 ⟵ “Tuition and Fees (Colleges of Science and Math or College of Business) | $13,425 | $13,425 | $13,425”
+  - on_campus:Tuition and Fees (College of Liberal Arts): 13281 ⟵ “Tuition and Fees (College of Liberal Arts) | $13,281 | $13,281 | $13,281”
+  - on_campus:Books and Materials: 1119 ⟵ “Books and Materials | $1,119 | $1,119 | $1,119”
+  - on_campus:Housing: 15882 ⟵ “Housing | $15,882 | $13,761 | $4,734”
+  - on_campus:Meals: 6804 ⟵ “Meals | $6,804 | $7,146 | $7,101”
+  - on_campus:Miscellaneous Costs: 2526 ⟵ “Miscellaneous Costs | $2,526 | $3,132 | $4,140”
+  - on_campus:Transportation: 1410 ⟵ “Transportation | $1,410 | $2,583 | $1,818”
+  - on_campus:Loan Fees: 72 ⟵ “Loan Fees | $72 | $72 | $72”
+  - on_campus:Total Non-Tuition and Fee Expenses: 27813 ⟵ “Total Non-Tuition and Fee Expenses | $27,813 | $27,813 | $18,984”
+  - on_campus:Total (Colleges of Engineering, Architecture or Agriculture): 41988 ⟵ “Total (Colleges of Engineering, Architecture or Agriculture) | $41,988 | $41,988 | $33,159”
+  - on_campus:Total (College of Science and Math or College of Business): 41238 ⟵ “Total (College of Science and Math or College of Business) | $41,238 | $41,238 | $32,409”
+  - on_campus:Total (College of Liberal Arts): 41094 ⟵ “Total (College of Liberal Arts) | $41,094 | $41,094 | $32,265”
+  - off_campus_not_with_family:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 14175 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $14,175 | $14,175 | $14,175”
+  - off_campus_not_with_family:Tuition and Fees (Colleges of Science and Math or College of Business): 13425 ⟵ “Tuition and Fees (Colleges of Science and Math or College of Business) | $13,425 | $13,425 | $13,425”
+  - off_campus_not_with_family:Tuition and Fees (College of Liberal Arts): 13281 ⟵ “Tuition and Fees (College of Liberal Arts) | $13,281 | $13,281 | $13,281”
+  - off_campus_not_with_family:Books and Materials: 1119 ⟵ “Books and Materials | $1,119 | $1,119 | $1,119”
+  - off_campus_not_with_family:Housing: 13761 ⟵ “Housing | $15,882 | $13,761 | $4,734”
+  - off_campus_not_with_family:Meals: 7146 ⟵ “Meals | $6,804 | $7,146 | $7,101”
+  - off_campus_not_with_family:Miscellaneous Costs: 3132 ⟵ “Miscellaneous Costs | $2,526 | $3,132 | $4,140”
+  - off_campus_not_with_family:Transportation: 2583 ⟵ “Transportation | $1,410 | $2,583 | $1,818”
+  - off_campus_not_with_family:Loan Fees: 72 ⟵ “Loan Fees | $72 | $72 | $72”
+  - off_campus_not_with_family:Total Non-Tuition and Fee Expenses: 27813 ⟵ “Total Non-Tuition and Fee Expenses | $27,813 | $27,813 | $18,984”
+  - off_campus_not_with_family:Total (Colleges of Engineering, Architecture or Agriculture): 41988 ⟵ “Total (Colleges of Engineering, Architecture or Agriculture) | $41,988 | $41,988 | $33,159”
+  - off_campus_not_with_family:Total (College of Science and Math or College of Business): 41238 ⟵ “Total (College of Science and Math or College of Business) | $41,238 | $41,238 | $32,409”
+  - … 14 more rows
+### `d3d94ea81fce658c` California Polytechnic State University-San Luis Obispo — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.calpoly.edu/financial-aid/costs-and-affordability/undergraduate-costs-attendance-2026-2027 (sha256 e4f9bd13055b)
+- issues: multiple_total_rows
+- checks: {"columns": 3, "rows": 15}
+  - on_campus:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 15720 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $15,720 | $15,720 | $15,720”
+  - on_campus:Tuition and Fees (College of Science and Math, College of Business, College of Liberal Arts): 14682 ⟵ “Tuition and Fees (College of Science and Math, College of Business, College of Liberal Arts) | $14,682 | $14,682 | $14,682”
+  - on_campus:Housing: 8265 ⟵ “Housing | $8,265 | $11,396 | $4,183”
+  - on_campus:Meals: 8000 ⟵ “Meals | $8,000 | $7,184 | $6,274”
+  - on_campus:Medical Insurance (more in Spring): 1459 ⟵ “Medical Insurance (more in Spring) | $1,459 | $1,459 | $1,459”
+  - on_campus:Books and Materials: 1092 ⟵ “Books and Materials | $1,092 | $1,092 | $1,092”
+  - on_campus:Miscellaneous Costs: 2587 ⟵ “Miscellaneous Costs | $2,587 | $3,525 | $3,055”
+  - on_campus:Transportation: 1466 ⟵ “Transportation | $1,466 | $2,375 | $2,377”
+  - on_campus:Loan Fees: 72 ⟵ “Loan Fees | $72 | $72 | $72”
+  - on_campus:Estimated Uniform Expenses No Uniform (TST) (All in Fall): 1829 ⟵ “Estimated Uniform Expenses No Uniform (TST) (All in Fall) | $1,829 | $1,829 | $1,829”
+  - on_campus:No Uniform (TST): 0 ⟵ “No Uniform (TST) | 0 | 0 | 0”
+  - on_campus:Total(Colleges of Engineering or Agriculture) + Uniform: 40490 ⟵ “Total(Colleges of Engineering or Agriculture) + Uniform | $40,490 | $44,652 | $36,061”
+  - on_campus:Total(Colleges of Science and Math, Business or Liberal Arts) + Uniform: 39452 ⟵ “Total(Colleges of Science and Math, Business or Liberal Arts) + Uniform | $39,452 | $43,614 | $35,023”
+  - on_campus:Total(Colleges of Engineering or Agriculture) + NO Uniform + No Med Ins: 37202 ⟵ “Total(Colleges of Engineering or Agriculture) + NO Uniform + No Med Ins | $37,202 | $41,364 | $32,773”
+  - on_campus:Total(Colleges of Science and Math, Business or Liberal Arts) + NO Uniform + No Med Ins: 36164 ⟵ “Total(Colleges of Science and Math, Business or Liberal Arts) + NO Uniform + No Med Ins | $36,164 | $40,326 | $31,735”
+  - off_campus_not_with_family:Tuition and Fees (Colleges of Engineering, Architecture or Agriculture): 15720 ⟵ “Tuition and Fees (Colleges of Engineering, Architecture or Agriculture) | $15,720 | $15,720 | $15,720”
+  - off_campus_not_with_family:Tuition and Fees (College of Science and Math, College of Business, College of Liberal Arts): 14682 ⟵ “Tuition and Fees (College of Science and Math, College of Business, College of Liberal Arts) | $14,682 | $14,682 | $14,682”
+  - off_campus_not_with_family:Housing: 11396 ⟵ “Housing | $8,265 | $11,396 | $4,183”
+  - off_campus_not_with_family:Meals: 7184 ⟵ “Meals | $8,000 | $7,184 | $6,274”
+  - off_campus_not_with_family:Medical Insurance (more in Spring): 1459 ⟵ “Medical Insurance (more in Spring) | $1,459 | $1,459 | $1,459”
+  - off_campus_not_with_family:Books and Materials: 1092 ⟵ “Books and Materials | $1,092 | $1,092 | $1,092”
+  - off_campus_not_with_family:Miscellaneous Costs: 3525 ⟵ “Miscellaneous Costs | $2,587 | $3,525 | $3,055”
+  - off_campus_not_with_family:Transportation: 2375 ⟵ “Transportation | $1,466 | $2,375 | $2,377”
+  - off_campus_not_with_family:Loan Fees: 72 ⟵ “Loan Fees | $72 | $72 | $72”
+  - off_campus_not_with_family:Estimated Uniform Expenses No Uniform (TST) (All in Fall): 1829 ⟵ “Estimated Uniform Expenses No Uniform (TST) (All in Fall) | $1,829 | $1,829 | $1,829”
+  - … 20 more rows
+### `481a265fcc3762da` California State Polytechnic University-Pomona — appeals 2027-28 [new] (labeled_in_heading)
+- source: https://www.cpp.edu/financial-aid/ (sha256 7e073c012b82)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “View Past Financial Aid Friday Webinars Federal Student Aid Changes (Fall 2026) Fall SAP Appeals Due November 23!”
+### `b0cef44a0beeaeb6` California State Polytechnic University-Pomona — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.cpp.edu/admissions/other-resources/wue.shtml (sha256 e481695d1ce6)
+- issues: arrangement_unlabeled, residency_names_another_state, residency_unknown
+- checks: {"columns": 2, "components_reconcile": true, "rows": 4}
+  - column:Tuition Fee*: 6838 ⟵ “Tuition Fee* | $6,838 | $10,257”
+  - column:Mandatory Campus Fees: 1700 ⟵ “Mandatory Campus Fees | $1,700 | $1,700”
+  - column:Non-Resident Fees* ($471 per unit): 14130 ⟵ “Non-Resident Fees* ($471 per unit) | $14,130 | $0”
+  - column:Total: 22668 ⟵ “Total | $22,668 | $11,957”
+  - column:Tuition Fee*: 10257 ⟵ “Tuition Fee* | $6,838 | $10,257”
+  - column:Mandatory Campus Fees: 1700 ⟵ “Mandatory Campus Fees | $1,700 | $1,700”
+  - column:Non-Resident Fees* ($471 per unit): 0 ⟵ “Non-Resident Fees* ($471 per unit) | $14,130 | $0”
+  - column:Total: 11957 ⟵ “Total | $22,668 | $11,957”
+### `02fede66bbcbce1a` California State University-Fresno — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/financialaid/documents/26-27/26-27sap-policy.pdf (sha256 8bf88fe776b4)
+- issues: semantic_review_required, conflicting_sources:https://studentaffairs.fresnostate.edu/financialaid/documents/sap-policy.pdf,https://studentaffairs.fresnostate.edu/financialaid/index.html,https://studentaffairs.fresnostate.edu/financialaid/policies/sap/index.html
+- checks: {"negative_sentences": 0, "sentences": 14}
+  - sentence: sap_appeal ⟵ “Re-admitted students who failed to meet SAP must follow the appeal process described in the satisfactory academic progress appeal instructions found at fresnostate.studentforms.com.”
+  - sentence: sap_appeal ⟵ “Credential, master's, and doctoral programs are within the post-baccalaureate career; multiple programs/degrees in the same career may need to go through the SAP appeal process.”
+  - sentence: sap_appeal ⟵ “Part 4: Other Provisions • Students with an academic history showing patterns of enrollment inability or unwillingness to progress, such as several Satisfactory Academic Progress appeals, withdrawals, repeats, incompletes, or enrollment inconsistent with the student's educational objective, may be regarded as ineligible for future financial aid.”
+  - sentence: sap_appeal ⟵ “SAP APPEALS Students disqualified for failing to meet any of the four SAP components will be notified by campus email.”
+  - sentence: sap_appeal ⟵ “SAP Appeal examples are not limited to the reasons listed below. *A student cannot change their major more than 2 times as an extenuating circumstance for attempted excess units for a SAP appeal Along with the SAP Appeal, the student must submit an explanation of why the student failed to meet SAP, what has changed in the student’s situation that allows the student to demonstrate satisfactory acad”
+  - sentence: sap_appeal ⟵ “SAP APPEAL REQUIREMENTS SAP appeals are submitted through fresnostate.studentforms.com and must include ALL of the following: 1.”
+### `61225d4747a5fbd7` California State University-Fresno — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/financialaid/documents/26-27/26-27sap-policy.pdf (sha256 8bf88fe776b4)
+- issues: semantic_review_required, conflicting_sources:https://studentaffairs.fresnostate.edu/financialaid/documents/sap-policy.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Note: Under Federal Regulations, for an appeal to be approved, a student must mathematically calculate to the minimum GPA requirement per their Graduation Plan, regardless of their special circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “Note: Under Federal Regulations, for an appeal to be approved, a student must mathematically calculate to the minimum GPA requirements per their Graduation Plan, regardless of their special circumstance.”
+### `9e951a38e435381c` California State University-Fresno — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://studentaffairs.fresnostate.edu/financialaid/policies/sap/index.html (sha256 74804eae38dc)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://studentaffairs.fresnostate.edu/financialaid/documents/26-27/26-27sap-policy.pdf,https://studentaffairs.fresnostate.edu/financialaid/documents/sap-policy.pdf,https://studentaffairs.fresnostate.edu/financialaid/index.html
+- checks: {"negative_sentences": 0, "sentences": 25}
+  - sentence: sap_appeal ⟵ “Please see below for the following information about Satisfactory Academic Progress (SAP) Policies and Procedures: General Requirements SAP Policy and Appeal Forms Maintaining Eligibility SAP Statuses and Implications SAP Appeal Process and Examples General Requirements Students who do not meet the SAP requirements cannot receive financial aid until regaining eligibility.”
+  - sentence: sap_appeal ⟵ “Submit a SAP appeal and the appeal is approved Appeals are reviewed by the Financial Aid and Scholarships Office, which reserves the right to deny an appeal.”
+  - sentence: sap_appeal ⟵ “SAP Policy and Appeal Forms Fresno State's Satisfactory Academic Progress (SAP) Policy (2026-2027 and beyond): Detailed information on the current Fresno State SAP Policy.”
+  - sentence: sap_appeal ⟵ “SAP Appeals and Deadlines for 2025-2026: Fall 2025, Spring 2026, Summer 2026 2025-2026 SAP Appeals: For the 2025-2026 academic year, SAP appeals will be accepted on our Student Forms portal.”
+  - sentence: sap_appeal ⟵ “You can find more information in the details of the To Do item, but you will be able to log in and/or create your account at fresnostate.studentforms.com where you will be able to submit your SAP appeal electronically!”
+  - sentence: sap_appeal ⟵ “SAP Appeals and Deadlines for 2026-2027: Fall 2026, Spring 2027, Summer 2027 2026-2027 SAP Appeals: For the 2026-2027 academic year, SAP appeals will be accepted on our Student Forms portal.”
+### `d958ce1b1edf6b56` California State University-Fresno — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/financialaid/documents/sap-policy.pdf (sha256 d28ac5a9522d)
+- issues: semantic_review_required, conflicting_sources:https://studentaffairs.fresnostate.edu/financialaid/documents/26-27/26-27sap-policy.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Note: Under Federal Regulations, for an appeal to be approved, a student must mathematically calculate to the minimum cumulative GPA requirement by their degree completion per their Graduation Plan, regardless of their special circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “Note: Under Federal Regulations, for an appeal to be approved, a student must mathematically calculate to the minimum GPA requirements per their Graduation Plan, regardless of their special circumstance.”
+### `e33df732c53eb3e7` California State University-Fresno — appeals 2026-27 [new] (labeled_in_heading)
+- source: https://studentaffairs.fresnostate.edu/financialaid/index.html (sha256 4c134b573159)
+- issues: semantic_review_required, conflicting_sources:https://studentaffairs.fresnostate.edu/financialaid/documents/26-27/26-27sap-policy.pdf,https://studentaffairs.fresnostate.edu/financialaid/documents/sap-policy.pdf,https://studentaffairs.fresnostate.edu/financialaid/policies/sap/index.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “If you are not meeting SAP, you can submit a SAP appeal for consideration.”
+### `e47180f011ff3fe2` California State University-Fresno — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/financialaid/documents/sap-policy.pdf (sha256 d28ac5a9522d)
+- issues: semantic_review_required, conflicting_sources:https://studentaffairs.fresnostate.edu/financialaid/documents/26-27/26-27sap-policy.pdf,https://studentaffairs.fresnostate.edu/financialaid/index.html,https://studentaffairs.fresnostate.edu/financialaid/policies/sap/index.html
+- checks: {"negative_sentences": 0, "sentences": 14}
+  - sentence: sap_appeal ⟵ “Readmitted students who failed to meet SAP must follow the appeal process described in the satisfactory academic progress appeal instructions found at fresnostate.studentforms.com.”
+  - sentence: sap_appeal ⟵ “Credential, master's, and doctoral programs are within the post-baccalaureate career; multiple programs/degrees in the same career may need to go through the SAP appeal process.”
+  - sentence: sap_appeal ⟵ “Part 4: Other Provisions • Students with an academic history showing patterns of enrollment inability or unwillingness to progress, such as several Satisfactory Academic Progress appeals, withdrawals, repeats, incompletes, or enrollment inconsistent with the student's educational objective, may be regarded as ineligible for future financial aid.”
+  - sentence: sap_appeal ⟵ “SAP APPEALS Students disqualified for failing to meet any of the four SAP components will be notified by campus email.”
+  - sentence: sap_appeal ⟵ “SAP Appeal examples are not limited to the reasons listed below. *A student cannot change their major more than 2 times as an extenuating circumstance for attempted excess units for a SAP appeal Along with the SAP Appeal, the student must submit an explanation of why the student failed to meet SAP, what has changed in the student’s situation that allows the student to demonstrate satisfactory acad”
+  - sentence: sap_appeal ⟵ “SAP APPEAL REQUIREMENTS SAP appeals are submitted through fresnostate.studentforms.com and must include ALL of the following: 1.”
+### `0e06883609567878` California State University-Fresno — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/registrar/articulation/externalexamcredit/index.html (sha256 6d2f7c6df82d)
+- issues: merged_score_cells, score_scale_mismatch, course_column_missing
+- checks: {"distinct_exams": 35, "equivalencies": 39, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]:  ⟵ “African American Studies | AFRS Elective | 3 | N/A”
+  - equivalencies[AP-ART-HISTORY|33]:  ⟵ “Art History | ARTH 10ARTH 11 | 33 | Area 3A or 3B (Area C1 or C2)Area 3A or 3B (Area C1 or C2”
+  - equivalencies[AP-2-D-ART-DESIGN|3]:  ⟵ “Art Studio – 2D Design | ART Elective | 3 | N/A”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “Art Studio – 3D Design | Art Elective | 3 | N/A”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “Art Studio – Drawing | Art Elective | 3 | N/A”
+  - equivalencies[AP-BIOLOGY|4 2]:  ⟵ “Biology(Beginning with May 2019 exam) | BIOL 1A BIOL Elective | 4 2 | Area 5B (Area B2)Area 5C (Area B3)”
+  - equivalencies[AP-CALCULUS-AB|4]:  ⟵ “Calculus AB (Beginning with May 2019 exam) | MATH 75 | 4 | Area 2 (Area B4)”
+  - equivalencies[AP-CALCULUS-BC|44]:  ⟵ “Calculus BC(Beginning with May 2019 exam) | MATH 75MATH 76 | 44 | Area 2 (Area B4)”
+  - equivalencies[AP-CALCULUS-BC|4]:  ⟵ “Calculus BC/AB Subscore(Beginning with May 2019 exam) | MATH 75 | 4 | Area 2 (Area B4)”
+  - equivalencies[AP-CHEMISTRY|42]:  ⟵ “Chemistry (Score of 3) | CHEM 3ACHEM Elective | 42 | Area 5A (Area B1)Area 5C (Area B3)”
+  - equivalencies[AP-CHEMISTRY|321]:  ⟵ “Chemistry (Score of 4 or 5) | CHEM 1ACHEM 1ALCHEM Elective | 321 | Area 5A (Area B1)Area 5C (Area B3)”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|42]:  ⟵ “Chinese Language & Culture(Beginning with May 2019 exam) | CHIN 1ACHIN Elective | 42 | Area 3B (Area C2)”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]:  ⟵ “Computer Science Principles (Beginning Fall 2021 - Summer 2023 Exam) | CSCI 1 | 3 | Area 1B or 2 (Area A3 or B4)”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “Economics: Microeconomics | ECON 40 | 3 | Area 4 (Area D)”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “Economics: Macroeconomics | ECON 50 | 3 | Area 4 (Area D)”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|33]:  ⟵ “English Language & Composition* | ENGL 10ENGL 2 | 33 | Area 1A (Area A2)”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|33]:  ⟵ “English Literature & Composition* | ENGL 10ENGL 20 | 33 | Area 1A (Area A2)Area 3B (Area C2)”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|333]:  ⟵ “*English Language & Literature (Maximum of 9 units allowed if both ENGL Lang and ENGL Lit exams passed) | ENGL 10ENGL 2ENGL 20 | 333 | Area 1A (Area A2)Area 3B (Area C2)”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4]:  ⟵ “Environmental Science(Beginning with May 2001 exam, unit increase in SP 2020) | EES 4 | 4 | Area 5A (Area B1)Area 5C (Area B3)”
+  - equivalencies[AP-EUROPEAN-HISTORY|33]:  ⟵ “European History(Beginning with May 2018 exam – used in Ge Area D) | HIST 2HIST Elective | 33 | Area 4 (Area D)or Area 3B (Area C2)”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|33]:  ⟵ “French Language and Culture (Beginning with May 2020 exam) | FREN 2AFREN 2B | 33 | Area 3B (Area C2)”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|33]:  ⟵ “German Language and Culture (Beginning with May 2020 exam) | GERM 2A GERM 2B | 33 | Area 3B (Area C2)”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3]:  ⟵ “Human Geography(Beginning with May 2018 exam – used in GE Area D) | GEOG Elective | 3 | Area 4 (Area D)”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|33]:  ⟵ “Japanese Language & Culture(Beginning with May 2019 exam) | JAPN 2AJAPN 2B | 33 | Area 3B (Area C2)Area 3B (Area C2)”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|33]:  ⟵ “Italian Language and Culture (Beginning with May 2019 exam) | ITAL 2AITAL 2B | 33 | Area 3B (Area C2)”
+  - … 14 more rows
+### `d4fe9d181b13a6ed` California State University-Fresno — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/registrar/articulation/externalexamcredit/index.html (sha256 6d2f7c6df82d)
+- issues: credits_implausible, course_column_missing
+- checks: {"distinct_exams": 15, "equivalencies": 15, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|5 or higher]:  ⟵ “Biology HL | 5 or higher | BIOL 10 BIOL Elect | 33 | AREA 5B (Area B2)*”
+  - equivalencies[IB-BUSINESS-MANAGEMENT-HL|5 or higher]:  ⟵ “Business and Management HL | 5 or higher | BA Elective | 6 | N/A”
+  - equivalencies[IB-CHEMISTRY-HL|5 or higher]:  ⟵ “Chemistry HL | 5 or higher | CHEM 1ACHEM 1B | 55 | AREA 5A (Area B1)*”
+  - equivalencies[IB-ECONOMICS-HL|HL score of 5score of 6 or 7]:  ⟵ “Economics HL (Increase in units awarded beginning in SP 2020) | score of 5score of 6 or 7 | ECON 50 +ECON ElectiveECON 40 + 50 | 336 | AREA 4 (Area D)*”
+  - equivalencies[IB-FILM-HL|5 or higher]:  ⟵ “Film HL | 5 or higher | HUM Elective | 3 | N/A”
+  - equivalencies[IB-GEOGRAPHY-HL|5 or higher]:  ⟵ “Geography HL | 5 or higher | GEOG 4GEOG 7 | 33 | AREA 4 (Area D)*”
+  - equivalencies[IB-HISTORY-HL|5 or higher]:  ⟵ “History (Any Region) HL | 5 or higher | HIST ElectiveHIST Elective | 33 | AREA 4 (Area D)*”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|4 or higher]:  ⟵ “Mathematics HL: Analysis and Approaches (Beginning Fall 2022) | 4 or higher | MATH ElectiveMATH Elective | 33 | AREA 2 (Area B4)*”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|4 or higher]:  ⟵ “Mathematics HL: Applications and Interpretation(Beginning Fall 2022) | 4 or higher | MATH ElectiveMATH Elective | 33 | AREA 2 (Area B4)*”
+  - equivalencies[IB-MUSIC-HL|4 or higher]:  ⟵ “Music HL | 4 or higher | MUSIC 40 | 3 | N/A”
+  - equivalencies[IB-PHILOSOPHY|4 or Higher]:  ⟵ “Philosophy (beginning Fall 2022) | 4 or Higher | PHIL 1 | 3 | AREA 3B (Area C2)”
+  - equivalencies[IB-PHYSICS-HL|5 or higher]:  ⟵ “Physics HL | 5 or higher | PHYS ElectivePHYS Elective | 33 | AREA 5A (Area B1)*”
+  - equivalencies[IB-PSYCHOLOGY-HL|5 or higher]:  ⟵ “Psychology HL (Effective SP 2019) | 5 or higher | PSYCH 10 | 3 | AREA 4 (Area D)*”
+  - equivalencies[IB-THEATRE-HL|4 or higher]:  ⟵ “Theatre HL | 4 or higher | DRAMA 32DRAMA 62 | 33 | AREA 3A (Area C1)*”
+  - equivalencies[IB-VISUAL-ARTS-HL|4 or higher]:  ⟵ “Visual Arts HL | 4 or higher | ART Elective | 6 | N/A”
+### `ef7bbc81401bdc94` California State University-Fresno — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://studentaffairs.fresnostate.edu/registrar/articulation/externalexamcredit/index.html (sha256 6d2f7c6df82d)
+- issues: course_column_missing
+- checks: {"distinct_exams": 28, "equivalencies": 31, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | 3 | Not Articulated | Campus requirement, Federal Government only”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | 3 | Not Articulated | AREA 3B (Area C2)”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing and Interpreting Literature | 50 | 3 | Not Articulated | AREA 3B (Area C2)”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | 3 | Not Articulated | AREA 5B (Area B2)”
+  - equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|50]:  ⟵ “Business Law | 50 | 3 | Not Articulated | N/A”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | 3 | MATH 75 | AREA 2 (Area B4)”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | 3 | Not Articulated (eff SP 26) | AREA 5A (Area B1)”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | 3 | MATH 3 | AREA 2 (Area B4)”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | 3 | No Equivalent Course | N/A”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|50]:  ⟵ “College Math | 50 | 3 | Math 3 (eff SP 21) | N/A”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature | 50 | 3 | ENGL 20 (eff SP 21) | AREA 3B (Area C2)”
+  - equivalencies[CLEP-FINANCIAL-ACCOUNTING|50]:  ⟵ “Financial Accounting | 50 | 3 | Not Articulated | N/A”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French Level I | 50 | 6 | FREN 1A + FREN ELECT (2) | N/A”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Level II | 59 | 9 | FREN 1A + FREN 1B + FREN ELECT (1) | AREA 3B (Area C2)”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German Level I | 50 | 6 | GERM 1A + GERM ELECT (2) | N/A”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|59]:  ⟵ “German Level II | 59 | 9 | GERM 1A + GERM 1B + GERM ELECT (1) | AREA 3B (Area C2)”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “History of the United States I | 50 | 3 | HIST 11 | AREA 4 (Area D), US-1”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “History of the United States II | 50 | 3 | Not Articulated | AREA 4 (Area D), US-1”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth and Development | 50 | 3 | CFS 38 (eff SP 21) | LIFELONG - UNDERSTANDING AND SELF-DEVELOPMENT (L/S) (Area E)”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | 3 | Not Articulated | AREA 3B (Area C2)”
+  - equivalencies[CLEP-INFORMATION-SYSTEMS|50]:  ⟵ “Information Systems | 50 | 3 | IS 52 (eff SP 21) | N/A”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | 3 | Math 6 (eff SP 21) | AREA 2 (Area B4)”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | 50 | 3 | Not Articulated | AREA 4 (Area D)”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | 50 | 3 | Not Articulated | AREA 4 (Area D)”
+  - equivalencies[CLEP-NATURAL-SCIENCES|50]:  ⟵ “Natural Sciences | 50 | 3 | Not Articulated | AREA 5A (Area B1)”
+  - … 6 more rows
+### `1e72509b1c0bfedf` California State University-Fullerton — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.fullerton.edu/financialaid/understanding-aid/maintaining-eligibility/sap.html (sha256 b6aa4e7cf577)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 13}
+  - sentence: sap_appeal ⟵ “The email provides the reason why the student is terminated from financial aid and instructions to create and complete the SAP Appeal form if the student wishes to appeal.”
+  - sentence: sap_appeal ⟵ “Appeal Process Follow the steps below to provide a successful SAP appeal to the Office of Financial Aid.”
+  - sentence: sap_appeal ⟵ “Be aware of key deadlines, including cancellation, disenrollment, tuition/fee refund dates, and SAP Appeal deadline etc.”
+  - sentence: sap_appeal ⟵ “If you did not meet the requirements of your prior SAP appeal and would like to be reconsidered for financial aid, your new letter of explanation must include a detailed statement explaining why the steps you outlined in the prior appeal did not work.”
+  - sentence: sap_appeal ⟵ “How to Submit the SAP Appeal StudentForms allows you to submit documents electronically to CSUF, Office of Financial Aid.”
+  - sentence: sap_appeal ⟵ “You will need to register with your student information before requesting a SAP Appeal.”
+### `3aa5002abe54f6ff` California State University-Fullerton — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.fullerton.edu/financialaid/appeals-forms/dependency.html (sha256 31860cb41b92)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Students who have an adverse family situation (i.e., severe estrangement from parents, unsafe home environment, physical or emotional abuse, abandonment, experiencing homelessness, etc.) are encouraged to submit a Unusual Circumstance (Independence) Appeal.”
+  - sentence: need_based_special_circumstances ⟵ “Please read the following information before submitting an Unusual Circumstance (Independence) Appeal.”
+### `47b6d11dcf93153e` California State University-Fullerton — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.fullerton.edu/financialaid/appeals-forms/coa.html (sha256 0542f7a5b639)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “This budget increase can only be requested once during a student's academic career at CSUF.”
+### `7cba140cd34ef2a3` California State University-Fullerton — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.fullerton.edu/financialaid/appeals-forms/index.html (sha256 9d4da23f43dd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “More information Unusual Circumstance Appeal You should complete this form if you are currently considered a dependent student for financial aid purposes, but believe you have unusual circumstances which warrant a review of your dependency status.”
+### `bc8d490bcce764ad` California State University-Fullerton — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.fullerton.edu/financialaid/appeals-forms/index.html (sha256 9d4da23f43dd)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “More Information Satisfactory Academic Progress Appeal (SAP) Use this form to request an exception to the Satisfactory Academic Progress Policy if your eligibility for financial aid has been terminated.”
+### `b1f675bd7641ceeb` California State University-Long Beach — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csulb.edu/financial-aid-and-scholarships/understanding-satisfactory-academic-progress-sap (sha256 4b148b491e84)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Although not meeting the SAP Standards, you are adhering to the terms of your Plan. all SAP Standards | * Follow Academic Plan requirements | Eligible for Aid | Not Meet SAP (Did not Adhere to Academic Plan) | You were on an Approved Academic Plan as part of your last SAP Appeal.”
+  - sentence: sap_appeal ⟵ “You did not follow the requirements of the Academic Plan and are not meeting the SAP standards. | * Continue to enroll without aid & work to improve SAP Status through academic work | Not Eligible for Aid Reinstatement of Financial Aid / Regaining Eligibility A student that fails to meet the SAP requirements and has a SAP Status of "Not Meets SAP," will have financial aid eligibility reinstated wh”
+  - sentence: sap_appeal ⟵ “You may regain financial aid eligibility after a SAP Disqualification by either meeting the standards through your academic work in future semesters or by having an approved SAP appeal.”
+  - sentence: sap_appeal ⟵ “About Financial Aid SAP Appeals: Students with a status of Not Meets may appeal their status to the CSULB Financial Aid Office.”
+### `8c92912eb65a8cc7` California State University-Long Beach — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.csulb.edu/financial-aid-and-scholarships/teaching-credential-student-costs (sha256 d6f977f59c19)
+- issues: conflicting_sources:https://www.csulb.edu/financial-aid-and-scholarships/undergraduate-costs-0
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - with_parents_or_family:Non-Resident Tuition: 10362 ⟵ “Non-Resident Tuition | $10,362 | $10,362 | $10,362”
+  - with_parents_or_family:Tuition: 7938 ⟵ “Tuition | $7,938 | $7,938 | $7,938”
+  - with_parents_or_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - with_parents_or_family:Living Expenses (housing): 4652 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - with_parents_or_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - with_parents_or_family:Transportation: 1206 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - with_parents_or_family:Miscellaneous Personal Expenses: 4564 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - with_parents_or_family:TOTAL: 40322 ⟵ “TOTAL | $40,322 | $45,924 | $53,938”
+  - on_campus:Non-Resident Tuition: 10362 ⟵ “Non-Resident Tuition | $10,362 | $10,362 | $10,362”
+  - on_campus:Tuition: 7938 ⟵ “Tuition | $7,938 | $7,938 | $7,938”
+  - on_campus:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - on_campus:Living Expenses (housing): 12034 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - on_campus:Living Expenses (food): 6520 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - on_campus:Transportation: 1386 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - on_campus:Miscellaneous Personal Expenses: 3968 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - on_campus:TOTAL: 45924 ⟵ “TOTAL | $40,322 | $45,924 | $53,938”
+  - off_campus_not_with_family:Non-Resident Tuition: 10362 ⟵ “Non-Resident Tuition | $10,362 | $10,362 | $10,362”
+  - off_campus_not_with_family:Tuition: 7938 ⟵ “Tuition | $7,938 | $7,938 | $7,938”
+  - off_campus_not_with_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - off_campus_not_with_family:Living Expenses (housing): 16676 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - off_campus_not_with_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - off_campus_not_with_family:Transportation: 1656 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - … 2 more rows
+### `aafb118194f4787b` California State University-Long Beach — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.csulb.edu/financial-aid-and-scholarships/undergraduate-costs-0 (sha256 7016b70cbdac)
+- issues: conflicting_sources:https://www.csulb.edu/financial-aid-and-scholarships/teaching-credential-student-costs
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition: 6838 ⟵ “Tuition | $6,838 | $6,838 | $6,838”
+  - with_parents_or_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - with_parents_or_family:Living Expenses (housing): 4652 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - with_parents_or_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - with_parents_or_family:Transportation: 1206 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - with_parents_or_family:Miscellaneous Personal Expenses: 4564 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - with_parents_or_family:TOTAL: 28860 ⟵ “TOTAL | $28,860 | $34,462 | $42,476”
+  - on_campus:Tuition: 6838 ⟵ “Tuition | $6,838 | $6,838 | $6,838”
+  - on_campus:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - on_campus:Living Expenses (housing): 12034 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - on_campus:Living Expenses (food): 6520 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - on_campus:Transportation: 1386 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - on_campus:Miscellaneous Personal Expenses: 3968 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - on_campus:TOTAL: 34462 ⟵ “TOTAL | $28,860 | $34,462 | $42,476”
+  - off_campus_not_with_family:Tuition: 6838 ⟵ “Tuition | $6,838 | $6,838 | $6,838”
+  - off_campus_not_with_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - off_campus_not_with_family:Living Expenses (housing): 16676 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - off_campus_not_with_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - off_campus_not_with_family:Transportation: 1656 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - off_campus_not_with_family:Miscellaneous Personal Expenses: 5706 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - off_campus_not_with_family:TOTAL: 42476 ⟵ “TOTAL | $28,860 | $34,462 | $42,476”
+### `b277b0fb166d51ec` California State University-Long Beach — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.csulb.edu/financial-aid-and-scholarships/teaching-credential-student-costs (sha256 d6f977f59c19)
+- issues: conflicting_sources:https://www.csulb.edu/financial-aid-and-scholarships/undergraduate-costs-0
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition: 7938 ⟵ “Tuition | $7,938 | $7,938 | $7,938”
+  - with_parents_or_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - with_parents_or_family:Living Expenses (housing): 4652 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - with_parents_or_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - with_parents_or_family:Transportation: 1206 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - with_parents_or_family:Miscellaneous Personal Expenses: 4564 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - with_parents_or_family:TOTAL: 29960 ⟵ “TOTAL | $29,960 | $35,562 | $43,576”
+  - on_campus:Tuition: 7938 ⟵ “Tuition | $7,938 | $7,938 | $7,938”
+  - on_campus:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - on_campus:Living Expenses (housing): 12034 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - on_campus:Living Expenses (food): 6520 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - on_campus:Transportation: 1386 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - on_campus:Miscellaneous Personal Expenses: 3968 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - on_campus:TOTAL: 35562 ⟵ “TOTAL | $29,960 | $35,562 | $43,576”
+  - off_campus_not_with_family:Tuition: 7938 ⟵ “Tuition | $7,938 | $7,938 | $7,938”
+  - off_campus_not_with_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - off_campus_not_with_family:Living Expenses (housing): 16676 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - off_campus_not_with_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - off_campus_not_with_family:Transportation: 1656 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - off_campus_not_with_family:Miscellaneous Personal Expenses: 5706 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - off_campus_not_with_family:TOTAL: 43576 ⟵ “TOTAL | $29,960 | $35,562 | $43,576”
+### `c9417269d6717264` California State University-Long Beach — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csulb.edu/financial-aid-and-scholarships/college-of-professional-and-continuing-education-cpace-cost-of (sha256 fdd26a1c3407)
+- issues: residency_unknown
+- checks: {"columns": 3, "components_reconcile": true, "rows": 7}
+  - with_parents_or_family:Tuition and Fees: 5112 ⟵ “Tuition and Fees | $5,112 | $5,112 | $5,112”
+  - with_parents_or_family:Living Expenses (housing): 4652 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - with_parents_or_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - with_parents_or_family:Transportation: 1206 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - with_parents_or_family:Miscellaneous Personal Expenses: 4564 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - with_parents_or_family:TOTAL: 25224 ⟵ “TOTAL | $25,224 | $30,826 | $38,840”
+  - on_campus:Tuition and Fees: 5112 ⟵ “Tuition and Fees | $5,112 | $5,112 | $5,112”
+  - on_campus:Living Expenses (housing): 12034 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - on_campus:Living Expenses (food): 6520 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - on_campus:Transportation: 1386 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - on_campus:Miscellaneous Personal Expenses: 3968 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - on_campus:TOTAL: 30826 ⟵ “TOTAL | $25,224 | $30,826 | $38,840”
+  - off_campus_not_with_family:Tuition and Fees: 5112 ⟵ “Tuition and Fees | $5,112 | $5,112 | $5,112”
+  - off_campus_not_with_family:Living Expenses (housing): 16676 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - off_campus_not_with_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - off_campus_not_with_family:Transportation: 1656 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - off_campus_not_with_family:Miscellaneous Personal Expenses: 5706 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - off_campus_not_with_family:TOTAL: 38840 ⟵ “TOTAL | $25,224 | $30,826 | $38,840”
+### `ff7c1e8422837d11` California State University-Long Beach — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.csulb.edu/financial-aid-and-scholarships/undergraduate-costs-0 (sha256 7016b70cbdac)
+- issues: conflicting_sources:https://www.csulb.edu/financial-aid-and-scholarships/teaching-credential-student-costs
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - with_parents_or_family:Non-Resident Tuition: 12246 ⟵ “Non-Resident Tuition | $12,246 | $12,246 | $12,246”
+  - with_parents_or_family:Tuition: 6838 ⟵ “Tuition | $6,838 | $6,838 | $6,838”
+  - with_parents_or_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - with_parents_or_family:Living Expenses (housing): 4652 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - with_parents_or_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - with_parents_or_family:Transportation: 1206 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - with_parents_or_family:Miscellaneous Personal Expenses: 4564 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - with_parents_or_family:TOTAL: 41106 ⟵ “TOTAL | $41,106 | $46,708 | $54,722”
+  - on_campus:Non-Resident Tuition: 12246 ⟵ “Non-Resident Tuition | $12,246 | $12,246 | $12,246”
+  - on_campus:Tuition: 6838 ⟵ “Tuition | $6,838 | $6,838 | $6,838”
+  - on_campus:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - on_campus:Living Expenses (housing): 12034 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - on_campus:Living Expenses (food): 6520 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - on_campus:Transportation: 1386 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - on_campus:Miscellaneous Personal Expenses: 3968 ⟵ “Miscellaneous Personal Expenses | $4,564 | $3,968 | $5,706”
+  - on_campus:TOTAL: 46708 ⟵ “TOTAL | $41,106 | $46,708 | $54,722”
+  - off_campus_not_with_family:Non-Resident Tuition: 12246 ⟵ “Non-Resident Tuition | $12,246 | $12,246 | $12,246”
+  - off_campus_not_with_family:Tuition: 6838 ⟵ “Tuition | $6,838 | $6,838 | $6,838”
+  - off_campus_not_with_family:Mandatory Fees: 1910 ⟵ “Mandatory Fees | $1,910 | $1,910 | $1,910”
+  - off_campus_not_with_family:Living Expenses (housing): 16676 ⟵ “Living Expenses (housing) | $4,652 | $12,034 | $16,676”
+  - off_campus_not_with_family:Living Expenses (food): 7884 ⟵ “Living Expenses (food) | $7,884 | $6,520 | $7,884”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1806 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,806 | $1,806 | $1,806”
+  - off_campus_not_with_family:Transportation: 1656 ⟵ “Transportation | $1,206 | $1,386 | $1,656”
+  - … 2 more rows
+### `6a70ab81e72199d1` California State University-Los Angeles — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.calstatela.edu/financialaid/appeals (sha256 7b9b81901bac)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Circumstances that allow for a COA Appeal: Out of Pocket Medical/Dental Expenses Dependent Care Expenses Computer Expenses Unusual Circumstance Appeal Students who indicated on their Financial Aid Application that they have an Unusual Circumstance that warrants a re-evaluation of their dependency status, can submit an Unusual Circumstance Appeal.”
+  - sentence: need_based_special_circumstances ⟵ “The following circumstances are not unusual circumstances and will require you to provide parental information on the FAFSA or CADAA.”
+### `b3807b5e76578414` California State University-Los Angeles — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.calstatela.edu/financialaid/cost-attendance (sha256 e99072a25b56)
+- issues: residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 3, "rows": 8}
+  - with_parents_or_family:Tuition & Mandatory Fees: 7530 ⟵ “Tuition & Mandatory Fees | $7,530 | $7,530 | $7,530”
+  - with_parents_or_family:Housing: 10000 ⟵ “Housing | $10,000 | $13,066 | $10,000”
+  - with_parents_or_family:Food: 3614 ⟵ “Food | $3,614 | $7,460 | $11,008”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1078 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,078 | $1,078 | $1,078”
+  - with_parents_or_family:Transportation: 2018 ⟵ “Transportation | $2,018 | $2,426 | $2,890”
+  - with_parents_or_family:Miscellaneous: 3592 ⟵ “Miscellaneous | $3,592 | $4,580 | $4,180”
+  - with_parents_or_family:Direct Loan Fees*: 46 ⟵ “Direct Loan Fees* | $46 | $46 | $46”
+  - with_parents_or_family:CA Resident TOTAL: 27878 ⟵ “CA Resident TOTAL | $27,878 | $36,186 | $36,732”
+  - on_campus:Tuition & Mandatory Fees: 7530 ⟵ “Tuition & Mandatory Fees | $7,530 | $7,530 | $7,530”
+  - on_campus:Housing: 13066 ⟵ “Housing | $10,000 | $13,066 | $10,000”
+  - on_campus:Food: 7460 ⟵ “Food | $3,614 | $7,460 | $11,008”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1078 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,078 | $1,078 | $1,078”
+  - on_campus:Transportation: 2426 ⟵ “Transportation | $2,018 | $2,426 | $2,890”
+  - on_campus:Miscellaneous: 4580 ⟵ “Miscellaneous | $3,592 | $4,580 | $4,180”
+  - on_campus:Direct Loan Fees*: 46 ⟵ “Direct Loan Fees* | $46 | $46 | $46”
+  - on_campus:CA Resident TOTAL: 36186 ⟵ “CA Resident TOTAL | $27,878 | $36,186 | $36,732”
+  - off_campus_not_with_family:Tuition & Mandatory Fees: 7530 ⟵ “Tuition & Mandatory Fees | $7,530 | $7,530 | $7,530”
+  - off_campus_not_with_family:Housing: 10000 ⟵ “Housing | $10,000 | $13,066 | $10,000”
+  - off_campus_not_with_family:Food: 11008 ⟵ “Food | $3,614 | $7,460 | $11,008”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1078 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,078 | $1,078 | $1,078”
+  - off_campus_not_with_family:Transportation: 2890 ⟵ “Transportation | $2,018 | $2,426 | $2,890”
+  - off_campus_not_with_family:Miscellaneous: 4180 ⟵ “Miscellaneous | $3,592 | $4,580 | $4,180”
+  - off_campus_not_with_family:Direct Loan Fees*: 46 ⟵ “Direct Loan Fees* | $46 | $46 | $46”
+  - off_campus_not_with_family:CA Resident TOTAL: 36732 ⟵ “CA Resident TOTAL | $27,878 | $36,186 | $36,732”
+### `c81e7ebd16eb1d33` California State University-Los Angeles — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.calstatela.edu/financialaid/cost-attendance (sha256 e99072a25b56)
+- issues: residency_unknown
+- checks: {"columns": 3, "rows": 8}
+  - with_parents_or_family:Tuition & Mandatory Fees: 7938 ⟵ “Tuition & Mandatory Fees | $7,938 | $7,938 | $7,938”
+  - with_parents_or_family:Housing: 10000 ⟵ “Housing | $10,000 | $13,682 | $13,604”
+  - with_parents_or_family:Food: 4420 ⟵ “Food | $4,420 | $7,972 | $8,662”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1128 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,128 | $1,128 | $1,128”
+  - with_parents_or_family:Transportation: 2096 ⟵ “Transportation | $2,096 | $3,002 | $3,002”
+  - with_parents_or_family:Miscellaneous: 4062 ⟵ “Miscellaneous | $4,062 | $4,726 | $4,726”
+  - with_parents_or_family:Loan Fees*: 52 ⟵ “Loan Fees* | $52 | $52 | $52”
+  - with_parents_or_family:CA Resident TOTAL: 29696 ⟵ “CA Resident TOTAL | $29,696 | $38,500 | $39,112”
+  - on_campus:Tuition & Mandatory Fees: 7938 ⟵ “Tuition & Mandatory Fees | $7,938 | $7,938 | $7,938”
+  - on_campus:Housing: 13682 ⟵ “Housing | $10,000 | $13,682 | $13,604”
+  - on_campus:Food: 7972 ⟵ “Food | $4,420 | $7,972 | $8,662”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1128 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,128 | $1,128 | $1,128”
+  - on_campus:Transportation: 3002 ⟵ “Transportation | $2,096 | $3,002 | $3,002”
+  - on_campus:Miscellaneous: 4726 ⟵ “Miscellaneous | $4,062 | $4,726 | $4,726”
+  - on_campus:Loan Fees*: 52 ⟵ “Loan Fees* | $52 | $52 | $52”
+  - on_campus:CA Resident TOTAL: 38500 ⟵ “CA Resident TOTAL | $29,696 | $38,500 | $39,112”
+  - off_campus_not_with_family:Tuition & Mandatory Fees: 7938 ⟵ “Tuition & Mandatory Fees | $7,938 | $7,938 | $7,938”
+  - off_campus_not_with_family:Housing: 13604 ⟵ “Housing | $10,000 | $13,682 | $13,604”
+  - off_campus_not_with_family:Food: 8662 ⟵ “Food | $4,420 | $7,972 | $8,662”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1128 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,128 | $1,128 | $1,128”
+  - off_campus_not_with_family:Transportation: 3002 ⟵ “Transportation | $2,096 | $3,002 | $3,002”
+  - off_campus_not_with_family:Miscellaneous: 4726 ⟵ “Miscellaneous | $4,062 | $4,726 | $4,726”
+  - off_campus_not_with_family:Loan Fees*: 52 ⟵ “Loan Fees* | $52 | $52 | $52”
+  - off_campus_not_with_family:CA Resident TOTAL: 39112 ⟵ “CA Resident TOTAL | $29,696 | $38,500 | $39,112”
+### `5d6a752ba9a14893` California State University-Northridge — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances (sha256 ed056a92dc48)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: professional_judgment ⟵ “All professional judgment decisions are made on a case-by-case basis and must be fully documented.”
+  - sentence: professional_judgment ⟵ “In general, each professional judgment decision is made on its own; a financial aid administrator cannot automatically accept a professional judgment decision made for the same student by a financial aid administrator at another school.”
+  - sentence: professional_judgment ⟵ “Professional judgment decisions are the sole discretion of a financial aid administrator and cannot be appealed to the university or the Department of Education.”
+### `651f7d6ecf2496d6` California State University-Northridge — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://w2.csun.edu/financialaid/resources/award-and-planning-guide (sha256 0a28d012a764)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://catalog.csun.edu/policies/keywords/admission/,https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances At CSUN, we understand that there are various circumstances that may impact a student and their family’s financial situation which is not reflected on the Free Application for Federal Student Aid (FAFSA).”
+  - sentence: need_based_special_circumstances ⟵ “As a result of these circumstances, the Financial Aid Office may evaluate special circumstances on a case-by-case basis.”
+  - sentence: need_based_special_circumstances ⟵ “If you have a special circumstance that changed your financial situation and you need additional assistance, we have an appeal process that will take your special circumstances into consideration.”
+### `79646887cc75aca1` California State University-Northridge — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/california-dream-act (sha256 dea3a68c7615)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances,https://w2.csun.edu/financialaid/financial-aid-basics/satisfactory-academic-progress
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals and Special Circumstances California Dream Act Grants Loans Federal Work-Study Financial Aid and Scholarship Department CSUN CSUN School Code: 001153 Phone: (818) 677-4085 Send email Scholarships Phone: (818) 677-4907 Send Email Student Financial Services Phone: (818) 677-8000 California Dream Act The California Dream Act of 2011 became law through the passag”
+### `b29c9f5fc08ea861` California State University-Northridge — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances (sha256 ed056a92dc48)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://catalog.csun.edu/policies/keywords/admission/,https://w2.csun.edu/financialaid/resources/award-and-planning-guide
+- checks: {"negative_sentences": 0, "sentences": 11}
+  - sentence: need_based_special_circumstances ⟵ “Appeals and Special Circumstances | CSU Northridge Skip to main menu Skip to main content CSUN California State University Northridge Search Form Search Submit Search Main Menu MyCSUN CSUN Portal Gmail Microsoft Office 365 Canvas Box Zoom Current Students Faculty & Staff Alumni Local Community Información en español Request Info Visit Apply Give Division of Student Affairs Financial Aid & Scholars”
+  - sentence: need_based_special_circumstances ⟵ “January 1, 2025-December 31, 2025), a signed statement explaining your special circumstance AND a signed copy of our Income Appeal form.”
+  - sentence: need_based_special_circumstances ⟵ “UNUSUAL CIRCUMSTANCE APPEAL REQUEST If you are considered a dependent student, you must provide parental information on your financial aid application.”
+  - sentence: need_based_special_circumstances ⟵ “In unusual circumstances, a financial aid administrator may override your dependency status for the purpose of applying for financial aid if you are unable to obtain parental information.”
+  - sentence: need_based_special_circumstances ⟵ “The following circumstances, do not qualify as unusual circumstances to be considered an independent student: Parents refuse to contribute to the student’s education Parents are unwilling to provide information on the FAFSA, or for verification Parents do not claim the student as a dependent for income tax purposes.”
+  - sentence: need_based_special_circumstances ⟵ “Student demonstrates total financial self-sufficiency Student does not live with parents Upload Instructions: You can submit your Unusual Circumstance Appeal through your CSUN Portal.”
+### `be19db73fe82b756` California State University-Northridge — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances (sha256 ed056a92dc48)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://w2.csun.edu/financialaid/financial-aid-basics/california-dream-act,https://w2.csun.edu/financialaid/financial-aid-basics/satisfactory-academic-progress
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals and Special Circumstances California Dream Act Grants Loans Federal Work-Study Financial Aid and Scholarship Department CSUN CSUN School Code: 001153 Phone: (818) 677-4085 Send email Scholarships Phone: (818) 677-4907 Send Email Student Financial Services Phone: (818) 677-8000 Appeals and Special Circumstances Professional Judgment is the discretion granted t”
+### `c68478f174a72473` California State University-Northridge — appeals 2026-27 [new] (source_unlabeled)
+- source: https://catalog.csun.edu/policies/keywords/admission/ (sha256 fa039acf8946)
+- issues: semantic_review_required, conflicting_sources:https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances,https://w2.csun.edu/financialaid/resources/award-and-planning-guide
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Only under the most unusual circumstances will such applicants be permitted to enroll at CSUN.”
+### `e8c6964f82aab488` California State University-Northridge — appeals 2023-24 [new] (labeled_in_source)
+- source: https://www.csun.edu/financialaid/faqs-cost-attendance-appeals (sha256 d0c1f3faba75)
+- issues: stale_year_label:2023-24, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “The Cost of Attendance Appeal form is located at https://www.csun.edu/financialaid/2023-2024-forms-and-documents under Appeals and Special Circumstances Download the Cost of Attendance Appeal form, complete and sign the form.”
+### `f4ca1c719bd83836` California State University-Northridge — appeals 2026-27 [new] (labeled_in_source)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/satisfactory-academic-progress (sha256 dc3f612ddeea)
+- issues: semantic_review_required, conflicting_sources:https://w2.csun.edu/financialaid/financial-aid-basics/appeals-special-circumstances,https://w2.csun.edu/financialaid/financial-aid-basics/california-dream-act
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals and Special Circumstances California Dream Act Grants Loans Federal Work-Study Financial Aid and Scholarship Department CSUN CSUN School Code: 001153 Phone: (818) 677-4085 Send email Scholarships Phone: (818) 677-4907 Send Email Student Financial Services Phone: (818) 677-8000 Satisfactory Academic Progress A review of a student's Satisfactory Academic Progre”
+  - sentence: sap_appeal ⟵ “Students who are eligible to appeal are provided a link to the Satisfactory Academic Progress Appeal.”
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress (SAP) Appeal Conditions Satisfactory Academic Progress Appeal Students who do not meet any of the Satisfactory Academic Progress (SAP) standards may appeal to the Financial Aid & Scholarship Department to have their financial aid eligibility reinstated.”
+  - sentence: sap_appeal ⟵ “Some examples of extenuating circumstances include: Serious injury or illness, including behavioral health conditions, of the student or a relative or other significant person Death or serious illness of a close family member Withdrawals approved by the University Loss of access to personal or public transportation Being a victim of a serious crime Change in major Other documented circumstances (i”
+  - sentence: sap_appeal ⟵ “Appeal Deadlines and Information SAP Appeal Filing Deadlines | Priority Appeal deadline for the 2026-2027 Academic Year | July 13, 2026 | If you miss the priority appeal deadline, you can still submit an appeal to be considered for aid in the 2026-2027 Academic Year.”
+  - sentence: sap_appeal ⟵ “Students who submit their SAP Appeal by the priority deadline in July, will be reviewed by the SAP Appeals Committee and notified about their appeal status in mid-August via CSUN email.”
+### `2f7ac752bf26b06c` California State University-Northridge — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/ (sha256 f9da06bac7a7)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26, conflicting_sources:https://catalog.csun.edu/policies/average-support-cost-per-full-time-equivalent-student-and-sources-of-funds/,https://w2.csun.edu/financialaid/financial-aid-basics/cost-attendance/2025-2026-fall-and-spring-cost-attendance
+- checks: {"columns": 2, "rows": 6}
+  - column:Undergraduate Tuition 6.1 or more units: 2150 ⟵ “Undergraduate Tuition 6.1 or more units | $3,225 | $2,150 | $6,450”
+  - column:Undergraduate Tuition 0 to 6.0 units: 1246 ⟵ “Undergraduate Tuition 0 to 6.0 units | $1,869 | $1,246 | $3,738”
+  - column:Credential Program Tuition 6.1 or more units: 2496 ⟵ “Credential Program Tuition 6.1 or more units | $3,744 | $2,496 | $7,488”
+  - column:Credential Program Tuition 0 to 6.0 units: 1448 ⟵ “Credential Program Tuition 0 to 6.0 units | $2,172 | $1,448 | $4,344”
+  - column:Graduate or Other/Postbaccalaureate Tuition 6.1 or more units: 2688 ⟵ “Graduate or Other/Postbaccalaureate Tuition 6.1 or more units | $4,032 | $2,688 | $8,064”
+  - column:Graduate or Other/Postbaccalaureate Tuition 0 to 6.0 units: 1560 ⟵ “Graduate or Other/Postbaccalaureate Tuition 0 to 6.0 units | $2,340 | $1,560 | $4,680”
+  - column:Undergraduate Tuition 6.1 or more units: 6450 ⟵ “Undergraduate Tuition 6.1 or more units | $3,225 | $2,150 | $6,450”
+  - column:Undergraduate Tuition 0 to 6.0 units: 3738 ⟵ “Undergraduate Tuition 0 to 6.0 units | $1,869 | $1,246 | $3,738”
+  - column:Credential Program Tuition 6.1 or more units: 7488 ⟵ “Credential Program Tuition 6.1 or more units | $3,744 | $2,496 | $7,488”
+  - column:Credential Program Tuition 0 to 6.0 units: 4344 ⟵ “Credential Program Tuition 0 to 6.0 units | $2,172 | $1,448 | $4,344”
+  - column:Graduate or Other/Postbaccalaureate Tuition 6.1 or more units: 8064 ⟵ “Graduate or Other/Postbaccalaureate Tuition 6.1 or more units | $4,032 | $2,688 | $8,064”
+  - column:Graduate or Other/Postbaccalaureate Tuition 0 to 6.0 units: 4680 ⟵ “Graduate or Other/Postbaccalaureate Tuition 0 to 6.0 units | $2,340 | $1,560 | $4,680”
+### `5af15d679b5ef35d` California State University-Northridge — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://catalog.csun.edu/policies/average-support-cost-per-full-time-equivalent-student-and-sources-of-funds/ (sha256 6e7c1b42100f)
+- issues: arrangement_unlabeled, components_do_not_reconcile, implausible_amount, residency_unknown, stale_year_label:2025-26, conflicting_sources:https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/,https://w2.csun.edu/financialaid/financial-aid-basics/cost-attendance/2025-2026-fall-and-spring-cost-attendance
+- checks: {"columns": 2, "components_reconcile": false, "rows": 4}
+  - column:State Appropriation (GF)1: 4957363000 ⟵ “State Appropriation (GF)1 | $4,957,363,000 | 58.4% | $12,692”
+  - column:Gross Tuition Revenue2: 778751000 ⟵ “Gross Tuition Revenue2 | $778,751,000 | 32.7% | $6,747”
+  - column:Other Fees Revenue2: 752697000 ⟵ “Other Fees Revenue2 | $752,697,000 | 8.9% | $1,828”
+  - column:Total Support Cost: 8488811000 ⟵ “Total Support Cost | $8,488,811,000 | 100% | $21,267”
+  - column:State Appropriation (GF)1: 12692 ⟵ “State Appropriation (GF)1 | $4,957,363,000 | 58.4% | $12,692”
+  - column:Gross Tuition Revenue2: 6747 ⟵ “Gross Tuition Revenue2 | $778,751,000 | 32.7% | $6,747”
+  - column:Other Fees Revenue2: 1828 ⟵ “Other Fees Revenue2 | $752,697,000 | 8.9% | $1,828”
+  - column:Total Support Cost: 21267 ⟵ “Total Support Cost | $8,488,811,000 | 100% | $21,267”
+### `e900f4f857720223` California State University-Northridge — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/cost-attendance/2025-2026-fall-and-spring-cost-attendance (sha256 146f838c8804)
+- issues: residency_unknown, stale_year_label:2025-26, conflicting_sources:https://catalog.csun.edu/policies/average-support-cost-per-full-time-equivalent-student-and-sources-of-funds/,https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 8}
+  - on_campus:*Tuition and other fees: 7850.0 ⟵ “*Tuition and other fees | $3,925.00 | $7,850.00”
+  - on_campus:Books, course materials, supplies, and equipment: 1370.0 ⟵ “Books, course materials, supplies, and equipment | $685.00 | $1,370.00”
+  - on_campus:Housing: 8720.0 ⟵ “Housing | $4,360.00 | $8,720.00”
+  - on_campus:Food: 5818.0 ⟵ “Food | $2,909.00 | $5,818.00”
+  - on_campus:Transportation: 1246.0 ⟵ “Transportation | $623.00 | $1,246.00”
+  - on_campus:Personal/miscellaneous: 2196.0 ⟵ “Personal/miscellaneous | $1,098.00 | $2,196.00”
+  - on_campus:Loan fees: 76.0 ⟵ “Loan fees | $38.00 | $76.00”
+  - on_campus:TOTAL: 27276.0 ⟵ “TOTAL | $13,638.00 | $27,276.00”
+### `f4a2b5f35efb2e3c` California State University-Northridge — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://w2.csun.edu/financialaid/financial-aid-basics/cost-attendance/2026-2027-fall-and-spring-cost-attendance (sha256 359553e6b6e1)
+- issues: residency_unknown, conflicting_sources:https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 8}
+  - on_campus:*Tuition and other fees: 8328 ⟵ “*Tuition and other fees | $4,164 | $8,328”
+  - on_campus:Books, course materials, supplies, and equipment: 1438 ⟵ “Books, course materials, supplies, and equipment | $719 | $1,438”
+  - on_campus:Housing: 9152 ⟵ “Housing | $4,576 | $9,152”
+  - on_campus:Food: 6168 ⟵ “Food | $3,084 | $6,168”
+  - on_campus:Transportation: 1466 ⟵ “Transportation | $733 | $1,466”
+  - on_campus:Personal/miscellaneous: 2856 ⟵ “Personal/miscellaneous | $1,428 | $2,856”
+  - on_campus:Loan fees: 76 ⟵ “Loan fees | $38 | $76”
+  - on_campus:TOTAL: 29484 ⟵ “TOTAL | $14,742 | $29,484”
+### `f807615e6f08aea3` California State University-Northridge — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/ (sha256 f9da06bac7a7)
+- issues: residency_unknown, conflicting_sources:https://w2.csun.edu/financialaid/financial-aid-basics/cost-attendance/2026-2027-fall-and-spring-cost-attendance
+- checks: {"columns": 1, "rows": 6}
+  - column:Undergraduate Tuition 6.1 or more units: 6838 ⟵ “Undergraduate Tuition 6.1 or more units | $3,419 | – | $6,838”
+  - column:Undergraduate Tuition 0 to 6.0 units: 3962 ⟵ “Undergraduate Tuition 0 to 6.0 units | $1,981 | – | $3,962”
+  - column:Credential Program Tuition 6.1 or more units: 7938 ⟵ “Credential Program Tuition 6.1 or more units | $3,969 | – | $7,938”
+  - column:Credential Program Tuition 0 to 6.0 units: 4604 ⟵ “Credential Program Tuition 0 to 6.0 units | $2,302 | – | $4,604”
+  - column:Graduate or Other/Postbaccalaureate Tuition 6.1 or more units: 8548 ⟵ “Graduate or Other/Postbaccalaureate Tuition 6.1 or more units | $4,274 | – | $8,548”
+  - column:Graduate or Other/Postbaccalaureate Tuition 0 to 6.0 units: 4960 ⟵ “Graduate or Other/Postbaccalaureate Tuition 0 to 6.0 units | $2,480 | – | $4,960”
+### `28cff5a5db2f9617` California State University-Sacramento — academic_programs 2026-27 · program_key=bs-in-kinesiology-physical-activity-and-wellness [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-physical-activity-and-wellness/ (sha256 e524eb4c4b29)
+- issues: requirement_groups_skipped
+- checks: {"courses": 28, "groups": 4, "groups_skipped": 11}
+  - program_name: BS in Kinesiology (Physical Activity and Wellness) ⟵ “BS in Kinesiology (Physical Activity and Wellness) | Sacramento State Catalog”
+### `533133fe9e5b1dd1` California State University-Sacramento — academic_programs 2026-27 · program_key=bs-in-kinesiology-athletic-coaching-education [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-athletic-coaching-education/ (sha256 50f0193da6e8)
+- issues: requirement_groups_skipped
+- checks: {"courses": 28, "groups": 5, "groups_skipped": 11}
+  - program_name: BS in Kinesiology (Athletic Coaching Education) ⟵ “BS in Kinesiology (Athletic Coaching Education) | Sacramento State Catalog”
+### `3e6028bde98573a0` California State University-Sacramento — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf (sha256 4e45b25ec6fd)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “PAGE 12 Rev. 2/27/2026 SPECIAL AND UNUSUAL CIRCUMSTANCES The Financial Aid Application requires students and parents (if dependent) to provide information to determine financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “If the information on the application no longer applies to the student’s household, the student may inquire about one or more of the following Special and Unusual Circumstances: • Provisionally Independent Status (Dependency Override) – If the student has unusual circumstances, they will be required to submit an appeal statement and documentation explaining their “relationship” with both biologica”
+  - sentence: need_based_special_circumstances ⟵ “This appeal is self-initiated and available mid-September for the current aid year on the Financial Aid & Scholarships website: www.csus.edu/faid • Other Special and Unusual circumstances: The student may have other special and unusual circumstances not outlined above that they believe may impact their financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “Inquire with the Student Service Center about additional services/process for assistance Students are encouraged to monitor their My Sac State > Student Center > To Do List for initiated documents relating to any special and unusual circumstance processes or inquire with the Student Service Center for assistance.”
+### `77a60a67d3d5948e` California State University-Sacramento — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf (sha256 4e45b25ec6fd)
+- issues: semantic_review_required, conflicting_sources:https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/how-to-file-your-sap-appeal.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/sap-frequently-asked-questions.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/satisfactory-academic-progress.html
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Students not meeting SAP Standards may submit an SAP Appeal for consideration of aid.”
+  - sentence: sap_appeal ⟵ “If the student does not meet SAP Standards, they become ineligible from receiving financial aid and are encouraged to submit the SAP Appeal initiated on their My Sac State > Student Center> To Do List for reconsideration of aid.”
+  - sentence: sap_appeal ⟵ “Students who do not meet SAP standards will be ineligible for the awards offered and are encouraged to submit an SAP appeal for reconsideration of aid.”
+  - sentence: sap_appeal ⟵ “If the SAP appeal is approved, the student will regain aid eligibility.”
+### `bb18f05c22cdc63e` California State University-Sacramento — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/satisfactory-academic-progress.html (sha256 565ea1d9cd0f)
+- issues: semantic_review_required, conflicting_sources:https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/how-to-file-your-sap-appeal.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/sap-frequently-asked-questions.html
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Not Approved First Level Review If the decision at the first level of a SAP Appeal results in "Not Approved" determination, the SAP Appeal is routed for secondary review by the SAP Appeal Committee.”
+  - sentence: sap_appeal ⟵ “Second Level Review The SAP Appeal Committee may consult campus partners as appropriate during the review process.”
+  - sentence: sap_appeal ⟵ “Appeal Probation Standards Probation is a temporary status that allows a student who is not currently meeting Satisfactory Academic Progress (SAP) standards to continue receiving financial aid after a successful appeal.”
+### `d116fb6e9fdbf3e9` California State University-Sacramento — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/how-to-file-your-sap-appeal.html (sha256 d9e9bbd2cbc1)
+- issues: semantic_review_required, conflicting_sources:https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/sap-frequently-asked-questions.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/satisfactory-academic-progress.html
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Access the SAP Appeal Web Form Select "Needs Action" list and click on the newly generated SAP Appeal Task.”
+  - sentence: sap_appeal ⟵ “Select the “Fill Out” button to begin the appeal process Press the “Continue” button in the Demographics section of Student Forms Complete the SAP Appeal Web Form 1.”
+  - sentence: sap_appeal ⟵ “Review the SAP Appeal Form Select the “Back” button if changes need to be made.”
+  - sentence: sap_appeal ⟵ “SAP Appeal Deadlines SAP Appeal Deadlines SAP Appeals are reviewed on a semester basis Fall 2026 Priority Appeal Deadline: October 23, 2026 Final Fall Appeal Deadline: November 25, 2026 Students who miss the Fall deadline may submit a Spring appeal for Spring-only consideration.”
+### `e17cd65f11dc5517` California State University-Sacramento — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/sap-frequently-asked-questions.html (sha256 ee95908e94a7)
+- issues: semantic_review_required, conflicting_sources:https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/how-to-file-your-sap-appeal.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/satisfactory-academic-progress.html
+- checks: {"negative_sentences": 0, "sentences": 11}
+  - sentence: sap_appeal ⟵ “However, you may submit a SAP Appeal for reconsideration.”
+  - sentence: sap_appeal ⟵ “A SAP link to the SAP Appeal will appear on your Student Center > To Do List after your SAP Status is determined.”
+  - sentence: sap_appeal ⟵ “What should I include in my SAP Appeal?”
+  - sentence: sap_appeal ⟵ “Your appeal should: Clearly explain the extenuating circumstances that impacted your academic progress Explain what has changed that will support future academic success Be specific to the semesters or coursework affected What is considered a complete SAP Appeal?”
+  - sentence: sap_appeal ⟵ “A complete SAP Appeal includes: The SAP Appeal form Supporting documentation (if requested) Official Academic Plan (required for Over Unit Appeals only) Incomplete appeals will not be reviewed.”
+  - sentence: sap_appeal ⟵ “Required: SAP Appeal Official Academic Plan Supporting documentation (if requested) Appeals by standards – GPA What if I did not meet the Minimum Cumulative GPA standard?”
+### `fdee81753f6e575c` California State University-Sacramento — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/ (sha256 4b6769e8894e)
+- issues: semantic_review_required, conflicting_sources:https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/how-to-file-your-sap-appeal.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/sap-frequently-asked-questions.html,https://www.csus.edu/apply/financial-aid-scholarships/requirement-policies/satisfactory-academic-progress.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “The SAP policy governs eligibility for all Federal and State aid programs.SAP Standards SAP FAQ's How To File Your SAP Appeal Disbursement & Refund of Aid The Financial Aid & Scholarships Office authorizes disbursements of your student aid once you meet the eligibility requirements for each aid program awarded for the semester.”
+### `074edce7ac9d58c4` California State University-Sacramento — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf (sha256 4e45b25ec6fd)
+- issues: arrangement_unlabeled, components_do_not_reconcile, residency_unknown, conflicting_sources:https://www.csus.edu/administration-business-affairs/bursar/tuition-living-costs.html,https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html,https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-cost-of-attendance.pdf
+- checks: {"columns": 4, "components_reconcile": false, "rows": 20}
+  - column:Living Expenses: 11430 ⟵ “Living Expenses | $11,430 | $20,212 | $23,504”
+  - column:Books, Course: 1240 ⟵ “Books, Course | $1,240 | $1,240 | $1,240”
+  - column:Transportation: 2290 ⟵ “Transportation | $2,290 | $1,528 | $2,696”
+  - column:Misc. Personal: 3808 ⟵ “Misc. Personal | $3,808 | $3,808 | $3,808”
+  - column:TOTAL: 28424 ⟵ “TOTAL | $28,424 | $36,444 | $40,904”
+  - column:Undergraduate: 31000 ⟵ “Undergraduate | $31,000 | $57,500 | $23,000”
+  - column:Not Applicable: 100000 ⟵ “Not Applicable | $100,000** | Not Applicable”
+  - column:(for dependent: 65000 ⟵ “(for dependent | $65,000 | Not Applicable | Not Applicable | Not Applicable”
+  - with_parents_or_family:Tuition: 9656 ⟵ “Tuition | Fees | $9,656 | $9,656 | $9,656”
+  - with_parents_or_family:Living Expenses: 20212 ⟵ “Living Expenses | $11,430 | $20,212 | $23,504”
+  - with_parents_or_family:Books, Course: 1240 ⟵ “Books, Course | $1,240 | $1,240 | $1,240”
+  - with_parents_or_family:Transportation: 1528 ⟵ “Transportation | $2,290 | $1,528 | $2,696”
+  - with_parents_or_family:Misc. Personal: 3808 ⟵ “Misc. Personal | $3,808 | $3,808 | $3,808”
+  - with_parents_or_family:TOTAL: 36444 ⟵ “TOTAL | $28,424 | $36,444 | $40,904”
+  - with_parents_or_family:24: 6250 ⟵ “24 | 100.00% | $6,250 | $12,500”
+  - with_parents_or_family:23: 5989 ⟵ “23 | 95.83% | $5,989 | $11,979”
+  - with_parents_or_family:22: 5729 ⟵ “22 | 91.67% | $5,729 | $11,459”
+  - with_parents_or_family:21: 5469 ⟵ “21 | 87.50% | $5,469 | $10,938”
+  - with_parents_or_family:20: 5208 ⟵ “20 | 83.33% | $5,208 | $10,416”
+  - with_parents_or_family:19: 4948 ⟵ “19 | 79.17% | $4,948 | $9,896”
+  - with_parents_or_family:18: 4688 ⟵ “18 | 75.00% | $4,688 | $9,375”
+  - with_parents_or_family:17: 4443 ⟵ “17 | 71.08% | $4,443 | $8,885”
+  - with_parents_or_family:16: 4167 ⟵ “16 | 66.67% | $4,167 | $8,334”
+  - with_parents_or_family:15: 3906 ⟵ “15 | 62.50% | $3,906 | $7,813”
+  - with_parents_or_family:14: 3646 ⟵ “14 | 58.33% | $3,646 | $7,291”
+  - … 26 more rows
+### `14e4d2637708562d` California State University-Sacramento — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html (sha256 dde418820e26)
+- issues: conflicting_sources:https://catalog.csus.edu/financial-registration-information/fees-refunds/,https://www.csus.edu/international-programs-global-engagement/application-admissions-process/_internal/_documents/csus-financial-affidavit-spring-2027-ver-8.18.261-2.pdf
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - on_campus:Tuition Fee: 3419.0 ⟵ “Tuition Fee | $3,419.00 | $5,129.00 | $10,484.00”
+  - on_campus:Associated Students Inc. Fee: 94.0 ⟵ “Associated Students Inc. Fee | $94.00 | $94.00 | $94.00”
+  - on_campus:Intercollegiate Athletics/Spirit Leaders Fee: 246.0 ⟵ “Intercollegiate Athletics/Spirit Leaders Fee | $246.00 | $246.00 | $246.00”
+  - on_campus:Transportation Fee: 29.0 ⟵ “Transportation Fee | $29.00 | $29.00 | $29.00”
+  - on_campus:Recreation, Intramural, and Sports Club Fee: 70.0 ⟵ “Recreation, Intramural, and Sports Club Fee | $70.00 | $70.00 | $70.00”
+  - on_campus:University Union/WELL Fee: 482.0 ⟵ “University Union/WELL Fee | $482.00 | $482.00 | $482.00”
+  - on_campus:Health Facilities Fee: 31.0 ⟵ “Health Facilities Fee | $31.00 | $31.00 | $31.00”
+  - on_campus:Instructional Related Activities Fee: 256.0 ⟵ “Instructional Related Activities Fee | $256.00 | $256.00 | $256.00”
+  - on_campus:Student Health & Counseling Services Fee: 198.0 ⟵ “Student Health & Counseling Services Fee | $198.00 | $198.00 | $198.00”
+  - on_campus:State Hornet Fee: 3.0 ⟵ “State Hornet Fee | $3.00 | $3.00 | $3.00”
+  - on_campus:Total Semester Costs: 4828.0 ⟵ “Total Semester Costs | $4,828.00 | $6,538.00 | $11,893.00”
+### `47f30225b48f739a` California State University-Sacramento — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-cost-of-attendance.pdf (sha256 afe5779cca20)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://www.csus.edu/administration-business-affairs/bursar/tuition-living-costs.html,https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html,https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf
+- checks: {"columns": 3, "components_reconcile": true, "rows": 6}
+  - column:Tuition & Fees: 9656 ⟵ “Tuition & Fees | $9,656 | $9,656 | $9,656”
+  - column:Living Expenses: 11430 ⟵ “Living Expenses | $11,430 | $20,212 | $23,504”
+  - column:Material, Supplies &: 1240 ⟵ “Material, Supplies & | $1,240 | $1,240 | $1,240”
+  - column:Transportation: 2290 ⟵ “Transportation | $2,290 | $1,528 | $2,696”
+  - column:Misc. Personal: 3808 ⟵ “Misc. Personal | $3,808 | $3,808 | $3,808”
+  - column:Total: 28424 ⟵ “Total | $28,424 | $36,444 | $40,904”
+  - with_parents_or_family:Tuition & Fees: 9656 ⟵ “Tuition & Fees | $9,656 | $9,656 | $9,656”
+  - with_parents_or_family:Living Expenses: 20212 ⟵ “Living Expenses | $11,430 | $20,212 | $23,504”
+  - with_parents_or_family:Material, Supplies &: 1240 ⟵ “Material, Supplies & | $1,240 | $1,240 | $1,240”
+  - with_parents_or_family:Transportation: 1528 ⟵ “Transportation | $2,290 | $1,528 | $2,696”
+  - with_parents_or_family:Misc. Personal: 3808 ⟵ “Misc. Personal | $3,808 | $3,808 | $3,808”
+  - with_parents_or_family:Total: 36444 ⟵ “Total | $28,424 | $36,444 | $40,904”
+  - on_campus:Tuition & Fees: 9656 ⟵ “Tuition & Fees | $9,656 | $9,656 | $9,656”
+  - on_campus:Living Expenses: 23504 ⟵ “Living Expenses | $11,430 | $20,212 | $23,504”
+  - on_campus:Material, Supplies &: 1240 ⟵ “Material, Supplies & | $1,240 | $1,240 | $1,240”
+  - on_campus:Transportation: 2696 ⟵ “Transportation | $2,290 | $1,528 | $2,696”
+  - on_campus:Misc. Personal: 3808 ⟵ “Misc. Personal | $3,808 | $3,808 | $3,808”
+  - on_campus:Total: 40904 ⟵ “Total | $28,424 | $36,444 | $40,904”
+### `63697a9fc7223330` California State University-Sacramento — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csus.edu/administration-business-affairs/bursar/tuition-living-costs.html (sha256 99f7a7d4900b)
+- issues: arrangement_unlabeled, cost_period_semester, residency_unknown, conflicting_sources:https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html,https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf,https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-cost-of-attendance.pdf
+- checks: {"columns": 2, "components_reconcile": true, "rows": 3}
+  - column:Tuition Fees: 1981.0 ⟵ “Tuition Fees | $1,981.00 | $3,419.00”
+  - column:Mandatory Campus Fees: 1409.0 ⟵ “Mandatory Campus Fees | $1,409.00 | $1,409.00”
+  - column:TOTAL: 3390.0 ⟵ “TOTAL | $3,390.00 | $4,828.00”
+  - column:Tuition Fees: 3419.0 ⟵ “Tuition Fees | $1,981.00 | $3,419.00”
+  - column:Mandatory Campus Fees: 1409.0 ⟵ “Mandatory Campus Fees | $1,409.00 | $1,409.00”
+  - column:TOTAL: 4828.0 ⟵ “TOTAL | $3,390.00 | $4,828.00”
+### `bfbca1ae2c5670d2` California State University-Sacramento — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html (sha256 dde418820e26)
+- issues: residency_unknown, conflicting_sources:https://www.csus.edu/administration-business-affairs/bursar/tuition-living-costs.html,https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-award-notice-guide1.pdf,https://www.csus.edu/apply/financial-aid-scholarships/_internal/_documents/2026-2027-cost-of-attendance.pdf
+- checks: {"columns": 1, "components_reconcile": true, "rows": 11}
+  - column:Tuition Fee: 5129.0 ⟵ “Tuition Fee | $3,419.00 | $5,129.00 | $10,484.00”
+  - column:Associated Students Inc. Fee: 94.0 ⟵ “Associated Students Inc. Fee | $94.00 | $94.00 | $94.00”
+  - column:Intercollegiate Athletics/Spirit Leaders Fee: 246.0 ⟵ “Intercollegiate Athletics/Spirit Leaders Fee | $246.00 | $246.00 | $246.00”
+  - column:Transportation Fee: 29.0 ⟵ “Transportation Fee | $29.00 | $29.00 | $29.00”
+  - column:Recreation, Intramural, and Sports Club Fee: 70.0 ⟵ “Recreation, Intramural, and Sports Club Fee | $70.00 | $70.00 | $70.00”
+  - column:University Union/WELL Fee: 482.0 ⟵ “University Union/WELL Fee | $482.00 | $482.00 | $482.00”
+  - column:Health Facilities Fee: 31.0 ⟵ “Health Facilities Fee | $31.00 | $31.00 | $31.00”
+  - column:Instructional Related Activities Fee: 256.0 ⟵ “Instructional Related Activities Fee | $256.00 | $256.00 | $256.00”
+  - column:Student Health & Counseling Services Fee: 198.0 ⟵ “Student Health & Counseling Services Fee | $198.00 | $198.00 | $198.00”
+  - column:State Hornet Fee: 3.0 ⟵ “State Hornet Fee | $3.00 | $3.00 | $3.00”
+  - column:Total Semester Costs: 6538.0 ⟵ “Total Semester Costs | $4,828.00 | $6,538.00 | $11,893.00”
+### `fd188fc2c042871a` California State University-Sacramento — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://catalog.csus.edu/financial-registration-information/fees-refunds/ (sha256 e4b415438a69)
+- issues: arrangement_unlabeled, conflicting_sources:https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html,https://www.csus.edu/international-programs-global-engagement/application-admissions-process/_internal/_documents/csus-financial-affidavit-spring-2027-ver-8.18.261-2.pdf
+- checks: {"columns": 2, "components_reconcile": true, "rows": 3}
+  - column:Tuition Fees: 1981 ⟵ “Tuition Fees | $1,981 | $3,419”
+  - column:Mandatory Campus Fees: 1409 ⟵ “Mandatory Campus Fees | $1,409 | $1,409”
+  - column:Total: 3390 ⟵ “Total | $3,390 | $4,828”
+  - column:Tuition Fees: 3419 ⟵ “Tuition Fees | $1,981 | $3,419”
+  - column:Mandatory Campus Fees: 1409 ⟵ “Mandatory Campus Fees | $1,409 | $1,409”
+  - column:Total: 4828 ⟵ “Total | $3,390 | $4,828”
+### `ffee8ba253f35ae0` California State University-Sacramento — costs 2026-27 · residency=in_state [new] (source_unlabeled)
+- source: https://www.csus.edu/international-programs-global-engagement/application-admissions-process/_internal/_documents/csus-financial-affidavit-spring-2027-ver-8.18.261-2.pdf (sha256 600ff199256d)
+- issues: arrangement_unlabeled, conflicting_sources:https://catalog.csus.edu/financial-registration-information/fees-refunds/,https://www.csus.edu/apply/admissions/application-process/western-undergraduate-exchange.html
+- checks: {"columns": 2, "components_reconcile": true, "rows": 4}
+  - column:Tuition and Fees: 20960 ⟵ “Tuition and Fees | $20,960 | $19,844”
+  - column:Living Expenses: 25548 ⟵ “Living Expenses | $25,548 | $25,548”
+  - column:Health Insurance and Books: 3206 ⟵ “Health Insurance and Books | $3,206 | $3,206”
+  - column:Total Expenses: 49714 ⟵ “Total Expenses | $49,714 | $48,598”
+  - column:Tuition and Fees: 19844 ⟵ “Tuition and Fees | $20,960 | $19,844”
+  - column:Living Expenses: 25548 ⟵ “Living Expenses | $25,548 | $25,548”
+  - column:Health Insurance and Books: 3206 ⟵ “Health Insurance and Books | $3,206 | $3,206”
+  - column:Total Expenses: 48598 ⟵ “Total Expenses | $49,714 | $48,598”
+### `7cca40788ca38e36` California State University-Sacramento — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_source)
+- source: https://catalog.csus.edu/admission/undergraduate/ (sha256 24cd0c3e6c1d)
+- issues: rows_without_score
+- checks: {"distinct_exams": 24, "equivalencies": 35, "rows_without_score": 35}
+  - equivalencies[AP-ART-HISTORY|None]:  ⟵ “Art History | 3A Arts or 3B Humanities | 3 | 3 | None”
+  - equivalencies[AP-BIOLOGY|None]:  ⟵ “Biology: Score of 3 | 5B & 5C | 4 | 2 | None”
+  - equivalencies[AP-BIOLOGY|None]:  ⟵ “Biology: Score of 4 or 5 | 5B & 5C | 6 | 0 | BIO 10”
+  - equivalencies[AP-CHEMISTRY|None]:  ⟵ “Chemistry | 5A & 5C | 4 | 2 | None”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|None]:  ⟵ “Chinese Language & Culture | 3B | 3 | 3 | Foreign Language Requirement”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|None]:  ⟵ “Computer Science Principles (May 2018 exam or later)1 | 2 | 3 | 3 | None”
+  - equivalencies[AP-MACROECONOMICS|None]:  ⟵ “Economics – Macroeconomics | 4 | 3 | 3 | ECON 1A”
+  - equivalencies[AP-MICROECONOMICS|None]:  ⟵ “Economics – Microeconomics | 4 | 3 | 3 | ECON 1B”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]:  ⟵ “English Language | 1A | 3 | 3 | ENGL 5”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]:  ⟵ “English Literature | 1A & 3B | 6 | 0 | ENGL 5”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|None]:  ⟵ “Environmental Science | 5A & 5C | 4 | 2 | None”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|None]:  ⟵ “French Language & Culture: Score of 3 | 3B | 4 | 2 | FREN 2A & Foreign Language reqmt.”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|None]:  ⟵ “French Language & Culture: Score of 4 or 5 | 3B | 4 | 2 | FREN 2B & Foreign Language reqmt.”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|None]:  ⟵ “French Literature | 3B | 3 | 3 | None”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|None]:  ⟵ “German Language & Culture: Score of 3 | 3B | 4 | 2 | GERM 2A & Foreign Language reqmt.”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|None]:  ⟵ “German Language & Culture: Score of 4 or 5 | 3B | 4 | 2 | GERM 2B & Foreign Language reqmt.”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|None]:  ⟵ “Government - U.S. Gov and Politics | 4 | 3 | 3 | None - meets US Constitution2”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|None]:  ⟵ “Italian Language & Culture | 3B | 3 | 3 | Foreign Language reqmt.”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|None]:  ⟵ “Japanese Language & Culture: Score of 3 (May 2017 exam or later) | 3B | 5 | 1 | Japanese 1B & Foreign Language reqmt.”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|None]:  ⟵ “Japanese Language & Culture: Score of 4 (May 2017 exam or later) | 3B | 4 | 2 | Japanese 2A & Foreign Language reqmt.”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|None]:  ⟵ “Japanese Language & Culture: Score of 5 (May 2017 exam or later) | 3B | 4 | 2 | Japanese 2B & Foreign Language reqmt.”
+  - equivalencies[AP-LATIN|None]:  ⟵ “Latin | 3B | 3 | 3 | Foreign Language reqmt.”
+  - equivalencies[AP-PHYSICS-1|None]:  ⟵ “Physics 1 + Physics 2: Score of 34 | 5A & 5C | 4 | 2 | None”
+  - equivalencies[AP-PHYSICS-1|None]:  ⟵ “Physics 1 + Physics 2: Score of 4 or 54 | 5A & 5C | 4 | 2 | PHYS 5A & PHYS 5B”
+  - equivalencies[AP-PHYSICS-C-MECHANICS|None]:  ⟵ “Physics C Mechanics: Score of 34 | 5A & 5C | 4 | 2 | None”
+  - … 10 more rows
+### `84216177b4c2669f` California State University-Sacramento — credit_policies 2026-27 · policy_kind=CLEP [new] (labeled_in_source)
+- source: https://catalog.csus.edu/academic-policies/ (sha256 ed31a9d23707)
+- issues: rows_without_score
+- checks: {"distinct_exams": 19, "equivalencies": 22, "rows_without_score": 19}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|None]:  ⟵ “American Government | 4 | 3 | 0 | None”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|None]:  ⟵ “American Literature | 3B | 3 | 0 | None”
+  - equivalencies[CLEP-BIOLOGY|None]:  ⟵ “Biology | 5B | 3 | 0 | None”
+  - equivalencies[CLEP-CALCULUS|None]:  ⟵ “Calculus | 2 | 3 | 0 | None”
+  - equivalencies[CLEP-CHEMISTRY|None]:  ⟵ “Chemistry | 5A | 3 | 0 | None”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|None]:  ⟵ “College Algebra | 2 | 3 | 0 | None”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|None]:  ⟵ “English Literature | 3B | 3 | 0 | None”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|None]:  ⟵ “French Level II1 | 3B | 3 | 6 | None”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|None]:  ⟵ “German Level II1 | 3B | 3 | 6 | None”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|None]:  ⟵ “Human Growth and Development | None | 3 | 0 | None”
+  - equivalencies[CLEP-HUMANITIES|None]:  ⟵ “Humanities | 3B | 3 | 0 | None”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|None]:  ⟵ “Intro Psychology | 4 | 3 | 0 | None”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|None]:  ⟵ “Intro Sociology | 4 | 3 | 0 | None”
+  - equivalencies[CLEP-PRECALCULUS|None]:  ⟵ “Pre-Calculus | 2 | 3 | 0 | None”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|None]:  ⟵ “Principles of Macroeconomics | 4 | 3 | 0 | ECON 1A”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|None]:  ⟵ “Principles of Microeconomics | 4 | 3 | 0 | ECON 1B”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|None]:  ⟵ “Spanish Level II1 | 3B | 3 | 6 | None”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|None]:  ⟵ “Western Civilization I | 3B or 4 | 3 | 0 | None”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|None]:  ⟵ “Western Civilization II | 4 | 3 | 0 | None”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Level II | 59”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Level II | 60”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|63]:  ⟵ “Spanish Level II | 63”
+### `adf553039dc17f32` California State University-Sacramento — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_source)
+- source: https://catalog.csus.edu/academic-policies/ (sha256 ed31a9d23707)
+- issues: rows_without_score
+- checks: {"distinct_exams": 15, "equivalencies": 21, "rows_without_score": 21}
+  - equivalencies[IB-BIOLOGY|None]:  ⟵ “Biology* | 5B & 5C | 3 | 3 | BIO 10 & Lab”
+  - equivalencies[IB-CHEMISTRY|None]:  ⟵ “Chemistry* | 5A & 5C | 3 | 3 | None”
+  - equivalencies[IB-ECONOMICS|None]:  ⟵ “Economics* | 4 | 6 | 0 | ECON 1A & ECON 1B”
+  - equivalencies[IB-GEOGRAPHY|None]:  ⟵ “Geography* | 4 | 3 | 3 | None”
+  - equivalencies[IB-GLOBAL-POLITICS|None]:  ⟵ “Global Politics* | 4 | 3 | 3 | None”
+  - equivalencies[IB-HISTORY|None]:  ⟵ “History - Africa and Middle East* | 3B & 4 | 6 | 0 | HIST 7 & HIST 8”
+  - equivalencies[IB-HISTORY|None]:  ⟵ “History - Americas* | 3B & 4 | 6 | 0 | HIST 51 & HIST 17B”
+  - equivalencies[IB-HISTORY|None]:  ⟵ “History - Europe/ME* | 3B & 4 | 6 | 0 | None”
+  - equivalencies[IB-FRENCH|None]:  ⟵ “Language B (French): Score of 4 | 3B | 4 | 2 | FREN 2A & Foreign Language Req”
+  - equivalencies[IB-FRENCH|None]:  ⟵ “Language B (French): Score of 5-7 | 3B | 4 | 2 | FREN 2B & Foreign Language Req”
+  - equivalencies[IB-SPANISH|None]:  ⟵ “Language B (Spanish): Score of 4 | 3B | 4 | 2 | SPAN 2A & Foreign Language Req”
+  - equivalencies[IB-SPANISH|None]:  ⟵ “Language B (Spanish): Score of 5 | 3B | 4 | 2 | SPAN 2B & Foreign Language Req”
+  - equivalencies[IB-SPANISH|None]:  ⟵ “Language B (Spanish): Score of 6 or 7 | 3B | 4 | 2 | SPAN 42, SPAN 47 & Foreign Language Req”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|None]:  ⟵ “Mathematics: Analysis and Approaches Score of 4 or 5 (May 2024 exam and later)1 | 2 | 4 | 2 | MATH 29”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|None]:  ⟵ “Mathematics: Analysis and Approaches: Score of 6 or 7 (May 2024 exam or later)1 | 2 | 4 | 2 | MATH 30”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|None]:  ⟵ “Mathematics: Applications and Interpretation1 | 2 | 3 | 3 | None”
+  - equivalencies[IB-PHILOSOPHY|None]:  ⟵ “Philosophy* | 3B | 3 | 3 | None”
+  - equivalencies[IB-PHYSICS|None]:  ⟵ “Physics* | 5A & 5C | 4 | 2 | None”
+  - equivalencies[IB-PSYCHOLOGY|None]:  ⟵ “Psychology* | 4 | 3 | 0 | PSYC 2”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|None]:  ⟵ “Social and Cultural Anthropology* | 4 | 3 | 3 | None”
+  - equivalencies[IB-THEATRE|None]:  ⟵ “Theatre | 3A | 3 | 3 | None”
+### `0f6d2c9f6dc9f7c9` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-athletic-coaching-education · requirement_key=concentration-in-athletic-coaching-education-29-units-nufd-10 [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-athletic-coaching-education/ (sha256 50f0193da6e8)
+- issues: requirement_groups_skipped
+  - courses: NUFD 113 ⟵ “NUFD 113 - Nutrition And Metabolism”
+  - courses: NUFD 120 ⟵ “NUFD 120 - Practical Application in Sports Nutrition”
+  - courses: PSYC 137 ⟵ “PSYC 137 - Stress Management”
+### `394febce51e173d5` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-physical-activity-and-wellness · requirement_key=program-requirements-required-upper-division-23-units [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-physical-activity-and-wellness/ (sha256 e524eb4c4b29)
+- issues: requirement_groups_skipped
+  - courses: KINS 101 ⟵ “KINS 101 - Kinesiology: Research and Practice”
+  - courses: KINS 134 ⟵ “KINS 134 - History and Philosophy of Physical Education and Sport”
+  - courses: KINS 137 ⟵ “KINS 137 - Sociology Of Sport”
+  - courses: KINS 138 ⟵ “KINS 138 - Sport Pedagogy”
+  - courses: KINS 150 ⟵ “KINS 150 - Exercise and Sport Physiology”
+  - courses: KINS 151D ⟵ “KINS 151D - Applied Kinesiology and Biomechanics”
+  - courses: KINS 158 ⟵ “KINS 158 - Motor Learning and Control”
+  - courses: KINS 160 ⟵ “KINS 160 - Sport and Exercise Psychology”
+### `5cb3fb3ce236c856` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-physical-activity-and-wellness · requirement_key=concentration-in-physical-activity-and-wellness-electives-12-units [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-physical-activity-and-wellness/ (sha256 e524eb4c4b29)
+- issues: requirement_groups_skipped
+  - courses: KINS 110 ⟵ “KINS 110 - Women and Sport”
+  - courses: KINS 121 ⟵ “KINS 121 - Peak Performance Through Psychological Skills”
+  - courses: KINS 122B ⟵ “KINS 122B - Cardiopulmonary Resuscitation”
+  - courses: KINS 144 ⟵ “KINS 144 - Analysis of Weight Training & Muscular Fitness”
+  - courses: KINS 152B ⟵ “KINS 152B - Exercise Physiology of Women”
+  - courses: KINS 152C ⟵ “KINS 152C - Prolonged Exercise”
+  - courses: KINS 156 ⟵ “KINS 156 - Care Of Athletic Injuries”
+  - courses: KINS 165 ⟵ “KINS 165 - Theory of Coaching”
+  - courses: KINS 166 ⟵ “KINS 166 - Ethics, Inclusion and Equity in Coaching”
+  - courses: GERO 100 ⟵ “GERO 100 - Aging Issues in Contemporary America”
+  - courses: GERO 121 ⟵ “GERO 121 - Strategies for Optimal Aging”
+  - courses: GERO 122 ⟵ “GERO 122 - Interprofessional Approaches to Health Care in Older Adults”
+### `9f3831c6b4ab1d4d` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-athletic-coaching-education · requirement_key=program-requirements-required-upper-division-23-units [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-athletic-coaching-education/ (sha256 50f0193da6e8)
+- issues: requirement_groups_skipped
+  - courses: KINS 101 ⟵ “KINS 101 - Kinesiology: Research and Practice”
+  - courses: KINS 134 ⟵ “KINS 134 - History and Philosophy of Physical Education and Sport”
+  - courses: KINS 137 ⟵ “KINS 137 - Sociology Of Sport”
+  - courses: KINS 138 ⟵ “KINS 138 - Sport Pedagogy”
+  - courses: KINS 150 ⟵ “KINS 150 - Exercise and Sport Physiology”
+  - courses: KINS 151D ⟵ “KINS 151D - Applied Kinesiology and Biomechanics”
+  - courses: KINS 158 ⟵ “KINS 158 - Motor Learning and Control”
+  - courses: KINS 160 ⟵ “KINS 160 - Sport and Exercise Psychology”
+### `a2b3765b0015c805` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-physical-activity-and-wellness · requirement_key=concentration-in-physical-activity-and-wellness-nufd-10 [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-physical-activity-and-wellness/ (sha256 e524eb4c4b29)
+- issues: requirement_groups_skipped
+  - courses: NUFD 113 ⟵ “NUFD 113 - Nutrition And Metabolism”
+  - courses: NUFD 120 ⟵ “NUFD 120 - Practical Application in Sports Nutrition”
+  - courses: PSYC 137 ⟵ “PSYC 137 - Stress Management”
+### `add3b628a269e52e` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-athletic-coaching-education · requirement_key=concentration-in-athletic-coaching-education-29-units-rpta-32 [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-athletic-coaching-education/ (sha256 50f0193da6e8)
+- issues: requirement_groups_skipped
+  - courses: RPTA 130 ⟵ “RPTA 130 - Community Sport Programming”
+### `b45e0783c43245c6` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-physical-activity-and-wellness · requirement_key=concentration-in-physical-activity-and-wellness-required-concentration-courses-1 [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-physical-activity-and-wellness/ (sha256 e524eb4c4b29)
+- issues: requirement_groups_skipped
+  - courses: KINS 120 ⟵ “KINS 120 - Strength and Conditioning”
+  - courses: KINS 132 ⟵ “KINS 132 - Planning, Designing and Managing a Fitness Center”
+  - courses: KINS 136 ⟵ “KINS 136 - Sport And Aging”
+  - courses: KINS 149 ⟵ “KINS 149 - Professional Activities of Health and Skill Related Fitness”
+  - courses: KINS 194A ⟵ “KINS 194A - Assigned Field Experience in Kinesiology”
+### `c13559cd63bb400c` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-athletic-coaching-education · requirement_key=concentration-in-athletic-coaching-education-29-units-electives-9-units [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-athletic-coaching-education/ (sha256 50f0193da6e8)
+- issues: requirement_groups_skipped
+  - courses: KINS 110 ⟵ “KINS 110 - Women and Sport”
+  - courses: KINS 141 ⟵ “KINS 141 - PRO ACT I - Dual Sports”
+  - courses: KINS 142 ⟵ “KINS 142 - Professional Activities II - Creative Movement and Dance”
+  - courses: KINS 144 ⟵ “KINS 144 - Analysis of Weight Training & Muscular Fitness”
+  - courses: KINS 145 ⟵ “KINS 145 - Pro Act III - Team Sports”
+  - courses: KINS 146 ⟵ “KINS 146 - PRO ACT IV Individual Sports”
+  - courses: KINS 148 ⟵ “KINS 148 - ProAct V - Nontraditional Games and Sports”
+  - courses: KINS 149 ⟵ “KINS 149 - Professional Activities of Health and Skill Related Fitness”
+  - courses: KINS 156 ⟵ “KINS 156 - Care Of Athletic Injuries”
+### `ff22d518e8a046ff` California State University-Sacramento — degree_requirements 2026-27 · program_key=bs-in-kinesiology-athletic-coaching-education · requirement_key=concentration-in-athletic-coaching-education-29-units-required-concentration-cou [new] (labeled_in_source)
+- source: https://catalog.csus.edu/colleges/health-human-services/kinesiology/bs-in-kinesiology-athletic-coaching-education/ (sha256 50f0193da6e8)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: KINS 120 ⟵ “KINS 120 - Strength and Conditioning”
+  - courses: KINS 121 ⟵ “KINS 121 - Peak Performance Through Psychological Skills”
+  - courses: KINS 139 ⟵ “KINS 139 - Leadership and Communication”
+  - courses: KINS 141 ⟵ “KINS 141 - PRO ACT I - Dual Sports”
+  - courses: KINS 165 ⟵ “KINS 165 - Theory of Coaching”
+  - courses: KINS 166 ⟵ “KINS 166 - Ethics, Inclusion and Equity in Coaching”
+  - courses: KINS 194D ⟵ “KINS 194D - Assigned Field Experience in Coaching”
+### `561b345b24d69a57` California State University-San Bernardino — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csusb.edu/financial-aid/prospective-current-students/eligibility-requirements/sap-procedures (sha256 851736eca1b7)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Appeal Requirements A completed Satisfactory Academic Progress (SAP) Appeal form, Academic Progress Plan and an Academic Contract (if applicable).”
+  - sentence: sap_appeal ⟵ “Documentation that supports the reason(s) given in student's statement (Photocopies only - original documents will not be returned) This may include: a letter from student's doctor court document(s) death certificate military orders SAP appeals are not retroactive and must be submitted before deadline date for the term in which a student would like consideration to regain eligibility.”
+  - sentence: sap_appeal ⟵ “SAP APPEAL FORMS SAP appeals will now be submitted through Student Forms.”
+### `5eb867d29fd0372b` California State University-San Bernardino — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://www.csusb.edu/financial-aid/prospective-current-students/awarding-process/special-cases (sha256 e483a959fcc3)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://www.csusb.edu/financial-aid/prospective-current-students/awarding-process,https://www.csusb.edu/financial-aid/prospective-current-students/eligibility-requirements/financial-aid-award-guide
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: need_based_special_circumstances ⟵ “On occasion, unusual circumstances occur that may warrant reevaluation of a student's financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “On a case-by-case basis, these special circumstances may be changes that have occurred in your family situation since you filed the FAFSA, or unusual family circumstances not accounted for on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “If you have a special circumstance, you may be eligible to apply for a Request for Special Circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Some examples of a special circumstance may include the following: Reduction or Loss of income or benefit Elementary or Secondary school tuition Medical, dental or nursing home expenses not covered by insurance High childcare costs Being homeless or a dislocated worker Other changes in the family's income or assets Change in marital status Loss of untaxable income or benefit Death of a parent or s”
+  - sentence: need_based_special_circumstances ⟵ “Advising Request Form Coyote ID First Name Last Name Coyote Email Address Alternate Email Address Academic Year (check all that apply) 2025-2026 2026-2027 Provide a brief explanation of your special circumstance: You will be contacted by a Financial Aid representative via your CSUSB Email to review your circumstances and financial aid options.”
+### `9771915277fba0ab` California State University-San Bernardino — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csusb.edu/financial-aid/prospective-current-students/awarding-process (sha256 f10bbfbdfbbe)
+- issues: semantic_review_required, conflicting_sources:https://www.csusb.edu/financial-aid/prospective-current-students/awarding-process/special-cases,https://www.csusb.edu/financial-aid/prospective-current-students/eligibility-requirements/financial-aid-award-guide
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Families should be evaluated in a consistent and equitable manner while recognizing that special circumstances can alter a family's ability to contribute.”
+### `e398c005efdd4b9e` California State University-San Bernardino — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csusb.edu/financial-aid/prospective-current-students/eligibility-requirements/financial-aid-award-guide (sha256 65e7debf894f)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “Cost Of Attendance (COA) Appeal Formerly known as the "Budget Increase Request," this appeal is a request to re-consider a student's allowed Cost Of Attendance (COA).”
+### `ee58ffbd827ed91e` California State University-San Bernardino — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csusb.edu/financial-aid/prospective-current-students/eligibility-requirements/financial-aid-award-guide (sha256 65e7debf894f)
+- issues: semantic_review_required, conflicting_sources:https://www.csusb.edu/financial-aid/prospective-current-students/awarding-process,https://www.csusb.edu/financial-aid/prospective-current-students/awarding-process/special-cases
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances Appeal Formerly known as a "Dependency Override," this appeal is a request to re-consider a student's dependency status, which is determined by the U.S.”
+  - sentence: need_based_special_circumstances ⟵ “However, students may submit an appeal to override their dependency status and be considered an independent based on unusual circumstances.”
+### `6ba9df40266b1c75` California State University-San Bernardino — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csusb.edu/sites/default/files/upload/file/2026/26-27%20Doctoral%20NP_web%206-25-26.pdf (sha256 e2ef6bc007c7)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://catalog.csusb.edu/csu-system/
+- checks: {"columns": 3, "rows": 9}
+  - column:TUITION*: 18190 ⟵ “TUITION* | $18,190 | $18,190 | $18,190”
+  - column:CAMPUS FEES: 2510 ⟵ “CAMPUS FEES | $2,510 | $2,510 | $2,510”
+  - column:BOOKS/SUPPLIES: 880 ⟵ “BOOKS/SUPPLIES | $880 | $880 | $880”
+  - column:FOOD: 5132 ⟵ “FOOD | $5,132 | $5,132 | $5,132”
+  - column:HOUSING: 4660 ⟵ “HOUSING | $4,660 | $11,426 | $15,006”
+  - column:TRANSPORTATION: 2334 ⟵ “TRANSPORTATION | $2,334 | $1,038 | $2,904”
+  - column:PERSONAL/MISC.: 2934 ⟵ “PERSONAL/MISC. | $2,934 | $2,260 | $4,414”
+  - column:LOAN PROCESSING FEES**: 70 ⟵ “LOAN PROCESSING FEES** | $70 | $70 | $70”
+  - column:TOTALS: 36710 ⟵ “TOTALS | $36,710 | $41,506 | $49,106”
+  - column:TUITION*: 18190 ⟵ “TUITION* | $18,190 | $18,190 | $18,190”
+  - column:CAMPUS FEES: 2510 ⟵ “CAMPUS FEES | $2,510 | $2,510 | $2,510”
+  - column:BOOKS/SUPPLIES: 880 ⟵ “BOOKS/SUPPLIES | $880 | $880 | $880”
+  - column:FOOD: 5132 ⟵ “FOOD | $5,132 | $5,132 | $5,132”
+  - column:HOUSING: 11426 ⟵ “HOUSING | $4,660 | $11,426 | $15,006”
+  - column:TRANSPORTATION: 1038 ⟵ “TRANSPORTATION | $2,334 | $1,038 | $2,904”
+  - column:PERSONAL/MISC.: 2260 ⟵ “PERSONAL/MISC. | $2,934 | $2,260 | $4,414”
+  - column:LOAN PROCESSING FEES**: 70 ⟵ “LOAN PROCESSING FEES** | $70 | $70 | $70”
+  - column:TOTALS: 41506 ⟵ “TOTALS | $36,710 | $41,506 | $49,106”
+  - column:TUITION*: 18190 ⟵ “TUITION* | $18,190 | $18,190 | $18,190”
+  - column:CAMPUS FEES: 2510 ⟵ “CAMPUS FEES | $2,510 | $2,510 | $2,510”
+  - column:BOOKS/SUPPLIES: 880 ⟵ “BOOKS/SUPPLIES | $880 | $880 | $880”
+  - column:FOOD: 5132 ⟵ “FOOD | $5,132 | $5,132 | $5,132”
+  - column:HOUSING: 15006 ⟵ “HOUSING | $4,660 | $11,426 | $15,006”
+  - column:TRANSPORTATION: 2904 ⟵ “TRANSPORTATION | $2,334 | $1,038 | $2,904”
+  - column:PERSONAL/MISC.: 4414 ⟵ “PERSONAL/MISC. | $2,934 | $2,260 | $4,414”
+  - … 2 more rows
+### `6f7c5d00f7e6d41a` California State University-San Bernardino — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://catalog.csusb.edu/csu-system/ (sha256 9b2cddb66a9c)
+- issues: arrangement_unlabeled, implausible_amount, residency_unknown, conflicting_sources:https://www.csusb.edu/sites/default/files/upload/file/2026/26-27%20Doctoral%20NP_web%206-25-26.pdf
+- checks: {"columns": 2, "components_reconcile": true, "rows": 4}
+  - column:State Appropriation (GF)1: 4957363000 ⟵ “State Appropriation (GF)1 | $4,957,363,000 | $12,692 | 58.4%”
+  - column:Gross Tuition Revenue 2: 2778751000 ⟵ “Gross Tuition Revenue 2 | $2,778,751,000 | $6,747 | 32.7%”
+  - column:Other Fee Revenue 2: 752697000 ⟵ “Other Fee Revenue 2 | $752,697,000 | $1,828 | 8.9%”
+  - column:Total Support Cost: 8488811000 ⟵ “Total Support Cost | *$8,488,811,000* | *$21,267* | 100%”
+  - column:State Appropriation (GF)1: 12692 ⟵ “State Appropriation (GF)1 | $4,957,363,000 | $12,692 | 58.4%”
+  - column:Gross Tuition Revenue 2: 6747 ⟵ “Gross Tuition Revenue 2 | $2,778,751,000 | $6,747 | 32.7%”
+  - column:Other Fee Revenue 2: 1828 ⟵ “Other Fee Revenue 2 | $752,697,000 | $1,828 | 8.9%”
+  - column:Total Support Cost: 21267 ⟵ “Total Support Cost | *$8,488,811,000* | *$21,267* | 100%”
+### `0087124caf610976` California State University-San Marcos — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csusm.edu/finaid/apply_for_finaid/special_circumstances.html (sha256 af633d5726b7)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 8}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstance Significant changes in your family's income may merit recalculating your financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “Documenting a Special Circumstance Unemployment documents should be less than 90 days old.”
+  - sentence: need_based_special_circumstances ⟵ “This is called Unusual Circumstances and request can only be approved in certain limited and exceptional circumstances where the parents are unable to be contacted or contact poses a risk to the student.”
+  - sentence: need_based_special_circumstances ⟵ “These are examples of unusual circumstances where parent information can be removed or excluded from the FAFSA: Human Trafficking; Being legally granted refugee or asylum status; Parent abandonment or estrangement; or Student or parental incarceration.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual circumstances do not include: Parents refuse to contribute to the student’s education.”
+  - sentence: need_based_special_circumstances ⟵ “Documenting an Unusual Circumstance A signed and dated statement that includes a complete history of your relationship with your biological and/or legally adoptive parents, and the specific dates of events that caused your separation from your parents.”
+### `9b71f2305af25410` California State University-San Marcos — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.csusm.edu/finaid/policies/sap/index.html (sha256 b46be3f7f330)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Not Meeting SAP Appeal Process Other Options | The following three components are evaluated at the end of each academic year: Undergraduate students must have a minimum cumulative grade point average of 2.0.”
+  - sentence: sap_appeal ⟵ “Examples of justifying circumstances include, but are not limited to: Medical illness or injury Death of a family member Personal difficulties Military Services Family circumstances Financial difficulties Difficulties managing priorities Required Appeal Documents Submit the SAP Student Appeal eForm in your MyCSUSM Student Center.”
+  - sentence: sap_appeal ⟵ “Once in your Student Center, select the ToDo Item for SAP Appeal Please click the link to open the appeal in our secured document software.”
+### `9ba5673cc108dda8` California State University-San Marcos — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.csusm.edu/finaid/costofattendance/index.html (sha256 36019cbf6675)
+- issues: residency_unknown
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - with_parents_or_family:Tuition Fee: 9126 ⟵ “Tuition Fee | $9,126 | $9,126 | $9,126”
+  - with_parents_or_family:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - with_parents_or_family:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - with_parents_or_family:Meals: 3332 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - with_parents_or_family:Housing: 6512 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - with_parents_or_family:Transportation: 2834 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - with_parents_or_family:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - with_parents_or_family:Total: 28788 ⟵ “Total | $28,788 | $33,154 | $42,204”
+  - on_campus:Tuition Fee: 9126 ⟵ “Tuition Fee | $9,126 | $9,126 | $9,126”
+  - on_campus:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - on_campus:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - on_campus:Meals: 3368 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - on_campus:Housing: 12020 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - on_campus:Transportation: 1656 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - on_campus:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - on_campus:Total: 33154 ⟵ “Total | $28,788 | $33,154 | $42,204”
+  - off_campus_not_with_family:Tuition Fee: 9126 ⟵ “Tuition Fee | $9,126 | $9,126 | $9,126”
+  - off_campus_not_with_family:Mandatory Fees: 2496 ⟵ “Mandatory Fees | $2,496 | $2,496 | $2,496”
+  - off_campus_not_with_family:Books, Course Materials, Supplies, and Equipment: 1136 ⟵ “Books, Course Materials, Supplies, and Equipment | $1,136 | $1,136 | $1,136”
+  - off_campus_not_with_family:Meals: 7854 ⟵ “Meals | $3,332 | $3,368 | $7,854”
+  - off_campus_not_with_family:Housing: 15248 ⟵ “Housing | $6,512 | $12,020 | $15,248”
+  - off_campus_not_with_family:Transportation: 2992 ⟵ “Transportation | $2,834 | $1,656 | $2,992”
+  - off_campus_not_with_family:Personal/Misc.: 3352 ⟵ “Personal/Misc. | $3,352 | $3,352 | $3,352”
+  - off_campus_not_with_family:Total: 42204 ⟵ “Total | $28,788 | $33,154 | $42,204”
+### `02339ab748f85ee2` Cypress College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.cypresscollege.edu/financial-aid/satisfactory-academic-progress-sap-policy/ (sha256 a32850dddc38)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Students who do not meet SAP standards by the end of the warning term are disqualified from financial aid and may either submit a SAP Appeal or regain eligibility by meeting SAP standards in a future term.”
+  - sentence: sap_appeal ⟵ “Students who continue to not meet SAP standards after disqualification will remain disqualified and must submit a SAP Appeal to be reconsidered for aid, unless they are placed on Financial Aid Probation following an approved appeal.”
+  - sentence: sap_appeal ⟵ “Disqualification: Financial aid is suspended; a SAP appeal may be submitted to request reinstatement of eligibility.”
+  - sentence: sap_appeal ⟵ “SAP Appeals Students may submit a SAP Appeal if extenuating circumstances prevented them from meeting SAP.”
+  - sentence: sap_appeal ⟵ “Extenuating Circumstances May Include: Serious illness, injury, or medical condition (including mental/behavioral health) Death of a relative or significant person Personal circumstances (financial hardship, loss of housing, childcare, transportation, pregnancy/birth) Lack of required support services or accommodations Victim of crime or natural disaster Other circumstances beyond your control How”
+### `24cb2d0a14462dac` Cypress College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/policy-information/ (sha256 e44955b4e852)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstance – Dependency Override If you answer “no” to all of the dependency questions on your financial aid application, you are considered a dependent student.”
+### `9fa63184414aee5d` Cypress College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/policy-information/ (sha256 e44955b4e852)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress (SAP) Policy and Appeal Satisfactory Academic Progress Policy (SAP) This policy describes your responsibilities as a financial aid recipient at Cypress College.”
+  - sentence: sap_appeal ⟵ “If you are disqualified, you may submit a SAP Appeal if extenuating circumstances prevented you from meeting SAP.”
+  - sentence: sap_appeal ⟵ “For more detailed information, please review the SAP policy and appeal process here: Cypress College SAP Policy.”
+  - sentence: sap_appeal ⟵ “Important: The last day to submit a fall 2026 SAP Appeal is December 4, 2026.”
+### `dcad454bc88cef87` Cypress College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/policy-information/ (sha256 e44955b4e852)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Please contact the Financial Aid Office for further clarification and assistance on the information needed for you to complete a Dependency Override Appeal on our Student Forms platform.”
+### `dfaec4c5be2ca8ba` Cypress College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/policy-information/ (sha256 e44955b4e852)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: professional_judgment ⟵ “July 23, 2026 – Last day for students to complete all financial aid requirements for the 2025–2026 academic year, including: Verification document submission Professional Judgment requests Identity verification Submission of any additional requested documentation July 27, 2026 – Last day for awarding determinations for Cal Grant and other eligible state financial aid programs for the 2025–2026 aca”
+  - sentence: professional_judgment ⟵ “Unusual and Special Circumstances Policies Special Circumstance – Income Adjustment If you (or a parent) have recently experienced a change in income or household, such as job loss, divorce, or a special circumstance – you might be eligible for a Professional Judgement Appeal on your financial aid application.”
+  - sentence: professional_judgment ⟵ “How to request the appeal: Once we have received your financial aid application, you may request the appeal by logging in on the platform and clicking the blue “Manage Request” button at the upper right corner and select “Professional Judgement: Special Circumstance – EFC/SAI Appeal.” You will need to provide a brief explanation of your situation and upload supporting documentation.”
+  - sentence: professional_judgment ⟵ “You may be able to request a Professional Judgement: Unusual Circumstance Appeal if you have an unusual circumstance such as: you have no contact with either parents and don’t know where they live or unable to have contact with them, or you’ve left home due to an abusive situation.”
+  - sentence: professional_judgment ⟵ “Choose Professional Judgement: Special Circumstance – COA Appeal.”
+### `17bf5973e2fc3fa0` Cypress College — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/cost-of-attendance/cost-of-attendance-estimate/ (sha256 845f63cc96b5)
+- issues: residency_unknown
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - column:Tuition & Fees: 1432 ⟵ “Tuition & Fees | $1,432 | $716”
+  - column:Books, Course Materials, Supplies, and Equipment: 2267 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,267 | $1,134”
+  - column:Food and Housing: 12537 ⟵ “Food and Housing | $12,537 | $6,269”
+  - column:Transportation: 1818 ⟵ “Transportation | $1,818 | $909”
+  - column:Personal & Misc.: 4695 ⟵ “Personal & Misc. | $4,695 | $2,348”
+  - column:Total:: 22749 ⟵ “Total: | $22,749 | $11,376”
+### `addc0ed73048cb26` Cypress College — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/cost-of-attendance/cost-of-attendance-estimate/ (sha256 845f63cc96b5)
+- issues: residency_unknown, stale_year_label:2024-25
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - column:Tuition & Fees: 1432 ⟵ “Tuition & Fees | $1,432 | $716”
+  - column:Books, Course Materials, Supplies, and Equipment: 2267 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,267 | $1,134”
+  - column:Food and Housing: 11493 ⟵ “Food and Housing | $11,493 | $5,747”
+  - column:Transportation: 1791 ⟵ “Transportation | $1,791 | $896”
+  - column:Personal & Misc.: 4695 ⟵ “Personal & Misc. | $4,695 | $2,348”
+  - column:Total:: 21678 ⟵ “Total: | $21,678 | $10,841”
+### `c7a4891ea0b68e23` Cypress College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.cypresscollege.edu/financial-aid/cost-of-attendance/cost-of-attendance-estimate/ (sha256 845f63cc96b5)
+- issues: residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 6}
+  - column:Tuition & Fees: 1432 ⟵ “Tuition & Fees | $1,432 | $716”
+  - column:Books, Course Materials, Supplies, and Equipment: 2267 ⟵ “Books, Course Materials, Supplies, and Equipment | $2,267 | $1,134”
+  - column:Food and Housing: 11835 ⟵ “Food and Housing | $11,835 | $5,918”
+  - column:Transportation: 1818 ⟵ “Transportation | $1,818 | $909”
+  - column:Personal & Misc.: 4695 ⟵ “Personal & Misc. | $4,695 | $2,348”
+  - column:Total:: 22047 ⟵ “Total: | $22,047 | $11,025”
+### `2042d42b8aa21bfe` Foothill College — appeals 2020-21 [new] (labeled_in_source)
+- source: https://foothill.edu/financial-aid/appeals.html (sha256 723e45a8def7)
+- issues: stale_year_label:2020-21, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: need_based_special_circumstances ⟵ “If you believe you have special circumstances that warrant consideration from our office, we will review the types of appeals listed below.”
+  - sentence: need_based_special_circumstances ⟵ “Generally speaking, there should be a causal link between the special circumstances and the poor academic performance.”
+  - sentence: need_based_special_circumstances ⟵ “Two Types of Special Circumstances Family Contribution / Income Reduction Appeal At a very basic level, special circumstances for this appeal are anything that makes the information provided on the Free Application for Federal Student Aid (FAFSA) or California Dream Act Application (CADAA) form not reflective of the family's ability to pay.”
+  - sentence: need_based_special_circumstances ⟵ “To learn more about the EFC, please visit: What’s the Expected Family Contribution (EFC) Note: If you already have a zero expected family contribution (EFC) then you will receive the maximum amount of financial aid possible and there is no reason for you to do a Special Circumstances appeal.”
+  - sentence: need_based_special_circumstances ⟵ “Please come by or contact our office and speak to one of our Financial Aid professionals if you wish an additional review of your eligibility based on the decrease in family income or other special circumstances that may affect financial eligibility after filing the FAFSA or CADAA.”
+  - sentence: need_based_special_circumstances ⟵ “To learn more about the Special Circumstances appeal, please visit: Financial Aid Special Circumstances FAQ’s.”
+### `8ba500c2bf4eb72a` Foothill College — appeals 2020-21 [new] (labeled_in_source)
+- source: https://foothill.edu/financial-aid/appeals.html (sha256 723e45a8def7)
+- issues: stale_year_label:2020-21, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: dependency_override ⟵ “If your FAFSA or CADAA determined that you are a dependent student, but you have circumstances that merit a special consideration, you may qualify for a change of Dependency Status Circumstances that do NOT merit a Dependency Override Parents refuse to contribute to the student's education.”
+  - sentence: dependency_override ⟵ “Once he/she has determined that you are a potential candidate for a dependency override, you will be given access to the “Dependency Override Appeal” form to complete.”
+### `8e7eb62f581ef2a6` Foothill College — appeals 2020-21 [new] (labeled_in_source)
+- source: https://foothill.edu/financial-aid/appeals.html (sha256 723e45a8def7)
+- issues: stale_year_label:2020-21, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: professional_judgment ⟵ “Professional Judgment Appeals: 1.”
+  - sentence: professional_judgment ⟵ “Dependency Override Professional Judgment appeals, such as Family Contribution Appeals (which are most often related to income reductions) and Dependency Override appeals, refer to the authority of a school's financial aid administrator to adjust data elements on the Free Application for Federal Student Aid (FAFSA) or California Dream Act Application (CADAA) and to override a student's dependency ”
+  - sentence: professional_judgment ⟵ “Circumstances that do merit a Dependency Override These circumstances must be documented by an objective third party (e.g., pastor, high school or college counselor, a social service agency official, etc.) in order to qualify for this professional judgment appeal.”
+  - sentence: professional_judgment ⟵ “To learn more about the Dependency Override Appeal, please visit: Dependency Override FAQ’S It can take up to four to six weeks for the Financial Aid Office to and review and process your Professional Judgement Appeal.”
+### `cd2ef6964a0337b1` Foothill College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://foothill.edu/financial-aid/terms-and-conditions/progress.html (sha256 84417700c53d)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Appeals & Probation Status If you don’t meet Satisfactory Academic Progress standards, you'll be notified through your MyPortal account and student email after each term.”
+  - sentence: sap_appeal ⟵ “Only applicable to Satisfactory Academic Progress (SAP) appeals. * Not required for Maximum Time Frame.”
+### `eb7b9b789c15973b` Foothill College — appeals 2020-21 [new] (labeled_in_source)
+- source: https://foothill.edu/financial-aid/appeals.html (sha256 723e45a8def7)
+- issues: stale_year_label:2020-21, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “Appeal for Extended Financial Aid Probation A student may appeal Satisfactory Academic Progress (SAP) requirements if he/she believes that extenuating circumstances (circumstances beyond the student’s control) prevented normal academic success or successful completion of the terms of SAP.”
+  - sentence: sap_appeal ⟵ “A SAP appeal—known at Foothill as an Appeal for Extended Financial Aid Probation—may be based on undue hardship when the failure to make satisfactory academic progress is caused by the death of a relative of the student, severe personal injury or illness of the student, or other special circumstances determined by the school on a case by case basis.”
+### `eff3f7d397efd7cb` Foothill College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://foothill.edu/financial-aid/index.html (sha256 87c73fae9462)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Appeals If you believe you have special circumstances that warrant consideration from our office, there are various types of appeals to consider.”
+### `508ff1f70004cb40` Foothill College — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://foothill.edu/financial-aid/cost.html (sha256 3106c19bbf36)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 2, "rows": 10}
+  - column:Tuition and Fees* (see fees): 1617 ⟵ “Tuition and Fees* (see fees) | $1,617 | $1,617”
+  - column:Books and Supplies: 1851 ⟵ “Books and Supplies | $1,851 | $1,851”
+  - column:Housing and Food: 12882 ⟵ “Housing and Food | $12,882 | $21,417”
+  - column:Transportation: 2019 ⟵ “Transportation | $2,019 | $2,019”
+  - column:Personal/Miscellaneous: 4455 ⟵ “Personal/Miscellaneous | $4,455 | $5,271”
+  - column:TOTAL: 22824 ⟵ “TOTAL | $22,824 | $32,175”
+  - column:Add for Non-Resident Tuition (if applicable).: 12021 ⟵ “Add for Non-Resident Tuition (if applicable). | $12,021 | $12,021”
+  - column:TOTAL (2): 34845 ⟵ “TOTAL | $34,845 | $44,196”
+  - column:Dependent Care (if applicable): 12000 ⟵ “Dependent Care (if applicable) | $12,000 | $12,000”
+  - column:TOTAL (3): 46845 ⟵ “TOTAL | $46,845 | $56,196”
+  - column:Tuition and Fees* (see fees): 1617 ⟵ “Tuition and Fees* (see fees) | $1,617 | $1,617”
+  - column:Books and Supplies: 1851 ⟵ “Books and Supplies | $1,851 | $1,851”
+  - column:Housing and Food: 21417 ⟵ “Housing and Food | $12,882 | $21,417”
+  - column:Transportation: 2019 ⟵ “Transportation | $2,019 | $2,019”
+  - column:Personal/Miscellaneous: 5271 ⟵ “Personal/Miscellaneous | $4,455 | $5,271”
+  - column:TOTAL: 32175 ⟵ “TOTAL | $22,824 | $32,175”
+  - column:Add for Non-Resident Tuition (if applicable).: 12021 ⟵ “Add for Non-Resident Tuition (if applicable). | $12,021 | $12,021”
+  - column:TOTAL (2): 44196 ⟵ “TOTAL | $34,845 | $44,196”
+  - column:Dependent Care (if applicable): 12000 ⟵ “Dependent Care (if applicable) | $12,000 | $12,000”
+  - column:TOTAL (3): 56196 ⟵ “TOTAL | $46,845 | $56,196”
+### `13073e081a233764` Foothill College — credit_policies 2026-27 · policy_kind=CLEP [new] (labeled_in_source)
+- source: https://catalog.foothill.edu/academic-policies/ (sha256 eaac7068d6ed)
+- issues: course_column_missing
+- checks: {"distinct_exams": 21, "equivalencies": 21, "rows_without_score": 0}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | 4 | Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature | 50 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing & Interpreting Literature | 50 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | 4 | Area 5- Natural Sciences”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus | 50 | 4 | Area 2- Mathematical Concepts & Quantitative Reasoning”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | 4 | Area 5- Natural Sciences”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | 4 | Area 2- Mathematical Concepts & Quantitative Reasoning”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|59]:  ⟵ “French Level II | 59 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|60]:  ⟵ “German Level II | 60 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]:  ⟵ “Human Growth & Development | 50 | 4 | Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-HUMANITIES|50]:  ⟵ “Humanities | 50 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|50]:  ⟵ “Introductory Psychology | 50 | 4 | Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | 4 | Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-NATURAL-SCIENCES|50]:  ⟵ “Natural Sciences | 50 | 4 | Area 5- Natural Sciences”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Pre-Calculus | 50 | 4 | Area 2- Mathematical Concepts & Quantitative Reasoning”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | 50 | 4 | Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | 50 | 4 | Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|63]:  ⟵ “Spanish Level II | 63 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-SPANISH-WITH-WRITING|63]:  ⟵ “Spanish with Writing Level II | 63 | 4 | Area 3- Arts & Humanities”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]:  ⟵ “Western Civilization I | 50 | 4 | Area 3- Arts & Humanities OR Area 4- Social & Behavioral Sciences”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]:  ⟵ “Western Civilization II | 50 | 4 | Area 4- Social & Behavioral Sciences”
+### `7c297598d9222894` Foothill College — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_source)
+- source: https://catalog.foothill.edu/academic-policies/ (sha256 eaac7068d6ed)
+- issues: score_scale_mismatch
+- checks: {"distinct_exams": 37, "equivalencies": 38, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4 quarter/3 semester units (elective)]:  ⟵ “African American Studies | No AA/AS GE credit awarded | 4 quarter/3 semester units (elective) | N/A | N/A | 4.5 quarter/3 semester units | 4 quarter/2.6 semester”
+  - equivalencies[AP-2-D-ART-DESIGN|4.5 quarter/3 semester units (elective)]:  ⟵ “2D- Art and Design | No AA/AS GE credit awarded | 4.5 quarter/3 semester units (elective) | N/A | N/A | 4.5 quarter/3 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-3-D-ART-DESIGN|4.5 quarter/3 semester units (elective)]:  ⟵ “3D- Art and Design | No AA/AS GE credit awarded | 4.5 quarter/3 semester units (elective) | N/A | N/A | 4.5 quarter/3 semester units | 8 quarter/5.3 semster units”
+  - equivalencies[AP-ART-HISTORY|4.5 quarter/3 semester units]:  ⟵ “Art History | Satisfies AA/AS Arts & Humanities Requirement Course credit: ART 2A | 4.5 quarter/3 semester units | Area 3A or 3B; 4 quarter/3 semester units | Area 3A or 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-BIOLOGY|6 quarter/4 semester units]:  ⟵ “Biology | Satisfies AA/AS Natural Sciences Requirement | 6 quarter/4 semester units | Area 5B and 5C; 5 quarter/4semester units | Area 5B and 5C; 6 quarter/4 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-CALCULUS-AB|5 quarter/3 semester units]:  ⟵ “Calculus AB | Satisfies AA/AS Mathematical Concepts & Quantitative Reasoning Requirement Course credit: MATH 1A | 5 quarter/3 semester units | Area 2; 4 quarter/3 semester units | Area 2; 4.5 quarter/3 semester units | 4.5 quarter/3 semester units 1 | 4 quarter/2.6 semester”
+  - equivalencies[AP-CALCULUS-BC|10 quarter/6 semester units]:  ⟵ “Calculus BC | Satisfies AA/AS Mathematical Concepts & Quantitative Reasoning Requirement Course credit: MATH 1A & MATH 1B | 10 quarter/6 semester units | Area 2; 4 quarter/3 semester units | Area 2; 4.5 quarter/3 semester units | 9 quarter/6 semester units 1 | 8 quarter/5.3 semester units”
+  - equivalencies[AP-CALCULUS-BC|5 quarter/3 semester units]:  ⟵ “Calculus BC/AB Subscore | Satisfies AA/AS Mathematical Concepts & Quantitative Reasoning Requirement Course credit: MATH 1A | 5 quarter/3 semester units | Area 2; 4 quarter/3 semester units | Area 2; 4.5 quarter/3 semester units | 4.5 quarter/3 semester units 1 | 4 quarter/2.6 semester units”
+  - equivalencies[AP-CHEMISTRY|5 quarter/4 semester units]:  ⟵ “Chemistry | Satisfies AA/AS Natural Sciences Requirement Course credit: Score of 3 - CHEM 25, Score of 4 or 5 - CHEM 1A | 5 quarter/4 semester units | Areas 5A and 5C; 5 quarter/4 semester units | Areas 5A and 5C; 6 quarter/4 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4.5 quarter/3 semester units]:  ⟵ “Chinese Language & Culture | Satisfies AA/AS Arts & Humanities Requirement | 4.5 quarter/3 semester units | Area 3B; 4 quarter/3 semester units | Area 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|4.5 quarter/3 semester]:  ⟵ “Comparative Government & Politics | Satisfies AA/AS Social & Behavioral Sciences Requirement | 4.5 quarter/3 semester | Area 4; 4 quarter/3 semester units | Area 4; 4.5 quarter/3 semester units | 4.5 quarter/3 semester units | 4 quarter/2.6 semester units”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4.5 quarter/3 semester units (elective)]:  ⟵ “Computer Science A | Satisfies AA/AS Oral Communication & Critical Thinking Requirement. Course credit: Score of 4 or 5 - C S 1A | 4.5 quarter/3 semester units (elective) | N/A | N/A | 4.5 quarter/3 semester units3 | 8 quarter/5.3 semester units”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4.5 quarter/3 semester units]:  ⟵ “Computer Science Principles | No AA/AS GE credit awarded | 4.5 quarter/3 semester units | N/A | Area 2; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-DRAWING|4.5 quarter/3 semester units (elective)]:  ⟵ “Drawing | No AA/AS GE credit awarded | 4.5 quarter/3 semester units (elective) | N/A | N/A | 4.5 quarter/3 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4 quarter/3 semester units]:  ⟵ “Environmental Science | Satisfies AA/AS Natural Sciences Requirement Course credit: BIOL 9 | 4 quarter/3 semester units | Area 5A and 5C; 4 quarter/3 semester units | Area 5A and 5C or Area 5B and 5C (if taken prior to Fall 2009) or Area 5A and 5C (regardless of when taken) | 6 quarter/4 semester un”
+  - equivalencies[AP-EUROPEAN-HISTORY|4 quarter/3 semester units]:  ⟵ “European History | Satisfies either AA/AS Social & Behavioral Science or Arts & Humanities Requirement Course credit: HIST 4A | 4 quarter/3 semester units | Area 3B or 4; 4 quarter/3 semester units | Area 3B or 4; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 4 quarter/2.6 semester uni”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4.5 quarter/3 semester units]:  ⟵ “French Language and Culture | Satisfies AA/AS Arts & Humanities Requirement | 4.5 quarter/3 semester units | Area 3B; 4 quarter/3 semester units | Area 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4.5 quarter/3 semester units]:  ⟵ “German Language and Culture | Satisfies AA/AS Arts & Humanities Requirement | 4.5 quarter/3 semester units | Area 3B; 4 quarter/3 semester units | Area 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|4.5 quarter/3 semester units]:  ⟵ “Human Geography | Satisfies AA/AS Social & Behavioral Sciences Requirement | 4.5 quarter/3 semester units | Area 4; 4 quarter/3 semester units | Area 4; 4.5 quarter/3 semester units | 4.5 quarter/3 semester units | 4 quarter/2.6 semester units”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4.5 quarter/3 semester units]:  ⟵ “Italian Language & Culture | Satisfies AA/AS Arts & Humanities Requirement | 4.5 quarter/3 semester units | Area 3B; 4 quarter/3 semester units | Area 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4.5 quarter/3 semester units]:  ⟵ “Japanese Language & Culture | Satisfies AA/AS Arts & Humanities Requirement | 4.5 quarter/3 semester units | Area 3B; 4 quarter/3 semester units | Area 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-LATIN|4.5 quarter/3 semester units]:  ⟵ “Latin | Satisfies AA/AS Arts & Humanities Requirement | 4.5 quarter/3 semester units | Area 3B; 4 quarter/3 semester units | Area 3B; 4.5 quarter/3 semester units | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - equivalencies[AP-MACROECONOMICS|4 quarter/3 semester units]:  ⟵ “Macroeconomics | Satisfies AA/AS Social & Behavioral Sciences Requirement | 4 quarter/3 semester units | Area 4; 4 quarter/3 semester units | Area 4; 4.5 quarter/3 semester units | 4.5 quarter/3 semester units | 4 quarter/2.6 semester units”
+  - equivalencies[AP-MICROECONOMICS|4 quarter/3 semester units]:  ⟵ “Microeconomics | Satisfies AA/AS Social & Behavioral Sciences Requirement | 4 quarter/3 semester units | Area 4; 4 quarter/3 semester units | Area 4; 4.5 quarter/3 semester units | 4.5 quarter/3 semester units | 4 quarter/2.6 semester units”
+  - equivalencies[AP-MUSIC-THEORY|5 quarter/3 semester units]:  ⟵ “Music Theory | Satisfies AA/AS Arts & Humanities Requirement Course credit: MUS 3A | 5 quarter/3 semester units | N/A | Area 3A (if taken prior to Fall 2009) 4.5 quarter/3 semester units no GE credit after 2009 | 9 quarter/6 semester units | 8 quarter/5.3 semester units”
+  - … 13 more rows
+### `d7c4918dd1090540` Foothill College — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_source)
+- source: https://catalog.foothill.edu/academic-policies/ (sha256 eaac7068d6ed)
+- issues: course_column_missing
+- checks: {"distinct_exams": 10, "equivalencies": 10, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 4]:  ⟵ “Biology HL | Natural Sciences | 4”
+  - equivalencies[IB-CHEMISTRY-HL|HL 4]:  ⟵ “Chemistry HL | Natural Sciences | 4”
+  - equivalencies[IB-ECONOMICS-HL|HL 4]:  ⟵ “Economics HL | Social & Behavioral Sciences | 4”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 4]:  ⟵ “Geography HL | Social & Behavioral Sciences | 4”
+  - equivalencies[IB-HISTORY-HL|HL 4]:  ⟵ “History (any region) HL | Social & Behavioral Sciences OR Arts & Humanities | 4”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 4]:  ⟵ “Mathematics: Analysis & Approaches HL | Mathematical Concepts & Quantitative Reasoning | 4”
+  - equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 4]:  ⟵ “Mathematics: Applications & Interpretations HL | Mathematical Concepts & Quantitative Reasoning | 4”
+  - equivalencies[IB-PHYSICS-HL|HL 4]:  ⟵ “Physics HL | Natural Sciences | 4”
+  - equivalencies[IB-PSYCHOLOGY-HL|HL 4]:  ⟵ “Psychology HL | Social & Behavioral Sciences | 4”
+  - equivalencies[IB-THEATRE-HL|HL 4]:  ⟵ “Theatre HL | Arts & Humanities | 4”
+### `5b49dff9a17d6621` San Diego Mesa College — appeals 2025-26 [new] (labeled_in_source)
+- source: https://www.sdmesa.edu/student-support/financial-aid/financial-aid-appeal-workshops.shtml (sha256 95b08587aff5)
+- issues: stale_year_label:2025-26, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “However, we highly recommend that students watch our Virtual SAP Appeal Workshop video below, which focuses on the financial aid appeal process.”
+  - sentence: sap_appeal ⟵ “Appeal Workshops Process # Appeal Workshops Schedule # 2025-2026 Financial Aid Year Virtual SAP Appeal Workshop: On this page San Diego Mesa College 7250 Mesa College Drive San Diego, CA 92111-4998 San Diego Community College District San Diego Mesa College San Diego City College San Diego Miramar College San Diego Continuing Education Student Support Contact Us Technical Support Accessibility Cle”
+### `e96a4859d2d791c8` San Diego Mesa College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.sdmesa.edu/student-support/financial-aid/financial-aid-staff.shtml (sha256 3edb4c2a5f27)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Unusual Circumstances Coordinator | [email protected] | 619-388-2817 | I4-107 | Vacant | Senior Student Services Assistant | [email protected] | 619-388-2817 | I4-107 | Louis Flores-Arzola | Student Assistance Tech.”
+### `2fede4d370688fa5` San Francisco State University — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://bursar.sfsu.edu/students/special-circumstances (sha256 5df3ba3c3c40)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Payment deadlines and penalties as stated above apply to subsidized and Special Circumstances students.”
+### `0fdfb0f2249bffc1` San Francisco State University — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://bulletin.sfsu.edu/fees-financial-aid/fees-expenses/cost-source-funds/ (sha256 1bc1656dab65)
+- issues: arrangement_unlabeled, implausible_amount, residency_unknown, stale_year_label:2025-26, conflicting_sources:https://bursar.sfsu.edu/students/current-academic-year,https://financialaid.sfsu.edu/cost-of-attendance
+- checks: {"columns": 2, "components_reconcile": true, "rows": 4}
+  - column:State Appropriation (GF)1: 4957363000 ⟵ “State Appropriation (GF)1 | $4,957,363,000 | $12,692 | 58.4%”
+  - column:Gross Tuition Revenue2: 2778751000 ⟵ “Gross Tuition Revenue2 | $2,778,751,000 | $6,747 | 32.7%”
+  - column:Other Fees Revenue2: 752697000 ⟵ “Other Fees Revenue2 | $752,697,000 | $1,828 | 8.9%”
+  - column:Total Support Cost: 8488811000 ⟵ “Total Support Cost | $8,488,811,000 | $21,267 | 100%”
+  - column:State Appropriation (GF)1: 12692 ⟵ “State Appropriation (GF)1 | $4,957,363,000 | $12,692 | 58.4%”
+  - column:Gross Tuition Revenue2: 6747 ⟵ “Gross Tuition Revenue2 | $2,778,751,000 | $6,747 | 32.7%”
+  - column:Other Fees Revenue2: 1828 ⟵ “Other Fees Revenue2 | $752,697,000 | $1,828 | 8.9%”
+  - column:Total Support Cost: 21267 ⟵ “Total Support Cost | $8,488,811,000 | $21,267 | 100%”
+### `1a0277028c2dfa46` San Francisco State University — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.sfsu.edu/cost-of-attendance (sha256 15d7ec24b52d)
+- issues: residency_unknown, stale_year_label:2024-25
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition & Mandatory Fees(7 units or greater): 7950 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $7,950 | $7,950 | $7,950”
+  - on_campus:Housing: 17010 ⟵ “Housing | $17,010 | $14,724 | 0”
+  - on_campus:Food: 5256 ⟵ “Food | $5,256 | $7,506 | $11,520”
+  - on_campus:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - on_campus:Transportation: 1512 ⟵ “Transportation | $1,512 | $1,962 | $1,764”
+  - on_campus:Personal Expenses: 3222 ⟵ “Personal Expenses | $3,222 | $3,924 | $4,050”
+  - on_campus:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - on_campus:TOTAL: 36112 ⟵ “TOTAL | $36,112 | $37,228 | $26,446”
+  - off_campus_not_with_family:Tuition & Mandatory Fees(7 units or greater): 7950 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $7,950 | $7,950 | $7,950”
+  - off_campus_not_with_family:Housing: 14724 ⟵ “Housing | $17,010 | $14,724 | 0”
+  - off_campus_not_with_family:Food: 7506 ⟵ “Food | $5,256 | $7,506 | $11,520”
+  - off_campus_not_with_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - off_campus_not_with_family:Transportation: 1962 ⟵ “Transportation | $1,512 | $1,962 | $1,764”
+  - off_campus_not_with_family:Personal Expenses: 3924 ⟵ “Personal Expenses | $3,222 | $3,924 | $4,050”
+  - off_campus_not_with_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - off_campus_not_with_family:TOTAL: 37228 ⟵ “TOTAL | $36,112 | $37,228 | $26,446”
+  - with_parents_or_family:Tuition & Mandatory Fees(7 units or greater): 7950 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $7,950 | $7,950 | $7,950”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $17,010 | $14,724 | 0”
+  - with_parents_or_family:Food: 11520 ⟵ “Food | $5,256 | $7,506 | $11,520”
+  - with_parents_or_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - with_parents_or_family:Transportation: 1764 ⟵ “Transportation | $1,512 | $1,962 | $1,764”
+  - with_parents_or_family:Personal Expenses: 4050 ⟵ “Personal Expenses | $3,222 | $3,924 | $4,050”
+  - with_parents_or_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - with_parents_or_family:TOTAL: 26446 ⟵ “TOTAL | $36,112 | $37,228 | $26,446”
+### `3a0eb2134b11a4a9` San Francisco State University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://future.sfsu.edu/tuition-aid (sha256 08d01ae8ca93)
+- issues: residency_unknown, conflicting_sources:https://bursar.sfsu.edu/students/upcoming-academic-year,https://financialaid.sfsu.edu/cost-of-attendance
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - on_campus:Tuition Fees (7 units or greater): 6838 ⟵ “Tuition Fees (7 units or greater) | $6,838 | $6,838 | $6,838”
+  - on_campus:Local Fees: 1934 ⟵ “Local Fees | $1,934 | $1,934 | $1,934”
+  - on_campus:Housing: 18270 ⟵ “Housing | $18,270 | $15,606 | *Included in Food”
+  - on_campus:Food: 5620 ⟵ “Food | $5,620 | $7,884 | $11,826*”
+  - on_campus:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - on_campus:Transportation: 1566 ⟵ “Transportation | $1,566 | $1,980 | $1,836”
+  - on_campus:Personal Expenses: 2844 ⟵ “Personal Expenses | $2,844 | $4,536 | $4,140”
+  - on_campus:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - on_campus:TOTAL: 38234 ⟵ “TOTAL | $38,234 | $39,940 | $27,736”
+  - off_campus_not_with_family:Tuition Fees (7 units or greater): 6838 ⟵ “Tuition Fees (7 units or greater) | $6,838 | $6,838 | $6,838”
+  - off_campus_not_with_family:Local Fees: 1934 ⟵ “Local Fees | $1,934 | $1,934 | $1,934”
+  - off_campus_not_with_family:Housing: 15606 ⟵ “Housing | $18,270 | $15,606 | *Included in Food”
+  - off_campus_not_with_family:Food: 7884 ⟵ “Food | $5,620 | $7,884 | $11,826*”
+  - off_campus_not_with_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - off_campus_not_with_family:Transportation: 1980 ⟵ “Transportation | $1,566 | $1,980 | $1,836”
+  - off_campus_not_with_family:Personal Expenses: 4536 ⟵ “Personal Expenses | $2,844 | $4,536 | $4,140”
+  - off_campus_not_with_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - off_campus_not_with_family:TOTAL: 39940 ⟵ “TOTAL | $38,234 | $39,940 | $27,736”
+  - with_parents_or_family:Tuition Fees (7 units or greater): 6838 ⟵ “Tuition Fees (7 units or greater) | $6,838 | $6,838 | $6,838”
+  - with_parents_or_family:Local Fees: 1934 ⟵ “Local Fees | $1,934 | $1,934 | $1,934”
+  - with_parents_or_family:Food: 11826 ⟵ “Food | $5,620 | $7,884 | $11,826*”
+  - with_parents_or_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - with_parents_or_family:Transportation: 1836 ⟵ “Transportation | $1,566 | $1,980 | $1,836”
+  - with_parents_or_family:Personal Expenses: 4140 ⟵ “Personal Expenses | $2,844 | $4,536 | $4,140”
+  - with_parents_or_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - … 1 more rows
+### `43b517d0cc6a78b4` San Francisco State University — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://bursar.sfsu.edu/students/current-academic-year (sha256 52ff35507872)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26, conflicting_sources:https://bulletin.sfsu.edu/fees-financial-aid/fees-expenses/cost-source-funds/,https://financialaid.sfsu.edu/cost-of-attendance
+- checks: {"columns": 2, "rows": 13}
+  - column:Tuition Fees: 1869 ⟵ “Tuition Fees | $1,869 | $3,225”
+  - column:Student Body Center: 82 ⟵ “Student Body Center | $82 | $82”
+  - column:Recreation & Wellness Center: 184 ⟵ “Recreation & Wellness Center | $184 | $184”
+  - column:Student Body Association: 54 ⟵ “Student Body Association | $54 | $54”
+  - column:Student Health Service: 294 ⟵ “Student Health Service | $294 | $294”
+  - column:IRA - General: 50 ⟵ “IRA - General | $50 | $50”
+  - column:IRA - Athletics and Recreational Sports: 100 ⟵ “IRA - Athletics and Recreational Sports | $100 | $100”
+  - column:Health Facilities: 41 ⟵ “Health Facilities | $41 | $41”
+  - column:Campus Service Card: 2 ⟵ “Campus Service Card | $2 | $2”
+  - column:Gator Pass: 130 ⟵ “Gator Pass | $130 | $130”
+  - column:Student Involvement and Representation (SIRF) OPTIONAL3: 2 ⟵ “Student Involvement and Representation (SIRF) OPTIONAL3 | $2 | $2”
+  - column:Local Fees Sub-Total: 939 ⟵ “Local Fees Sub-Total | $939 | $939”
+  - column:Tuition and Fees Total (Includes Optional SIRF Fee): 2808.0 ⟵ “Tuition and Fees Total (Includes Optional SIRF Fee) | $2,808.00 | $4,164.00”
+  - column:Tuition Fees: 3225 ⟵ “Tuition Fees | $1,869 | $3,225”
+  - column:Student Body Center: 82 ⟵ “Student Body Center | $82 | $82”
+  - column:Recreation & Wellness Center: 184 ⟵ “Recreation & Wellness Center | $184 | $184”
+  - column:Student Body Association: 54 ⟵ “Student Body Association | $54 | $54”
+  - column:Student Health Service: 294 ⟵ “Student Health Service | $294 | $294”
+  - column:IRA - General: 50 ⟵ “IRA - General | $50 | $50”
+  - column:IRA - Athletics and Recreational Sports: 100 ⟵ “IRA - Athletics and Recreational Sports | $100 | $100”
+  - column:Health Facilities: 41 ⟵ “Health Facilities | $41 | $41”
+  - column:Campus Service Card: 2 ⟵ “Campus Service Card | $2 | $2”
+  - column:Gator Pass: 130 ⟵ “Gator Pass | $130 | $130”
+  - column:Student Involvement and Representation (SIRF) OPTIONAL3: 2 ⟵ “Student Involvement and Representation (SIRF) OPTIONAL3 | $2 | $2”
+  - column:Local Fees Sub-Total: 939 ⟵ “Local Fees Sub-Total | $939 | $939”
+  - … 1 more rows
+### `6c806f29b6bf85e7` San Francisco State University — costs 2023-24 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.sfsu.edu/cost-of-attendance (sha256 15d7ec24b52d)
+- issues: residency_unknown, stale_year_label:2023-24
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition & Mandatory Fees(7 units or greater): 7522 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $7,522 | $7,522 | $7,522”
+  - on_campus:Housing: 13956 ⟵ “Housing | $13,956 | $12,960 | 0”
+  - on_campus:Food: 5220 ⟵ “Food | $5,220 | $6,472 | 10,126”
+  - on_campus:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - on_campus:Transportation: 1108 ⟵ “Transportation | $1,108 | $1,764 | $1,710”
+  - on_campus:Personal Expenses: 2872 ⟵ “Personal Expenses | $2,872 | $4,428 | $3,610”
+  - on_campus:Loan Origination Fee: 74 ⟵ “Loan Origination Fee | $74 | $74 | $74”
+  - on_campus:TOTAL: 31852 ⟵ “TOTAL | $31,852 | $34,320 | $24,142”
+  - off_campus_not_with_family:Tuition & Mandatory Fees(7 units or greater): 7522 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $7,522 | $7,522 | $7,522”
+  - off_campus_not_with_family:Housing: 12960 ⟵ “Housing | $13,956 | $12,960 | 0”
+  - off_campus_not_with_family:Food: 6472 ⟵ “Food | $5,220 | $6,472 | 10,126”
+  - off_campus_not_with_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - off_campus_not_with_family:Transportation: 1764 ⟵ “Transportation | $1,108 | $1,764 | $1,710”
+  - off_campus_not_with_family:Personal Expenses: 4428 ⟵ “Personal Expenses | $2,872 | $4,428 | $3,610”
+  - off_campus_not_with_family:Loan Origination Fee: 74 ⟵ “Loan Origination Fee | $74 | $74 | $74”
+  - off_campus_not_with_family:TOTAL: 34320 ⟵ “TOTAL | $31,852 | $34,320 | $24,142”
+  - with_parents_or_family:Tuition & Mandatory Fees(7 units or greater): 7522 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $7,522 | $7,522 | $7,522”
+  - with_parents_or_family:Housing: 0 ⟵ “Housing | $13,956 | $12,960 | 0”
+  - with_parents_or_family:Food: 10126 ⟵ “Food | $5,220 | $6,472 | 10,126”
+  - with_parents_or_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - with_parents_or_family:Transportation: 1710 ⟵ “Transportation | $1,108 | $1,764 | $1,710”
+  - with_parents_or_family:Personal Expenses: 3610 ⟵ “Personal Expenses | $2,872 | $4,428 | $3,610”
+  - with_parents_or_family:Loan Origination Fee: 74 ⟵ “Loan Origination Fee | $74 | $74 | $74”
+  - with_parents_or_family:TOTAL: 24142 ⟵ “TOTAL | $31,852 | $34,320 | $24,142”
+### `7994c2519627062e` San Francisco State University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://bursar.sfsu.edu/students/upcoming-academic-year (sha256 c32a126c166e)
+- issues: arrangement_unlabeled, residency_unknown, conflicting_sources:https://financialaid.sfsu.edu/cost-of-attendance,https://future.sfsu.edu/tuition-aid
+- checks: {"columns": 2, "rows": 13}
+  - column:Tuition Fees: 1981 ⟵ “Tuition Fees | $1,981 | $3,419”
+  - column:Student Body Center: 82 ⟵ “Student Body Center | $82 | $82”
+  - column:Recreation & Wellness Center: 187 ⟵ “Recreation & Wellness Center | $187 | $187”
+  - column:Student Body Association: 54 ⟵ “Student Body Association | $54 | $54”
+  - column:Student Health Service: 317 ⟵ “Student Health Service | $317 | $317”
+  - column:IRA - General: 50 ⟵ “IRA - General | $50 | $50”
+  - column:IRA - Athletics and Recreational Sports: 125 ⟵ “IRA - Athletics and Recreational Sports | $125 | $125”
+  - column:Health Facilities: 44 ⟵ “Health Facilities | $44 | $44”
+  - column:Campus Service Card: 2 ⟵ “Campus Service Card | $2 | $2”
+  - column:Gator Pass: 130 ⟵ “Gator Pass | $130 | $130”
+  - column:Student Involvement and Representation (SIRF) OPTIONAL3: 2 ⟵ “Student Involvement and Representation (SIRF) OPTIONAL3 | $2 | $2”
+  - column:Local Fees Sub-Total: 993 ⟵ “Local Fees Sub-Total | $993 | $993”
+  - column:Tuition and Fees Total (Includes Optional SIRF Fee): 2974 ⟵ “Tuition and Fees Total (Includes Optional SIRF Fee) | $2,974 | $4,412”
+  - column:Tuition Fees: 3419 ⟵ “Tuition Fees | $1,981 | $3,419”
+  - column:Student Body Center: 82 ⟵ “Student Body Center | $82 | $82”
+  - column:Recreation & Wellness Center: 187 ⟵ “Recreation & Wellness Center | $187 | $187”
+  - column:Student Body Association: 54 ⟵ “Student Body Association | $54 | $54”
+  - column:Student Health Service: 317 ⟵ “Student Health Service | $317 | $317”
+  - column:IRA - General: 50 ⟵ “IRA - General | $50 | $50”
+  - column:IRA - Athletics and Recreational Sports: 125 ⟵ “IRA - Athletics and Recreational Sports | $125 | $125”
+  - column:Health Facilities: 44 ⟵ “Health Facilities | $44 | $44”
+  - column:Campus Service Card: 2 ⟵ “Campus Service Card | $2 | $2”
+  - column:Gator Pass: 130 ⟵ “Gator Pass | $130 | $130”
+  - column:Student Involvement and Representation (SIRF) OPTIONAL3: 2 ⟵ “Student Involvement and Representation (SIRF) OPTIONAL3 | $2 | $2”
+  - column:Local Fees Sub-Total: 993 ⟵ “Local Fees Sub-Total | $993 | $993”
+  - … 1 more rows
+### `83117af54f59b2da` San Francisco State University — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.sfsu.edu/cost-of-attendance (sha256 15d7ec24b52d)
+- issues: residency_unknown, conflicting_sources:https://bursar.sfsu.edu/students/upcoming-academic-year,https://future.sfsu.edu/tuition-aid
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - on_campus:Tuition (7 units or greater): 6838 ⟵ “Tuition (7 units or greater) | $6,838 | $6,838 | $6,838”
+  - on_campus:Mandatory Fees: 1986 ⟵ “Mandatory Fees | $1,986 | $1,986 | $1,986”
+  - on_campus:Housing: 18270 ⟵ “Housing | $18,270 | $15,606 | *Included in Food”
+  - on_campus:Food: 5620 ⟵ “Food | $5,620 | $7,884 | $11,826*”
+  - on_campus:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - on_campus:Transportation: 1566 ⟵ “Transportation | $1,566 | $1,980 | $1,836”
+  - on_campus:Personal Expenses: 2796 ⟵ “Personal Expenses | $2,796 | $4,488 | $4,092”
+  - on_campus:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - on_campus:TOTAL: 38238 ⟵ “TOTAL | $38,238 | $39,944 | $27,740”
+  - off_campus_not_with_family:Tuition (7 units or greater): 6838 ⟵ “Tuition (7 units or greater) | $6,838 | $6,838 | $6,838”
+  - off_campus_not_with_family:Mandatory Fees: 1986 ⟵ “Mandatory Fees | $1,986 | $1,986 | $1,986”
+  - off_campus_not_with_family:Housing: 15606 ⟵ “Housing | $18,270 | $15,606 | *Included in Food”
+  - off_campus_not_with_family:Food: 7884 ⟵ “Food | $5,620 | $7,884 | $11,826*”
+  - off_campus_not_with_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - off_campus_not_with_family:Transportation: 1980 ⟵ “Transportation | $1,566 | $1,980 | $1,836”
+  - off_campus_not_with_family:Personal Expenses: 4488 ⟵ “Personal Expenses | $2,796 | $4,488 | $4,092”
+  - off_campus_not_with_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - off_campus_not_with_family:TOTAL: 39944 ⟵ “TOTAL | $38,238 | $39,944 | $27,740”
+  - with_parents_or_family:Tuition (7 units or greater): 6838 ⟵ “Tuition (7 units or greater) | $6,838 | $6,838 | $6,838”
+  - with_parents_or_family:Mandatory Fees: 1986 ⟵ “Mandatory Fees | $1,986 | $1,986 | $1,986”
+  - with_parents_or_family:Food: 11826 ⟵ “Food | $5,620 | $7,884 | $11,826*”
+  - with_parents_or_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - with_parents_or_family:Transportation: 1836 ⟵ “Transportation | $1,566 | $1,980 | $1,836”
+  - with_parents_or_family:Personal Expenses: 4092 ⟵ “Personal Expenses | $2,796 | $4,488 | $4,092”
+  - with_parents_or_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - … 1 more rows
+### `c3bb3e6df78024fb` San Francisco State University — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.sfsu.edu/cost-of-attendance (sha256 15d7ec24b52d)
+- issues: residency_unknown, stale_year_label:2025-26, conflicting_sources:https://bulletin.sfsu.edu/fees-financial-aid/fees-expenses/cost-source-funds/,https://bursar.sfsu.edu/students/current-academic-year
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition & Mandatory Fees(7 units or greater): 8256 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $8,256 | $8,256 | $8,256”
+  - on_campus:Housing: 18270 ⟵ “Housing | $18,270 | $15,030 | *Included in Food”
+  - on_campus:Food: 5620 ⟵ “Food | $5,620 | $7,560 | $11,826*”
+  - on_campus:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - on_campus:Transportation: 1512 ⟵ “Transportation | $1,512 | $1,980 | $1,764”
+  - on_campus:Personal Expenses: 2592 ⟵ “Personal Expenses | $2,592 | $4,014 | $4,140”
+  - on_campus:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - on_campus:TOTAL: 37412 ⟵ “TOTAL | $37,412 | $38,002 | $27,148”
+  - off_campus_not_with_family:Tuition & Mandatory Fees(7 units or greater): 8256 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $8,256 | $8,256 | $8,256”
+  - off_campus_not_with_family:Housing: 15030 ⟵ “Housing | $18,270 | $15,030 | *Included in Food”
+  - off_campus_not_with_family:Food: 7560 ⟵ “Food | $5,620 | $7,560 | $11,826*”
+  - off_campus_not_with_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - off_campus_not_with_family:Transportation: 1980 ⟵ “Transportation | $1,512 | $1,980 | $1,764”
+  - off_campus_not_with_family:Personal Expenses: 4014 ⟵ “Personal Expenses | $2,592 | $4,014 | $4,140”
+  - off_campus_not_with_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - off_campus_not_with_family:TOTAL: 38002 ⟵ “TOTAL | $37,412 | $38,002 | $27,148”
+  - with_parents_or_family:Tuition & Mandatory Fees(7 units or greater): 8256 ⟵ “Tuition & Mandatory Fees(7 units or greater) | $8,256 | $8,256 | $8,256”
+  - with_parents_or_family:Food: 11826 ⟵ “Food | $5,620 | $7,560 | $11,826*”
+  - with_parents_or_family:Books and Supplies: 1100 ⟵ “Books and Supplies | $1,100 | $1,100 | $1,100”
+  - with_parents_or_family:Transportation: 1764 ⟵ “Transportation | $1,512 | $1,980 | $1,764”
+  - with_parents_or_family:Personal Expenses: 4140 ⟵ “Personal Expenses | $2,592 | $4,014 | $4,140”
+  - with_parents_or_family:Loan Fee: 62 ⟵ “Loan Fee | $62 | $62 | $62”
+  - with_parents_or_family:TOTAL: 27148 ⟵ “TOTAL | $37,412 | $38,002 | $27,148”
+### `88de4b76c1f0d56a` Santa Ana College — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.sac.edu/studentservices/financialaid/coa (sha256 d81cf28ef271)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “Certain vocational programs that require additional equipment, tools, uniforms or supplies may also increase the student budget. ¹Dependent Care Allowance – A Budget Increase Request form must be submitted to the Financial Aid Office to adjust for actual expenses that may exceed the standard allowance childcare costs while enrolled.”
+### `1ca2027b9f4855a0` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/professional-judgement-policy.php (sha256 284fb9834ae9)
+- issues: semantic_review_required, conflicting_sources:https://www.smc.edu/admission-aid/financial-aid-scholarships/appeals.php,https://www.smc.edu/admission-aid/financial-aid-scholarships/orientation-handbook.php
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “While maintaining the flexibility to respond to individual student circumstances, the Financial Aid Office also strives for consistency in treatment of students with similar unusual circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “All income adjustments must be used to address special circumstances where the data elements on the ISIR—based on income from the base year—no longer reflect the family’s (or student’s) ability to contribute to the student’s education.”
+  - sentence: need_based_special_circumstances ⟵ “In addition, students (and parents) will need to submit a formal request for an assessment of special circumstances.”
+### `30736d8543a8bf66` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/orientation-handbook.php (sha256 c1f50e19e694)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “BUDGET ADJUSTMENTS are automatically made to add additional tuition for non-resident students and additional fees for students when applicable.”
+### `42dc15a2aa64ab76` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/orientation-handbook.php (sha256 c1f50e19e694)
+- issues: semantic_review_required, conflicting_sources:https://www.smc.edu/admission-aid/financial-aid-scholarships/appeals.php,https://www.smc.edu/admission-aid/financial-aid-scholarships/professional-judgement-policy.php
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: need_based_special_circumstances ⟵ “What if I Have Special Circumstances?”
+  - sentence: need_based_special_circumstances ⟵ “The Financial Aid Office recognizes that some students have unusual, special circumstances that may not appear in the standard process of determining eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “Students with special circumstances are encouraged to contact the Financial Aid Office for review of their financial aid package based on those individual circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Students should bring receipts or other documentation of unusual circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Documentation of special circumstances, such as health issues, would also be required.”
+### `499d68bf8e0f2825` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/professional-judgement-policy.php (sha256 284fb9834ae9)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: professional_judgment ⟵ “Professional judgment changes are made when the financial aid administrator judges the standards used to determine the family contribution are inappropriate for purposes of calculating eligibility for financial aid due to extenuating circumstances.”
+  - sentence: professional_judgment ⟵ “Santa Monica College uses Department of Education software to re-compute the family contribution both for corrections to reported data and for changes resulting when professional judgment is exercised.”
+  - sentence: professional_judgment ⟵ “Potential Reasons for Exercise of Professional Judgment All professional judgment changes apply only to data element changes and apply to all Title IV programs.”
+  - sentence: professional_judgment ⟵ “Satisfactory Academic Progress Financial Aid Specialists will be granted the use of “professional judgment” when participating on the Financial Aid Appeal Committee.”
+  - sentence: professional_judgment ⟵ “Drop of Income and Income Adjustments The ability to use professional judgment for adjustments of data elements on the ISIR is granted to the Appeals Committee, Associate Dean and/or Director.”
+  - sentence: professional_judgment ⟵ “Third party documentation of changed circumstances should be used, whenever possible, to document the request for professional judgment.”
+### `4a847d85b69d14f3` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/appeals.php (sha256 b010375e5779)
+- issues: semantic_review_required, conflicting_sources:https://www.smc.edu/admission-aid/financial-aid-scholarships/orientation-handbook.php,https://www.smc.edu/admission-aid/financial-aid-scholarships/professional-judgement-policy.php
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “Federal law allows schools to approve appeals if injury, illness, death of a relative, or other special circumstances affected a student's ability to maintain Satisfactory Academic Progress.”
+### `5b3a50d8cd0e8fcc` Santa Monica College — appeals 2018-19 [new] (labeled_in_source)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/documents/DREAM/CAL_Appeal_1819.pdf (sha256 9143bf71cf07)
+- issues: stale_year_label:2018-19, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “A student is encouraged to appeal if injury, illness, or other special circumstances affected a student’s ability to maintain satisfactory academic progress.”
+### `613cd68978a500fe` Santa Monica College — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/faq.php (sha256 06e2297f0ee9)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “You can be in Eligible Status (Good), Probation Status (Warning), or a Suspended Status that will require the SAP Appeal Process to receive Financial Aid.”
+  - sentence: sap_appeal ⟵ “Students who are suspended for Lack of Progress or Over the Maximum Time Frame will need to request an SAP Appeal on Corsair E-Docs and be approved to receive their Financial Aid for that semester on suspension.”
+  - sentence: sap_appeal ⟵ “Suspension means you have fallen below 2.00 G.P.A or 67% Completion Rate, or you have a 2-year degree, 4-year degree, or have attempted 90 units or more and will need to be approved for a SAP Appeal in order to receive Financial Aid.”
+### `9318d5a400aa3479` Santa Monica College — appeals 2026-27 [new] (labeled_in_heading)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/ (sha256 02de5c8951ac)
+- issues: semantic_review_required, conflicting_sources:https://www.smc.edu/admission-aid/financial-aid-scholarships/appeals.php,https://www.smc.edu/admission-aid/financial-aid-scholarships/documents/New-Employee-Guidebook-Financial-Aid-7-30.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “More links and resources Student Forms Net Price Calculator Orientation & Handbook Satisfactory Academic Progress (SAP) Appeal Professional Judgement Policy Distribution and Tuition Refunds Resources & Links Staff Directory Quick Links CA DREAM Act Web Grants NSLDS Corsair Connect Consumer Information HEERF Reporting Extended Opportunity Programs and Services (EOPS) Meagan Harmon EOPS, Black Colle”
+### `bdc687d18524470c` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/appeals.php (sha256 b010375e5779)
+- issues: semantic_review_required, conflicting_sources:https://www.smc.edu/admission-aid/financial-aid-scholarships/,https://www.smc.edu/admission-aid/financial-aid-scholarships/documents/New-Employee-Guidebook-Financial-Aid-7-30.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Complete the SAP Appeal through the Corsair E-docs Student Portal.”
+### `ee04801d5a0cd45d` Santa Monica College — appeals 2024-25 [new] (labeled_in_source)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/faq.php (sha256 06e2297f0ee9)
+- issues: stale_year_label:2024-25, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “But the college financial aid office may not process requests for professional judgment or disburse federal student aid until the verification process is complete.”
+### `fb5fa485bd41711e` Santa Monica College — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.smc.edu/admission-aid/financial-aid-scholarships/documents/New-Employee-Guidebook-Financial-Aid-7-30.pdf (sha256 478a53d0448b)
+- issues: semantic_review_required, conflicting_sources:https://www.smc.edu/admission-aid/financial-aid-scholarships/,https://www.smc.edu/admission-aid/financial-aid-scholarships/appeals.php
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Email Responsibility Taryn DeLaRosa 4401 delarosa_taryn@smc.edu Specialists (Verification): Reviews verification files and SAP appeals either individually or in a committee format.”
+  - sentence: sap_appeal ⟵ “Nilofar Ghasami 4160 ghasami_nilofar@smc.edu Specialists (Verification): Reviews verification files and SAP appeals either individually or in a committee format.”
+  - sentence: sap_appeal ⟵ “Maria Ong 4279 ong_maria@smc.edu Specialists (Verification): Reviews verification files and SAP appeals either individually or in a committee format.”
+  - sentence: sap_appeal ⟵ “Torrance 3485 williams_torrance@smc.edu Specialists (Verification): Reviews verification Williams files and SAP appeals either individually or in a committee format.”
+  - sentence: sap_appeal ⟵ “Connie Chen 4107 chen_connie_p@smc.edu Specialists (Verification): Reviews verification files and SAP appeals either individually or in a committee format, and oversees SMCF Scholarships.”
+### `2b5b6ffb0294ee19` University of California-Irvine — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.law.uci.edu/admission/tuition-aid/pdfs/SAP_Disclosure_LawStudents.pdf (sha256 82ee0ae31fdc)
+- issues: semantic_review_required, conflicting_sources:https://www.law.uci.edu/admission/tuition-aid/faqs.html,https://www.law.uci.edu/admission/tuition-aid/process.html
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: sap_appeal ⟵ “Required remedial courses will count toward the law student unit hour recommendation. 2 Appeal Process for Satisfactory Academic Progress If a student fails to maintain satisfactory academic progress, the student will be ineligible for federal financial aid.”
+  - sentence: sap_appeal ⟵ “Eligibility for continued financial aid will only be re-established if a) the student subsequently meets the Satisfactory Academic Progress requirements; or b) the student successfully appeals and aid is reinstated.”
+  - sentence: sap_appeal ⟵ “Law students who would like to appeal must submit a UCI SAP Appeal Form and a letter to the UCI School of Law Financial Aid Office.”
+  - sentence: sap_appeal ⟵ “Deadline dates for each term are published annually on the SAP appeal form.”
+  - sentence: sap_appeal ⟵ “Once accepted, appeals will be evaluated by the Satisfactory Academic Progress (SAP) Committee.”
+  - sentence: sap_appeal ⟵ “Review of Academic Plans for Satisfactory Academic Progress A student whose appeal is approved will have financial aid eligibility reinstated and become subject to the terms of the academic plan.”
+### `d3b89a72a34c95a6` University of California-Irvine — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.law.uci.edu/admission/tuition-aid/faqs.html (sha256 9e74599110a0)
+- issues: semantic_review_required, conflicting_sources:https://www.law.uci.edu/admission/tuition-aid/pdfs/SAP_Disclosure_LawStudents.pdf,https://www.law.uci.edu/admission/tuition-aid/process.html
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Please review all eligibility requirements, including our Satisfactory Academic Progress Policy and the Appeal Process for more information.”
+### `edfd4965b55a03c9` University of California-Irvine — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.law.uci.edu/admission/tuition-aid/process.html (sha256 c0b5e21a78bf)
+- issues: semantic_review_required, conflicting_sources:https://www.law.uci.edu/admission/tuition-aid/faqs.html,https://www.law.uci.edu/admission/tuition-aid/pdfs/SAP_Disclosure_LawStudents.pdf
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “For more detailed information about the Satisfactory Academic Progress Policy and the Appeal Process, please save and review this PDF.”
+### `13d0d9dd28a7afa8` University of California-Irvine — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://catalogue.uci.edu/informationforprospectivestudents/expensestuitionandfees/ (sha256 4fa2b25a532f)
+- issues: implausible_amount, residency_unknown
+- checks: {"columns": 1, "rows": 8}
+  - column:Changes in Class Enrollment after Announced Dates (each transaction): 3.0 ⟵ “Changes in Class Enrollment after Announced Dates (each transaction) | $3.00”
+  - column:Credit by Examination (each petition): 5.0 ⟵ “Credit by Examination (each petition) | $5.00”
+  - column:Late Payment of Tuition and Fees: 50.0 ⟵ “Late Payment of Tuition and Fees | $50.00”
+  - column:Late Enrollment in Classes: 50.0 ⟵ “Late Enrollment in Classes | $50.00”
+  - column:Returned Payment Fee: 25.0 ⟵ “Returned Payment Fee | $25.00”
+  - column:- Zone Commuter, monthly: 81.0 ⟵ “- Zone Commuter, monthly | $81.00”
+  - column:- Zone Commuter, Preferred, Monthly: 101.0 ⟵ “- Zone Commuter, Preferred, Monthly | $101.00”
+  - column:- Resident, monthly: 150.0 ⟵ “- Resident, monthly | $150.00”
+### `4f1cb386d8a60b29` University of California-Irvine — credit_policies 2026-27 · policy_kind=IB [new] (labeled_in_source)
+- source: https://catalogue.uci.edu/informationforprospectivestudents/undergraduateadmissions/ (sha256 ff929562214a)
+- issues: course_column_missing
+- checks: {"distinct_exams": 21, "equivalencies": 25, "rows_without_score": 0}
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|5, 6, or 7]:  ⟵ “Anthropology, Social and Cultural | 5, 6, or 7 | 8 | ANTHRO 2A. Satisfies the School requirement for School of Social Sciences major; satifies one Anthropology course toward category III, and one course toward category VIII of the UCI GE requirement.”
+  - equivalencies[IB-BIOLOGY|5, 6, or 7]:  ⟵ “Biology | 5, 6, or 7 | 8 | Non-Bio. Sci. majors earn one Biological Sciences course toward Category II of the UCI GE requirement. Bio Sci majors earn elective credit only.”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|5, 6, or 7]:  ⟵ “Business & Management | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-CHEMISTRY|5, 6, or 7]:  ⟵ “Chemistry | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-LATIN|5]:  ⟵ “- Latin | 5 | 8 | LATIN 100”
+  - equivalencies[IB-LATIN|6 or 7]:  ⟵ “- Latin | 6 or 7 | 8 | LATIN 100 and two courses of LATIN 103, or LATIN 100 and two courses of LATIN 104, or LATIN 100 and LATIN 103 and LATIN 104.”
+  - equivalencies[IB-COMPUTER-SCIENCE|5, 6, or 7]:  ⟵ “Computer Science | 5, 6, or 7 | 8 | I&C SCI 20”
+  - equivalencies[IB-ECONOMICS|5, 6, or 7]:  ⟵ “Economics | 5, 6, or 7 | 8 | ECON 20A-ECON 20B or MGMT 4A-MGMT 4B. Satisfies the major requirement for Economics; satisfies category III of the UCI GE requirement.”
+  - equivalencies[IB-FILM|5, 6, or 7]:  ⟵ “Film | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-GEOGRAPHY|5, 6, or 7]:  ⟵ “Geography | 5, 6, or 7 | 8 | Satisfies two Geography courses toward category III of the UCI GE requirement.”
+  - equivalencies[IB-GLOBAL-POLITICS|5, 6, or 7]:  ⟵ “Global Politics | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-HISTORY|5, 6, or 7]:  ⟵ “History of the Americas | 5, 6, or 7 | 8 | Satisfies two courses toward HISTORY 40A-HISTORY 40B-HISTORY 40C for category IV of the UCI GE requirement. Satisfies American History and Institutions requirement.”
+  - equivalencies[IB-FRENCH|5, 6, or 7]:  ⟵ “- French* | 5, 6, or 7 | 8 | FRENCH 2C”
+  - equivalencies[IB-GERMAN|5, 6, or 7]:  ⟵ “- German | 5, 6, or 7 | 8 | GERMAN 2C”
+  - equivalencies[IB-SPANISH|5, 6, or 7]:  ⟵ “- Spanish* | 5, 6, or 7 | 8 | SPANISH 3”
+  - equivalencies[IB-SPANISH|5 or 6]:  ⟵ “- Spanish* | 5 or 6 | 8 | SPANISH 2C4”
+  - equivalencies[IB-SPANISH|7]:  ⟵ “- Spanish | 7 | 8 | SPANISH 3”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|5, 6, or 7]:  ⟵ “Mathematics, Analysis and Approaches (2021 and later) 5 | 5, 6, or 7 | 8 | MATH 2A or MATH 5A”
+  - equivalencies[IB-MUSIC|5, 6, or 7]:  ⟵ “Music | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-PHILOSOPHY|5, 6, or 7]:  ⟵ “Philosophy | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-PHYSICS|5, 6, or 7]:  ⟵ “Physics | 5, 6, or 7 | 8 | Satisfies two Physics courses toward category II of the UCI GE requirement.”
+  - equivalencies[IB-PSYCHOLOGY|5]:  ⟵ “Psychology | 5 | 8 | Satisfies category III of the UCI GE requirement.”
+  - equivalencies[IB-PSYCHOLOGY|6 or 7]:  ⟵ “Psychology | 6 or 7 | 8 | COGS 7A or PSY 9. Satisfies category III of the UCI GE requirement.”
+  - equivalencies[IB-THEATRE|5, 6, or 7]:  ⟵ “Theater Arts | 5, 6, or 7 | 8 | Elective credit only.”
+  - equivalencies[IB-VISUAL-ARTS|5, 6, or 7]:  ⟵ “Visual Arts | 5, 6, or 7 | 8 | Elective credit only.”
+### `a3166a32eadc2085` University of California-Irvine — credit_policies 2026-27 · policy_kind=AP [new] (labeled_in_source)
+- source: https://catalogue.uci.edu/informationforprospectivestudents/undergraduateadmissions/ (sha256 ff929562214a)
+- issues: course_column_missing
+- checks: {"distinct_exams": 32, "equivalencies": 32, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3, 4, or 5]:  ⟵ “African American Studies | 3, 4, or 5 | 4 | Satisfies one year of U.S. History for the Area A requirement.”
+  - equivalencies[AP-ART-HISTORY|3]:  ⟵ “- Art History | 3 | 8 | One course toward Art History major, minor, category IV of the UCI GE requirement as ART HIS 40A, and satisfaction of category VIII, plus 4 units of elective credit; may not replace School of Humanities requirements; may not replace Archaeology minor requirements.”
+  - equivalencies[AP-DRAWING|3, 4, or 5]:  ⟵ “- - Drawing | 3, 4, or 5 | 8 | Elective credit only”
+  - equivalencies[AP-2-D-ART-DESIGN|3, 4, or 5]:  ⟵ “- - 2-D Art and Design | 3, 4, or 5 | 8 | Elective credit only”
+  - equivalencies[AP-3-D-ART-DESIGN|3, 4, or 5]:  ⟵ “- - 3-D Art and Design | 3, 4, or 5 | 8 | Elective credit only”
+  - equivalencies[AP-BIOLOGY|3, 4, or 5]:  ⟵ “Biology | 3, 4, or 5 | 8 | Non-Bio. Sci. majors earn one Biological Sciences course toward Category II of the UCI GE requirement. Bio. Sci. majors earn elective credit only”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | 8 | Elective credit only”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Language and Culture2 | 3 | 8 | Elective credit only”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3,4, or 5]:  ⟵ “Computer Science Principles | 3,4, or 5 | 8 | I&C SCI 20”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “- Macroeconomics | 3 | 4 | Elective credit only”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “- Microeconomics | 3 | 4 | Elective credit only”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “Environmental Science | 3 | 4 | Elective credit only”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “- French Language and Culture | 3 | 8 | FRENCH 1A-FRENCH 1B-FRENCH 1C. Satisfies category VI of the UCI GE requirement”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3, 4, or 5]:  ⟵ “- Human Geography | 3, 4, or 5 | 4 | Elective credit only”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | 8 | GERMAN 1A-GERMAN 1B-GERMAN 1C. Satisfies category VI of the UCI GE requirement”
+  - equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]:  ⟵ “- U.S. Government and Politics | 3 | 4 | Elective credit only”
+  - equivalencies[AP-COMPARATIVE-GOVERNMENT-POLITICS|3]:  ⟵ “- Comparative Government and Politics | 3 | 4 | Elective credit only”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | 3 | 8 | ITALIAN 1A-ITALIAN 1B-ITALIAN 1C. Satisfies category VI of the UCI GE requirement”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]:  ⟵ “Japanese Language and Culture2 | 3 | 8 | JAPANSE 1A-JAPANSE 1B-JAPANSE 1C. Satisfies category VI of the UCI GE requirement”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin | 3 | 8 | Elective credit only”
+  - equivalencies[AP-CALCULUS-AB|3, 4, or 5]:  ⟵ “- Calculus AB Exam | 3, 4, or 5 | 4 | MATH 2A or MATH 5A”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “- Calculus BC Exam4 | 3 | 8 | MATH 2A or MATH 5A”
+  - equivalencies[AP-PRECALCULUS|3]:  ⟵ “- Precalculus | 3 |  | No university credit awarded”
+  - equivalencies[AP-MUSIC-THEORY|3, 4 or 5]:  ⟵ “Music Theory | 3, 4 or 5 | 8 | Elective credit only”
+  - equivalencies[AP-PHYSICS-1|3, 4, or 5]:  ⟵ “- Physics 1 | 3, 4, or 5 | 8 | Elective credit only”
+  - … 7 more rows
+### `mb987257f7604667` University of California-Irvine — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://www.admissions.uci.edu/apply/transfer-students/requirements.php (sha256 e8029487114c)
+- issues: conflicting_values:min_grade
+- checks: {"fields": [], "merged_pages": 2}
+### `4ae9f54fcaa8837a` University of California-Los Angeles — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.ucla.edu/how-aid-works/appeals (sha256 23c2a2011e34)
+- issues: semantic_review_required, conflicting_sources:https://financialaid.ucla.edu/budget-increase-request,https://financialaid.ucla.edu/publications
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: budget_increase ⟵ “If a budget increase is approved, the increase will be funded with additional loans.”
+  - sentence: budget_increase ⟵ “Please refer to Budget Increase Request | Financial Aid & Scholarships for information on allowable expenses and how to document and submit your request for a budget increase.”
+### `57dad5841c01c7cc` University of California-Los Angeles — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.ucla.edu/publications (sha256 ab5416f1f2a9)
+- issues: semantic_review_required, conflicting_sources:https://financialaid.ucla.edu/budget-increase-request,https://financialaid.ucla.edu/how-aid-works/appeals
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “Additional Resources Budget Increase Request Information Students seeking to submit a Budget Increase Request should review this webpage for an overview of the allowable expenses we can consider and submission instructions.”
+### `68289052f8157484` University of California-Los Angeles — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://financialaid.ucla.edu/budget-increase-request (sha256 57d7ae3a0c2d)
+- issues: ambiguous_year_labels, semantic_review_required, conflicting_sources:https://financialaid.ucla.edu/how-aid-works/appeals,https://financialaid.ucla.edu/publications
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: budget_increase ⟵ “Increasing your Cost of Attendance to offset private scholarship/s, departmental aid, or resolve over-awards: Please be aware that if you requesting a budget increase so your department or an outside donor can provide additional funding, you will be awarded with additional loan assistance when the budget increase is processed.”
+  - sentence: budget_increase ⟵ “You must submit a separate Budget Increase request for each type of request or different dates.”
+  - sentence: budget_increase ⟵ “We are no longer accepting Budget Increase Requests for the 2025-26 academic year.”
+### `bd20da9bb8975ef1` University of California-Los Angeles — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.ucla.edu/how-aid-works/appeals (sha256 23c2a2011e34)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: need_based_special_circumstances ⟵ “If this applies to you, you may consider submitting an appeal so our counselors can evaluate how these special circumstances may impact your financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “Here are some examples of unusual circumstances: You left home due to an abusive or threatening environment; You were abandoned by or are estranged from your parents; You have refugee or asylee status and are separated from your parents, or your parents are displaced in a foreign country; You are a victim of human trafficking; Your parents are incarcerated, and contact with them would pose a risk ”
+  - sentence: need_based_special_circumstances ⟵ “Complete the following fields to access the appeal form: Document Name: Select Appeal: Special Circumstance.”
+### `21229b0a088e80c4` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ap-credit-engineering (sha256 8f759864bf27)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ap-credit-arts-architecture-music,https://admission.ucla.edu/admitted-students/ap-credit-nursing,https://admission.ucla.edu/admitted-students/ap-credit-the-college,https://admission.ucla.edu/admitted-students/ap-credit-theater-film-television
+- checks: {"distinct_exams": 28, "equivalencies": 34, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3–5]:  ⟵ “Art History | 3–5 | ART HIS | Art History | 8 | ”
+  - equivalencies[AP-DRAWING|3–5]:  ⟵ “Drawing Portfolio | 3–5 | ART | Art Studio | 8 | ”
+  - equivalencies[AP-2-D-ART-DESIGN|3–5]:  ⟵ “2-D Design Portfolio | 3–5 | ART | Art Studio | 8 | ”
+  - equivalencies[AP-3-D-ART-DESIGN|3–5]:  ⟵ “3-D Design Portfolio | 3–5 | ART | Art Studio | 8 | ”
+  - equivalencies[AP-BIOLOGY|3–5]:  ⟵ “Biology | 3–5 | LIFE SCI | Unassigned | 8 | ”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CHEM | Introductory | 8 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Chinese Language and Culture | 3–5 | CHIN | Elementary Chinese | 8 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3–5]:  ⟵ “Computer Science A (units offered may vary) | 3–5 | COM SCI | Unassigned | 8 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3–5]:  ⟵ “Computer Science Principles | 3–5 | COM SCI | Computer Science Principles | 8 | ”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3–5]:  ⟵ “Environmental Science | 3–5 | GEOG | Environ Science | 4 | ”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language and Culture | 3 | FRNCH | 4 | 8 | ”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3–5]:  ⟵ “French Literature | 3–5 | FRNCH | Literature | 8 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | GERMAN | 3 | 8 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | GERMAN | 4 | 8 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | GERMAN | 5 | 8 | ”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3-5]:  ⟵ “African American Studies | 3-5 | HIST | United States | 4 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3–5]:  ⟵ “Human Geography | 3–5 | GEOG | Human Geography | 4 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | 3 | ITALIAN | 3 | 8 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | ITALIAN | 4 | 8 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | ITALIAN | 6 | 8 | ”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Japanese Language and Culture | 3–5 | JAPAN | Elementary Japanese | 8 | ”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin | 3 | LATIN | 1 | 4 | ”
+  - equivalencies[AP-LATIN|4–5]:  ⟵ “ | 4–5 | LATIN | 3 | 4 | ”
+  - equivalencies[AP-CALCULUS-AB|3–5]:  ⟵ “Calculus AB | 3–5 | MATH | Calculus | 4 | MT”
+  - equivalencies[AP-CALCULUS-BC|3–4]:  ⟵ “Calculus BC | 3–4 | MATH | Calculus | 8 | MT”
+  - … 9 more rows
+### `393a9ef7bc87ad6a` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ap-credit-theater-film-television (sha256 c5e2554c645d)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ap-credit-arts-architecture-music,https://admission.ucla.edu/admitted-students/ap-credit-engineering,https://admission.ucla.edu/admitted-students/ap-credit-nursing,https://admission.ucla.edu/admitted-students/ap-credit-the-college
+- checks: {"distinct_exams": 28, "equivalencies": 34, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3–5]:  ⟵ “Art History | 3–5 | ART HIS | Art History | 8.0 | NoGE”
+  - equivalencies[AP-DRAWING|3–5]:  ⟵ “Drawing Portfolio | 3–5 | ART | Art Studio | 8.0 | NoGE”
+  - equivalencies[AP-2-D-ART-DESIGN|3–5]:  ⟵ “2-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | NoGE”
+  - equivalencies[AP-3-D-ART-DESIGN|3–5]:  ⟵ “3-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | NoGE”
+  - equivalencies[AP-BIOLOGY|3–5]:  ⟵ “Biology | 3–5 | LIFE SCI | Unassigned | 8.0 | NoGE”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CHEM | Introductory | 8.0 | NoGE”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Chinese Language and Culture | 3–5 | CHIN | Elementary Chinese | 8.0 | FL”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3–5]:  ⟵ “Computer Science A (units offered may vary) | 3–5 | COM SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3–5]:  ⟵ “Computer Science Principles | 3–5 | COM SCI | Computer Science Principles | 8.0 | NoGE”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3–5]:  ⟵ “Environmental Science | 3–5 | GEOG | Environ Science | 4.0 | NoGE”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language and Culture | 3 | FRNCH | 4 | 8.0 | FL”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3–5]:  ⟵ “French Literature | 3–5 | FRNCH | Literature | 8.0 | NoGE”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | GERMAN | 3 | 8.0 | FL”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | GERMAN | 4 | 8.0 | FL”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | GERMAN | 5 | 8.0 | FL”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3–5]:  ⟵ “African American Studies | 3–5 | HIST | United States | 4.0 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3–5]:  ⟵ “Human Geography | 3–5 | GEOG | Human Geography | 4.0 | NoGE”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | 3 | ITALIAN | 3 | 8.0 | FL”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | ITALIAN | 4 | 8.0 | FL”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | ITALIAN | 6 | 8.0 | FL”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Japanese Language and Culture | 3–5 | JAPAN | Elementary Japanese | 8.0 | FL”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin | 3 | LATIN | 1 | 4.0 | NoGE”
+  - equivalencies[AP-LATIN|4–5]:  ⟵ “ | 4–5 | LATIN | 3 | 4.0 | FL”
+  - equivalencies[AP-CALCULUS-AB|3–4]:  ⟵ “Calculus AB/AB subscore of BC exam | 3–4 | MATH | Calculus | 4.0 | NoGE”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH | Calculus | 8.0 | NoGE”
+  - … 9 more rows
+### `3c3880c13ace9d29` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ib-credit-the-college (sha256 8a238d3f8583)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ib-credit-for-majors-in-professional-schools
+- checks: {"distinct_exams": 20, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|5–7]:  ⟵ “Biology | 5–7 | EE BIOL | Intro Biology | 8.0 | ”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|5–7]:  ⟵ “Business Management | 5–7 | MGMT | Intro | 8.0 | ”
+  - equivalencies[IB-CHEMISTRY|5–7]:  ⟵ “Chemistry | 5–7 | CHEM | Intro | 8.0 | ”
+  - equivalencies[IB-LATIN|5–7]:  ⟵ “Latin | 5–7 | LATIN | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-COMPUTER-SCIENCE|5–7]:  ⟵ “Computer Science | 5–7 | COM SCI | Unassigned | 8.0 | QR”
+  - equivalencies[IB-HISTORY|5–7]:  ⟵ “ | 5–7 | DANCE | History | 2.0 | ”
+  - equivalencies[IB-FILM|5–7]:  ⟵ “Film | 5–7 | FILM&TV | Intro Film | 8.0 | ”
+  - equivalencies[IB-GEOGRAPHY|5–7]:  ⟵ “Geography | 5–7 | GEOG | Intro | 8.0 | ”
+  - equivalencies[IB-GLOBAL-POLITICS|5–7]:  ⟵ “Global Politics | 5–7 | POL SCI | Global Studies | 8.0 | ”
+  - equivalencies[IB-FRENCH|5–7]:  ⟵ “French | 5–7 | FRNCH | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-GERMAN|5–7]:  ⟵ “German | 5–7 | GERMAN | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-SPANISH|5–7]:  ⟵ “Spanish | 5–7 | SPAN | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 5]:  ⟵ “Mathematics, Analysis & Approaches HL | 5 | MATH | Unassigned | 8.0 | QR”
+  - equivalencies[IB-MUSIC|5–7]:  ⟵ “Music | 5–7 | MUSIC | Theory | 4.0 | ”
+  - equivalencies[IB-PHILOSOPHY|5–7]:  ⟵ “Philosophy | 5–7 | PHILOS | Intro | 8.0 | ”
+  - equivalencies[IB-PHYSICS|5–7]:  ⟵ “Physics | 5–7 | PHYSICS | Intro | 8.0 | ”
+  - equivalencies[IB-PSYCHOLOGY|5–7]:  ⟵ “Psychology | 5–7 | PSYCH | 10 | 8.0 | ”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|5–7]:  ⟵ “Social and Cultural Anthropology | 5–7 | ANTHRO | Social/Cultural | 8.0 | ”
+  - equivalencies[IB-THEATRE|5–7]:  ⟵ “Theatre | 5–7 | THEATER | Intro | 8.0 | ”
+  - equivalencies[IB-VISUAL-ARTS|5–7]:  ⟵ “Visual Arts | 5–7 | ART HIST | Survey of Art | 4.0 | ”
+### `6b0180d7916fd726` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ib-credit-for-majors-in-professional-schools (sha256 6f8c4ae2a07d)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ib-credit-the-college
+- checks: {"distinct_exams": 20, "equivalencies": 20, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY|5–7]:  ⟵ “Biology | 5–7 | EE BIOL | Intro Biology | 8.0 | ”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|5–7]:  ⟵ “Business Management | 5–7 | MGMT | Intro | 8.0 | ”
+  - equivalencies[IB-CHEMISTRY|5–7]:  ⟵ “Chemistry | 5–7 | CHEM | Intro | 8.0 | ”
+  - equivalencies[IB-LATIN|5–7]:  ⟵ “Latin | 5–7 | LATIN | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-COMPUTER-SCIENCE|5–7]:  ⟵ “Computer Science | 5–7 | COM SCI | Unassigned | 8.0 | QR”
+  - equivalencies[IB-HISTORY|5–7]:  ⟵ “ | 5–7 | DANCE | History | 2.0 | ”
+  - equivalencies[IB-FILM|5–7]:  ⟵ “Film | 5–7 | FILM&TV | Intro Film | 8.0 | ”
+  - equivalencies[IB-GEOGRAPHY|5–7]:  ⟵ “Geography | 5–7 | GEOG | Intro | 8.0 | ”
+  - equivalencies[IB-GLOBAL-POLITICS|5–7]:  ⟵ “Global Politics | 5–7 | POL SCI | Global Studies | 8.0 | ”
+  - equivalencies[IB-FRENCH|5–7]:  ⟵ “French | 5–7 | FRNCH | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-GERMAN|5–7]:  ⟵ “German | 5–7 | GERMAN | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-SPANISH|5–7]:  ⟵ “Spanish | 5–7 | SPAN | 1 and 2 | 8.0 | ”
+  - equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 5]:  ⟵ “Mathematics, Analysis & Approaches HL | 5 | MATH | Unassigned | 8.0 | QR”
+  - equivalencies[IB-MUSIC|5–7]:  ⟵ “Music | 5–7 | MUSIC | Theory | 4.0 | ”
+  - equivalencies[IB-PHILOSOPHY|5–7]:  ⟵ “Philosophy | 5–7 | PHILOS | Intro | 8.0 | ”
+  - equivalencies[IB-PHYSICS|5–7]:  ⟵ “Physics | 5–7 | PHYSICS | Intro | 8.0 | ”
+  - equivalencies[IB-PSYCHOLOGY|5–7]:  ⟵ “Psychology | 5–7 | PSYCH | Intro | 8.0 | ”
+  - equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|5–7]:  ⟵ “Social and Cultural Anthropology | 5–7 | ANTHRO | Social/Cultural | 8.0 | ”
+  - equivalencies[IB-THEATRE|5–7]:  ⟵ “Theatre | 5–7 | THEATER | Intro | 8.0 | ”
+  - equivalencies[IB-VISUAL-ARTS|5–7]:  ⟵ “Visual Arts | 5–7 | ART HIST | Surv of Art | 4.0 | ”
+### `b73243ee3ab23cd3` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ap-credit-nursing (sha256 62f6f754d4fb)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ap-credit-arts-architecture-music,https://admission.ucla.edu/admitted-students/ap-credit-engineering,https://admission.ucla.edu/admitted-students/ap-credit-the-college,https://admission.ucla.edu/admitted-students/ap-credit-theater-film-television
+- checks: {"distinct_exams": 28, "equivalencies": 34, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3–5]:  ⟵ “Art History | 3–5 | ART HIS | Art History | 8.0 | ”
+  - equivalencies[AP-DRAWING|3–5]:  ⟵ “Drawing Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-2-D-ART-DESIGN|3–5]:  ⟵ “2-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-3-D-ART-DESIGN|3–5]:  ⟵ “3-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-BIOLOGY|3–5]:  ⟵ “Biology | 3–5 | LIFE SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CHEM | Introductory | 8.0 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Chinese Language and Culture | 3–5 | CHIN | Elementary Chinese | 8.0 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3–5]:  ⟵ “Computer Science A (units offered may vary) | 3–5 | COM SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3–5]:  ⟵ “Computer Science Principles | 3–5 | COM SCI | Computer Science Principles | 8.0 | ”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3–5]:  ⟵ “Environmental Science | 3–5 | GEOG | Environ Science | 4.0 | ”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language and Culture | 3 | FRNCH | 4 | 8.0 | ”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3–5]:  ⟵ “French Literature | 3–5 | FRNCH | Literature | 8.0 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | GERMAN | 3 | 8.0 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | GERMAN | 4 | 8.0 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | GERMAN | 5 | 8.0 | ”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3-5]:  ⟵ “African American Studies | 3-5 | HIST | United States | 4.0 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3–5]:  ⟵ “Human Geography | 3–5 | GEOG | Human Geography | 4.0 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | 3 | ITALIAN | 3 | 8.0 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | ITALIAN | 4 | 8.0 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | ITALIAN | 6 | 8.0 | ”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Japanese Language and Culture | 3–5 | JAPAN | Elementary Japanese | 8.0 | ”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin | 3 | LATIN | 1 | 4.0 | ”
+  - equivalencies[AP-LATIN|4–5]:  ⟵ “ | 4–5 | LATIN | 3 | 4.0 | ”
+  - equivalencies[AP-CALCULUS-AB|3–4]:  ⟵ “Calculus AB/AB subscore of BC exam | 3–4 | MATH | Calculus | 4.0 | QR”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH | Calculus | 8.0 | QR”
+  - … 9 more rows
+### `da016897a4bcf1fc` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ap-credit-arts-architecture-music (sha256 d41e381878ab)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ap-credit-engineering,https://admission.ucla.edu/admitted-students/ap-credit-nursing,https://admission.ucla.edu/admitted-students/ap-credit-the-college,https://admission.ucla.edu/admitted-students/ap-credit-theater-film-television
+- checks: {"distinct_exams": 28, "equivalencies": 34, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3–5]:  ⟵ “Art History | 3–5 | ART HIS | Art History | 8.0 | ”
+  - equivalencies[AP-DRAWING|3–5]:  ⟵ “Drawing Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-2-D-ART-DESIGN|3–5]:  ⟵ “2-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-3-D-ART-DESIGN|3–5]:  ⟵ “3-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-BIOLOGY|3–5]:  ⟵ “Biology | 3–5 | LIFE SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CHEM | Introductory | 8.0 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Chinese Language and Culture | 3–5 | CHIN | Elementary Chinese | 8.0 | FL”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3–5]:  ⟵ “Computer Science A (units offered may vary) | 3–5 | COM SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3–5]:  ⟵ “Computer Science Principles | 3–5 | COM SCI | Computer Science Principles | 8.0 | ”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3–5]:  ⟵ “Environmental Science | 3–5 | GEOG | Environ Science | 4.0 | ”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language and Culture | 3 | FRNCH | 4 | 8.0 | FL”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3–5]:  ⟵ “French Literature | 3–5 | FRNCH | Literature | 8.0 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | GERMAN | 3 | 8.0 | FL”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | GERMAN | 4 | 8.0 | FL”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | GERMAN | 5 | 8.0 | FL”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3-5]:  ⟵ “African American Studies | 3-5 | HIST | United States | 4.0 | ”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3–5]:  ⟵ “Human Geography | 3–5 | GEOG | Human Geography | 4.0 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | 3 | ITALIAN | 3 | 8.0 | FL”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | ITALIAN | 4 | 8.0 | FL”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | ITALIAN | 6 | 8.0 | FL”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Japanese Language and Culture | 3–5 | JAPAN | Elementary Japanese | 8.0 | FL”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin | 3 | LATIN | 1 | 4.0 | ”
+  - equivalencies[AP-LATIN|4–5]:  ⟵ “ | 4–5 | LATIN | 3 | 4.0 | FL”
+  - equivalencies[AP-CALCULUS-AB|3–4]:  ⟵ “Calculus AB/AB subscore of BC exam | 3–4 | MATH | Calculus | 4.0 | QR”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH | Calculus | 8.0 | QR”
+  - … 9 more rows
+### `dfcf6faea07f0038` University of California-Los Angeles — credit_policies 2026-27 · policy_kind=AP [new] (source_unlabeled)
+- source: https://admission.ucla.edu/admitted-students/ap-credit-the-college (sha256 9244af7d43f6)
+- issues: conflicting_sources:https://admission.ucla.edu/admitted-students/ap-credit-arts-architecture-music,https://admission.ucla.edu/admitted-students/ap-credit-engineering,https://admission.ucla.edu/admitted-students/ap-credit-nursing,https://admission.ucla.edu/admitted-students/ap-credit-theater-film-television
+- checks: {"distinct_exams": 28, "equivalencies": 34, "rows_without_score": 0}
+  - equivalencies[AP-ART-HISTORY|3–5]:  ⟵ “Art History | 3–5 | ART HIS | Art History | 8.0 | ”
+  - equivalencies[AP-DRAWING|3–5]:  ⟵ “Drawing Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-2-D-ART-DESIGN|3–5]:  ⟵ “2-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-3-D-ART-DESIGN|3–5]:  ⟵ “3-D Design Portfolio | 3–5 | ART | Art Studio | 8.0 | ”
+  - equivalencies[AP-BIOLOGY|3–5]:  ⟵ “Biology | 3–5 | LIFE SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CHEM | Introductory | 8.0 | ”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Chinese Language and Culture | 3–5 | CHIN | Elementary Chinese | 8.0 | FL”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3–5]:  ⟵ “Computer Science A (units offered may vary) | 3–5 | COM SCI | Unassigned | 8.0 | ”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3–5]:  ⟵ “Computer Science Principles | 3–5 | COM SCI | Computer Science Principles | 8.0 | ”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3–5]:  ⟵ “Environmental Science | 3–5 | GEOG | Environ Science | 4.0 | ”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language and Culture | 3 | FRNCH | 4 | 8.0 | FL”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3–5]:  ⟵ “French Literature | 3–5 | FRNCH | Literature | 8.0 | ”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language and Culture | 3 | GERMAN | 3 | 8.0 | FL”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | GERMAN | 4 | 8.0 | FL”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | GERMAN | 5 | 8.0 | FL”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3-5]:  ⟵ “African American Studies | 3-5 | HIST | United States | 4.0 | AH”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3–5]:  ⟵ “Human Geography | 3–5 | GEOG | Human Geography | 4.0 | ”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian Language and Culture | 3 | ITALIAN | 3 | 8.0 | FL”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]:  ⟵ “ | 4 | ITALIAN | 4 | 8.0 | FL”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]:  ⟵ “ | 5 | ITALIAN | 6 | 8.0 | FL”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3–5]:  ⟵ “Japanese Language and Culture | 3–5 | JAPAN | Elementary Japanese | 8.0 | FL”
+  - equivalencies[AP-LATIN|3]:  ⟵ “Latin | 3 | LATIN | 1 | 4.0 | ”
+  - equivalencies[AP-LATIN|4–5]:  ⟵ “ | 4–5 | LATIN | 3 | 4.0 | FL”
+  - equivalencies[AP-CALCULUS-AB|3–4]:  ⟵ “Calculus AB/AB subscore of BC exam | 3–4 | MATH | Calculus | 4.0 | QR”
+  - equivalencies[AP-CALCULUS-BC|3]:  ⟵ “Calculus BC | 3 | MATH | Calculus | 8.0 | QR”
+  - … 9 more rows
+### `4e1cd3dcca5c0827` University of California-Riverside — appeals 2027-28 [new] (labeled_in_source)
+- source: https://financialaid.ucr.edu/revisions (sha256 318f794fb1c1)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstance Significant changes in your family's income may merit recalculating your financial aid eligibility.”
+  - sentence: need_based_special_circumstances ⟵ “Documenting a Special Circumstance Unemployment documents should be less than 90 days old.”
+  - sentence: need_based_special_circumstances ⟵ “This is an Unusual Circumstance.”
+  - sentence: need_based_special_circumstances ⟵ “Eligible examples of unusual circumstances where parent information can be removed or excluded from the FAFSA: Human trafficking; Being legally granted refugee or asylum status; Parent abandonment or estrangement; or Student or parental incarceration.”
+  - sentence: need_based_special_circumstances ⟵ “Unusual circumstances do not include: Parent refuses to contribute to the student's education.”
+  - sentence: need_based_special_circumstances ⟵ “Documenting an Unusual Circumstance To document your Unusual Circumstance, a signed and dated statement is needed that includes a complete history of your relationship with your biological and/or legally adoptive parents, and the specific dates of events that caused your separation from your parents.”
+### `a80e09e4fe0c931b` University of California-Riverside — appeals 2026-27 [new] (ambiguous_year_labels)
+- source: https://financialaid.ucr.edu/apply/sap (sha256 6e44d090e871)
+- issues: ambiguous_year_labels, semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 7}
+  - sentence: sap_appeal ⟵ “If you are an undergraduate student, you may submit a SAP appeal to explain why you didn’t meet SAP standards and have your eligibility reconsidered.”
+  - sentence: sap_appeal ⟵ “If you are a graduate student, you may submit a paper SAP appeal to explain why you didn’t meet SAP standards and have your eligibility reconsidered.”
+  - sentence: sap_appeal ⟵ “Have a backup plan in case your SAP appeal is denied though, and research alternative funding early.”
+  - sentence: sap_appeal ⟵ “Learn more about submitting a SAP appeal in the “How to Submit a SAP Appeal” section below.”
+  - sentence: sap_appeal ⟵ “SAP Appeal Deadlines for 2026-2027: Summer 2026 deadline: July 6, 2026 Fall 2026 deadline: October 30, 2026 Winter 2027 deadline: January 29, 2027 Spring 2027 deadline: April 2, 2027 Summer 2027 deadline: July 5, 2027 Fall 2027 deadline: October 29, 2027 Students with a cumulative GPA below 2.00 cannot submit a SAP appeal for the summer term.”
+  - sentence: sap_appeal ⟵ “Fall SAP appeals open later in the summer, and eligible students will receive an email invitation when the appeal form becomes available.”
+### `b7b1dae591fce353` University of California-Riverside — appeals 2027-28 [new] (labeled_in_source)
+- source: https://financialaid.ucr.edu/revisions (sha256 318f794fb1c1)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Receiving Your Aid Preliminary Offer Verification Accept Your Offer Revisions and Appeals Financial Aid Disbursement Stay Eligible Satisfactory Academic Progress Appeal Processing Timeline The UCR Financial Aid Office does its best to process student appeals as quickly as possible.”
+### `591f180ec23d4d83` University of California-Riverside — costs 2025-26 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.ucr.edu/cost (sha256 8ff928e9f71d)
+- issues: arrangement_unlabeled, stale_year_label:2025-26
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - column:UC Tuition & Fees: 14436 ⟵ “UC Tuition & Fees | $14,436 | $14,436 | $14,436”
+  - column:Non-resident Supplemental Tuition: 34200 ⟵ “Non-resident Supplemental Tuition | $34,200 | $34,200 | $34,200”
+  - column:Campus Fees*: 1169 ⟵ “Campus Fees* | $1,169 | $1,169 | $1,169”
+  - column:UC Student Health Insurance: 2382 ⟵ “UC Student Health Insurance | $2,382 | $2,382 | $2,382”
+  - column:Housing and Food: 20691 ⟵ “Housing and Food | $20,691 | $14,250 | $8,025”
+  - column:Books and Supplies: 1575 ⟵ “Books and Supplies | $1,575 | $1,575 | $1,575”
+  - column:Transportation Costs: 950 ⟵ “Transportation Costs | $950 | $2,375 | $2,450”
+  - column:Personal Expenses: 2400 ⟵ “Personal Expenses | $2,400 | $2,500 | $2,525”
+  - column:Total: 77803 ⟵ “Total | $77,803 | $72,887 | $66,762”
+  - off_campus_not_with_family:UC Tuition & Fees: 14436 ⟵ “UC Tuition & Fees | $14,436 | $14,436 | $14,436”
+  - off_campus_not_with_family:Non-resident Supplemental Tuition: 34200 ⟵ “Non-resident Supplemental Tuition | $34,200 | $34,200 | $34,200”
+  - off_campus_not_with_family:Campus Fees*: 1169 ⟵ “Campus Fees* | $1,169 | $1,169 | $1,169”
+  - off_campus_not_with_family:UC Student Health Insurance: 2382 ⟵ “UC Student Health Insurance | $2,382 | $2,382 | $2,382”
+  - off_campus_not_with_family:Housing and Food: 14250 ⟵ “Housing and Food | $20,691 | $14,250 | $8,025”
+  - off_campus_not_with_family:Books and Supplies: 1575 ⟵ “Books and Supplies | $1,575 | $1,575 | $1,575”
+  - off_campus_not_with_family:Transportation Costs: 2375 ⟵ “Transportation Costs | $950 | $2,375 | $2,450”
+  - off_campus_not_with_family:Personal Expenses: 2500 ⟵ “Personal Expenses | $2,400 | $2,500 | $2,525”
+  - off_campus_not_with_family:Total: 72887 ⟵ “Total | $77,803 | $72,887 | $66,762”
+  - with_parents_or_family:UC Tuition & Fees: 14436 ⟵ “UC Tuition & Fees | $14,436 | $14,436 | $14,436”
+  - with_parents_or_family:Non-resident Supplemental Tuition: 34200 ⟵ “Non-resident Supplemental Tuition | $34,200 | $34,200 | $34,200”
+  - with_parents_or_family:Campus Fees*: 1169 ⟵ “Campus Fees* | $1,169 | $1,169 | $1,169”
+  - with_parents_or_family:UC Student Health Insurance: 2382 ⟵ “UC Student Health Insurance | $2,382 | $2,382 | $2,382”
+  - with_parents_or_family:Housing and Food: 8025 ⟵ “Housing and Food | $20,691 | $14,250 | $8,025”
+  - with_parents_or_family:Books and Supplies: 1575 ⟵ “Books and Supplies | $1,575 | $1,575 | $1,575”
+  - with_parents_or_family:Transportation Costs: 2450 ⟵ “Transportation Costs | $950 | $2,375 | $2,450”
+  - … 2 more rows
+### `7305163845439c01` University of California-Riverside — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.ucr.edu/cost (sha256 8ff928e9f71d)
+- issues: arrangement_unlabeled
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - column:UC Tuition & Fees: 15588 ⟵ “UC Tuition & Fees | $15,588 | $15,588 | $15,588”
+  - column:Campus Fees & Tech Fees: 1202 ⟵ “Campus Fees & Tech Fees | $1,202 | $1,202 | $1,202”
+  - column:UC Student Health Insurance: 2824 ⟵ “UC Student Health Insurance | $2,824 | $2,824 | $2,824”
+  - column:Housing: 13793 ⟵ “Housing | $13,793 | $11,351 | $3,766”
+  - column:Food: 7282 ⟵ “Food | $7,282 | $6,274 | $4,834”
+  - column:Books and Supplies: 1700 ⟵ “Books and Supplies | $1,700 | $1,700 | $1,700”
+  - column:Transportation Costs: 1275 ⟵ “Transportation Costs | $1,275 | $2,300 | $2,800”
+  - column:Personal Expenses: 2875 ⟵ “Personal Expenses | $2,875 | $3,175 | $3,050”
+  - column:Total: 46539 ⟵ “Total | $46,539 | $44,329 | $35,764”
+  - off_campus_not_with_family:UC Tuition & Fees: 15588 ⟵ “UC Tuition & Fees | $15,588 | $15,588 | $15,588”
+  - off_campus_not_with_family:Campus Fees & Tech Fees: 1202 ⟵ “Campus Fees & Tech Fees | $1,202 | $1,202 | $1,202”
+  - off_campus_not_with_family:UC Student Health Insurance: 2824 ⟵ “UC Student Health Insurance | $2,824 | $2,824 | $2,824”
+  - off_campus_not_with_family:Housing: 11351 ⟵ “Housing | $13,793 | $11,351 | $3,766”
+  - off_campus_not_with_family:Food: 6274 ⟵ “Food | $7,282 | $6,274 | $4,834”
+  - off_campus_not_with_family:Books and Supplies: 1700 ⟵ “Books and Supplies | $1,700 | $1,700 | $1,700”
+  - off_campus_not_with_family:Transportation Costs: 2300 ⟵ “Transportation Costs | $1,275 | $2,300 | $2,800”
+  - off_campus_not_with_family:Personal Expenses: 3175 ⟵ “Personal Expenses | $2,875 | $3,175 | $3,050”
+  - off_campus_not_with_family:Total: 44329 ⟵ “Total | $46,539 | $44,329 | $35,764”
+  - with_parents_or_family:UC Tuition & Fees: 15588 ⟵ “UC Tuition & Fees | $15,588 | $15,588 | $15,588”
+  - with_parents_or_family:Campus Fees & Tech Fees: 1202 ⟵ “Campus Fees & Tech Fees | $1,202 | $1,202 | $1,202”
+  - with_parents_or_family:UC Student Health Insurance: 2824 ⟵ “UC Student Health Insurance | $2,824 | $2,824 | $2,824”
+  - with_parents_or_family:Housing: 3766 ⟵ “Housing | $13,793 | $11,351 | $3,766”
+  - with_parents_or_family:Food: 4834 ⟵ “Food | $7,282 | $6,274 | $4,834”
+  - with_parents_or_family:Books and Supplies: 1700 ⟵ “Books and Supplies | $1,700 | $1,700 | $1,700”
+  - with_parents_or_family:Transportation Costs: 2800 ⟵ “Transportation Costs | $1,275 | $2,300 | $2,800”
+  - … 2 more rows
+### `b564f7efc076a2b2` University of California-Riverside — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://financialaid.ucr.edu/cost (sha256 8ff928e9f71d)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 3, "components_reconcile": true, "rows": 9}
+  - column:UC Tuition & Fees: 14934 ⟵ “UC Tuition & Fees | $14,934 | $14,934 | $14,934”
+  - column:Non-resident Supplemental Tuition: 37602 ⟵ “Non-resident Supplemental Tuition | $37,602 | $37,602 | $37,602”
+  - column:Campus Fees* & Tech Fees: 1500 ⟵ “Campus Fees* & Tech Fees | $1,500 | $1,500 | $1,500”
+  - column:UC Student Health Insurance: 2605 ⟵ “UC Student Health Insurance | $2,605 | $2,605 | $2,605”
+  - column:Housing and Food: 20425 ⟵ “Housing and Food | $20,425 | $16,800 | $8,975”
+  - column:Books and Supplies: 1750 ⟵ “Books and Supplies | $1,750 | $1,750 | $1,750”
+  - column:Transportation Costs: 1100 ⟵ “Transportation Costs | $1,100 | $2,700 | $3,000”
+  - column:Personal Expenses: 2525 ⟵ “Personal Expenses | $2,525 | $2,650 | $2,675”
+  - column:Total: 82441 ⟵ “Total | $82,441 | $80,541 | $73,041”
+  - off_campus_not_with_family:UC Tuition & Fees: 14934 ⟵ “UC Tuition & Fees | $14,934 | $14,934 | $14,934”
+  - off_campus_not_with_family:Non-resident Supplemental Tuition: 37602 ⟵ “Non-resident Supplemental Tuition | $37,602 | $37,602 | $37,602”
+  - off_campus_not_with_family:Campus Fees* & Tech Fees: 1500 ⟵ “Campus Fees* & Tech Fees | $1,500 | $1,500 | $1,500”
+  - off_campus_not_with_family:UC Student Health Insurance: 2605 ⟵ “UC Student Health Insurance | $2,605 | $2,605 | $2,605”
+  - off_campus_not_with_family:Housing and Food: 16800 ⟵ “Housing and Food | $20,425 | $16,800 | $8,975”
+  - off_campus_not_with_family:Books and Supplies: 1750 ⟵ “Books and Supplies | $1,750 | $1,750 | $1,750”
+  - off_campus_not_with_family:Transportation Costs: 2700 ⟵ “Transportation Costs | $1,100 | $2,700 | $3,000”
+  - off_campus_not_with_family:Personal Expenses: 2650 ⟵ “Personal Expenses | $2,525 | $2,650 | $2,675”
+  - off_campus_not_with_family:Total: 80541 ⟵ “Total | $82,441 | $80,541 | $73,041”
+  - with_parents_or_family:UC Tuition & Fees: 14934 ⟵ “UC Tuition & Fees | $14,934 | $14,934 | $14,934”
+  - with_parents_or_family:Non-resident Supplemental Tuition: 37602 ⟵ “Non-resident Supplemental Tuition | $37,602 | $37,602 | $37,602”
+  - with_parents_or_family:Campus Fees* & Tech Fees: 1500 ⟵ “Campus Fees* & Tech Fees | $1,500 | $1,500 | $1,500”
+  - with_parents_or_family:UC Student Health Insurance: 2605 ⟵ “UC Student Health Insurance | $2,605 | $2,605 | $2,605”
+  - with_parents_or_family:Housing and Food: 8975 ⟵ “Housing and Food | $20,425 | $16,800 | $8,975”
+  - with_parents_or_family:Books and Supplies: 1750 ⟵ “Books and Supplies | $1,750 | $1,750 | $1,750”
+  - with_parents_or_family:Transportation Costs: 3000 ⟵ “Transportation Costs | $1,100 | $2,700 | $3,000”
+  - … 2 more rows
+### `7b13e6981a30fb48` University of California-Santa Barbara — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.finaid.ucsb.edu/resources-policies/policies/satisfactory-academic-progress-policy (sha256 d34ced7eb44d)
+- issues: semantic_review_required, conflicting_sources:https://www.finaid.ucsb.edu/applying-aid/appeals/satisfactory-academic-progress-appeal
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Appeal Process We prefer that all SAP Appeals be requested and submitted electronically.”
+  - sentence: sap_appeal ⟵ “If you need to submit a paper SAP appeal, please reach out to our office directly for assistance.”
+  - sentence: sap_appeal ⟵ “There is no limit to the number of appeals that can be submitted or the number of terms that a student can be approved on a financial aid SAP Appeal.”
+### `a2256c2e6e6cff0a` University of California-Santa Barbara — appeals 2026-27 [new] (labeled_in_source)
+- source: https://www.finaid.ucsb.edu/home (sha256 b6378740c5a2)
+- issues: semantic_review_required, conflicting_sources:https://www.finaid.ucsb.edu/applying-aid/appeals
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “Image Appeals Open for 2026-2027 Unusual Circumstances appeals for dependency status are currently now open.”
+  - sentence: need_based_special_circumstances ⟵ “On May 15th, we will open our 2026-2027 Special Circumstances SAI Appeal for loss of income.”
+### `de538a5452068984` University of California-Santa Barbara — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.finaid.ucsb.edu/applying-aid/appeals (sha256 2ac47c993ba2)
+- issues: semantic_review_required, conflicting_sources:https://www.finaid.ucsb.edu/home
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: need_based_special_circumstances ⟵ “In all instances, OFAS must have adequate documentation from the student and/or parent to substantiate special circumstances.”
+### `e8857a64ac552be8` University of California-Santa Barbara — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.finaid.ucsb.edu/applying-aid/appeals (sha256 2ac47c993ba2)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: professional_judgment ⟵ “Professional Judgment Statement All appeals are evaluated and determined by the Office of Financial Aid & Scholarships (OFAS) using Professional Judgment.”
+  - sentence: professional_judgment ⟵ “While Congress has given Financial Aid Administrators a large amount of freedom in making professional judgment decisions, there are firm limits to this power.”
+### `faba5c3c2742e0a7` University of California-Santa Barbara — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.finaid.ucsb.edu/applying-aid/appeals/satisfactory-academic-progress-appeal (sha256 b3d279458af9)
+- issues: semantic_review_required, conflicting_sources:https://www.finaid.ucsb.edu/resources-policies/policies/satisfactory-academic-progress-policy
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeal | Office of Financial Aid and Scholarships Skip to main content University of California, Santa Barbara Log In - My Aid Status Join the Line Give Quick Links Toggle navigation Search Search Search Enter the terms you wish to search for.”
+  - sentence: sap_appeal ⟵ “Students placed on suspension will be notified by email and given directions for accessing the Satisfactory Academic Progress Appeal form.”
+  - sentence: sap_appeal ⟵ “SAP appeals for each quarter must be submitted by the last day of instruction for that quarter (final deadline).”
+### `8e4e603f86a1ef1e` University of California-Santa Barbara — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.finaid.ucsb.edu/costs-estimated-aid/cost-attendance/ucsb-undergraduate-cost-attendance-budget (sha256 9190e9387c73)
+- issues: multiple_total_rows, residency_unknown
+- checks: {"columns": 1, "rows": 13}
+  - on_campus:Tuition and Student Services Fee 1: 15588 ⟵ “Tuition and Student Services Fee 1 | $ 15,588”
+  - on_campus:Campus Based Fees 1: 2085 ⟵ “Campus Based Fees 1 | $ 2,085”
+  - on_campus:Book & Supplies 2: 1515 ⟵ “Book & Supplies 2 | $ 1,515”
+  - on_campus:Rent 2: 13203 ⟵ “Rent 2 | $ 13,203”
+  - on_campus:Food: 10782 ⟵ “Food | $ 10,782”
+  - on_campus:Utilities: 0 ⟵ “Utilities | $ 0”
+  - on_campus:Transportation 2: 789 ⟵ “Transportation 2 | $ 789”
+  - on_campus:Health Care Allowance 3: 4008 ⟵ “Health Care Allowance 3 | $ 4,008”
+  - on_campus:Personal Expenses 2: 2652 ⟵ “Personal Expenses 2 | $ 2,652”
+  - on_campus:Telephone/ Cell Phone 2: 324 ⟵ “Telephone/ Cell Phone 2 | $ 324”
+  - on_campus:Total (CA Resident): 50946 ⟵ “Total (CA Resident) | $ 50,946”
+  - on_campus:Non-Resident Supplemental Tuition 1: 39270 ⟵ “Non-Resident Supplemental Tuition 1 | $ 39,270”
+  - on_campus:Total (Non-Resident): 90216 ⟵ “Total (Non-Resident) | $ 90,216”
+### `a62f96c4fd221411` University of Southern California — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.usc.edu/undergraduate-financial-aid/admitted-and-continuing-students/special-circumstances-and-appeals-undergaduate-continuing/ (sha256 198054d30d4b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 6}
+  - sentence: budget_increase ⟵ “Back to Top Budget Increase The Cost of Attendance (budget) is used to determine your financial aid eligibility and includes an amount for tuition and mandatory fees, based on your enrollment plans, as well as average amounts for standard educational expenses such as housing and food.”
+  - sentence: budget_increase ⟵ “If your current school-related expenses are more than your current budget, you may be eligible for a budget increase.”
+  - sentence: budget_increase ⟵ “Budget increases are considered on a case-by-case basis, subject to federal and university policy.”
+  - sentence: budget_increase ⟵ “Approved budget increases are typically funded with Federal Direct Loans or private financing.”
+  - sentence: budget_increase ⟵ “Prior indebtedness may be considered in determining whether a budget increase will be approved.”
+  - sentence: budget_increase ⟵ “Below are examples of budget increases our office may consider, along with the supporting documentation we may request.”
+### `f81528d8f8874384` University of Southern California — appeals 2026-27 [new] (source_unlabeled)
+- source: https://financialaid.usc.edu/undergraduate-financial-aid/admitted-and-continuing-students/special-circumstances-and-appeals-undergaduate-continuing/ (sha256 198054d30d4b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “Back to Top Change in Income or Resources Families occasionally experience changes in income and/or resources (due to job loss, illness, etc.) during the application period and/or academic year.”
+  - sentence: need_based_special_circumstances ⟵ “A copy of the student’s most recent federal income tax return, if not previously submitted. | Reduction of other sources: Parents who have special circumstances and have experienced a reduction in other income sources such as untaxed income, rental income, one-time capital gains, or a one-time IRA/pension distribution, etc. | “Income and Expense” form for parent.”
+  - sentence: need_based_special_circumstances ⟵ “Keep in mind: The following situations, whether individually or combined, do not qualify as unusual circumstances that would merit a change in dependency status: Parents refuse to contribute to the student’s education.”
+  - sentence: need_based_special_circumstances ⟵ “The USC Financial Aid Office has verified that you are an individual who meets Special and/or Unusual Circumstances as defined by the U.S.”
+### `1f455f9edd4155e8` University of Southern California — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://admission.usc.edu/cost-and-financial-aid/financial-aid-and-scholarships/ (sha256 5b77ca2c8c60)
+- issues: conflicting_sources:https://priceschool.usc.edu/academics/doctoral/doctor-of-policy-planning-and-development-dppd/admissions/tution-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-administration-mpa/mpa-admission/mpa-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-policy-mpp/mpp-admission/mpp-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-urban-planning-mup/mup-admission/mup-tuition-and-fees/
+- checks: {"columns": 3, "components_reconcile": true, "rows": 8}
+  - on_campus:Tuition (12-18 units for two semesters): 75384 ⟵ “Tuition (12-18 units for two semesters) | $75,384 | $75,384 | $75,384”
+  - on_campus:Fees: 1952 ⟵ “Fees | $1,952 | $1,952 | $1,952”
+  - on_campus:Housing*: 13510 ⟵ “Housing* | $13,510 | $13,140 | $8,776”
+  - on_campus:Food*: 8442 ⟵ “Food* | $8,442 | $8,442 | $3,762”
+  - on_campus:Books/Supplies: 670 ⟵ “Books/Supplies | $670 | $670 | $670”
+  - on_campus:Transportation: 1188 ⟵ “Transportation | $1,188 | $1,188 | $2,070”
+  - on_campus:Personal/Misc: 2016 ⟵ “Personal/Misc | $2,016 | $2,016 | $2,016”
+  - on_campus:Total**: 103162 ⟵ “Total** | $103,162 | $102,792 | $94,630”
+  - off_campus_not_with_family:Tuition (12-18 units for two semesters): 75384 ⟵ “Tuition (12-18 units for two semesters) | $75,384 | $75,384 | $75,384”
+  - off_campus_not_with_family:Fees: 1952 ⟵ “Fees | $1,952 | $1,952 | $1,952”
+  - off_campus_not_with_family:Housing*: 13140 ⟵ “Housing* | $13,510 | $13,140 | $8,776”
+  - off_campus_not_with_family:Food*: 8442 ⟵ “Food* | $8,442 | $8,442 | $3,762”
+  - off_campus_not_with_family:Books/Supplies: 670 ⟵ “Books/Supplies | $670 | $670 | $670”
+  - off_campus_not_with_family:Transportation: 1188 ⟵ “Transportation | $1,188 | $1,188 | $2,070”
+  - off_campus_not_with_family:Personal/Misc: 2016 ⟵ “Personal/Misc | $2,016 | $2,016 | $2,016”
+  - off_campus_not_with_family:Total**: 102792 ⟵ “Total** | $103,162 | $102,792 | $94,630”
+  - with_parents_or_family:Tuition (12-18 units for two semesters): 75384 ⟵ “Tuition (12-18 units for two semesters) | $75,384 | $75,384 | $75,384”
+  - with_parents_or_family:Fees: 1952 ⟵ “Fees | $1,952 | $1,952 | $1,952”
+  - with_parents_or_family:Housing*: 8776 ⟵ “Housing* | $13,510 | $13,140 | $8,776”
+  - with_parents_or_family:Food*: 3762 ⟵ “Food* | $8,442 | $8,442 | $3,762”
+  - with_parents_or_family:Books/Supplies: 670 ⟵ “Books/Supplies | $670 | $670 | $670”
+  - with_parents_or_family:Transportation: 2070 ⟵ “Transportation | $1,188 | $1,188 | $2,070”
+  - with_parents_or_family:Personal/Misc: 2016 ⟵ “Personal/Misc | $2,016 | $2,016 | $2,016”
+  - with_parents_or_family:Total**: 94630 ⟵ “Total** | $103,162 | $102,792 | $94,630”
+### `77fb9465b03c1b2b` University of Southern California — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://priceschool.usc.edu/academics/masters/master-of-public-policy-mpp/mpp-admission/mpp-tuition-and-fees/ (sha256 b3a2247c0184)
+- issues: arrangement_unlabeled, cost_period_semester, conflicting_sources:https://admission.usc.edu/cost-and-financial-aid/financial-aid-and-scholarships/,https://priceschool.usc.edu/academics/doctoral/doctor-of-policy-planning-and-development-dppd/admissions/tution-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-administration-mpa/mpa-admission/mpa-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-urban-planning-mup/mup-admission/mup-tuition-and-fees/
+- checks: {"columns": 4, "components_reconcile": true, "rows": 8}
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $33,007 | $27,929”
+  - column:PPD Lab Fee (PPD 554): 250 ⟵ “PPD Lab Fee (PPD 554) | $250 | $0 | $0 | $0”
+  - column:New Student Fee: 55 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31695 ⟵ “Total | $31,695 | $31,390 | $33,929 | $28,851”
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $33,007 | $27,929”
+  - column:PPD Lab Fee (PPD 554): 0 ⟵ “PPD Lab Fee (PPD 554) | $250 | $0 | $0 | $0”
+  - column:New Student Fee: 0 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31390 ⟵ “Total | $31,695 | $31,390 | $33,929 | $28,851”
+  - column:Tuition ($2,539/unit): 33007 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $33,007 | $27,929”
+  - column:PPD Lab Fee (PPD 554): 0 ⟵ “PPD Lab Fee (PPD 554) | $250 | $0 | $0 | $0”
+  - column:New Student Fee: 0 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 33929 ⟵ “Total | $31,695 | $31,390 | $33,929 | $28,851”
+  - column:Tuition ($2,539/unit): 27929 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $33,007 | $27,929”
+  - … 7 more rows
+### `a36d969f68bd8b31` University of Southern California — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://priceschool.usc.edu/academics/masters/master-of-public-administration-mpa/mpa-admission/mpa-tuition-and-fees/ (sha256 2a7ee1088e75)
+- issues: arrangement_unlabeled, cost_period_semester, conflicting_sources:https://admission.usc.edu/cost-and-financial-aid/financial-aid-and-scholarships/,https://priceschool.usc.edu/academics/doctoral/doctor-of-policy-planning-and-development-dppd/admissions/tution-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-policy-mpp/mpp-admission/mpp-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-urban-planning-mup/mup-admission/mup-tuition-and-fees/
+- checks: {"columns": 4, "components_reconcile": true, "rows": 8}
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $20,312 | $20,312”
+  - column:PPD Lab Fee (PPD 505): 0 ⟵ “PPD Lab Fee (PPD 505) | $0 | $250 | $0 | $0”
+  - column:New Student Fee: 55 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31445 ⟵ “Total | $31,445 | $31,640 | $21,234 | $21,234”
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $20,312 | $20,312”
+  - column:PPD Lab Fee (PPD 505): 250 ⟵ “PPD Lab Fee (PPD 505) | $0 | $250 | $0 | $0”
+  - column:New Student Fee: 0 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31640 ⟵ “Total | $31,445 | $31,640 | $21,234 | $21,234”
+  - column:Tuition ($2,539/unit): 20312 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $20,312 | $20,312”
+  - column:PPD Lab Fee (PPD 505): 0 ⟵ “PPD Lab Fee (PPD 505) | $0 | $250 | $0 | $0”
+  - column:New Student Fee: 0 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 21234 ⟵ “Total | $31,445 | $31,640 | $21,234 | $21,234”
+  - column:Tuition ($2,539/unit): 20312 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $20,312 | $20,312”
+  - … 7 more rows
+### `b8a6b14e0d1070bc` University of Southern California — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://priceschool.usc.edu/academics/doctoral/doctor-of-policy-planning-and-development-dppd/admissions/tution-and-fees/ (sha256 e1f5cf9c80b5)
+- issues: conflicting_sources:https://admission.usc.edu/cost-and-financial-aid/financial-aid-and-scholarships/,https://priceschool.usc.edu/academics/masters/master-of-public-administration-mpa/mpa-admission/mpa-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-policy-mpp/mpp-admission/mpp-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-urban-planning-mup/mup-admission/mup-tuition-and-fees/
+- checks: {"columns": 1, "rows": 6}
+  - column:Units: 4 ⟵ “Units | 2 | 2 | 4”
+  - column:Tuition ($2,539/unit): 10156 ⟵ “Tuition ($2,539/unit) | $5,078 | $5,078 | $10,156”
+  - column:Programming Fee: 80 ⟵ “Programming Fee | $40 | $40 | $80”
+  - column:Norman Topping Fee: 22 ⟵ “Norman Topping Fee | $11 | $11 | $22”
+  - column:USC Health Center Fee: 1752 ⟵ “USC Health Center Fee | $720 | $720 | $1,752”
+  - column:USC Transportation Services Fee: 302 ⟵ “USC Transportation Services Fee | $151 | $151 | $302”
+### `fb2f40f0b83d5c9f` University of Southern California — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://priceschool.usc.edu/academics/masters/master-of-urban-planning-mup/mup-admission/mup-tuition-and-fees/ (sha256 652f07d13728)
+- issues: arrangement_unlabeled, cost_period_semester, conflicting_sources:https://admission.usc.edu/cost-and-financial-aid/financial-aid-and-scholarships/,https://priceschool.usc.edu/academics/doctoral/doctor-of-policy-planning-and-development-dppd/admissions/tution-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-administration-mpa/mpa-admission/mpa-tuition-and-fees/,https://priceschool.usc.edu/academics/masters/master-of-public-policy-mpp/mpp-admission/mpp-tuition-and-fees/
+- checks: {"columns": 4, "components_reconcile": true, "rows": 8}
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $30,468 | $30,468”
+  - column:PPD Lab Fee (PPD 534 & 629): 125 ⟵ “PPD Lab Fee (PPD 534 & 629) | $125 | $0 | $0 | $125”
+  - column:New Student Fee: 55 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31570 ⟵ “Total | $31,570 | $31,390 | $31,390 | $31,515”
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $30,468 | $30,468”
+  - column:PPD Lab Fee (PPD 534 & 629): 0 ⟵ “PPD Lab Fee (PPD 534 & 629) | $125 | $0 | $0 | $125”
+  - column:New Student Fee: 0 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31390 ⟵ “Total | $31,570 | $31,390 | $31,390 | $31,515”
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $30,468 | $30,468”
+  - column:PPD Lab Fee (PPD 534 & 629): 0 ⟵ “PPD Lab Fee (PPD 534 & 629) | $125 | $0 | $0 | $125”
+  - column:New Student Fee: 0 ⟵ “New Student Fee | $55 | $0 | $0 | $0”
+  - column:Programming Fee: 40 ⟵ “Programming Fee | $40 | $40 | $40 | $40”
+  - column:Norman Topping Fee: 11 ⟵ “Norman Topping Fee | $11 | $11 | $11 | $11”
+  - column:USC Health Center Fee: 720 ⟵ “USC Health Center Fee | $720 | $720 | $720 | $720”
+  - column:USC Transportation Services Fee: 151 ⟵ “USC Transportation Services Fee | $151 | $151 | $151 | $151”
+  - column:Total: 31390 ⟵ “Total | $31,570 | $31,390 | $31,390 | $31,515”
+  - column:Tuition ($2,539/unit): 30468 ⟵ “Tuition ($2,539/unit) | $30,468 | $30,468 | $30,468 | $30,468”
+  - … 7 more rows
+
+## Re-verification of existing records (134)
+
+- source_not_fetched: data/institutions/apu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-109785", null, "2026-27", {"program_key": "ba-in-art", "requirement_key": "major-3-electives"}]
+- all_values_found_year_not_labeled: data/institutions/bakersfieldcollege/credit_policies/2026-27.json ["credit_policies", "ipeds-109819", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/biola/degree_requirements/2026-27.json ["degree_requirements", "ipeds-110097", null, "2026-27", {"program_key": "game-design-and-interactive-media-b-a", "requirement_key": "curriculum-requirements-electives"}]
+- source_not_fetched: data/institutions/biola/transfer_policies/2026-27.json ["transfer_policies", "ipeds-110097", null, "2026-27", {}]
+- source_not_fetched: data/institutions/csueastbay/credit_policies/2026-27.json ["credit_policies", "ipeds-110574", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/csumb/credit_policies/2026-27.json ["credit_policies", "ipeds-409698", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/csusb/degree_requirements/2026-27.json ["degree_requirements", "ipeds-110510", null, "2026-27", {"program_key": "bachelor-of-arts-in-communication", "requirement_key": "major-3-electives-6"}]
+- source_not_fetched: data/institutions/csusb/degree_requirements/2026-27.json ["degree_requirements", "ipeds-110510", null, "2026-27", {"program_key": "bachelor-of-arts-in-spanish", "requirement_key": "major-7-core-requirements-37"}]
+- source_not_fetched: data/institutions/cmc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-112260", null, "2026-27", {}]
+- source_not_fetched: data/institutions/cui/credit_policies/2026-27.json ["credit_policies", "ipeds-112075", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/gavilan/credit_policies/2026-27.json ["credit_policies", "ipeds-114938", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/goldenwestcollege/credit_policies/2026-27.json ["credit_policies", "ipeds-115126", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/jpcatholic/credit_policies/2026-27.json ["credit_policies", "ipeds-462354", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/jpcatholic/credit_policies/2026-27.json ["credit_policies", "ipeds-462354", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/jpcatholic/credit_policies/2026-27.json ["credit_policies", "ipeds-462354", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/lcad/credit_policies/2026-27.json ["credit_policies", "ipeds-117168", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/lcad/transfer_policies/2026-27.json ["transfer_policies", "ipeds-117168", null, "2026-27", {}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "modern-languages-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "women-s-and-gender-studies-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "finance-b-b-a", "requirement_key": "model-4-year-plan-bachelor-of-business-administration-finance-major-curriculum-m"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "information-systems-and-business-analytics-isba-bachelor-of-business-administrat", "requirement_key": "model-4-year-plan-bachelor-of-business-administration-isba-major-curriculum-math"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "information-systems-and-business-analytics-isba-bachelor-of-science-b-s-degree", "requirement_key": "model-4-year-plan-bachelor-of-business-administration-isba-major-curriculum-math"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "entrepreneurship-b-b-a", "requirement_key": "model-4-year-plan-bachelor-of-business-administration-entrepreneurship-major-cur"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "management-and-leadership-b-b-a", "requirement_key": "model-4-year-plan-bachelor-of-business-administration-management-and-leadership-"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "marketing-b-b-a", "requirement_key": "model-4-year-plan-bachelor-of-business-administration-marketing-major-curriculum"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "studio-arts-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "communication-studies-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "dance-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "theatre-arts-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "environmental-science-b-s", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "health-and-human-sciences-b-s", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "applied-mathematics-b-s", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "mathematics-b-s", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "statistics-and-data-science-b-s", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/lmu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-117946", null, "2026-27", {"program_key": "screenwriting-b-a", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/moorparkcollege/costs/2026-27.json ["costs", "ipeds-119137", null, "2026-27", {"residency": "out_of_state"}]
+- source_not_fetched: data/institutions/napavalley/credit_policies/2026-27.json ["credit_policies", "ipeds-119331", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/northeastern-118888/transfer_policies/2026-27.json ["transfer_policies", "ipeds-118888", null, "2026-27", {}]
+- source_not_fetched: data/institutions/otis/transfer_policies/2026-27.json ["transfer_policies", "ipeds-120403", null, "2026-27", {}]
+- source_not_fetched: data/institutions/riohondo/costs/2026-27.json ["costs", "ipeds-121886", null, "2026-27", {"residency": "in_state"}]
+- source_not_fetched: data/institutions/riohondo/credit_policies/2026-27.json ["credit_policies", "ipeds-121886", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/rcc-121901/credit_policies/2026-27.json ["credit_policies", "ipeds-121901", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/sdcity/credit_policies/2026-27.json ["credit_policies", "ipeds-122339", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- all_values_found_year_not_labeled: data/institutions/sdmesa/credit_policies/2026-27.json ["credit_policies", "ipeds-122375", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/sfbu/awards/2026-27.json ["awards", "ipeds-120166", null, "2026-27", {"award_name": "Global Changemaker"}]
+- source_not_fetched: data/institutions/sfbu/awards/2026-27.json ["awards", "ipeds-120166", null, "2026-27", {"award_name": "Global Achiever"}]
+- source_not_fetched: data/institutions/sfbu/transfer_policies/2026-27.json ["transfer_policies", "ipeds-120166", null, "2026-27", {}]
+- source_not_fetched: data/institutions/sfsu/academic_programs/2026-27.json ["academic_programs", "ipeds-122597", null, "2026-27", {"program_key": "ethnic-studies-ba"}]
+- source_not_fetched: data/institutions/sfsu/academic_programs/2026-27.json ["academic_programs", "ipeds-122597", null, "2026-27", {"program_key": "criminal-justice-studies-ba"}]
+- source_not_fetched: data/institutions/scrippscollege/transfer_policies/2026-27.json ["transfer_policies", "ipeds-123165", null, "2026-27", {}]
+- source_not_fetched: data/institutions/masters/credit_policies/2026-27.json ["credit_policies", "ipeds-117751", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/tuw/transfer_policies/2026-27.json ["transfer_policies", "ipeds-459727", null, "2026-27", {}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "accounting-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "animation-and-visual-effects-b-f-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "applied-computer-science-media-arts-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "architecture-bachelor"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "asian-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "bs-business"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "biochemistry-and-molecular-biology-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "biology-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "biology-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "business-administration-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "chemistry-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "communication-sciences-and-disorders-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "computer-science-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "computer-science-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "construction-management-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "creative-writing-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "data-science-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "economics-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "economics-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "education-studies-elementary-education-ba"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "education-studies-mild-moderate-support-elem-educ-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "education-secondary-mathematics-teaching-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "english-literature-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "environmental-science-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "environmental-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "fashion-design-b-f-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "fashion-marketing-b-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "filmmaking-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "filmmaking-b-f-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "financial-economics-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "geographic-information-systems-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "geographic-information-systems-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "global-business-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "health-medicine-and-society-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "history-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "human-animal-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "interdisciplinary-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "interdisciplinary-studies-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "interior-design-b-f-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "international-relations-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "johnston-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "johnston-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "kinesiology-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "liberal-studies-for-education-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "management-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "management-b-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "marketing-b-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "mathematics-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "media-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "media-and-communication-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-performance-guitar-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-performance-keyboard-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-performance-strings-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-performance-voice-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-performance-wind-or-percussion-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-composition-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "music-education-b-m"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "philosophy-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "physics-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "physics-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "political-science-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "psychology-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "public-policy-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "race-and-ethnic-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "religious-studies-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "sociology-and-anthropology-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "spanish-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "studio-art-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "sustainable-business-b-s"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "theatre-arts-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "theatre-business-b-a"}]
+- source_not_fetched: data/institutions/redlands/academic_programs/2026-27.json ["academic_programs", "ipeds-121691", null, "2026-27", {"program_key": "women-gender-and-sexuality-studies-b-a"}]
+- source_not_fetched: data/institutions/usfca/credit_policies/2026-27.json ["credit_policies", "ipeds-122612", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/usfca/credit_policies/2026-27.json ["credit_policies", "ipeds-122612", null, "2026-27", {"policy_kind": "IB"}]
+- source_not_fetched: data/institutions/pacific/transfer_policies/2026-27.json ["transfer_policies", "ipeds-120883", null, "2026-27", {}]
+- nothing_to_check: data/institutions/uopeople/transfer_policies/2026-27.json ["transfer_policies", "ipeds-488846", null, "2026-27", {}]
+- source_not_fetched: data/institutions/uwest/transfer_policies/2026-27.json ["transfer_policies", "ipeds-449870", null, "2026-27", {}]
+- source_not_fetched: data/institutions/vanguard/credit_policies/2026-27.json ["credit_policies", "ipeds-123651", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/vanguard/transfer_policies/2026-27.json ["transfer_policies", "ipeds-123651", null, "2026-27", {}]
+- source_not_fetched: data/institutions/westmont/credit_policies/2026-27.json ["credit_policies", "ipeds-125727", null, "2026-27", {"policy_kind": "IB"}]
+- source_not_fetched: data/institutions/whittier/transfer_policies/2026-27.json ["transfer_policies", "ipeds-125763", null, "2026-27", {}]
+
+## Statewide sources
+
+Pages fetched: 0; pages by category: 
+
+## Leads: official pages found with no extracted record
+
+- Antelope Valley Community College District: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency
+- Bakersfield College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, transfer_credit, statewide_articulation, residency, degree_requirements
+- California Polytechnic State University-San Luis Obispo: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, transfer_credit, residency
+- California State Polytechnic University-Pomona: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, statewide_articulation, residency, degree_requirements
+- California State University-Fresno: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements
+- California State University-Fullerton: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, residency, degree_requirements
+- California State University-Long Beach: admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, transfer_credit, residency, degree_requirements
+- California State University-Los Angeles: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, transfer_credit, residency, degree_requirements
+- California State University-Northridge: admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- California State University-Sacramento: admissions_tests, common_data_set, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency
+- California State University-San Bernardino: cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, residency
+- California State University-San Marcos: admissions_tests, merit_scholarships, transfer_credit, residency, degree_requirements
+- Cypress College: admissions_tests, common_data_set, merit_scholarships, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Foothill College: cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Modesto Junior College: merit_scholarships, transfer_credit, degree_requirements
+- San Diego Mesa College: tuition_fees, cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, transfer_credit, statewide_articulation, residency, degree_requirements
+- San Diego State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, ib_credit, transfer_credit, statewide_articulation, residency, degree_requirements, aid_appeals
+- San Francisco State University: admissions_tests, merit_scholarships, ap_credit, clep_credit, dual_enrollment, transfer_credit, statewide_articulation, residency
+- San Jose State University: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, residency, aid_appeals
+- Santa Ana College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- Santa Monica College: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of California-Irvine: cost_of_attendance, admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency
+- University of California-Los Angeles: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, residency, degree_requirements
+- University of California-Riverside: admissions_tests, merit_scholarships, ap_credit, ib_credit, dual_enrollment, transfer_credit, residency, degree_requirements
+- University of California-Santa Barbara: cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, transfer_credit, residency, degree_requirements
+- University of Southern California: admissions_tests, merit_scholarships, ap_credit, ib_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of the People: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ib_credit, degree_requirements, aid_appeals
