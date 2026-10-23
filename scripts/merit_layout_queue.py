@@ -18,6 +18,7 @@ scholarship.
     inaccessible        - the crawl could not fetch the school's pages (blocked or failed); recorded, never evaded
     reader_error        - the reader raised an error on a merit page (a reader bug to fix, never a finding)
     run_not_found       - the school's run could not be located on any pipeline-run branch (a tooling gap)
+    not_in_run          - the run holds no page for the school (e.g. a targeted re-crawl of other schools); never 'inaccessible'
 
   Transfer, graduate, international and dual-enrollment pages are neither counted nor classified.
 
@@ -37,7 +38,7 @@ OUT = ROOT / 'docs/coverage/merit_layout_queue.csv'
 SCORE = re.compile(r'\b(ACT|SAT|CLT)\b[^.|]{0,40}\b\d{2,4}\b|\b\d{2,4}\b[^.|]{0,20}\b(ACT|SAT|CLT)\b', re.I)
 GPA = re.compile(r'\b[1-4]\.\d{1,2}\b[^.|]{0,30}\bGPA\b|\bGPA\b[^.|]{0,30}\b[1-4]\.\d{1,2}\b', re.I)
 MONEY = re.compile(r'\$\s?\d[\d,]{2,}')
-OTHER_PAGE = re.compile(r'transfer|graduate|/grad/|law\.|/law/|international|pre-college|dual-enrollment|veteran', re.I)
+OTHER_PAGE = re.compile(r'transfer|(?<!under)graduate|/grad/|law\.|/law/|international|pre-college|dual-enrollment|veteran', re.I)
 FIELDS = ['rank', 'institution_key', 'name', 'state', 'undergraduate_enrollment', 'merit_status', 'run', 'layout_status',
           'pages_crawled', 'merit_pages', 'candidates', 'score_linked_candidates', 'gpa_linked_candidates', 'sample_url']
 
@@ -123,7 +124,7 @@ def main():
             elif x['text']: status, url = 'text_mentions', sorted(x['text'])[0]
             elif x['merit_pages']: status, url = 'no_criteria_seen', ''
             elif x['pages']: status, url = 'no_merit_page_seen', ''
-            else: status, url = 'inaccessible', ''
+            else: status, url = 'not_in_run', ''
             rows.append({'rank': int(r['rank']), 'institution_key': r['institution_key'], 'name': r['name'], 'state': r['state'],
                          'undergraduate_enrollment': r['undergraduate_enrollment'], 'merit_status': r['merit_status'], 'run': run_id,
                          'layout_status': status, 'pages_crawled': x['pages'], 'merit_pages': x['merit_pages'], 'candidates': x['candidates'],
