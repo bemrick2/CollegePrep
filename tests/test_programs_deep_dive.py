@@ -3039,7 +3039,11 @@ class PlanNoteTests(unittest.TestCase):
         # 1. page text never becomes a note: an address, social links, page metadata (LMU, NMC, Slippery Rock)
         self.assertEqual(fn('*\nSee advisor.\nFind Us\n1 LMU Drive\nLos Angeles, CA 90045\nX\nYouTube\n'), [('*', 'See advisor.')])
         self.assertEqual(fn('*\nSee advisor.\nMajor Code: 2 15\nRevision date: 05.03.2022\n'), [('*', 'See advisor.')])
-        self.assertEqual(pn('Pace University\nAll nursing courses require a grade of C+.\n'), [])
+        p = self.page('Pace University\nAll nursing courses require a grade of C+.\n'); p.title = 'Nursing BS < Pace University'
+        self.assertEqual(CL.plan_notes(p)[0], [])  # the institution's name, as the page title prints it, ends the notes
+        self.assertEqual(pn('Pace University\nAll nursing courses require a grade of C+.\n'), [])  # an institution's name is page text
+        self.assertEqual(pn('Go Getters Go To Pace.\nAll nursing courses require a grade of C+.\n'), 'unclear')  # unknown text: held, not dropped
+        self.assertEqual(fn('1\nStudents must apply for admission to the program; see accreditation details.\n'), [('1', 'Students must apply for admission to the program; see accreditation details.')])
         # 2./3. a note ending in ':' keeps the whole list printed under it (Kingsville, South Carolina, Temple)
         self.assertEqual(fn('1\nList of Approved Electives:\nAGRI 3300 Farm Management\nAGRI 4310 Agricultural Policy and Law\nProgram Learning Outcomes\n'),
                          [('1', 'List of Approved Electives: / AGRI 3300 Farm Management / AGRI 4310 Agricultural Policy and Law')])
@@ -3061,6 +3065,16 @@ class PlanNoteTests(unittest.TestCase):
         got = CL.plan_notes(self.page('1\nC- or better\nNo course may satisfy more than one requirement.\n'))[0]
         self.assertEqual(got[0]['location'], 'printed directly after footnote 1, which it may continue')
         self.assertEqual(fn('1\nC- or better\nNo course may satisfy more than one requirement.\n'), [('1', 'C- or better')])
+        # round 2 of the review: a note that starts like page text is still a note; a list of sentences under ':' is kept whole;
+        # any line before the page text that is not read holds the plan; a mark printed after unmarked notes holds it
+        self.assertEqual(fn('1\nTotal hours of free electives vary to allow 120 credit hrs.\n2\n2000-3999 electives can be selected from ACCT 2101.\n'),
+                         [('1', 'Total hours of free electives vary to allow 120 credit hrs.'), ('2', '2000-3999 electives can be selected from ACCT 2101.')])
+        self.assertEqual(fn('6\nCommunication Major Electives (15 hours):\nSix hours at 300-level and above.\nThree hours at 500-level.\nProgram Learning Outcomes\n'),
+                         [('6', 'Communication Major Electives (15 hours): / Six hours at 300-level and above. / Three hours at 500-level.')])
+        self.assertEqual(pn('All students must earn a C in major courses.\nConcentration in Vascular Sonography: CVTC 496\n'), 'unclear')
+        self.assertEqual(pn('All students must earn a C in major courses.\n**Transfer credit is evaluated by the registrar.\n'), 'unclear')
+        got = CL.plan_notes(self.page('1\nC- or better\nNotes:\nThis is a sample schedule only.\n'))[0]
+        self.assertEqual((got[0]['text'], got[0]['location']), ('Notes: / This is a sample schedule only.', 'printed after the plan grid and its footnotes'))
 
     def test_extract_keeps_notes_and_holds_unclear_ones(self):
         from programs import courseleaf as CL, verify as V

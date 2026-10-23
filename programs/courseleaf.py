@@ -140,14 +140,24 @@ FOOTNOTE_INLINE = re.compile(r'^([*†‡§#+^]{1,4})\s?([A-Z(].*)$')  # '**This
 FOOTNOTE_INLINE_NUM = re.compile(r'^(\d{1,2})[.)]?\s?([A-Z].*)$')  # '1 Requires English Composition Placement', '2This course ...' (Nebraska Omaha)
 FOOTNOTE_ROW = re.compile(r'^\|\s*(\d{1,2}|[*†‡§#+^]{1,4})\s*\|\s*(.*?)\s*\|?$')  # '| 1 | Select from: EC 222 ...' (JSU prints its notes as table rows)
 LIST_LINE = re.compile(r'^(?:[A-Z]{2,5}[\s\xa0]?\d{3}|[•\-–]|\(?[a-z0-9]{1,2}[.)]\s|[Gg]roup\b|[Ss]elect\b|[Cc]hoose\b|[Oo]r\b|[Aa]nd\b|[a-z(])')
-PAGE_TEXT = re.compile(r'(©|\bcopyright\b|back to top|print options|quick links|find us|connect with|apply (online|for admission)|contact (admissions|us|information)|'
-                       r'privacy|webmaster|search (catalog|bulletin)|catalog navigation|program learning outcomes|learning outcomes|questions\?|'
-                       r'program contact|degree audit|accreditation|^\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}|\b\d{5}(-\d{4})?$|\bedition$|^\d{4}-\d{4}\b|'
-                       r'^(toggle|undergraduate|graduate|total)\b|navigation$|^faculty$|^staff$|^(facebook|twitter|x|youtube|instagram|linkedin|tiktok|flickr)$|'
-                       r'^\d+ [A-Z][\w.]*( [A-Z][\w.]*)* (drive|dr\.?|street|st\.?|avenue|ave\.?|road|rd\.?|boulevard|blvd\.?|way|lane|ln\.?|campus)$|'
-                       r'^[A-Z][\w .]+, [A-Z]{2} \d{5}|main campus$|^major code\b|^revision date\b|every effort has been made|'
-                       r'^additional information about this plan|well prepared for employment|'
-                       r'^(?:[\w&.\'-]+ ){0,5}(university|college|institute)( of(?: [\w&.\'-]+){1,4})?$)', re.I)
+# Page text that ends a plan's notes: whole lines only (a note may well mention 'accreditation' or 'apply for admission')
+PAGE_TEXT = re.compile(r'^(?:©.*|.*\bcopyright\b.*|back to top|print options|quick links|find us|connect with .*|apply (online|for admission|now)\b.*|'
+                       r'contact( us| admissions| information)?\b.{0,60}|.*\bprivacy (statement|policy)\b.*|.*\bwebmaster\b.*|search( catalog| bulletin)?|'
+                       r'submit search|catalog navigation|(program |student )?learning outcomes|questions\??|program contacts?\b.{0,40}|degree audit( report)?|'
+                       r'accreditation|\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}.{0,40}|.{0,60}\b\d{5}(-\d{4})?|.{0,40}\bedition|\d{4}-\d{4}( [\w ]{0,30})?|'
+                       r'toggle|undergraduate|graduate|total( program)? (credits?|hours|credit hours|units)\W*\d[\d\s-]*|.{0,30}navigation|faculty|staff|'
+                       r'facebook|twitter|x|youtube|instagram|linkedin|tiktok|flickr|.{0,40}\bnew window\.?|'
+                       r'\d+ [A-Z][\w.]*( [A-Z][\w.]*)* (drive|dr\.?|street|st\.?|avenue|ave\.?|road|rd\.?|boulevard|blvd\.?|way|lane|ln\.?|campus)|'
+                       r'[A-Z][\w .]+, [A-Z]{2} \d{5}.*|.{0,40}main campus|major code\b.*|revision date\b.*|every effort has been made.*|'
+                       r'well prepared for employment.*)$', re.I)
+# Page text that ends unmarked notes only (never applied inside a footnote): program descriptions and marketing, the
+# institution's name, contact blocks, navigation and page metadata
+DESCRIPTION = re.compile(r"\b(you'll|you will|launch your|your (career|future|passion)|why major in|underpins all|guided pathway|is the study of|"
+                         r"enables students|opportunities abound|career options)\b|^for (more|additional) (information|questions)\b|"
+                         r"^(email|phone|fax|office|location|tel)\s*:|^p\.?\s?o\.? box\b|^\d+ [A-Z][\w.]*( [A-Z][\w.]*)* (st|street|ave|avenue|road|rd|drive|dr|blvd)\.?,?$|"
+                         r"\btoggle\b|^on this page$|^last updated\b|^major/concentration:|^students$|^[\w.-]+\.edu$|\(\d{4}\)$|"
+                         r"^(the )?([A-Z][\w&.'’-]*\s){0,5}(University|College|Institute)( of( [A-Z][\w&.'’-]*| [a-z]{2,3}){1,5})?\.?$", re.I)
+NOTE_HEADING = re.compile(r'^(notes?\b.*|additional information about this plan:?|.{0,40}\b(notes?|requirements?)\s*:?)$', re.I)
 PLAN_NOTE = re.compile(r'\b(must|required?|requires|requirements?|may( not)?|cannot|can ?not|count(s|ed)? toward|substitut\w*|in (lieu|place) of|instead of|'
                        r'retake|repeat\w*|grade of|minimum|maximum|only (one|be|if|after)|exclud\w*|except|electives?|select|choose|complete[ds]?|'
                        r'placement|prerequisite|co-?requisite|consult|recommended|eligible|not required|in addition to|no more than|at least|up to|'
@@ -170,6 +180,8 @@ def _grid_tails(page):
     gs = grids(page)
     if len(caps) != len(gs): return None
     heads = {re.sub(r'[\s\xa0]+', ' ', h).strip() for h in (page.headings or [])}
+    heads |= {x.strip() for x in re.split(r'\s[|<–-]\s', page.title or '')[1:] if x.strip()}  # the institution's name, as its page title prints it
+    heads |= {(g.get('heading') or '').strip() for g in grids(page)[1:] if (g.get('heading') or '').strip()}  # the next grid's own heading
     hard = lambda l: (l.startswith('|') and not FOOTNOTE_ROW.match(l)) or l.lower() in ('plan of study grid', 'degree map', 'course list') or l.startswith('©') or l in heads
 
     def mark(l, last_num):
@@ -212,7 +224,8 @@ def _grid_tails(page):
             # the last note. Its lines run on while they plainly continue it: a list under a line ending in ':' runs to
             # the page text; a line that does not end a sentence is continued by the next; lower-case or list lines continue
             keep = [body[0]]
-            for l in body[1:]:
+            if body[0].endswith(':'): keep = body  # a list under the note runs to the page text (South Carolina, Kingsville)
+            for l in body[len(keep):]:
                 if keep[-1].endswith(':') or any(x.endswith(':') for x in keep) and (LIST_LINE.match(l) or not l.endswith(END)) \
                         or LIST_LINE.match(l):
                     keep.append(l)
@@ -278,20 +291,23 @@ def plan_notes(page):
         after = notes[-1] if notes and not notes[-1]['text'].endswith(END + (':',)) else None
         while k < len(rest):
             l = rest[k]
-            if PAGE_TEXT.search(l): break
+            if PAGE_TEXT.search(l) or DESCRIPTION.search(l): break
             prev = got[-1]['text'] if got else ''
-            if got and (prev.endswith(':') or not prev.endswith(END) and LIST_LINE.match(l)
-                        or ' / ' in prev and any(x.endswith(':') for x in prev.split(' / ')) and not l.endswith(END)):
-                got[-1]['text'] += ' / ' + l  # the list under a 'Note:' or a sentence printed over two lines
-            elif re.match(r'^notes?\b\s*:?', l, re.I) or (len(l.split()) >= 5 and PLAN_NOTE.search(l)):
-                got.append({'text': l, 'location': loc if (got or after is None) else f"printed directly after footnote {after['marker']}, which it may continue"})
+            if not re.search(r'\w', l): k += 1; continue  # a line of punctuation only ('.')
+            heading = NOTE_HEADING.match(l)
+            if (FOOTNOTE_INLINE.match(l) or FOOTNOTE_ROW.match(l) or (FOOTNOTE_MARK.match(l) and not l.isdigit())) and not heading:
+                break  # a marked note printed after unmarked ones: which mark belongs where is not printed (held below)
+            if got and not heading and (any(x.endswith(':') for x in prev.split(' / ')) or not prev.endswith(END) and LIST_LINE.match(l)):
+                got[-1]['text'] += ' / ' + l  # the list under a 'Note:' (to the page text) or a sentence printed over two lines
+            elif heading or (len(l.split()) >= 5 and PLAN_NOTE.search(l)):
+                may = not got and after is not None and not heading
+                got.append({'text': l, 'location': f"printed directly after footnote {after['marker']}, which it may continue" if may else loc})
             else: break
             k += 1
-        first_page_text = next((i for i, l in enumerate(rest[k:]) if PAGE_TEXT.search(l)), len(rest) - k)
-        # a requirement-like line printed before the page text but after something that is not a note: whether it belongs to
-        # the plan's notes is not printed, so the plan is held rather than the line dropped
-        unread = [l for l in rest[k:k + first_page_text] if len(l.split()) >= 5 and PLAN_NOTE.search(l)]
-        out.append('unclear' if unread else got)
+        first_page_text = next((i for i, l in enumerate(rest[k:]) if PAGE_TEXT.search(l) or DESCRIPTION.search(l)), len(rest) - k)
+        # any line printed before the page text that is not read as a note: it may belong to the plan's notes, so the plan
+        # is held rather than the line dropped
+        out.append('unclear' if rest[k:k + first_page_text] else got)
     return out
 
 
