@@ -9,6 +9,9 @@ newer than the newest live version (older pending files are refused by the histo
 
   DATABASE_URL=... python scripts/apply_migrations.py            # apply
   DATABASE_URL=... python scripts/apply_migrations.py --dry-run  # list only
+  DATABASE_URL=... python scripts/apply_migrations.py --until 20261022040000 [--dry-run]
+      # apply (or list) pending files up to and including that version, then stop; later files stay pending.
+      # The version must be a repository migration; an unknown version is refused before anything is applied.
 """
 from __future__ import annotations
 import argparse, os, re, secrets, subprocess, sys, tempfile
@@ -34,19 +37,52 @@ def transaction_sql(path: Path, version: str, name: str) -> str:
             f"values ('{version}', '{name}', array[${tag}${text}${tag}$]);\ncommit;\n")
 
 
-def main() -> int:
-    p = argparse.ArgumentParser(); p.add_argument('--dry-run', action='store_true'); a = p.parse_args()
+VERSION = re.compile(r'^\d{14}$')
+
+
+def check_until(until: str | None, local: dict) -> list[str]:
+    """Errors for an --until value: it must name a repository migration version."""
+    if until is None:
+        return []
+    if not VERSION.match(until):
+        return [f'--until {until!r} is not a 14-digit migration version']
+    if until not in local:
+        return [f'--until {until}: no repository migration has that version; nothing was applied']
+    return []
+
+
+def select_until(pending_files: list[str], local: dict, until: str | None) -> list[str]:
+    """The pending files to apply: all of them, or those up to and including version `until`."""
+    if until is None:
+        return list(pending_files)
+    version_of = {v['file']: k for k, v in local.items()}
+    return [f for f in pending_files if version_of[f] <= until]
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument('--dry-run', action='store_true')
+    p.add_argument('--until', metavar='VERSION', help='apply pending migrations up to and including this version, then stop')
+    a = p.parse_args(argv)
+    local, errors = h.local_migrations()
+    until_errors = check_until(a.until, local)
+    if until_errors:
+        print('\n'.join(until_errors)); return 1
     if not a.dry_run:
         require_live_writes()
     url = os.environ.get('DATABASE_URL') or sys.exit('DATABASE_URL is required')
-    local, errors = h.local_migrations()
     errors += h.offline_errors(local)
     if not errors:
         more, pending_files = h.live_errors(local, h.live_rows()); errors += more
     if errors:
         print('\n'.join(errors)); return 1
+    later = []
+    if a.until is not None:
+        chosen = select_until(pending_files, local, a.until)
+        later = pending_files[len(chosen):]
+        pending_files = chosen
     if not pending_files:
-        print('No pending migrations'); return 0
+        print('No pending migrations' + (f' up to {a.until}' if a.until else '')); return 0
     by_file = {v['file']: (k, v['name']) for k, v in local.items()}
     for f in pending_files:
         version, name = by_file[f]
@@ -57,11 +93,13 @@ def main() -> int:
         if subprocess.run(['psql', url, '-X', '-q', '-v', 'ON_ERROR_STOP=1', '-f', tmp.name]).returncode:
             print(f'{f} failed and was rolled back; nothing after it was applied'); return 1
         print('applied', f)
+    for f in later:
+        print('not applied (after --until):', f)
     if not a.dry_run:
         more, still = h.live_errors(local, h.live_rows())
-        if more or still:
-            print('\n'.join(more + [f'still pending: {s}' for s in still])); return 1
-        print('Live history matches the repository')
+        if more or still != later:
+            print('\n'.join(more + [f'still pending: {s}' for s in still if s not in later])); return 1
+        print('Live history matches the repository' + (f' up to {a.until}' if a.until else ''))
     return 0
 
 

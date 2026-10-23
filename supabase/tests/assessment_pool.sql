@@ -133,13 +133,16 @@ begin
   perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 3::bigint, 'and to a viewing guardian');
 
   -- A second check: a skipped repeat doesn't count; everything left is a repeat, least recently shown first.
+  -- #263: q8 was assigned to the first check (never attempted), and assignment is exposure, so it is a repeat now.
   perform hp_test.as_owner();
   update public.practice_attempts set presented_at = presented_at - interval '2 days'
+    where student_id = st and question_id = '30000000-0000-0000-0000-000000000006';
+  update public.practice_benchmark_items set assigned_at = assigned_at - interval '2 days'
     where student_id = st and question_id = '30000000-0000-0000-0000-000000000006';
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
   select string_agg(right(question_id::text, 1) || ':' || seen_before, ',') into got from public.benchmark_questions(b) where section = 'math';
-  perform hp_test.eq(got, '8:false,6:true,4:true', 'unseen, then repeats least recently shown first');
+  perform hp_test.eq(got, '6:true,8:true,4:true', 'all repeats (q8 assigned before, unattempted), least recently shown first');
   a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000004', p_benchmark => b);
   perform public.submit_practice_attempt(a, null, p_skipped => true);
   a := public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000008', p_benchmark => b);
@@ -151,8 +154,9 @@ begin
   perform hp_test.eq((select count(*) from public.benchmark_questions(b) where section = 'reading'), 0::bigint, 'no reserved reading items');
   m := public.complete_benchmark(b);
   perform hp_test.check(not (m->'by_section' ? 'reading'), 'unmeasured section absent');
-  perform hp_test.eq((m->'by_section'->'math'->>'repeats')::int, 0, 'a skipped repeat is not counted');
-  perform hp_test.eq((m->>'comparable')::boolean, true, 'clean overall');
+  -- q4 (a skipped repeat) is not counted; q8 (answered) is, because the first check exposed it (#263).
+  perform hp_test.eq((m->'by_section'->'math'->>'repeats')::int, 1, 'a skipped repeat is not counted; an assigned-before item is');
+  perform hp_test.eq((m->>'comparable')::boolean, false, 'an item exposed by an earlier check makes the check not comparable');
   -- One more reserved SAT math item (qa) that student 51 hasn't been shown.
   perform hp_test.as_owner();
   insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers,
