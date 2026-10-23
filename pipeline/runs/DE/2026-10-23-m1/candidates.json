@@ -1,0 +1,125 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "m35fe1ff83da96c4",
+  "checks": {
+   "fields": [
+    "min_hs_gpa"
+   ],
+   "merged_pages": 4,
+   "tiers": 1
+  },
+  "diff": {
+   "changes": [
+    {
+     "candidate": {
+      "eligibility_tiers": [
+       {
+        "grades": [],
+        "line": "a high school grade point average of 3.6 or above",
+        "min_hs_gpa": 3.6
+       },
+       {
+        "grades": [
+         "11",
+         "12"
+        ],
+        "line": "Have a 2.8 GPA or higher",
+        "min_hs_gpa": 2.8
+       }
+      ]
+     },
+     "existing": {
+      "eligibility_tiers": [
+       {
+        "grades": [],
+        "line": "a high school grade point average of 3.6 or above",
+        "min_hs_gpa": 3.6
+       }
+      ],
+      "min_hs_gpa": 3.6
+     },
+     "field": "dual_enrollment"
+    }
+   ],
+   "existing_status": "partially_verified",
+   "status": "changed"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "a high school grade point average of 3.6 or above",
+    "source_url": "https://www.pcs.udel.edu/high-school-dual-enrollment/",
+    "value": 3.6
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a 2.8 GPA or higher",
+    "source_url": "https://lerner.udel.edu/departments/hospitality-sport-business-management/high-school-dual-enrollment-course/",
+    "value": 2.8
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "a high school grade point average of 3.6 or above",
+    "source_url": "https://www.pcs.udel.edu/dual-enrollment-online/",
+    "value": 3.6
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "a high school grade point average of 3.6 or above",
+    "source_url": "https://www.pcs.udel.edu/early-college-credit-program/",
+    "value": 3.6
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "institution_key": "ipeds-130943",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "additional_source_urls": [
+    "https://lerner.udel.edu/departments/hospitality-sport-business-management/high-school-dual-enrollment-course/",
+    "https://www.pcs.udel.edu/dual-enrollment-online/",
+    "https://www.pcs.udel.edu/high-school-dual-enrollment/"
+   ],
+   "dual_enrollment": {
+    "eligibility_tiers": [
+     {
+      "grades": [],
+      "line": "a high school grade point average of 3.6 or above",
+      "min_hs_gpa": 3.6
+     },
+     {
+      "grades": [
+       "11",
+       "12"
+      ],
+      "line": "Have a 2.8 GPA or higher",
+      "min_hs_gpa": 2.8
+     }
+    ]
+   },
+   "equivalencies": [],
+   "institution_key": "ipeds-130943",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by dual_enrollment/v1; every field cites its line. Eligibility tiers are kept as printed.",
+   "policy_kind": "dual_enrollment",
+   "policy_url": "https://www.pcs.udel.edu/early-college-credit-program/",
+   "source_url": "https://www.pcs.udel.edu/early-college-credit-program/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:12:40+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ea0e06b2c8f98e66a569.json.gz",
+   "requested_url": "https://www.pcs.udel.edu/early-college-credit-program/",
+   "sha256": "ea0e06b2c8f98e66a56948a65480a28958038dfe16610cf4e3dcaad4a925be72",
+   "title": "Early College Credit Program - University of Delaware Div. of Professional and Continuing Studies",
+   "url": "https://www.pcs.udel.edu/early-college-credit-program/"
+  },
+  "year_basis": "source_unlabeled"
+ }
+]
