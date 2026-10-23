@@ -45,7 +45,7 @@ Statuses: verified / partially verified (records in the repository); candidate n
 
 | Policy | Verified | Partially verified | No published score formula (stated) | Candidate never reviewed | Approved, not promoted | Candidates rejected in review | Source found | Searched, not found | Inaccessible | Not researched |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Freshman merit scholarships | 80 | 85 | 2 | 0 | 0 | 91 | 1,388 | 125 | 272 | 76 |
+| Freshman merit scholarships | 74 | 91 | 2 | 0 | 0 | 91 | 1,388 | 125 | 272 | 76 |
 | AP/IB/CLEP credit | 39 | 176 | 0 | 25 | 0 | 133 | 579 | 819 | 272 | 76 |
 | Aid appeals | 1 | 1 | 0 | 236 | 0 | 848 | 227 | 458 | 272 | 76 |
 
