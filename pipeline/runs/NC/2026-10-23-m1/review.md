@@ -1,0 +1,6257 @@
+# Review queue — NC (2026-27)
+
+Pages fetched: 540; failures: 35. Candidates: 549 (251 without issues, 298 exceptions). Re-verification upgrades proposed: 0.
+
+## Coverage by category
+
+| category | verified_current | partially_verified_current | candidate_ready | candidate_exception | source_found | not_found | fetch_failed |
+|---|---|---|---|---|---|---|---|
+| tuition_fees | 9 | 2 | 0 | 3 | 2 | 0 | 106 |
+| cost_of_attendance | 6 | 1 | 0 | 2 | 3 | 0 | 110 |
+| admissions_tests | 0 | 0 | 0 | 0 | 6 | 0 | 116 |
+| common_data_set | 0 | 0 | 0 | 0 | 1 | 5 | 116 |
+| merit_scholarships | 0 | 2 | 0 | 0 | 6 | 0 | 114 |
+| ap_credit | 0 | 13 | 0 | 0 | 2 | 2 | 105 |
+| clep_credit | 0 | 7 | 0 | 2 | 1 | 3 | 109 |
+| ib_credit | 0 | 4 | 0 | 1 | 1 | 3 | 113 |
+| dual_enrollment | 1 | 8 | 1 | 0 | 5 | 0 | 107 |
+| transfer_credit | 0 | 19 | 1 | 1 | 3 | 0 | 98 |
+| statewide_articulation | 0 | 0 | 0 | 0 | 5 | 1 | 116 |
+| residency | 0 | 0 | 0 | 0 | 6 | 0 | 116 |
+| degree_requirements | 4 | 0 | 0 | 0 | 3 | 0 | 115 |
+| aid_appeals | 0 | 0 | 0 | 5 | 0 | 1 | 116 |
+
+## Ready for review (251)
+
+### `1b56ef5d577da8b1` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=food-science-bs-business-technology-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+- checks: {"courses": 91, "groups": 10, "groups_skipped": 0}
+  - program_name: Food Science (BS): Business & Technology Concentration ⟵ “Food Science (BS): Business & Technology Concentration < North Carolina State University”
+### `2b96a7beb92f2790` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- checks: {"courses": 72, "groups": 12, "groups_skipped": 0}
+  - program_name: Natural Resources (BS): Soil, Water and Land Use Concentration ⟵ “Natural Resources (BS): Soil, Water and Land Use Concentration < North Carolina State University”
+### `39ee7db755d16699` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=science-education-bs-physics-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+- checks: {"courses": 72, "groups": 10, "groups_skipped": 0}
+  - program_name: Science Education (BS): Physics Concentration ⟵ “Science Education (BS): Physics Concentration < North Carolina State University”
+### `47222ec48ccd5af1` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=nutrition-sciences-bs [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+- checks: {"courses": 153, "groups": 8, "groups_skipped": 0}
+  - program_name: Nutrition Sciences (BS) ⟵ “Nutrition Sciences (BS) < North Carolina State University”
+### `49634a2c635818db` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+- checks: {"courses": 74, "groups": 12, "groups_skipped": 0}
+  - program_name: Horticultural Science (BS): Plant Breeding and Biotechnology in Horticulture Concentration ⟵ “Horticultural Science (BS): Plant Breeding and Biotechnology in Horticulture Concentration < North Carolina State University”
+### `5111d6ad12e49459` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-animal-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+- checks: {"courses": 222, "groups": 11, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Animal Science Concentration ⟵ “Agricultural Education (BS): Animal Science Concentration < North Carolina State University”
+### `55d1c04140b014a7` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+- checks: {"courses": 79, "groups": 11, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Horticultural Science Concentration ⟵ “Agricultural Education (BS): Horticultural Science Concentration < North Carolina State University”
+### `57f0ee4d0a6e585d` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+- checks: {"courses": 48, "groups": 8, "groups_skipped": 0}
+  - program_name: Crop and Soil Sciences (BS): Turfgrass Science ⟵ “Crop and Soil Sciences (BS): Turfgrass Science < North Carolina State University”
+### `5a00dc9dce0b5ade` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=food-science-bs-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+- checks: {"courses": 54, "groups": 8, "groups_skipped": 0}
+  - program_name: Food Science (BS): Science Concentration ⟵ “Food Science (BS): Science Concentration < North Carolina State University”
+### `5cae756249ef241e` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+- checks: {"courses": 115, "groups": 9, "groups_skipped": 0}
+  - program_name: Crop and Soil Sciences (BS): Crop Biotechnology ⟵ “Crop and Soil Sciences (BS): Crop Biotechnology < North Carolina State University”
+### `6998b71932b3188e` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+- checks: {"courses": 1171, "groups": 18, "groups_skipped": 0}
+  - program_name: Biological and Agricultural Engineering Technology (BS) ⟵ “Biological and Agricultural Engineering Technology (BS) < North Carolina State University”
+### `6a508b82dc69bee6` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+- checks: {"courses": 263, "groups": 11, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Agricultural Business Concentration ⟵ “Agricultural Education (BS): Agricultural Business Concentration < North Carolina State University”
+### `6de0098b88fff6bb` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- checks: {"courses": 76, "groups": 10, "groups_skipped": 0}
+  - program_name: Crop and Soil Sciences (BS): Soil Science ⟵ “Crop and Soil Sciences (BS): Soil Science < North Carolina State University”
+### `6df6120fc9185539` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+- checks: {"courses": 224, "groups": 10, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Poultry Science Concentration ⟵ “Agricultural Education (BS): Poultry Science Concentration < North Carolina State University”
+### `75509cb1c71379bc` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+- checks: {"courses": 153, "groups": 8, "groups_skipped": 0}
+  - program_name: Nutrition Sciences (BS): Applied Nutrition Concentration ⟵ “Nutrition Sciences (BS): Applied Nutrition Concentration < North Carolina State University”
+### `7a34e53294464981` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+- checks: {"courses": 64, "groups": 11, "groups_skipped": 0}
+  - program_name: Mathematics Education (BS): Middle Grades Mathematics Concentration ⟵ “Mathematics Education (BS): Middle Grades Mathematics Concentration < North Carolina State University”
+### `7ada89f9024bd110` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=science-education-bs-chemistry-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- checks: {"courses": 87, "groups": 10, "groups_skipped": 0}
+  - program_name: Science Education (BS): Chemistry Concentration ⟵ “Science Education (BS): Chemistry Concentration < North Carolina State University”
+### `8f2231d66244e8c2` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=bioprocessing-science-bs [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+- checks: {"courses": 83, "groups": 8, "groups_skipped": 0}
+  - program_name: Bioprocessing Science (BS) ⟵ “Bioprocessing Science (BS) < North Carolina State University”
+### `b5a56220b70055e5` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+- checks: {"courses": 1192, "groups": 18, "groups_skipped": 0}
+  - program_name: Biological and Agricultural Engineering Technology (BS): Environmental Systems Management Concentration ⟵ “Biological and Agricultural Engineering Technology (BS): Environmental Systems Management Concentration < North Carolina State University”
+### `bc4530c4d73e7510` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+- checks: {"courses": 70, "groups": 8, "groups_skipped": 0}
+  - program_name: Crop and Soil Sciences (BS): Agronomy ⟵ “Crop and Soil Sciences (BS): Agronomy < North Carolina State University”
+### `c8e2d5215a993fdc` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=science-education-bs-earth-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- checks: {"courses": 176, "groups": 13, "groups_skipped": 0}
+  - program_name: Science Education (BS): Earth Science Concentration ⟵ “Science Education (BS): Earth Science Concentration < North Carolina State University”
+### `cd5dcf1ded16535a` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=science-education-bs-middle-grades-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- checks: {"courses": 78, "groups": 11, "groups_skipped": 0}
+  - program_name: Science Education (BS): Middle Grades Science Concentration ⟵ “Science Education (BS): Middle Grades Science Concentration < North Carolina State University”
+### `daafd0aa4f52d6a1` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+- checks: {"courses": 73, "groups": 14, "groups_skipped": 0}
+  - program_name: Horticultural Science (BS): Production Systems and Entrepreneurship in Horticulture Concentration ⟵ “Horticultural Science (BS): Production Systems and Entrepreneurship in Horticulture Concentration < North Carolina State University”
+### `e13ca56a4b0a94e3` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-agronomy-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- checks: {"courses": 387, "groups": 13, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Agronomy Concentration ⟵ “Agricultural Education (BS): Agronomy Concentration < North Carolina State University”
+### `e13e0a66d44cc67c` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+- checks: {"courses": 411, "groups": 13, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Agricultural Engineering Technology Concentration ⟵ “Agricultural Education (BS): Agricultural Engineering Technology Concentration < North Carolina State University”
+### `f0b3a9f1ecb63270` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+- checks: {"courses": 209, "groups": 12, "groups_skipped": 0}
+  - program_name: Agricultural Education (BS): Natural Resources Concentration ⟵ “Agricultural Education (BS): Natural Resources Concentration < North Carolina State University”
+### `f8b7561993abd43a` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+- checks: {"courses": 98, "groups": 11, "groups_skipped": 0}
+  - program_name: Agroecology & Sustainable Food Systems (BS): Community Food Systems Concentration ⟵ “Agroecology & Sustainable Food Systems (BS): Community Food Systems Concentration < North Carolina State University”
+### `fd56c0afbf82c222` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+- checks: {"courses": 1187, "groups": 17, "groups_skipped": 0}
+  - program_name: Biological and Agricultural Engineering Technology (BS): Agricultural Systems Management Concentration ⟵ “Biological and Agricultural Engineering Technology (BS): Agricultural Systems Management Concentration < North Carolina State University”
+### `09fea5d3e527c9eb` North Carolina State University at Raleigh — credit_policies 2026-27 · policy_kind=AP [same] (source_unlabeled)
+- source: https://admissions.ncsu.edu/apply/credit-opportunities/advanced-placement-ap/ (sha256 e3f499747906)
+- checks: {"distinct_exams": 34, "equivalencies": 65, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]:  ⟵ “African American Studies | 3 | AFS 200-level GEP | 3”
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|5]:  ⟵ “African American Studies | 5 | AFS 241 | 3”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “Art: Studio Art – Drawing Portfolio | 3 | ADN 100-level elective | 3”
+  - equivalencies[AP-2-D-ART-DESIGN|3]:  ⟵ “Art: Studio Art: 2-D Design | 3 | ADN 111 | 3”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “Art: Studio Art: 3-D Design | 3 | ADN 112 | 3”
+  - equivalencies[AP-BIOLOGY|3]:  ⟵ “Biology | 3 | BIO 105 and BIO 106 | 4”
+  - equivalencies[AP-BIOLOGY|4]:  ⟵ “Biology | 4 | BIO 181, BIO 181 Lab, BIO 183 and BIO 183 Lab | 8”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | CH 101 and CH 102 | 4”
+  - equivalencies[AP-CHEMISTRY|4]:  ⟵ “Chemistry | 4 | CH 101, CH 102, CH 201 and CH 202 | 8”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese | 3 | WLCH 102 | 3”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]:  ⟵ “Chinese | 4 | WLCH 201 | 3”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]:  ⟵ “Chinese | 5 | WLCH 201 and WLCH 202 | 6”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | 3 | CSC 110 | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|4]:  ⟵ “Computer Science A | 4 | CSC 116 | 3”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]:  ⟵ “Computer Science Principles | 3 | CSC 110 | 3”
+  - equivalencies[AP-MACROECONOMICS|3]:  ⟵ “Economics: Macroeconomics | 3 | EC 202 | 3”
+  - equivalencies[AP-MICROECONOMICS|3]:  ⟵ “Economics: Microeconomics | 3 | EC 201 | 3”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]:  ⟵ “English Language & Composition | 3 | ENG 100 | 4”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|5]:  ⟵ “English Language & Composition | 5 | ENG 101 | 4”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]:  ⟵ “English Literature & Composition | 3 | ENG 208 | 3”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]:  ⟵ “Environmental Science | 3 | MEA 100 | 4”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|4]:  ⟵ “Environmental Science | 4 | ES 100 or MEA 100, depending on major | 3 for ES 100 or 4 for MEA 100”
+  - equivalencies[AP-EUROPEAN-HISTORY|3]:  ⟵ “European History | 3 | HI 209 | 3”
+  - equivalencies[AP-EUROPEAN-HISTORY|5]:  ⟵ “European History | 5 | HI 209 and HI 210 | 6”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language | 3 | WLFR 102 | 3”
+  - … 40 more rows
+### `60710c171f0f2545` North Carolina State University at Raleigh — credit_policies 2026-27 · policy_kind=dual_enrollment [new] (source_unlabeled)
+- source: https://admissions.ncsu.edu/apply/early-college/ (sha256 024ff41b3244)
+- checks: {"fields": ["min_hs_gpa"], "tiers": 1}
+  - eligibility_tier: 2.8 ⟵ “We are test optional for applicants with a weighted GPA of 2.8 or above (that’s equivalent to a B- average).”
+### `f1a61b89ab44a44b` North Carolina State University at Raleigh — credit_policies 2026-27 · policy_kind=IB [changed] (source_unlabeled)
+- source: https://admissions.ncsu.edu/apply/credit-opportunities/international-baccalaureate-ib/ (sha256 ea74ef69e281)
+- checks: {"distinct_exams": 20, "equivalencies": 54, "rows_without_score": 0}
+- change equivalency_count: `53` → `54`
+  - equivalencies[IB-FILM|HL 4]:  ⟵ “Arts: Film (Higher Level) | 4 | ENG 200-level elective | 3”
+  - equivalencies[IB-FILM|SL 5]:  ⟵ “Arts: Film (Standard Level) | 5 | ENG 200-level elective | 3”
+  - equivalencies[IB-THEATRE|HL 4]:  ⟵ “Arts: Theatre (Higher Level) | 4 | THE 103 | 3”
+  - equivalencies[IB-THEATRE|SL 5]:  ⟵ “Arts: Theatre (Standard Level) | 5 | THE 103 | 3”
+  - equivalencies[IB-BIOLOGY|HL 4]:  ⟵ “Biology (Higher Level) | 4 | BIO 181 | 4”
+  - equivalencies[IB-BIOLOGY|HL 6]:  ⟵ “Biology (Higher Level) | 6 | BIO 181 and BIO 183 | 8”
+  - equivalencies[IB-BIOLOGY|SL 5]:  ⟵ “Biology (Standard Level) | 5 | BIO 105 and BIO 106 | 4”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|HL 4]:  ⟵ “Business and Management (Higher Level) | 4 | BUS elective | 3”
+  - equivalencies[IB-BUSINESS-MANAGEMENT|SL 5]:  ⟵ “Business and Management (Standard Level) | 5 | BUS elective | 3”
+  - equivalencies[IB-CHEMISTRY|HL 4]:  ⟵ “Chemistry (Higher Level) | 4 | CH 101 and CH 102 | 4”
+  - equivalencies[IB-CHEMISTRY|HL 6]:  ⟵ “Chemistry (Higher Level) | 6 | CH 101, CH 102, CH 201 and CH 202 | 8”
+  - equivalencies[IB-CHEMISTRY|SL 5]:  ⟵ “Chemistry (Standard Level) | 5 | CH 111 | 4”
+  - equivalencies[IB-COMPUTER-SCIENCE|HL 4]:  ⟵ “Computer Science (Higher Level) | 4 | CSC 110 | 3”
+  - equivalencies[IB-COMPUTER-SCIENCE|SL 5]:  ⟵ “Computer Science (Standard Level) | 5 | CSC 110 | 3”
+  - equivalencies[IB-ECONOMICS|HL 4]:  ⟵ “Economics (Higher Level) | 4 | EC elective | 3”
+  - equivalencies[IB-ECONOMICS|HL 5]:  ⟵ “Economics (Higher Level) | 5 | EC 201 and EC 202 | 6”
+  - equivalencies[IB-ECONOMICS|SL 5]:  ⟵ “Economics (Standard Level) | 5 | EC elective | 3”
+  - equivalencies[IB-ECONOMICS|SL 6]:  ⟵ “Economics (Standard Level) | 6 | EC 201 and EC 202 | 6”
+  - equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|HL 4]:  ⟵ “English A: Language and Literature (Higher Level) | 4 | ENG 101 and ENG 220 | 7”
+  - equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|SL 5]:  ⟵ “English A: Language and Literature (Standard Level) | 5 | ENG 100 and ENG 220 | 7”
+  - equivalencies[IB-ENGLISH-A-LITERATURE|HL 4]:  ⟵ “English A: Literature (Higher Level) | 4 | ENG 220 | 3”
+  - equivalencies[IB-ENGLISH-A-LITERATURE|SL 5]:  ⟵ “English A: Literature (Standard Level) | 5 | ENG 220 | 3”
+  - equivalencies[IB-FRENCH|HL 4]:  ⟵ “French B (Higher Level) | 4 | WLF 102 | 3”
+  - equivalencies[IB-FRENCH|HL 6]:  ⟵ “French B (Higher Level) | 6 | WLF 201 | 3”
+  - equivalencies[IB-FRENCH|HL 7]:  ⟵ “French B (Higher Level) | 7 | WLF 201 and WLF 202 | 6”
+  - … 29 more rows
+### `0023daab05505e46` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=are-bus-ec-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 260 ⟵ “ARE 260 - Marketing and Risk Management in the Pork Industry”
+  - courses: ARE 270 ⟵ “ARE 270 - Principles of Agribusiness Entrepreneurship”
+  - courses: ARE 295 ⟵ “ARE 295 - Special Topics in Agricultural & Resource Economics (200 Level)”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 323 ⟵ “ARE 323 - Agribusiness Finance”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 370 ⟵ “ARE 370 - Agribusiness New Venture Development”
+  - courses: ARE 395 ⟵ “ARE 395 - Special Topics in Agricultural and Resource Economics (300 level)”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: ARE 413 ⟵ “ARE 413 - Applied Agribusiness Marketing”
+  - courses: ARE 415 ⟵ “ARE 415 - Introduction to Commodity Futures Markets”
+  - courses: ARE 420 ⟵ “ARE 420 - Taxation in Agriculture, Production, and Agribusiness”
+  - courses: ARE 425 ⟵ “ARE 425 - Contracts and Organizations in Agriculture”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - … 15 more rows
+### `006eef75d13439f6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+### `00c593782ae4ee8d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `053966bfd7808c4a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=advised-electives-categories-breeding-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - courses: BCH 453 ⟵ “BCH 453 - Biochemistry of Gene Expression”
+  - courses: BIT 465 ⟵ “BIT 465 - Real-time PCR Techniques”
+  - courses: BIT 467 ⟵ “BIT 467 - PCR and DNA Fingerprinting”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 474 ⟵ “BIT 474 - Plant Genetic Engineering”
+  - courses: BIT 481 ⟵ “BIT 481 - Plant Tissue Culture and Transformation”
+  - courses: BIT 476 ⟵ “BIT 476 - Applied Bioinformatics”
+  - courses: BIT 501 ⟵ “BIT 501 - Ethical Issues in Biotechnology”
+  - courses: GN 423 ⟵ “GN 423 - Population, Quantitative and Evolutionary Genetics”
+  - courses: GN 425 ⟵ “GN 425 - Advanced Genetics Laboratory”
+  - courses: GN 427 ⟵ “GN 427 - Introductory Bioinformatics”
+  - courses: GN 451 ⟵ “GN 451 - Genome Science”
+  - courses: GN 461 ⟵ “GN 461 - Advanced Bioinformatics”
+### `08da8181c7fba962` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `095597e4e9a39f62` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `095e311a07947d76` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=business-electives-management-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: BUS 360 ⟵ “BUS 360 - Marketing Methods”
+### `098dfabaa0feb3b6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-communication [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `0a3ab726b85ff319` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - section: plan-requirements-electives ⟵ “Plan Requirements — Electives”
+### `0a5579b1c2457f05` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 201 ⟵ “ANS 201 - Techniques of Animal Care”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: ANS 303 ⟵ “ANS 303 - Principles of Equine Evaluation”
+  - courses: ANS 304 ⟵ “ANS 304 - Dairy Cattle Evaluation”
+  - courses: ANS 309 ⟵ “ANS 309 - Livestock Evaluation”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 400 ⟵ “ANS 400 - Companion Animal Management”
+  - courses: ANS 402 ⟵ “ANS 402 - Beef Cattle Management”
+  - courses: ANS 403 ⟵ “ANS 403 - Swine Management”
+  - courses: ANS 404 ⟵ “ANS 404 - Dairy Cattle Management”
+  - courses: ANS 408 ⟵ “ANS 408 - Small Ruminant Management”
+  - courses: ANS 410 ⟵ “ANS 410 - Equine Breeding Farm Management”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 440 ⟵ “ANS 440 - Animal Genetic Improvement”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: BAE 100 ⟵ “BAE 100 - Introduction to Biological and Agricultural Engineering and Technology”
+  - courses: BAE 202 ⟵ “BAE 202 - Introduction to Biological and Agricultural Engineering Methods”
+  - courses: BAE 302 ⟵ “BAE 302 - Transport Phenomena”
+  - … 15 more rows
+### `0c507895a67e527a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=additional-mathematics-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: CSC 110 ⟵ “CSC 110 - Computer Science Principles - The Beauty and Joy of Computing”
+  - courses: MA 116 ⟵ “MA 116 - Introduction to Scientific Programming (Math)”
+  - courses: ST 312 ⟵ “ST 312 - Introduction to Statistics II”
+  - courses: MA 242 ⟵ “MA 242 - Calculus III”
+  - courses: MA 325 ⟵ “MA 325 - Introduction to Applied Mathematics”
+  - courses: MA 335 ⟵ “MA 335 - Symbolic Logic”
+  - courses: MA 341 ⟵ “MA 341 - Applied Differential Equations I”
+  - courses: MA 351 ⟵ “MA 351 - Introduction to Discrete Mathematical Models”
+  - courses: MA 402 ⟵ “MA 402 - Mathematics of Scientific Computing”
+  - courses: MA 403 ⟵ “MA 403 - Introduction to Modern Algebra”
+  - courses: MA 410 ⟵ “MA 410 - Theory of Numbers”
+  - courses: MA 416 ⟵ “MA 416 - Introduction to Combinatorics”
+  - courses: MA 421 ⟵ “MA 421 - Introduction to Probability”
+  - courses: MA 425 ⟵ “MA 425 - Mathematical Analysis I”
+  - courses: MA 427 ⟵ “MA 427 - Introduction to Numerical Analysis I”
+  - courses: MA 430 ⟵ “MA 430 - Mathematical Models in the Physical Sciences”
+  - courses: MA 432 ⟵ “MA 432 - Mathematical Models in Life Sciences”
+  - courses: MA 437 ⟵ “MA 437 - Applications of Algebra”
+  - courses: LOG 335 ⟵ “LOG 335 - Symbolic Logic”
+  - courses: FS 201 ⟵ “FS 201 - Introduction to Food Science”
+  - courses: GN 301 ⟵ “GN 301 - Genetics in Human Affairs”
+  - courses: PY 124 ⟵ “PY 124 - Solar System Astronomy”
+  - courses: MEA 130 ⟵ “MEA 130 - Introduction to Weather and Climate”
+  - courses: MEA 101 ⟵ “MEA 101 - Geology I: Physical”
+  - courses: NTR 301 ⟵ “NTR 301 - Introduction to Human Nutrition”
+  - … 3 more rows
+### `11a0498b764cc09c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=advised-electives-categories-broad-scope-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIT 402 ⟵ “BIT 402 - Biotechnology Networking and Professional Development”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: HS 403 ⟵ “HS 403 - Plant Micropropagation and Tissue Culture”
+  - courses: HS 451 ⟵ “HS 451 - Plant Nutrition”
+  - courses: HS 462 ⟵ “HS 462 - Postharvest Physiology”
+  - courses: HS 476 ⟵ “HS 476 - Crop Physiology and Production in Controlled Environments”
+  - courses: HS 491 ⟵ “HS 491 - Sustainable Agriculture Entrepreneurship Study Abroad”
+  - courses: PB 413 ⟵ “PB 413 - Plant Anatomy”
+### `142b1bd9bab6d7a9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-writing-and-speaking [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `14f70f411e09c638` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=plan-requirements-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - section: plan-requirements-electives ⟵ “Plan Requirements — Electives”
+### `15d256212ac52414` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=advised-electives-edible-plant-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: FS 250 ⟵ “FS 250 - Basics of Food Safety & Quality”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: HS 421 ⟵ “HS 421 - Temperate-Zone Tree Fruits: Physiology and Culture”
+  - courses: HS 422 ⟵ “HS 422 - Small Fruit Production”
+  - courses: HS 431 ⟵ “HS 431 - Vegetable Production”
+  - courses: HS 462 ⟵ “HS 462 - Postharvest Physiology”
+  - courses: PB 215 ⟵ “PB 215 - Medicinal Plants”
+  - courses: PB 325 ⟵ “PB 325 - Culinary Botany”
+  - courses: PB 345 ⟵ “PB 345 - Economic Botany”
+  - courses: PB 346 ⟵ “PB 346 - Economic Botany Lab”
+### `169e6cfed640ebb1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=earth-science-lab-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+  - courses: MEA 135 ⟵ “MEA 135 - Introduction to Weather and Climate Laboratory”
+  - courses: MEA 210 ⟵ “MEA 210 - Oceanography Lab”
+  - courses: MEA 211 ⟵ “MEA 211 - Geology II Laboratory”
+  - courses: PY 125 ⟵ “PY 125 - Astronomy Laboratory”
+### `184d58e25623feb7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=animal-science-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 201 ⟵ “ANS 201 - Techniques of Animal Care”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: ANS 230 ⟵ “ANS 230 - Animal Nutrition”
+  - courses: ANS 231 ⟵ “ANS 231 - Animal Nutrition Lab”
+  - courses: ANS 240 ⟵ “ANS 240 - Livestock Merchandising”
+  - courses: ANS 240A ⟵ “ANS 240A - Livestock Merchandising”
+  - courses: ANS 260 ⟵ “ANS 260 - Basic Swine Science”
+  - courses: ANS 261 ⟵ “ANS 261 - Swine Health and Biosecurity”
+  - courses: ANS 262 ⟵ “ANS 262 - Swine Breeding and Gestation Management”
+  - courses: ANS 263 ⟵ “ANS 263 - Farrowing Management”
+  - courses: ANS 264 ⟵ “ANS 264 - Swine Nursery and Finishing Management”
+  - courses: ANS 265 ⟵ “ANS 265 - Contemporary Issues in the Swine Industry”
+  - courses: ANS 266 ⟵ “ANS 266 - Swine Environment Management”
+  - courses: ANS 267 ⟵ “ANS 267 - Swine Manure and Nutrient Management”
+  - … 15 more rows
+### `1bb3cc5dd6e903b9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 201 ⟵ “ANS 201 - Techniques of Animal Care”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: ANS 303 ⟵ “ANS 303 - Principles of Equine Evaluation”
+  - courses: ANS 304 ⟵ “ANS 304 - Dairy Cattle Evaluation”
+  - courses: ANS 309 ⟵ “ANS 309 - Livestock Evaluation”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 400 ⟵ “ANS 400 - Companion Animal Management”
+  - courses: ANS 402 ⟵ “ANS 402 - Beef Cattle Management”
+  - courses: ANS 403 ⟵ “ANS 403 - Swine Management”
+  - courses: ANS 404 ⟵ “ANS 404 - Dairy Cattle Management”
+  - courses: ANS 408 ⟵ “ANS 408 - Small Ruminant Management”
+  - courses: ANS 410 ⟵ “ANS 410 - Equine Breeding Farm Management”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 440 ⟵ “ANS 440 - Animal Genetic Improvement”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: BAE 100 ⟵ “BAE 100 - Introduction to Biological and Agricultural Engineering and Technology”
+  - courses: BAE 202 ⟵ “BAE 202 - Introduction to Biological and Agricultural Engineering Methods”
+  - courses: BAE 302 ⟵ “BAE 302 - Transport Phenomena”
+  - … 15 more rows
+### `2021f7b594b1d420` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=physics-electives-300-400-level [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+  - courses: PY 301 ⟵ “PY 301 - Introduction to Quantum Mechanics”
+  - courses: PY 328 ⟵ “PY 328 - Stellar and Galactic Astrophysics”
+  - courses: PY 341 ⟵ “PY 341 - Relativity, Gravitation and Cosmology”
+  - courses: PY 401 ⟵ “PY 401 - Quantum Physics I”
+  - courses: PY 402 ⟵ “PY 402 - Quantum Physics II”
+  - courses: PY 407 ⟵ “PY 407 - Introduction to Modern Physics”
+  - courses: PY 411 ⟵ “PY 411 - Mechanics I”
+  - courses: PY 412 ⟵ “PY 412 - Mechanics II”
+  - courses: PY 413 ⟵ “PY 413 - Thermal Physics”
+  - courses: PY 414 ⟵ “PY 414 - Electromagnetism I”
+  - courses: PY 415 ⟵ “PY 415 - Electromagnetism II”
+  - courses: PY 452 ⟵ “PY 452 - Advanced Physics Laboratory”
+  - courses: PY 456 ⟵ “PY 456 - Senior Design Project in Physics”
+  - courses: PY 489 ⟵ “PY 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: PY 495 ⟵ “PY 495 - Special Topics in Physics”
+  - courses: PY 499 ⟵ “PY 499 - Independent Research in Physics”
+### `205a5efeb4f88bfd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bit-elective-or-bec-electives-or-bbs-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+  - courses: BEC 436 ⟵ “BEC 436 - Introduction to Downstream Process Development”
+  - courses: BEC 462 ⟵ “BEC 462 - Fundamentals of Bio-Nanotechnology”
+  - courses: BEC 463 ⟵ “BEC 463 - Fermentation of Recombinant Microorganisms”
+  - courses: BEC 475 ⟵ “BEC 475 - Global Regulatory Affairs for Medical Products”
+  - courses: BEC 480 ⟵ “BEC 480 - cGMP Fermentation Operations”
+  - courses: BEC 485 ⟵ “BEC 485 - cGMP Downstream Operations”
+  - courses: BEC 488 ⟵ “BEC 488 - Animal Cell Culture Engineering”
+  - courses: BEC 495 ⟵ “BEC 495 - Special Topics in Biomanufacturing”
+  - courses: BEC 497 ⟵ “BEC 497 - Biomanufacturing Research Projects”
+  - courses: BEC 536 ⟵ “BEC 536 - Introduction to Downstream Process Development”
+  - courses: BEC 562 ⟵ “BEC 562 - Fundamentals of Bio-Nanotechnology”
+  - courses: BEC 563 ⟵ “BEC 563 - Fermentation of Recombinant Microorganisms”
+  - courses: BEC 575 ⟵ “BEC 575 - Global Regulatory Affairs for Medical Products”
+  - courses: BEC 580 ⟵ “BEC 580 - cGMP Fermentation Operations”
+  - courses: BEC 585 ⟵ “BEC 585 - cGMP Downstream Operations”
+  - courses: BIO 572 ⟵ “BIO 572 - Proteomics”
+  - courses: BIT 402 ⟵ “BIT 402 - Biotechnology Networking and Professional Development”
+  - courses: BIT 410 ⟵ “BIT 410 - Manipulation of Recombinant DNA”
+  - courses: BIT 463 ⟵ “BIT 463 - Fermentation of Recombinant Microorganisms”
+  - courses: BIT 464 ⟵ “BIT 464 - Protein Purification”
+  - courses: BIT 465 ⟵ “BIT 465 - Real-time PCR Techniques”
+  - courses: BIT 466 ⟵ “BIT 466 - Animal Cell Culture Techniques”
+  - courses: BIT 467 ⟵ “BIT 467 - PCR and DNA Fingerprinting”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 473 ⟵ “BIT 473 - Protein Interactions”
+  - … 15 more rows
+### `207a009f978945af` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=history-philosophy-of-science-education-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+  - courses: ECI 305 ⟵ “ECI 305 - Equity and Education”
+  - courses: HI 321 ⟵ “HI 321 - Scientific Revolution and European Society, 1500-1800”
+  - courses: HI 322 ⟵ “HI 322 - Rise of Modern Science”
+  - courses: HI 323 ⟵ “HI 323 - Science, American Style”
+  - courses: HI 341 ⟵ “HI 341 - Technology in History”
+  - courses: HI 481 ⟵ “HI 481 - History of the Life Sciences”
+  - courses: HI 482 ⟵ “HI 482 - Darwinism in Science and Society”
+  - courses: HI 483 ⟵ “HI 483 - Science and Religion in European History”
+  - courses: HI 484 ⟵ “HI 484 - Science in European Culture”
+  - courses: HI 485 ⟵ “HI 485 - History of American Technology”
+  - courses: PHI 340 ⟵ “PHI 340 - Philosophy of Science”
+  - courses: PHI 440 ⟵ “PHI 440 - The Scientific Method”
+  - courses: STS 210 ⟵ “STS 210 - Women and Gender in Science and Technology”
+  - courses: STS 214 ⟵ “STS 214 - Introduction to Science, Technology, and Society”
+  - courses: STS 301 ⟵ “STS 301 - Science and Civilization”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+  - courses: STS 471 ⟵ “STS 471 - Darwinism and Christianity”
+  - courses: STS 490 ⟵ “STS 490 - Issues in Science, Technology, and Society”
+### `219f38e9a07b0332` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-sciences-bs-applied-nutrition-concentration-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `2318dc8b35648731` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-mathematics-natural-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: CH 220 ⟵ “CH 220 - Introductory Organic Chemistry”
+  - courses: CH 222 ⟵ “CH 222 - Organic Chemistry I Lab”
+  - courses: PB 200 ⟵ “PB 200 - Plant Life”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PB 360 ⟵ “PB 360 - Ecology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `2327847f7077c0d4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+  - section: bioprocessing-science-bs-free-electives ⟵ “Bioprocessing Science (BS) — Free Electives”
+### `23bce4ccea553ff8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 420 ⟵ “FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: FOR 472 ⟵ “FOR 472 - Forest Soils”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: HS 200 ⟵ “HS 200 - Home Horticulture”
+  - courses: HS 201 ⟵ “HS 201 - The World of Horticulture: Principles and Practices”
+  - courses: HS 203 ⟵ “HS 203 - Home Plant Propagation”
+  - courses: HS 242 ⟵ “HS 242 - Landscape Design Introduction”
+  - courses: HS 250 ⟵ “HS 250 - Home Landscape Design: Creating Garden Spaces”
+  - courses: HS 252 ⟵ “HS 252 - Landscape Design Graphic Communication”
+  - … 15 more rows
+### `25e2368518edbae5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-a-biological-sciences-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: BIT 100 ⟵ “BIT 100 - Current Topics in Biotechnology”
+  - courses: BIT 465 ⟵ “BIT 465 - Real-time PCR Techniques”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 473 ⟵ “BIT 473 - Protein Interactions”
+  - courses: BIT 474 ⟵ “BIT 474 - Plant Genetic Engineering”
+  - courses: BIT 565 ⟵ “BIT 565 - Real-time PCR Techniques”
+  - courses: BIT 571 ⟵ “BIT 571 - RNA Interference and Model Organisms”
+  - courses: BIT 573 ⟵ “BIT 573 - Protein Interactions”
+  - courses: BIT 574 ⟵ “BIT 574 - Plant Genetic Engineering”
+  - courses: ENT 305 ⟵ “ENT 305 - Introduction to Forensic Entomology”
+### `25ef4453d45a14d8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-a-biological-sciences-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: BIT 100 ⟵ “BIT 100 - Current Topics in Biotechnology”
+  - courses: BIT 465 ⟵ “BIT 465 - Real-time PCR Techniques”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 473 ⟵ “BIT 473 - Protein Interactions”
+  - courses: BIT 474 ⟵ “BIT 474 - Plant Genetic Engineering”
+  - courses: BIT 565 ⟵ “BIT 565 - Real-time PCR Techniques”
+  - courses: BIT 571 ⟵ “BIT 571 - RNA Interference and Model Organisms”
+  - courses: BIT 573 ⟵ “BIT 573 - Protein Interactions”
+  - courses: BIT 574 ⟵ “BIT 574 - Plant Genetic Engineering”
+  - courses: ENT 305 ⟵ “ENT 305 - Introduction to Forensic Entomology”
+### `27617029d3b6e49d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=advised-science-electives-any-gep-natural-sciences-course-except-bio-105-106-ch- [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: BIO 165 ⟵ “BIO 165 - ”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 111 ⟵ “ES 111 - Applications of Environmental Sciences”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - courses: FOR 264 ⟵ “FOR 264 - Forest Wildlife”
+  - courses: FOR 339 ⟵ “FOR 339 - ”
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 405 ⟵ “FW 405 - Tropical Wildlife Ecology”
+  - courses: FW 444 ⟵ “FW 444 - Mammalogy”
+  - courses: FW 453 ⟵ “FW 453 - Principles of Wildlife Science”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: NR 303 ⟵ “NR 303 - Humans and the Environment”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+### `2882c58ac46a645d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-c-applied-sci-tech [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 350 ⟵ “AEE 350 - Personal Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 360 ⟵ “AEE 360 - Developing Team Leadership in Agriculture and Life Sciences”
+  - courses: AEE 423 ⟵ “AEE 423 - Practicum in Agricultural Extension/Industry”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 433 ⟵ “AEE 433 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: AEE 435 ⟵ “AEE 435 - Professional Presentations in Agricultural Organizations”
+  - courses: AEE 460 ⟵ “AEE 460 - Organizational Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: AEE 490 ⟵ “AEE 490 - Seminar in Agricultural and Extension Education”
+  - courses: AEE 533 ⟵ “AEE 533 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - … 15 more rows
+### `28a29295fd623a37` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=advised-electives-categories-biotechnology-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - courses: BIT 410 ⟵ “BIT 410 - Manipulation of Recombinant DNA”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 474 ⟵ “BIT 474 - Plant Genetic Engineering”
+  - courses: FS 402 ⟵ “FS 402 - Chemistry of Food and Bioprocessed Materials”
+  - courses: GN 421 ⟵ “GN 421 - Molecular Genetics”
+### `28ae7fafb3870116` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-a-physical-sciences-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: BME 201 ⟵ “BME 201 - Computer Methods in Biomedical Engineering”
+  - courses: CSC 442 ⟵ “CSC 442 - Introduction to Data Science”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: ECE 489 ⟵ “ECE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECE 589 ⟵ “ECE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECG 561 ⟵ “ECG 561 - Applied Econometrics I”
+  - courses: EMS 519 ⟵ “EMS 519 - Teaching and Learning of Statistical Thinking”
+  - courses: GPH 404 ⟵ “GPH 404 - Epidemiology and Statistics in Global Public Health”
+  - courses: MA 412 ⟵ “MA 412 - Long-Term Actuarial Models”
+  - courses: MA 413 ⟵ “MA 413 - Short-Term Actuarial Models”
+  - courses: MA 546 ⟵ “MA 546 - Probability and Stochastic Processes I”
+  - courses: MA 555 ⟵ “MA 555 - Introduction to Manifold Theory”
+  - courses: MEA 150 ⟵ “MEA 150 - Environmental Issues in Water Resources”
+  - courses: MEA 463 ⟵ “MEA 463 - Fluid Physics”
+  - courses: MSE 489 ⟵ “MSE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: MSE 589 ⟵ “MSE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: NE 528 ⟵ “NE 528 - Introduction to Plasma Physics and Fusion Energy”
+  - courses: NE 529 ⟵ “NE 529 - Plasma Physics and Fusion Energy II”
+  - courses: PSY 240 ⟵ “PSY 240 - Introduction to Behavioral Research I”
+  - courses: PSY 241 ⟵ “PSY 241 - Introduction to Behavioral Research I Lab”
+  - courses: PSY 242 ⟵ “PSY 242 - Introduction to Behavioral Research II”
+  - courses: PSY 243 ⟵ “PSY 243 - Introduction to Behavioral Research II Lab”
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+  - courses: PY 124 ⟵ “PY 124 - Solar System Astronomy”
+  - courses: PY 125 ⟵ “PY 125 - Astronomy Laboratory”
+  - … 15 more rows
+### `2989e127893dc6cc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-required-courses-within-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: BIT 410 ⟵ “BIT 410 - Manipulation of Recombinant DNA”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: PB 421 ⟵ “PB 421 - Plant Physiology”
+  - courses: PB 480 ⟵ “PB 480 - Introduction to Plant Biotechnology”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+### `2b62a3bdb5bd48d0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plan-requirements-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - section: plan-requirements-electives ⟵ “Plan Requirements — Electives”
+### `2c120a4ffdbb90b3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=history-philosophy-of-science-education-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+  - courses: ECI 305 ⟵ “ECI 305 - Equity and Education”
+  - courses: HI 321 ⟵ “HI 321 - Scientific Revolution and European Society, 1500-1800”
+  - courses: HI 322 ⟵ “HI 322 - Rise of Modern Science”
+  - courses: HI 323 ⟵ “HI 323 - Science, American Style”
+  - courses: HI 341 ⟵ “HI 341 - Technology in History”
+  - courses: HI 481 ⟵ “HI 481 - History of the Life Sciences”
+  - courses: HI 482 ⟵ “HI 482 - Darwinism in Science and Society”
+  - courses: HI 483 ⟵ “HI 483 - Science and Religion in European History”
+  - courses: HI 484 ⟵ “HI 484 - Science in European Culture”
+  - courses: HI 485 ⟵ “HI 485 - History of American Technology”
+  - courses: PHI 340 ⟵ “PHI 340 - Philosophy of Science”
+  - courses: PHI 440 ⟵ “PHI 440 - The Scientific Method”
+  - courses: STS 210 ⟵ “STS 210 - Women and Gender in Science and Technology”
+  - courses: STS 214 ⟵ “STS 214 - Introduction to Science, Technology, and Society”
+  - courses: STS 301 ⟵ “STS 301 - Science and Civilization”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+  - courses: STS 471 ⟵ “STS 471 - Darwinism and Christianity”
+  - courses: STS 490 ⟵ “STS 490 - Issues in Science, Technology, and Society”
+### `2d5abb0c090e2b23` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `301e721500d8c96f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-mathematical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `332c6dd3202d7567` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `35af17c2cf5d6aa4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-business-economics-minor-requi [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+  - courses: ACC 200 ⟵ “ACC 200 - Introduction to Managerial Accounting”
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+  - courses: BUS 370 ⟵ “BUS 370 - Operations and Supply Chain Management”
+### `3601bb6ab5719252` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `365fcba633564bde` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-gep-courses-in-the-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `36c61dbfea5163d8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=advised-science-electives-any-gep-natural-sciences-course-except-bio-105-106-ch- [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: BIO 165 ⟵ “BIO 165 - ”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 111 ⟵ “ES 111 - Applications of Environmental Sciences”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - courses: FOR 264 ⟵ “FOR 264 - Forest Wildlife”
+  - courses: FOR 339 ⟵ “FOR 339 - ”
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 405 ⟵ “FW 405 - Tropical Wildlife Ecology”
+  - courses: FW 444 ⟵ “FW 444 - Mammalogy”
+  - courses: FW 453 ⟵ “FW 453 - Principles of Wildlife Science”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: NR 303 ⟵ “NR 303 - Humans and the Environment”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+### `371c28534cfe448f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-additional-ma-sci-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - section: plan-requirements-additional-ma-sci-electives ⟵ “Plan Requirements — Additional MA/SCI Electives”
+### `3a6f72582b51bf9a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `3b2b2f8e66492615` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-agricultural-engineering-technology-concentration-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAET 411 ⟵ “BAET 411 - Agricultural Machinery and Power Units”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - courses: BAET 343 ⟵ “BAET 343 - Agricultural Electrification”
+  - courses: BAET 432 ⟵ “BAET 432 - Agricultural and Environmental Safety and Health”
+### `3b9578713cc6573d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=plan-requirements-science-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+  - courses: EMS 205 ⟵ “EMS 205 - Introduction to Teaching Science”
+  - courses: EMS 404 ⟵ “EMS 404 - Design of Tools and Learning Environments in Science Education”
+  - courses: EMS 405 ⟵ “EMS 405 - Methods of Teaching Science I”
+  - courses: EMS 406 ⟵ “EMS 406 - Methods of Teaching Science II”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `3ca67e730032b91e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=physics-electives-100-200-level [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+  - courses: PY 124 ⟵ “PY 124 - Solar System Astronomy”
+  - courses: PY 125 ⟵ “PY 125 - Astronomy Laboratory”
+  - courses: PY 203 ⟵ “PY 203 - University Physics III”
+  - courses: PY 251 ⟵ “PY 251 - Introduction to Scientific Computing”
+  - courses: PY 252 ⟵ “PY 252 - Instrumental and Data Analysis for Physics”
+  - courses: PY 299 ⟵ “PY 299 - Special Problems in Physics”
+### `3d405f27e94250c6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-gep-courses-in-the-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `3eb2a405acb9fd15` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-b-economics-business [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: ACC 200 ⟵ “ACC 200 - Introduction to Managerial Accounting”
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ACC 310 ⟵ “ACC 310 - Intermediate Financial Accounting I”
+  - courses: ACC 311 ⟵ “ACC 311 - Intermediate Financial Accounting II”
+  - courses: ACC 330 ⟵ “ACC 330 - An Introduction To Income Taxation”
+  - courses: ACC 340 ⟵ “ACC 340 - Accounting Information Systems”
+  - courses: ACC 411 ⟵ “ACC 411 - Business Valuation”
+  - courses: ACC 420 ⟵ “ACC 420 - Cost Accounting for Effective Management”
+  - courses: ACC 440 ⟵ “ACC 440 - Enterprise Resource Planning Systems: Implementation, Risk, and Analytics”
+  - courses: ACC 450 ⟵ “ACC 450 - Auditing and Assurance Services”
+  - courses: ACC 451 ⟵ “ACC 451 - Internal Auditing”
+  - courses: ACC 460 ⟵ “ACC 460 - Governmental and Nonprofit Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - … 15 more rows
+### `3f3192f96aafcfd0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-science-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+  - courses: EMS 205 ⟵ “EMS 205 - Introduction to Teaching Science”
+  - courses: EMS 404 ⟵ “EMS 404 - Design of Tools and Learning Environments in Science Education”
+  - courses: EMS 405 ⟵ “EMS 405 - Methods of Teaching Science I”
+  - courses: EMS 406 ⟵ “EMS 406 - Methods of Teaching Science II”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `4030d2dc75a7bc7d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-environmental-systems-management [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAET 443 ⟵ “BAET 443 - Environmental Restoration Implementation”
+  - courses: GIS 280 ⟵ “GIS 280 - Introduction to GIS”
+### `4151f477550896b2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+  - courses: FS 221 ⟵ “FS 221 - Discover: Chocolate, Coffee and Tea”
+  - courses: FS 222 ⟵ “FS 222 - Discover: Conventional, Organic and Genetically Engineered Foods”
+  - courses: FS 250 ⟵ “FS 250 - Basics of Food Safety & Quality”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 324 ⟵ “FS 324 - Milk and Dairy Products”
+  - courses: FS 325 ⟵ “FS 325 - Introduction to Brewing Science and Technology”
+  - courses: FS 330 ⟵ “FS 330 - Science of Food Preparation”
+  - courses: FS 352 ⟵ “FS 352 - Introduction to Microbiological Food Safety Hazards”
+  - courses: FS 354 ⟵ “FS 354 - Food Sanitation”
+  - courses: FS 401 ⟵ “FS 401 - Advanced Nutrition and Metabolism”
+  - courses: FS 416 ⟵ “FS 416 - Quality Control in Food and Bioprocessing”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 453 ⟵ “FS 453 - Food Laws and Regulations”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 481 ⟵ “FS 481 - Research Experience in Food and Bioprocessing Sciences”
+  - courses: FS 501 ⟵ “FS 501 - Advanced Nutrition and Metabolism”
+  - courses: FS 516 ⟵ “FS 516 - Quality Control in Food and Bioprocessing”
+  - courses: FS 520 ⟵ “FS 520 - Pre-Harvest Food Safety”
+  - courses: FS 522 ⟵ “FS 522 - Food Packaging”
+  - courses: FS 530 ⟵ “FS 530 - Post-Harvest Food Safety”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - courses: FS 540 ⟵ “FS 540 - Food Safety and Public Health”
+  - courses: FS 550 ⟵ “FS 550 - Food Industry Study Tour”
+  - courses: FS 553 ⟵ “FS 553 - Food Laws and Regulations”
+  - courses: FS 554 ⟵ “FS 554 - Lactation, Milk, and Nutrition”
+  - … 11 more rows
+### `438386790b8c3b75` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-writing-and-speaking [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `45dcbb4e31efec32` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plant-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: PB 200 ⟵ “PB 200 - Plant Life”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 339 ⟵ “FOR 339 - ”
+  - courses: PB 220 ⟵ “PB 220 - Local Flora”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PB 421 ⟵ “PB 421 - Plant Physiology”
+### `47c95ce4395368bf` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=foundational-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: ES 200 ⟵ “ES 200 - Climate Change and Sustainability”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: IDS 203 ⟵ “IDS 203 - Humans and the Environment”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+  - courses: STS 323 ⟵ “STS 323 - World Population and Food Prospects”
+### `4af66db93a9bf849` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: ENT 203 ⟵ “ENT 203 - An Introduction to the Honey Bee and Beekeeping”
+  - … 15 more rows
+### `4b27982f6132d0f9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `4c120d0eabc53349` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: ENT 203 ⟵ “ENT 203 - An Introduction to the Honey Bee and Beekeeping”
+  - courses: ENT 401 ⟵ “ENT 401 - Honey Bee Biology and Management”
+  - … 15 more rows
+### `4ee3b7d7e418f77a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=plan-requirements-agricultural-systems-management [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAET 411 ⟵ “BAET 411 - Agricultural Machinery and Power Units”
+### `4ff9f965ed70c066` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `502d0e9d2ebe6b5e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-science-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+  - courses: EMS 205 ⟵ “EMS 205 - Introduction to Teaching Science”
+  - courses: EMS 404 ⟵ “EMS 404 - Design of Tools and Learning Environments in Science Education”
+  - courses: EMS 405 ⟵ “EMS 405 - Methods of Teaching Science I”
+  - courses: EMS 406 ⟵ “EMS 406 - Methods of Teaching Science II”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `51096adacdec2d00` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-a-biological-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: ANS 230 ⟵ “ANS 230 - Animal Nutrition”
+  - courses: ANS 231 ⟵ “ANS 231 - Animal Nutrition Lab”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 452 ⟵ “ANS 452 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: ANS 552 ⟵ “ANS 552 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 553 ⟵ “ANS 553 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 554 ⟵ “ANS 554 - Lactation, Milk and Nutrition”
+  - courses: BCH 101 ⟵ “BCH 101 - Introduction to Microbiology and Biochemistry Laboratory Practices”
+  - … 15 more rows
+### `5188899e9462d232` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=plan-requirements-mathematics [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: MA 242 ⟵ “MA 242 - Calculus III”
+  - courses: MA 341 ⟵ “MA 341 - Applied Differential Equations I”
+### `52fb34a4288df722` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plant-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 410 ⟵ “CS 410 - Community Food Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 418 ⟵ “CS 418 - Introduction to Regulatory Science in Agriculture”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: ENT 402 ⟵ “ENT 402 - Forest Entomology”
+  - … 15 more rows
+### `531c59fe9d4ba2c5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=earth-and-environmental-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 111 ⟵ “ES 111 - Applications of Environmental Sciences”
+  - courses: ES 113 ⟵ “ES 113 - Earth from Space”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: ES 200 ⟵ “ES 200 - Climate Change and Sustainability”
+  - courses: ES 215 ⟵ “ES 215 - Organizing Field Work”
+  - courses: ES 295 ⟵ “ES 295 - Special Topics in Environmental Science”
+  - courses: MEA 100 ⟵ “MEA 100 - Earth System Science: Exploring the Connections”
+  - courses: MEA 135 ⟵ “MEA 135 - Introduction to Weather and Climate Laboratory”
+  - courses: MEA 150 ⟵ “MEA 150 - Environmental Issues in Water Resources”
+  - courses: MEA 210 ⟵ “MEA 210 - Oceanography Lab”
+  - courses: MEA 211 ⟵ “MEA 211 - Geology II Laboratory”
+  - courses: MEA 215 ⟵ “MEA 215 - Introduction to Atmospheric Sciences”
+  - courses: MEA 217 ⟵ “MEA 217 - Introduction to Computing in the Geosciences”
+  - courses: MEA 220 ⟵ “MEA 220 - Marine Biology”
+  - courses: MEA 240 ⟵ “MEA 240 - The Planets of Our Solar System”
+  - courses: MEA 241 ⟵ “MEA 241 - ”
+  - courses: MEA 250 ⟵ “MEA 250 - Introduction to Coastal Environments”
+  - courses: MEA 251 ⟵ “MEA 251 - Introduction to Coastal Environments Laboratory”
+  - courses: MEA 252 ⟵ “MEA 252 - Biology of Marine Mammals”
+  - courses: MEA 260 ⟵ “MEA 260 - Human Dimensions of Climate Change”
+  - courses: CNR 250 ⟵ “CNR 250 - Diversity and Environmental Justice”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - … 6 more rows
+### `53483b32d9f4caa8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=are-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+### `564273a1dd4acc73` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-sciences-bs-applied-nutrition-concentration-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+  - section: nutrition-sciences-bs-applied-nutrition-concentration-free-electives ⟵ “Nutrition Sciences (BS): Applied Nutrition Concentration — Free Electives”
+### `565c0dd343f08f66` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-required-courses-within-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+  - courses: HS 471 ⟵ “HS 471 - Landscape Ecosystem Management”
+  - courses: PP 315 ⟵ “PP 315 - Principles of Plant Pathology”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: SSC 461 ⟵ “SSC 461 - Soil Physical Properties and Plant Growth”
+### `57197f48f585f896` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+  - section: food-science-bs-science-concentration-free-electives ⟵ “Food Science (BS): Science Concentration — Free Electives”
+### `57612ba27ffb90b6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-major-requirements [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+  - courses: FS 201 ⟵ “FS 201 - Introduction to Food Science”
+  - courses: FS 301 ⟵ “FS 301 - Introduction to Human Nutrition”
+  - courses: FS 331 ⟵ “FS 331 - Principles of Food and Bioprocess Engineering”
+  - courses: FS 402 ⟵ “FS 402 - Chemistry of Food and Bioprocessed Materials”
+  - courses: FS 403 ⟵ “FS 403 - Analytical Techniques in Food & Bioprocessing Science”
+  - courses: FS 405 ⟵ “FS 405 - Food Microbiology”
+  - courses: FS 406 ⟵ “FS 406 - Food Microbiology Lab”
+  - courses: FS 421 ⟵ “FS 421 - Food Preservation”
+  - courses: FS 471 ⟵ “FS 471 - Professionalism & Project Preparation in Food & Bioprocessing Science”
+  - courses: FS 475 ⟵ “FS 475 - Problems and Design in Food and Bioprocessing Science”
+### `5785fea672b5a3a5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `5a41b900b4cfc0cf` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-mathematical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: ST 350 ⟵ “ST 350 - Economics and Business Statistics”
+### `5e2fb5439ca2fa0d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+  - section: contact-person-free-electives ⟵ “Contact Person — Free Electives”
+### `61b27618511a624b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=business-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: MIE 310 ⟵ “MIE 310 - Introduction to Entrepreneurship”
+  - courses: MIE 413 ⟵ “MIE 413 - New Venture Planning”
+### `6269b8128444c8d5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-a-biological-sciences-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 441 ⟵ “AEC 441 - Biology of Fishes”
+  - courses: AEC 442 ⟵ “AEC 442 - Biology of Fishes Laboratory”
+  - courses: AEC 460 ⟵ “AEC 460 - Field Ecology and Methods”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: BEC 463 ⟵ “BEC 463 - Fermentation of Recombinant Microorganisms”
+  - courses: BEC 563 ⟵ “BEC 563 - Fermentation of Recombinant Microorganisms”
+  - courses: BIO 140 ⟵ “BIO 140 - ”
+  - courses: BIO 141 ⟵ “BIO 141 - ”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BIO 315 ⟵ “BIO 315 - General Parasitology”
+  - courses: BIO 330 ⟵ “BIO 330 - Evolutionary Biology”
+  - courses: BIO 361 ⟵ “BIO 361 - Developmental Biology”
+  - courses: BIO 370 ⟵ “BIO 370 - Developmental Anatomy of the Vertebrates”
+  - courses: BIO 375 ⟵ “BIO 375 - Developmental Anatomy Laboratory”
+  - courses: BIO 405 ⟵ “BIO 405 - Functional Histology”
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIO 424 ⟵ “BIO 424 - Endocrinology”
+  - courses: BIO 482 ⟵ “BIO 482 - Capstone Course in Molecular, Cellular, and Developmental Biology”
+  - … 15 more rows
+### `62d169e560e5f6a5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plant-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 410 ⟵ “CS 410 - Community Food Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 418 ⟵ “CS 418 - Introduction to Regulatory Science in Agriculture”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - courses: ENT 402 ⟵ “ENT 402 - Forest Entomology”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FOR 150 ⟵ “FOR 150 - Critical Thinking and Data Analysis”
+  - … 15 more rows
+### `669dcac312d06b69` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-gep-courses-in-the-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `683ba194dbc13924` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-communication [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+### `6b8f6781e0c320f2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `6e8e12ea45f57cda` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plant-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 410 ⟵ “CS 410 - Community Food Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 418 ⟵ “CS 418 - Introduction to Regulatory Science in Agriculture”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+  - courses: CSSC 495 ⟵ “CSSC 495 - Special Topics in Crop and Soil Sciences”
+  - … 15 more rows
+### `6f0835425864f07f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `6faf5124a681fca8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plant-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: ALS 303 ⟵ “ALS 303 - Transfer Success in Agriculture and Life Sciences”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 312 ⟵ “CS 312 - ”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 410 ⟵ “CS 410 - Community Food Systems”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 418 ⟵ “CS 418 - Introduction to Regulatory Science in Agriculture”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - … 15 more rows
+### `7033838aaa8f225f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=plan-requirements-mathematical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: ST 350 ⟵ “ST 350 - Economics and Business Statistics”
+### `716914f677ec3cb8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=agriculture-electives-agriculture-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 260 ⟵ “ARE 260 - Marketing and Risk Management in the Pork Industry”
+  - courses: ARE 270 ⟵ “ARE 270 - Principles of Agribusiness Entrepreneurship”
+  - courses: ARE 295 ⟵ “ARE 295 - Special Topics in Agricultural & Resource Economics (200 Level)”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 323 ⟵ “ARE 323 - Agribusiness Finance”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 370 ⟵ “ARE 370 - Agribusiness New Venture Development”
+  - courses: ARE 395 ⟵ “ARE 395 - Special Topics in Agricultural and Resource Economics (300 level)”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: ARE 413 ⟵ “ARE 413 - Applied Agribusiness Marketing”
+  - courses: ARE 415 ⟵ “ARE 415 - Introduction to Commodity Futures Markets”
+  - courses: ARE 420 ⟵ “ARE 420 - Taxation in Agriculture, Production, and Agribusiness”
+  - courses: ARE 425 ⟵ “ARE 425 - Contracts and Organizations in Agriculture”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - … 12 more rows
+### `717b561d3836ef5d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `71d84b6347485dbf` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=poultry-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FM 525 ⟵ “FM 525 - Feed Manufacturing Technology”
+  - courses: NTR 425 ⟵ “NTR 425 - Feed Manufacturing Technology”
+  - courses: NTR 525 ⟵ “NTR 525 - Feed Manufacturing Technology”
+  - courses: PO 406 ⟵ “PO 406 - Physiological Aspects of Poultry Management”
+  - courses: PO 410 ⟵ “PO 410 - Production and Management of Game Birds in Confinement”
+  - courses: PO 411 ⟵ “PO 411 - Agrosecurity”
+  - courses: PO 425 ⟵ “PO 425 - Feed Manufacturing Technology”
+  - courses: PO 506 ⟵ “PO 506 - Physiological Aspects of Poultry Management”
+  - courses: PO 525 ⟵ “PO 525 - Feed Manufacturing Technology”
+### `755f480eb5e0f7ac` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `76066f642a6cb3db` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=science-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 200 ⟵ “ES 200 - Climate Change and Sustainability”
+  - courses: ES 300 ⟵ “ES 300 - Energy and Environment”
+  - courses: MEA 101 ⟵ “MEA 101 - Geology I: Physical”
+  - courses: MEA 130 ⟵ “MEA 130 - Introduction to Weather and Climate”
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+### `777691963a052846` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `777a60b51df8d5ce` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `77aa6dafcd046a4c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-a-physical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: BAE 200 ⟵ “BAE 200 - Computer Methods in Biological Engineering”
+  - courses: BMA 573 ⟵ “BMA 573 - Mathematical Modeling of Physical and Biological Processes I”
+  - courses: BMA 574 ⟵ “BMA 574 - Mathematical Modeling of Physical and Biological Processes II”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 350 ⟵ “BUS 350 - Economics and Business Statistics”
+  - courses: CE 435 ⟵ “CE 435 - Engineering Geology”
+  - courses: CE 479 ⟵ “CE 479 - Air Quality”
+  - courses: CE 581 ⟵ “CE 581 - Fluid Mechanics in Natural Environments”
+  - courses: CH 230 ⟵ “CH 230 - Computational Chemistry Lab I”
+  - courses: CH 232 ⟵ “CH 232 - Computational Chemistry Lab II”
+  - courses: CH 315 ⟵ “CH 315 - Quantitative Analysis”
+  - courses: CH 316 ⟵ “CH 316 - Quantitative Analysis Laboratory”
+  - courses: CH 331 ⟵ “CH 331 - Introductory Physical Chemistry”
+  - courses: CH 401 ⟵ “CH 401 - Systematic Inorganic Chemistry I”
+  - courses: CH 403 ⟵ “CH 403 - Systematic Inorganic Chemistry II”
+  - courses: CH 415 ⟵ “CH 415 - Analytical Chemistry II”
+  - courses: CH 431 ⟵ “CH 431 - Physical Chemistry I”
+  - courses: CH 433 ⟵ “CH 433 - Physical Chemistry II”
+  - courses: CH 435 ⟵ “CH 435 - Introduction to Quantum Chemistry”
+  - courses: CH 437 ⟵ “CH 437 - Physical Chemistry for Engineers”
+  - courses: CH 441 ⟵ “CH 441 - Forensic Chemistry”
+  - courses: CH 442 ⟵ “CH 442 - Advanced Synthetic Techniques”
+  - courses: CH 444 ⟵ “CH 444 - Advanced Synthetic Techniques II”
+  - courses: CH 452 ⟵ “CH 452 - Advanced Measurement Techniques I”
+  - … 15 more rows
+### `781e870e322e3259` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-c-applied-sci-tech [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 350 ⟵ “AEE 350 - Personal Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 360 ⟵ “AEE 360 - Developing Team Leadership in Agriculture and Life Sciences”
+  - courses: AEE 423 ⟵ “AEE 423 - Practicum in Agricultural Extension/Industry”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 433 ⟵ “AEE 433 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: AEE 435 ⟵ “AEE 435 - Professional Presentations in Agricultural Organizations”
+  - courses: AEE 460 ⟵ “AEE 460 - Organizational Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: AEE 490 ⟵ “AEE 490 - Seminar in Agricultural and Extension Education”
+  - courses: AEE 533 ⟵ “AEE 533 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - … 15 more rows
+### `7922af38c59f4805` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `792961780f4ae7fb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=plan-requirements-mathematical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: ST 350 ⟵ “ST 350 - Economics and Business Statistics”
+### `7aa0c0557cb4dcb4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=broad-scope-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: AEC 203 ⟵ “AEC 203 - An Introduction to the Honey Bee and Beekeeping”
+  - courses: ENT 401 ⟵ “ENT 401 - Honey Bee Biology and Management”
+  - courses: HS 242 ⟵ “HS 242 - Landscape Design Introduction”
+  - courses: HS 280 ⟵ “HS 280 - Hands-On-Horticulture”
+  - courses: HS 440 ⟵ “HS 440 - Greenhouse Management”
+  - courses: HS 471 ⟵ “HS 471 - Landscape Ecosystem Management”
+  - courses: HS 476 ⟵ “HS 476 - Crop Physiology and Production in Controlled Environments”
+  - courses: HS 491 ⟵ “HS 491 - Sustainable Agriculture Entrepreneurship Study Abroad”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: SSC 461 ⟵ “SSC 461 - Soil Physical Properties and Plant Growth”
+### `7c2a5e947a4d3df9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `7c906f1941b29990` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+### `7cc2ccb0512ab7f5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `7d9f43c4ee3de5bb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-a-physical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: BAE 200 ⟵ “BAE 200 - Computer Methods in Biological Engineering”
+  - courses: BMA 573 ⟵ “BMA 573 - Mathematical Modeling of Physical and Biological Processes I”
+  - courses: BMA 574 ⟵ “BMA 574 - Mathematical Modeling of Physical and Biological Processes II”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 350 ⟵ “BUS 350 - Economics and Business Statistics”
+  - courses: CE 435 ⟵ “CE 435 - Engineering Geology”
+  - courses: CE 479 ⟵ “CE 479 - Air Quality”
+  - courses: CE 581 ⟵ “CE 581 - Fluid Mechanics in Natural Environments”
+  - courses: CH 230 ⟵ “CH 230 - Computational Chemistry Lab I”
+  - courses: CH 232 ⟵ “CH 232 - Computational Chemistry Lab II”
+  - courses: CH 315 ⟵ “CH 315 - Quantitative Analysis”
+  - courses: CH 316 ⟵ “CH 316 - Quantitative Analysis Laboratory”
+  - courses: CH 331 ⟵ “CH 331 - Introductory Physical Chemistry”
+  - courses: CH 401 ⟵ “CH 401 - Systematic Inorganic Chemistry I”
+  - courses: CH 403 ⟵ “CH 403 - Systematic Inorganic Chemistry II”
+  - courses: CH 415 ⟵ “CH 415 - Analytical Chemistry II”
+  - courses: CH 431 ⟵ “CH 431 - Physical Chemistry I”
+  - courses: CH 433 ⟵ “CH 433 - Physical Chemistry II”
+  - courses: CH 435 ⟵ “CH 435 - Introduction to Quantum Chemistry”
+  - courses: CH 437 ⟵ “CH 437 - Physical Chemistry for Engineers”
+  - courses: CH 441 ⟵ “CH 441 - Forensic Chemistry”
+  - courses: CH 442 ⟵ “CH 442 - Advanced Synthetic Techniques”
+  - courses: CH 444 ⟵ “CH 444 - Advanced Synthetic Techniques II”
+  - courses: CH 452 ⟵ “CH 452 - Advanced Measurement Techniques I”
+  - … 15 more rows
+### `7e77d8f077463622` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=plan-requirements-major-requirements [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: BAE 100 ⟵ “BAE 100 - Introduction to Biological and Agricultural Engineering and Technology”
+  - courses: BAET 200 ⟵ “BAET 200 - Computer Applications in Biological and Agricultural Engineering Technology”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAE 210 ⟵ “BAE 210 - Leadership and Ethics in Science, Technology, and Agriculture”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - courses: BAET 333 ⟵ “BAET 333 - Processing Agricultural Products”
+  - courses: BAET 343 ⟵ “BAET 343 - Agricultural Electrification”
+  - courses: BAET 432 ⟵ “BAET 432 - Agricultural and Environmental Safety and Health”
+  - courses: BAET 450 ⟵ “BAET 450 - Biological and Agricultural Engineering Technology Capstone”
+  - courses: GC 120 ⟵ “GC 120 - Foundations of Graphics”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `7f8c7a2795148e55` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `834e415e36bf40e9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-sciences-bs-major-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+  - section: nutrition-sciences-bs-major-electives ⟵ “Nutrition Sciences (BS) — Major Electives”
+### `85f0f83e658fec86` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-a-physical-sciences-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: BME 201 ⟵ “BME 201 - Computer Methods in Biomedical Engineering”
+  - courses: CSC 442 ⟵ “CSC 442 - Introduction to Data Science”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: ECE 489 ⟵ “ECE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECE 589 ⟵ “ECE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECG 561 ⟵ “ECG 561 - Applied Econometrics I”
+  - courses: EMS 519 ⟵ “EMS 519 - Teaching and Learning of Statistical Thinking”
+  - courses: GPH 404 ⟵ “GPH 404 - Epidemiology and Statistics in Global Public Health”
+  - courses: MA 412 ⟵ “MA 412 - Long-Term Actuarial Models”
+  - courses: MA 413 ⟵ “MA 413 - Short-Term Actuarial Models”
+  - courses: MA 546 ⟵ “MA 546 - Probability and Stochastic Processes I”
+  - courses: MA 555 ⟵ “MA 555 - Introduction to Manifold Theory”
+  - courses: MEA 150 ⟵ “MEA 150 - Environmental Issues in Water Resources”
+  - courses: MEA 463 ⟵ “MEA 463 - Fluid Physics”
+  - courses: MSE 489 ⟵ “MSE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: MSE 589 ⟵ “MSE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: NE 528 ⟵ “NE 528 - Introduction to Plasma Physics and Fusion Energy”
+  - courses: NE 529 ⟵ “NE 529 - Plasma Physics and Fusion Energy II”
+  - courses: PSY 240 ⟵ “PSY 240 - Introduction to Behavioral Research I”
+  - courses: PSY 241 ⟵ “PSY 241 - Introduction to Behavioral Research I Lab”
+  - courses: PSY 242 ⟵ “PSY 242 - Introduction to Behavioral Research II”
+  - courses: PSY 243 ⟵ “PSY 243 - Introduction to Behavioral Research II Lab”
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+  - courses: PY 124 ⟵ “PY 124 - Solar System Astronomy”
+  - courses: PY 125 ⟵ “PY 125 - Astronomy Laboratory”
+  - … 15 more rows
+### `863496b3ac7be210` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-major-requirements [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+  - courses: FS 201 ⟵ “FS 201 - Introduction to Food Science”
+  - courses: FS 331 ⟵ “FS 331 - Principles of Food and Bioprocess Engineering”
+  - courses: FS 402 ⟵ “FS 402 - Chemistry of Food and Bioprocessed Materials”
+  - courses: FS 403 ⟵ “FS 403 - Analytical Techniques in Food & Bioprocessing Science”
+  - courses: FS 405 ⟵ “FS 405 - Food Microbiology”
+  - courses: FS 406 ⟵ “FS 406 - Food Microbiology Lab”
+  - courses: FS 416 ⟵ “FS 416 - Quality Control in Food and Bioprocessing”
+  - courses: FS 421 ⟵ “FS 421 - Food Preservation”
+  - courses: FS 471 ⟵ “FS 471 - Professionalism & Project Preparation in Food & Bioprocessing Science”
+  - courses: FS 475 ⟵ “FS 475 - Problems and Design in Food and Bioprocessing Science”
+### `871021886fc08e5b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-orientation-course [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+### `87d8612ec8eb0ca6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-b-economics-business [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ACC 310 ⟵ “ACC 310 - Intermediate Financial Accounting I”
+  - courses: ACC 311 ⟵ “ACC 311 - Intermediate Financial Accounting II”
+  - courses: ACC 330 ⟵ “ACC 330 - An Introduction To Income Taxation”
+  - courses: ACC 340 ⟵ “ACC 340 - Accounting Information Systems”
+  - courses: ACC 411 ⟵ “ACC 411 - Business Valuation”
+  - courses: ACC 420 ⟵ “ACC 420 - Cost Accounting for Effective Management”
+  - courses: ACC 440 ⟵ “ACC 440 - Enterprise Resource Planning Systems: Implementation, Risk, and Analytics”
+  - courses: ACC 450 ⟵ “ACC 450 - Auditing and Assurance Services”
+  - courses: ACC 451 ⟵ “ACC 451 - Internal Auditing”
+  - courses: ACC 460 ⟵ “ACC 460 - Governmental and Nonprofit Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - … 15 more rows
+### `891d4ff0889d584f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=application-electives-application-electives-i [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 350 ⟵ “AEE 350 - Personal Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: ANT 374 ⟵ “ANT 374 - Disease and Society”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 475 ⟵ “ARE 475 - Food Policy”
+  - courses: BCH 351 ⟵ “BCH 351 - General Biochemistry”
+  - courses: BIO 242 ⟵ “BIO 242 - Human Anatomy and Physiology Laboratory”
+  - courses: BIO 245 ⟵ “BIO 245 - Principles of Human Anatomy & Physiology (B): Endocrine, Cardiovascular, Respiratory & Renal Systems”
+  - courses: BIO 404 ⟵ “BIO 404 - Epidemiology and Statistics in Global Public Health”
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIO 416 ⟵ “BIO 416 - Cancer Cell Biology”
+  - courses: BIO 424 ⟵ “BIO 424 - Endocrinology”
+  - courses: BIO 434 ⟵ “BIO 434 - Hormones and Behavior”
+  - courses: BIO 488 ⟵ “BIO 488 - Neurobiology”
+  - courses: BIO 588 ⟵ “BIO 588 - Neurobiology”
+  - courses: COM 211 ⟵ “COM 211 - Argumentation and Advocacy”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: COM 332 ⟵ “COM 332 - Relational Communication”
+  - … 15 more rows
+### `8922fc084747cddb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-sciences-bs-applied-nutrition-concentration-major-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+  - section: nutrition-sciences-bs-applied-nutrition-concentration-major-electives ⟵ “Nutrition Sciences (BS): Applied Nutrition Concentration — Major Electives”
+### `8a87b93a250ebcce` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-statistics [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `8b33fa4ecb550a00` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-b-economics-business-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 449 ⟵ “BUS 449 - Information Technology Practicum”
+  - courses: BUS 474 ⟵ “BUS 474 - Logistics Management”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: EC 404 ⟵ “EC 404 - Money, Financial Markets, and the Economy”
+  - courses: EC 410 ⟵ “EC 410 - Public Finance”
+  - courses: EC 413 ⟵ “EC 413 - Industrial Organization”
+  - courses: EC 431 ⟵ “EC 431 - Labor Economics”
+  - courses: EC 437 ⟵ “EC 437 - Health Economics”
+  - courses: EC 449 ⟵ “EC 449 - International Finance”
+  - courses: EC 451 ⟵ “EC 451 - Econometrics II”
+  - courses: EC 474 ⟵ “EC 474 - Economics of Financial Institutions and Markets”
+  - courses: EC 480 ⟵ “EC 480 - ”
+  - … 6 more rows
+### `8cdb97f2b29cdf86` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-b-economics-business-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: ACC 200 ⟵ “ACC 200 - Introduction to Managerial Accounting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 449 ⟵ “BUS 449 - Information Technology Practicum”
+  - courses: BUS 474 ⟵ “BUS 474 - Logistics Management”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: EC 404 ⟵ “EC 404 - Money, Financial Markets, and the Economy”
+  - courses: EC 410 ⟵ “EC 410 - Public Finance”
+  - courses: EC 413 ⟵ “EC 413 - Industrial Organization”
+  - courses: EC 431 ⟵ “EC 431 - Labor Economics”
+  - courses: EC 437 ⟵ “EC 437 - Health Economics”
+  - courses: EC 449 ⟵ “EC 449 - International Finance”
+  - courses: EC 451 ⟵ “EC 451 - Econometrics II”
+  - courses: EC 474 ⟵ “EC 474 - Economics of Financial Institutions and Markets”
+  - … 7 more rows
+### `8e27824a95edef80` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAE 525 ⟵ “BAE 525 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 535 ⟵ “BAE 535 - Precision Agriculture Technology”
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BBS 301 ⟵ “BBS 301 - Process Validation Science”
+  - courses: BBS 426 ⟵ “BBS 426 - Upstream Biomanufacturing Laboratory”
+  - courses: BBS 526 ⟵ “BBS 526 - Upstream Biomanufacturing Laboratory”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - … 15 more rows
+### `8e8b2df5faddf0f0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+  - section: food-science-bs-business-technology-concentration-free-electives ⟵ “Food Science (BS): Business & Technology Concentration — Free Electives”
+### `8fbf27d1014d17a7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=advised-science-electives-any-gep-natural-sciences-course-except-bio-105-106-ch- [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: BIO 165 ⟵ “BIO 165 - ”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 111 ⟵ “ES 111 - Applications of Environmental Sciences”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - courses: FOR 264 ⟵ “FOR 264 - Forest Wildlife”
+  - courses: FOR 339 ⟵ “FOR 339 - ”
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 405 ⟵ “FW 405 - Tropical Wildlife Ecology”
+  - courses: FW 444 ⟵ “FW 444 - Mammalogy”
+  - courses: FW 453 ⟵ “FW 453 - Principles of Wildlife Science”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: NR 303 ⟵ “NR 303 - Humans and the Environment”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+### `9025967eb6c6ed35` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=agriculture-electives-agriculture-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 260 ⟵ “ARE 260 - Marketing and Risk Management in the Pork Industry”
+  - courses: ARE 270 ⟵ “ARE 270 - Principles of Agribusiness Entrepreneurship”
+  - courses: ARE 295 ⟵ “ARE 295 - Special Topics in Agricultural & Resource Economics (200 Level)”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 323 ⟵ “ARE 323 - Agribusiness Finance”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 370 ⟵ “ARE 370 - Agribusiness New Venture Development”
+  - courses: ARE 395 ⟵ “ARE 395 - Special Topics in Agricultural and Resource Economics (300 level)”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: ARE 413 ⟵ “ARE 413 - Applied Agribusiness Marketing”
+  - courses: ARE 415 ⟵ “ARE 415 - Introduction to Commodity Futures Markets”
+  - courses: ARE 420 ⟵ “ARE 420 - Taxation in Agriculture, Production, and Agribusiness”
+  - courses: ARE 425 ⟵ “ARE 425 - Contracts and Organizations in Agriculture”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - … 12 more rows
+### `90a1c3eb6e421f4a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=horticulture-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: CS 410 ⟵ “CS 410 - Community Food Systems”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: HS 200 ⟵ “HS 200 - Home Horticulture”
+  - courses: HS 201 ⟵ “HS 201 - The World of Horticulture: Principles and Practices”
+  - courses: HS 202 ⟵ “HS 202 - Home Plant Identification”
+  - courses: HS 203 ⟵ “HS 203 - Home Plant Propagation”
+  - courses: HS 204 ⟵ “HS 204 - Home Landscape Maintenance”
+  - courses: HS 205 ⟵ “HS 205 - Home Food Production”
+  - courses: HS 215 ⟵ “HS 215 - Agricultural Genetics”
+  - courses: HS 242 ⟵ “HS 242 - Landscape Design Introduction”
+  - courses: HS 250 ⟵ “HS 250 - Home Landscape Design: Creating Garden Spaces”
+  - courses: HS 252 ⟵ “HS 252 - Landscape Design Graphic Communication”
+  - courses: HS 272 ⟵ “HS 272 - Landscape Design/Build”
+  - courses: HS 275 ⟵ “HS 275 - Floral Design”
+  - courses: HS 280 ⟵ “HS 280 - Hands-On-Horticulture”
+  - courses: HS 301 ⟵ “HS 301 - Plant Propagation”
+  - courses: HS 302 ⟵ “HS 302 - Gardening with Herbaceous Perennials”
+  - courses: HS 303 ⟵ “HS 303 - Ornamental Plant Identification I”
+  - courses: HS 304 ⟵ “HS 304 - Ornamental Plant Identification II”
+  - courses: HS 357 ⟵ “HS 357 - Landscape Design Grading and Drainage”
+  - courses: HS 400 ⟵ “HS 400 - Residential Landscaping”
+  - courses: HS 410 ⟵ “HS 410 - Community Food Systems”
+  - courses: HS 411 ⟵ “HS 411 - Nursery Management”
+  - … 15 more rows
+### `91702c28f899ea53` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-c-applied-sci-tech-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BME 204 ⟵ “BME 204 - ”
+  - courses: BME 217 ⟵ “BME 217 - Biomedical Electronics Laboratory”
+  - courses: BME 298 ⟵ “BME 298 - Biomedical Engineering Design and Manufacturing I”
+  - courses: BME 398 ⟵ “BME 398 - Biomedical Engineering Design and Manufacturing II”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FM 525 ⟵ “FM 525 - Feed Manufacturing Technology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 420 ⟵ “FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: FOR 472 ⟵ “FOR 472 - Forest Soils”
+  - courses: FOR 520 ⟵ “FOR 520 - Watershed and Wetlands Hydrology”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - … 15 more rows
+### `92137a61783f2011` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-gep-courses-in-the-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `925a4baf088ef2c4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-other-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+### `933424936854526d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `93676f31c8686567` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=agricultural-sciences-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - courses: AEC 203 ⟵ “AEC 203 - An Introduction to the Honey Bee and Beekeeping”
+  - courses: AEC 400 ⟵ “AEC 400 - Applied Ecology”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: ENT 401 ⟵ “ENT 401 - Honey Bee Biology and Management”
+  - courses: ENT 425 ⟵ “ENT 425 - General Entomology”
+  - courses: ENT 526 ⟵ “ENT 526 - Organic Agriculture: Principles and Practices”
+  - courses: HS 205 ⟵ “HS 205 - Home Food Production”
+  - courses: FS 222 ⟵ “FS 222 - Discover: Conventional, Organic and Genetically Engineered Foods”
+  - courses: HS 431 ⟵ “HS 431 - Vegetable Production”
+  - courses: HS 432 ⟵ “HS 432 - Introduction to Permaculture”
+  - courses: HS 451 ⟵ “HS 451 - Plant Nutrition”
+  - courses: HS 462 ⟵ “HS 462 - Postharvest Physiology”
+  - courses: HS 476 ⟵ “HS 476 - Crop Physiology and Production in Controlled Environments”
+  - courses: PB 215 ⟵ “PB 215 - Medicinal Plants”
+  - courses: PB 250 ⟵ “PB 250 - Plant Biology”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PB 345 ⟵ “PB 345 - Economic Botany”
+  - courses: PB 346 ⟵ “PB 346 - Economic Botany Lab”
+  - courses: PP 315 ⟵ “PP 315 - Principles of Plant Pathology”
+  - … 3 more rows
+### `96867cdf06d89dcf` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-other-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+### `989da2fcf4ff9fba` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=baet-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: BAET 411 ⟵ “BAET 411 - Agricultural Machinery and Power Units”
+  - courses: BAET 443 ⟵ “BAET 443 - Environmental Restoration Implementation”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAE 535 ⟵ “BAE 535 - Precision Agriculture Technology”
+  - courses: GIS 280 ⟵ “GIS 280 - Introduction to GIS”
+### `9c96cc772272cf17` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-a-physical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: BAE 200 ⟵ “BAE 200 - Computer Methods in Biological Engineering”
+  - courses: BMA 573 ⟵ “BMA 573 - Mathematical Modeling of Physical and Biological Processes I”
+  - courses: BMA 574 ⟵ “BMA 574 - Mathematical Modeling of Physical and Biological Processes II”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 350 ⟵ “BUS 350 - Economics and Business Statistics”
+  - courses: CE 435 ⟵ “CE 435 - Engineering Geology”
+  - courses: CE 479 ⟵ “CE 479 - Air Quality”
+  - courses: CE 581 ⟵ “CE 581 - Fluid Mechanics in Natural Environments”
+  - courses: CH 230 ⟵ “CH 230 - Computational Chemistry Lab I”
+  - courses: CH 232 ⟵ “CH 232 - Computational Chemistry Lab II”
+  - courses: CH 315 ⟵ “CH 315 - Quantitative Analysis”
+  - courses: CH 316 ⟵ “CH 316 - Quantitative Analysis Laboratory”
+  - courses: CH 331 ⟵ “CH 331 - Introductory Physical Chemistry”
+  - courses: CH 401 ⟵ “CH 401 - Systematic Inorganic Chemistry I”
+  - courses: CH 403 ⟵ “CH 403 - Systematic Inorganic Chemistry II”
+  - courses: CH 415 ⟵ “CH 415 - Analytical Chemistry II”
+  - courses: CH 431 ⟵ “CH 431 - Physical Chemistry I”
+  - courses: CH 433 ⟵ “CH 433 - Physical Chemistry II”
+  - courses: CH 435 ⟵ “CH 435 - Introduction to Quantum Chemistry”
+  - courses: CH 437 ⟵ “CH 437 - Physical Chemistry for Engineers”
+  - courses: CH 441 ⟵ “CH 441 - Forensic Chemistry”
+  - courses: CH 442 ⟵ “CH 442 - Advanced Synthetic Techniques”
+  - courses: CH 444 ⟵ “CH 444 - Advanced Synthetic Techniques II”
+  - courses: CH 452 ⟵ “CH 452 - Advanced Measurement Techniques I”
+  - … 15 more rows
+### `9f22175b7435ea26` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-gep-courses-in-the-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `9ff34f6f57b2a2bd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-a-physical-sciences-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: BME 201 ⟵ “BME 201 - Computer Methods in Biomedical Engineering”
+  - courses: CSC 442 ⟵ “CSC 442 - Introduction to Data Science”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: ECE 489 ⟵ “ECE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECE 589 ⟵ “ECE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECG 561 ⟵ “ECG 561 - Applied Econometrics I”
+  - courses: EMS 519 ⟵ “EMS 519 - Teaching and Learning of Statistical Thinking”
+  - courses: GPH 404 ⟵ “GPH 404 - Epidemiology and Statistics in Global Public Health”
+  - courses: MA 412 ⟵ “MA 412 - Long-Term Actuarial Models”
+  - courses: MA 413 ⟵ “MA 413 - Short-Term Actuarial Models”
+  - courses: MA 546 ⟵ “MA 546 - Probability and Stochastic Processes I”
+  - courses: MA 555 ⟵ “MA 555 - Introduction to Manifold Theory”
+  - courses: MEA 150 ⟵ “MEA 150 - Environmental Issues in Water Resources”
+  - courses: MEA 463 ⟵ “MEA 463 - Fluid Physics”
+  - courses: MSE 489 ⟵ “MSE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: MSE 589 ⟵ “MSE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: NE 528 ⟵ “NE 528 - Introduction to Plasma Physics and Fusion Energy”
+  - courses: NE 529 ⟵ “NE 529 - Plasma Physics and Fusion Energy II”
+  - courses: PSY 240 ⟵ “PSY 240 - Introduction to Behavioral Research I”
+  - courses: PSY 241 ⟵ “PSY 241 - Introduction to Behavioral Research I Lab”
+  - courses: PSY 242 ⟵ “PSY 242 - Introduction to Behavioral Research II”
+  - courses: PSY 243 ⟵ “PSY 243 - Introduction to Behavioral Research II Lab”
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+  - courses: PY 124 ⟵ “PY 124 - Solar System Astronomy”
+  - courses: PY 125 ⟵ “PY 125 - Astronomy Laboratory”
+  - … 15 more rows
+### `a14bb573d309f549` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=plan-requirements-science-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+  - courses: EMS 205 ⟵ “EMS 205 - Introduction to Teaching Science”
+  - courses: EMS 404 ⟵ “EMS 404 - Design of Tools and Learning Environments in Science Education”
+  - courses: EMS 405 ⟵ “EMS 405 - Methods of Teaching Science I”
+  - courses: EMS 406 ⟵ “EMS 406 - Methods of Teaching Science II”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `a18ceda0ff41dd6d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-required-courses-within-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: SSC 332 ⟵ “SSC 332 - Environmental Soil Microbiology”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: SSC 442 ⟵ “SSC 442 - Soil and Environmental Biogeochemistry”
+  - courses: SSC 452 ⟵ “SSC 452 - Soil Classification”
+  - courses: SSC 461 ⟵ “SSC 461 - Soil Physical Properties and Plant Growth”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+### `a25cccc8e0b413fe` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=ans-restricted-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: ANS 400 ⟵ “ANS 400 - Companion Animal Management”
+  - courses: ANS 402 ⟵ “ANS 402 - Beef Cattle Management”
+  - courses: ANS 403 ⟵ “ANS 403 - Swine Management”
+  - courses: ANS 404 ⟵ “ANS 404 - Dairy Cattle Management”
+  - courses: ANS 408 ⟵ “ANS 408 - Small Ruminant Management”
+  - courses: ANS 410 ⟵ “ANS 410 - Equine Breeding Farm Management”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+### `a2fcc1d7b0e79bc0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-c-applied-sci-tech-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAE 525 ⟵ “BAE 525 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 535 ⟵ “BAE 535 - Precision Agriculture Technology”
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BBS 301 ⟵ “BBS 301 - Process Validation Science”
+  - courses: BBS 426 ⟵ “BBS 426 - Upstream Biomanufacturing Laboratory”
+  - courses: BBS 526 ⟵ “BBS 526 - Upstream Biomanufacturing Laboratory”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: BEC 426 ⟵ “BEC 426 - Upstream Biomanufacturing Laboratory”
+  - … 15 more rows
+### `a383ae0acbface6a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `a3e992215d0f61c4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 201 ⟵ “ANS 201 - Techniques of Animal Care”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: ANS 303 ⟵ “ANS 303 - Principles of Equine Evaluation”
+  - courses: ANS 304 ⟵ “ANS 304 - Dairy Cattle Evaluation”
+  - courses: ANS 309 ⟵ “ANS 309 - Livestock Evaluation”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 400 ⟵ “ANS 400 - Companion Animal Management”
+  - courses: ANS 402 ⟵ “ANS 402 - Beef Cattle Management”
+  - courses: ANS 403 ⟵ “ANS 403 - Swine Management”
+  - courses: ANS 404 ⟵ “ANS 404 - Dairy Cattle Management”
+  - courses: ANS 408 ⟵ “ANS 408 - Small Ruminant Management”
+  - courses: ANS 410 ⟵ “ANS 410 - Equine Breeding Farm Management”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 440 ⟵ “ANS 440 - Animal Genetic Improvement”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: BAE 100 ⟵ “BAE 100 - Introduction to Biological and Agricultural Engineering and Technology”
+  - courses: BAE 202 ⟵ “BAE 202 - Introduction to Biological and Agricultural Engineering Methods”
+  - courses: BAE 302 ⟵ “BAE 302 - Transport Phenomena”
+  - … 15 more rows
+### `a692ca488be0f02b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-required-courses-within-major [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: SSC 462 ⟵ “SSC 462 - Soil-Crop Management Systems”
+### `a8f4f0ebba89ec40` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-concentration-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - section: plan-requirements-concentration-electives ⟵ “Plan Requirements — Concentration Electives”
+### `aa5b94f967a3808b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=advised-science-electives-any-gep-natural-sciences-course-except-bio-105-106-ch- [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: BIO 165 ⟵ “BIO 165 - ”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 111 ⟵ “ES 111 - Applications of Environmental Sciences”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - courses: FOR 264 ⟵ “FOR 264 - Forest Wildlife”
+  - courses: FOR 339 ⟵ “FOR 339 - ”
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 405 ⟵ “FW 405 - Tropical Wildlife Ecology”
+  - courses: FW 444 ⟵ “FW 444 - Mammalogy”
+  - courses: FW 453 ⟵ “FW 453 - Principles of Wildlife Science”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: NR 303 ⟵ “NR 303 - Humans and the Environment”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+### `aa67683df55d56ad` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-other-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+### `ac750f2641bf84ec` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-mathematics-natural-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: CH 221 ⟵ “CH 221 - Organic Chemistry I”
+  - courses: CH 222 ⟵ “CH 222 - Organic Chemistry I Lab”
+  - courses: CH 223 ⟵ “CH 223 - Organic Chemistry II”
+  - courses: CH 224 ⟵ “CH 224 - Organic Chemistry II Lab”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: BCH 351 ⟵ “BCH 351 - General Biochemistry”
+### `ac8367b2c518a30a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-major-requirements [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: BAE 100 ⟵ “BAE 100 - Introduction to Biological and Agricultural Engineering and Technology”
+  - courses: BAET 200 ⟵ “BAET 200 - Computer Applications in Biological and Agricultural Engineering Technology”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAE 210 ⟵ “BAE 210 - Leadership and Ethics in Science, Technology, and Agriculture”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - courses: BAET 333 ⟵ “BAET 333 - Processing Agricultural Products”
+  - courses: BAET 343 ⟵ “BAET 343 - Agricultural Electrification”
+  - courses: BAET 432 ⟵ “BAET 432 - Agricultural and Environmental Safety and Health”
+  - courses: BAET 450 ⟵ “BAET 450 - Biological and Agricultural Engineering Technology Capstone”
+  - courses: GC 120 ⟵ “GC 120 - Foundations of Graphics”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `b1f3cc81e653c3c9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `b22ec91ed7c2280f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-a-biological-sciences-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: BIT 100 ⟵ “BIT 100 - Current Topics in Biotechnology”
+  - courses: BIT 465 ⟵ “BIT 465 - Real-time PCR Techniques”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 473 ⟵ “BIT 473 - Protein Interactions”
+  - courses: BIT 474 ⟵ “BIT 474 - Plant Genetic Engineering”
+  - courses: BIT 565 ⟵ “BIT 565 - Real-time PCR Techniques”
+  - courses: BIT 571 ⟵ “BIT 571 - RNA Interference and Model Organisms”
+  - courses: BIT 573 ⟵ “BIT 573 - Protein Interactions”
+  - courses: BIT 574 ⟵ “BIT 574 - Plant Genetic Engineering”
+  - courses: ENT 305 ⟵ “ENT 305 - Introduction to Forensic Entomology”
+### `b2a6f9d8f6ddeeec` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-sciences-bs-applied-nutrition-concentration-major-required-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+  - courses: FS 201 ⟵ “FS 201 - Introduction to Food Science”
+  - courses: NTR 301 ⟵ “NTR 301 - Introduction to Human Nutrition”
+  - courses: NTR 302 ⟵ “NTR 302 - Introduction to Nutrition Research, Communication, and Careers”
+  - courses: NTR 401 ⟵ “NTR 401 - Advanced Nutrition and Metabolism”
+  - courses: NTR 402 ⟵ “NTR 402 - Nutrition Communication for Diverse Audiences”
+  - courses: NTR 490 ⟵ “NTR 490 - Senior Capstone Experience in Nutrition”
+### `b2e9bd5d0a58f6d9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `b2eff2b5560c4f93` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=agriculture-electives-agriculture-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 260 ⟵ “ARE 260 - Marketing and Risk Management in the Pork Industry”
+  - courses: ARE 270 ⟵ “ARE 270 - Principles of Agribusiness Entrepreneurship”
+  - courses: ARE 295 ⟵ “ARE 295 - Special Topics in Agricultural & Resource Economics (200 Level)”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 323 ⟵ “ARE 323 - Agribusiness Finance”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 370 ⟵ “ARE 370 - Agribusiness New Venture Development”
+  - courses: ARE 395 ⟵ “ARE 395 - Special Topics in Agricultural and Resource Economics (300 level)”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: ARE 413 ⟵ “ARE 413 - Applied Agribusiness Marketing”
+  - courses: ARE 415 ⟵ “ARE 415 - Introduction to Commodity Futures Markets”
+  - courses: ARE 420 ⟵ “ARE 420 - Taxation in Agriculture, Production, and Agribusiness”
+  - courses: ARE 425 ⟵ “ARE 425 - Contracts and Organizations in Agriculture”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - … 12 more rows
+### `b54e1f6858756dd1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-other-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+### `b78e527f238daba9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-total-hours-of-free-electives-vary-in-order-to-allow-the-minim [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - section: plan-requirements-total-hours-of-free-electives-vary-in-order-to-allow-the-minim ⟵ “Plan Requirements — Total hours of free electives vary in order to allow the minimum hours required for the degree to equal 120 hours.”
+### `b8af5063d9d94928` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `bb4b1bf7d0203b26` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-b-economics-business [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ACC 310 ⟵ “ACC 310 - Intermediate Financial Accounting I”
+  - courses: ACC 311 ⟵ “ACC 311 - Intermediate Financial Accounting II”
+  - courses: ACC 330 ⟵ “ACC 330 - An Introduction To Income Taxation”
+  - courses: ACC 340 ⟵ “ACC 340 - Accounting Information Systems”
+  - courses: ACC 411 ⟵ “ACC 411 - Business Valuation”
+  - courses: ACC 420 ⟵ “ACC 420 - Cost Accounting for Effective Management”
+  - courses: ACC 440 ⟵ “ACC 440 - Enterprise Resource Planning Systems: Implementation, Risk, and Analytics”
+  - courses: ACC 450 ⟵ “ACC 450 - Auditing and Assurance Services”
+  - courses: ACC 451 ⟵ “ACC 451 - Internal Auditing”
+  - courses: ACC 460 ⟵ “ACC 460 - Governmental and Nonprofit Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - … 15 more rows
+### `bb99ad43661affcd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-c-applied-sci-tech [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 350 ⟵ “AEE 350 - Personal Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 360 ⟵ “AEE 360 - Developing Team Leadership in Agriculture and Life Sciences”
+  - courses: AEE 423 ⟵ “AEE 423 - Practicum in Agricultural Extension/Industry”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 433 ⟵ “AEE 433 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: AEE 435 ⟵ “AEE 435 - Professional Presentations in Agricultural Organizations”
+  - courses: AEE 460 ⟵ “AEE 460 - Organizational Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: AEE 490 ⟵ “AEE 490 - Seminar in Agricultural and Extension Education”
+  - courses: AEE 533 ⟵ “AEE 533 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - … 15 more rows
+### `bcf0fcee98852b52` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `bd615480c0100ad3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=are-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+### `beb1e46797257f42` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=are-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+### `bf8e8e32f91bf62c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-mathematical-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `c2aa18ed6777435c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=advised-electives-ornamental-plant-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: HS 302 ⟵ “HS 302 - Gardening with Herbaceous Perennials”
+  - courses: HS 303 ⟵ “HS 303 - Ornamental Plant Identification I”
+  - courses: HS 304 ⟵ “HS 304 - Ornamental Plant Identification II”
+  - courses: HS 411 ⟵ “HS 411 - Nursery Management”
+  - courses: HS 442 ⟵ “HS 442 - Floriculture Crop Production”
+  - courses: PB 220 ⟵ “PB 220 - Local Flora”
+### `c7c5b1887cf95bc0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `c90558f6de064d60` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-sciences-bs-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+  - section: nutrition-sciences-bs-free-electives ⟵ “Nutrition Sciences (BS) — Free Electives”
+### `c9c9acfe0e044110` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=agriculture-electives-group-c-applied-sci-tech-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 420 ⟵ “FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: FOR 472 ⟵ “FOR 472 - Forest Soils”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: HS 200 ⟵ “HS 200 - Home Horticulture”
+  - courses: HS 201 ⟵ “HS 201 - The World of Horticulture: Principles and Practices”
+  - courses: HS 203 ⟵ “HS 203 - Home Plant Propagation”
+  - courses: HS 242 ⟵ “HS 242 - Landscape Design Introduction”
+  - … 15 more rows
+### `ca2014e3d234d524` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-a-biological-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: ANS 230 ⟵ “ANS 230 - Animal Nutrition”
+  - courses: ANS 231 ⟵ “ANS 231 - Animal Nutrition Lab”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 452 ⟵ “ANS 452 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: ANS 552 ⟵ “ANS 552 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 553 ⟵ “ANS 553 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 554 ⟵ “ANS 554 - Lactation, Milk and Nutrition”
+  - courses: BCH 101 ⟵ “BCH 101 - Introduction to Microbiology and Biochemistry Laboratory Practices”
+  - … 15 more rows
+### `caa46ecf5b73415c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `cb115684562411c8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-communication [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `cb7bba737caa4ca7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=business-electives-entrepreneurship-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: BUS 370 ⟵ “BUS 370 - Operations and Supply Chain Management”
+  - courses: MIE 201 ⟵ “MIE 201 - Introduction to Business”
+  - courses: MIE 310 ⟵ “MIE 310 - Introduction to Entrepreneurship”
+  - courses: MIE 413 ⟵ “MIE 413 - New Venture Planning”
+### `cdba6853481b4470` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-a-biological-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: ANS 230 ⟵ “ANS 230 - Animal Nutrition”
+  - courses: ANS 231 ⟵ “ANS 231 - Animal Nutrition Lab”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 452 ⟵ “ANS 452 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: ANS 552 ⟵ “ANS 552 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 553 ⟵ “ANS 553 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 554 ⟵ “ANS 554 - Lactation, Milk and Nutrition”
+  - courses: BCH 101 ⟵ “BCH 101 - Introduction to Microbiology and Biochemistry Laboratory Practices”
+  - … 15 more rows
+### `cecf93790a00f23b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-writing-and-speaking [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `cfcd71e2b6421e09` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-writing-and-speaking [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `cfd3a9f53dd65b6f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `d067f39810ca3b70` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-general-education-program-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `d069f84b0445d03e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=economics-management-policy-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+  - courses: AEC 380 ⟵ “AEC 380 - Water Resources: Global Issues in Ecology, Policy, Management, and Advocacy”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: CE 478 ⟵ “CE 478 - Energy and Climate”
+  - courses: CS 418 ⟵ “CS 418 - Introduction to Regulatory Science in Agriculture”
+  - courses: CS 428 ⟵ “CS 428 - Advanced Regulatory Science in Agriculture”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+  - courses: NR 460 ⟵ “NR 460 - Renewable Natural Resource Management and Policy”
+  - courses: PS 201 ⟵ “PS 201 - American Politics and Government”
+  - courses: PS 202 ⟵ “PS 202 - State and Local Government”
+  - courses: PS 320 ⟵ “PS 320 - U.S. Environmental Law and Politics”
+  - courses: SSC 455 ⟵ “SSC 455 - Soils, Environmental Quality and Global Challenges”
+### `d130fbb68e1ce127` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `d1a086d1b74c7fd7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `d2663a33afe197b2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-concentration-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+### `d44d699c1b3e6d69` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=plan-requirements-major-requirements [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: BAE 100 ⟵ “BAE 100 - Introduction to Biological and Agricultural Engineering and Technology”
+  - courses: BAET 200 ⟵ “BAET 200 - Computer Applications in Biological and Agricultural Engineering Technology”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAE 210 ⟵ “BAE 210 - Leadership and Ethics in Science, Technology, and Agriculture”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - courses: BAET 333 ⟵ “BAET 333 - Processing Agricultural Products”
+  - courses: BAET 343 ⟵ “BAET 343 - Agricultural Electrification”
+  - courses: BAET 432 ⟵ “BAET 432 - Agricultural and Environmental Safety and Health”
+  - courses: BAET 450 ⟵ “BAET 450 - Biological and Agricultural Engineering Technology Capstone”
+  - courses: GC 120 ⟵ “GC 120 - Foundations of Graphics”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `d45da5a5d1b0bb47` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-b-economics-business-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 449 ⟵ “BUS 449 - Information Technology Practicum”
+  - courses: BUS 474 ⟵ “BUS 474 - Logistics Management”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: EC 404 ⟵ “EC 404 - Money, Financial Markets, and the Economy”
+  - courses: EC 410 ⟵ “EC 410 - Public Finance”
+  - courses: EC 413 ⟵ “EC 413 - Industrial Organization”
+  - courses: EC 431 ⟵ “EC 431 - Labor Economics”
+  - courses: EC 449 ⟵ “EC 449 - International Finance”
+  - courses: EC 451 ⟵ “EC 451 - Econometrics II”
+  - courses: EC 474 ⟵ “EC 474 - Economics of Financial Institutions and Markets”
+  - courses: EC 490 ⟵ “EC 490 - Research Seminar in Economics”
+  - courses: FTM 482 ⟵ “FTM 482 - Global Brand Management in Textiles and Apparel”
+  - … 4 more rows
+### `d7c76b4dd9ef9688` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-professional-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+  - courses: EMS 204 ⟵ “EMS 204 - Introduction to Mathematics Education”
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ECI 306 ⟵ “ECI 306 - Middle Years Reading”
+  - courses: ECI 309 ⟵ “ECI 309 - Teaching in the Middle Years”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: EMS 480 ⟵ “EMS 480 - Teaching Mathematics with Technology”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+  - courses: EMS 474 ⟵ “EMS 474 - Teaching Mathematics Topics in the Middle Grades”
+  - courses: EMS 470 ⟵ “EMS 470 - Methods and Materials for Teaching Mathematics”
+  - courses: EMS 490 ⟵ “EMS 490 - School Mathematics from an Advanced Perspective”
+  - courses: EMS 471 ⟵ “EMS 471 - Student Teaching in Mathematics”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `d7f1d15f34271e5b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-writing-and-speaking [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `da02e1910e13fdfd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-sciences-bs-major-required-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+  - courses: FS 201 ⟵ “FS 201 - Introduction to Food Science”
+  - courses: NTR 301 ⟵ “NTR 301 - Introduction to Human Nutrition”
+  - courses: NTR 302 ⟵ “NTR 302 - Introduction to Nutrition Research, Communication, and Careers”
+  - courses: NTR 401 ⟵ “NTR 401 - Advanced Nutrition and Metabolism”
+  - courses: NTR 402 ⟵ “NTR 402 - Nutrition Communication for Diverse Audiences”
+  - courses: NTR 490 ⟵ “NTR 490 - Senior Capstone Experience in Nutrition”
+### `dabf702bf2aa48d3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=advanced-economics-education-and-policy-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - courses: AEE 433 ⟵ “AEE 433 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: AEE 435 ⟵ “AEE 435 - Professional Presentations in Agricultural Organizations”
+  - courses: AEE 460 ⟵ “AEE 460 - Organizational Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 450 ⟵ “AEE 450 - Transformative Leadership in Agricultural and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - courses: ARE 448 ⟵ “ARE 448 - International Agricultural Trade”
+  - courses: NPS 340 ⟵ “NPS 340 - Fundamentals of Grant Development for Nonprofits”
+  - courses: PS 320 ⟵ “PS 320 - U.S. Environmental Law and Politics”
+  - courses: SOC 311 ⟵ “SOC 311 - Community Relationships”
+  - courses: SOC 342 ⟵ “SOC 342 - International Development”
+### `dd979268fd6abf56` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-mathematics-sciences [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: MA 107 ⟵ “MA 107 - Precalculus I”
+### `df45ee2bbca18c0d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `e0627313e3452de1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - section: plan-requirements-electives ⟵ “Plan Requirements — Electives”
+### `e0f0f271c618be1d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-c-applied-sci-tech-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAE 525 ⟵ “BAE 525 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 535 ⟵ “BAE 535 - Precision Agriculture Technology”
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BBS 301 ⟵ “BBS 301 - Process Validation Science”
+  - courses: BBS 426 ⟵ “BBS 426 - Upstream Biomanufacturing Laboratory”
+  - courses: BBS 526 ⟵ “BBS 526 - Upstream Biomanufacturing Laboratory”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: BEC 426 ⟵ “BEC 426 - Upstream Biomanufacturing Laboratory”
+  - … 15 more rows
+### `e0ff011cc3173676` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=restricted-electives-group-c-applied-sci-tech-3 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BME 217 ⟵ “BME 217 - Biomedical Electronics Laboratory”
+  - courses: BME 298 ⟵ “BME 298 - Biomedical Engineering Design and Manufacturing I”
+  - courses: BME 398 ⟵ “BME 398 - Biomedical Engineering Design and Manufacturing II”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FM 525 ⟵ “FM 525 - Feed Manufacturing Technology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 420 ⟵ “FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: FOR 472 ⟵ “FOR 472 - Forest Soils”
+  - courses: FOR 520 ⟵ “FOR 520 - Watershed and Wetlands Hydrology”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - courses: FS 562 ⟵ “FS 562 - Postharvest Physiology”
+  - … 15 more rows
+### `e56685ea515d2b47` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `e7b46d21dfa1c968` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=environmental-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+  - courses: BIT 100 ⟵ “BIT 100 - Current Topics in Biotechnology”
+  - courses: ES 200 ⟵ “ES 200 - Climate Change and Sustainability”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+### `e9055c6d68b09c5c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-sciences-bs-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `edfbc56f6f25f2fe` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `f0ae53b399950e86` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+  - courses: FS 221 ⟵ “FS 221 - Discover: Chocolate, Coffee and Tea”
+  - courses: FS 222 ⟵ “FS 222 - Discover: Conventional, Organic and Genetically Engineered Foods”
+  - courses: FS 250 ⟵ “FS 250 - Basics of Food Safety & Quality”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 324 ⟵ “FS 324 - Milk and Dairy Products”
+  - courses: FS 325 ⟵ “FS 325 - Introduction to Brewing Science and Technology”
+  - courses: FS 330 ⟵ “FS 330 - Science of Food Preparation”
+  - courses: FS 352 ⟵ “FS 352 - Introduction to Microbiological Food Safety Hazards”
+  - courses: FS 354 ⟵ “FS 354 - Food Sanitation”
+  - courses: FS 401 ⟵ “FS 401 - Advanced Nutrition and Metabolism”
+  - courses: FS 416 ⟵ “FS 416 - Quality Control in Food and Bioprocessing”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 453 ⟵ “FS 453 - Food Laws and Regulations”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 481 ⟵ “FS 481 - Research Experience in Food and Bioprocessing Sciences”
+  - courses: FS 501 ⟵ “FS 501 - Advanced Nutrition and Metabolism”
+  - courses: FS 516 ⟵ “FS 516 - Quality Control in Food and Bioprocessing”
+  - courses: FS 520 ⟵ “FS 520 - Pre-Harvest Food Safety”
+  - courses: FS 522 ⟵ “FS 522 - Food Packaging”
+  - courses: FS 530 ⟵ “FS 530 - Post-Harvest Food Safety”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - courses: FS 540 ⟵ “FS 540 - Food Safety and Public Health”
+  - courses: FS 550 ⟵ “FS 550 - Food Industry Study Tour”
+  - courses: FS 553 ⟵ “FS 553 - Food Laws and Regulations”
+  - courses: FS 554 ⟵ “FS 554 - Lactation, Milk, and Nutrition”
+  - … 9 more rows
+### `f113d29403b14c32` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `f1c8ca73afb67b0e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=economics-education-and-policy-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: GPH 201 ⟵ “GPH 201 - ”
+  - courses: NPS 340 ⟵ “NPS 340 - Fundamentals of Grant Development for Nonprofits”
+  - courses: IDS 201 ⟵ “IDS 201 - Environmental Ethics”
+  - courses: IDS 211 ⟵ “IDS 211 - Eating through American History”
+  - courses: NTR 210 ⟵ “NTR 210 - Introduction to Community Food Security”
+  - courses: NTR 310 ⟵ “NTR 310 - Food Insecurity and Federal Nutrition Programs”
+  - courses: NTR 330 ⟵ “NTR 330 - Public Health Nutrition”
+  - courses: IDS 203 ⟵ “IDS 203 - Humans and the Environment”
+### `f1e51bf49e837253` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-agricultural-education [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 491 ⟵ “AEE 491 - Seminar in Agricultural Education”
+### `f38727b81a6f2133` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-c-applied-sci-tech-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAE 525 ⟵ “BAE 525 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 535 ⟵ “BAE 535 - Precision Agriculture Technology”
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BBS 301 ⟵ “BBS 301 - Process Validation Science”
+  - courses: BBS 426 ⟵ “BBS 426 - Upstream Biomanufacturing Laboratory”
+  - courses: BBS 526 ⟵ “BBS 526 - Upstream Biomanufacturing Laboratory”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: BEC 426 ⟵ “BEC 426 - Upstream Biomanufacturing Laboratory”
+  - … 15 more rows
+### `f4a56937b750af79` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-free-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `f524d574a27e4fc7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=restricted-electives-group-a-biological-sciences-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 441 ⟵ “AEC 441 - Biology of Fishes”
+  - courses: AEC 442 ⟵ “AEC 442 - Biology of Fishes Laboratory”
+  - courses: AEC 460 ⟵ “AEC 460 - Field Ecology and Methods”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: BEC 463 ⟵ “BEC 463 - Fermentation of Recombinant Microorganisms”
+  - courses: BEC 563 ⟵ “BEC 563 - Fermentation of Recombinant Microorganisms”
+  - courses: BIO 140 ⟵ “BIO 140 - ”
+  - courses: BIO 141 ⟵ “BIO 141 - ”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BIO 315 ⟵ “BIO 315 - General Parasitology”
+  - courses: BIO 330 ⟵ “BIO 330 - Evolutionary Biology”
+  - courses: BIO 361 ⟵ “BIO 361 - Developmental Biology”
+  - courses: BIO 370 ⟵ “BIO 370 - Developmental Anatomy of the Vertebrates”
+  - courses: BIO 375 ⟵ “BIO 375 - Developmental Anatomy Laboratory”
+  - courses: BIO 405 ⟵ “BIO 405 - Functional Histology”
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIO 424 ⟵ “BIO 424 - Endocrinology”
+  - courses: BIO 482 ⟵ “BIO 482 - Capstone Course in Molecular, Cellular, and Developmental Biology”
+  - courses: BIO 483 ⟵ “BIO 483 - Capstone Course in Integrative Physiology and Neurobiology”
+  - … 15 more rows
+### `f6e0aeaa42ab7c46` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=history-philosophy-of-science-education-elective [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+  - courses: ECI 305 ⟵ “ECI 305 - Equity and Education”
+  - courses: HI 321 ⟵ “HI 321 - Scientific Revolution and European Society, 1500-1800”
+  - courses: HI 322 ⟵ “HI 322 - Rise of Modern Science”
+  - courses: HI 323 ⟵ “HI 323 - Science, American Style”
+  - courses: HI 341 ⟵ “HI 341 - Technology in History”
+  - courses: HI 481 ⟵ “HI 481 - History of the Life Sciences”
+  - courses: HI 482 ⟵ “HI 482 - Darwinism in Science and Society”
+  - courses: HI 483 ⟵ “HI 483 - Science and Religion in European History”
+  - courses: HI 484 ⟵ “HI 484 - Science in European Culture”
+  - courses: HI 485 ⟵ “HI 485 - History of American Technology”
+  - courses: PHI 340 ⟵ “PHI 340 - Philosophy of Science”
+  - courses: PHI 440 ⟵ “PHI 440 - The Scientific Method”
+  - courses: STS 210 ⟵ “STS 210 - Women and Gender in Science and Technology”
+  - courses: STS 214 ⟵ “STS 214 - Introduction to Science, Technology, and Society”
+  - courses: STS 301 ⟵ “STS 301 - Science and Civilization”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+  - courses: STS 471 ⟵ “STS 471 - Darwinism and Christianity”
+  - courses: STS 490 ⟵ “STS 490 - Issues in Science, Technology, and Society”
+### `f76bf91f625b36c5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=business-economics-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+  - courses: ACC 200 ⟵ “ACC 200 - Introduction to Managerial Accounting”
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - courses: BUS 320 ⟵ “BUS 320 - Principles of Finance”
+  - courses: BUS 360 ⟵ “BUS 360 - Principles of Marketing”
+  - courses: BUS 370 ⟵ “BUS 370 - Operations and Supply Chain Management”
+  - courses: BUS 420 ⟵ “BUS 420 - Corporate Finance”
+  - courses: BUS 449 ⟵ “BUS 449 - Information Technology Practicum”
+  - courses: BUS 462 ⟵ “BUS 462 - Marketing Research”
+  - courses: BUS 464 ⟵ “BUS 464 - International Marketing”
+  - courses: BUS 465 ⟵ “BUS 465 - Traditional and Digital Brand Promotion”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 404 ⟵ “EC 404 - Money, Financial Markets, and the Economy”
+  - courses: EC 431 ⟵ “EC 431 - Labor Economics”
+  - … 4 more rows
+### `fd58f3bbf85ddd74` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-a-biological-sciences-2 [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 441 ⟵ “AEC 441 - Biology of Fishes”
+  - courses: AEC 442 ⟵ “AEC 442 - Biology of Fishes Laboratory”
+  - courses: AEC 460 ⟵ “AEC 460 - Field Ecology and Methods”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: BEC 463 ⟵ “BEC 463 - Fermentation of Recombinant Microorganisms”
+  - courses: BEC 563 ⟵ “BEC 563 - Fermentation of Recombinant Microorganisms”
+  - courses: BIO 140 ⟵ “BIO 140 - ”
+  - courses: BIO 141 ⟵ “BIO 141 - ”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BIO 315 ⟵ “BIO 315 - General Parasitology”
+  - courses: BIO 330 ⟵ “BIO 330 - Evolutionary Biology”
+  - courses: BIO 361 ⟵ “BIO 361 - Developmental Biology”
+  - courses: BIO 370 ⟵ “BIO 370 - Developmental Anatomy of the Vertebrates”
+  - courses: BIO 375 ⟵ “BIO 375 - Developmental Anatomy Laboratory”
+  - courses: BIO 405 ⟵ “BIO 405 - Functional Histology”
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIO 424 ⟵ “BIO 424 - Endocrinology”
+  - courses: BIO 482 ⟵ “BIO 482 - Capstone Course in Molecular, Cellular, and Developmental Biology”
+  - courses: BIO 483 ⟵ “BIO 483 - Capstone Course in Integrative Physiology and Neurobiology”
+  - … 15 more rows
+### `fe7725ea23aa0fcf` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-general-education-program-gep-courses [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `17c66ea251bad864` University of North Carolina Wilmington — costs 2026-27 · residency=out_of_state [same] (labeled_in_source)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/cost-of-attendance (sha256 292de9cc9c87)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 10}
+  - on_campus:Tuition: 23275 ⟵ “Tuition | $4,576 | $23,275”
+  - on_campus:Fees: 2823 ⟵ “Fees | $2,823 | $2,823”
+  - on_campus:Housing: 10064 ⟵ “Housing | $10,064 | $10,064”
+  - on_campus:Meals: 6192 ⟵ “Meals | $6,192 | $6,192”
+  - on_campus:Books/Supplies: 867 ⟵ “Books/Supplies | $867 | $867”
+  - on_campus:Transportation: 2043 ⟵ “Transportation | $1,715 | $2,043”
+  - on_campus:Loan Origination Fee: 64 ⟵ “Loan Origination Fee | $64 | $64”
+  - on_campus:Personal: 1570 ⟵ “Personal | $1,570 | $1,570”
+  - on_campus:Health Insurance: 2454 ⟵ “Health Insurance | $2,454 | $2,454”
+  - on_campus:Total: 49352 ⟵ “Total | $30,325 | $49,352”
+### `22fb3f8f2148a63f` University of North Carolina Wilmington — costs 2026-27 · residency=in_state [same] (labeled_in_source)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/cost-of-attendance (sha256 292de9cc9c87)
+- checks: {"columns": 1, "components_reconcile": true, "rows": 10}
+  - on_campus:Tuition: 4576 ⟵ “Tuition | $4,576 | $23,275”
+  - on_campus:Fees: 2823 ⟵ “Fees | $2,823 | $2,823”
+  - on_campus:Housing: 10064 ⟵ “Housing | $10,064 | $10,064”
+  - on_campus:Meals: 6192 ⟵ “Meals | $6,192 | $6,192”
+  - on_campus:Books/Supplies: 867 ⟵ “Books/Supplies | $867 | $867”
+  - on_campus:Transportation: 1715 ⟵ “Transportation | $1,715 | $2,043”
+  - on_campus:Loan Origination Fee: 64 ⟵ “Loan Origination Fee | $64 | $64”
+  - on_campus:Personal: 1570 ⟵ “Personal | $1,570 | $1,570”
+  - on_campus:Health Insurance: 2454 ⟵ “Health Insurance | $2,454 | $2,454”
+  - on_campus:Total: 30325 ⟵ “Total | $30,325 | $49,352”
+### `ebbcfb97510bf263` University of North Carolina at Chapel Hill — academic_programs 2026-27 · program_key=business-administration-major-b-s-b-a [same] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+- checks: {"courses": 150, "groups": 22, "groups_skipped": 0}
+  - program_name: Business Administration Major, B.S.B.A. ⟵ “Business Administration Major, B.S.B.A. < University of North Carolina at Chapel Hill”
+### `1f0f2985ef670106` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=managing-people-and-organizations-requirements [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 350 ⟵ “BUSI 350 - Symposium Core Committee”
+  - courses: BUSI 470 ⟵ “BUSI 470 - Storytelling to Influence and Inspire”
+  - courses: BUSI 540 ⟵ “BUSI 540 - Leadership for Wicked Problems”
+  - courses: BUSI 523 ⟵ “BUSI 523 - Diversity and Inclusion at Work”
+  - courses: BUSI 527 ⟵ “BUSI 527 - Gender at Work”
+  - courses: BUSI 528 ⟵ “BUSI 528 - Leadership Communication”
+  - courses: BUSI 530 ⟵ “BUSI 530 - Corporate Communication: Social Advocacy and Activism”
+  - courses: BUSI 545 ⟵ “BUSI 545 - Negotiations”
+  - courses: BUSI 547 ⟵ “BUSI 547 - Managerial Decision Making”
+  - courses: BUSI 550 ⟵ “BUSI 550 - People Analytics”
+  - courses: BUSI 555 ⟵ “BUSI 555 - Groups and Teams in Organizations”
+  - courses: BUSI 556 ⟵ “BUSI 556 - Thinking Creatively: Cognitive Tools for Individuals and Teams”
+  - courses: BUSI 526 ⟵ “BUSI 526 - Leadership in Action”
+### `35d6fcdf100c2b62` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=requirements-business-electives [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - section: requirements-business-electives ⟵ “Requirements — Business Electives”
+### `3a7d2e533866e485` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-accounting [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 574 ⟵ “BUSI 574 - Taxes and Business Strategy”
+  - courses: BUSI 575 ⟵ “BUSI 575 - Financial Statement Analysis and Valuation”
+### `3b09d55965c10727` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-sustainability [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 508 ⟵ “BUSI 508 - Sustainable Business and Impact Entrepreneurship”
+  - courses: BUSI 507 ⟵ “BUSI 507 - Sustainable Business and Social Enterprise H”
+### `3f71f3155f2e310e` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-marketing [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 488 ⟵ “BUSI 488 - Data Science in the Business World”
+  - courses: BUSI 562 ⟵ “BUSI 562 - Consumer Behavior”
+  - courses: BUSI 563 ⟵ “BUSI 563 - Retail and E-tail Marketing”
+  - courses: BUSI 564 ⟵ “BUSI 564 - Design Thinking and Product Development”
+  - courses: BUSI 566 ⟵ “BUSI 566 - Marketing Strategy: Sustainable Competitive Advantage in Dynamic Environments”
+  - courses: BUSI 568 ⟵ “BUSI 568 - Customer Insights and Analytics”
+  - courses: BUSI 559 ⟵ “BUSI 559 - Product Management”
+### `4f98d05abc618729` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-organizational-behavior [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 547 ⟵ “BUSI 547 - Managerial Decision Making”
+  - courses: BUSI 540 ⟵ “BUSI 540 - Leadership for Wicked Problems”
+  - courses: BUSI 555 ⟵ “BUSI 555 - Groups and Teams in Organizations”
+  - courses: BUSI 550 ⟵ “BUSI 550 - People Analytics”
+### `58ad20a563ca4940` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=operations-management-required-course [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 533 ⟵ “BUSI 533 - Supply Chain Management H”
+  - courses: BUSI 487 ⟵ “BUSI 487 - Creating Data-Driven Business Insights: Databases and Visualization”
+  - courses: BUSI 520 ⟵ “BUSI 520 - Advanced Spreadsheet Modeling for Business”
+  - courses: BUSI 532 ⟵ “BUSI 532 - Service and Platforms Operations Management H”
+  - courses: BUSI 536 ⟵ “BUSI 536 - Project Management”
+  - courses: BUSI 537 ⟵ “BUSI 537 - Retail Operations”
+  - courses: BUSI 554 ⟵ “BUSI 554 - Consulting Skills and Frameworks H”
+  - courses: BUSI 538 ⟵ “BUSI 538 - Sustainable Operations”
+  - courses: BUSI 559 ⟵ “BUSI 559 - Product Management”
+  - courses: STOR 305 ⟵ “STOR 305 - Introduction to Decision Analytics”
+### `74f6fbaf0e1030bd` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=entrepreneurship-requirements [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 500 ⟵ “BUSI 500 - Entrepreneurship and Business Planning H”
+  - courses: BUSI 509 ⟵ “BUSI 509 - Entrepreneurs Lab: Advanced Entrepreneurial Insight and Leadership H”
+  - courses: BUSI 501 ⟵ “BUSI 501 - Professional Selling Strategies and Skills”
+  - courses: BUSI 502 ⟵ “BUSI 502 - Entrepreneurial Finance”
+  - courses: BUSI 503 ⟵ “BUSI 503 - Family Business I: Introduction to Family Enterprise”
+  - courses: BUSI 504 ⟵ “BUSI 504 - Startup UNC”
+  - courses: BUSI 505 ⟵ “BUSI 505 - Entrepreneurial Consulting”
+  - courses: BUSI 506 ⟵ “BUSI 506 - Venture Capital Fundamentals”
+  - courses: BUSI 508 ⟵ “BUSI 508 - Sustainable Business and Impact Entrepreneurship”
+  - courses: BUSI 512 ⟵ “BUSI 512 - Family Business II: Governance and Ownership”
+  - courses: BUSI 513 ⟵ “BUSI 513 - Venture Capital in Action”
+  - courses: BUSI 517 ⟵ “BUSI 517 - Private Equity and Debt Markets”
+  - courses: BUSI 521 ⟵ “BUSI 521 - Design Thinking: The Innovation Process for Complex Problems”
+  - courses: BUSI 564 ⟵ “BUSI 564 - Design Thinking and Product Development”
+  - courses: BUSI 574 ⟵ “BUSI 574 - Taxes and Business Strategy”
+  - courses: BUSI 608 ⟵ “BUSI 608 - Introduction to FinTech - Blockchain Technologies and Cryptocurrencies”
+### `77b4cb02b25680cc` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=finance-requirements [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 409 ⟵ “BUSI 409 - Advanced Corporate Finance H”
+  - courses: BUSI 502 ⟵ “BUSI 502 - Entrepreneurial Finance”
+  - courses: BUSI 506 ⟵ “BUSI 506 - Venture Capital Fundamentals”
+  - courses: BUSI 580 ⟵ “BUSI 580 - Investments H”
+  - courses: BUSI 582 ⟵ “BUSI 582 - Mergers and Acquisitions H”
+  - courses: BUSI 191 ⟵ “BUSI 191 - Gateway into Capital Markets and Investments”
+  - courses: BUSI 513 ⟵ “BUSI 513 - Venture Capital in Action”
+  - courses: BUSI 517 ⟵ “BUSI 517 - Private Equity and Debt Markets”
+  - courses: BUSI 518H ⟵ “BUSI 518H - Applied Private Equity”
+  - courses: BUSI 575 ⟵ “BUSI 575 - Financial Statement Analysis and Valuation”
+  - courses: BUSI 577 ⟵ “BUSI 577 - Projects for Investment Management Experiential-Learning”
+  - courses: BUSI 581 ⟵ “BUSI 581 - Financial Modeling for Leveraged Buyout Transactions”
+  - courses: BUSI 583 ⟵ “BUSI 583 - Applied Investment Management 2, H”
+  - courses: BUSI 584 ⟵ “BUSI 584 - Financial Modeling”
+  - courses: BUSI 587 ⟵ “BUSI 587 - Investment Banking H”
+  - courses: BUSI 588 ⟵ “BUSI 588 - Introduction to Derivative Securities and Risk Management H”
+  - courses: BUSI 589 ⟵ “BUSI 589 - Fixed Income H”
+  - courses: BUSI 600 ⟵ “BUSI 600 - Risk Management”
+  - courses: BUSI 606 ⟵ “BUSI 606 - Buyout Structures and Deals”
+  - courses: BUSI 688 ⟵ “BUSI 688 - Applied Trading Strategies H”
+  - courses: BUSI 511 ⟵ “BUSI 511 - Regional Venture Capital Immersion”
+  - courses: BUSI 574 ⟵ “BUSI 574 - Taxes and Business Strategy”
+  - courses: BUSI 597 ⟵ “BUSI 597 - Sustainable Finance”
+  - courses: BUSI 601 ⟵ “BUSI 601 - Real Estate Finance H”
+  - courses: BUSI 607 ⟵ “BUSI 607 - Inside the Capital Markets - Institutions, Players and Regulators”
+  - … 2 more rows
+### `7c2e35b6fb558d0c` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-finance [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 502 ⟵ “BUSI 502 - Entrepreneurial Finance”
+  - courses: BUSI 582 ⟵ “BUSI 582 - Mergers and Acquisitions H”
+  - courses: BUSI 618 ⟵ “BUSI 618 - Global Financial Markets”
+### `8019835f8ca7f49a` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-operations [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 487 ⟵ “BUSI 487 - Creating Data-Driven Business Insights: Databases and Visualization”
+  - courses: BUSI 532 ⟵ “BUSI 532 - Service and Platforms Operations Management H”
+  - courses: BUSI 533 ⟵ “BUSI 533 - Supply Chain Management H”
+### `81a88aa13f45453c` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=real-estate-required-courses [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 585 ⟵ “BUSI 585 - Introduction to Real Estate”
+  - courses: BUSI 601 ⟵ “BUSI 601 - Real Estate Finance H”
+  - courses: BUSI 603 ⟵ “BUSI 603 - Real Estate Development”
+  - courses: BUSI 604 ⟵ “BUSI 604 - Real Estate and Capital Markets H”
+  - courses: BUSI 293 ⟵ “BUSI 293 - Affordable Housing Practicum”
+  - courses: BUSI 520 ⟵ “BUSI 520 - Advanced Spreadsheet Modeling for Business”
+  - courses: BUSI 548 ⟵ “BUSI 548 - Financing Affordable Housing”
+  - courses: BUSI 580 ⟵ “BUSI 580 - Investments H”
+  - courses: BUSI 589 ⟵ “BUSI 589 - Fixed Income H”
+  - courses: BUSI 592 ⟵ “BUSI 592 - Applied Private Equity: Real Estate”
+  - courses: BUSI 605 ⟵ “BUSI 605 - Real Estate Capstone”
+  - courses: PLAN 246 ⟵ “PLAN 246 - Cities of the Past, Present, and Future: Introduction to Planning”
+  - courses: PLAN 420 ⟵ “PLAN 420 - Community Design and Green Architecture”
+### `bd2f95ffcfa874c5` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=requirements-courses-outside-the-kenan-flagler-business-school [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - section: requirements-courses-outside-the-kenan-flagler-business-school ⟵ “Requirements — Courses Outside the Kenan-Flagler Business School”
+### `c8db75038a57ef0c` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=business-of-health-highly-encouraged-course [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: HPM 300 ⟵ “HPM 300 - The U.S. Health System”
+  - courses: BUSI 625 ⟵ “BUSI 625 - Global Healthcare Management”
+  - courses: BUSI 626 ⟵ “BUSI 626 - Introduction to Healthcare Management”
+  - courses: BUSI 627 ⟵ “BUSI 627 - Healthcare Brand Plan”
+  - courses: CHIP 400 ⟵ “CHIP 400 - Digital Health Innovation”
+  - courses: ECON 550 ⟵ “ECON 550 - Advanced Health Econometrics”
+  - courses: ECON 552 ⟵ “ECON 552 - The Economics of Health Care Markets and Policy”
+  - courses: MEJO 469 ⟵ “MEJO 469 - How Healthcare Works: Programs, Stakeholders, and Strategy”
+  - courses: MEJO 569 ⟵ “MEJO 569 - Behavioral Science in Health Communication”
+  - courses: PHIL 165 ⟵ “PHIL 165 - Bioethics 1, H”
+  - courses: BMME 590 ⟵ “BMME 590 - Special Topics in Biomedical Engineering”
+  - courses: NURS 425 ⟵ “NURS 425 - Global and Interprofessional Approaches to Solve Complex Cases”
+### `d9502a4571abffa4` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-management-and-communication [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 525 ⟵ “BUSI 525 - Advanced Business Presentations”
+  - courses: BUSI 530 ⟵ “BUSI 530 - Corporate Communication: Social Advocacy and Activism”
+### `dee07bd86a7341e0` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=business-of-health-required-course [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 510 ⟵ “BUSI 510 - The Challenge of Healthcare: A System Overview”
+### `dfc051481f058680` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-entrepreneurship [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 506 ⟵ “BUSI 506 - Venture Capital Fundamentals”
+### `f46b51fbde98cefc` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=marketing-requirements [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 488 ⟵ “BUSI 488 - Data Science in the Business World”
+  - courses: BUSI 501 ⟵ “BUSI 501 - Professional Selling Strategies and Skills”
+  - courses: BUSI 558 ⟵ “BUSI 558 - Digital Marketing”
+  - courses: BUSI 559 ⟵ “BUSI 559 - Product Management”
+  - courses: BUSI 562 ⟵ “BUSI 562 - Consumer Behavior”
+  - courses: BUSI 563 ⟵ “BUSI 563 - Retail and E-tail Marketing”
+  - courses: BUSI 564 ⟵ “BUSI 564 - Design Thinking and Product Development”
+  - courses: BUSI 565 ⟵ “BUSI 565 - Marketing Research Design and Analysis”
+  - courses: BUSI 566 ⟵ “BUSI 566 - Marketing Strategy: Sustainable Competitive Advantage in Dynamic Environments”
+  - courses: BUSI 567 ⟵ “BUSI 567 - Customer Journeys”
+  - courses: BUSI 568 ⟵ “BUSI 568 - Customer Insights and Analytics”
+  - courses: BUSI 627 ⟵ “BUSI 627 - Healthcare Brand Plan”
+### `fa5897e8d296c69c` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-business-of-health [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 627 ⟵ “BUSI 627 - Healthcare Brand Plan”
+### `fd66b5be2964e848` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=sustainability-required-course [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+  - courses: BUSI 507 ⟵ “BUSI 507 - Sustainable Business and Social Enterprise 2, H”
+  - courses: BUSI 540 ⟵ “BUSI 540 - Leadership for Wicked Problems”
+  - courses: BUSI 530 ⟵ “BUSI 530 - Corporate Communication: Social Advocacy and Activism”
+  - courses: BUSI 538 ⟵ “BUSI 538 - Sustainable Operations”
+  - courses: BUSI 597 ⟵ “BUSI 597 - Sustainable Finance”
+  - courses: DATA 541 ⟵ “DATA 541 - Natural Hazards and Financial Risk”
+### `5c6419f5c1fe17d1` University of North Carolina at Chapel Hill — transfer_policies 2026-27 [same] (source_unlabeled)
+- source: https://admissions.unc.edu/transfer-credit/current-students/ (sha256 a0e90f0aa8a5)
+- checks: {"fields": ["min_grade"]}
+  - min_grade: C ⟵ “Transfer Credit Rules Students must earn a grade of “C” or higher in all external courses to be approved for transfer credit.”
+### `57ab19961a245cab` University of North Carolina at Charlotte — credit_policies 2026-27 · policy_kind=AP [same] (source_unlabeled)
+- source: https://admissions.charlotte.edu/resources/credit-for-prior-exams/ap-credit/ (sha256 348b25397b55)
+- checks: {"distinct_exams": 37, "equivalencies": 40, "rows_without_score": 0}
+  - equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3 or 4 or 5]:  ⟵ “African American Studies | 3 or 4 or 5 | 3 | HIST 2160”
+  - equivalencies[AP-RESEARCH|3 or 4 or 5]:  ⟵ “AP Research | 3 or 4 or 5 | 3 | General Elective”
+  - equivalencies[AP-SEMINAR|3 or 4 or 5]:  ⟵ “AP Seminar | 3 or 4 or 5 | 3 | General Elective”
+  - equivalencies[AP-ART-HISTORY|3 or 4 or 5]:  ⟵ “Art History | 3 or 4 or 5 | 3 | ARTA 1502”
+  - equivalencies[AP-DRAWING|3]:  ⟵ “Studio Art: Drawing | 3 | 3 | ARTA 1ELE”
+  - equivalencies[AP-2-D-ART-DESIGN|3 or 4]:  ⟵ “Studio Art: 2D Design | 3 or 4 | 3 | ARTA 1ELE”
+  - equivalencies[AP-3-D-ART-DESIGN|3]:  ⟵ “Studio Art: 3D Design | 3 | 3 | ARTA 1ELE”
+  - equivalencies[AP-BIOLOGY|5]:  ⟵ “Biology | 5 | 8 | BIOL 2120 & Lab, BIOL 2130 & Lab”
+  - equivalencies[AP-CALCULUS-AB|3 or 4 or 5]:  ⟵ “Calculus AB | 3 or 4 or 5 | 3 | MATH 1241”
+  - equivalencies[AP-CALCULUS-BC|3 or 4 or 5]:  ⟵ “Calculus BC | 3 or 4 or 5 | 6 | MATH 1241 + 1242”
+  - equivalencies[AP-CHEMISTRY|3]:  ⟵ “Chemistry | 3 | 4 | CHEM 1251 + lab”
+  - equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]:  ⟵ “Chinese Language & Culture | 3 | 8 | CHNS 1201 + 1202”
+  - equivalencies[AP-COMPUTER-SCIENCE-A|3]:  ⟵ “Computer Science A | 3 | 4 | ITSC 1212”
+  - equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3 or 4 or 5]:  ⟵ “Computer Science Principles | 3 or 4 or 5 | 3 | ITSC 1110”
+  - equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3 or 4 or 5]:  ⟵ “English Language & Composition | 3 or 4 or 5 | 3 | WRDS 1103”
+  - equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3 or 4 or 5]:  ⟵ “English Literature & Composition | 3 or 4 or 5 | 3 | ENGL 1512”
+  - equivalencies[AP-ENVIRONMENTAL-SCIENCE|3 or 4 or 5]:  ⟵ “Environmental Science | 3 or 4 or 5 | 3 | ESCI 2222”
+  - equivalencies[AP-EUROPEAN-HISTORY|3 or 4 or 5]:  ⟵ “European History* | 3 or 4 or 5 | 6 | HIST 1502 + HIST 2051”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]:  ⟵ “French Language & Culture | 3 | 3 | FREN 1201”
+  - equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3 or 4 or 5]:  ⟵ “French Literature | 3 or 4 or 5 | 6 | FREN 2201 + 2202”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]:  ⟵ “German Language & Culture | 3 | 3 | GERM 1201”
+  - equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3 or 4 or 5]:  ⟵ “German Literature | 3 or 4 or 5 | 6 | GERM 2201 + 2202”
+  - equivalencies[AP-HUMAN-GEOGRAPHY|3 or 4 or 5]:  ⟵ “Human Geography | 3 or 4 or 5 | 3 | GEOG 1105”
+  - equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]:  ⟵ “Italian | 3 | 6 | ITLN 1201 + 1202”
+  - equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]:  ⟵ “Japanese Language & Culture | 3 | 4 | JAPN 1202”
+  - … 15 more rows
+### `m5d5272b51decb2a` University of North Carolina at Charlotte — transfer_policies 2026-27 [new] (source_unlabeled)
+- source: https://admissions.charlotte.edu/apply/transfer-students/transfer-requirements/ (sha256 6e6c306482ce)
+- checks: {"fields": ["min_grade"], "merged_pages": 2}
+  - min_grade: C ⟵ “Transferable courses must be college-level, be taken at a regionally accredited college or university, and have a grade of C or higher.”
+  - residency_requirement_credits: 12 ⟵ “Second degree students must complete at least the last 25% of baccalaureate degree requirements, including the last 12 semester hours, in residence at UNC Charlotte in order to earn the degree.”
+
+## Exceptions (298)
+
+### `547f16e911a86abd` Appalachian State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.appstate.edu/receiving-your-aid/special-circumstances (sha256 2557b74aae34)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: professional_judgment ⟵ “Breadcrumb Home Receiving Your Aid Special Circumstances Explore this section Explore this section Professional Judgments The FAFSA estimates a family's ability to pay for college, but it may not always reflect unique financial situations.”
+  - sentence: professional_judgment ⟵ “If you have special educational costs, need a dependency override or have experienced changes in financial circumstances, you may qualify for a professional judgment appeal.”
+  - sentence: professional_judgment ⟵ “To explore your options, schedule an appointment with a financial aid counselor, who can help determine if you qualify for a professional judgment appeal.”
+### `72d1028d639f2c58` Appalachian State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.appstate.edu/receiving-your-aid/special-circumstances (sha256 2557b74aae34)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: dependency_override ⟵ “Before your appeal can be reviewed, you must complete the verification process if you were selected for verification — unless you are requesting a dependency override.”
+### `7d96ee0192bacd72` Appalachian State University — appeals 2026-27 [new] (labeled_in_source)
+- source: https://financialaid.appstate.edu/receiving-your-aid/satisfactory-academic-progress (sha256 836e5396424a)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 5}
+  - sentence: sap_appeal ⟵ “Appeals Students who are not maintaining SAP under this policy are eligible to submit a SAP Appeal.”
+  - sentence: sap_appeal ⟵ “SAP Appeals are only considered for the following reasons: Standard 1: Student is academically suspended, or is otherwise not in good academic standing Appropriate, documented extenuating circumstances resulting in academic suspension or otherwise not meeting the qualitative standard, even if the student has been granted readmission (including under a Academic Renewal/forgiveness policy) or permis”
+  - sentence: sap_appeal ⟵ “SAP Appeals, including all required documentation, must be submitted online through Student Forms, in AppalNet, by the established deadline for each term.”
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeals must include the following: A Satisfactory Academic Progress Appeal Form A personal statement describing the circumstances that resulted in the student not meeting SAP and the actions the student has taken to achieve academic success going forward, specifically in the term for which the student is appealing for financial aid.”
+  - sentence: sap_appeal ⟵ “Deadlines Deadlines for submitting Satisfactory Academic Progress appeals | Semester | Priority Consideration | Deadline | Fall | July 1 | October 1 | Spring | January 2 | March 1 | Summer | Immediately after notification | June 15 Office of Student Financial Aid and University Scholarships Main navigation (footer) About 2026-27 Federal Loan Changes Types of Aid Apply for Aid Receiving Your Aid Es”
+### `264b12fd1be555d1` Appalachian State University — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://financialaid.appstate.edu/estimated-cost-attendance (sha256 d5948522533e)
+- issues: ambiguous_year_labels
+- checks: {"columns": 1, "rows": 8}
+  - on_campus:Books, Course Materials, Supplies and Equipment*: 800 ⟵ “Books, Course Materials, Supplies and Equipment* | $800 | $800”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | $92 | $92”
+  - on_campus:Personal/Miscellaneous: 2138 ⟵ “Personal/Miscellaneous | $2,138 | $2,138”
+  - on_campus:Living Expenses (Housing)**: 9328 ⟵ “Living Expenses (Housing)** | $9,328 | $9,328”
+  - on_campus:Living Expenses (Food)**: 5966 ⟵ “Living Expenses (Food)** | $5,966 | $5,966”
+  - on_campus:Tuition and Fees***: 24477.96 ⟵ “Tuition and Fees*** | $5,617.96 | $24,477.96”
+  - on_campus:Transportation: 1958 ⟵ “Transportation | $1,126 | $1,958”
+  - on_campus:Totals: 44759.96 ⟵ “Totals | $25,067.96 | $44,759.96”
+### `762b9ae8a99c6f8d` Appalachian State University — costs 2026-27 · residency=in_state [new] (source_unlabeled)
+- source: https://financialaid.appstate.edu/estimated-cost-attendance (sha256 d5948522533e)
+- issues: ambiguous_year_labels
+- checks: {"columns": 1, "rows": 8}
+  - on_campus:Books, Course Materials, Supplies and Equipment*: 800 ⟵ “Books, Course Materials, Supplies and Equipment* | $800 | $800”
+  - on_campus:Loan Fees: 92 ⟵ “Loan Fees | $92 | $92”
+  - on_campus:Personal/Miscellaneous: 2138 ⟵ “Personal/Miscellaneous | $2,138 | $2,138”
+  - on_campus:Living Expenses (Housing)**: 9328 ⟵ “Living Expenses (Housing)** | $9,328 | $9,328”
+  - on_campus:Living Expenses (Food)**: 5966 ⟵ “Living Expenses (Food)** | $5,966 | $5,966”
+  - on_campus:Tuition and Fees***: 5617.96 ⟵ “Tuition and Fees*** | $5,617.96 | $24,477.96”
+  - on_campus:Transportation: 1126 ⟵ “Transportation | $1,126 | $1,958”
+  - on_campus:Totals: 25067.96 ⟵ “Totals | $25,067.96 | $44,759.96”
+### `97d2be58e62a5362` Appalachian State University — costs 2025-26 · residency=in_state [new] (labeled_in_source)
+- source: https://financialaid.appstate.edu/estimated-cost-attendance (sha256 d5948522533e)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 8}
+  - on_campus:Books, Course Materials, Supplies and Equipment*: 800 ⟵ “Books, Course Materials, Supplies and Equipment* | $800 | $800”
+  - on_campus:Loan Fees: 90 ⟵ “Loan Fees | $90 | $90”
+  - on_campus:Personal/Miscellaneous: 2086 ⟵ “Personal/Miscellaneous | $2,086 | $2,086”
+  - on_campus:Living Expenses (Housing)**: 9100 ⟵ “Living Expenses (Housing)** | $9,100 | $9,100”
+  - on_campus:Living Expenses (Food)**: 5628 ⟵ “Living Expenses (Food)** | $5,628 | $5,628”
+  - on_campus:Tuition and Fees***: 5495 ⟵ “Tuition and Fees*** | $5,495 | $23,785”
+  - on_campus:Transportation: 1100 ⟵ “Transportation | $1,100 | $1,800”
+  - on_campus:Totals: 24299 ⟵ “Totals | $24,299 | $43,289”
+### `fe5b9df848a23a3e` Appalachian State University — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://financialaid.appstate.edu/estimated-cost-attendance (sha256 d5948522533e)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "rows": 8}
+  - on_campus:Books, Course Materials, Supplies and Equipment*: 800 ⟵ “Books, Course Materials, Supplies and Equipment* | $800 | $800”
+  - on_campus:Loan Fees: 90 ⟵ “Loan Fees | $90 | $90”
+  - on_campus:Personal/Miscellaneous: 2086 ⟵ “Personal/Miscellaneous | $2,086 | $2,086”
+  - on_campus:Living Expenses (Housing)**: 9100 ⟵ “Living Expenses (Housing)** | $9,100 | $9,100”
+  - on_campus:Living Expenses (Food)**: 5628 ⟵ “Living Expenses (Food)** | $5,628 | $5,628”
+  - on_campus:Tuition and Fees***: 23785 ⟵ “Tuition and Fees*** | $5,495 | $23,785”
+  - on_campus:Transportation: 1800 ⟵ “Transportation | $1,100 | $1,800”
+  - on_campus:Totals: 43289 ⟵ “Totals | $24,299 | $43,289”
+### `2a2e0d177f7528db` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped
+- checks: {"courses": 153, "groups": 6, "groups_skipped": 1}
+  - program_name: Middle Grades Education (BS): Mathematics and Sciences Concentration ⟵ “Middle Grades Education (BS): Mathematics and Sciences Concentration < North Carolina State University”
+### `31145e4f6707ca0a` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=plant-biology-bs [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+- checks: {"courses": 1312, "groups": 24, "groups_skipped": 1}
+  - program_name: Plant Biology (BS) ⟵ “Plant Biology (BS) < North Carolina State University”
+### `6c6689ebc6c1be55` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+- checks: {"courses": 114, "groups": 10, "groups_skipped": 1}
+  - program_name: Technology, Engineering and Design Education (BS): Graphic Communication Concentration ⟵ “Technology, Engineering and Design Education (BS): Graphic Communication Concentration < North Carolina State University”
+### `7f43bf5fd28b998b` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+- checks: {"courses": 48, "groups": 8, "groups_skipped": 2}
+  - program_name: Applied Education Studies (BS): Learning Design and Technology ⟵ “Applied Education Studies (BS): Learning Design and Technology < North Carolina State University”
+### `90a88dcc0d229185` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=science-education-bs-biology-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+- checks: {"courses": 90, "groups": 14, "groups_skipped": 1}
+  - program_name: Science Education (BS): Biology Concentration ⟵ “Science Education (BS): Biology Concentration < North Carolina State University”
+### `b174a742e3a72fba` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped
+- checks: {"courses": 43, "groups": 8, "groups_skipped": 2}
+  - program_name: Technology, Engineering and Design Education (BS): Licensure Concentration ⟵ “Technology, Engineering and Design Education (BS): Licensure Concentration < North Carolina State University”
+### `bc6289fcbb06b21c` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=mathematics-education-bs-computer-specialization [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+- checks: {"courses": 37, "groups": 9, "groups_skipped": 1}
+  - program_name: Mathematics Education (BS): Computer Specialization ⟵ “Mathematics Education (BS): Computer Specialization < North Carolina State University”
+### `c609bf1868b85dab` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=mathematics-education-bs-statistics-specialization [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped
+- checks: {"courses": 40, "groups": 8, "groups_skipped": 1}
+  - program_name: Mathematics Education (BS): Statistics Specialization ⟵ “Mathematics Education (BS): Statistics Specialization < North Carolina State University”
+### `cca31ddf266eaddc` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=poultry-science-bs-science-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped
+- checks: {"courses": 47, "groups": 8, "groups_skipped": 1}
+  - program_name: Poultry Science (BS): Science Concentration ⟵ “Poultry Science (BS): Science Concentration < North Carolina State University”
+### `d167a54351cb6176` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+- checks: {"courses": 90, "groups": 13, "groups_skipped": 1}
+  - program_name: Agroecology & Sustainable Food Systems (BS): Agroecology Research & Production Concentration ⟵ “Agroecology & Sustainable Food Systems (BS): Agroecology Research & Production Concentration < North Carolina State University”
+### `e2c8648d843b2a7d` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=mathematics-education-bs-mathematics-specialization [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+- checks: {"courses": 51, "groups": 10, "groups_skipped": 1}
+  - program_name: Mathematics Education (BS): Mathematics Specialization ⟵ “Mathematics Education (BS): Mathematics Specialization < North Carolina State University”
+### `ec6ac89d516c89c0` North Carolina State University at Raleigh — academic_programs 2026-27 · program_key=poultry-science-bs-technology-concentration [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+- checks: {"courses": 60, "groups": 9, "groups_skipped": 1}
+  - program_name: Poultry Science (BS): Technology Concentration ⟵ “Poultry Science (BS): Technology Concentration < North Carolina State University”
+### `70bb73c8a4a2dfc3` North Carolina State University at Raleigh — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentservices.ncsu.edu/academics/degrees/degree-progress/satisfactory-academic-progress-for-financial-aid-eligibility/ (sha256 6a3abd3d2d8b)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “Satisfactory Academic Progress Appeal Students with extenuating circumstances including, but not limited to, the following may submit an appeal: Extended illness or hospitalization of the student An accident which incapacitates the student for an extended period of time Death or extended illness of an immediate family member Other extenuating circumstances Note: In some cases, a student will fail ”
+### `9cd4afa0b1802851` North Carolina State University at Raleigh — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentservices.ncsu.edu/finances/scholarships-and-financial-aid/eligibility/eligibility-reconsideration/ (sha256 63108abbbdfb)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 4}
+  - sentence: need_based_special_circumstances ⟵ “There are two categories of unique situations: special and unusual circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances Special circumstances are financial situations that support a change to the cost of attendance or Student Aid Index (SAI).”
+  - sentence: need_based_special_circumstances ⟵ “Examples include: Loss or change of employment status, income or assets Divorce/separation or death of a parent/spouse Disability Unusually high medical or disability-related expenses not covered by insurance Child care expenses Other changes or adjustments that impact the student’s cost or ability to pay for college Unusual Circumstances Unusual circumstances are conditions that support a change ”
+  - sentence: need_based_special_circumstances ⟵ “Please note that unusual circumstances do not include: Parents refusal to contribute to student’s education Parents refusal to provide information for the FAFSA or verification Parents do not claim the student for income tax purposes, or that the student demonstrates total self-sufficiency.”
+### `2ca992fb61b34db8` North Carolina State University at Raleigh — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://admissions.ncsu.edu/apply/credit-opportunities/college-level-examination-program-clep/ (sha256 9f82831bead3)
+- issues: rows_without_score
+- checks: {"distinct_exams": 13, "equivalencies": 13, "rows_without_score": 1}
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | PS 201 | 3”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | BIO 1** | 6”
+  - equivalencies[CLEP-CALCULUS|48]:  ⟵ “Calculus | 48 | MA 131 or MA 141, depending upon major | 3 for MA 131, 4 for MA 141”
+  - equivalencies[CLEP-COLLEGE-ALGEBRA|50]:  ⟵ “College Algebra | 50 | MA 107 | 3”
+  - equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|None]:  ⟵ “History & Social Sciences |  | No Credit Awarded | ”
+  - equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|50]:  ⟵ “Introductory Sociology | 50 | SOC 202 | 3”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “Precalculus | 50 | MA 107 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|50]:  ⟵ “Principles of Macroeconomics | 50 | EC 202 | 3”
+  - equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|50]:  ⟵ “Principles of Microeconomics | 50 | EC 201 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]:  ⟵ “US History I | 50 | HI 251 | 3”
+  - equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]:  ⟵ “US History II | 50 | HI 252 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]:  ⟵ “Western Civilization I | 50 | HI 207 | 3”
+  - equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]:  ⟵ “Western Civilization II | 50 | HI 205 | 3”
+### `007b5a1a27431810` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-statistics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+  - courses: ST 307 ⟵ “ST 307 - Introduction to Statistical Programming- SAS”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: ST 312 ⟵ “ST 312 - Introduction to Statistics II”
+### `00c94ec68a057d58` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-3 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEE 226 ⟵ “AEE 226 - Computer Applications and Information Technology in Agricultural & Extension Ed”
+  - courses: BAE 200 ⟵ “BAE 200 - Computer Methods in Biological Engineering”
+  - courses: BMA 573 ⟵ “BMA 573 - Mathematical Modeling of Physical and Biological Processes I”
+  - courses: BMA 574 ⟵ “BMA 574 - Mathematical Modeling of Physical and Biological Processes II”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 350 ⟵ “BUS 350 - Economics and Business Statistics”
+  - courses: CE 435 ⟵ “CE 435 - Engineering Geology”
+  - courses: CE 479 ⟵ “CE 479 - Air Quality”
+  - courses: CE 581 ⟵ “CE 581 - Fluid Mechanics in Natural Environments”
+  - courses: CH 230 ⟵ “CH 230 - Computational Chemistry Lab I”
+  - courses: CH 232 ⟵ “CH 232 - Computational Chemistry Lab II”
+  - courses: CH 315 ⟵ “CH 315 - Quantitative Analysis”
+  - courses: CH 316 ⟵ “CH 316 - Quantitative Analysis Laboratory”
+  - courses: CH 331 ⟵ “CH 331 - Introductory Physical Chemistry”
+  - courses: CH 401 ⟵ “CH 401 - Systematic Inorganic Chemistry I”
+  - courses: CH 403 ⟵ “CH 403 - Systematic Inorganic Chemistry II”
+  - courses: CH 415 ⟵ “CH 415 - Analytical Chemistry II”
+  - courses: CH 431 ⟵ “CH 431 - Physical Chemistry I”
+  - courses: CH 433 ⟵ “CH 433 - Physical Chemistry II”
+  - courses: CH 435 ⟵ “CH 435 - Introduction to Quantum Chemistry”
+  - courses: CH 437 ⟵ “CH 437 - Physical Chemistry for Engineers”
+  - courses: CH 441 ⟵ “CH 441 - Forensic Chemistry”
+  - courses: CH 442 ⟵ “CH 442 - Advanced Synthetic Techniques”
+  - courses: CH 444 ⟵ “CH 444 - Advanced Synthetic Techniques II”
+  - courses: CH 452 ⟵ “CH 452 - Advanced Measurement Techniques I”
+  - … 15 more rows
+### `01d9da83d11030b1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `04b878805aae09ac` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-major-requirements [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+- issues: course_alternatives_in_rule_text
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BBS 301 ⟵ “BBS 301 - Process Validation Science”
+  - courses: BBS 426 ⟵ “BBS 426 - Upstream Biomanufacturing Laboratory”
+  - courses: BEC 220 ⟵ “BEC 220 - Introduction to Drug Development and Careers in Biomanufacturing”
+  - courses: BEC 330 ⟵ “BEC 330 - Principles and Applications of Bioseparations”
+  - courses: BIT 410 ⟵ “BIT 410 - Manipulation of Recombinant DNA”
+  - courses: FS 331 ⟵ “FS 331 - Principles of Food and Bioprocess Engineering”
+  - courses: FS 403 ⟵ “FS 403 - Analytical Techniques in Food & Bioprocessing Science”
+  - courses: FS 416 ⟵ “FS 416 - Quality Control in Food and Bioprocessing”
+  - courses: FS 471 ⟵ “FS 471 - Professionalism & Project Preparation in Food & Bioprocessing Science”
+  - courses: FS 475 ⟵ “FS 475 - Problems and Design in Food and Bioprocessing Science”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+### `052068ccaadec803` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=earth-and-environmental-science-electives-300-400-level [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: ES 300 ⟵ “ES 300 - Energy and Environment”
+  - courses: ES 400 ⟵ “ES 400 - Analysis of Environmental Issues”
+  - courses: ES 449 ⟵ “ES 449 - Human Dimensions of Natural Resources in Australia/New Zealand”
+  - courses: ES 450 ⟵ “ES 450 - Sustaining Natural Resources in Australia/New Zealand”
+  - courses: ES 495 ⟵ “ES 495 - Special Topics in Environmental Science”
+  - courses: MEA 300 ⟵ “MEA 300 - Environmental Geology”
+  - courses: MEA 312 ⟵ “MEA 312 - Atmospheric Thermodynamics”
+  - courses: MEA 315 ⟵ “MEA 315 - Mathematics Methods in Atmospheric Sciences”
+  - courses: MEA 320 ⟵ “MEA 320 - Fundamentals of Air Pollution”
+  - courses: MEA 321 ⟵ “MEA 321 - Fundamentals of Air Quality and Climate Change”
+  - courses: MEA 323 ⟵ “MEA 323 - Geochemistry of Natural Waters”
+  - courses: MEA 350 ⟵ “MEA 350 - Marine Conservation Biology”
+  - courses: MEA 369 ⟵ “MEA 369 - Life on Earth: Principles of Paleontology”
+  - courses: MEA 409 ⟵ “MEA 409 - Watershed Forensics”
+  - courses: MEA 410 ⟵ “MEA 410 - Introduction to Mineralogy”
+  - courses: MEA 411 ⟵ “MEA 411 - Marine Sediment Transport”
+  - courses: MEA 412 ⟵ “MEA 412 - Atmospheric Physics”
+  - courses: MEA 415 ⟵ “MEA 415 - Climate Dynamics”
+  - courses: MEA 421 ⟵ “MEA 421 - Atmospheric Dynamics I”
+  - courses: MEA 422 ⟵ “MEA 422 - Atmospheric Dynamics II”
+  - courses: MEA 425 ⟵ “MEA 425 - Introduction to Atmospheric Chemistry”
+  - courses: MEA 440 ⟵ “MEA 440 - Igneous and Metamorphic Petrology”
+  - courses: MEA 443 ⟵ “MEA 443 - Synoptic Meteorology”
+  - courses: MEA 444 ⟵ “MEA 444 - Mesoscale Meteorology”
+  - courses: MEA 449 ⟵ “MEA 449 - Principles of Biological Oceanography”
+  - … 15 more rows
+### `05643c9cffb1d5c7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+- issues: course_alternatives_in_rule_text
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `05f6433067e9a9ef` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-gep-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `064e0d165d3c3c32` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=restricted-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+- issues: course_alternatives_in_rule_text
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: BIO 330 ⟵ “BIO 330 - Evolutionary Biology”
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIT 476 ⟵ “BIT 476 - Applied Bioinformatics”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+  - courses: CSSC 495 ⟵ “CSSC 495 - Special Topics in Crop and Soil Sciences”
+  - courses: ENT 425 ⟵ “ENT 425 - General Entomology”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+  - courses: GN 312 ⟵ “GN 312 - Elementary Genetics Laboratory”
+  - courses: GN 423 ⟵ “GN 423 - Population, Quantitative and Evolutionary Genetics”
+  - courses: MB 200 ⟵ “MB 200 - The Fourth Horseman: Plagues that Changed the World”
+  - courses: MB 351 ⟵ “MB 351 - General Microbiology”
+  - courses: MB 575 ⟵ “MB 575 - Introduction to Mycology”
+  - courses: PB 200 ⟵ “PB 200 - Plant Life”
+  - courses: PB 250 ⟵ “PB 250 - Plant Biology”
+  - … 15 more rows
+### `07761b65303eae1a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-7 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEE 101 ⟵ “AEE 101 - Introduction to Career and Technical Education”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 326 ⟵ “AEE 326 - Teaching Diverse Learners in AED”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 350 ⟵ “AEE 350 - Personal Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 360 ⟵ “AEE 360 - Developing Team Leadership in Agriculture and Life Sciences”
+  - courses: AEE 423 ⟵ “AEE 423 - Practicum in Agricultural Extension/Industry”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: AEE 433 ⟵ “AEE 433 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: AEE 435 ⟵ “AEE 435 - Professional Presentations in Agricultural Organizations”
+  - courses: AEE 460 ⟵ “AEE 460 - Organizational Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: AEE 490 ⟵ “AEE 490 - Seminar in Agricultural and Extension Education”
+  - courses: AEE 533 ⟵ “AEE 533 - Leadership and Management of Volunteers in Agricultural and Extension Education”
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BAET 332 ⟵ “BAET 332 - Management of Animal Environments”
+  - … 15 more rows
+### `081897c182af839f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-science-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - courses: EMS 205 ⟵ “EMS 205 - Introduction to Teaching Science”
+  - courses: EMS 404 ⟵ “EMS 404 - Design of Tools and Learning Environments in Science Education”
+  - courses: EMS 405 ⟵ “EMS 405 - Methods of Teaching Science I”
+  - courses: EMS 406 ⟵ “EMS 406 - Methods of Teaching Science II”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `08a1c9daf1195f53` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `08d2aebb3d2f9ba5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=restricted-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+- issues: course_alternatives_in_rule_text
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 323 ⟵ “ARE 323 - Agribusiness Finance”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: ENT 425 ⟵ “ENT 425 - General Entomology”
+  - courses: FS 222 ⟵ “FS 222 - Discover: Conventional, Organic and Genetically Engineered Foods”
+  - courses: GIS 280 ⟵ “GIS 280 - Introduction to GIS”
+  - courses: PP 315 ⟵ “PP 315 - Principles of Plant Pathology”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+  - … 8 more rows
+### `08f4f85900e8fa2a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-professional-technical-content [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: GC 120 ⟵ “GC 120 - Foundations of Graphics”
+  - courses: GC 250 ⟵ “GC 250 - Architectural Graphic Communications”
+  - courses: TDE 110 ⟵ “TDE 110 - Materials & Processes Technology”
+  - courses: TDE 131 ⟵ “TDE 131 - Technology through Engineering and Design I”
+  - courses: TDE 205 ⟵ “TDE 205 - Desktop Publishing and Imaging Technology”
+  - courses: TDE 331 ⟵ “TDE 331 - Technology Through Engineering and Design II”
+  - courses: TDE 481 ⟵ “TDE 481 - Research & Development in Technology Education”
+### `0e68081f30c70643` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-mathematics-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `0eba8f58eac59e56` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-major-requirements [changed] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+- issues: mixed_required_and_choice, conflicts_with_verified_record
+- change rule_details: `{'catalog_year': '2026-2027', 'category': 'major_core', 'choose_count': 1, 'courses': [{'code': 'ARE 201', 'credits': 3, 'title': 'Introduction to Agricultural & Resource Economics'}, {'code': 'CS 230', 'credits': 3, 'title': 'Introduction to Agroecology'}, {'code': 'CS 415', 'credits': 3, 'title': 'Integrated Pest Management'}, {'code': 'CS 430', 'credits': 4, 'title': 'Advanced Agroecology'}, {'code': 'SOC 202', 'credits': 3, 'title': 'Principles of Sociology'}, {'code': 'SOC 350', 'credits': 3, 'title': 'Food and Society'}, {'code': 'SSC 200', 'credits': 3, 'title': 'Soil Science'}, {'code': 'SSC 201', 'credits': 1, 'title': 'Soil Science Laboratory'}, {'code': 'SSC 427', 'credits': 3, 'title': 'Biological Approaches to Sustainable Soil Systems'}, {'code': 'SSC 428', 'credits': 1, 'title': 'Soil Management Principles for Sustainable Agriculture'}, {'code': 'CSSC 492', 'title': 'Professional Internship Experience in Crop and Soil Sciences'}, {'code': 'CSSC 493', 'title': 'Research Experience in Crop and Soil Sciences'}, {'code': 'ALS 494', 'title': 'International Learning Experience in Agriculture and Life Sciences'}, {'code': 'HS 494', 'title': 'Teaching Experience in Horticultural Science'}], 'group_type': 'choose_courses', 'rule_text': 'CS/HS 410 Community Food Systems 3 CS/HS 480 Sustainable Food Production (capstone) 1 FS/NTR 301 Introduction to Human Nutrition 3 Experiential Learning 3 Select one of the following:', 'schema': 'requirement_group/v1', 'source_section': 'Plan Requirements — Major Requirements'}` → `{'schema': 'requirement_group/v1', 'catalog_year': '2026-2027', 'category': 'major_core', 'source_section': 'Plan Requirements — Major Requirements', 'group_type': 'choose_courses', 'choose_count': 1, 'courses': [{'code': 'ARE 201', 'title': 'Introduction to Agricultural & Resource Economics', 'credits': 3}, {'code': 'CS 230', 'title': 'Introduction to Agroecology', 'credits': 3}, {'code': 'CS/HS 410', 'title': 'Community Food Systems', 'credits': 3}, {'code': 'CS 415', 'title': 'Integrated Pest Management', 'credits': 3}, {'code': 'CS 430', 'title': 'Advanced Agroecology', 'credits': 4}, {'code': 'CS/HS 480', 'title': 'Sustainable Food Production (capstone)', 'credits': 1}, {'code': 'FS/NTR 301', 'title': 'Introduction to Human Nutrition', 'credits': 3}, {'code': 'SOC 202', 'title': 'Principles of Sociology', 'credits': 3}, {'code': 'SOC 350', 'title': 'Food and Society', 'credits': 3}, {'code': 'SSC 200', 'title': 'Soil Science', 'credits': 3}, {'code': 'SSC 201', 'title': 'Soil Science Laboratory', 'credits': 1}, {'code': 'SSC 427', 'title': 'Biological Approaches to Sustainable Soil Systems', 'credits': 3}, {'code': 'SSC 428', 'title': 'Soil Management Principles for Sustainable Agriculture', 'credits': 1}, {'code': 'CSSC 492', 'title': 'Professional Internship Experience in Crop and Soil Sciences'}, {'code': 'CSSC 493', 'title': 'Research Experience in Crop and Soil Sciences'}, {'code': 'ALS 494', 'title': 'International Learning Experience in Agriculture and Life Sciences'}, {'code': 'HS 494', 'title': 'Teaching Experience in Horticultural Science'}], 'rule_text': 'Experiential Learning 3 Select one of the following:'}`
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS/HS 410 ⟵ “CS/HS 410 - Community Food Systems”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS/HS 480 ⟵ “CS/HS 480 - Sustainable Food Production (capstone)”
+  - courses: FS/NTR 301 ⟵ “FS/NTR 301 - Introduction to Human Nutrition”
+  - courses: SOC 202 ⟵ “SOC 202 - Principles of Sociology”
+  - courses: SOC 350 ⟵ “SOC 350 - Food and Society”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: SSC 427 ⟵ “SSC 427 - Biological Approaches to Sustainable Soil Systems”
+  - courses: SSC 428 ⟵ “SSC 428 - Soil Management Principles for Sustainable Agriculture”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+  - courses: ALS 494 ⟵ “ALS 494 - International Learning Experience in Agriculture and Life Sciences”
+  - courses: HS 494 ⟵ “HS 494 - Teaching Experience in Horticultural Science”
+### `10af0f9defe21180` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `113fdf747f5b25de` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+- issues: mixed_required_and_choice
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+### `1210af484f60d0a1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: COM 211 ⟵ “COM 211 - Argumentation and Advocacy”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: ENG 232 ⟵ “ENG 232 - Literature and Medicine”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+  - courses: ENG 425 ⟵ “ENG 425 - Analysis of Scientific and Technical Writing”
+### `1263457de4ca91c2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped
+  - courses: PO 290 ⟵ “PO 290 - Exploring Opportunities in Poultry Science”
+### `137073bd206a379f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=agricultural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: AEC 203 ⟵ “AEC 203 - An Introduction to the Honey Bee and Beekeeping”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: ENT 425 ⟵ “ENT 425 - General Entomology”
+  - courses: PB 215 ⟵ “PB 215 - Medicinal Plants”
+  - courses: PB 250 ⟵ “PB 250 - Plant Biology”
+  - courses: PP 315 ⟵ “PP 315 - Principles of Plant Pathology”
+### `17843798c944e48c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration · requirement_key=plan-requirements-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: EMS 375 ⟵ “EMS 375 - Methods of Teaching Science I”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: ECI 305 ⟵ “ECI 305 - Equity and Education”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: EMS 476 ⟵ “EMS 476 - Student Teaching in Science”
+  - courses: EMS 470 ⟵ “EMS 470 - Methods and Materials for Teaching Mathematics”
+  - courses: EMS 471 ⟵ “EMS 471 - Student Teaching in Mathematics”
+  - courses: EMS 474 ⟵ “EMS 474 - Teaching Mathematics Topics in the Middle Grades”
+  - courses: ECI 309 ⟵ “ECI 309 - Teaching in the Middle Years”
+  - courses: ECI 306 ⟵ “ECI 306 - Middle Years Reading”
+  - courses: EMS 373 ⟵ “EMS 373 - Instructional Materials in Science”
+  - courses: HESM 280 ⟵ “HESM 280 - ”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+### `180082a490982702` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-communication-advanced-writing [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: choice_rule_unparsed
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: COM 211 ⟵ “COM 211 - Argumentation and Advocacy”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: COM 479 ⟵ “COM 479 - Climate Change Communication”
+  - courses: ENG 232 ⟵ “ENG 232 - Literature and Medicine”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+  - courses: ENG 425 ⟵ “ENG 425 - Analysis of Scientific and Technical Writing”
+### `18244a7ce192ad12` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `185cb01283b26af9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: TDE 452 ⟵ “TDE 452 - Lab Planning in Technology Education”
+  - courses: TDE 407 ⟵ “TDE 407 - Field Work in Technology Education”
+### `18a833f678b9861c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+### `18bc00e5ff945a18` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=plan-requirements-d-100 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: TDE 205 ⟵ “TDE 205 - Desktop Publishing and Imaging Technology”
+### `18f7039e35a101e6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `198ed6854a486c19` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=management-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - courses: ACC 200 ⟵ “ACC 200 - Introduction to Managerial Accounting”
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: AFS 305 ⟵ “AFS 305 - Racial and Ethnic Relations”
+  - courses: ANT 261 ⟵ “ANT 261 - Technology in Society and Culture”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: BUS 320 ⟵ “BUS 320 - Financial Management”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 350 ⟵ “BUS 350 - Economics and Business Statistics”
+  - courses: BUS 360 ⟵ “BUS 360 - Marketing Methods”
+  - courses: BUS 370 ⟵ “BUS 370 - Operations and Supply Chain Management”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - … 15 more rows
+### `1bba6b9d0443d683` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `1cd0f5155f263182` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `1ea8768ab8441f8a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=business-finance-electives-2 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+  - courses: PO 340 ⟵ “PO 340 - Live Poultry and Poultry Product Evaluation, Grading, and Inspection”
+  - courses: PO 410 ⟵ “PO 410 - Production and Management of Game Birds in Confinement”
+  - courses: PO 421 ⟵ “PO 421 - Commercial Egg Production”
+  - courses: PO 424 ⟵ “PO 424 - Poultry Meat Production”
+### `1f263b40c66403c9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `1fb28cda7ea7c9ed` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-sciences-bs-mathematics-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: BIO 240 ⟵ “BIO 240 - Principles of Human Anatomy & Physiology (A): Nervous, Skeletal, Muscular, & Digestive Systems”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: PY 212 ⟵ “PY 212 - College Physics II”
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: PSY 200 ⟵ “PSY 200 - Introduction to Psychology”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `2032c98d1a6d9e11` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `206b2c00b8c6c5f6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=soil-science-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: course_alternatives_in_rule_text
+  - courses: SSC 421 ⟵ “SSC 421 - ”
+  - courses: SSC 427 ⟵ “SSC 427 - Biological Approaches to Sustainable Soil Systems”
+  - courses: SSC 455 ⟵ “SSC 455 - Soils, Environmental Quality and Global Challenges”
+  - courses: SSC 462 ⟵ “SSC 462 - Soil-Crop Management Systems”
+### `214ff36ef5aab6c6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=plan-requirements-education-major [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: PSY 376 ⟵ “PSY 376 - Developmental Psychology”
+### `2224b0e667dcc33d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `23a1ce788dfe91fb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-general-education-program-gep-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `23b4a9fc9514fc28` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `271c7667bb85c5da` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `27a92ebead207763` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-other-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- issues: course_alternatives_in_rule_text
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+### `287cdfd906c2fccc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-writing-and-speaking [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `2afa3cabf5a5b06b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-mathematical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: MA 242 ⟵ “MA 242 - Calculus III”
+  - courses: MA 225 ⟵ “MA 225 - Foundations of Advanced Mathematics”
+  - courses: MA 351 ⟵ “MA 351 - Introduction to Discrete Mathematical Models”
+  - courses: MA 403 ⟵ “MA 403 - Introduction to Modern Algebra”
+  - courses: MA 405 ⟵ “MA 405 - Introduction to Linear Algebra”
+  - courses: MA 408 ⟵ “MA 408 - Foundations of Euclidean Geometry”
+### `2b5598f00567dc67` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration · requirement_key=mathematics-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped
+  - courses: BMA 573 ⟵ “BMA 573 - Mathematical Modeling of Physical and Biological Processes I”
+  - courses: BMA 574 ⟵ “BMA 574 - Mathematical Modeling of Physical and Biological Processes II”
+  - courses: CSC 416 ⟵ “CSC 416 - Introduction to Combinatorics”
+  - courses: CSC 427 ⟵ “CSC 427 - Introduction to Numerical Analysis I”
+  - courses: CSC 428 ⟵ “CSC 428 - Introduction to Numerical Analysis II”
+  - courses: CSC 565 ⟵ “CSC 565 - Graph Theory”
+  - courses: CSC 580 ⟵ “CSC 580 - Numerical Analysis I”
+  - courses: CSC 583 ⟵ “CSC 583 - Introduction to Parallel Computing”
+  - courses: ECG 528 ⟵ “ECG 528 - Options and Derivatives Pricing”
+  - courses: FIM 528 ⟵ “FIM 528 - Options and Derivatives Pricing”
+  - courses: FIM 548 ⟵ “FIM 548 - Monte Carlo Methods for Financial Math”
+  - courses: FIM 549 ⟵ “FIM 549 - Financial Risk Analysis”
+  - courses: ISE 505 ⟵ “ISE 505 - Linear Programming”
+  - courses: LOG 335 ⟵ “LOG 335 - Symbolic Logic”
+  - courses: MA 103 ⟵ “MA 103 - Topics in Contemporary Mathematics”
+  - courses: MA 103A ⟵ “MA 103A - Topics in Contemporary Mathematics”
+  - courses: MA 105 ⟵ “MA 105 - Mathematics of Finance”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: MA 116 ⟵ “MA 116 - Introduction to Scientific Programming (Math)”
+  - courses: MA 132 ⟵ “MA 132 - Computational Mathematics for Life and Management Sciences”
+  - courses: MA 151 ⟵ “MA 151 - Calculus for Elementary Education I”
+  - courses: MA 152 ⟵ “MA 152 - Calculus for Elementary Education II”
+  - courses: MA 205 ⟵ “MA 205 - ”
+  - courses: MA 225 ⟵ “MA 225 - Foundations of Advanced Mathematics”
+  - courses: MA 242 ⟵ “MA 242 - Calculus III”
+  - … 15 more rows
+### `2ce7ef613a53db39` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=business-finance-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: BUS 225 ⟵ “BUS 225 - Personal Finance”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - courses: MIE 201 ⟵ “MIE 201 - Introduction to Business”
+### `2d9272c763836a05` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=applied-plant-science-elective [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 524 ⟵ “CS 524 - Seed Physiology”
+  - courses: FOR 303 ⟵ “FOR 303 - Silvics and Forest Tree Physiology”
+  - courses: ENT 402 ⟵ “ENT 402 - Forest Entomology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 401 ⟵ “FOR 401 - Dendrology”
+  - courses: FOR 402 ⟵ “FOR 402 - Forest Entomology”
+  - courses: FOR 411 ⟵ “FOR 411 - Forest Genetics”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 562 ⟵ “FS 562 - Postharvest Physiology”
+  - courses: HS 301 ⟵ “HS 301 - Plant Propagation”
+  - courses: HS 403 ⟵ “HS 403 - Plant Micropropagation and Tissue Culture”
+  - courses: HS 411 ⟵ “HS 411 - Nursery Management”
+  - courses: HS 420 ⟵ “HS 420 - Green Infrastructure”
+  - courses: HS 421 ⟵ “HS 421 - Temperate-Zone Tree Fruits: Physiology and Culture”
+  - courses: HS 422 ⟵ “HS 422 - Small Fruit Production”
+  - courses: HS 431 ⟵ “HS 431 - Vegetable Production”
+  - courses: HS 432 ⟵ “HS 432 - Introduction to Permaculture”
+  - courses: HS 440 ⟵ “HS 440 - Greenhouse Management”
+  - courses: HS 442 ⟵ “HS 442 - Floriculture Crop Production”
+  - courses: HS 476 ⟵ “HS 476 - Crop Physiology and Production in Controlled Environments”
+  - … 12 more rows
+### `2e0e4e93f6e6e92a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-general-education-and-psychology [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+### `2e29197dd6580b85` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-5 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ACC 310 ⟵ “ACC 310 - Intermediate Financial Accounting I”
+  - courses: ACC 311 ⟵ “ACC 311 - Intermediate Financial Accounting II”
+  - courses: ACC 330 ⟵ “ACC 330 - An Introduction To Income Taxation”
+  - courses: ACC 340 ⟵ “ACC 340 - Accounting Information Systems”
+  - courses: ACC 411 ⟵ “ACC 411 - Business Valuation”
+  - courses: ACC 420 ⟵ “ACC 420 - Cost Accounting for Effective Management”
+  - courses: ACC 440 ⟵ “ACC 440 - Enterprise Resource Planning Systems: Implementation, Risk, and Analytics”
+  - courses: ACC 450 ⟵ “ACC 450 - Auditing and Assurance Services”
+  - courses: ACC 451 ⟵ “ACC 451 - Internal Auditing”
+  - courses: ACC 460 ⟵ “ACC 460 - Governmental and Nonprofit Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 345 ⟵ “ARE 345 - Global Agribusiness Management”
+  - courses: ARE 404 ⟵ “ARE 404 - Advanced Agribusiness Management”
+  - … 15 more rows
+### `2e559b069dc44d90` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `304790715e7219fc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, mixed_required_and_choice, choice_rule_unparsed
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: COM 211 ⟵ “COM 211 - Argumentation and Advocacy”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: ENG 232 ⟵ “ENG 232 - Literature and Medicine”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+  - courses: ENG 425 ⟵ “ENG 425 - Analysis of Scientific and Technical Writing”
+### `304e96a1117fd4a6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=advised-science-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text
+  - section: advised-science-electives ⟵ “Advised Science Electives”
+### `318f050d5946999b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: MA 107 ⟵ “MA 107 - Precalculus I”
+  - courses: PY 201 ⟵ “PY 201 - University Physics I”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+### `31ad43fd638e0eeb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=foundational-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: ES 200 ⟵ “ES 200 - Climate Change and Sustainability”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: IDS 203 ⟵ “IDS 203 - Humans and the Environment”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+### `32e59b6a9f555b30` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `33645da9c4e6d2fc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=lab-based-science-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 201 ⟵ “PY 201 - University Physics I”
+  - courses: PY 202 ⟵ “PY 202 - University Physics II”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: PY 212 ⟵ “PY 212 - College Physics II”
+### `34ee23d0b5daafae` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `3701d32b146cba0b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=plan-requirements-departmental-requirements [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: PO 404 ⟵ “PO 404 - Avian Anatomy and Physiology”
+  - courses: PO 415 ⟵ “PO 415 - Comparative Nutrition”
+  - courses: PO 433 ⟵ “PO 433 - Poultry Processing and Products”
+  - courses: PO 435 ⟵ “PO 435 - Poultry Incubation & Breeding”
+  - courses: PO 401 ⟵ “PO 401 - Poultry Diseases”
+### `37f1017da6614cba` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=life-science-electives-200-level [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - section: life-science-electives-200-level ⟵ “Life Science Electives 200+ Level”
+### `3b214da4a59f0f2d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=chemistry-electives-300-400-level [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- issues: course_alternatives_in_rule_text
+  - courses: CH 331 ⟵ “CH 331 - Introductory Physical Chemistry”
+  - courses: CH 335 ⟵ “CH 335 - Principles of Green Chemistry”
+  - courses: CH 345 ⟵ “CH 345 - Chemistry and War”
+  - courses: CH 401 ⟵ “CH 401 - Systematic Inorganic Chemistry I”
+  - courses: CH 403 ⟵ “CH 403 - Systematic Inorganic Chemistry II”
+  - courses: CH 415 ⟵ “CH 415 - Analytical Chemistry II”
+  - courses: CH 431 ⟵ “CH 431 - Physical Chemistry I”
+  - courses: CH 433 ⟵ “CH 433 - Physical Chemistry II”
+  - courses: CH 435 ⟵ “CH 435 - Introduction to Quantum Chemistry”
+  - courses: CH 437 ⟵ “CH 437 - Physical Chemistry for Engineers”
+  - courses: CH 441 ⟵ “CH 441 - Forensic Chemistry”
+  - courses: CH 442 ⟵ “CH 442 - Advanced Synthetic Techniques”
+  - courses: CH 444 ⟵ “CH 444 - Advanced Synthetic Techniques II”
+  - courses: CH 452 ⟵ “CH 452 - Advanced Measurement Techniques I”
+  - courses: CH 454 ⟵ “CH 454 - Advanced Measurement Techniques II”
+  - courses: CH 463 ⟵ “CH 463 - Molecular Origins of Life”
+  - courses: CH 495 ⟵ “CH 495 - Special Topics in Chemistry”
+  - courses: CH 499 ⟵ “CH 499 - Undergraduate Research in Chemistry”
+### `3b545fdc1ecc14bd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=plan-requirements-general-education-and-psychology [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- issues: course_alternatives_in_rule_text
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+### `3bf2d016a60cf2ff` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration · requirement_key=plan-requirements-history-philosophy-of-science [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped
+  - courses: HI 321 ⟵ “HI 321 - Scientific Revolution and European Society, 1500-1800”
+  - courses: HI 322 ⟵ “HI 322 - Rise of Modern Science”
+  - courses: HI 341 ⟵ “HI 341 - Technology in History”
+  - courses: PHI 340 ⟵ “PHI 340 - Philosophy of Science”
+  - courses: STS 301 ⟵ “STS 301 - Science and Civilization”
+### `3eda2713bc59c3db` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-management-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-management-electives ⟵ “Plan Requirements — Management Electives”
+### `3f3142a06577f94b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=plan-requirements-social-sciences-business [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `3f8414cc79fd1188` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-sciences-bs-applied-nutrition-concentration-mathematics-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: BIO 240 ⟵ “BIO 240 - Principles of Human Anatomy & Physiology (A): Nervous, Skeletal, Muscular, & Digestive Systems”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: PSY 200 ⟵ “PSY 200 - Introduction to Psychology”
+### `3f9b6236fe46ee0e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `4324adc7d5a47fc9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=history-philosophy-of-science-education-elective [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - courses: ECI 305 ⟵ “ECI 305 - Equity and Education”
+  - courses: HI 321 ⟵ “HI 321 - Scientific Revolution and European Society, 1500-1800”
+  - courses: HI 322 ⟵ “HI 322 - Rise of Modern Science”
+  - courses: HI 323 ⟵ “HI 323 - Science, American Style”
+  - courses: HI 341 ⟵ “HI 341 - Technology in History”
+  - courses: HI 481 ⟵ “HI 481 - History of the Life Sciences”
+  - courses: HI 482 ⟵ “HI 482 - Darwinism in Science and Society”
+  - courses: HI 483 ⟵ “HI 483 - Science and Religion in European History”
+  - courses: HI 484 ⟵ “HI 484 - Science in European Culture”
+  - courses: HI 485 ⟵ “HI 485 - History of American Technology”
+  - courses: PHI 340 ⟵ “PHI 340 - Philosophy of Science”
+  - courses: PHI 440 ⟵ “PHI 440 - The Scientific Method”
+  - courses: STS 210 ⟵ “STS 210 - Women and Gender in Science and Technology”
+  - courses: STS 214 ⟵ “STS 214 - Introduction to Science, Technology, and Society”
+  - courses: STS 301 ⟵ “STS 301 - Science and Civilization”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+  - courses: STS 471 ⟵ “STS 471 - Darwinism and Christianity”
+  - courses: STS 490 ⟵ “STS 490 - Issues in Science, Technology, and Society”
+### `444f47586ec536f5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=life-science-electives-200-level-any-course-from-the-list-below [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - courses: FOR 264 ⟵ “FOR 264 - Forest Wildlife”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: MEA 220 ⟵ “MEA 220 - Marine Biology”
+  - courses: MEA 252 ⟵ “MEA 252 - Biology of Marine Mammals”
+  - courses: PP 222 ⟵ “PP 222 - Kingdom of Fungi”
+### `4505f99e40861b1d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `4525999d78ccac24` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=gc-technical-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - courses: GC 320 ⟵ “GC 320 - 3D Spatial Relations”
+  - courses: GC 330 ⟵ “GC 330 - Basic Technical Animation”
+  - courses: GC 340 ⟵ “GC 340 - Concepts of Website Development”
+  - courses: GC 350 ⟵ “GC 350 - Applied CAD/D and Geometric Controls”
+  - courses: GC 420 ⟵ “GC 420 - Visual Thinking”
+  - courses: GC 450 ⟵ “GC 450 - Advanced Graphics Usage with CAD”
+  - courses: TDE 230 ⟵ “TDE 230 - Scientific and Technical Visualization”
+  - courses: TDE 261 ⟵ “TDE 261 - Digital Media Education”
+  - courses: TDE 351 ⟵ “TDE 351 - Ceramics: The Art and Craft of Clay”
+  - courses: TDE 359 ⟵ “TDE 359 - Electronics Technology”
+  - courses: TDE 371 ⟵ “TDE 371 - Emerging Issues in Technology”
+  - courses: TDE 385 ⟵ “TDE 385 - Robotics Education”
+### `456739115d1dc22e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-mathematics-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+### `45fc58263c99d575` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-mathematical-and-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: MA 103 ⟵ “MA 103 - Topics in Contemporary Mathematics”
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: CH 100 ⟵ “CH 100 - Chemistry and Society”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: PY 201 ⟵ “PY 201 - University Physics I”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: BIO 105 ⟵ “BIO 105 - Biology in the Modern World”
+### `475aac3990317ce2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `485d610abfb3f273` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: TDE 202 ⟵ “TDE 202 - Introduction to Teaching Technology Engineering and Design Education”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: TDE 452 ⟵ “TDE 452 - Lab Planning in Technology Education”
+  - courses: TDE 456 ⟵ “TDE 456 - Curriculum and Methods in Technology Education”
+  - courses: TDE 457 ⟵ “TDE 457 - Student Teaching in Technology Education”
+  - courses: TDE 495 ⟵ “TDE 495 - Senior Seminar in Technology Education”
+### `4c4beca64b82df2f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=plan-requirements-physical-and-biological-science [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: MA 107 ⟵ “MA 107 - Precalculus I”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: GN 301 ⟵ “GN 301 - Genetics in Human Affairs”
+### `4cab60ee0388197d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-concentration-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `4cda99607c833e6c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `4dded8d8d9a02a10` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-sciences-bs-applied-nutrition-concentration-exploring-the-life-science [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+- issues: course_alternatives_in_rule_text
+  - courses: LSC 103 ⟵ “LSC 103 - Exploring Opportunities in the Life Sciences”
+  - courses: LSC 101 ⟵ “LSC 101 - Critical and Creative Thinking in the Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `4e09ce4a3890c8b2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `4f73a49b5fc38d59` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-earth-and-space-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+### `4f8364fb27c4b1de` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=advanced-written-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+  - courses: ENG 425 ⟵ “ENG 425 - Analysis of Scientific and Technical Writing”
+### `510736fc6d1d2eb6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-gep-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `517a817987284efd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-writing-and-speaking [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `523b38469ce8f97a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=advised-science-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+- issues: course_alternatives_in_rule_text
+  - section: advised-science-electives ⟵ “Advised Science Electives”
+### `53bee1a6d6a53bf1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-agronomy-concentration [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- issues: course_alternatives_in_rule_text
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+### `546647591f8d43ef` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+- issues: course_alternatives_in_rule_text
+  - courses: CH 100 ⟵ “CH 100 - Chemistry and Society”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `5478f84dad8d9001` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=plan-requirements-communications [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `552758a2571b3ade` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=plan-requirements-english-literature-and-speech [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `5571f35374a70f9f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-general-education-and-psychology [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 306 ⟵ “ECI 306 - Middle Years Reading”
+  - courses: ECI 309 ⟵ “ECI 309 - Teaching in the Middle Years”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+### `55ed02303868d80d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=business-finance-electives-2 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped
+  - courses: PO 340 ⟵ “PO 340 - Live Poultry and Poultry Product Evaluation, Grading, and Inspection”
+  - courses: PO 410 ⟵ “PO 410 - Production and Management of Game Birds in Confinement”
+  - courses: PO 421 ⟵ “PO 421 - Commercial Egg Production”
+  - courses: PO 424 ⟵ “PO 424 - Poultry Meat Production”
+### `588850dc5d614b17` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-8 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEE 206 ⟵ “AEE 206 - Introduction to Teaching Agriculture”
+  - courses: AEE 303 ⟵ “AEE 303 - Administration and Supervision of Student Organizations”
+  - courses: AEE 322 ⟵ “AEE 322 - Experiential Learning in Agriculture”
+  - courses: AEE 327 ⟵ “AEE 327 - Conducting Summer Programs in Agricultural Education”
+  - courses: AEE 424 ⟵ “AEE 424 - Planning Agricultural Educational Programs”
+  - courses: AEE 426 ⟵ “AEE 426 - Methods of Teaching Agriculture”
+  - courses: AEE 427 ⟵ “AEE 427 - Student Teaching in Agriculture”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: ANS 324 ⟵ “ANS 324 - Milk and Dairy Products”
+  - courses: ANS 330 ⟵ “ANS 330 - Laboratory Animal Science”
+  - courses: ANS 411 ⟵ “ANS 411 - Management of Growing and Performance Horses”
+  - courses: ANS 425 ⟵ “ANS 425 - Feed Manufacturing Technology”
+  - courses: ANS 525 ⟵ “ANS 525 - Feed Manufacturing Technology”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAE 425 ⟵ “BAE 425 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 435 ⟵ “BAE 435 - Precision Agriculture Technology”
+  - courses: BAE 525 ⟵ “BAE 525 - Industrial Microbiology and Bioprocessing”
+  - courses: BAE 535 ⟵ “BAE 535 - Precision Agriculture Technology”
+  - courses: BBS 201 ⟵ “BBS 201 - Introduction to Biopharmaceutical Science”
+  - courses: BBS 301 ⟵ “BBS 301 - Process Validation Science”
+  - courses: BBS 426 ⟵ “BBS 426 - Upstream Biomanufacturing Laboratory”
+  - courses: BBS 526 ⟵ “BBS 526 - Upstream Biomanufacturing Laboratory”
+  - courses: BCH 220 ⟵ “BCH 220 - Role of Biotechnology in Society”
+  - courses: BEC 426 ⟵ “BEC 426 - Upstream Biomanufacturing Laboratory”
+  - … 15 more rows
+### `589d847b85d234b8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-sciences-bs-exploring-the-life-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+- issues: course_alternatives_in_rule_text
+  - courses: LSC 103 ⟵ “LSC 103 - Exploring Opportunities in the Life Sciences”
+  - courses: LSC 101 ⟵ “LSC 101 - Critical and Creative Thinking in the Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `5b383f71e03d3fc2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+- issues: course_alternatives_in_rule_text
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `5b6b0ede6328ec5b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-mathematics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: MA 242 ⟵ “MA 242 - Calculus III”
+  - courses: MA 225 ⟵ “MA 225 - Foundations of Advanced Mathematics”
+  - courses: MA 403 ⟵ “MA 403 - Introduction to Modern Algebra”
+  - courses: MA 405 ⟵ “MA 405 - Introduction to Linear Algebra”
+  - courses: MA 408 ⟵ “MA 408 - Foundations of Euclidean Geometry”
+### `5baac60914c85d7c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-group-a-biological-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEE 208 ⟵ “AEE 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 105 ⟵ “ANS 105 - Introduction to Companion Animal Science”
+  - courses: ANS 110 ⟵ “ANS 110 - Introduction to Equine Science”
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 151 ⟵ “ANS 151 - Introduction to Animal Science Lab”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 208 ⟵ “ANS 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: ANS 230 ⟵ “ANS 230 - Animal Nutrition”
+  - courses: ANS 231 ⟵ “ANS 231 - Animal Nutrition Lab”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 452 ⟵ “ANS 452 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 453 ⟵ “ANS 453 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 454 ⟵ “ANS 454 - Lactation, Milk and Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: ANS 552 ⟵ “ANS 552 - Comparative Reproductive Physiology and Biotechnology”
+  - courses: ANS 553 ⟵ “ANS 553 - Physiology and Genetics of Growth and Development”
+  - courses: ANS 554 ⟵ “ANS 554 - Lactation, Milk and Nutrition”
+  - courses: BCH 101 ⟵ “BCH 101 - Introduction to Microbiology and Biochemistry Laboratory Practices”
+  - … 15 more rows
+### `61a2360c275c3ee3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-restricted-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-restricted-electives ⟵ “Plan Requirements — Restricted Electives”
+### `61c4e62697e4eaef` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-animal-science-concentration [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+- issues: course_alternatives_in_rule_text
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 303 ⟵ “ANS 303 - Principles of Equine Evaluation”
+  - courses: ANS 304 ⟵ “ANS 304 - Dairy Cattle Evaluation”
+  - courses: ANS 309 ⟵ “ANS 309 - Livestock Evaluation”
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+### `6269a0c77b36134f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=advised-science-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - section: advised-science-electives ⟵ “Advised Science Electives”
+### `62de7ea3c69466ba` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: course_alternatives_in_rule_text
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+### `65140768654ae099` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plant-protective-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+- issues: course_alternatives_in_rule_text
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: ENT 425 ⟵ “ENT 425 - General Entomology”
+  - courses: PP 315 ⟵ “PP 315 - Principles of Plant Pathology”
+### `65d08b22e8131afd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plan-requirements-foundational-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BCH 351 ⟵ “BCH 351 - General Biochemistry”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+  - courses: GN 312 ⟵ “GN 312 - Elementary Genetics Laboratory”
+  - courses: HS 201 ⟵ “HS 201 - The World of Horticulture: Principles and Practices”
+  - courses: HS 290 ⟵ “HS 290 - Horticulture: Careers and Opportunities”
+  - courses: HS 301 ⟵ “HS 301 - Plant Propagation”
+  - courses: HS 303 ⟵ “HS 303 - Ornamental Plant Identification I”
+  - courses: HS 304 ⟵ “HS 304 - Ornamental Plant Identification II”
+  - courses: PB 421 ⟵ “PB 421 - Plant Physiology”
+  - courses: PB 480 ⟵ “PB 480 - Introduction to Plant Biotechnology”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: HS 492 ⟵ “HS 492 - Horticulture Internship”
+  - courses: HS 493 ⟵ “HS 493 - Research Experience in Horticultural Science”
+  - courses: HS 494 ⟵ “HS 494 - Teaching Experience in Horticultural Science”
+### `670a94e759768b76` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+### `674bd0d497707579` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-4 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: BME 201 ⟵ “BME 201 - Computer Methods in Biomedical Engineering”
+  - courses: CSC 442 ⟵ “CSC 442 - Introduction to Data Science”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: ECE 489 ⟵ “ECE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECE 589 ⟵ “ECE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: ECG 561 ⟵ “ECG 561 - Applied Econometrics I”
+  - courses: EMS 519 ⟵ “EMS 519 - Teaching and Learning of Statistical Thinking”
+  - courses: GPH 404 ⟵ “GPH 404 - Epidemiology and Statistics in Global Public Health”
+  - courses: MA 412 ⟵ “MA 412 - Long-Term Actuarial Models”
+  - courses: MA 413 ⟵ “MA 413 - Short-Term Actuarial Models”
+  - courses: MA 546 ⟵ “MA 546 - Probability and Stochastic Processes I”
+  - courses: MA 555 ⟵ “MA 555 - Introduction to Manifold Theory”
+  - courses: MEA 150 ⟵ “MEA 150 - Environmental Issues in Water Resources”
+  - courses: MEA 463 ⟵ “MEA 463 - Fluid Physics”
+  - courses: MSE 489 ⟵ “MSE 489 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: MSE 589 ⟵ “MSE 589 - Solid State Solar and Thermal Energy Harvesting”
+  - courses: NE 528 ⟵ “NE 528 - Introduction to Plasma Physics and Fusion Energy”
+  - courses: NE 529 ⟵ “NE 529 - Plasma Physics and Fusion Energy II”
+  - courses: PSY 240 ⟵ “PSY 240 - Introduction to Behavioral Research I”
+  - courses: PSY 241 ⟵ “PSY 241 - Introduction to Behavioral Research I Lab”
+  - courses: PSY 242 ⟵ “PSY 242 - Introduction to Behavioral Research II”
+  - courses: PSY 243 ⟵ “PSY 243 - Introduction to Behavioral Research II Lab”
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+  - courses: PY 124 ⟵ “PY 124 - Solar System Astronomy”
+  - courses: PY 125 ⟵ “PY 125 - Astronomy Laboratory”
+  - … 15 more rows
+### `6754d3e743cd0c87` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `67cc3eb7e1eab8a1` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `6aafc6019a042c22` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-experiential-learning [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+  - courses: ALS 494 ⟵ “ALS 494 - International Learning Experience in Agriculture and Life Sciences”
+  - courses: HS 494 ⟵ “HS 494 - Teaching Experience in Horticultural Science”
+### `6aca0bb60f65970c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-6 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: ARE 412 ⟵ “ARE 412 - Advanced Agribusiness Marketing”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 449 ⟵ “BUS 449 - Information Technology Practicum”
+  - courses: BUS 474 ⟵ “BUS 474 - Logistics Management”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - courses: EC 351 ⟵ “EC 351 - Econometrics I”
+  - courses: EC 404 ⟵ “EC 404 - Money, Financial Markets, and the Economy”
+  - courses: EC 410 ⟵ “EC 410 - Public Finance”
+  - courses: EC 413 ⟵ “EC 413 - Industrial Organization”
+  - courses: EC 431 ⟵ “EC 431 - Labor Economics”
+  - courses: EC 437 ⟵ “EC 437 - Health Economics”
+  - courses: EC 449 ⟵ “EC 449 - International Finance”
+  - courses: EC 451 ⟵ “EC 451 - Econometrics II”
+  - courses: EC 474 ⟵ “EC 474 - Economics of Financial Institutions and Markets”
+  - courses: EC 480 ⟵ “EC 480 - ”
+  - … 6 more rows
+### `6b40a6a63e512d84` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+### `6c59710afb5a6b42` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `6cbef84fbe181e5e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: ENG 287 ⟵ “ENG 287 - Explorations in Creative Writing”
+  - courses: ENG 288 ⟵ “ENG 288 - Fiction Writing”
+  - courses: ENG 289 ⟵ “ENG 289 - Poetry Writing”
+  - courses: ENG 292 ⟵ “ENG 292 - Writing About Film”
+  - courses: ENG 316 ⟵ “ENG 316 - Introduction to News and Article Writing”
+  - courses: ENG 323 ⟵ “ENG 323 - Writing in Rhetorical Traditions”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `6e232967ee4ada01` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-and-one-of-the-following [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+- issues: course_alternatives_in_rule_text
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: CH 220 ⟵ “CH 220 - Introductory Organic Chemistry”
+  - courses: CH 222 ⟵ “CH 222 - Organic Chemistry I Lab”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `6e340eaf5fff6e77` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `6e9f68e57f3a29fa` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+### `6fe0bbaa0f48acf6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-horticultural-science-concentration · requirement_key=plan-requirements-horticulture-science-concentration [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-horticultural-science-concentration/ (sha256 13b8192786a5)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: HS 201 ⟵ “HS 201 - The World of Horticulture: Principles and Practices”
+  - courses: HS 203 ⟵ “HS 203 - Home Plant Propagation”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics or ANS 215”
+  - courses: HS 411 ⟵ “HS 411 - Nursery Management”
+  - courses: HS 421 ⟵ “HS 421 - Temperate-Zone Tree Fruits: Physiology and Culture”
+  - courses: HS 422 ⟵ “HS 422 - Small Fruit Production”
+  - courses: HS 431 ⟵ “HS 431 - Vegetable Production”
+### `6fe42699f31a9ad6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=restricted-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: course_alternatives_in_rule_text
+  - courses: AEC 380 ⟵ “AEC 380 - Water Resources: Global Issues in Ecology, Policy, Management, and Advocacy”
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 216 ⟵ “CS 216 - Southern Row Crop Production - Cotton, Peanuts, and Tobacco”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 214 ⟵ “CS 214 - Crop Science Laboratory”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 312 ⟵ “CS 312 - ”
+  - courses: CS/HS 410 ⟵ “CS/HS 410 - Community Food Systems”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: ET 201 ⟵ “ET 201 - Environmental Technology Laboratory I”
+  - courses: ET 202 ⟵ “ET 202 - Environmental Technology Laboratory II”
+  - courses: ET 203 ⟵ “ET 203 - Pollution Prevention”
+  - courses: GIS 280 ⟵ “GIS 280 - Introduction to GIS”
+  - courses: MEA 300 ⟵ “MEA 300 - Environmental Geology”
+  - courses: NR 300 ⟵ “NR 300 - Natural Resource Measurements”
+  - courses: SSC 410 ⟵ “SSC 410 - Soil Judging for Land Evaluation”
+  - … 3 more rows
+### `70723bcdf069502b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `72138b3f973e9bbd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-orientation-course [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+### `7249650b5e24709e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs · requirement_key=nutrition-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs/ (sha256 cee0a76cba2b)
+- issues: course_alternatives_in_rule_text
+  - courses: NTR 211 ⟵ “NTR 211 - Eating through American History”
+  - courses: NTR 220 ⟵ “NTR 220 - Food and Culture in Italy”
+  - courses: NTR 221 ⟵ “NTR 221 - The Mediterranean Diet”
+  - courses: NTR 310 ⟵ “NTR 310 - Food Insecurity and Federal Nutrition Programs”
+  - courses: NTR 330 ⟵ “NTR 330 - Public Health Nutrition”
+  - courses: NTR 350 ⟵ “NTR 350 - Introduction to Sports Nutrition”
+  - courses: NTR 410 ⟵ “NTR 410 - Maternal and Infant Nutrition”
+  - courses: NTR 411 ⟵ “NTR 411 - Public Health Perspectives in Infant Feeding”
+  - courses: NTR 412 ⟵ “NTR 412 - Clinical Concepts in Infant Feeding”
+  - courses: NTR 413 ⟵ “NTR 413 - Clinical Concepts in Infant Feeding Laboratory”
+  - courses: NTR 419 ⟵ “NTR 419 - Human Nutrition and Chronic Disease”
+  - courses: NTR 440 ⟵ “NTR 440 - Child & Adolescent Nutrition”
+  - courses: NTR/ANS 454 ⟵ “NTR/ANS 454 - Lactation, Milk and Nutrition”
+  - courses: NTR 460 ⟵ “NTR 460 - Nutrition for the Older Adult”
+  - courses: NTR 470 ⟵ “NTR 470 - Global Nutrition”
+  - courses: NTR 492 ⟵ “NTR 492 - Professional Internship Experience in Nutrition Science”
+  - courses: NTR/FS 555 ⟵ “NTR/FS 555 - Exercise Nutrition”
+  - courses: NTR/FS 557 ⟵ “NTR/FS 557 - Nutraceuticals and Functional Foods”
+  - courses: NTR/FS 558 ⟵ “NTR/FS 558 - Food Toxicology”
+### `74be703cd23e5be4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-pb-elective-lab-credit-co-requisites-verify-requirement [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-pb-elective-lab-credit-co-requisites-verify-requirement ⟵ “Plan Requirements — PB Elective Lab Credit Co-Requisites (verify requirement)”
+### `753af5faf978c19b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+- issues: course_alternatives_in_rule_text
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+### `78e64a57fb503f96` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `790ba98394300558` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-animal-science-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-animal-science-concentration/ (sha256 3ea227bfc591)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `79a55b0d03ec4836` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-mathematics-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: course_alternatives_in_rule_text
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: MEA 101 ⟵ “MEA 101 - Geology I: Physical”
+  - courses: MEA 110 ⟵ “MEA 110 - Geology I Laboratory”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `79ca71210cc8a879` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=advised-science-electives-any-gep-natural-sciences-course-except-bio-105-106-ch- [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - courses: ANS 150 ⟵ “ANS 150 - Introduction to Animal Science”
+  - courses: ANS 205 ⟵ “ANS 205 - Physiology of Domestic Animals”
+  - courses: ANS 206 ⟵ “ANS 206 - Anatomy of Domestic Animals Lab”
+  - courses: ANS 220 ⟵ “ANS 220 - Reproductive Physiology”
+  - courses: ANS 221 ⟵ “ANS 221 - Reproductive Physiology Lab”
+  - courses: BIO 165 ⟵ “BIO 165 - ”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: ES 100 ⟵ “ES 100 - Introduction to Environmental Sciences”
+  - courses: ES 111 ⟵ “ES 111 - Applications of Environmental Sciences”
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: FOR 261 ⟵ “FOR 261 - Forest Communities”
+  - courses: FOR 264 ⟵ “FOR 264 - Forest Wildlife”
+  - courses: FOR 339 ⟵ “FOR 339 - ”
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: FW 404 ⟵ “FW 404 - Wildlife Habitat Management”
+  - courses: FW 405 ⟵ “FW 405 - Tropical Wildlife Ecology”
+  - courses: FW 444 ⟵ “FW 444 - Mammalogy”
+  - courses: FW 453 ⟵ “FW 453 - Principles of Wildlife Science”
+  - courses: FW 460 ⟵ “FW 460 - International Wildlife Management and Conservation”
+  - courses: NR 303 ⟵ “NR 303 - Humans and the Environment”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+### `7a1cdba011b3b769` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: CH 201 ⟵ “CH 201 - Chemistry - A Quantitative Science”
+  - courses: CH 202 ⟵ “CH 202 - Quantitative Chemistry Laboratory”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: MEA 101 ⟵ “MEA 101 - Geology I: Physical”
+  - courses: MEA 110 ⟵ “MEA 110 - Geology I Laboratory”
+  - courses: MEA 130 ⟵ “MEA 130 - Introduction to Weather and Climate”
+  - courses: MEA 135 ⟵ “MEA 135 - Introduction to Weather and Climate Laboratory”
+### `7ab57b5181635cf3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=economics-management-policy-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: course_alternatives_in_rule_text
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: AEC 380 ⟵ “AEC 380 - Water Resources: Global Issues in Ecology, Policy, Management, and Advocacy”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: PS 201 ⟵ “PS 201 - American Politics and Government”
+  - courses: PS 202 ⟵ “PS 202 - State and Local Government”
+  - courses: PS 320 ⟵ “PS 320 - U.S. Environmental Law and Politics”
+  - courses: SSC 455 ⟵ “SSC 455 - Soils, Environmental Quality and Global Challenges”
+### `7f2c18e20a5f6245` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=water-wetlands-ecology-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text
+  - courses: AEC 400 ⟵ “AEC 400 - Applied Ecology”
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: FOR 260 ⟵ “FOR 260 - Forest Ecology”
+  - courses: NR/FOR 420 ⟵ “NR/FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: SSC 332 ⟵ “SSC 332 - Environmental Soil Microbiology”
+### `80e3c7eba429e933` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-introduction-to-computing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: ST 114 ⟵ “ST 114 - Statistical Programming”
+  - courses: CSC 110 ⟵ “CSC 110 - Computer Science Principles - The Beauty and Joy of Computing”
+  - courses: CSC 111 ⟵ “CSC 111 - Introduction to Computing: Python”
+  - courses: CSC 116 ⟵ “CSC 116 - Introduction to Computing - Java”
+  - courses: MA 116 ⟵ “MA 116 - Introduction to Scientific Programming (Math)”
+### `81a2296e3094078a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-mathematics [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: mixed_required_and_choice, choice_rule_unparsed
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `83367d2b0d7bea45` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-concentration-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: mixed_required_and_choice
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+### `84524a36661ebc8e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-mathematics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: MA 242 ⟵ “MA 242 - Calculus III”
+  - courses: MA 225 ⟵ “MA 225 - Foundations of Advanced Mathematics”
+  - courses: MA 351 ⟵ “MA 351 - Introduction to Discrete Mathematical Models”
+  - courses: MA 403 ⟵ “MA 403 - Introduction to Modern Algebra”
+  - courses: MA 405 ⟵ “MA 405 - Introduction to Linear Algebra”
+  - courses: MA 408 ⟵ “MA 408 - Foundations of Euclidean Geometry”
+### `8494b1a98afcaf9b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-turfgrass-science · requirement_key=economics-management-policy-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/turfgrass-science-bs/ (sha256 b652552cbd80)
+- issues: course_alternatives_in_rule_text
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: BUS 225 ⟵ “BUS 225 - Personal Finance”
+  - courses: BUS 320 ⟵ “BUS 320 - Financial Management”
+  - courses: BUS 340 ⟵ “BUS 340 - Information Systems Management”
+  - courses: BUS 420 ⟵ “BUS 420 - Financial Management of Corporations”
+  - courses: PS 320 ⟵ “PS 320 - U.S. Environmental Law and Politics”
+### `86c43798542ec501` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-mathematics-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+- issues: course_alternatives_in_rule_text
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `879dd077e32c2060` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=plan-requirements-mathematics [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- issues: mixed_required_and_choice, choice_rule_unparsed
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `880c73e06d115fbb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=plan-requirements-communications [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `88634087e32f6b6e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-mathematics-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+- issues: course_alternatives_in_rule_text
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: CH 220 ⟵ “CH 220 - Introductory Organic Chemistry”
+  - courses: CH 222 ⟵ “CH 222 - Organic Chemistry I Lab”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `88a5984b519f2b9f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plan-requirements-mathematics-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: CH 221 ⟵ “CH 221 - Organic Chemistry I”
+  - courses: CH 222 ⟵ “CH 222 - Organic Chemistry I Lab”
+  - courses: CH 223 ⟵ “CH 223 - Organic Chemistry II”
+  - courses: CH 224 ⟵ “CH 224 - Organic Chemistry II Lab”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `88cca0a5163ada2e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - section: program-coordinator-free-electives ⟵ “Program Coordinator: — Free Electives”
+### `89c4ae82491932c0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-mathematics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+### `89c6d8c9123de3d8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-gc-technical-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-gc-technical-electives ⟵ “Plan Requirements — GC Technical Electives”
+### `89d36e2b78660599` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-major-requirements [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped, mixed_required_and_choice
+  - courses: LSC 101 ⟵ “LSC 101 - Critical and Creative Thinking in the Life Sciences”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PB 250 ⟵ “PB 250 - Plant Biology”
+  - courses: PB 492 ⟵ “PB 492 - External Learning Experience”
+  - courses: PB 493 ⟵ “PB 493 - Plant Biology Supervised Undergraduate Research Experience”
+### `8a178db0c93d2a35` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=data-analysis-fluency [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: BAE 455 ⟵ “BAE 455 - R Coding for Data Management and Analysis”
+  - courses: BIO 310 ⟵ “BIO 310 - Quantitative Approaches to Biological Problems”
+  - courses: BIT 476 ⟵ “BIT 476 - Applied Bioinformatics”
+  - courses: DSC 201 ⟵ “DSC 201 - ”
+  - courses: DSC 202 ⟵ “DSC 202 - ”
+  - courses: DSC 205 ⟵ “DSC 205 - ”
+  - courses: DSC 405 ⟵ “DSC 405 - ”
+  - courses: GIS 280 ⟵ “GIS 280 - Introduction to GIS”
+  - courses: GN 427 ⟵ “GN 427 - Introductory Bioinformatics”
+  - courses: NR 300 ⟵ “NR 300 - Natural Resource Measurements”
+  - courses: ST 308 ⟵ “ST 308 - Introduction to Statistical Programming - R”
+  - courses: ST 312 ⟵ “ST 312 - Introduction to Statistics II”
+### `8ba3a82d5271d315` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=advanced-agricultural-sciences-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: AEC 400 ⟵ “AEC 400 - Applied Ecology”
+  - courses: ANS 215 ⟵ “ANS 215 - Agricultural Genetics”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 411 ⟵ “CS 411 - ”
+  - courses: ENT 401 ⟵ “ENT 401 - Honey Bee Biology and Management”
+  - courses: ENT 526 ⟵ “ENT 526 - Organic Agriculture: Principles and Practices”
+  - courses: HS 431 ⟵ “HS 431 - Vegetable Production”
+  - courses: HS 432 ⟵ “HS 432 - Introduction to Permaculture”
+  - courses: HS 451 ⟵ “HS 451 - Plant Nutrition”
+  - courses: HS 462 ⟵ “HS 462 - Postharvest Physiology”
+  - courses: HS 476 ⟵ “HS 476 - Crop Physiology and Production in Controlled Environments”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PB 345 ⟵ “PB 345 - Economic Botany”
+  - courses: PB 346 ⟵ “PB 346 - Economic Botany Lab”
+  - courses: PB 450 ⟵ “PB 450 - Plant Ecology”
+  - courses: SSC 332 ⟵ “SSC 332 - Environmental Soil Microbiology”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: SSC 455 ⟵ “SSC 455 - Soils, Environmental Quality and Global Challenges”
+  - courses: SSC 461 ⟵ “SSC 461 - Soil Physical Properties and Plant Growth”
+### `8bfb370c7de123da` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=advised-science-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- issues: course_alternatives_in_rule_text
+  - section: advised-science-electives ⟵ “Advised Science Electives”
+### `8c1bbb94ce285c6a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=life-science-electives-300-400-level-any-course-from-the-list-below [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: FW 444 ⟵ “FW 444 - Mammalogy”
+  - courses: MEA 350 ⟵ “MEA 350 - Marine Conservation Biology”
+  - courses: MEA 369 ⟵ “MEA 369 - Life on Earth: Principles of Paleontology”
+  - courses: MEA 469 ⟵ “MEA 469 - Ecology of Coastal Resources”
+  - courses: NR 406 ⟵ “NR 406 - Conservation of Biological Diversity”
+### `8c6a4179927f18d9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-plant-breeding-and-biotechnology-in-horticulture-concen · requirement_key=plant-protective-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-plant-breeding-biotechnology-horticulture-concentration/ (sha256 d1b71d84a57a)
+- issues: course_alternatives_in_rule_text
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: ENT 425 ⟵ “ENT 425 - General Entomology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+### `8fb07ea739d9c15c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-mathematics-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: CH 101 ⟵ “CH 101 - Chemistry - A Molecular Science”
+  - courses: CH 102 ⟵ “CH 102 - General Chemistry Laboratory”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `90054b94e6c0fa1c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-tde-technical-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-tde-technical-electives ⟵ “Plan Requirements — TDE Technical Electives”
+### `933b9acdc4f0c7bc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=history [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: AFS/HI 275 ⟵ “AFS/HI 275 - Introduction to History of South and East Africa”
+  - courses: AFS/HI 276 ⟵ “AFS/HI 276 - Introduction to History of West Africa”
+  - courses: HI 205 ⟵ “HI 205 - Western Civilization Since 1400”
+  - courses: HI 207 ⟵ “HI 207 - Ancient Mediterranean World”
+  - courses: HI 208 ⟵ “HI 208 - The Middle Ages”
+  - courses: HI 209 ⟵ “HI 209 - From Renaissance to Revolution: The Origins of Modern Europe”
+  - courses: HI 210 ⟵ “HI 210 - Modern Europe 1815-Present”
+  - courses: HI 221 ⟵ “HI 221 - British History to 1688”
+  - courses: HI 222 ⟵ “HI 222 - History of British Cultures and Societies From 1688”
+  - courses: HI 233 ⟵ “HI 233 - The World Since 1750”
+  - courses: HI 251 ⟵ “HI 251 - American History I”
+  - courses: HI 252 ⟵ “HI 252 - American History II”
+  - courses: HI 263 ⟵ “HI 263 - Asian Civilizations to 1800”
+  - courses: HI 264 ⟵ “HI 264 - Modern Asia: 1800 to Present”
+  - courses: HI 270 ⟵ “HI 270 - Modern Middle East”
+  - courses: HON 290 ⟵ “HON 290 - Honors Special Topics - Humanities/US Diversity”
+  - courses: HON 293 ⟵ “HON 293 - Honors Special Topics - Interdisciplinary Perspectives/Global Knowledge”
+### `9494641bc7e1611c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `95aab4f57efb3b5a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-orientation-course [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+### `95efc4f2e67f1360` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-computer-science [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, choice_rule_unparsed
+  - courses: CSC 110 ⟵ “CSC 110 - Computer Science Principles - The Beauty and Joy of Computing”
+  - courses: CSC 111 ⟵ “CSC 111 - Introduction to Computing: Python”
+  - courses: CSC 113 ⟵ “CSC 113 - Introduction to Computing - MATLAB”
+  - courses: CSC 116 ⟵ “CSC 116 - Introduction to Computing - Java”
+  - courses: MA 116 ⟵ “MA 116 - Introduction to Scientific Programming (Math)”
+### `96a3c0331ed769a7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=application-electives-application-electives-i [changed] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+- issues: conflicts_with_verified_record
+- change rule_details: `{'catalog_year': '2026-2027', 'category': 'other', 'courses': [{'code': 'AEC 360', 'credits': 4, 'title': 'Ecology'}, {'code': 'AEE 230', 'credits': 3, 'title': 'Introduction to Cooperative Extension'}, {'code': 'AEE 323', 'credits': 3, 'title': 'Leadership Development in Agriculture and Life Sciences'}, {'code': 'AEE 325', 'credits': 3, 'title': 'Planning and Delivering Non-Formal Education'}, {'code': 'AEE 350', 'credits': 3, 'title': 'Personal Leadership Development in Agriculture and Life Sciences'}, {'code': 'AEE 478', 'credits': 3, 'title': 'Advanced Issues in Extension Education'}, {'code': 'ANS 415', 'credits': 3, 'title': 'Comparative Nutrition'}, {'code': 'ANS 515', 'credits': 3, 'title': 'Comparative Nutrition'}, {'code': 'ANT 374', 'credits': 3, 'title': 'Disease and Society'}, {'code': 'ARE 201', 'credits': 3, 'title': 'Introduction to Agricultural & Resource Economics'}, {'code': 'ARE 201A', 'credits': 3, 'title': 'Introduction to Agricultural & Resource Economics'}, {'code': 'ARE 475', 'credits': 3, 'title': 'Food Policy'}, {'code': 'BCH 351', 'credits': 3, 'title': 'General Biochemistry'}, {'code': 'BIO 242', 'credits': 2, 'title': 'Human Anatomy and Physiology Laboratory'}, {'code': 'BIO 245', 'credits': 3, 'title': 'Principles of Human Anatomy & Physiology (B): Endocrine, Cardiovascular, Respiratory & Renal Systems'}, {'code': 'BIO 404', 'credits': 3, 'title': 'Epidemiology and Statistics in Global Public Health'}, {'code': 'BIO 414', 'credits': 3, 'title': 'Cell Biology'}, {'code': 'BIO 416', 'credits': 3, 'title': 'Cancer Cell Biology'}, {'code': 'BIO 424', 'credits': 3, 'title': 'Endocrinology'}, {'code': 'BIO 434', 'credits': 3, 'title': 'Hormones and Behavior'}, {'code': 'BIO 488', 'credits': 3, 'title': 'Neurobiology'}, {'code': 'BIO 588', 'credits': 3, 'title': 'Neurobiology'}, {'code': 'CH 223', 'credits': 3, 'title': 'Organic Chemistry II'}, {'code': 'CH 224', 'credits': 1, 'title': 'Organic Chemistry II Lab'}, {'code': 'COM 211', 'credits': 3, 'title': 'Argumentation and Advocacy'}, {'code': 'COM 289', 'credits': 3, 'title': 'Science Communication and Public Engagement'}, {'code': 'COM 332', 'credits': 3, 'title': 'Relational Communication'}, {'code': 'COM 362', 'credits': 3, 'title': 'Communication and Gender'}, {'code': 'COM 441', 'credits': 3, 'title': 'Ethical Issues in Communication'}, {'code': 'COM 466', 'credits': 3, 'title': 'Nonprofit Leadership & Development'}, {'code': 'CS 224', 'credits': 3, 'title': 'Seeds, Biotechnology and Societies'}, {'code': 'CS 230', 'credits': 3, 'title': 'Introduction to Agroecology'}, {'code': 'CS 410', 'credits': 3, 'title': 'Community Food Systems'}, {'code': 'CS 430', 'credits': 4, 'title': 'Advanced Agroecology'}, {'code': 'ECD 225', 'credits': 3, 'title': 'Foundations of Cultural Competence'}, {'code': 'EDP 304', 'credits': 3, 'title': 'Educational Psychology'}, {'code': 'EI 201', 'credits': 3, 'title': 'Exploring Interdisciplinary Entrepreneurial Thinking'}, {'code': 'FS 221', 'credits': 3, 'title': 'Discover: Chocolate, Coffee and Tea'}, {'code': 'FS 222', 'credits': 3, 'title': 'Discover: Conventional, Organic and Genetically Engineered Foods'}, {'code': 'FS 250', 'credits': 3, 'title': 'Basics of Food Safety & Quality'}, {'code': 'FS 325', 'credits': 3, 'title': 'Introduction to Brewing Science and Technology'}, {'code': 'FS 326', 'credits': 3, 'title': 'Brewing Practices and Analyses'}, {'code': 'FS 330', 'credits': 3, 'title': 'Science of Food Preparation'}, {'code': 'FS 402', 'credits': 4, 'title': 'Chemistry of Food and Bioprocessed Materials'}, {'code': 'FS 403', 'credits': 4, 'title': 'Analytical Techniques in Food & Bioprocessing Science'}, {'code': 'FS 405', 'credits': 3, 'title': 'Food Microbiology'}, {'code': 'FS 416', 'credits': 3, 'title': 'Quality Control in Food and Bioprocessing'}, {'code': 'FS 421', 'credits': 3, 'title': 'Food Preservation'}, {'code': 'FS 502', 'credits': 4, 'title': 'Chemistry of Food and Bioprocessed Materials'}, {'code': 'FS 505', 'credits': 3, 'title': 'Food Microbiology'}, {'code': 'FS 516', 'credits': 3, 'title': 'Quality Control in Food and Bioprocessing'}, {'code': 'FS 521', 'credits': 3, 'title': 'Food Preservation'}, {'code': 'GN 301', 'credits': 3, 'title': 'Genetics in Human Affairs'}, {'code': 'GN 311', 'credits': 4, 'title': 'Principles of Genetics'}, {'code': 'GN 441', 'credits': 3, 'title': 'Human and Biomedical Genetics'}, {'code': 'GN 453', 'credits': 3, 'title': 'Personal Genomics'}, {'code': 'GN 456', 'credits': 3, 'title': 'Epigenetics, Development, and Disease'}, {'code': 'GOH 201', 'credits': 3, 'title': 'Foundations of Global One Health'}, {'code': 'GOH 302', 'credits': 3, 'title': 'Global One Health Applications'}, {'code': 'HESM 478', 'credits': 3, 'title': 'Exercise Physiology and Sports Science'}, {'code': 'HESM 480', 'credits': 3, 'title': 'Principles of Exercise Programming'}, {'code': 'HI 360', 'credits': 3, 'title': 'U.S. Agricultural History'}, {'code': 'HI 380', 'credits': 3, 'title': 'U.S. Nonprofits, Civil Society, and Democracy'}, {'code': 'HS 205', 'credits': 3, 'title': 'Home Food Production'}, {'code': 'MB 405', 'credits': 3, 'title': 'Food Microbiology'}, {'code': 'MB 505', 'credits': 3, 'title': 'Food Microbiology'}, {'code': 'NTR 210', 'credits': 3, 'title': 'Introduction to Community Food Security'}, {'code': 'NTR 415', 'credits': 3, 'title': 'Comparative Nutrition'}, {'code': 'NTR 515', 'credits': 3, 'title': 'Comparative Nutrition'}, {'code': 'PB 213', 'credits': 3, 'title': 'Plants and Civilization'}, {'code': 'PB 215', 'credits': 3, 'title': 'Medicinal Plants'}, {'code': 'PB 325', 'credits': 3, 'title': 'Culinary Botany'}, {'code': 'PB 360', 'credits': 4, 'title': 'Ecology'}, {'code': 'PHI 325', 'credits': 3, 'title': 'Bio-Medical Ethics'}, {'code': 'PHI 420', 'credits': 3, 'title': 'Global Justice'}, {'code': 'PO 415', 'credits': 3, 'title': 'Comparative Nutrition'}, {'code': 'PO 515', 'credits': 3, 'title': 'Comparative Nutrition'}, {'code': 'PRT 200', 'credits': 3, 'title': 'Health, Wellness and the Pursuit of Happiness'}, {'code': 'PS 203', 'credits': 3, 'title': 'Introduction to Nonprofits'}, {'code': 'PS 231', 'credits': 3, 'title': 'Introduction to International Relations'}, {'code': 'PS 236', 'credits': 3, 'title': 'Issues in Global Politics'}, {'code': 'PS 312', 'credits': 3, 'title': 'Introduction to Public Administration'}, {'code': 'PSY 230', 'credits': 3, 'title': 'Introduction to Psychological Research'}, {'code': 'PSY 311', 'credits': 3, 'title': 'Social Psychology'}, {'code': 'PSY 312', 'credits': 3, 'title': 'Applied Psychology'}, {'code': 'PSY 360', 'credits': 3, 'title': 'Community Psychology Principles and Practice'}, {'code': 'PSY 376', 'credits': 3, 'title': 'Developmental Psychology'}, {'code': 'PSY 410', 'credits': 3, 'title': 'Learning and Motivation'}, {'code': 'PSY 411', 'credits': 3, 'title': 'The Psychology of Interdependence and Race'}, {'code': 'PSY 420', 'credits': 3, 'title': 'Cognitive Processes'}, {'code': 'PSY 430', 'credits': 3, 'title': 'Biological Psychology'}, {'code': 'PSY 431', 'credits': 3, 'title': 'Health Psychology'}, {'code': 'PSY 470', 'credits': 3, 'title': 'Psychopathology and Mental Health'}, {'code': 'PSY 475', 'credits': 3, 'title': 'Child Psychology'}, {'code': 'PSY 476', 'credits': 3, 'title': 'Psychology of Adolescent Development'}, {'code': 'PSY 477', 'credits': 3, 'title': 'Psychology of Aging'}, {'code': 'SLC 250', 'credits': 3, 'title': 'Critical and Creative Decision Making Models'}, {'code': 'SOC 211', 'credits': 3, 'title': 'Community and Health'}, {'code': 'SOC 241', 'credits': 3, 'title': 'Sociology of Agriculture and Rural Society'}, {'code': 'SOC 241A', 'credits': 3, 'title': 'Sociology of Agriculture and Rural Society'}, {'code': 'SOC 311', 'credits': 3, 'title': 'Community Relationships'}, {'code': 'SOC 342', 'credits': 3, 'title': 'International Development'}, {'code': 'SOC 350', 'credits': 3, 'title': 'Food and Society'}, {'code': 'SOC 351', 'credits': 3, 'title': 'Population and Planning'}, {'code': 'SOC 381', 'credits': 3, 'title': 'Sociology of Medicine'}, {'code': 'SOC 404', 'credits': 3, 'title': 'Families and Work'}, {'code': 'SOC 440', 'credits': 3, 'title': 'Social Change'}, {'code': 'STS 323', 'credits': 3, 'title': 'World Population and Food Prospects'}, {'code': 'STS 325', 'credits': 3, 'title': 'Bio-Medical Ethics'}, {'code': 'SW 260', 'credits': 3, 'title': 'Introduction to Gerontology: An Interdisciplinary Field of Practice'}, {'code': 'SW 425', 'credits': 3, 'title': 'Hunger and Homelessness'}, {'code': 'WGS 200', 'credits': 3, 'title': "Introduction to Women's, Gender, and Sexuality Studies"}, {'code': 'WGS 330', 'credits': 3, 'title': 'Women and Health'}, {'code': 'WGS 362', 'credits': 3, 'title': 'Communication and Gender'}], 'group_type': 'elective_pool', 'rule_text': 'CLA/WLCL 115 Medical Terminology 3', 'schema': 'requirement_group/v1', 'source_section': 'Application Electives — Application Electives I'}` → `{'schema': 'requirement_group/v1', 'catalog_year': '2026-2027', 'category': 'other', 'source_section': 'Application Electives — Application Electives I', 'group_type': 'elective_pool', 'courses': [{'code': 'AEC 360', 'title': 'Ecology', 'credits': 4}, {'code': 'AEE 230', 'title': 'Introduction to Cooperative Extension', 'credits': 3}, {'code': 'AEE 323', 'title': 'Leadership Development in Agriculture and Life Sciences', 'credits': 3}, {'code': 'AEE 325', 'title': 'Planning and Delivering Non-Formal Education', 'credits': 3}, {'code': 'AEE 350', 'title': 'Personal Leadership Development in Agriculture and Life Sciences', 'credits': 3}, {'code': 'AEE 478', 'title': 'Advanced Issues in Extension Education', 'credits': 3}, {'code': 'ANS 415', 'title': 'Comparative Nutrition', 'credits': 3}, {'code': 'ANS 515', 'title': 'Comparative Nutrition', 'credits': 3}, {'code': 'ANT 374', 'title': 'Disease and Society', 'credits': 3}, {'code': 'ARE 201', 'title': 'Introduction to Agricultural & Resource Economics', 'credits': 3}, {'code': 'ARE 201A', 'title': 'Introduction to Agricultural & Resource Economics', 'credits': 3}, {'code': 'ARE 475', 'title': 'Food Policy', 'credits': 3}, {'code': 'BCH 351', 'title': 'General Biochemistry', 'credits': 3}, {'code': 'BIO 242', 'title': 'Human Anatomy and Physiology Laboratory', 'credits': 2}, {'code': 'BIO 245', 'title': 'Principles of Human Anatomy & Physiology (B): Endocrine, Cardiovascular, Respiratory & Renal Systems', 'credits': 3}, {'code': 'BIO 404', 'title': 'Epidemiology and Statistics in Global Public Health', 'credits': 3}, {'code': 'BIO 414', 'title': 'Cell Biology', 'credits': 3}, {'code': 'BIO 416', 'title': 'Cancer Cell Biology', 'credits': 3}, {'code': 'BIO 424', 'title': 'Endocrinology', 'credits': 3}, {'code': 'BIO 434', 'title': 'Hormones and Behavior', 'credits': 3}, {'code': 'BIO 488', 'title': 'Neurobiology', 'credits': 3}, {'code': 'BIO 588', 'title': 'Neurobiology', 'credits': 3}, {'code': 'CH 223', 'title': 'Organic Chemistry II', 'credits': 3}, {'code': 'CH 224', 'title': 'Organic Chemistry II Lab', 'credits': 1}, {'code': 'CLA/WLCL 115', 'title': 'Medical Terminology', 'credits': 3}, {'code': 'COM 211', 'title': 'Argumentation and Advocacy', 'credits': 3}, {'code': 'COM 289', 'title': 'Science Communication and Public Engagement', 'credits': 3}, {'code': 'COM 332', 'title': 'Relational Communication', 'credits': 3}, {'code': 'COM 362', 'title': 'Communication and Gender', 'credits': 3}, {'code': 'COM 441', 'title': 'Ethical Issues in Communication', 'credits': 3}, {'code': 'COM 466', 'title': 'Nonprofit Leadership & Development', 'credits': 3}, {'code': 'CS 224', 'title': 'Seeds, Biotechnology and Societies', 'credits': 3}, {'code': 'CS 230', 'title': 'Introduction to Agroecology', 'credits': 3}, {'code': 'CS 410', 'title': 'Community Food Systems', 'credits': 3}, {'code': 'CS 430', 'title': 'Advanced Agroecology', 'credits': 4}, {'code': 'ECD 225', 'title': 'Foundations of Cultural Competence', 'credits': 3}, {'code': 'EDP 304', 'title': 'Educational Psychology', 'credits': 3}, {'code': 'EI 201', 'title': 'Exploring Interdisciplinary Entrepreneurial Thinking', 'credits': 3}, {'code': 'FS 221', 'title': 'Discover: Chocolate, Coffee and Tea', 'credits': 3}, {'code': 'FS 222', 'title': 'Discover: Conventional, Organic and Genetically Engineered Foods', 'credits': 3}, {'code': 'FS 250', 'title': 'Basics of Food Safety & Quality', 'credits': 3}, {'code': 'FS 325', 'title': 'Introduction to Brewing Science and Technology', 'credits': 3}, {'code': 'FS 326', 'title': 'Brewing Practices and Analyses', 'credits': 3}, {'code': 'FS 330', 'title': 'Science of Food Preparation', 'credits': 3}, {'code': 'FS 402', 'title': 'Chemistry of Food and Bioprocessed Materials', 'credits': 4}, {'code': 'FS 403', 'title': 'Analytical Techniques in Food & Bioprocessing Science', 'credits': 4}, {'code': 'FS 405', 'title': 'Food Microbiology', 'credits': 3}, {'code': 'FS 416', 'title': 'Quality Control in Food and Bioprocessing', 'credits': 3}, {'code': 'FS 421', 'title': 'Food Preservation', 'credits': 3}, {'code': 'FS 502', 'title': 'Chemistry of Food and Bioprocessed Materials', 'credits': 4}, {'code': 'FS 505', 'title': 'Food Microbiology', 'credits': 3}, {'code': 'FS 516', 'title': 'Quality Control in Food and Bioprocessing', 'credits': 3}, {'code': 'FS 521', 'title': 'Food Preservation', 'credits': 3}, {'code': 'GN 301', 'title': 'Genetics in Human Affairs', 'credits': 3}, {'code': 'GN 311', 'title': 'Principles of Genetics', 'credits': 4}, {'code': 'GN 441', 'title': 'Human and Biomedical Genetics', 'credits': 3}, {'code': 'GN 453', 'title': 'Personal Genomics', 'credits': 3}, {'code': 'GN 456', 'title': 'Epigenetics, Development, and Disease', 'credits': 3}, {'code': 'GOH 201', 'title': 'Foundations of Global One Health', 'credits': 3}, {'code': 'GOH 302', 'title': 'Global One Health Applications', 'credits': 3}, {'code': 'HESM 478', 'title': 'Exercise Physiology and Sports Science', 'credits': 3}, {'code': 'HESM 480', 'title': 'Principles of Exercise Programming', 'credits': 3}, {'code': 'HI 360', 'title': 'U.S. Agricultural History', 'credits': 3}, {'code': 'HI 380', 'title': 'U.S. Nonprofits, Civil Society, and Democracy', 'credits': 3}, {'code': 'HS 205', 'title': 'Home Food Production', 'credits': 3}, {'code': 'MB 405', 'title': 'Food Microbiology', 'credits': 3}, {'code': 'MB 505', 'title': 'Food Microbiology', 'credits': 3}, {'code': 'NTR 210', 'title': 'Introduction to Community Food Security', 'credits': 3}, {'code': 'NTR 415', 'title': 'Comparative Nutrition', 'credits': 3}, {'code': 'NTR 515', 'title': 'Comparative Nutrition', 'credits': 3}, {'code': 'PB 213', 'title': 'Plants and Civilization', 'credits': 3}, {'code': 'PB 215', 'title': 'Medicinal Plants', 'credits': 3}, {'code': 'PB 325', 'title': 'Culinary Botany', 'credits': 3}, {'code': 'PB 360', 'title': 'Ecology', 'credits': 4}, {'code': 'PHI 325', 'title': 'Bio-Medical Ethics', 'credits': 3}, {'code': 'PHI 420', 'title': 'Global Justice', 'credits': 3}, {'code': 'PO 415', 'title': 'Comparative Nutrition', 'credits': 3}, {'code': 'PO 515', 'title': 'Comparative Nutrition', 'credits': 3}, {'code': 'PRT 200', 'title': 'Health, Wellness and the Pursuit of Happiness', 'credits': 3}, {'code': 'PS 203', 'title': 'Introduction to Nonprofits', 'credits': 3}, {'code': 'PS 231', 'title': 'Introduction to International Relations', 'credits': 3}, {'code': 'PS 236', 'title': 'Issues in Global Politics', 'credits': 3}, {'code': 'PS 312', 'title': 'Introduction to Public Administration', 'credits': 3}, {'code': 'PSY 230', 'title': 'Introduction to Psychological Research', 'credits': 3}, {'code': 'PSY 311', 'title': 'Social Psychology', 'credits': 3}, {'code': 'PSY 312', 'title': 'Applied Psychology', 'credits': 3}, {'code': 'PSY 360', 'title': 'Community Psychology Principles and Practice', 'credits': 3}, {'code': 'PSY 376', 'title': 'Developmental Psychology', 'credits': 3}, {'code': 'PSY 410', 'title': 'Learning and Motivation', 'credits': 3}, {'code': 'PSY 411', 'title': 'The Psychology of Interdependence and Race', 'credits': 3}, {'code': 'PSY 420', 'title': 'Cognitive Processes', 'credits': 3}, {'code': 'PSY 430', 'title': 'Biological Psychology', 'credits': 3}, {'code': 'PSY 431', 'title': 'Health Psychology', 'credits': 3}, {'code': 'PSY 470', 'title': 'Psychopathology and Mental Health', 'credits': 3}, {'code': 'PSY 475', 'title': 'Child Psychology', 'credits': 3}, {'code': 'PSY 476', 'title': 'Psychology of Adolescent Development', 'credits': 3}, {'code': 'PSY 477', 'title': 'Psychology of Aging', 'credits': 3}, {'code': 'SLC 250', 'title': 'Critical and Creative Decision Making Models', 'credits': 3}, {'code': 'SOC 211', 'title': 'Community and Health', 'credits': 3}, {'code': 'SOC 241', 'title': 'Sociology of Agriculture and Rural Society', 'credits': 3}, {'code': 'SOC 241A', 'title': 'Sociology of Agriculture and Rural Society', 'credits': 3}, {'code': 'SOC 311', 'title': 'Community Relationships', 'credits': 3}, {'code': 'SOC 342', 'title': 'International Development', 'credits': 3}, {'code': 'SOC 350', 'title': 'Food and Society', 'credits': 3}, {'code': 'SOC 351', 'title': 'Population and Planning', 'credits': 3}, {'code': 'SOC 381', 'title': 'Sociology of Medicine', 'credits': 3}, {'code': 'SOC 404', 'title': 'Families and Work', 'credits': 3}, {'code': 'SOC 440', 'title': 'Social Change', 'credits': 3}, {'code': 'STS 323', 'title': 'World Population and Food Prospects', 'credits': 3}, {'code': 'STS 325', 'title': 'Bio-Medical Ethics', 'credits': 3}, {'code': 'SW 260', 'title': 'Introduction to Gerontology: An Interdisciplinary Field of Practice', 'credits': 3}, {'code': 'SW 425', 'title': 'Hunger and Homelessness', 'credits': 3}, {'code': 'WGS 200', 'title': "Introduction to Women's, Gender, and Sexuality Studies", 'credits': 3}, {'code': 'WGS 330', 'title': 'Women and Health', 'credits': 3}, {'code': 'WGS 362', 'title': 'Communication and Gender', 'credits': 3}]}`
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: AEE 230 ⟵ “AEE 230 - Introduction to Cooperative Extension”
+  - courses: AEE 323 ⟵ “AEE 323 - Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 325 ⟵ “AEE 325 - Planning and Delivering Non-Formal Education”
+  - courses: AEE 350 ⟵ “AEE 350 - Personal Leadership Development in Agriculture and Life Sciences”
+  - courses: AEE 478 ⟵ “AEE 478 - Advanced Issues in Extension Education”
+  - courses: ANS 415 ⟵ “ANS 415 - Comparative Nutrition”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: ANT 374 ⟵ “ANT 374 - Disease and Society”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 475 ⟵ “ARE 475 - Food Policy”
+  - courses: BCH 351 ⟵ “BCH 351 - General Biochemistry”
+  - courses: BIO 242 ⟵ “BIO 242 - Human Anatomy and Physiology Laboratory”
+  - courses: BIO 245 ⟵ “BIO 245 - Principles of Human Anatomy & Physiology (B): Endocrine, Cardiovascular, Respiratory & Renal Systems”
+  - courses: BIO 404 ⟵ “BIO 404 - Epidemiology and Statistics in Global Public Health”
+  - courses: BIO 414 ⟵ “BIO 414 - Cell Biology”
+  - courses: BIO 416 ⟵ “BIO 416 - Cancer Cell Biology”
+  - courses: BIO 424 ⟵ “BIO 424 - Endocrinology”
+  - courses: BIO 434 ⟵ “BIO 434 - Hormones and Behavior”
+  - courses: BIO 488 ⟵ “BIO 488 - Neurobiology”
+  - courses: BIO 588 ⟵ “BIO 588 - Neurobiology”
+  - courses: CH 223 ⟵ “CH 223 - Organic Chemistry II”
+  - courses: CH 224 ⟵ “CH 224 - Organic Chemistry II Lab”
+  - courses: CLA/WLCL 115 ⟵ “CLA/WLCL 115 - Medical Terminology”
+  - … 15 more rows
+### `9774e3bb9cb94edf` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=environmental-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+- issues: course_alternatives_in_rule_text
+  - courses: AEC 380 ⟵ “AEC 380 - Water Resources: Global Issues in Ecology, Policy, Management, and Advocacy”
+### `982de1903acfb532` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=land-use-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text
+  - courses: MEA 300 ⟵ “MEA 300 - Environmental Geology”
+  - courses: MEA 481 ⟵ “MEA 481 - Geomorphology: Earth's Dynamic Surface”
+  - courses: NR 484 ⟵ “NR 484 - Environmental Impact Assessment”
+  - courses: NR 510 ⟵ “NR 510 - Military Land Sustainability”
+  - courses: SSC 410 ⟵ “SSC 410 - Soil Judging for Land Evaluation”
+  - courses: SSC 421 ⟵ “SSC 421 - ”
+  - courses: SSC 427 ⟵ “SSC 427 - Biological Approaches to Sustainable Soil Systems”
+  - courses: SSC 455 ⟵ “SSC 455 - Soils, Environmental Quality and Global Challenges”
+  - courses: SSC 462 ⟵ “SSC 462 - Soil-Crop Management Systems”
+### `9a5521bba8335eaa` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs · requirement_key=plan-requirements-natural-physical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs/ (sha256 a9d029049f48)
+- issues: course_alternatives_in_rule_text
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+### `9c85779428b30601` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `9da78c66938f3913` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=horticultural-science-bs-production-systems-and-entrepreneurship-in-horticulture · requirement_key=plan-requirements-foundational-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/horticultural-science/horticultural-science-bs-production-systems-entrepreneurship-horticulture-concentration/ (sha256 5a5370d23a03)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: HS 201 ⟵ “HS 201 - The World of Horticulture: Principles and Practices”
+  - courses: HS 290 ⟵ “HS 290 - Horticulture: Careers and Opportunities”
+  - courses: ANS/HS 215 ⟵ “ANS/HS 215 - Agricultural Genetics”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: HS 301 ⟵ “HS 301 - Plant Propagation”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: HS 451 ⟵ “HS 451 - Plant Nutrition”
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: HS 492 ⟵ “HS 492 - Horticulture Internship”
+### `9eb262183395d714` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `9fdf27c24f53f38f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=business-finance-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+  - courses: ACC 210 ⟵ “ACC 210 - Concepts of Financial Reporting”
+  - courses: ACC 220 ⟵ “ACC 220 - Introduction to Managerial Accounting”
+  - courses: ACC 280 ⟵ “ACC 280 - Survey of Financial and Managerial Accounting”
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 301 ⟵ “ARE 301 - Intermediate Microeconomics”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: ARE 312 ⟵ “ARE 312 - Agribusiness Marketing”
+  - courses: ARE 321 ⟵ “ARE 321 - Agricultural Financial Management”
+  - courses: ARE 332 ⟵ “ARE 332 - Human Resource Management for Agribusiness”
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: BUS 225 ⟵ “BUS 225 - Personal Finance”
+  - courses: EC 202 ⟵ “EC 202 - Principles of Macroeconomics”
+  - courses: EC 301 ⟵ “EC 301 - Intermediate Microeconomics”
+  - courses: EC 302 ⟵ “EC 302 - Intermediate Macroeconomics”
+  - courses: EC 305 ⟵ “EC 305 - A Closer Look at Capitalism”
+  - courses: EC 336 ⟵ “EC 336 - Introduction to Resource and Environmental Economics”
+  - courses: EC 348 ⟵ “EC 348 - Introduction to International Economics”
+  - courses: MIE 201 ⟵ “MIE 201 - Introduction to Business”
+### `a1145f932f86693f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=pb-electives-pb-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: PB 213 ⟵ “PB 213 - Plants and Civilization”
+  - courses: PB 215 ⟵ “PB 215 - Medicinal Plants”
+  - courses: PB 219 ⟵ “PB 219 - Plants in Folklore, Myth, and Religion”
+  - courses: PB 220 ⟵ “PB 220 - Local Flora”
+  - courses: PB 277 ⟵ “PB 277 - Space Biology”
+  - courses: PP 222 ⟵ “PP 222 - Kingdom of Fungi”
+### `a12cfdb5c53a6d57` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-social-sciences-and-ip [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped
+  - courses: PSY 376 ⟵ “PSY 376 - Developmental Psychology”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+### `a276ddf68ba3cc5d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `a4a2e99cc4a61b7b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-life-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: GN 301 ⟵ “GN 301 - Genetics in Human Affairs”
+  - courses: PB 200 ⟵ “PB 200 - Plant Life”
+  - courses: PB 205 ⟵ “PB 205 - Our Green World”
+  - courses: PB 208 ⟵ “PB 208 - Agricultural Biotechnology: Issues and Implications”
+  - courses: PB 213 ⟵ “PB 213 - Plants and Civilization”
+  - courses: PB 220 ⟵ “PB 220 - Local Flora”
+  - courses: PB 250 ⟵ “PB 250 - Plant Biology”
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: ANS 230 ⟵ “ANS 230 - Animal Nutrition”
+  - courses: NTR 301 ⟵ “NTR 301 - Introduction to Human Nutrition”
+  - courses: FS 201 ⟵ “FS 201 - Introduction to Food Science”
+### `a4b48d5e5626441f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-agronomy · requirement_key=contact-person-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-agronomy/ (sha256 52586c794d6b)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `a60fd6b3161b5c11` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-mathematics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, mixed_required_and_choice, choice_rule_unparsed
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 231 ⟵ “MA 231 - Calculus for Life and Management Sciences B”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `a63fe9ab010cf5f6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `a6645bd942503925` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `a6e109b862862706` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-concentration-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-concentration-electives ⟵ “Plan Requirements — Concentration Electives”
+### `a771069b5ab78f8b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-gep-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `a84beb3e0277185c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-mathematical-and-natural-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: MA 103 ⟵ “MA 103 - Topics in Contemporary Mathematics”
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: CH 100 ⟵ “CH 100 - Chemistry and Society”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: PY 201 ⟵ “PY 201 - University Physics I”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: BIO 105 ⟵ “BIO 105 - Biology in the Modern World”
+### `a9bcde977903132d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `a9c5b01187ae1788` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: MEA 130 ⟵ “MEA 130 - Introduction to Weather and Climate”
+  - courses: MEA 200 ⟵ “MEA 200 - Introduction to Oceanography”
+  - courses: MEA 202 ⟵ “MEA 202 - Geology II: Historical”
+  - courses: PY 123 ⟵ “PY 123 - Stellar and Galactic Astronomy”
+### `ac2c9f2c9b72087e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=plan-requirements-general-education-and-psychology [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: course_alternatives_in_rule_text
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+### `accd0a4441ffacb9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=pb-electives-300-level [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: ECE 488 ⟵ “ECE 488 - Systems Biology Modeling of Plant Regulation”
+  - courses: ECE 588 ⟵ “ECE 588 - Systems Biology Modeling of Plant Regulation”
+  - courses: FOR 565 ⟵ “FOR 565 - Plant Community Ecology”
+  - courses: MB 501 ⟵ “MB 501 - Biology of Plant Pathogens”
+  - courses: MB 575 ⟵ “MB 575 - Introduction to Mycology”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PB 325 ⟵ “PB 325 - Culinary Botany”
+  - courses: PB 345 ⟵ “PB 345 - Economic Botany”
+  - courses: PB 346 ⟵ “PB 346 - Economic Botany Lab”
+  - courses: PB 360 ⟵ “PB 360 - Ecology”
+  - courses: PB 400 ⟵ “PB 400 - Plant Diversity and Evolution”
+  - courses: PB 403 ⟵ “PB 403 - Systematic Botany”
+  - courses: PB 407 ⟵ “PB 407 - Medical Ethnobotany”
+  - courses: PB 413 ⟵ “PB 413 - Plant Anatomy”
+  - courses: PB 421 ⟵ “PB 421 - Plant Physiology”
+  - courses: PB 422 ⟵ “PB 422 - Methods in Plant Molecular Biology and Physiology”
+  - courses: PB 445 ⟵ “PB 445 - Paleobotany”
+  - courses: PB 450 ⟵ “PB 450 - Plant Ecology”
+  - courses: PB 464 ⟵ “PB 464 - Rare Plants of North Carolina”
+  - courses: PB 480 ⟵ “PB 480 - Introduction to Plant Biotechnology”
+  - courses: PB 488 ⟵ “PB 488 - Systems Biology Modeling of Plant Regulation”
+  - courses: PB 501 ⟵ “PB 501 - Biology of Plant Pathogens”
+  - courses: PB 503 ⟵ “PB 503 - Systematic Botany”
+  - courses: PB 507 ⟵ “PB 507 - Medical Ethnobotany”
+  - … 11 more rows
+### `aed8f98d0098ee3e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-gep-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `af8079769af71953` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `afc6238cbe7730d2` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-9 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BME 204 ⟵ “BME 204 - ”
+  - courses: BME 217 ⟵ “BME 217 - Biomedical Electronics Laboratory”
+  - courses: BME 298 ⟵ “BME 298 - Biomedical Engineering Design and Manufacturing I”
+  - courses: BME 398 ⟵ “BME 398 - Biomedical Engineering Design and Manufacturing II”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FM 525 ⟵ “FM 525 - Feed Manufacturing Technology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 420 ⟵ “FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: FOR 472 ⟵ “FOR 472 - Forest Soils”
+  - courses: FOR 520 ⟵ “FOR 520 - Watershed and Wetlands Hydrology”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - courses: FS 562 ⟵ “FS 562 - Postharvest Physiology”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - … 15 more rows
+### `b1ff64abd73224ad` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped
+  - courses: EMS 204 ⟵ “EMS 204 - Introduction to Mathematics Education”
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+  - courses: EMS 472 ⟵ “EMS 472 - Teaching Mathematics Topics in Senior High School”
+  - courses: EMS 480 ⟵ “EMS 480 - Teaching Mathematics with Technology”
+  - courses: EMS 470 ⟵ “EMS 470 - Methods and Materials for Teaching Mathematics”
+  - courses: EMS 490 ⟵ “EMS 490 - School Mathematics from an Advanced Perspective”
+  - courses: EMS 471 ⟵ “EMS 471 - Student Teaching in Mathematics”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `b412fe20c75d23c8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=biotechnology-elective [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 572 ⟵ “BIO 572 - Proteomics”
+  - courses: BIT 100 ⟵ “BIT 100 - Current Topics in Biotechnology”
+  - courses: BIT 200 ⟵ “BIT 200 - Early Research in Biotechnology”
+  - courses: BIT 210 ⟵ “BIT 210 - Phage Hunters”
+  - courses: BIT 211 ⟵ “BIT 211 - Phage Genomics”
+  - courses: BIT 295 ⟵ “BIT 295 - Special Topics in Biotechnology”
+  - courses: BIT 476 ⟵ “BIT 476 - Applied Bioinformatics”
+  - courses: BIT 477 ⟵ “BIT 477 - Metagenomics”
+  - courses: BIT 492 ⟵ “BIT 492 - External Learning Experience”
+  - courses: BIT 493 ⟵ “BIT 493 - Special Problems in Biotechnology”
+  - courses: BIT 495 ⟵ “BIT 495 - Special Topics in Biotechnology”
+  - courses: BIT 501 ⟵ “BIT 501 - Ethical Issues in Biotechnology”
+  - courses: BIT 502 ⟵ “BIT 502 - Biotechnology Networking and Professional Development”
+  - courses: BIT 510 ⟵ “BIT 510 - Core Technologies in Molecular and Cellular Biology”
+  - courses: BIT 569 ⟵ “BIT 569 - ”
+  - courses: BIT 590 ⟵ “BIT 590 - Independent Study in Biotechnology”
+  - courses: BIT 595 ⟵ “BIT 595 - Special Topics”
+  - courses: CH 572 ⟵ “CH 572 - Proteomics”
+  - courses: CHE 463 ⟵ “CHE 463 - Fermentation of Recombinant Microorganisms”
+  - courses: CHE 563 ⟵ “CHE 563 - Fermentation of Recombinant Microorganisms”
+  - courses: MB 210 ⟵ “MB 210 - Phage Hunters”
+  - courses: MB 211 ⟵ “MB 211 - Phage Genomics”
+  - courses: PB 481 ⟵ “PB 481 - Plant Tissue Culture and Transformation”
+### `b417b338d5edc552` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-natural-resources-concentration [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+- issues: course_alternatives_in_rule_text
+  - courses: ARE 336 ⟵ “ARE 336 - Introduction to Resource and Environmental Economics”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: FOR 252 ⟵ “FOR 252 - Introduction to Forest Science”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: FW 353 ⟵ “FW 353 - Wildlife Management”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+### `b4aed3a8764240e3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-statistics-specialization [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: ST 312 ⟵ “ST 312 - Introduction to Statistics II”
+  - courses: ST 307 ⟵ “ST 307 - Introduction to Statistical Programming- SAS”
+  - courses: ST 421 ⟵ “ST 421 - Introduction to Mathematical Statistics I”
+  - courses: ST 422 ⟵ “ST 422 - Introduction to Mathematical Statistics II”
+### `b59d6e036ec15872` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: PB 360 ⟵ “PB 360 - Ecology”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+### `b5b092cc4d304212` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=business-finance-electives-3 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+  - courses: PO 212 ⟵ “PO 212 - Poultry and People”
+  - courses: PO 325 ⟵ “PO 325 - Aspects of Animal Welfare”
+  - courses: PO 340 ⟵ “PO 340 - Live Poultry and Poultry Product Evaluation, Grading, and Inspection”
+  - courses: PO 410 ⟵ “PO 410 - Production and Management of Game Birds in Confinement”
+  - courses: PO 411 ⟵ “PO 411 - Agrosecurity”
+  - courses: PO 412 ⟵ “PO 412 - Emerging Topics in Poultry Science”
+  - courses: PO 421 ⟵ “PO 421 - Commercial Egg Production”
+  - courses: PO 424 ⟵ “PO 424 - Poultry Meat Production”
+  - courses: PO 425 ⟵ “PO 425 - Feed Manufacturing Technology”
+  - courses: PO 426 ⟵ “PO 426 - Feed Manufacturing Technology Laboratory”
+  - courses: PO 492 ⟵ “PO 492 - External Learning Experience”
+  - courses: PO 493 ⟵ “PO 493 - Special Problems in Poultry Science”
+  - courses: PO 495 ⟵ “PO 495 - Special Topics in Poultry Science”
+### `b693de624997da1b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: COM 211 ⟵ “COM 211 - Argumentation and Advocacy”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: ENG 232 ⟵ “ENG 232 - Literature and Medicine”
+  - courses: ENG 425 ⟵ “ENG 425 - Analysis of Scientific and Technical Writing”
+### `bd1dcca64b069499` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=life-science-electives-300-400-level [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - section: life-science-electives-300-400-level ⟵ “Life Science Electives 300/400 Level”
+### `bd9047dad58ec24d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=plan-requirements-physical-and-biological-science [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: MA 107 ⟵ “MA 107 - Precalculus I”
+  - courses: MA 121 ⟵ “MA 121 - Elements of Calculus”
+  - courses: MA 131 ⟵ “MA 131 - Calculus for Life and Management Sciences A”
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+  - courses: GN 311 ⟵ “GN 311 - Principles of Genetics”
+### `bdc1f5ac27f022a0` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-earth-science-concentration · requirement_key=advised-science-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-earth-science-concentration/ (sha256 53c41d4fa766)
+- issues: course_alternatives_in_rule_text
+  - section: advised-science-electives ⟵ “Advised Science Electives”
+### `bf15200af57a1037` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-natural-and-physical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: BCH 351 ⟵ “BCH 351 - General Biochemistry”
+  - courses: MB 251 ⟵ “MB 251 - General Microbiology”
+  - courses: MB 252 ⟵ “MB 252 - General Microbiology Laboratory”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: PY 212 ⟵ “PY 212 - College Physics II”
+### `c25b3943a6391720` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-science-concentration · requirement_key=food-science-bs-science-concentration-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-science-concentration/ (sha256 12288d34bec3)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BCH 351 ⟵ “BCH 351 - General Biochemistry”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: PY 212 ⟵ “PY 212 - College Physics II”
+### `c2818c9b046c83a6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=advanced-socio-economic-and-food-system-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: AEC 470 ⟵ “AEC 470 - Urban Ecology”
+  - courses: ARE 433 ⟵ “ARE 433 - U.S. Agricultural Policy”
+  - courses: ARE 448 ⟵ “ARE 448 - International Agricultural Trade”
+  - courses: IDS 303 ⟵ “IDS 303 - Humans and the Environment”
+  - courses: NTR 330 ⟵ “NTR 330 - Public Health Nutrition”
+  - courses: PRT 430 ⟵ “PRT 430 - Tourism, Poverty, and Health”
+  - courses: SOC 311 ⟵ “SOC 311 - Community Relationships”
+  - courses: SOC 342 ⟵ “SOC 342 - International Development”
+  - courses: SOC 350 ⟵ “SOC 350 - Food and Society”
+### `c38837ed869becc8` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=nutrition-sciences-bs-applied-nutrition-concentration · requirement_key=nutrition-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/nutrition-sciences-bs-applied-nutrition-concentration/ (sha256 fae16214d8df)
+- issues: course_alternatives_in_rule_text
+  - courses: NTR 211 ⟵ “NTR 211 - Eating through American History”
+  - courses: NTR 220 ⟵ “NTR 220 - Food and Culture in Italy”
+  - courses: NTR 221 ⟵ “NTR 221 - The Mediterranean Diet”
+  - courses: NTR 310 ⟵ “NTR 310 - Food Insecurity and Federal Nutrition Programs”
+  - courses: NTR 330 ⟵ “NTR 330 - Public Health Nutrition”
+  - courses: NTR 350 ⟵ “NTR 350 - Introduction to Sports Nutrition”
+  - courses: NTR 410 ⟵ “NTR 410 - Maternal and Infant Nutrition”
+  - courses: NTR 411 ⟵ “NTR 411 - Public Health Perspectives in Infant Feeding”
+  - courses: NTR 412 ⟵ “NTR 412 - Clinical Concepts in Infant Feeding”
+  - courses: NTR 413 ⟵ “NTR 413 - Clinical Concepts in Infant Feeding Laboratory”
+  - courses: NTR 419 ⟵ “NTR 419 - Human Nutrition and Chronic Disease”
+  - courses: NTR 440 ⟵ “NTR 440 - Child & Adolescent Nutrition”
+  - courses: NTR/ANS 454 ⟵ “NTR/ANS 454 - Lactation, Milk and Nutrition”
+  - courses: NTR 460 ⟵ “NTR 460 - Nutrition for the Older Adult”
+  - courses: NTR 470 ⟵ “NTR 470 - Global Nutrition”
+  - courses: NTR 492 ⟵ “NTR 492 - Professional Internship Experience in Nutrition Science”
+  - courses: NTR/FS 555 ⟵ “NTR/FS 555 - Exercise Nutrition”
+  - courses: NTR/FS 557 ⟵ “NTR/FS 557 - Nutraceuticals and Functional Foods”
+  - courses: NTR/FS 558 ⟵ “NTR/FS 558 - Food Toxicology”
+### `c4a4833950c6aae7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `c4ae7b45115e071f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=plan-requirements-humanities-social-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: PSY 200 ⟵ “PSY 200 - Introduction to Psychology”
+  - courses: SOC 202 ⟵ “SOC 202 - Principles of Sociology”
+### `c62248a7a293eaf9` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=plan-requirements-social-sciences-business [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+### `c81fb87b24e724fc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+### `c869a057389f4d8a` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-technology-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-technology-concentration/ (sha256 5fbd33e4be09)
+- issues: requirement_groups_skipped
+  - courses: PO 290 ⟵ “PO 290 - Exploring Opportunities in Poultry Science”
+### `cb65108189ae0fa5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-required-courses-within-major [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+  - courses: NR 300 ⟵ “NR 300 - Natural Resource Measurements”
+  - courses: SSC 341 ⟵ “SSC 341 - Soil Fertility and Nutrient Management”
+  - courses: SSC 342 ⟵ “SSC 342 - Soil and Plant Nutrient Analysis”
+  - courses: SSC 452 ⟵ “SSC 452 - Soil Classification”
+  - courses: SSC 461 ⟵ “SSC 461 - Soil Physical Properties and Plant Growth”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+### `ccde78bfd180c597` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=poultry-science-bs-science-concentration · requirement_key=plan-requirements-departmental-requirements [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/poultry-science/poultry-science-bs-science-concentration/ (sha256 54f48199bf7f)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: PO 404 ⟵ “PO 404 - Avian Anatomy and Physiology”
+  - courses: PO 415 ⟵ “PO 415 - Comparative Nutrition”
+  - courses: PO 433 ⟵ “PO 433 - Poultry Processing and Products”
+  - courses: PO 435 ⟵ “PO 435 - Poultry Incubation & Breeding”
+  - courses: PO 401 ⟵ “PO 401 - Poultry Diseases”
+### `d130f75c6aa4e220` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 420 ⟵ “AEC 420 - Introduction to Fisheries Science”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 441 ⟵ “AEC 441 - Biology of Fishes”
+  - courses: AEC 442 ⟵ “AEC 442 - Biology of Fishes Laboratory”
+  - courses: AEC 460 ⟵ “AEC 460 - Field Ecology and Methods”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 515 ⟵ “ANS 515 - Comparative Nutrition”
+  - courses: BEC 463 ⟵ “BEC 463 - Fermentation of Recombinant Microorganisms”
+  - courses: BEC 563 ⟵ “BEC 563 - Fermentation of Recombinant Microorganisms”
+  - courses: BIO 140 ⟵ “BIO 140 - ”
+  - courses: BIO 141 ⟵ “BIO 141 - ”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BIO 315 ⟵ “BIO 315 - General Parasitology”
+  - courses: BIO 330 ⟵ “BIO 330 - Evolutionary Biology”
+  - courses: BIO 361 ⟵ “BIO 361 - Developmental Biology”
+  - courses: BIO 370 ⟵ “BIO 370 - ”
+  - courses: BIO 375 ⟵ “BIO 375 - ”
+  - courses: BIO 405 ⟵ “BIO 405 - ”
+  - courses: BIO 414 ⟵ “BIO 414 - ”
+  - courses: BIO 424 ⟵ “BIO 424 - Endocrinology”
+  - courses: BIO 482 ⟵ “BIO 482 - Capstone Course in Molecular, Cellular, and Developmental Biology”
+  - courses: BIO 483 ⟵ “BIO 483 - Capstone Course in Integrative Physiology and Neurobiology”
+  - courses: BIO 484 ⟵ “BIO 484 - Capstone Course in Human Biology”
+  - courses: BIO 485 ⟵ “BIO 485 - Capstone Course in Ecology, Evolution, and Conservation Biology”
+  - … 15 more rows
+### `d246b63af34194fd` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-middle-grades-mathematics-concentration · requirement_key=plan-requirements-mathematics [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-middle-grades-mathematics-concentration/ (sha256 366047be7a09)
+- issues: mixed_required_and_choice
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: MA 225 ⟵ “MA 225 - Foundations of Advanced Mathematics”
+  - courses: MA 408 ⟵ “MA 408 - Foundations of Euclidean Geometry”
+  - courses: MA 305 ⟵ “MA 305 - Introductory Linear Algebra and Matrices”
+  - courses: MA 405 ⟵ “MA 405 - Introduction to Linear Algebra”
+  - courses: MA 103 ⟵ “MA 103 - Topics in Contemporary Mathematics”
+  - courses: MA 105 ⟵ “MA 105 - Mathematics of Finance”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+### `d2612d82b8676960` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+- issues: course_alternatives_in_rule_text
+  - courses: AEE 103 ⟵ “AEE 103 - Fundamentals of Agricultural and Extension Education”
+### `d341902b086891da` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=plan-requirements-orientation-course [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+### `d75add335717b26c` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: EMS 204 ⟵ “EMS 204 - Introduction to Mathematics Education”
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+  - courses: EMS 472 ⟵ “EMS 472 - Teaching Mathematics Topics in Senior High School”
+  - courses: EMS 480 ⟵ “EMS 480 - Teaching Mathematics with Technology”
+  - courses: EMS 470 ⟵ “EMS 470 - Methods and Materials for Teaching Mathematics”
+  - courses: EMS 490 ⟵ “EMS 490 - School Mathematics from an Advanced Perspective”
+  - courses: EMS 471 ⟵ “EMS 471 - Student Teaching in Mathematics”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `d774095308b8d5d7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-poultry-science-concentration [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+- issues: course_alternatives_in_rule_text
+  - courses: PO 290 ⟵ “PO 290 - Exploring Opportunities in Poultry Science”
+  - courses: PO 340 ⟵ “PO 340 - Live Poultry and Poultry Product Evaluation, Grading, and Inspection”
+  - courses: PO 421 ⟵ “PO 421 - Commercial Egg Production”
+  - courses: PO 424 ⟵ “PO 424 - Poultry Meat Production”
+  - courses: PO 435 ⟵ “PO 435 - Poultry Incubation & Breeding”
+### `d7aa2a2d79e230f3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=restricted-electives-group-c-applied-sci-tech-3 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+- issues: course_alternatives_in_rule_text
+  - courses: AEC 419 ⟵ “AEC 419 - Freshwater Ecology”
+  - courses: AEC 423 ⟵ “AEC 423 - Introduction to Fisheries Sciences Laboratory”
+  - courses: AEC 519 ⟵ “AEC 519 - Freshwater Ecology”
+  - courses: ANS 322 ⟵ “ANS 322 - Muscle Foods and Eggs”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: BIO 227 ⟵ “BIO 227 - Understanding Structural Diversity through Biological Illustration”
+  - courses: BME 204 ⟵ “BME 204 - ”
+  - courses: BME 217 ⟵ “BME 217 - Biomedical Electronics Laboratory”
+  - courses: BME 298 ⟵ “BME 298 - Biomedical Engineering Design and Manufacturing I”
+  - courses: BME 398 ⟵ “BME 398 - Biomedical Engineering Design and Manufacturing II”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CSSC 490 ⟵ “CSSC 490 - Senior Seminar in Crop Science and Soil Science”
+  - courses: ENT 470 ⟵ “ENT 470 - Advanced Turfgrass Pest Management”
+  - courses: FM 425 ⟵ “FM 425 - Feed Manufacturing Technology”
+  - courses: FM 525 ⟵ “FM 525 - Feed Manufacturing Technology”
+  - courses: FOR 318 ⟵ “FOR 318 - Forest Pathology”
+  - courses: FOR 420 ⟵ “FOR 420 - Watershed and Wetlands Hydrology”
+  - courses: FOR 472 ⟵ “FOR 472 - Forest Soils”
+  - courses: FOR 520 ⟵ “FOR 520 - Watershed and Wetlands Hydrology”
+  - courses: FS 322 ⟵ “FS 322 - Muscle Foods and Eggs”
+  - courses: FS 435 ⟵ “FS 435 - Food Safety Management Systems”
+  - courses: FS 462 ⟵ “FS 462 - Postharvest Physiology”
+  - courses: FS 535 ⟵ “FS 535 - Food Safety Management Systems”
+  - courses: FS 562 ⟵ “FS 562 - Postharvest Physiology”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - … 15 more rows
+### `d974b73a10c1dc25` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-business-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-business-concentration/ (sha256 4212479b7be8)
+- issues: course_alternatives_in_rule_text
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+### `d9c1ad2975cb3b01` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `d9e0e43cffcb41d7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `da6e350509efa248` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-communication-advanced-writing [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: AEE 311 ⟵ “AEE 311 - Communication Methods and Media”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `db756cb8f71afdbe` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=pb-electives-pb-electives-300-level [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: ECE 488 ⟵ “ECE 488 - Systems Biology Modeling of Plant Regulation”
+  - courses: ECE 588 ⟵ “ECE 588 - Systems Biology Modeling of Plant Regulation”
+  - courses: FOR 565 ⟵ “FOR 565 - Plant Community Ecology”
+  - courses: MB 501 ⟵ “MB 501 - Biology of Plant Pathogens”
+  - courses: MB 575 ⟵ “MB 575 - Introduction to Mycology”
+  - courses: PB 321 ⟵ “PB 321 - Introduction to Whole Plant Physiology”
+  - courses: PB 325 ⟵ “PB 325 - Culinary Botany”
+  - courses: PB 345 ⟵ “PB 345 - Economic Botany”
+  - courses: PB 346 ⟵ “PB 346 - Economic Botany Lab”
+  - courses: PB 360 ⟵ “PB 360 - Ecology”
+  - courses: PB 400 ⟵ “PB 400 - Plant Diversity and Evolution”
+  - courses: PB 403 ⟵ “PB 403 - Systematic Botany”
+  - courses: PB 407 ⟵ “PB 407 - Medical Ethnobotany”
+  - courses: PB 413 ⟵ “PB 413 - Plant Anatomy”
+  - courses: PB 421 ⟵ “PB 421 - Plant Physiology”
+  - courses: PB 422 ⟵ “PB 422 - Methods in Plant Molecular Biology and Physiology”
+  - courses: PB 445 ⟵ “PB 445 - Paleobotany”
+  - courses: PB 450 ⟵ “PB 450 - Plant Ecology”
+  - courses: PB 464 ⟵ “PB 464 - Rare Plants of North Carolina”
+  - courses: PB 480 ⟵ “PB 480 - Introduction to Plant Biotechnology”
+  - courses: PB 481 ⟵ “PB 481 - Plant Tissue Culture and Transformation”
+  - courses: PB 488 ⟵ “PB 488 - Systems Biology Modeling of Plant Regulation”
+  - courses: PB 501 ⟵ “PB 501 - Biology of Plant Pathogens”
+  - courses: PB 503 ⟵ “PB 503 - Systematic Botany”
+  - … 12 more rows
+### `dbddfbd40f6fd982` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-biology-concentration · requirement_key=plan-requirements-gep-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-biology-concentration/ (sha256 4dc6008a5f3c)
+- issues: requirement_groups_skipped
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `dd17373a43b84b9b` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=socio-economic-and-food-system-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: ARE 215 ⟵ “ARE 215 - Small Business Accounting”
+  - courses: ARE 270 ⟵ “ARE 270 - Principles of Agribusiness Entrepreneurship”
+  - courses: ARE 303 ⟵ “ARE 303 - Farm Management”
+  - courses: ARE 304 ⟵ “ARE 304 - Agribusiness Management”
+  - courses: ARE 306 ⟵ “ARE 306 - Agricultural Law”
+  - courses: ARE 309 ⟵ “ARE 309 - Environmental Law & Economic Policy”
+  - courses: ARE 311 ⟵ “ARE 311 - Agricultural Markets”
+  - courses: FS 222 ⟵ “FS 222 - Discover: Conventional, Organic and Genetically Engineered Foods”
+  - courses: FS/NTR 301 ⟵ “FS/NTR 301 - Introduction to Human Nutrition”
+  - courses: IDS 211 ⟵ “IDS 211 - Eating through American History”
+  - courses: NTR 210 ⟵ “NTR 210 - Introduction to Community Food Security”
+  - courses: NTR 310 ⟵ “NTR 310 - Food Insecurity and Federal Nutrition Programs”
+  - courses: NTR 330 ⟵ “NTR 330 - Public Health Nutrition”
+### `df6c2877072d3d91` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-natural-resources-concentration · requirement_key=plan-requirements-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-natural-resources-concentration/ (sha256 1b8f578e3a3d)
+- issues: course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+### `e072e2b64cb19c11` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-communication [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+### `e11ce2732b16a620` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-computer-science [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: CSC 110 ⟵ “CSC 110 - Computer Science Principles - The Beauty and Joy of Computing”
+  - courses: CSC 116 ⟵ “CSC 116 - Introduction to Computing - Java”
+  - courses: CSC 216 ⟵ “CSC 216 - Software Development Fundamentals”
+  - courses: CSC 217 ⟵ “CSC 217 - Software Development Fundamentals Lab”
+  - courses: CSC 226 ⟵ “CSC 226 - Discrete Mathematics”
+### `e1223140874a18e6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-environmental-systems-mana · requirement_key=plan-requirements-natural-physical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-environmental-systems-management-concentration/ (sha256 c77807e064d9)
+- issues: course_alternatives_in_rule_text
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+### `e3686971168ce3ce` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=plan-requirements-natural-physical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+- issues: course_alternatives_in_rule_text
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+### `e40bc859dc7872c3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-chemistry-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-chemistry-concentration/ (sha256 91daf42b4818)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice, choice_rule_unparsed
+  - courses: ED 100 ⟵ “ED 100 - Intro to Education”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: COM 211 ⟵ “COM 211 - Argumentation and Advocacy”
+  - courses: COM 289 ⟵ “COM 289 - Science Communication and Public Engagement”
+  - courses: ENG 232 ⟵ “ENG 232 - Literature and Medicine”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+  - courses: ENG 425 ⟵ “ENG 425 - Analysis of Scientific and Technical Writing”
+### `e497c198a31c2440` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-community-food-systems-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-community-food-systems-concentration/ (sha256 cb3f6908c7e3)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: CSSC 290 ⟵ “CSSC 290 - Professional Development in Crop & Soil Sciences”
+### `e5874e6d8ffcaf2d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=plan-requirements-professional-education [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped
+  - courses: EMS 204 ⟵ “EMS 204 - Introduction to Mathematics Education”
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+  - courses: ED 311 ⟵ “ED 311 - Classroom Assessment Principles and Practices”
+  - courses: ED 312 ⟵ “ED 312 - Classroom Assessment Principles and Practices Professional Learning Lab”
+  - courses: EMS 472 ⟵ “EMS 472 - Teaching Mathematics Topics in Senior High School”
+  - courses: EMS 480 ⟵ “EMS 480 - Teaching Mathematics with Technology”
+  - courses: EMS 470 ⟵ “EMS 470 - Methods and Materials for Teaching Mathematics”
+  - courses: EMS 490 ⟵ “EMS 490 - School Mathematics from an Advanced Perspective”
+  - courses: EMS 471 ⟵ “EMS 471 - Student Teaching in Mathematics”
+  - courses: EMS 495 ⟵ “EMS 495 - Senior Seminar in Mathematics and Science Education”
+### `e6f7d31fdf1e5604` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-statistics-specialization · requirement_key=natural-science-lab-course-elective [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-statistics-specialization/ (sha256 7094afd64672)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 201 ⟵ “PY 201 - University Physics I”
+  - courses: PY 202 ⟵ “PY 202 - University Physics II”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: PY 212 ⟵ “PY 212 - College Physics II”
+### `e76f70d39de051ea` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=plan-requirements-professional-technical-content [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: GC 120 ⟵ “GC 120 - Foundations of Graphics”
+  - courses: GC 250 ⟵ “GC 250 - Architectural Graphic Communications”
+  - courses: TDE 110 ⟵ “TDE 110 - Materials & Processes Technology”
+  - courses: TDE 131 ⟵ “TDE 131 - Technology through Engineering and Design I”
+  - courses: TDE 205 ⟵ “TDE 205 - Desktop Publishing and Imaging Technology”
+  - courses: TDE 331 ⟵ “TDE 331 - Technology Through Engineering and Design II”
+  - courses: TDE 481 ⟵ “TDE 481 - Research & Development in Technology Education”
+### `e88e2d4fe9b89560` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-poultry-science-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-poultry-science-concentration/ (sha256 48a0499deddf)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: BAET 201 ⟵ “BAET 201 - Shop Processes and Management”
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `ead95c0575235d4e` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=cals-elective-groups-a-b-c-11pb-2147-2 [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: ANS 225 ⟵ “ANS 225 - Principles of Animal Nutrition”
+  - courses: BIT 100 ⟵ “BIT 100 - Current Topics in Biotechnology”
+  - courses: BIT 465 ⟵ “BIT 465 - Real-time PCR Techniques”
+  - courses: BIT 471 ⟵ “BIT 471 - RNA Interference and Model Organisms”
+  - courses: BIT 473 ⟵ “BIT 473 - Protein Interactions”
+  - courses: BIT 474 ⟵ “BIT 474 - Plant Genetic Engineering”
+  - courses: BIT 565 ⟵ “BIT 565 - Real-time PCR Techniques”
+  - courses: BIT 571 ⟵ “BIT 571 - RNA Interference and Model Organisms”
+  - courses: BIT 573 ⟵ “BIT 573 - Protein Interactions”
+  - courses: BIT 574 ⟵ “BIT 574 - Plant Genetic Engineering”
+  - courses: ENT 305 ⟵ “ENT 305 - Introduction to Forensic Entomology”
+### `ec879f587fda61be` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-physics-concentration · requirement_key=plan-requirements-general-education-and-psychology [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-physics-concentration/ (sha256 84a696d2f9e9)
+- issues: course_alternatives_in_rule_text
+  - courses: ED 204 ⟵ “ED 204 - Introduction to Teaching in Today's Schools”
+  - courses: EDP 304 ⟵ “EDP 304 - Educational Psychology”
+  - courses: ELP 344 ⟵ “ELP 344 - School and Society”
+  - courses: ECI 416 ⟵ “ECI 416 - Teaching Students with Disabilities in Inclusive Classrooms”
+### `ec87ed121c010d8f` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=food-science-bs-business-technology-concentration · requirement_key=food-science-bs-business-technology-concentration-mathematical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/food-science-bs-business-technology-concentration/ (sha256 f9502207bf08)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+### `ecd04e081750c1d6` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=plan-requirements-major-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: STS 214 ⟵ “STS 214 - Introduction to Science, Technology, and Society”
+  - courses: CSC 281 ⟵ “CSC 281 - Foundations of Interactive Game Design”
+### `ecf7099d79fd8d16` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-licensure-concentration · requirement_key=tde-technical-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-licensure-concentration/ (sha256 a8efef6e7053)
+- issues: requirement_groups_skipped
+  - courses: GC 320 ⟵ “GC 320 - 3D Spatial Relations”
+  - courses: GC 330 ⟵ “GC 330 - Basic Technical Animation”
+  - courses: GC 340 ⟵ “GC 340 - Concepts of Website Development”
+  - courses: GC 350 ⟵ “GC 350 - Applied CAD/D and Geometric Controls”
+  - courses: GC 420 ⟵ “GC 420 - Visual Thinking”
+  - courses: GC 450 ⟵ “GC 450 - Advanced Graphics Usage with CAD”
+  - courses: TDE 230 ⟵ “TDE 230 - Scientific and Technical Visualization”
+  - courses: TDE 261 ⟵ “TDE 261 - Digital Media Education”
+  - courses: TDE 351 ⟵ “TDE 351 - Ceramics: The Art and Craft of Clay”
+  - courses: TDE 359 ⟵ “TDE 359 - Electronics Technology”
+  - courses: TDE 371 ⟵ “TDE 371 - Emerging Issues in Technology”
+  - courses: TDE 385 ⟵ “TDE 385 - Robotics Education”
+### `ed2c67c660e8d6da` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `ee14d869ac1f4405` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=natural-sciences-lab-course-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: BIO 181 ⟵ “BIO 181 - Introductory Biology: Ecology, Evolution, and Biodiversity”
+  - courses: BIO 183 ⟵ “BIO 183 - Introductory Biology: Cellular and Molecular Biology”
+  - courses: PY 201 ⟵ “PY 201 - University Physics I”
+  - courses: PY 202 ⟵ “PY 202 - University Physics II”
+  - courses: PY 211 ⟵ “PY 211 - College Physics I”
+  - courses: PY 212 ⟵ “PY 212 - College Physics II”
+### `f16f5f4678da4fd3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agronomy-concentration · requirement_key=agronomy-elective [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agronomy-concentration/ (sha256 92c080a52190)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: ALS 303 ⟵ “ALS 303 - Transfer Success in Agriculture and Life Sciences”
+  - courses: BAET 323 ⟵ “BAET 323 - Water Management”
+  - courses: CS 200 ⟵ “CS 200 - Introduction to Turfgrass Management”
+  - courses: CS 210 ⟵ “CS 210 - Lawns and Sports Turf”
+  - courses: CS 211 ⟵ “CS 211 - Plant Genetics”
+  - courses: CS 213 ⟵ “CS 213 - Crop Science”
+  - courses: CS 218 ⟵ “CS 218 - Southern Row Crop Production - Corn, Small Grains and Soybeans”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 251 ⟵ “CS 251 - Production of Forage Crops”
+  - courses: CS 400 ⟵ “CS 400 - Turf Cultural Systems”
+  - courses: CS 410 ⟵ “CS 410 - Community Food Systems”
+  - courses: CS 413 ⟵ “CS 413 - Plant Breeding”
+  - courses: CS 414 ⟵ “CS 414 - Weed Science”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 418 ⟵ “CS 418 - Introduction to Regulatory Science in Agriculture”
+  - courses: CS 424 ⟵ “CS 424 - Seed Physiology”
+  - courses: CS 428 ⟵ “CS 428 - Advanced Regulatory Science in Agriculture”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: CS 465 ⟵ “CS 465 - Turf Management Systems and Environmental Quality”
+  - courses: CS 470 ⟵ “CS 470 - Advanced Turfgrass Pest Management”
+  - courses: CS 480 ⟵ “CS 480 - Sustainable Food Production (capstone)”
+  - courses: CS 502 ⟵ “CS 502 - Plant Disease: Methods & Diagnosis”
+  - courses: CS 518 ⟵ “CS 518 - Introduction to Regulatory Science in Agriculture”
+  - … 15 more rows
+### `f4d48d4a2d1ba4d3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=science-education-bs-middle-grades-science-concentration · requirement_key=plan-requirements-physical-sciences [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/science-education-bs-middle-grades-science-concentration/ (sha256 1bdeda92635e)
+- issues: course_alternatives_in_rule_text
+  - courses: PY 131 ⟵ “PY 131 - Conceptual Physics”
+### `f516967d33aea7b3` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=technology-engineering-and-design-education-bs-graphic-communication-concentrati · requirement_key=plan-requirements-social-sciences-and-ip [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/technology-engineering-design-education-bs-graphic-communication-concentration/ (sha256 d913bacaf46f)
+- issues: requirement_groups_skipped
+  - courses: PSY 376 ⟵ “PSY 376 - Developmental Psychology”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+### `f5c552c917e0b5ae` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agricultural-education-bs-agricultural-engineering-technology-concentration · requirement_key=plan-requirements-teaching-content-courses [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/agricultural-human-sciences/agricultural-education-bs-agricultural-engineering-technology-concentration/ (sha256 26cea6caa572)
+- issues: course_alternatives_in_rule_text
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: ARE 201A ⟵ “ARE 201A - Introduction to Agricultural & Resource Economics”
+  - courses: EC 201 ⟵ “EC 201 - Principles of Microeconomics”
+  - courses: EC 205 ⟵ “EC 205 - Fundamentals of Economics”
+### `f5dd667c1aac5a63` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=biological-and-agricultural-engineering-technology-bs-agricultural-systems-manag · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/biological-agricultural-engineering/biological-agricultural-engineering-technology-bs-agricultural-systems-management-concentration/ (sha256 76e61513e993)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+  - courses: COM 110 ⟵ “COM 110 - Public Speaking”
+  - courses: ENG 331 ⟵ “ENG 331 - Communication for Engineering and Technology”
+  - courses: ENG 332 ⟵ “ENG 332 - Communication for Business and Management”
+  - courses: ENG 333 ⟵ “ENG 333 - Communication for Science and Research”
+### `f61c05df1aaf35a7` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=plan-requirements-concentration-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text, mixed_required_and_choice
+  - courses: ES 150 ⟵ “ES 150 - Water and the Environment”
+  - courses: FW 221 ⟵ “FW 221 - Conservation of Natural Resources”
+  - courses: SSC 185 ⟵ “SSC 185 - Land and Life”
+  - courses: SSC 442 ⟵ “SSC 442 - Soil and Environmental Biogeochemistry”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+### `f63a16bf614a0d65` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=applied-education-studies-bs-learning-design-and-technology · requirement_key=teaching-field-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/teacher-education-learning-sciences/applied-education-studies-bs/applied-education-studies-ldt/ (sha256 6eaf35f77f4b)
+- issues: requirement_groups_skipped
+  - courses: ECI 201 ⟵ “ECI 201 - Intro to Instructional Technology for Educators”
+  - courses: ECI 511 ⟵ “ECI 511 - Introduction to Learning Design and Technology”
+  - courses: ECI 512 ⟵ “ECI 512 - Emerging Technologies for Teaching and Learning”
+  - courses: ECI 513 ⟵ “ECI 513 - Video for Teaching and Learning”
+  - courses: ECI 514 ⟵ “ECI 514 - Developing and Delivering Online Instruction”
+  - courses: ECI 515 ⟵ “ECI 515 - Cultural Investigations and Technical Representations in Education”
+  - courses: ECI 516 ⟵ “ECI 516 - Design and Evaluation Of Instructional Materials”
+  - courses: ECI 517 ⟵ “ECI 517 - Theoretical Foundations of Advanced Learning Environments”
+  - courses: ECI 518 ⟵ “ECI 518 - Digital Learning Program and Staff Development”
+  - courses: EI 201 ⟵ “EI 201 - Exploring Interdisciplinary Entrepreneurial Thinking”
+  - courses: EI 331 ⟵ “EI 331 - Interdisciplinary Entrepreneurial Thinking I: Skills and Planning Basics”
+### `f6ad5c18b13a7696` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-computer-specialization · requirement_key=program-coordinator-statistics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-computer-specialization/ (sha256 c8d91b8af4e6)
+- issues: requirement_groups_skipped
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: ST 312 ⟵ “ST 312 - Introduction to Statistics II”
+  - courses: ST 307 ⟵ “ST 307 - Introduction to Statistical Programming- SAS”
+### `f6e400ea7248abbc` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=plan-requirements-free-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - section: plan-requirements-free-electives ⟵ “Plan Requirements — Free Electives”
+### `f70e6c4ba04dd72d` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration · requirement_key=plan-requirements-mathematics [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped, mixed_required_and_choice
+  - courses: MA 141 ⟵ “MA 141 - Calculus I”
+  - courses: MA 241 ⟵ “MA 241 - Calculus II”
+  - courses: MA 114 ⟵ “MA 114 - Introduction to Finite Mathematics with Applications”
+  - courses: MA 225 ⟵ “MA 225 - Foundations of Advanced Mathematics”
+  - courses: MA 408 ⟵ “MA 408 - Foundations of Euclidean Geometry”
+  - courses: CSC 110 ⟵ “CSC 110 - Computer Science Principles - The Beauty and Joy of Computing”
+  - courses: CSC 112 ⟵ “CSC 112 - Introduction to Computing-FORTRAN”
+  - courses: CSC 200 ⟵ “CSC 200 - ”
+  - courses: ST 101 ⟵ “ST 101 - Statistics by Example”
+  - courses: ST 311 ⟵ “ST 311 - Introduction to Statistics”
+  - courses: ST 371 ⟵ “ST 371 - Introduction to Probability and Distribution Theory”
+### `f7ccb222209b9989` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-crop-biotechnology · requirement_key=plan-requirements-concentration-electives [same] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-crop-biotechnology-semester/ (sha256 d94c49fadff2)
+- issues: mixed_required_and_choice
+  - courses: ANT 261 ⟵ “ANT 261 - Technology in Society and Culture”
+  - courses: CS 224 ⟵ “CS 224 - Seeds, Biotechnology and Societies”
+  - courses: SOC 261 ⟵ “SOC 261 - Technology in Society and Culture”
+  - courses: STS 302 ⟵ “STS 302 - Contemporary Science, Technology and Human Values”
+  - courses: CSSC 492 ⟵ “CSSC 492 - Professional Internship Experience in Crop and Soil Sciences”
+  - courses: CSSC 493 ⟵ “CSSC 493 - Research Experience in Crop and Soil Sciences”
+### `f806e2dabce6abf5` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=mathematics-education-bs-mathematics-specialization · requirement_key=math-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/mathematics-education-bs-mathematics-specialization/ (sha256 61aa5fbda522)
+- issues: requirement_groups_skipped, course_alternatives_in_rule_text
+  - courses: MA 105 ⟵ “MA 105 - Mathematics of Finance”
+  - courses: MA 325 ⟵ “MA 325 - Introduction to Applied Mathematics”
+  - courses: MA 335 ⟵ “MA 335 - Symbolic Logic”
+  - courses: MA 341 ⟵ “MA 341 - Applied Differential Equations I”
+  - courses: MA 402 ⟵ “MA 402 - Mathematics of Scientific Computing”
+  - courses: MA 410 ⟵ “MA 410 - Theory of Numbers”
+  - courses: MA 421 ⟵ “MA 421 - Introduction to Probability”
+  - courses: MA 425 ⟵ “MA 425 - Mathematical Analysis I”
+  - courses: MA 427 ⟵ “MA 427 - Introduction to Numerical Analysis I”
+  - courses: MA 430 ⟵ “MA 430 - Mathematical Models in the Physical Sciences”
+  - courses: MA 432 ⟵ “MA 432 - Mathematical Models in Life Sciences”
+  - courses: MA 437 ⟵ “MA 437 - Applications of Algebra”
+  - courses: LOG 435 ⟵ “LOG 435 - Advanced Logic & Metamathematics”
+### `f93fbe70cf8455bb` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=agroecology-sustainable-food-systems-bs-agroecology-research-production-concentr · requirement_key=plan-requirements-major-requirements [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/agroecology-sustainable-food-systems-bs-agroecology-research-production-concentration/ (sha256 62157097ea96)
+- issues: requirement_groups_skipped
+  - courses: ARE 201 ⟵ “ARE 201 - Introduction to Agricultural & Resource Economics”
+  - courses: CS 230 ⟵ “CS 230 - Introduction to Agroecology”
+  - courses: CS 415 ⟵ “CS 415 - Integrated Pest Management”
+  - courses: CS 430 ⟵ “CS 430 - Advanced Agroecology”
+  - courses: HS/CS 410 ⟵ “HS/CS 410 - Community Food Systems”
+  - courses: HS/CS 480 ⟵ “HS/CS 480 - Sustainable Food Production (capstone)”
+  - courses: SSC 200 ⟵ “SSC 200 - Soil Science”
+  - courses: SSC 201 ⟵ “SSC 201 - Soil Science Laboratory”
+  - courses: STS 323 ⟵ “STS 323 - World Population and Food Prospects”
+  - courses: SSC 427 ⟵ “SSC 427 - Biological Approaches to Sustainable Soil Systems”
+  - courses: SSC 428 ⟵ “SSC 428 - Soil Management Principles for Sustainable Agriculture”
+### `f960977e1ff30300` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=crop-and-soil-sciences-bs-soil-science · requirement_key=plan-requirements-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/crop-soil-sciences-bs-soil-science/ (sha256 e4532a97fb68)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `fb1ecfd580766cf4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=natural-resources-bs-soil-water-and-land-use-concentration · requirement_key=geospatial-technologies-electives [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/crop-soil-sciences/natural-resources-bs-soil-water-land-use-concentration/ (sha256 7d75cb8b0181)
+- issues: course_alternatives_in_rule_text
+  - courses: BAE 325 ⟵ “BAE 325 - Introductory Geomatics”
+  - courses: FOR 353 ⟵ “FOR 353 - GIS and Remote Sensing for Environmental Analysis and Assessment”
+  - courses: GIS 280 ⟵ “GIS 280 - Introduction to GIS”
+  - courses: GIS 512 ⟵ “GIS 512 - Introduction to Environmental Remote Sensing”
+  - courses: SSC 545 ⟵ “SSC 545 - ”
+### `fdedf629d5b4dc15` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=bioprocessing-science-bs · requirement_key=bioprocessing-science-bs-orientation [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/food-bioprocessing-nutrition-science/bioprocessing-science-bs/ (sha256 267b5cec2352)
+- issues: course_alternatives_in_rule_text
+  - courses: ALS 103 ⟵ “ALS 103 - First-year Success in Agriculture and Life Sciences”
+### `fe438a0ed460d1a4` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=plant-biology-bs · requirement_key=pb-elective-lab-credit-co-requisites [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/agriculture-life-sciences/plant-microbial-biology/plant-biology-bs/ (sha256 4cd72b851d23)
+- issues: requirement_groups_skipped
+  - courses: AEC 360 ⟵ “AEC 360 - Ecology”
+  - courses: FOR 565 ⟵ “FOR 565 - Plant Community Ecology”
+  - courses: PB 220 ⟵ “PB 220 - Local Flora”
+  - courses: PB 346 ⟵ “PB 346 - Economic Botany Lab”
+  - courses: PB 360 ⟵ “PB 360 - Ecology”
+  - courses: PB 400 ⟵ “PB 400 - Plant Diversity and Evolution”
+  - courses: PB 403 ⟵ “PB 403 - Systematic Botany”
+  - courses: PB 413 ⟵ “PB 413 - Plant Anatomy”
+  - courses: PB 422 ⟵ “PB 422 - Methods in Plant Molecular Biology and Physiology”
+  - courses: PB 445 ⟵ “PB 445 - Paleobotany”
+  - courses: PB 503 ⟵ “PB 503 - Systematic Botany”
+  - courses: PB 513 ⟵ “PB 513 - Plant Anatomy”
+  - courses: PB 522 ⟵ “PB 522 - Methods in Plant Molecular Biology and Physiology”
+  - courses: PB 545 ⟵ “PB 545 - Paleobotany”
+  - courses: PP 575 ⟵ “PP 575 - Introduction to Mycology”
+### `fe8c8d0d89628667` North Carolina State University at Raleigh — degree_requirements 2026-27 · program_key=middle-grades-education-bs-mathematics-and-sciences-concentration · requirement_key=plan-requirements-communication-and-english [new] (labeled_in_source)
+- source: https://catalog.ncsu.edu/undergraduate/education/stem/middle-grades-education-bs-mathematics-sciences-concentration/ (sha256 de108786fe31)
+- issues: requirement_groups_skipped
+  - courses: COM 112 ⟵ “COM 112 - Interpersonal Communication”
+  - courses: ENG 101 ⟵ “ENG 101 - Academic Writing and Research”
+### `2d2288ab76955cb0` University of North Carolina Wilmington — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/special-circumstances (sha256 0a7766a95fdf)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 10}
+  - sentence: need_based_special_circumstances ⟵ “Special Circumstances | UNCW Skip to header Skip to Content Skip to Footer myUNCW Info For Alumni Visitors & Community Parents & Family Military & Veterans International Donors Job Seekers Search search close About About UNCW Get to Know Us Leadership University Administration Strategic Plan Institutional Data & Assessment Freedom Of Expression Policies Get to Know UNCW A Top Doctoral & Research I”
+  - sentence: need_based_special_circumstances ⟵ “Learn More Apply Visit Give Special Circumstances Home Seahawk Life Money Matters Financial Aid Affording Your Education Special Circumstances Affording Your Education Affording Your Education Estimated Cost of Attendance Special Circumstances Net Price Calculator At UNCW, we make every effort to be as accommodating as possible when determining your financial aid award.”
+  - sentence: need_based_special_circumstances ⟵ “Our Special Circumstance Guide can help you navigate issues that are not easily captured on the FAFSA.”
+  - sentence: need_based_special_circumstances ⟵ “We have developed guidelines to help you understand what we can and cannot consider as special circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “That said, we will review and respond to each special circumstance accordingly.”
+  - sentence: need_based_special_circumstances ⟵ “Additionally, families should be aware that data must be collected from the entire household who wishes to appeal on the basis of income loss (i.e., wage statements must be received for all wage earners) to determine the net change in household income for the current aid year.”
+### `41b04275518b9edc` University of North Carolina Wilmington — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/special-circumstances (sha256 0a7766a95fdf)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: budget_increase ⟵ “If your financial aid equals your cost of attendance and you need additional financial assistance, feel free to review and complete our Budget Increase Request Form which may enable you to receive additional self-help aid (most often Federal student loans, PLUS, or alternative loans).”
+### `a452dd50ea56d41a` University of North Carolina Wilmington — appeals 2026-27 [new] (source_unlabeled)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/special-circumstances (sha256 0a7766a95fdf)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “This allows us to award based on the Department of Education (ED) expectations of Prior-Prior Year (PPY) or making a professional judgment of the most current calendar year.”
+### `0a3cb83076ca9482` University of North Carolina Wilmington — costs 2025-26 · residency=in_state [new] (labeled_in_source)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/cost-of-attendance (sha256 292de9cc9c87)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 10}
+  - on_campus:Tuition: 4443 ⟵ “Tuition | $4,443 | $22,597”
+  - on_campus:Fees: 2823 ⟵ “Fees | $2,823 | $2,823”
+  - on_campus:Housing: 9480 ⟵ “Housing | $9,480 | $9,480”
+  - on_campus:Meals: 5926 ⟵ “Meals | $5,926 | $5,926”
+  - on_campus:Books/Supplies: 850 ⟵ “Books/Supplies | $850 | $850”
+  - on_campus:Transportation: 1681 ⟵ “Transportation | $1,681 | $2,003”
+  - on_campus:Loan Origination Fee: 64 ⟵ “Loan Origination Fee | $64 | $64”
+  - on_campus:Personal: 1539 ⟵ “Personal | $1,539 | $1,539”
+  - on_campus:Health Insurance: 2364 ⟵ “Health Insurance | $2,364 | $2,364”
+  - on_campus:Total: 29170 ⟵ “Total | $29,170 | $47,646”
+### `91086743ab985002` University of North Carolina Wilmington — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/types/scholarships/soar-ambassador (sha256 03e997880723)
+- issues: arrangement_unlabeled, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 4, "components_reconcile": true, "rows": 2}
+  - column:Tuition & Fees: 7380 ⟵ “Tuition & Fees | $7,380 | $7,380 | $7,380 | $7,380”
+  - column:Total: 7380 ⟵ “Total | $7,380 | $8,380 | $9,380 | $10,380”
+  - column:Tuition & Fees: 7380 ⟵ “Tuition & Fees | $7,380 | $7,380 | $7,380 | $7,380”
+  - column:Books: 1000 ⟵ “Books | N/A | $1,000 | $1,000 | $1,000”
+  - column:Total: 8380 ⟵ “Total | $7,380 | $8,380 | $9,380 | $10,380”
+  - column:Tuition & Fees: 7380 ⟵ “Tuition & Fees | $7,380 | $7,380 | $7,380 | $7,380”
+  - column:Books: 1000 ⟵ “Books | N/A | $1,000 | $1,000 | $1,000”
+  - column:Meals: 1000 ⟵ “Meals | N/A | N/A | $1,000 | $1,000”
+  - column:Total: 9380 ⟵ “Total | $7,380 | $8,380 | $9,380 | $10,380”
+  - column:Tuition & Fees: 7380 ⟵ “Tuition & Fees | $7,380 | $7,380 | $7,380 | $7,380”
+  - column:Books: 1000 ⟵ “Books | N/A | $1,000 | $1,000 | $1,000”
+  - column:Meals: 1000 ⟵ “Meals | N/A | N/A | $1,000 | $1,000”
+  - column:Housing: 1000 ⟵ “Housing | N/A | N/A | N/A | $1,000”
+  - column:Total: 10380 ⟵ “Total | $7,380 | $8,380 | $9,380 | $10,380”
+### `e5485ffdae6b6d05` University of North Carolina Wilmington — costs 2025-26 · residency=out_of_state [new] (labeled_in_source)
+- source: https://www.uncw.edu/seahawk-life/money-matters/financial-aid/affording-your-education/cost-of-attendance (sha256 292de9cc9c87)
+- issues: stale_year_label:2025-26
+- checks: {"columns": 1, "components_reconcile": true, "rows": 10}
+  - on_campus:Tuition: 22597 ⟵ “Tuition | $4,443 | $22,597”
+  - on_campus:Fees: 2823 ⟵ “Fees | $2,823 | $2,823”
+  - on_campus:Housing: 9480 ⟵ “Housing | $9,480 | $9,480”
+  - on_campus:Meals: 5926 ⟵ “Meals | $5,926 | $5,926”
+  - on_campus:Books/Supplies: 850 ⟵ “Books/Supplies | $850 | $850”
+  - on_campus:Transportation: 2003 ⟵ “Transportation | $1,681 | $2,003”
+  - on_campus:Loan Origination Fee: 64 ⟵ “Loan Origination Fee | $64 | $64”
+  - on_campus:Personal: 1539 ⟵ “Personal | $1,539 | $1,539”
+  - on_campus:Health Insurance: 2364 ⟵ “Health Insurance | $2,364 | $2,364”
+  - on_campus:Total: 47646 ⟵ “Total | $29,170 | $47,646”
+### `7096c231e763f2a7` University of North Carolina at Chapel Hill — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentaid.unc.edu/current/sap/ (sha256 bba51c1c44b2)
+- issues: semantic_review_required, conflicting_sources:https://advising.unc.edu/wp-content/uploads/sites/1403/2025/09/Appeal-Resource-Guide-4.0.pdf
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: sap_appeal ⟵ “If you have temporary grades that have not been resolved and you are not meeting SAP standards, complete a SAP appeal by the appeal deadline.”
+  - sentence: sap_appeal ⟵ “UNDERSTANDING SAP APPEAL STATUS SUSPENSION If your review shows you fail to meet SAP standards, you will be notified of suspension.”
+### `af89e865f45fbb37` University of North Carolina at Chapel Hill — appeals 2026-27 [new] (source_unlabeled)
+- source: https://advising.unc.edu/wp-content/uploads/sites/1403/2025/09/Appeal-Resource-Guide-4.0.pdf (sha256 c7a7b318eeed)
+- issues: semantic_review_required, conflicting_sources:https://studentaid.unc.edu/current/sap/
+- checks: {"negative_sentences": 0, "sentences": 3}
+  - sentence: sap_appeal ⟵ “ACADEMIC AND FINANICAL AID (SAP) ELIGIBILITY APPEAL RESOURCE GUIDE A step-by-step guide to preparing a thorough and thoughtful appeal.”
+  - sentence: sap_appeal ⟵ “Check your academic eligibility and SAP Important appeal for probation, SAP, summary in ConnectCarolina. and Return to Carolina dates.”
+  - sentence: sap_appeal ⟵ “Academic Eligibility & SAP Appeal CHECKLIST Prepare Your Appeal Review appeal instructions and resources found at https://advising.unc.edu/probation- appeals/ Make note of appeal submission deadline, process timeline, registration information, and other key dates If needed, consult your academic advisor to learn more about your academic eligibility status and to answer any questions that you have ”
+### `fe03254bc6e03308` University of North Carolina at Chapel Hill — appeals 2026-27 [new] (source_unlabeled)
+- source: https://studentaid.unc.edu/current/sap/ (sha256 bba51c1c44b2)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 2}
+  - sentence: need_based_special_circumstances ⟵ “According to federal guidance, you may appeal the suspension of financial aid on the basis of a personal injury or illness, death of a relative, or other special circumstances.”
+  - sentence: need_based_special_circumstances ⟵ “You can appeal again if you have experienced additional special circumstances.”
+### `854346c9b8d113bf` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=requirements-core-business-courses [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+- issues: course_alternatives_in_rule_text
+  - courses: BUSI 401 ⟵ “BUSI 401 - Management and Corporate Communication”
+  - courses: BUSI 402 ⟵ “BUSI 402 - Applied Microeconomics for Business”
+  - courses: BUSI 403 ⟵ “BUSI 403 - Operations Management”
+  - courses: BUSI 404 ⟵ “BUSI 404 - Business Ethics”
+  - courses: BUSI 405 ⟵ “BUSI 405 - Leading and Managing: An Introduction to Organizational Behavior”
+  - courses: BUSI 406 ⟵ “BUSI 406 - Marketing (prerequisite for marketing electives)”
+  - courses: BUSI 407 ⟵ “BUSI 407 - Financial Accounting and Analysis”
+  - courses: BUSI 408 ⟵ “BUSI 408 - Corporate Finance (prerequisite for finance electives)”
+  - courses: BUSI 410 ⟵ “BUSI 410 - Business Analytics”
+  - courses: BUSI 411 ⟵ “BUSI 411 - Strategy I: Competitive Strategy”
+  - courses: BUSI 412 ⟵ “BUSI 412 - Strategy II: Global Corporate Strategy”
+### `9d2ccea6e5601462` University of North Carolina at Chapel Hill — degree_requirements 2026-27 · program_key=business-administration-major-b-s-b-a · requirement_key=consulting-required-course [new] (labeled_in_source)
+- source: https://catalog.unc.edu/undergraduate/programs-study/business-administration-major-bsba/ (sha256 ef4651921437)
+- issues: mixed_required_and_choice, choice_rule_unparsed
+  - courses: BUSI 554 ⟵ “BUSI 554 - Consulting Skills and Frameworks H”
+  - courses: BUSI 475 ⟵ “BUSI 475 - Nonprofit Leadership: Strategies and Practices”
+  - courses: BUSI 505 ⟵ “BUSI 505 - Entrepreneurial Consulting”
+  - courses: BUSI 514 ⟵ “BUSI 514 - STAR - Experiential Learning Project H”
+### `eb75594da4c5c8b0` University of North Carolina at Charlotte — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://admissions.charlotte.edu/financing-your-education/cost-of-attendance/ (sha256 76dce71005f1)
+- issues: residency_unknown
+- checks: {"columns": 1, "components_reconcile": true, "rows": 9}
+  - column:Tuition*: 3926 ⟵ “Tuition* | $3,926”
+  - column:Fees: 3285 ⟵ “Fees | $3,285”
+  - column:Loan Fees: 103 ⟵ “Loan Fees | $103”
+  - column:Books & Supplies: 600 ⟵ “Books & Supplies | $600”
+  - column:Housing: 10200 ⟵ “Housing | $10,200”
+  - column:Meals: 5662 ⟵ “Meals | $5,662”
+  - column:Transportation: 1340 ⟵ “Transportation | $1,340”
+  - column:Personal: 2360 ⟵ “Personal | $2,360”
+  - column:Total: 27476 ⟵ “Total | $27,476”
+### `0c22faba7bbd15ea` University of North Carolina at Charlotte — credit_policies 2026-27 · policy_kind=CLEP [new] (source_unlabeled)
+- source: https://admissions.charlotte.edu/resources/credit-for-prior-exams/clep-credit/ (sha256 89eea7fc5a88)
+- issues: rows_without_score, score_scale_mismatch
+- checks: {"distinct_exams": 30, "equivalencies": 37, "rows_without_score": 5}
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|—]:  ⟵ “College Mathematics | — | 0 | No Credit Awarded”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|500]:  ⟵ “College Composition | 500 | 3 | WRDS Elective Credit”
+  - equivalencies[CLEP-HUMANITIES|450]:  ⟵ “Humanities | 450 | 6 | Humanities”
+  - equivalencies[CLEP-AMERICAN-LITERATURE|50]:  ⟵ “American Literature* | 50 | 3 | ENGL 1512”
+  - equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]:  ⟵ “Analyzing and Interpreting Literature* | 50 | 3 | ENGL 2100”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|None]:  ⟵ “College Composition Modular |  |  | No Credit Awarded”
+  - equivalencies[CLEP-COLLEGE-COMPOSITION|50]:  ⟵ “College Composition | 50 | 3 | TRNF Elective Credit”
+  - equivalencies[CLEP-ENGLISH-LITERATURE|50]:  ⟵ “English Literature* | 50 | 3 | ENGL 1502”
+  - equivalencies[CLEP-HUMANITIES|None]:  ⟵ “Humanities |  |  | No Credit Awarded”
+  - equivalencies[CLEP-BIOLOGY|50]:  ⟵ “Biology | 50 | 6 | BIOL1110, 1115 no labs”
+  - equivalencies[CLEP-CHEMISTRY|50]:  ⟵ “Chemistry | 50 | 6 | CHEM1251, 1252 no labs”
+  - equivalencies[CLEP-CALCULUS|50]:  ⟵ “Calculus with Elementary Functions | 50 | 3 | MATH1241”
+  - equivalencies[CLEP-COLLEGE-MATHEMATICS|None]:  ⟵ “College Mathematics |  |  | No Credit Awarded”
+  - equivalencies[CLEP-NATURAL-SCIENCES|50]:  ⟵ “Natural Sciences | 50 | 3 | BIOL1110”
+  - equivalencies[CLEP-PRECALCULUS|50]:  ⟵ “PreCalculus | 50 | 3 | MATH1103”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|50]:  ⟵ “French, Level 1 | 50 | 6 | FREN1201, 1202”
+  - equivalencies[CLEP-FRENCH-LANGUAGE|52]:  ⟵ “French, Level 2 | 52 | 12 | FREN1201, 1202, 2201, 2202”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|50]:  ⟵ “German, Level 1 | 50 | 6 | GERM1201, 1202”
+  - equivalencies[CLEP-GERMAN-LANGUAGE|63]:  ⟵ “German, Level 2 | 63 | 12 | GERM1201, 1202, 2201, 2202”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|50]:  ⟵ “Spanish, Level 1 | 50 | 6 | SPAN1011, 1102”
+  - equivalencies[CLEP-SPANISH-LANGUAGE|54]:  ⟵ “Spanish, Level 2 | 54 | 12 | SPAN 1101, 1102, 2201, 2202”
+  - equivalencies[CLEP-SPANISH-WITH-WRITING|50]:  ⟵ “Spanish with Writing, Level 1 | 50 | 6 | SPAN1011, 1102”
+  - equivalencies[CLEP-SPANISH-WITH-WRITING|65]:  ⟵ “Spanish with Writing, Level 2 | 65 | 12 | SPAN 1101, 1102, 2201, 2202”
+  - equivalencies[CLEP-AMERICAN-GOVERNMENT|50]:  ⟵ “American Government | 50 | 3 | POLS 1575”
+  - equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]:  ⟵ “Educational Psychology | 50 | 3 | PSYC Elective”
+  - … 12 more rows
+### `93d32d2ec80bc6ab` University of North Carolina at Charlotte — credit_policies 2026-27 · policy_kind=IB [new] (source_unlabeled)
+- source: https://admissions.charlotte.edu/resources/credit-for-prior-exams/ib-credit/ (sha256 73012f6f8c1b)
+- issues: score_column_not_scores, score_scale_mismatch
+- checks: {"distinct_exams": 41, "equivalencies": 42, "rows_without_score": 0}
+  - equivalencies[IB-BIOLOGY-HL|HL 4]:  ⟵ “Biology HL | 4 | BIOL 2120 & Lab | 4 | BIOL 2120 & Lab | 8 | BIOL 2120 & Lab, BIOL 2130 & Lab | 8 | BIOL 2120, BIOL 2120 & Lab, BIOL 2130 & Lab”
+  - equivalencies[IB-BIOLOGY-SL|SL –]:  ⟵ “Biology SL | – | No Credit | 4 | BIOL 2120 & Lab | 8 | BIOL 2120 & Lab, BIOL 2130 & Lab | 8 | BIOL 2120 & Lab, BIOL 2130 & Lab”
+  - equivalencies[IB-BUSINESS-MANAGEMENT-HL|HL 3]:  ⟵ “Business Management HL | 3 | BUSN 1ELE | 3 | BUSN 1ELE | 3 | BUSN 1ELE | 3 | BUSN 1ELE”
+  - equivalencies[IB-BUSINESS-MANAGEMENT-SL|SL –]:  ⟵ “Business Management SL | – | No Credit | 3 | BUSN 1ELE | 3 | BUSN 1ELE | 3 | BUSN 1ELE”
+  - equivalencies[IB-CHEMISTRY-HL|HL 8]:  ⟵ “Chemistry HL | 8 | CHEM 1251, 1252 & Labs | 8 | CHEM 1251, 1252 & Labs | 8 | CHEM 1251, 1252 & Labs | 8 | CHEM 1251, 1252 & Labs”
+  - equivalencies[IB-CHEMISTRY-SL|SL –]:  ⟵ “Chemistry SL | – | No Credit | 8 | CHEM 1251, 1252 & Labs | 8 | CHEM 1251, 1252 & Labs | 8 | CHEM 1251, 1252 & Labs”
+  - equivalencies[IB-LATIN-HL|HL 6]:  ⟵ “Classical languages- Latin HL | 6 | LATN 1201 & 1202 | 6 | LATN 1201 & 1202 | 6 | LATN 1201 & 1202 | 6 | LATN 1201 & 1202”
+  - equivalencies[IB-LATIN-SL|SL –]:  ⟵ “Classical Languages- Latin SL | – | No Credit | 6 | LATN 1201 & 1202 | 6 | LATN 1201 & 1202 | 6 | LATN 1201 & 1202”
+  - equivalencies[IB-COMPUTER-SCIENCE-HL|HL 3]:  ⟵ “Computer Science HL | 3 | ITSC 1110 | 3 | ITSC 1110 | 3 | ITSC 1110 | 3 | ITSC 1110”
+  - equivalencies[IB-COMPUTER-SCIENCE-SL|SL –]:  ⟵ “Computer Science SL | – | No Credit | 3 | ITSC 1110 | 3 | ITSC 1110 | 3 | ITSC 1110”
+  - equivalencies[IB-ECONOMICS-HL|HL 6]:  ⟵ “Economics HL | 6 | ECON 2101 & 2102 | 6 | ECON 2101 & 2102 | 6 | ECON 2101 & 2102 | 6 | ECON 2101 & 2102”
+  - equivalencies[IB-ECONOMICS-SL|SL –]:  ⟵ “Economics SL | – | No Credit | 6 | ECON 2101 & 2102 | 6 | ECON 2101 & 2102 | 6 | ECON 2101 & 2102”
+  - equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL –]:  ⟵ “Environmental Systems and Society SL | – | No Credit | 3 | ESCI 2222 | 3 | ESCI 2222 | 3 | ESCI 2222”
+  - equivalencies[IB-FILM-HL|HL 3]:  ⟵ “Film HL | 3 | FILM 1502 | 3 | FILM 1502 | 3 | FILM 1502 | 3 | FILM 1502”
+  - equivalencies[IB-FILM-SL|SL –]:  ⟵ “Film SL | – | No Credit | 3 | FILM 1502 | 3 | FILM 1502 | 3 | FILM 1502”
+  - equivalencies[IB-FRENCH-HL|HL 4]:  ⟵ “French HL | 4 | FREN 1202 | 7 | FREN 1202 & 2201 | 10 | FREN 1202, 2201 & 2202 | 10 | FREN 1202, 2201 & 2202”
+  - equivalencies[IB-FRENCH-SL|SL –]:  ⟵ “French SL | – | No Credit | 7 | FREN 1202 & 2201 | 10 | FREN 1202, 2201 & 2202 | 10 | FREN 1202, 2201 & 2202”
+  - equivalencies[IB-GERMAN-HL|HL 4]:  ⟵ “German HL | 4 | GERM 1202 | 7 | GERM 1202 & 2201 | 10 | GERM 1202, 2201 & 2202 | 10 | GERM 1202, 2201 & 2202”
+  - equivalencies[IB-GERMAN-SL|SL –]:  ⟵ “German SL | – | No Credit | 7 | GERM 1202 & 2201 | 10 | GERM 1202, 2201 & 2202 | 10 | GERM 1202, 2201 & 2202”
+  - equivalencies[IB-GEOGRAPHY-HL|HL 6]:  ⟵ “Geography HL | 6 | GEOG 1105 & 1501 | 6 | GEOG 1105 & 1501 | 6 | GEOG 1105 & 1501 | 6 | GEOG 1105 & 1501”
+  - equivalencies[IB-GEOGRAPHY-SL|SL –]:  ⟵ “Geography SL | – | No Credit | 3 | GEOG 1501 | 3 | GEOG 1501 | 3 | GEOG 1501”
+  - equivalencies[IB-GLOBAL-POLITICS-HL|HL 3]:  ⟵ “Global Politics HL | 3 | POLS 1501 | 3 | POLS 1501 | 3 | POLS 1501 | 3 | POLS 1501”
+  - equivalencies[IB-GLOBAL-POLITICS-SL|SL –]:  ⟵ “Global Politics SL | – | No Credit | 3 | POLS 1501 | 3 | POLS 1501 | 3 | POLS 1501”
+  - equivalencies[IB-HISTORY-HL|HL 3]:  ⟵ “History of Africa and Middle East HL | 3 | HIST 1502 | 3 | HIST 1502 | 3 | HIST 1502 | 3 | HIST 1502”
+  - equivalencies[IB-HISTORY-SL|SL –]:  ⟵ “History of Africa and Middle East SL | – | No Credit | 3 | HIST 1502 | 3 | HIST 1502 | 3 | HIST 1502”
+  - … 17 more rows
+### `42140e59e024dd17` University of North Carolina at Greensboro — appeals 2026-27 [new] (source_unlabeled)
+- source: https://spartancentral.uncg.edu/financial-aid/financial-aid-basics/ (sha256 587d6367c2e8)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: sap_appeal ⟵ “SAP appeals are considered on a case-by-case basis by an appeals committee.”
+### `556f094e7c1e7cba` University of North Carolina at Greensboro — appeals 2026-27 [new] (source_unlabeled)
+- source: https://spartancentral.uncg.edu/financial-aid/financial-aid-basics/ (sha256 587d6367c2e8)
+- issues: semantic_review_required
+- checks: {"negative_sentences": 0, "sentences": 1}
+  - sentence: professional_judgment ⟵ “Appeals (professional judgment) are the only way to correct unresolved SAP deficiencies and regain financial aid eligibility.”
+### `0500cd94c9d012b6` University of North Carolina at Greensboro — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/ (sha256 8b59bc1c35dc)
+- issues: conflicting_sources:https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/,https://spartancentral.uncg.edu/tuition-billing-payments/tuition-fees/
+- checks: {"columns": 5, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 6488 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 2262 ⟵ “Transportation | $2,262 | $2,262 | $2,262 | $2,480 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 42726 ⟵ “Total | $42,726 | $44,466 | $45,226 | $47,310 | $43,628”
+  - on_campus:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8228 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 2262 ⟵ “Transportation | $2,262 | $2,262 | $2,262 | $2,480 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 44466 ⟵ “Total | $42,726 | $44,466 | $45,226 | $47,310 | $43,628”
+  - on_campus:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8988 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 2262 ⟵ “Transportation | $2,262 | $2,262 | $2,262 | $2,480 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 45226 ⟵ “Total | $42,726 | $44,466 | $45,226 | $47,310 | $43,628”
+  - off_campus_not_with_family:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - off_campus_not_with_family:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - off_campus_not_with_family:Housing: 10854 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - off_campus_not_with_family:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - … 10 more rows
+### `11252f04dab34706` University of North Carolina at Greensboro — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/ (sha256 17955089f177)
+- issues: conflicting_sources:https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/,https://spartancentral.uncg.edu/tuition-billing-payments/tuition-fees/
+- checks: {"columns": 5, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 6488 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 1562 ⟵ “Transportation | $1,562 | $1,562 | $1,562 | $1,708 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 24544 ⟵ “Total | $24,544 | $26,284 | $27,044 | $29,128 | $26,146”
+  - on_campus:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8228 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 1562 ⟵ “Transportation | $1,562 | $1,562 | $1,562 | $1,708 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 26284 ⟵ “Total | $24,544 | $26,284 | $27,044 | $29,128 | $26,146”
+  - on_campus:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8988 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 1562 ⟵ “Transportation | $1,562 | $1,562 | $1,562 | $1,708 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 27044 ⟵ “Total | $24,544 | $26,284 | $27,044 | $29,128 | $26,146”
+  - off_campus_not_with_family:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - off_campus_not_with_family:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - off_campus_not_with_family:Housing: 10854 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - off_campus_not_with_family:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - … 10 more rows
+### `3e47fb33e387a940` University of North Carolina at Greensboro — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/wp-content/uploads/2024/05/2024-25-Undergraduate-Distance-1.pdf (sha256 e79816606687)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, stale_year_label:2024-25, conflicting_sources:https://spartancentral.uncg.edu/wp-content/uploads/2024/05/2024-25-Undergraduate-Main-Campus-1.pdf
+- checks: {"columns": 12, "rows": 18}
+  - column:Tuition - NC Resident: 184.25 ⟵ “Tuition - NC Resident | 184.25 | 368.50 | 552.75 | 737.00 | 921.25 | 1,105.50 | 1,289.75 | 1,474.00 | 1,658.25 | 1,842.50 | 2,026.75 | 2,211.00”
+  - column:Tuition - Outside NC: 368.5 ⟵ “Tuition - Outside NC | 368.50 | 737.00 | 1,105.50 | 1,474.00 | 1,842.50 | 2,211.00 | 2,579.50 | 2,948.00 | 3,316.50 | 3,685.00 | 4,053.50 | 4,422.00”
+  - column:Tuition - Non NC Resident: 865.54 ⟵ “Tuition - Non NC Resident | 865.54 | 1,731.08 | 2,596.62 | 3,462.16 | 4,327.70 | 5,193.24 | 6,058.78 | 6,924.32 | 7,789.86 | 8,655.40 | 9,520.94 10,386.50”
+  - column:Associate Stu Gov Fee: 0.04 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Ed & Tech Fee: 20.42 ⟵ “Ed & Tech Fee | 20.42 | 40.84 | 61.26 | 81.68 | 102.10 | 122.52 | 142.94 | 163.36 | 183.78 | 204.20 | 224.62 | 245.00”
+  - column:Security Fee: 2.5 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - column:Online Service Center Fee*: 20.0 ⟵ “Online Service Center Fee* | 20.00 | 40.00 | 60.00 | 80.00 | 100.00 | 120.00 | 140.00 | 160.00 | 180.00 | 200.00 | 220.00 | 240.00”
+  - column:TOTAL - NC Resident: 235.21 ⟵ “TOTAL - NC Resident | 235.21 | 462.42 | 689.63 | 916.84 | 1,144.05 | 1,371.26 | 1,598.47 | 1,825.68 | 2,052.89 | 2,280.10 | 2,507.31 | 2,734.50”
+  - column:TOTAL - Outside NC**: 419.46 ⟵ “TOTAL - Outside NC** | 419.46 | 830.92 | 1,242.38 | 1,653.84 | 2,065.30 | 2,476.76 | 2,888.22 | 3,299.68 | 3,711.14 | 4,122.60 | 4,534.06 | 4,945.50”
+  - column:TOTAL - Non NC Resident: 916.5 ⟵ “TOTAL - Non NC Resident | 916.50 | 1,825.00 | 2,733.50 | 3,642.00 | 4,550.50 | 5,459.00 | 6,367.50 | 7,276.00 | 8,184.50 | 9,093.00 10,001.50 10,910.00”
+  - column:New Student Fee (Online Undergraduate): 65.0 ⟵ “New Student Fee (Online Undergraduate) | 65.00 | Student Teaching Course Fee | 250.00 | RN to BSN Program Fee | 105.00”
+  - column:Honors College 1st year, 2nd year, 3rd year Student Fee: 30.0 ⟵ “Honors College 1st year, 2nd year, 3rd year Student Fee | 30.00 | Educator Prep Outcome Management Fee (Licensure) 16.00 | Art History Program Fee | 50.00”
+  - column:Honors College Degree Completion Fee: 30.0 ⟵ “Honors College Degree Completion Fee | 30.00 | Open Water Diver Scuba Course | 375.00 | Beyond Academics Program Fee | 2500.00”
+  - column:Residential Colleges Fee: 50.0 ⟵ “Residential Colleges Fee | 50.00 | Advanced Open Water Diver Scuba Course | 271.00 | Dance Student Fee | 75.00”
+  - column:Studio Usage Fee (Visual and Performing Arts): 35.0 ⟵ “Studio Usage Fee (Visual and Performing Arts) | 35.00 | Media Studies Fee | 50.00”
+  - column:Traditional BSN Program Fee: 630.0 ⟵ “Traditional BSN Program Fee | 630.00 | Student Liability Insurance Fee | 7.50”
+  - column:International Student Fee: 300.0 ⟵ “International Student Fee | 300.00 | UNCG First Day Complete Book Rental 19.00 per credit hour”
+  - column:Tuition - NC Resident: 368.5 ⟵ “Tuition - NC Resident | 184.25 | 368.50 | 552.75 | 737.00 | 921.25 | 1,105.50 | 1,289.75 | 1,474.00 | 1,658.25 | 1,842.50 | 2,026.75 | 2,211.00”
+  - column:Tuition - Outside NC: 737.0 ⟵ “Tuition - Outside NC | 368.50 | 737.00 | 1,105.50 | 1,474.00 | 1,842.50 | 2,211.00 | 2,579.50 | 2,948.00 | 3,316.50 | 3,685.00 | 4,053.50 | 4,422.00”
+  - column:Tuition - Non NC Resident: 1731.08 ⟵ “Tuition - Non NC Resident | 865.54 | 1,731.08 | 2,596.62 | 3,462.16 | 4,327.70 | 5,193.24 | 6,058.78 | 6,924.32 | 7,789.86 | 8,655.40 | 9,520.94 10,386.50”
+  - column:Associate Stu Gov Fee: 0.08 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Ed & Tech Fee: 40.84 ⟵ “Ed & Tech Fee | 20.42 | 40.84 | 61.26 | 81.68 | 102.10 | 122.52 | 142.94 | 163.36 | 183.78 | 204.20 | 224.62 | 245.00”
+  - column:Security Fee: 5.0 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - … 120 more rows
+### `40e8e3da51dbf06b` University of North Carolina at Greensboro — costs 2026-27 · residency=in_state [new] (source_unlabeled)
+- source: https://spartancentral.uncg.edu/tuition-billing-payments/tuition-fees/ (sha256 bf3e8527bd9f)
+- issues: ambiguous_year_labels, conflicting_sources:https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/,https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition & Fees: 7864 ⟵ “Tuition & Fees | $7,864 | $25,347”
+  - column:Housing (Standard Double): 6433 ⟵ “Housing (Standard Double) | $6,433 | $6,433”
+  - column:Unlimited Meal Plan: 5209 ⟵ “Unlimited Meal Plan | $5,209 | $5,209”
+  - column:Total: 19506 ⟵ “Total | $19,506 | $36,989”
+### `69643ee807285f73` University of North Carolina at Greensboro — costs 2026-27 · residency=in_state [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/ (sha256 8b59bc1c35dc)
+- issues: conflicting_sources:https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/,https://spartancentral.uncg.edu/tuition-billing-payments/tuition-fees/
+- checks: {"columns": 5, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 6488 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 1562 ⟵ “Transportation | $1,562 | $1,562 | $1,562 | $1,708 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 24544 ⟵ “Total | $24,544 | $26,284 | $27,044 | $29,128 | $26,146”
+  - on_campus:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8228 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 1562 ⟵ “Transportation | $1,562 | $1,562 | $1,562 | $1,708 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 26284 ⟵ “Total | $24,544 | $26,284 | $27,044 | $29,128 | $26,146”
+  - on_campus:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8988 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 1562 ⟵ “Transportation | $1,562 | $1,562 | $1,562 | $1,708 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 27044 ⟵ “Total | $24,544 | $26,284 | $27,044 | $29,128 | $26,146”
+  - off_campus_not_with_family:Tuition & Fees: 7866 ⟵ “Tuition & Fees | $7,866 | $7,866 | $7,866 | $7,866 | $7,866”
+  - off_campus_not_with_family:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - off_campus_not_with_family:Housing: 10854 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - off_campus_not_with_family:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - … 10 more rows
+### `87e830262f02a7b5` University of North Carolina at Greensboro — costs 2024-25 · residency=not_applicable [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/wp-content/uploads/2024/05/2024-25-Undergraduate-Main-Campus-1.pdf (sha256 c6781ee3a1af)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, stale_year_label:2024-25, conflicting_sources:https://spartancentral.uncg.edu/wp-content/uploads/2024/05/2024-25-Undergraduate-Distance-1.pdf
+- checks: {"columns": 12, "rows": 20}
+  - column:Tuition - NC Resident: 184.25 ⟵ “Tuition - NC Resident | 184.25 | 368.50 | 552.75 | 737.00 | 921.25 | 1,105.50 | 1,289.75 | 1,474.00 | 1,658.25 | 1,842.50 | 2,026.75 | 2,211.00”
+  - column:Tuition - Non NC Resident: 865.54 ⟵ “Tuition - Non NC Resident | 865.54 | 1,731.08 | 2,596.62 | 3,462.16 | 4,327.70 | 5,193.24 | 6,058.78 | 6,924.32 | 7,789.86 | 8,655.40 | 9,520.94 10,386.50”
+  - column:Associate Stu Gov Fee: 0.04 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Athletic Fee: 35.13 ⟵ “Athletic Fee | 35.13 | 70.26 | 105.39 | 140.52 | 175.65 | 210.78 | 245.91 | 281.04 | 316.17 | 351.30 | 386.43 | 421.50”
+  - column:Student Activity Fee: 25.46 ⟵ “Student Activity Fee | 25.46 | 50.92 | 76.38 | 101.84 | 127.30 | 152.76 | 178.22 | 203.68 | 229.14 | 254.60 | 280.06 | 305.50”
+  - column:Student Facilities Fee: 29.46 ⟵ “Student Facilities Fee | 29.46 | 58.92 | 88.38 | 117.84 | 147.30 | 176.76 | 206.22 | 235.68 | 265.14 | 294.60 | 324.06 | 353.50”
+  - column:Ed & Tech Fee: 20.42 ⟵ “Ed & Tech Fee | 20.42 | 40.84 | 61.26 | 81.68 | 102.10 | 122.52 | 142.94 | 163.36 | 183.78 | 204.20 | 224.62 | 245.00”
+  - column:Transportation Fee: 4.54 ⟵ “Transportation Fee | 4.54 | 9.08 | 13.62 | 18.16 | 22.70 | 27.24 | 31.78 | 36.32 | 40.86 | 45.40 | 49.94 | 54.50”
+  - column:Security Fee: 2.5 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Health Service Fee: 16.75 ⟵ “Health Service Fee | 16.75 | 33.50 | 50.25 | 67.00 | 83.75 | 100.50 | 117.25 | 134.00 | 150.75 | 167.50 | 184.25 | 201.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - column:TOTAL - NC Resident: 326.55 ⟵ “TOTAL - NC Resident | 326.55 | 645.10 | 963.65 | 1,282.20 | 1,600.75 | 1,919.30 | 2,237.85 | 2,556.40 | 2,874.95 | 3,193.50 | 3,512.05 | 3,830.50”
+  - column:TOTAL - Non NC Resident: 1007.84 ⟵ “TOTAL - Non NC Resident | 1,007.84 | 2,007.68 | 3,007.52 | 4,007.36 | 5,007.20 | 6,007.04 | 7,006.88 | 8,006.72 | 9,006.56 10,006.40 11,006.24 12,006.00”
+  - column:New Student Fee (Undergrad. Freshman): 254.0 ⟵ “New Student Fee (Undergrad. Freshman) | 254.00 | Student Teaching Course Fee | 250.00 | RN to BSN Program Fee | 105.00”
+  - column:New Student Fee (Undergraduate Transfer/Adult): 112.0 ⟵ “New Student Fee (Undergraduate Transfer/Adult) | 112.00 | edTPA Fee (Teacher Licensure) | 300.00 | Studio Art Program Fee | 200.00”
+  - column:Honors College 1st year, 2nd year, 3rd year Student Fee: 30.0 ⟵ “Honors College 1st year, 2nd year, 3rd year Student Fee | 30.00 | Open Water Diver Scuba Course | 375.00 | Beyond Academics Program Fee | 2500.00”
+  - column:Honors College Degree Completion Fee: 30.0 ⟵ “Honors College Degree Completion Fee | 30.00 | Advanced Open Water Diver Scuba Course | 271.00 | Dance Student Fee | 75.00”
+  - column:Residential Colleges Fee: 50.0 ⟵ “Residential Colleges Fee | 50.00 | Exercise Physiology Course | 25.00 | Theatre Student Fee | 200.00”
+  - column:Traditional BSN Program Fee: 630.0 ⟵ “Traditional BSN Program Fee | 630.00 | Student Liability Insurance Fee | 7.50”
+  - column:International Student Fee: 300.0 ⟵ “International Student Fee | 300.00 | UNCG First Day Complete Book Rental 19.00 per credit hour”
+  - column:Tuition - NC Resident: 368.5 ⟵ “Tuition - NC Resident | 184.25 | 368.50 | 552.75 | 737.00 | 921.25 | 1,105.50 | 1,289.75 | 1,474.00 | 1,658.25 | 1,842.50 | 2,026.75 | 2,211.00”
+  - column:Tuition - Non NC Resident: 1731.08 ⟵ “Tuition - Non NC Resident | 865.54 | 1,731.08 | 2,596.62 | 3,462.16 | 4,327.70 | 5,193.24 | 6,058.78 | 6,924.32 | 7,789.86 | 8,655.40 | 9,520.94 10,386.50”
+  - column:Associate Stu Gov Fee: 0.08 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Athletic Fee: 70.26 ⟵ “Athletic Fee | 35.13 | 70.26 | 105.39 | 140.52 | 175.65 | 210.78 | 245.91 | 281.04 | 316.17 | 351.30 | 386.43 | 421.50”
+  - column:Student Activity Fee: 50.92 ⟵ “Student Activity Fee | 25.46 | 50.92 | 76.38 | 101.84 | 127.30 | 152.76 | 178.22 | 203.68 | 229.14 | 254.60 | 280.06 | 305.50”
+  - … 145 more rows
+### `8b1a36440fc9bb04` University of North Carolina at Greensboro — costs 2025-26 · residency=not_applicable [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/wp-content/uploads/2025/06/2025-26-Undergraduate-Distance.pdf (sha256 cb7285950275)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, stale_year_label:2025-26
+- checks: {"columns": 12, "rows": 18}
+  - column:Tuition - NC Resident: 184.25 ⟵ “Tuition - NC Resident | 184.25 | 368.50 | 552.75 | 737.00 | 921.25 | 1,105.50 | 1,289.75 | 1,474.00 | 1,658.25 | 1,842.50 | 2,026.75 | 2,211.00”
+  - column:Tuition - Outside NC: 368.5 ⟵ “Tuition - Outside NC | 368.50 | 737.00 | 1,105.50 | 1,474.00 | 1,842.50 | 2,211.00 | 2,579.50 | 2,948.00 | 3,316.50 | 3,685.00 | 4,053.50 | 4,422.00”
+  - column:Tuition - Non NC Resident: 891.5 ⟵ “Tuition - Non NC Resident | 891.50 | 1,783.00 | 2,674.50 | 3,566.00 | 4,457.50 | 5,349.00 | 6,240.50 | 7,132.00 | 8,023.50 | 8,915.00 | 9,806.50 10,698.00”
+  - column:Associate Stu Gov Fee: 0.04 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Ed & Tech Fee: 21.38 ⟵ “Ed & Tech Fee | 21.38 | 42.76 | 64.14 | 85.52 | 106.90 | 128.28 | 149.66 | 171.04 | 192.42 | 213.80 | 235.18 | 256.50”
+  - column:Security Fee: 2.5 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - column:Online Service Center Fee*: 20.0 ⟵ “Online Service Center Fee* | 20.00 | 40.00 | 60.00 | 80.00 | 100.00 | 120.00 | 140.00 | 160.00 | 180.00 | 200.00 | 220.00 | 240.00”
+  - column:TOTAL - NC Resident: 236.17 ⟵ “TOTAL - NC Resident | 236.17 | 464.34 | 692.51 | 920.68 | 1,148.85 | 1,377.02 | 1,605.19 | 1,833.36 | 2,061.53 | 2,289.70 | 2,517.87 | 2,746.00”
+  - column:TOTAL - Outside NC**: 420.42 ⟵ “TOTAL - Outside NC** | 420.42 | 832.84 | 1,245.26 | 1,657.68 | 2,070.10 | 2,482.52 | 2,894.94 | 3,307.36 | 3,719.78 | 4,132.20 | 4,544.62 | 4,957.00”
+  - column:TOTAL - Non NC Resident: 943.42 ⟵ “TOTAL - Non NC Resident | 943.42 | 1,878.84 | 2,814.26 | 3,749.68 | 4,685.10 | 5,620.52 | 6,555.94 | 7,491.36 | 8,426.78 | 9,362.20 10,297.62 11,233.00”
+  - column:New Student Fee (Online Undergraduate): 65.0 ⟵ “New Student Fee (Online Undergraduate) | 65.00 | Student Teaching Course Fee | 250.00 | RN to BSN Program Fee | 105.00”
+  - column:Honors College 1st year, 2nd year, 3rd year Student Fee: 30.0 ⟵ “Honors College 1st year, 2nd year, 3rd year Student Fee | 30.00 | Educator Prep Outcome Management Fee (Licensure) 16.00 | Art History Program Fee | 50.00”
+  - column:Honors College Degree Completion Fee: 30.0 ⟵ “Honors College Degree Completion Fee | 30.00 | Open Water Diver Scuba Course | 375.00 | Beyond Academics Program Fee | 2500.00”
+  - column:Residential Colleges Fee: 50.0 ⟵ “Residential Colleges Fee | 50.00 | Advanced Open Water Diver Scuba Course | 271.00 | Dance Student Fee | 75.00”
+  - column:Studio Usage Fee (Visual and Performing Arts): 35.0 ⟵ “Studio Usage Fee (Visual and Performing Arts) | 35.00 | Media Studies Fee | 50.00”
+  - column:Traditional BSN Program Fee: 630.0 ⟵ “Traditional BSN Program Fee | 630.00 | Student Liability Insurance Fee | 7.50”
+  - column:International Student Fee: 300.0 ⟵ “International Student Fee | 300.00 | UNCG First Day Complete Book Rental 19.00 per credit hour”
+  - column:Tuition - NC Resident: 368.5 ⟵ “Tuition - NC Resident | 184.25 | 368.50 | 552.75 | 737.00 | 921.25 | 1,105.50 | 1,289.75 | 1,474.00 | 1,658.25 | 1,842.50 | 2,026.75 | 2,211.00”
+  - column:Tuition - Outside NC: 737.0 ⟵ “Tuition - Outside NC | 368.50 | 737.00 | 1,105.50 | 1,474.00 | 1,842.50 | 2,211.00 | 2,579.50 | 2,948.00 | 3,316.50 | 3,685.00 | 4,053.50 | 4,422.00”
+  - column:Tuition - Non NC Resident: 1783.0 ⟵ “Tuition - Non NC Resident | 891.50 | 1,783.00 | 2,674.50 | 3,566.00 | 4,457.50 | 5,349.00 | 6,240.50 | 7,132.00 | 8,023.50 | 8,915.00 | 9,806.50 10,698.00”
+  - column:Associate Stu Gov Fee: 0.08 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Ed & Tech Fee: 42.76 ⟵ “Ed & Tech Fee | 21.38 | 42.76 | 64.14 | 85.52 | 106.90 | 128.28 | 149.66 | 171.04 | 192.42 | 213.80 | 235.18 | 256.50”
+  - column:Security Fee: 5.0 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - … 120 more rows
+### `8d690e1262eaccf0` University of North Carolina at Greensboro — costs 2026-27 · residency=out_of_state [new] (source_unlabeled)
+- source: https://spartancentral.uncg.edu/tuition-billing-payments/tuition-fees/ (sha256 bf3e8527bd9f)
+- issues: ambiguous_year_labels, conflicting_sources:https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/,https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/
+- checks: {"columns": 1, "components_reconcile": true, "rows": 4}
+  - column:Tuition & Fees: 25347 ⟵ “Tuition & Fees | $7,864 | $25,347”
+  - column:Housing (Standard Double): 6433 ⟵ “Housing (Standard Double) | $6,433 | $6,433”
+  - column:Unlimited Meal Plan: 5209 ⟵ “Unlimited Meal Plan | $5,209 | $5,209”
+  - column:Total: 36989 ⟵ “Total | $19,506 | $36,989”
+### `9dbfd1f1cbb44422` University of North Carolina at Greensboro — costs 2026-27 · residency=out_of_state [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/ (sha256 17955089f177)
+- issues: conflicting_sources:https://spartancentral.uncg.edu/financial-aid/cost-of-attendance/,https://spartancentral.uncg.edu/tuition-billing-payments/tuition-fees/
+- checks: {"columns": 5, "components_reconcile": true, "rows": 7}
+  - on_campus:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 6488 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 2262 ⟵ “Transportation | $2,262 | $2,262 | $2,262 | $2,480 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 42726 ⟵ “Total | $42,726 | $44,466 | $45,226 | $47,310 | $43,628”
+  - on_campus:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8228 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 2262 ⟵ “Transportation | $2,262 | $2,262 | $2,262 | $2,480 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 44466 ⟵ “Total | $42,726 | $44,466 | $45,226 | $47,310 | $43,628”
+  - on_campus:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - on_campus:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - on_campus:Housing: 8988 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - on_campus:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - on_campus:Transportation: 2262 ⟵ “Transportation | $2,262 | $2,262 | $2,262 | $2,480 | $3,442”
+  - on_campus:Personal: 2692 ⟵ “Personal | $2,692 | $2,692 | $2,692 | $2,692 | $2,692”
+  - on_campus:Total: 45226 ⟵ “Total | $42,726 | $44,466 | $45,226 | $47,310 | $43,628”
+  - off_campus_not_with_family:Tuition & Fees: 25348 ⟵ “Tuition & Fees | $25,348 | $25,348 | $25,348 | $25,348 | $25,348”
+  - off_campus_not_with_family:First Day Books & Supplies: 704 ⟵ “First Day Books & Supplies | $704 | $704 | $704 | $704 | $704”
+  - off_campus_not_with_family:Housing: 10854 ⟵ “Housing | $6,488 | $8,228 | $8,988 | $10,854 | $6,210”
+  - off_campus_not_with_family:Food: 5232 ⟵ “Food | $5,232 | $5,232 | $5,232 | $5,232 | $5,232”
+  - … 10 more rows
+### `9eb270106a05ff23` University of North Carolina at Greensboro — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/wp-content/uploads/2026/06/2026-27-Undergraduate-Distance.pdf (sha256 0f356cd2585f)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, conflicting_sources:https://spartancentral.uncg.edu/wp-content/uploads/2026/06/2026-27-Undergraduate-Main-Campus.pdf
+- checks: {"columns": 12, "rows": 18}
+  - column:Tuition - NC Resident: 189.79 ⟵ “Tuition - NC Resident | 189.79 | 379.58 | 569.37 | 759.16 | 948.95 | 1,138.74 | 1,328.53 | 1,518.32 | 1,708.11 | 1,897.90 | 2,087.69 | 2,277.50”
+  - column:Tuition - Outside NC: 379.58 ⟵ “Tuition - Outside NC | 379.58 | 759.16 | 1,138.74 | 1,518.32 | 1,897.90 | 2,277.48 | 2,657.06 | 3,036.64 | 3,416.22 | 3,795.80 | 4,175.38 | 4,555.00”
+  - column:Tuition - Non NC Resident: 918.25 ⟵ “Tuition - Non NC Resident | 918.25 | 1,836.50 | 2,754.75 | 3,673.00 | 4,591.25 | 5,509.50 | 6,427.75 | 7,346.00 | 8,264.25 | 9,182.50 10,100.75 11,019.00”
+  - column:Associate Stu Gov Fee: 0.04 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Ed & Tech Fee: 21.38 ⟵ “Ed & Tech Fee | 21.38 | 42.76 | 64.14 | 85.52 | 106.90 | 128.28 | 149.66 | 171.04 | 192.42 | 213.80 | 235.18 | 256.50”
+  - column:Security Fee: 2.5 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - column:Online Service Center Fee*: 20.0 ⟵ “Online Service Center Fee* | 20.00 | 40.00 | 60.00 | 80.00 | 100.00 | 120.00 | 140.00 | 160.00 | 180.00 | 200.00 | 220.00 | 240.00”
+  - column:TOTAL - NC Resident: 241.71 ⟵ “TOTAL - NC Resident | 241.71 | 475.42 | 709.13 | 942.84 | 1,176.55 | 1,410.26 | 1,643.97 | 1,877.68 | 2,111.39 | 2,345.10 | 2,578.81 | 2,812.50”
+  - column:TOTAL - Outside NC**: 431.5 ⟵ “TOTAL - Outside NC** | 431.50 | 855.00 | 1,278.50 | 1,702.00 | 2,125.50 | 2,549.00 | 2,972.50 | 3,396.00 | 3,819.50 | 4,243.00 | 4,666.50 | 5,090.00”
+  - column:TOTAL - Non NC Resident: 970.17 ⟵ “TOTAL - Non NC Resident | 970.17 | 1,932.34 | 2,894.51 | 3,856.68 | 4,818.85 | 5,781.02 | 6,743.19 | 7,705.36 | 8,667.53 | 9,629.70 10,591.87 11,554.00”
+  - column:New Student Fee (Online-Undergraduate): 65.0 ⟵ “New Student Fee (Online-Undergraduate) | 65.00 | Student Teaching Course Fee | 250.00 | RN to BSN Program Fee | 105.00”
+  - column:Residential Colleges Fee: 50.0 ⟵ “Residential Colleges Fee | 50.00 | Open Water Diver Scuba Course | 375.00 | Art History Program Fee | 50.00”
+  - column:Educator Prep Outcome Management Fee (Licensure): 18.0 ⟵ “Educator Prep Outcome Management Fee (Licensure) | 18.00 | Exercise Physiology Course | 25.00 | Dance Student Fee | 75.00”
+  - column:Student Liability Insurance Fee: 7.5 ⟵ “Student Liability Insurance Fee | 7.50 | Studio Usage Fee (Visual and Performing Arts) | 35.00 | Theatre Student Fee | 200.00”
+  - column:Withdrawal Fee (Complete Withdrawal): 50.0 ⟵ “Withdrawal Fee (Complete Withdrawal) | 50.00 | Traditional BSN Program Fee | 630.00 | Media Studies Fee | 50.00”
+  - column:Student Health Insurance (UG): 1312.0 ⟵ “Student Health Insurance (UG) | 1312.00 | UNCG First Day Complete Book Rental | 21.00 per credit hour | Late Registration Fee | 75.00”
+  - column:International Student Fee: 300.0 ⟵ “International Student Fee | 300.00 | Honors College Fee | 15.00”
+  - column:Tuition - NC Resident: 379.58 ⟵ “Tuition - NC Resident | 189.79 | 379.58 | 569.37 | 759.16 | 948.95 | 1,138.74 | 1,328.53 | 1,518.32 | 1,708.11 | 1,897.90 | 2,087.69 | 2,277.50”
+  - column:Tuition - Outside NC: 759.16 ⟵ “Tuition - Outside NC | 379.58 | 759.16 | 1,138.74 | 1,518.32 | 1,897.90 | 2,277.48 | 2,657.06 | 3,036.64 | 3,416.22 | 3,795.80 | 4,175.38 | 4,555.00”
+  - column:Tuition - Non NC Resident: 1836.5 ⟵ “Tuition - Non NC Resident | 918.25 | 1,836.50 | 2,754.75 | 3,673.00 | 4,591.25 | 5,509.50 | 6,427.75 | 7,346.00 | 8,264.25 | 9,182.50 10,100.75 11,019.00”
+  - column:Associate Stu Gov Fee: 0.08 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Ed & Tech Fee: 42.76 ⟵ “Ed & Tech Fee | 21.38 | 42.76 | 64.14 | 85.52 | 106.90 | 128.28 | 149.66 | 171.04 | 192.42 | 213.80 | 235.18 | 256.50”
+  - column:Security Fee: 5.0 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - … 120 more rows
+### `aa5d63895ac8224d` University of North Carolina at Greensboro — costs 2026-27 · residency=not_applicable [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/wp-content/uploads/2026/06/2026-27-Undergraduate-Main-Campus.pdf (sha256 93d80c86a8af)
+- issues: arrangement_unlabeled, multiple_total_rows, residency_unknown, conflicting_sources:https://spartancentral.uncg.edu/wp-content/uploads/2026/06/2026-27-Undergraduate-Distance.pdf
+- checks: {"columns": 12, "rows": 21}
+  - column:Tuition - NC Resident: 189.79 ⟵ “Tuition - NC Resident | 189.79 | 379.58 | 569.37 | 759.16 | 948.95 | 1,138.74 | 1,328.53 | 1,518.32 | 1,708.11 | 1,897.90 | 2,087.69 | 2,277.50”
+  - column:Tuition - Non NC Resident: 918.25 ⟵ “Tuition - Non NC Resident | 918.25 | 1,836.50 | 2,754.75 | 3,673.00 | 4,591.25 | 5,509.50 | 6,427.75 | 7,346.00 | 8,264.25 | 9,182.50 10,100.75 11,019.00”
+  - column:Associate Stu Gov Fee: 0.04 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Athletic Fee: 35.13 ⟵ “Athletic Fee | 35.13 | 70.26 | 105.39 | 140.52 | 175.65 | 210.78 | 245.91 | 281.04 | 316.17 | 351.30 | 386.43 | 421.50”
+  - column:Student Activity Fee: 26.63 ⟵ “Student Activity Fee | 26.63 | 53.26 | 79.89 | 106.52 | 133.15 | 159.78 | 186.41 | 213.04 | 239.67 | 266.30 | 292.93 | 319.50”
+  - column:Student Facilities Fee: 29.46 ⟵ “Student Facilities Fee | 29.46 | 58.92 | 88.38 | 117.84 | 147.30 | 176.76 | 206.22 | 235.68 | 265.14 | 294.60 | 324.06 | 353.50”
+  - column:Ed & Tech Fee: 21.38 ⟵ “Ed & Tech Fee | 21.38 | 42.76 | 64.14 | 85.52 | 106.90 | 128.28 | 149.66 | 171.04 | 192.42 | 213.80 | 235.18 | 256.50”
+  - column:Transportation Fee: 4.54 ⟵ “Transportation Fee | 4.54 | 9.08 | 13.62 | 18.16 | 22.70 | 27.24 | 31.78 | 36.32 | 40.86 | 45.40 | 49.94 | 54.50”
+  - column:Security Fee: 2.5 ⟵ “Security Fee | 2.50 | 5.00 | 7.50 | 10.00 | 12.50 | 15.00 | 17.50 | 20.00 | 22.50 | 25.00 | 27.50 | 30.00”
+  - column:Health Service Fee: 17.54 ⟵ “Health Service Fee | 17.54 | 35.08 | 52.62 | 70.16 | 87.70 | 105.24 | 122.78 | 140.32 | 157.86 | 175.40 | 192.94 | 210.50”
+  - column:Registration Fee: 8.0 ⟵ “Registration Fee | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00 | 8.00”
+  - column:TOTAL - NC Resident: 335.01 ⟵ “TOTAL - NC Resident | 335.01 | 662.02 | 989.03 | 1,316.04 | 1,643.05 | 1,970.06 | 2,297.07 | 2,624.08 | 2,951.09 | 3,278.10 | 3,605.11 | 3,932.00”
+  - column:TOTAL - Non NC Resident: 1063.47 ⟵ “TOTAL - Non NC Resident | 1,063.47 | 2,118.94 | 3,174.41 | 4,229.88 | 5,285.35 | 6,340.82 | 7,396.29 | 8,451.76 | 9,507.23 10,562.70 11,618.17 12,673.50”
+  - column:New Student Fee (Undergrad, FTIC): 254.0 ⟵ “New Student Fee (Undergrad, FTIC) | 254.00 | Student Teaching Course Fee | 250.00 | RN to BSN Program Fee | 105.00”
+  - column:New Student Fee (Undergraduate Transfer/Adult): 112.0 ⟵ “New Student Fee (Undergraduate Transfer/Adult) | 112.00 | edTPA Fee (Teacher Licensure) | 300.00 | Studio Art Program Fee | 200.00”
+  - column:Residential Colleges Fee: 50.0 ⟵ “Residential Colleges Fee | 50.00 | Advanced Open Water Diver Scuba Course | 271.00 | Beyond Academics Program Fee | 2500.00”
+  - column:Educator Prep Outcome Management Fee (Licensure): 18.0 ⟵ “Educator Prep Outcome Management Fee (Licensure) | 18.00 | Studio Usage Fee (Visual and Performing Arts) | 35.00 | Theatre Student Fee | 200.00”
+  - column:Student Liability Insurance Fee: 7.5 ⟵ “Student Liability Insurance Fee | 7.50 | Traditional BSN Program Fee | 630.00 | Media Studies Fee | 50.00”
+  - column:Withdrawal Fee (Complete Withdrawal): 50.0 ⟵ “Withdrawal Fee (Complete Withdrawal) | 50.00”
+  - column:Student Health Insurance (UG): 1312.0 ⟵ “Student Health Insurance (UG) | 1312.00 | UNCG First Day Complete Book Rental 21.00 per credit hour | Late Registration Fee | 75.00”
+  - column:International Student Fee: 300.0 ⟵ “International Student Fee | 300.00 | Honors College Fee | 15.00”
+  - column:Tuition - NC Resident: 379.58 ⟵ “Tuition - NC Resident | 189.79 | 379.58 | 569.37 | 759.16 | 948.95 | 1,138.74 | 1,328.53 | 1,518.32 | 1,708.11 | 1,897.90 | 2,087.69 | 2,277.50”
+  - column:Tuition - Non NC Resident: 1836.5 ⟵ “Tuition - Non NC Resident | 918.25 | 1,836.50 | 2,754.75 | 3,673.00 | 4,591.25 | 5,509.50 | 6,427.75 | 7,346.00 | 8,264.25 | 9,182.50 10,100.75 11,019.00”
+  - column:Associate Stu Gov Fee: 0.08 ⟵ “Associate Stu Gov Fee | 0.04 | 0.08 | 0.12 | 0.16 | 0.20 | 0.24 | 0.28 | 0.32 | 0.36 | 0.40 | 0.44 | 0.50”
+  - column:Athletic Fee: 70.26 ⟵ “Athletic Fee | 35.13 | 70.26 | 105.39 | 140.52 | 175.65 | 210.78 | 245.91 | 281.04 | 316.17 | 351.30 | 386.43 | 421.50”
+  - … 144 more rows
+### `adfe80fa80d96b3e` University of North Carolina at Greensboro — transfer_policies 2023-24 [new] (labeled_in_source)
+- source: https://spartancentral.uncg.edu/registration-degree-planning/transfer-credit-information/ (sha256 e754d770b11a)
+- issues: stale_year_label:2023-24
+- checks: {"fields": ["max_transfer_credits"]}
+  - max_transfer_credits: 64 ⟵ “Additionally, UNCG will only transfer up to 64 hours from a two-year college.”
+
+## Re-verification of existing records (73)
+
+- source_not_fetched: data/institutions/belmontabbeycollege/credit_policies/2026-27.json ["credit_policies", "ipeds-197984", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/cabarruscollege/credit_policies/2026-27.json ["credit_policies", "ipeds-198109", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/campbell/credit_policies/2026-27.json ["credit_policies", "ipeds-198136", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/campbell/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198136", null, "2026-27", {}]
+- source_not_fetched: data/institutions/cfcc/credit_policies/2026-27.json ["credit_policies", "ipeds-198154", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/carteret/credit_policies/2026-27.json ["credit_policies", "ipeds-198206", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/carteret/credit_policies/2026-27.json ["credit_policies", "ipeds-198206", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/catawba/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198215", null, "2026-27", {}]
+- source_not_fetched: data/institutions/cccc/credit_policies/2026-27.json ["credit_policies", "ipeds-198251", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/cpcc/credit_policies/2026-27.json ["credit_policies", "ipeds-198260", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/chowan/awards/2026-27.json ["awards", "ipeds-198303", null, "2026-27", {"award_name": "Presidential Scholarship"}]
+- source_not_fetched: data/institutions/chowan/awards/2026-27.json ["awards", "ipeds-198303", null, "2026-27", {"award_name": "Alumni Scholarship"}]
+- source_not_fetched: data/institutions/chowan/awards/2026-27.json ["awards", "ipeds-198303", null, "2026-27", {"award_name": "Founder\u2019s Scholarship"}]
+- source_not_fetched: data/institutions/chowan/awards/2026-27.json ["awards", "ipeds-198303", null, "2026-27", {"award_name": "University Scholarship"}]
+- source_not_fetched: data/institutions/elon/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198516", null, "2026-27", {}]
+- source_not_fetched: data/institutions/forsythtech/credit_policies/2026-27.json ["credit_policies", "ipeds-198552", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/gardner-webb/awards/2026-27.json ["awards", "ipeds-198561", null, "2026-27", {"award_name": "Marshall Scholarship"}]
+- source_not_fetched: data/institutions/gardner-webb/awards/2026-27.json ["awards", "ipeds-198561", null, "2026-27", {"award_name": "LeGrand Ware Scholarship"}]
+- source_not_fetched: data/institutions/gardner-webb/awards/2026-27.json ["awards", "ipeds-198561", null, "2026-27", {"award_name": "Belk-Ellis Scholarship"}]
+- source_not_fetched: data/institutions/heritagebiblecollege/credit_policies/2026-27.json ["credit_policies", "ipeds-198677", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/highpoint/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198695", null, "2026-27", {}]
+- source_not_fetched: data/institutions/lmc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198808", null, "2026-27", {}]
+- source_not_fetched: data/institutions/lr/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198835", null, "2026-27", {}]
+- source_not_fetched: data/institutions/louisburg/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198871", null, "2026-27", {}]
+- source_not_fetched: data/institutions/manna/credit_policies/2026-27.json ["credit_policies", "ipeds-461528", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/martincc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198905", null, "2026-27", {}]
+- source_not_fetched: data/institutions/methodist/transfer_policies/2026-27.json ["transfer_policies", "ipeds-198969", null, "2026-27", {}]
+- source_not_fetched: data/institutions/macuniversity/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199458", null, "2026-27", {}]
+- source_not_fetched: data/institutions/montreat/credit_policies/2026-27.json ["credit_policies", "ipeds-199032", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/ncat/credit_policies/2026-27.json ["credit_policies", "ipeds-199102", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/ncat/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199102", null, "2026-27", {}]
+- source_not_fetched: data/institutions/nccu/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199157", null, "2026-27", {}]
+- all_values_found_year_not_labeled: data/institutions/ncsu/credit_policies/2026-27.json ["credit_policies", "ipeds-199193", null, "2026-27", {"policy_kind": "AP"}]
+- all_values_found_year_not_labeled: data/institutions/ncsu/credit_policies/2026-27.json ["credit_policies", "ipeds-199193", null, "2026-27", {"policy_kind": "IB"}]
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "crop-and-soil-sciences-bs-agronomy", "requirement_key": "contact-person-electives"}] year=2026-27
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "science-education-bs-earth-science-concentration", "requirement_key": "plan-requirements-communication-advanced-writing"}] year=2026-27
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "science-education-bs-earth-science-concentration", "requirement_key": "plan-requirements-mathematics"}] year=2026-27
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "crop-and-soil-sciences-bs-soil-science", "requirement_key": "plan-requirements-concentration-electives"}] year=2026-27
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "science-education-bs-chemistry-concentration", "requirement_key": "plan-requirements-mathematics"}] year=2026-27
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "mathematics-education-bs-middle-grades-mathematics-concentration", "requirement_key": "plan-requirements-mathematics"}] year=2026-27
+- nothing_to_check: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "crop-and-soil-sciences-bs-crop-biotechnology", "requirement_key": "plan-requirements-concentration-electives"}] year=2026-27
+- source_not_fetched: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "accounting-bs", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "business-administration-bs-undeclared", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/ncsu/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199193", null, "2026-27", {"program_key": "business-administration-bs", "requirement_key": "sample-plan"}]
+- source_not_fetched: data/institutions/piedmontcc/credit_policies/2026-27.json ["credit_policies", "ipeds-199324", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/piedmontcc/credit_policies/2026-27.json ["credit_policies", "ipeds-199324", null, "2026-27", {"policy_kind": "IB"}]
+- source_not_fetched: data/institutions/piedmontcc/credit_policies/2026-27.json ["credit_policies", "ipeds-199324", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/richmondcc/credit_policies/2026-27.json ["credit_policies", "ipeds-199449", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/richmondcc/credit_policies/2026-27.json ["credit_policies", "ipeds-199449", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/richmondcc/credit_policies/2026-27.json ["credit_policies", "ipeds-199449", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/richmondcc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199449", null, "2026-27", {}]
+- source_not_fetched: data/institutions/st-aug/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199582", null, "2026-27", {}]
+- source_not_fetched: data/institutions/sampsoncc/credit_policies/2026-27.json ["credit_policies", "ipeds-199625", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/sampsoncc/credit_policies/2026-27.json ["credit_policies", "ipeds-199625", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/spcc/credit_policies/2026-27.json ["credit_policies", "ipeds-197850", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/sccnc/costs/2026-27.json ["costs", "ipeds-199722", null, "2026-27", {"residency": "in_state"}]
+- source_not_fetched: data/institutions/uncsa/credit_policies/2026-27.json ["credit_policies", "ipeds-199184", null, "2026-27", {"policy_kind": "IB"}]
+- source_not_fetched: data/institutions/uncsa/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199184", null, "2026-27", {}]
+- source_not_fetched: data/institutions/unc/degree_requirements/2026-27.json ["degree_requirements", "ipeds-199120", null, "2026-27", {"program_key": "applied-sciences-b-s", "requirement_key": "sample-plan"}]
+- nothing_to_check: data/institutions/unc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199120", null, "2026-27", {}]
+- all_values_found_year_not_labeled: data/institutions/charlotte/credit_policies/2026-27.json ["credit_policies", "ipeds-199139", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/uncp/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199281", null, "2026-27", {}]
+- source_not_fetched: data/institutions/waketech/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199856", null, "2026-27", {}]
+- source_not_fetched: data/institutions/waynecc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199892", null, "2026-27", {}]
+- source_not_fetched: data/institutions/wilkescc/transfer_policies/2026-27.json ["transfer_policies", "ipeds-199926", null, "2026-27", {}]
+- source_not_fetched: data/institutions/wilsoncc/credit_policies/2026-27.json ["credit_policies", "ipeds-199953", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/wilsoncc/credit_policies/2026-27.json ["credit_policies", "ipeds-199953", null, "2026-27", {"policy_kind": "CLEP"}]
+- source_not_fetched: data/institutions/wilsoncc/credit_policies/2026-27.json ["credit_policies", "ipeds-199953", null, "2026-27", {"policy_kind": "IB"}]
+- source_not_fetched: data/institutions/wssu/costs/2026-27.json ["costs", "ipeds-199999", null, "2026-27", {"residency": "out_of_state"}]
+- source_not_fetched: data/institutions/wssu/costs/2026-27.json ["costs", "ipeds-199999", null, "2026-27", {"residency": "in_state"}]
+- source_not_fetched: data/institutions/wssu/credit_policies/2026-27.json ["credit_policies", "ipeds-199999", null, "2026-27", {"policy_kind": "dual_enrollment"}]
+- source_not_fetched: data/institutions/wssu/credit_policies/2026-27.json ["credit_policies", "ipeds-199999", null, "2026-27", {"policy_kind": "AP"}]
+- source_not_fetched: data/institutions/wssu/credit_policies/2026-27.json ["credit_policies", "ipeds-199999", null, "2026-27", {"policy_kind": "CLEP"}]
+
+## Statewide sources
+
+Pages fetched: 0; pages by category: 
+
+## Leads: official pages found with no extracted record
+
+- Appalachian State University: cost_of_attendance, admissions_tests, common_data_set, merit_scholarships, ap_credit, clep_credit, ib_credit, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- North Carolina State University at Raleigh: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, transfer_credit, statewide_articulation, residency
+- University of North Carolina Wilmington: admissions_tests, merit_scholarships, dual_enrollment, transfer_credit, statewide_articulation, residency, degree_requirements
+- University of North Carolina at Chapel Hill: tuition_fees, cost_of_attendance, admissions_tests, merit_scholarships, ap_credit, dual_enrollment, statewide_articulation, residency
+- University of North Carolina at Charlotte: admissions_tests, merit_scholarships, dual_enrollment, residency, degree_requirements
+- University of North Carolina at Greensboro: admissions_tests, merit_scholarships, dual_enrollment, statewide_articulation, residency
