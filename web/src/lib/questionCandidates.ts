@@ -264,7 +264,7 @@ export interface Eligibility {
  * Whether one candidate may be published, judged on its latest version alone and from its history. Every condition
  * must hold for this item individually; nothing about other items (a sample, a batch pass rate) changes the answer.
  */
-export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER): Eligibility {
+export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER, today: string = new Date().toISOString().slice(0, 10)): Eligibility {
   const v = latest(c)
   const q = asQuestion(v, c.import_id)
   const problems: string[] = []
@@ -283,7 +283,11 @@ export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER): El
   // The ledger's author is the import's author (not the AI default), so the author can't approve their own item.
   const entry = ledger.items[c.import_id]
   if (entry && entry.author !== AI_AUTHOR && person(entry.author) !== person(v.item.author)) problems.push(`ledger author "${entry.author}" differs from the import author "${v.item.author}"`)
-  const signoffs = entry?.signoffs ?? []
+  // A sign-off dated more than a day ahead of today (a hand edit, a typo) doesn't count anywhere.
+  const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10)
+  const future = (entry?.signoffs ?? []).filter((s) => isIsoDate(s.date) && s.date > tomorrow)
+  if (future.length) problems.push(`${future.length} sign-off(s) dated in the future don't count`)
+  const signoffs = (entry?.signoffs ?? []).filter((s) => !future.includes(s))
   const st = editorialState(q, { items: { [c.import_id]: { author: v.item.author, signoffs } } })
   if (!st.humanApproved) problems.push(...st.problems, `editorial review is at stage ${st.next}`)
 
@@ -301,8 +305,8 @@ export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER): El
 }
 
 /** Eligible items of one track. Retired candidates and the other track are never included. */
-export function eligibleFor(reg: Registry, track: Track, ledger: Ledger = EDITORIAL_LEDGER): Eligibility[] {
-  return Object.values(reg.candidates).filter((c) => c.track === track).map((c) => eligibility(c, ledger)).filter((e) => e.eligible)
+export function eligibleFor(reg: Registry, track: Track, ledger: Ledger = EDITORIAL_LEDGER, today?: string): Eligibility[] {
+  return Object.values(reg.candidates).filter((c) => c.track === track).map((c) => eligibility(c, ledger, today)).filter((e) => e.eligible)
 }
 
 /** Counts by track and status, for reports. Eligible counts are per item. */

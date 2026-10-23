@@ -57,14 +57,17 @@ const ALLOWED_LICENSE = /^(original|public domain|federal|cc by(-sa)? \d)/i
 /**
  * One canonical form for comparing reviewer names, so variants of one name count as one person: Unicode-normalized,
  * invisible characters and bracketed asides removed, punctuation ignored, case folded, and word order ignored.
- * "Jo  Writer", "Jo Writer.", "Jo-Writer", "Writer, Jo" and "Jo Writer (author)" are all "jo writer". This errs toward
+ * "Jo  Writer", "Jo Writer.", "Jo-Writer", "Writer, Jo" and "Jo Writer (author)" are all "jo writer", and accents are
+ * ignored ("José" = "Jose", "Straße" = "Strasse"). This errs toward
  * merging names, which can only block a sign-off, never let an author through. Look-alike letters from another script
  * are refused by isNotAPerson. Initials ("J. Writer") still need the content lead's check against the reviewer list.
  */
 export const canonicalPerson = (s: string) =>
   s
+    .normalize('NFKD')
+    .replace(/\p{M}|\p{Cf}/gu, '')
+    .replace(/ß/g, 'ss')
     .normalize('NFKC')
-    .replace(/\p{Cf}/gu, '')
     .replace(/\([^)]*\)|\[[^\]]*\]/g, ' ')
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, ' ')
@@ -82,10 +85,19 @@ const NOT_A_PERSON_WHOLE = new Set([
 ])
 /** First words that only a tool or a group uses ("Claude Opus", "GPT 5", "Team Rights"). */
 const NOT_A_PERSON_FIRST = /^(claude|anthropic|chatgpt|gpt|openai|gemini|copilot|assistant|llm|team|the)\b/
-const SCRIPTS = [/\p{Script=Latin}/u, /\p{Script=Cyrillic}/u, /\p{Script=Greek}/u]
+/** Writing systems a single name normally uses one of (Japanese mixes kanji and kana, so those count as one). */
+const SCRIPTS = [
+  /\p{Script=Latin}/u, /\p{Script=Cyrillic}/u, /\p{Script=Greek}/u, /\p{Script=Armenian}/u, /\p{Script=Georgian}/u, /\p{Script=Hebrew}/u,
+  /\p{Script=Arabic}/u, /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u, /\p{Script=Hangul}/u, /\p{Script=Devanagari}/u,
+  /\p{Script=Thai}/u, /\p{Script=Cherokee}/u, /\p{Script=Ethiopic}/u, /\p{Script=Bengali}/u, /\p{Script=Tamil}/u,
+]
+/** Role or tool words followed by a number, a version or a single letter ("Reviewer 1", "Solver A", "Opus 4", "Sonnet 4.5"). */
+const NUMBERED_ROLE = /^(reviewer|solver|auditor|editor|checker|approver|bot|user|person|model|opus|sonnet|haiku|claude|llama|mistral|gemini|gpt|grok|deepseek|qwen|bard)( (\d+( \d+)*|[a-z]|large|small|mini|pro|max|ultra))+$/
+/** AI followed by a role ("AI Assistant", "AI Reviewer"); "Ai Nguyen" is a name. Other tool names alone. */
+const AI_ROLE = /^(ai|a i) (assistant|reviewer|solver|auditor|editor|model|bot|tool|agent|system|lead|checker)\b|^(grok|deepseek|qwen|perplexity)$|^(lead|unknown|test|placeholder) (reviewer|solver|user|person|editor|auditor)$/
 /**
- * A screen, not proof of identity: refuses obvious non-people (AI tools, roles, teams, placeholders) and names mixing
- * Latin, Cyrillic or Greek letters (look-alike spoofs). Real names such as "Ai Nguyen" or "Na Young Kim" pass. The
+ * A screen, not proof of identity: refuses obvious non-people (AI tools, roles, teams, placeholders, numbered roles
+ * such as "Reviewer 1") and names mixing writing systems (look-alike spoofs). Real names such as "Ai Nguyen" or "Na Young Kim" pass. The
  * content lead still checks every name against the people actually doing the review.
  */
 export const isNotAPerson = (s: string) => {
@@ -93,7 +105,7 @@ export const isNotAPerson = (s: string) => {
   if (/^ai\s*:/i.test(raw) || /^ai\s*\(/i.test(raw)) return true
   if (SCRIPTS.filter((re) => re.test(raw)).length > 1) return true
   const inOrder = raw.toLowerCase().replace(/\([^)]*\)|\[[^\]]*\]/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
-  return !inOrder || NOT_A_PERSON_WHOLE.has(inOrder) || NOT_A_PERSON_WHOLE.has(inOrder.replace(/ /g, '')) || NOT_A_PERSON_FIRST.test(inOrder)
+  return !inOrder || NOT_A_PERSON_WHOLE.has(inOrder) || NOT_A_PERSON_WHOLE.has(inOrder.replace(/ /g, '')) || NOT_A_PERSON_FIRST.test(inOrder) || NUMBERED_ROLE.test(inOrder) || AI_ROLE.test(inOrder)
 }
 
 /** A sign-off date must be a real calendar date written YYYY-MM-DD; anything else doesn't count. */

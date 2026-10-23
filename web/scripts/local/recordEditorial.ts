@@ -61,8 +61,10 @@ for (const f of files) {
     if (col(r, 'seconds')) s.seconds = Number(col(r, 'seconds'))
     if (col(r, 'license')) s.license = col(r, 'license')
     if (col(r, 'note')) s.note = col(r, 'note')
-    // One sign-off per person per stage: a newer one replaces theirs.
-    entry.signoffs = [...entry.signoffs.filter((x) => !(x.stage === stage && canonicalPerson(x.by) === canonicalPerson(by) && x.hash === s.hash)), s]
+    // One sign-off per person per stage: a newer one replaces that person's earlier PASS only. A recorded fail is
+    // never removed by a later row (it stays until the item is revised), so a name that merely looks the same can't
+    // erase someone else's fail.
+    entry.signoffs = [...entry.signoffs.filter((x) => !(x.stage === stage && x.result === 'pass' && canonicalPerson(x.by) === canonicalPerson(by) && x.hash === s.hash)), s]
     added++
   }
 }

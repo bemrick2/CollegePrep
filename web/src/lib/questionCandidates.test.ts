@@ -330,7 +330,7 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     expect(c.versions[1]!.content_hash).toBe(c.versions[0]!.content_hash)
     expect(eligibility(c, l).problems.join(' ')).toMatch(/rights or authorship changed on 2026-10-24/)
     l.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date: '2026-10-25', result: 'pass', hash: c.versions[1]!.content_hash, license: 'original' })
-    expect(eligibility(c, l).eligible).toBe(true)
+    expect(eligibility(c, l, '2026-10-26').eligible).toBe(true)
   })
 
   it('intake and retire change neither the registry nor the items passed in', () => {
@@ -382,7 +382,7 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     const resign = (date: string) => {
       const x: Ledger = JSON.parse(JSON.stringify(l))
       x.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date, result: 'pass', hash: latest(c).content_hash, license: 'original' })
-      return eligibility(c, x).eligible
+      return eligibility(c, x, '2026-10-26').eligible
     }
     expect(resign('Oct 20 2026')).toBe(false)
     expect(resign('2026-13-40')).toBe(false)
@@ -405,6 +405,28 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     const reordered = Object.fromEntries(Object.entries(imp(0)).reverse()) as unknown as ImportedQuestion
     expect(intake(reg, [reordered], 'b.jsonl', AT, NOBANK).result.unchanged).toEqual([id])
     expect(intake(reg, [imp(0, { choices: imp(0).choices.map((c) => ({ text: c.text, key: c.key }) as typeof c) })], 'b.jsonl', AT, NOBANK).result.unchanged).toEqual([id])
+  })
+
+  it('accents do not make the author someone else', () => {
+    const reg = setTrack(reg0([human({ author: 'José Writer' })]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
+    expect(eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Jose Writer' } }), AT).eligible).toBe(false)
+    expect(() => setTrack(reg0([human({ author: 'Ana Straße' })]), id, 'practice_candidate', 'ana strasse', 'r', AT, NONE)).toThrow(/wrote this item/)
+  })
+
+  it('numbered roles, versioned model names and other-script look-alikes are refused', () => {
+    for (const n of ['Reviewer 1', 'Solver A', 'Solver 2', 'AI Assistant', 'AI Reviewer', 'Lead Reviewer', 'Unknown reviewer', 'Test User', 'Bot 1', 'Opus 4', 'Sonnet 4.5', 'Llama 3', 'Mistral Large', 'Grok', 'DeepSeek', 'J\u0585 Writer'])
+      expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE), n).toThrow(/not a named person/)
+    for (const n of ['Ai Nguyen', 'Haiku Tanaka', 'Bard Larsen', '山田 はなこ', 'José Núñez']) expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE), n).not.toThrow()
+  })
+
+  it('a sign-off dated in the future does not count, even as the rights re-sign', () => {
+    let reg = confirmedHuman()
+    const l = fullReview(reg, id)
+    reg = intake(reg, [human({ source_url: 'https://example.org/s' })], 'v2.jsonl', '2026-10-24', NOBANK).registry
+    l.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date: '2099-01-01', result: 'pass', hash: latest(reg.candidates[id]!).content_hash, license: 'original' })
+    const e = eligibility(reg.candidates[id]!, l, '2026-10-25')
+    expect(e.eligible).toBe(false)
+    expect(e.problems).toContain("1 sign-off(s) dated in the future don't count")
   })
 })
 
