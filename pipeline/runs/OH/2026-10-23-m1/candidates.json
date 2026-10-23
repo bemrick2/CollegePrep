@@ -1,0 +1,4873 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "d8f6788bb12ff5e6",
+  "checks": {
+   "columns": 1,
+   "rows": 2
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition (includes instructional and general fees)",
+    "snippet": "Tuition (includes instructional and general fees) | Columbus: $14,050Regional campus/ATI: $10,064/10,013 | $44,271*",
+    "value": 44271
+   },
+   {
+    "field": "on_campus:Housing and food",
+    "snippet": "Housing and food | Columbus: $15,738**Regional campus/ATI: Varies^ | $15,738**",
+    "value": 15738
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-204796",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Housing and food": 15738,
+    "Tuition (includes instructional and general fees)": 44271
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-204796",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Estimated, 2026-2027 academic year First-year students \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 15738,
+   "residency": "out_of_state",
+   "source_url": "https://undergrad.osu.edu/cost-and-aid/basic-costs",
+   "total_cost_of_attendance": null,
+   "tuition": 44271,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:04+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "19df5987618738a403cd.json.gz",
+   "requested_url": "https://undergrad.osu.edu/cost-and-aid/basic-costs",
+   "sha256": "19df5987618738a403cd1bed64d27dcc97e4a735ff6d8112c05f17d7a1bf36aa",
+   "title": "Basic costs include tuition, food and housing. - The Ohio State University",
+   "url": "https://undergrad.osu.edu/cost-and-aid/basic-costs"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "f5e38a378863accc",
+  "checks": {
+   "fields": []
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "transfer_policies",
+  "evidence": [],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "conflicting_values:min_grade",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences. min_grade: page states C, D",
+   "policy_url": "https://www.kent.edu/admissions/transfer-student-requirements",
+   "source_url": "https://www.kent.edu/admissions/transfer-student-requirements",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:16+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 22 Oct 2026 23:11:36 GMT",
+   "page_file": "97097fdfdb009ebbfbb5.json.gz",
+   "requested_url": "https://www.kent.edu/admissions/transfer-student-requirements",
+   "sha256": "97097fdfdb009ebbfbb54d07265a1638ef69938ad01e96bd540ff6231b4c6599",
+   "title": "Transfer Student Admissions | Kent State University",
+   "url": "https://www.kent.edu/admissions/transfer-student-requirements"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "42e37f1bcda11723",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition and Fees",
+    "snippet": "Tuition and Fees | $18,890 | $42,882",
+    "value": 18890
+   },
+   {
+    "field": "on_campus:Housing and Food",
+    "snippet": "Housing and Food | $17,668 | $17,668",
+    "value": 17668
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | $36,558 | $60,550",
+    "value": 36558
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-204024",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Housing and Food": 17668,
+    "Total": 36558,
+    "Tuition and Fees": 18890
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-204024",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Annual Cost Estimates, 2026-2027* Undergraduate Annual Cost Estimates, 2026-2027* \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": 17668,
+   "residency": "in_state",
+   "source_url": "https://miamioh.edu/admission-aid/costs-financial-aid/cost-of-attendance.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 36558,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 18890,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:18+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:18:18 GMT",
+   "page_file": "403888e3b4c29139b413.json.gz",
+   "requested_url": "https://miamioh.edu/admission-aid/costs-financial-aid/cost-of-attendance.html",
+   "sha256": "403888e3b4c29139b4132063db84b2a327d45d39ef3366930db6f4afcbd6e557",
+   "title": "Tuition and Cost of Attendance | Admission and Aid",
+   "url": "https://miamioh.edu/admission-aid/costs-financial-aid/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "4bf156de922dd982",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees",
+    "snippet": "Tuition and Fees | $18,890 | $42,882",
+    "value": 42882
+   },
+   {
+    "field": "column:Housing and Food",
+    "snippet": "Housing and Food | $17,668 | $17,668",
+    "value": 17668
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $36,558 | $60,550",
+    "value": 60550
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-204024",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Housing and Food": 17668,
+    "Total": 60550,
+    "Tuition and Fees": 42882
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-204024",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Annual Cost Estimates, 2026-2027* Undergraduate Annual Cost Estimates, 2026-2027* \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://miamioh.edu/admission-aid/costs-financial-aid/cost-of-attendance.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 60550,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 42882,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:18+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:18:18 GMT",
+   "page_file": "403888e3b4c29139b413.json.gz",
+   "requested_url": "https://miamioh.edu/admission-aid/costs-financial-aid/cost-of-attendance.html",
+   "sha256": "403888e3b4c29139b4132063db84b2a327d45d39ef3366930db6f4afcbd6e557",
+   "title": "Tuition and Cost of Attendance | Admission and Aid",
+   "url": "https://miamioh.edu/admission-aid/costs-financial-aid/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "ec68cb71794c1b23",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": true,
+   "rows": 9
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:TUITION/FEES *",
+    "snippet": "TUITION/FEES * | $13,850 | $24,300 | $7,834",
+    "value": 13850
+   },
+   {
+    "field": "column:BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT",
+    "snippet": "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT | $800 | $800 | $800",
+    "value": 800
+   },
+   {
+    "field": "column:STUDENT HEALTH FEE",
+    "snippet": "STUDENT HEALTH FEE | 180 | 180 | 0",
+    "value": 180
+   },
+   {
+    "field": "column:HOUSING/FOOD ALLOWANCE **",
+    "snippet": "HOUSING/FOOD ALLOWANCE ** | $14,380 | $14,380 | $3,748",
+    "value": 14380
+   },
+   {
+    "field": "column:PERSONAL EXPENSES",
+    "snippet": "PERSONAL EXPENSES | $2,334 | $2,334 | $2,334",
+    "value": 2334
+   },
+   {
+    "field": "column:TRANSPORTATION****",
+    "snippet": "TRANSPORTATION**** | $2,620 | $2,620 | $2,872",
+    "value": 2620
+   },
+   {
+    "field": "column:LOAN FEES",
+    "snippet": "LOAN FEES | $68 | $68 | $68",
+    "value": 68
+   },
+   {
+    "field": "column:CAREER SERVICES FEE",
+    "snippet": "CAREER SERVICES FEE | $188 | $188 | $112",
+    "value": 188
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $34,420 | $44,870 | $17,768",
+    "value": 34420
+   },
+   {
+    "field": "column:TUITION/FEES *",
+    "snippet": "TUITION/FEES * | $13,850 | $24,300 | $7,834",
+    "value": 7834
+   },
+   {
+    "field": "column:BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT",
+    "snippet": "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT | $800 | $800 | $800",
+    "value": 800
+   },
+   {
+    "field": "column:STUDENT HEALTH FEE",
+    "snippet": "STUDENT HEALTH FEE | 180 | 180 | 0",
+    "value": 0
+   },
+   {
+    "field": "column:HOUSING/FOOD ALLOWANCE **",
+    "snippet": "HOUSING/FOOD ALLOWANCE ** | $14,380 | $14,380 | $3,748",
+    "value": 3748
+   },
+   {
+    "field": "column:PERSONAL EXPENSES",
+    "snippet": "PERSONAL EXPENSES | $2,334 | $2,334 | $2,334",
+    "value": 2334
+   },
+   {
+    "field": "column:TRANSPORTATION****",
+    "snippet": "TRANSPORTATION**** | $2,620 | $2,620 | $2,872",
+    "value": 2872
+   },
+   {
+    "field": "column:LOAN FEES",
+    "snippet": "LOAN FEES | $68 | $68 | $68",
+    "value": 68
+   },
+   {
+    "field": "column:CAREER SERVICES FEE",
+    "snippet": "CAREER SERVICES FEE | $188 | $188 | $112",
+    "value": 112
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $34,420 | $44,870 | $17,768",
+    "value": 17768
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "arrangement_unlabeled",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 800,
+   "components": {
+    "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT": 800,
+    "CAREER SERVICES FEE": 188,
+    "HOUSING/FOOD ALLOWANCE **": 14380,
+    "LOAN FEES": 68,
+    "PERSONAL EXPENSES": 2334,
+    "STUDENT HEALTH FEE": 180,
+    "TOTAL": 34420,
+    "TRANSPORTATION****": 2620,
+    "TUITION/FEES *": 13850
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "unlabeled",
+     "column_header": "KENT CAMPUS, UNDERGRAD, IN-STATE",
+     "components": {
+      "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT": 800,
+      "CAREER SERVICES FEE": 188,
+      "HOUSING/FOOD ALLOWANCE **": 14380,
+      "LOAN FEES": 68,
+      "PERSONAL EXPENSES": 2334,
+      "STUDENT HEALTH FEE": 180,
+      "TOTAL": 34420,
+      "TRANSPORTATION****": 2620,
+      "TUITION/FEES *": 13850
+     },
+     "total_cost_of_attendance": 34420
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "REGIONAL CAMPUS, UNDERGRAD, IN-STATE***",
+     "components": {
+      "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT": 800,
+      "CAREER SERVICES FEE": 112,
+      "HOUSING/FOOD ALLOWANCE **": 3748,
+      "LOAN FEES": 68,
+      "PERSONAL EXPENSES": 2334,
+      "STUDENT HEALTH FEE": 0,
+      "TOTAL": 17768,
+      "TRANSPORTATION****": 2872,
+      "TUITION/FEES *": 7834
+     },
+     "total_cost_of_attendance": 17768
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Student Tuition Guarantee COHORT RATES 2026-2027 Undergraduate Student Tuition Guarantee COHORT RATES 2026\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://www.kent.edu/fbe-center/tuition-and-other-costs",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 34420,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 13850,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:25+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 22 Oct 2026 20:52:54 GMT",
+   "page_file": "a24ffae1ecd055d96f95.json.gz",
+   "requested_url": "https://www.kent.edu/fbe-center/tuition-and-other-costs",
+   "sha256": "a24ffae1ecd055d96f95c526d7f1c6998f9ef6a831882a12414b1d8fbbef6f86",
+   "title": "Cost of Attendance | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/tuition-and-other-costs"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "13b40970aa43bf90",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 9
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:TUITION/FEES *",
+    "snippet": "TUITION/FEES * | $13,850 | $24,300 | $7,834",
+    "value": 24300
+   },
+   {
+    "field": "column:BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT",
+    "snippet": "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT | $800 | $800 | $800",
+    "value": 800
+   },
+   {
+    "field": "column:STUDENT HEALTH FEE",
+    "snippet": "STUDENT HEALTH FEE | 180 | 180 | 0",
+    "value": 180
+   },
+   {
+    "field": "column:HOUSING/FOOD ALLOWANCE **",
+    "snippet": "HOUSING/FOOD ALLOWANCE ** | $14,380 | $14,380 | $3,748",
+    "value": 14380
+   },
+   {
+    "field": "column:PERSONAL EXPENSES",
+    "snippet": "PERSONAL EXPENSES | $2,334 | $2,334 | $2,334",
+    "value": 2334
+   },
+   {
+    "field": "column:TRANSPORTATION****",
+    "snippet": "TRANSPORTATION**** | $2,620 | $2,620 | $2,872",
+    "value": 2620
+   },
+   {
+    "field": "column:LOAN FEES",
+    "snippet": "LOAN FEES | $68 | $68 | $68",
+    "value": 68
+   },
+   {
+    "field": "column:CAREER SERVICES FEE",
+    "snippet": "CAREER SERVICES FEE | $188 | $188 | $112",
+    "value": 188
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $34,420 | $44,870 | $17,768",
+    "value": 44870
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 800,
+   "components": {
+    "BOOKS, COURSE MATERIAL, SUPPLIES, AND EQUIPMENT": 800,
+    "CAREER SERVICES FEE": 188,
+    "HOUSING/FOOD ALLOWANCE **": 14380,
+    "LOAN FEES": 68,
+    "PERSONAL EXPENSES": 2334,
+    "STUDENT HEALTH FEE": 180,
+    "TOTAL": 44870,
+    "TRANSPORTATION****": 2620,
+    "TUITION/FEES *": 24300
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Student Tuition Guarantee COHORT RATES 2026-2027 Undergraduate Student Tuition Guarantee COHORT RATES 2026\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://www.kent.edu/fbe-center/tuition-and-other-costs",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 44870,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 24300,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:25+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 22 Oct 2026 20:52:54 GMT",
+   "page_file": "a24ffae1ecd055d96f95.json.gz",
+   "requested_url": "https://www.kent.edu/fbe-center/tuition-and-other-costs",
+   "sha256": "a24ffae1ecd055d96f95c526d7f1c6998f9ef6a831882a12414b1d8fbbef6f86",
+   "title": "Cost of Attendance | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/tuition-and-other-costs"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6f0ea7baf1d5365d",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 7
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Students who lose student aid eligibility due to this standard can regain eligibility for financial aid by submitting a successful SAP Appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "View the Satisfactory Academic Progress Policy Satisfactory Academic Progress Appeal Process If extenuating circumstances impacted your ability to maintain SAP, you may choose to submit an appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Step 1: Review Appeal Guidelines If you are not meeting the SAP policy, you may appeal for federal financial aid by submitting a Satisfactory Academic Progress (SAP) Appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "If you’re cited for SAP and you do not appeal, are denied by the committee or are non-compliant with standards, you will lose federal financial aid eligibility.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Satisfactory Academic Progress Appeal Form Collect your supporting documentation and prepare it to be attached to your online appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "View the Satisfactory Academic Progress Appeal Form(s) If you were cited for Maximum Time Frame, you must also provide a completed Maximum Time Frame form.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "shared_site_attribution_review",
+   "conflicting_sources:https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal,https://www.kent.edu/fbe-center/scholarships-financial-aid"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 7 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.kent.edu/fbe-center/SAP",
+   "process_summary": "Students who lose student aid eligibility due to this standard can regain eligibility for financial aid by submitting a successful SAP Appeal.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.kent.edu/fbe-center/SAP",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:35+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:18:33 GMT",
+   "page_file": "dc36d9a8066eb9826e2d.json.gz",
+   "requested_url": "https://www.kent.edu/fbe-center/SAP",
+   "sha256": "dc36d9a8066eb9826e2d4c33dbf46949f10ddd325f6dc864a7c89eda2daa1dc7",
+   "title": "Satisfactory Academic Progress | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/SAP"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "a601a24b3d6b1f37",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Examples of extenuating circumstances are: death of a relative, an injury or illness of the student or other special circumstances.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Financial Aid Checklist for Current Students Education Abroad & Financial Aid Enrollment Activity Aid Recalculation Financial Aid Ad Hoc Consortium Agreement Post Undergrad - Grad Non Degree - Undeclared - Combined Students Satisfactory Academic Progress Special Circumstances Summer Financial Aid Information Transfer Students Verification What's Next Be one step closer to joining our Golden Flashe",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.kent.edu/fbe-center/SAP",
+   "process_summary": "Examples of extenuating circumstances are: death of a relative, an injury or illness of the student or other special circumstances.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.kent.edu/fbe-center/SAP",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:35+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:18:33 GMT",
+   "page_file": "dc36d9a8066eb9826e2d.json.gz",
+   "requested_url": "https://www.kent.edu/fbe-center/SAP",
+   "sha256": "dc36d9a8066eb9826e2d4c33dbf46949f10ddd325f6dc864a7c89eda2daa1dc7",
+   "title": "Satisfactory Academic Progress | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/SAP"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "c9dab3419c37ee7e",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Professional Judgement The authority of a school's financial aid administrator to make adjustments to the data elements on the FAFSA and to override a student's dependency status.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-204024",
+  "issues": [
+   "semantic_review_required",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-204024",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://miamioh.edu/sc/admission-aid/_widgets/costs-financial-aid/glossary.html",
+   "process_summary": "Professional Judgement The authority of a school's financial aid administrator to make adjustments to the data elements on the FAFSA and to override a student's dependency status.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://miamioh.edu/sc/admission-aid/_widgets/costs-financial-aid/glossary.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:50+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:18:50 GMT",
+   "page_file": "120beb5165c0eb980e73.json.gz",
+   "requested_url": "https://miamioh.edu/sc/admission-aid/_widgets/costs-financial-aid/glossary.html",
+   "sha256": "120beb5165c0eb980e73706fd08780b58cd356d929efce25ac4c51a9b9b7b1b0",
+   "title": "Glossary of Terms | Apply for Financial Aid",
+   "url": "https://miamioh.edu/sc/admission-aid/_widgets/costs-financial-aid/glossary.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "fdb937dde9192147",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition and fees",
+    "snippet": "Tuition and fees | $26,792",
+    "value": 26792
+   },
+   {
+    "field": "column:Room(Classic Double)",
+    "snippet": "Room(Classic Double) | $8,954",
+    "value": 8954
+   },
+   {
+    "field": "column:Meal Plan(Traditional 14)",
+    "snippet": "Meal Plan(Traditional 14) | $5,582",
+    "value": 5582
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $41,328",
+    "value": 41328
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Meal Plan(Traditional 14)": 5582,
+    "Room(Classic Double)": 8954,
+    "TOTAL": 41328,
+    "Tuition and fees": 26792
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Out-of-State Residents 2026-2027 Out-of-State Residents 2026-2027 \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://www.ohio.edu/admissions/tuition",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 41328,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 26792,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:18:50+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 10:33:12 GMT",
+   "page_file": "29b4fe911b62d0d23bbf.json.gz",
+   "requested_url": "https://www.ohio.edu/admissions/tuition",
+   "sha256": "29b4fe911b62d0d23bbfbe7452b05dec22776ba4a02f70c76d529fddd74197d7",
+   "title": "Tuition and Costs | Ohio University",
+   "url": "https://www.ohio.edu/admissions/tuition"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "a8a2837ef0d9ea22",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 5
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "To appeal, the Satisfactory Academic Progress Appeal Form and the following supporting documentation must be submitted: Personal statement with the following information: A detailed account of the valid reason(s) that prevented you from maintaining SAP.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Additional Information Regarding SAP Change of Major A student’s change of major can be considered as part of a SAP Appeal if the student is appealing as part of the Maximum Time Frame requirement.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Students should submit the SAP Appeal Form and a statement explaining that they have raised their GPA and/or completion rate to meet the SAP Standards and wish to have their federal aid reinstated.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "If students are not able to re-establish eligibility by making up deficient hours, they may submit a SAP Appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Satisfactory Academic Progress Appeal A student who is not meeting one or more of Miami’s SAP Standards as outlined may submit a SAP Appeal for reconsideration of eligibility for federal aid.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-204024",
+  "issues": [
+   "semantic_review_required",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-204024",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 5 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://miamioh.edu/onestop/financial-aid/manage-financial-aid/satisfactory-academic-progress-standards.html",
+   "process_summary": "To appeal, the Satisfactory Academic Progress Appeal Form and the following supporting documentation must be submitted: Personal statement with the following information: A detailed account of the valid reason(s) that prevented you from maintaining SAP.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://miamioh.edu/onestop/financial-aid/manage-financial-aid/satisfactory-academic-progress-standards.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:19:29+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:19:29 GMT",
+   "page_file": "71970d8b36a97974cef4.json.gz",
+   "requested_url": "https://miamioh.edu/onestop/financial-aid/manage-financial-aid/satisfactory-academic-progress-standards.html",
+   "sha256": "71970d8b36a97974cef4a790f6ff6dee3c8a1294afc2ff90410b90fcd03cd89e",
+   "title": "Satisfactory Academic Progress Standards | Financial Aid | One Stop",
+   "url": "https://miamioh.edu/onestop/financial-aid/manage-financial-aid/satisfactory-academic-progress-standards.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "7c31ccafce35404a",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Submit a SAP appeal form explaining your situation.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-201441",
+  "issues": [
+   "semantic_review_required",
+   "shared_site_attribution_review",
+   "conflicting_sources:https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress/policy.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-201441",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress.html",
+   "process_summary": "Submit a SAP appeal form explaining your situation.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:19:48+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:19:48 GMT",
+   "page_file": "86b7bfa0192c1da1065f.json.gz",
+   "requested_url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress.html",
+   "sha256": "86b7bfa0192c1da1065f2b3fc00620c9f2dbc0740ca2491003ae05721e199095",
+   "title": "Satisfactory Academic Progress | Financial Aid and Scholarships | Bowling Green State UniversitySatisfactory Academic Progress | Financial Aid and Scholarships | Bowling Green State University",
+   "url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "5523ea44a9181bee",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 5
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Future students Current students Firelands campus Parents/families Faculty/Staff Alumni Apply Visit Give Toggle high contrast Satisfactory Academic Progress Policy BGSU Financial Aid and Scholarships Manage your financial aid Satisfactory Academic Progress Satisfactory Academic Progress Policy Satisfactory Academic Progress Appeal Form Overview Bowling Green State University (BGSU) is required by ",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Eligibility may be regained by eliminating all satisfactory progress deficiencies at the student’s expense until all requirements of this policy are met or by appealing his or her satisfactory academic progress status and the appeal is approved.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "An approved appeal will result in a Satisfactory Academic Progress Academic Plan and may include: Expected GPA to accomplish by the end of the probationary payment period Expected number of credit hours to complete by the end of the probationary payment period The maximum number of additional credit hours allowed as indicated on Academic Advisor Certification Form (for Maximum Timeframe citations)",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Appeal Committee Students who submit a Satisfactory Academic Progress appeal will have their submission reviewed by an appeals committee.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Summer: July 1 Fall: October 1 Spring: March 1 Policy revised: May 8, 2024 If you wish to appeal your satisfactory academic progress status, based on the above policy, please use the Satisfactory Academic Progress Appeal Form.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-201441",
+  "issues": [
+   "semantic_review_required",
+   "shared_site_attribution_review",
+   "conflicting_sources:https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-201441",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 5 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress/policy.html",
+   "process_summary": "Future students Current students Firelands campus Parents/families Faculty/Staff Alumni Apply Visit Give Toggle high contrast Satisfactory Academic Progress Policy BGSU Financial Aid and Scholarships Manage your financial aid Satisfactory Academic Progress Satisfactory Academic Progress Policy Satisfactory Academic Progress Appeal Form Overview Bowling Green State University (BGSU) is required by federal law to establish a reasonable satisfactory academic progress (SAP) policy for determining whether a student is making satisfactory academic progress in their educational program.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress/policy.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:19:52+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:19:52 GMT",
+   "page_file": "0f1123d9695dee3deb72.json.gz",
+   "requested_url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress/policy.html",
+   "sha256": "0f1123d9695dee3deb728d16c4dea116ea52e5c528c71148ef89110c7c308cb4",
+   "title": "Satisfactory Academic Progress PolicySatisfactory Academic Progress Policy",
+   "url": "https://www.bgsu.edu/financial-aid/manage-aid/satisfactory-academic-progress/policy.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "29ba48d4d84cf984",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "If you’re cited but now meet SAP standards, you must still file an appeal for review. learn more SAP Appeal Form Completing Verification for the FAFSA The federal government requires Kent State to verify, or confirm, the data reported by students and their parent(s) on the Free Application for Federal Student Aid (FAFSA).",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "shared_site_attribution_review",
+   "conflicting_sources:https://www.kent.edu/fbe-center/SAP,https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.kent.edu/fbe-center/scholarships-financial-aid",
+   "process_summary": "If you’re cited but now meet SAP standards, you must still file an appeal for review. learn more SAP Appeal Form Completing Verification for the FAFSA The federal government requires Kent State to verify, or confirm, the data reported by students and their parent(s) on the Free Application for Federal Student Aid (FAFSA).",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.kent.edu/fbe-center/scholarships-financial-aid",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:19:58+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:19:56 GMT",
+   "page_file": "5a75f133d3884c80ba9d.json.gz",
+   "requested_url": "https://www.kent.edu/fbe-center/scholarships-financial-aid",
+   "sha256": "5a75f133d3884c80ba9d2094008ddef9e769cce19ecd7d66b8647f1c8f416bf0",
+   "title": "Scholarships & Financial Aid | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/scholarships-financial-aid"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "31f6245df77b8b27",
+  "checks": {
+   "distinct_exams": 39,
+   "equivalencies": 117,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3]",
+    "snippet": "African American Studies (10) (AAS) | 3 | AAS 1060 | 3"
+   },
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4]",
+    "snippet": "African American Studies (10) (AAS) | 4 | AAS 1060 | 3"
+   },
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|5]",
+    "snippet": "African American Studies (10) (AAS) | 5 | AAS 1060 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|3]",
+    "snippet": "Art History (13) (ARH) | 3 | AH 2110 | 4"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|4]",
+    "snippet": "Art History (13) (ARH) | 4 | AH 2110, AH 2130 | 8"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|5]",
+    "snippet": "Art History (13) (ARH) | 5 | AH 2110, AH 2130 | 8"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3]",
+    "snippet": "Art Studio: 2-D Design (15) (ASG)* | 3 | ART 1XXL | 3"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|4]",
+    "snippet": "Art Studio: 2-D Design (15) (ASG)* | 4 | ART 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|5]",
+    "snippet": "Art Studio: 2-D Design (15) (ASG)* | 5 | ART 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3]",
+    "snippet": "Art Studio: 3-D Design (16) (ART3D) | 3 | ART 1210 | 3"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|4]",
+    "snippet": "Art Studio: 3-D Design (16) (ART3D) | 4 | ART 1210 | 3"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|5]",
+    "snippet": "Art Studio: 3-D Design (16) (ART3D) | 5 | ART 1210 | 3"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3]",
+    "snippet": "Art Studio: Drawing (14) (ASD)* | 3 | ART 1XXL | 3"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|4]",
+    "snippet": "Art Studio: Drawing (14) (ASD)* | 4 | ART 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|5]",
+    "snippet": "Art Studio: Drawing (14) (ASD)* | 5 | ART 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology (20) (BY) | 3 | BIOS 1700, BIOS 1705 | 4"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "Biology (20) (BY) | 4 | BIOS 1700, BIOS 1705 | 4"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|5]",
+    "snippet": "Biology (20) (BY) | 5 | BIOS 1700, BIOS 1705 | 4"
+   },
+   {
+    "field": "equivalencies[AP-BUSINESS-WITH-PERSONAL-FINANCE|3]",
+    "snippet": "Business with Personal Finance (67) (BUS) | 3 | BA 1100 | 3"
+   },
+   {
+    "field": "equivalencies[AP-BUSINESS-WITH-PERSONAL-FINANCE|4]",
+    "snippet": "Business with Personal Finance (67) (BUS) | 4 | BA 1100 | 3"
+   },
+   {
+    "field": "equivalencies[AP-BUSINESS-WITH-PERSONAL-FINANCE|5]",
+    "snippet": "Business with Personal Finance (67) (BUS) | 5 | BA 1100 | 3"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3]",
+    "snippet": "Calculus AB (66) (MAB) | 3 | MATH 2301 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|4]",
+    "snippet": "Calculus AB (66) (MAB) | 4 | MATH 2301 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|5]",
+    "snippet": "Calculus AB (66) (MAB) | 5 | MATH 2301 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Calculus BC (68) (MBC) | 3 | MATH 2301, MATH 2302 | 8"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4]",
+    "snippet": "Calculus BC (68) (MBC) | 4 | MATH 2301, MATH 2302 | 8"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|5]",
+    "snippet": "Calculus BC (68) (MBC) | 5 | MATH 2301, MATH 2302 | 8"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "Chemistry (25) (CH) | 3 | CHEM 1210 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4]",
+    "snippet": "Chemistry (25) (CH) | 4 | CHEM 1510 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "Chemistry (25) (CH) | 5 | CHEM 1510 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Chinese Language and Culture (28) (CLC) | 3 | CHIN 1110, CHIN 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Chinese Language and Culture (28) (CLC) | 4 | CHIN 1110, CHIN 1120, CHIN 2110 | 12"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]",
+    "snippet": "Chinese Language and Culture (28) (CLC) | 5 | CHIN 1110, CHIN 1120, CHIN 2110 | 12"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3]",
+    "snippet": "Computer Science A (31) (CSA) | 3 | CS 2400 | 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|4]",
+    "snippet": "Computer Science A (31) (CSA) | 4 | CS 2400 | 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|5]",
+    "snippet": "Computer Science A (31) (CSA) | 5 | CS 2400 | 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3]",
+    "snippet": "Computer Science Principles (CSP) | 3 | CS 1400 | 3"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|4]",
+    "snippet": "Computer Science Principles (CSP) | 4 | CS 1400 | 3"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|5]",
+    "snippet": "Computer Science Principles (CSP) | 5 | CS 1400 | 3"
+   },
+   {
+    "field": "equivalencies[AP-CYBERSECURITY|3]",
+    "snippet": "Cybersecurity (71) (CYBER) | 3 | ITS 1034 | 3"
+   },
+   {
+    "field": "equivalencies[AP-CYBERSECURITY|4]",
+    "snippet": "Cybersecurity (71) (CYBER) | 4 | ITS 1034 | 3"
+   },
+   {
+    "field": "equivalencies[AP-CYBERSECURITY|5]",
+    "snippet": "Cybersecurity (71) (CYBER) | 5 | ITS 1034 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3]",
+    "snippet": "English Language (36) (ENGC) | 3 | ENG 1510 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|4]",
+    "snippet": "English Language (36) (ENGC) | 4 | ENG 1510 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|5]",
+    "snippet": "English Language (36) (ENGC) | 5 | ENG 1510 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3]",
+    "snippet": "English Literature (37) (ELC) | 3 | ENG 1510 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|4]",
+    "snippet": "English Literature (37) (ELC) | 4 | ENG 1510 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|5]",
+    "snippet": "English Literature (37) (ELC) | 5 | ENG 1510, ENG 2010 | 6"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3]",
+    "snippet": "Environmental Science (40) (ENVS) | 3 | GEOL 2150 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|4]",
+    "snippet": "Environmental Science (40) (ENVS) | 4 | GEOL 2150 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|5]",
+    "snippet": "Environmental Science (40) (ENVS) | 5 | GEOL 2150 | 3"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "European History (43) (EH) | 3 | HIST 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|4]",
+    "snippet": "European History (43) (EH) | 4 | HIST 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|5]",
+    "snippet": "European History (43) (EH) | 5 | HIST 1220 | 3"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French Language(48) (FRA) | 3 | FR 1110, FR 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "French Language(48) (FRA) | 4 | FR 2110, FR 2120, FR 3110 | 9"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "French Language(48) (FRA) | 5 | FR 2110, FR 2120, FR 3110, FR 3120 | 12"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "German Language (55) (GM) | 3 | GER 1110, GER 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]",
+    "snippet": "German Language (55) (GM) | 4 | GER 2110, GER 2120, GER 3110 | 9"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]",
+    "snippet": "German Language (55) (GM) | 5 | GER 2110, GER 2120, GER 3110, GER 3120 | 12"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3]",
+    "snippet": "Human Geography (53) (HUGEO) | 3 | GEOG 1200 | 3"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|4]",
+    "snippet": "Human Geography (53) (HUGEO) | 4 | GEOG 1200 | 3"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|5]",
+    "snippet": "Human Geography (53) (HUGEO) | 5 | GEOG 1200 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]",
+    "snippet": "Italian Language and Culture (62) (ILC) | 3 | ITAL 1110, ITAL 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]",
+    "snippet": "Italian Language and Culture (62) (ILC) | 4 | ITAL 2110, ITAL 2120, ITAL 3110 | 9"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]",
+    "snippet": "Italian Language and Culture (62) (ILC) | 5 | ITAL 2110, ITAL 2120, ITAL 3110, ITAL 3120 | 12"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Japanese Language and Culture (64) (JLC) | 3 | JPN 1110, JPN 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Japanese Language and Culture (64) (JLC) | 4 | JPN 1110, JPN 1120, JPN 2110 | 12"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|5]",
+    "snippet": "Japanese Language and Culture (64) (JLC) | 5 | JPN 1110, JPN 1120, JPN 2110 | 12"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3]",
+    "snippet": "Latin (LT) | 3 | LAT 1110, LAT 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4]",
+    "snippet": "Latin (LT) | 4 | LAT 1120, LAT 2110, LAT 2120 | 10"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|5]",
+    "snippet": "Latin (LT) | 5 | LAT 1120, LAT 2110, LAT 2120 | 10"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "Macroeconomics (35) (EMA) | 3 | ECON 1040 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|4]",
+    "snippet": "Macroeconomics (35) (EMA) | 4 | ECON 1040 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|5]",
+    "snippet": "Macroeconomics (35) (EMA) | 5 | ECON 1040 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "Microeconomics (34) (EMI) | 3 | ECON 1030 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|4]",
+    "snippet": "Microeconomics (34) (EMI) | 4 | ECON 1030 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|5]",
+    "snippet": "Microeconomics (34) (EMI) | 5 | ECON 1030 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3]",
+    "snippet": "Music Theory (75) (MST) | 3 | MUS 1000 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|4]",
+    "snippet": "Music Theory (75) (MST) | 4 | MUS 1000 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|5]",
+    "snippet": "Music Theory (75) (MST) | 5 | MUS 1000 | 3"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3]",
+    "snippet": "Physics 1: Algebra-based (PH1) | 3 | PHYS 2001 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4]",
+    "snippet": "Physics 1: Algebra-based (PH1) | 4 | PHYS 2001 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|5]",
+    "snippet": "Physics 1: Algebra-based (PH1) | 5 | PHYS 2001 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3]",
+    "snippet": "Physics 2: Algebra-based (PH2) | 3 | PHYS 2002 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4]",
+    "snippet": "Physics 2: Algebra-based (PH2) | 4 | PHYS 2002 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|5]",
+    "snippet": "Physics 2: Algebra-based (PH2) | 5 | PHYS 2002 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]",
+    "snippet": "Physics C: Electricity and Magnetism (82) (PHCE) | 3 | PHYS 2056, PHYS 2057 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4]",
+    "snippet": "Physics C: Electricity and Magnetism (82) (PHCE) | 4 | PHYS 2056, PHYS 2057 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|5]",
+    "snippet": "Physics C: Electricity and Magnetism (82) (PHCE) | 5 | PHYS 2056, PHYS 2057 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3]",
+    "snippet": "Physics C: Mechanics (80) (PHCM) | 3 | PHYS 2054, PHYS 2055 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4]",
+    "snippet": "Physics C: Mechanics (80) (PHCM) | 4 | PHYS 2054, PHYS 2055 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|5]",
+    "snippet": "Physics C: Mechanics (80) (PHCM) | 5 | PHYS 2054, PHYS 2055 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|3]",
+    "snippet": "Precalculus (65) (PREC) | 3 | MATH 1300 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|4]",
+    "snippet": "Precalculus (65) (PREC) | 4 | MATH 1300 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|5]",
+    "snippet": "Precalculus (65) (PREC) | 5 | MATH 1300 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "Psychology (85) (PY) | 3 | PSY 1010 | 3"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|4]",
+    "snippet": "Psychology (85) (PY) | 4 | PSY 1010 | 3"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|5]",
+    "snippet": "Psychology (85) (PY) | 5 | PSY 1010 | 3"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish Language (87) (SPL) | 3 | SPAN 1110, SPAN 1120 | 8"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "Spanish Language (87) (SPL) | 4 | SPAN 2110, SPAN 2120, SPAN 3110 | 9"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "Spanish Language (87) (SPL) | 5 | SPAN 2110, SPAN 2120, SPAN 3110, SPAN 3120 | 12"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|3]",
+    "snippet": "Spanish Literature (89) (SPLL) | 3 | SPAN 1110, SPAN 1120, SPAN 2110 | 11"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|4]",
+    "snippet": "Spanish Literature (89) (SPLL) | 4 | SPAN 2110, SPAN 2120, SPAN 3550 | 9"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|5]",
+    "snippet": "Spanish Literature (89) (SPLL) | 5 | SPAN 2110, SPAN 2120, SPAN 3550 | 9"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3]",
+    "snippet": "Statistics (90) (STATS) | 3 | MATH 1500 | 3"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|4]",
+    "snippet": "Statistics (90) (STATS) | 4 | MATH 1500 | 3"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|5]",
+    "snippet": "Statistics (90) (STATS) | 5 | MATH 1500, MATH 2XXL | 6"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|3]",
+    "snippet": "U.S. Government & Politics (57) (GPU) | 3 | POLS 1010 | 3"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|4]",
+    "snippet": "U.S. Government & Politics (57) (GPU) | 4 | POLS 1010 | 3"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-GOVERNMENT-POLITICS|5]",
+    "snippet": "U.S. Government & Politics (57) (GPU) | 5 | POLS 1010 | 3"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "U.S. History (07) (UH) | 3 | HIST 2000, HIST 2010 | 6"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|4]",
+    "snippet": "U.S. History (07) (UH) | 4 | HIST 2000, HIST 2010 | 6"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|5]",
+    "snippet": "U.S. History (07) (UH) | 5 | HIST 2000, HIST 2010 | 6"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3]",
+    "snippet": "World History: Modern (93) (WH) | 3 | Ohio Transfer 36 Social Sciences Credit, HIST 1330 | 6"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|4]",
+    "snippet": "World History: Modern (93) (WH) | 4 | Ohio Transfer 36 Social Sciences Credit, HIST 1330 | 6"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|5]",
+    "snippet": "World History: Modern (93) (WH) | 5 | Ohio Transfer 36 Social Sciences Credit, HIST 1330 | 6"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "course_column_missing",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "AAS 1060"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "AAS 1060"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "AAS 1060"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ART-HISTORY",
+     "exam_or_course_name": "AP Art History",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "AH 2110"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-ART-HISTORY",
+     "exam_or_course_name": "AP Art History",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "AH 2110, AH 2130"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-ART-HISTORY",
+     "exam_or_course_name": "AP Art History",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "AH 2110, AH 2130"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-2-D-ART-DESIGN",
+     "exam_or_course_name": "AP 2-D Art & Design",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ART 1XXL"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-2-D-ART-DESIGN",
+     "exam_or_course_name": "AP 2-D Art & Design",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ART 1220"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-2-D-ART-DESIGN",
+     "exam_or_course_name": "AP 2-D Art & Design",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ART 1220"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-3-D-ART-DESIGN",
+     "exam_or_course_name": "AP 3-D Art & Design",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ART 1210"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-3-D-ART-DESIGN",
+     "exam_or_course_name": "AP 3-D Art & Design",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ART 1210"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-3-D-ART-DESIGN",
+     "exam_or_course_name": "AP 3-D Art & Design",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ART 1210"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ART 1XXL"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ART 1220"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ART 1220"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "BIOS 1700, BIOS 1705"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "BIOS 1700, BIOS 1705"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "BIOS 1700, BIOS 1705"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-BUSINESS-WITH-PERSONAL-FINANCE",
+     "exam_or_course_name": "AP Business with Personal Finance",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "BA 1100"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-BUSINESS-WITH-PERSONAL-FINANCE",
+     "exam_or_course_name": "AP Business with Personal Finance",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "BA 1100"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-BUSINESS-WITH-PERSONAL-FINANCE",
+     "exam_or_course_name": "AP Business with Personal Finance",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "BA 1100"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "MATH 2301"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "MATH 2301"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "MATH 2301"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "MATH 2301, MATH 2302"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "MATH 2301, MATH 2302"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "MATH 2301, MATH 2302"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "CHEM 1210"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "CHEM 1510"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "CHEM 1510"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "CHIN 1110, CHIN 1120"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "CHIN 1110, CHIN 1120, CHIN 2110"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "CHIN 1110, CHIN 1120, CHIN 2110"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-A",
+     "exam_or_course_name": "AP Computer Science A",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "CS 2400"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-A",
+     "exam_or_course_name": "AP Computer Science A",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "CS 2400"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-A",
+     "exam_or_course_name": "AP Computer Science A",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "CS 2400"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "CS 1400"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "CS 1400"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "CS 1400"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-CYBERSECURITY",
+     "exam_or_course_name": "AP Cybersecurity",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ITS 1034"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-CYBERSECURITY",
+     "exam_or_course_name": "AP Cybersecurity",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ITS 1034"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-CYBERSECURITY",
+     "exam_or_course_name": "AP Cybersecurity",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ITS 1034"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ENG 1510"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ENG 1510"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ENG 1510"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ENG 1510"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ENG 1510"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ENG 1510, ENG 2010"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "GEOL 2150"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "GEOL 2150"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "GEOL 2150"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "HIST 1220"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "HIST 1220"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "HIST 1220"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "FR 1110, FR 1120"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "FR 2110, FR 2120, FR 3110"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "FR 2110, FR 2120, FR 3110, FR 3120"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "GER 1110, GER 1120"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "GER 2110, GER 2120, GER 3110"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "GER 2110, GER 2120, GER 3110, GER 3120"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "GEOG 1200"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "GEOG 1200"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "GEOG 1200"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ITAL 1110, ITAL 1120"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ITAL 2110, ITAL 2120, ITAL 3110"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ITAL 2110, ITAL 2120, ITAL 3110, ITAL 3120"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "JPN 1110, JPN 1120"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "JPN 1110, JPN 1120, JPN 2110"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "JPN 1110, JPN 1120, JPN 2110"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "LAT 1110, LAT 1120"
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "LAT 1120, LAT 2110, LAT 2120"
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "LAT 1120, LAT 2110, LAT 2120"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ECON 1040"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ECON 1040"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ECON 1040"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "ECON 1030"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "ECON 1030"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "ECON 1030"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "MUS 1000"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "MUS 1000"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "MUS 1000"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "PHYS 2001"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "PHYS 2001"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "PHYS 2001"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "PHYS 2002"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "PHYS 2002"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "PHYS 2002"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "PHYS 2056, PHYS 2057"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "PHYS 2056, PHYS 2057"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "PHYS 2056, PHYS 2057"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "PHYS 2054, PHYS 2055"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "PHYS 2054, PHYS 2055"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "PHYS 2054, PHYS 2055"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "MATH 1300"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "MATH 1300"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "MATH 1300"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "PSY 1010"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "PSY 1010"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "PSY 1010"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "SPAN 1110, SPAN 1120"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "SPAN 2110, SPAN 2120, SPAN 3110"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "SPAN 2110, SPAN 2120, SPAN 3110, SPAN 3120"
+    },
+    {
+     "credits_awarded": 11,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "SPAN 1110, SPAN 1120, SPAN 2110"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "SPAN 2110, SPAN 2120, SPAN 3550"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "SPAN 2110, SPAN 2120, SPAN 3550"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "MATH 1500"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "MATH 1500"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "MATH 1500, MATH 2XXL"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-UNITED-STATES-GOVERNMENT-POLITICS",
+     "exam_or_course_name": "AP United States Government & Politics",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "POLS 1010"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-UNITED-STATES-GOVERNMENT-POLITICS",
+     "exam_or_course_name": "AP United States Government & Politics",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "POLS 1010"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-UNITED-STATES-GOVERNMENT-POLITICS",
+     "exam_or_course_name": "AP United States Government & Politics",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "POLS 1010"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "HIST 2000, HIST 2010"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "HIST 2000, HIST 2010"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "HIST 2000, HIST 2010"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": "Ohio Transfer 36 Social Sciences Credit, HIST 1330"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": "Ohio Transfer 36 Social Sciences Credit, HIST 1330"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": null,
+     "minimum_score": "5",
+     "notes": "Ohio Transfer 36 Social Sciences Credit, HIST 1330"
+    }
+   ],
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "AP",
+   "policy_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/ap-credit-guide",
+   "source_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/ap-credit-guide",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:00+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 10:16:20 GMT",
+   "page_file": "18ca62b074583a623a73.json.gz",
+   "requested_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/ap-credit-guide",
+   "sha256": "18ca62b074583a623a73abf6c3eae1a743d763cde03b43b68d0805a833f7dbfb",
+   "title": "AP Credit Guide | Ohio University",
+   "url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/ap-credit-guide"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "e9716e03edfad0cd",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Search Category - Any - Billing & Payments Enrollment & Registration Financial Aid Graduation Personal Information Student Records Popular Forms - Any - Verification Registration Exception Satisfactory Academic Progress (SAP) Loans Scholarships Transcript Requests Education Abroad Professional Judgment Reenrollment or Reinstatement + Maximum Time Frame Form - 2026-2027 Maximum Time Frame Form - 20",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "semantic_review_required",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal",
+   "process_summary": "Search Category - Any - Billing & Payments Enrollment & Registration Financial Aid Graduation Personal Information Student Records Popular Forms - Any - Verification Registration Exception Satisfactory Academic Progress (SAP) Loans Scholarships Transcript Requests Education Abroad Professional Judgment Reenrollment or Reinstatement + Maximum Time Frame Form - 2026-2027 Maximum Time Frame Form - 2026-2027 - (Dynamic Form) This form is for the Summer 2026, Fall 2026 and Spring 2027 semesters.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:01+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:19:59 GMT",
+   "page_file": "d230acbe9e6b01520438.json.gz",
+   "requested_url": "https://www.kent.edu/node/995041?search=satisfactory%20appeal",
+   "sha256": "d230acbe9e6b015204380eff6328e1401401f6c60e1468828f5ca6c57bd54834",
+   "title": "Forms & Requests | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "be55875245a9e231",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "You must also submit a Satisfactory Academic Progress Appeals form to be considered for student aid that requires Satisfactory Academic Progress.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Complete Form + Satisfactory Academic Progress Appeal Form - 2026-2027 Satisfactory Academic Progress Appeal Form - 2026-2027 - (Dynamic Form) This form applies to the Fall 2026 and Spring 2027 semesters.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-203517",
+  "issues": [
+   "semantic_review_required",
+   "shared_site_attribution_review",
+   "conflicting_sources:https://www.kent.edu/fbe-center/SAP,https://www.kent.edu/fbe-center/scholarships-financial-aid"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-203517",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal",
+   "process_summary": "You must also submit a Satisfactory Academic Progress Appeals form to be considered for student aid that requires Satisfactory Academic Progress.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:01+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:19:59 GMT",
+   "page_file": "d230acbe9e6b01520438.json.gz",
+   "requested_url": "https://www.kent.edu/node/995041?search=satisfactory%20appeal",
+   "sha256": "d230acbe9e6b015204380eff6328e1401401f6c60e1468828f5ca6c57bd54834",
+   "title": "Forms & Requests | Financial, Billing and Enrollment Center",
+   "url": "https://www.kent.edu/fbe-center/forms-requests?search=satisfactory%20appeal"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "66844cdbf3f6f9f4",
+  "checks": {
+   "distinct_exams": 31,
+   "equivalencies": 51,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|63 and above]",
+    "snippet": "American Government | 63 and above | POLS 1010 | American National Government | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|56-62]",
+    "snippet": "American Government | 56-62 | OT36 Social Sciences Credit | OT36 Social Sciences Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|53 and above]",
+    "snippet": "American Literature | 53 and above | OT36 Arts and Humanities | OT36 Arts and Humanities Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|59 and above]",
+    "snippet": "Analyzing andInterpreting Literature | 59 and above | OT36 Arts and Humanities | OT36 Arts and Humanities Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|70 and above]",
+    "snippet": "Biology | 70 and above | BIOS 1700 | Biological Sciences I: Molecules and Cells | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|55-69]",
+    "snippet": "Biology | 55-69 | BIOS 1030 | Human Biology I: Basic Principles | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|50-54]",
+    "snippet": "Biology | 50-54 | OT36 Natural Sciences Credit without Labs | OT36 Natural Sciences Credit without Labs | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|64 and above]",
+    "snippet": "Calculus | 64 and above | MATH 2301 | Calculus I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|60 and above]",
+    "snippet": "Chemistry | 60 and above | OT36 Natural Sciences Credit without Labs | OT36 Natural Sciences Credit without Labs | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|63 and above]",
+    "snippet": "College Algebra | 63 and above | MATH 1200 | College Algebra | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|63 and above]",
+    "snippet": "College Mathematics | 63 and above | OT36 Mathematics, Statistics, and Logic | OT36 Mathematics, Statistics, and Logic | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|63 and above]",
+    "snippet": "English Literature | 63 and above | OT36 Arts and Humanities | OT36 Arts and Humanities Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|65 and above]",
+    "snippet": "Financial Accounting | 65 and above | ACCT 1010 | Foundations of Accounting | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|65 and above]",
+    "snippet": "French Language | 65 and above | FR 1110 | Elementary French I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|FR 1120]",
+    "snippet": "French Language | FR 1120 | Elementary French II | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|FR 2110]",
+    "snippet": "French Language | FR 2110 | Intermediate French I | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|FR 2120]",
+    "snippet": "French Language | FR 2120 | Intermediate French II | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|55-64]",
+    "snippet": "French Language | 55-64 | FR 1110 | Elementary French I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|67 and above]",
+    "snippet": "German Language | 67 and above | GER 1110 | Elementary German I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|GER 1120]",
+    "snippet": "German Language | GER 1120 | Elementary German II | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|GER 2110]",
+    "snippet": "German Language | GER 2110 | Intermediate German I | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|59-66]",
+    "snippet": "German Language | 59-66 | GER 1110 | Elementary German I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|61 and above]",
+    "snippet": "History of the United States I | 61 and above | HIST 2000 | Survey of United States History, 1600-1877 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|57 and above]",
+    "snippet": "History of the United States II | 57 and above | HIST 2010 | Survey of United States History, 1865-Present | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|58 and above]",
+    "snippet": "Human Growth and Development | 58 and above | Psychology Elective Credit (for Psychology majors) or OT36 Social SciencesCredit (for Non-Psychology majors) | Psychology Elective Credit (for Psychology majors) or OT36 Social Sciences Credit (for Non-Psychology majors) | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|55 and above]",
+    "snippet": "Humanities | 55 and above | OT36 Arts and Humanities Credit | OT36 Arts and Humanities Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|50 and above]",
+    "snippet": "Information Systems | 50 and above | General Elective Credit | General Elective Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|62 and above]",
+    "snippet": "Introduction toEducational Psychology | 62 and above | OT36 Social Sciences Credit | OT36 Social Sciences Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|57 and above]",
+    "snippet": "Introductory Business Law | 57 and above | BUSL 2550 | Corporate Responsibility in a Legal Environment | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|55 and above]",
+    "snippet": "Introductory Psychology | 55 and above | PSY 1010 | General Psychology | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|56 and above]",
+    "snippet": "Introductory Sociology | 56 and above | SOC 1000 | Introduction to Sociology | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|61 and above]",
+    "snippet": "Precalculus | 61 and above | MATH 1300 | Precalculus | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|56 and above]",
+    "snippet": "Principles of Macroeconomics | 56 and above | ECON 1040 | Principles of Macroeconomics | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|50 and above]",
+    "snippet": "Principles of Management | 50 and above | General Elective Credit | General Elective Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|65 and above]",
+    "snippet": "Principles of Marketing | 65 and above | MKT 2400 | Introduction to Marketing Management | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|57 and above]",
+    "snippet": "Principles of Microeconomics | 57 and above | ECON 1030 | Principles of Microeconomics | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|63 and above]",
+    "snippet": "Social Sciences and History | 63 and above | OT36 Social Sciences Credit | OT36 Social Sciences Credit | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|68 and above]",
+    "snippet": "Spanish Language | 68 and above | SPAN 1110 | Elementary Spanish I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|SPAN 1120]",
+    "snippet": "Spanish Language | SPAN 1120 | Elementary Spanish II | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|SPAN 2110]",
+    "snippet": "Spanish Language | SPAN 2110 | Intermediate Spanish I | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|SPAN 2120]",
+    "snippet": "Spanish Language | SPAN 2120 | Intermediate Spanish II | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|63-67]",
+    "snippet": "Spanish Language | 63-67 | SPAN 1110 | Elementary Spanish I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|56-62]",
+    "snippet": "Spanish Language | 56-62 | SPAN 1110 | Elementary Spanish I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|65 and above]",
+    "snippet": "Spanish with Writing | 65 and above | SPAN 1110 | Elementary Spanish I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|SPAN 1120]",
+    "snippet": "Spanish with Writing | SPAN 1120 | Elementary Spanish II | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|SPAN 2110]",
+    "snippet": "Spanish with Writing | SPAN 2110 | Intermediate Spanish I | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|SPAN 2120]",
+    "snippet": "Spanish with Writing | SPAN 2120 | Intermediate Spanish II | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|58-64]",
+    "snippet": "Spanish with Writing | 58-64 | SPAN 1110 | Elementary Spanish I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|50-57]",
+    "snippet": "Spanish with Writing | 50-57 | SPAN 1110 | Elementary Spanish I | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|55 and above]",
+    "snippet": "Western Civilization I | 55 and above | HIST 1210 | Western Civilization: Antiquity to 1500 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|54 and above]",
+    "snippet": "Western Civilization II | 54 and above | HIST 1220 | Western Civilization: Modernity from 1500 | 3"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "score_scale_mismatch",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-GOVERNMENT",
+     "exam_or_course_name": "CLEP American Government",
+     "institution_course_equivalent": "POLS 1010",
+     "minimum_score": "63 and above",
+     "notes": "American National Government"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-GOVERNMENT",
+     "exam_or_course_name": "CLEP American Government",
+     "institution_course_equivalent": "OT36 Social Sciences Credit",
+     "minimum_score": "56-62",
+     "notes": "OT36 Social Sciences Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-LITERATURE",
+     "exam_or_course_name": "CLEP American Literature",
+     "institution_course_equivalent": "OT36 Arts and Humanities",
+     "minimum_score": "53 and above",
+     "notes": "OT36 Arts and Humanities Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-ANALYZING-INTERPRETING-LITERATURE",
+     "exam_or_course_name": "CLEP Analyzing & Interpreting Literature",
+     "institution_course_equivalent": "OT36 Arts and Humanities",
+     "minimum_score": "59 and above",
+     "notes": "OT36 Arts and Humanities Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-BIOLOGY",
+     "exam_or_course_name": "CLEP Biology",
+     "institution_course_equivalent": "BIOS 1700",
+     "minimum_score": "70 and above",
+     "notes": "Biological Sciences I: Molecules and Cells"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-BIOLOGY",
+     "exam_or_course_name": "CLEP Biology",
+     "institution_course_equivalent": "BIOS 1030",
+     "minimum_score": "55-69",
+     "notes": "Human Biology I: Basic Principles"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-BIOLOGY",
+     "exam_or_course_name": "CLEP Biology",
+     "institution_course_equivalent": "OT36 Natural Sciences Credit without Labs",
+     "minimum_score": "50-54",
+     "notes": "OT36 Natural Sciences Credit without Labs"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-CALCULUS",
+     "exam_or_course_name": "CLEP Calculus",
+     "institution_course_equivalent": "MATH 2301",
+     "minimum_score": "64 and above",
+     "notes": "Calculus I"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-CHEMISTRY",
+     "exam_or_course_name": "CLEP Chemistry",
+     "institution_course_equivalent": "OT36 Natural Sciences Credit without Labs",
+     "minimum_score": "60 and above",
+     "notes": "OT36 Natural Sciences Credit without Labs"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-COLLEGE-ALGEBRA",
+     "exam_or_course_name": "CLEP College Algebra",
+     "institution_course_equivalent": "MATH 1200",
+     "minimum_score": "63 and above",
+     "notes": "College Algebra"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-COLLEGE-MATHEMATICS",
+     "exam_or_course_name": "CLEP College Mathematics",
+     "institution_course_equivalent": "OT36 Mathematics, Statistics, and Logic",
+     "minimum_score": "63 and above",
+     "notes": "OT36 Mathematics, Statistics, and Logic"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-ENGLISH-LITERATURE",
+     "exam_or_course_name": "CLEP English Literature",
+     "institution_course_equivalent": "OT36 Arts and Humanities",
+     "minimum_score": "63 and above",
+     "notes": "OT36 Arts and Humanities Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-FINANCIAL-ACCOUNTING",
+     "exam_or_course_name": "CLEP Financial Accounting",
+     "institution_course_equivalent": "ACCT 1010",
+     "minimum_score": "65 and above",
+     "notes": "Foundations of Accounting"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "FR 1110",
+     "minimum_score": "65 and above",
+     "notes": "Elementary French I"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "Elementary French II",
+     "minimum_score": "FR 1120",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "Intermediate French I",
+     "minimum_score": "FR 2110",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "Intermediate French II",
+     "minimum_score": "FR 2120",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "FR 1110",
+     "minimum_score": "55-64",
+     "notes": "Elementary French I"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "GER 1110",
+     "minimum_score": "67 and above",
+     "notes": "Elementary German I"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "Elementary German II",
+     "minimum_score": "GER 1120",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "Intermediate German I",
+     "minimum_score": "GER 2110",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "GER 1110",
+     "minimum_score": "59-66",
+     "notes": "Elementary German I"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HISTORY-OF-THE-UNITED-STATES-I",
+     "exam_or_course_name": "CLEP History of the United States I",
+     "institution_course_equivalent": "HIST 2000",
+     "minimum_score": "61 and above",
+     "notes": "Survey of United States History, 1600-1877"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HISTORY-OF-THE-UNITED-STATES-II",
+     "exam_or_course_name": "CLEP History of the United States II",
+     "institution_course_equivalent": "HIST 2010",
+     "minimum_score": "57 and above",
+     "notes": "Survey of United States History, 1865-Present"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HUMAN-GROWTH-DEVELOPMENT",
+     "exam_or_course_name": "CLEP Human Growth & Development",
+     "institution_course_equivalent": "Psychology Elective Credit (for Psychology majors) or OT36 Social SciencesCredit (for Non-Psychology majors)",
+     "minimum_score": "58 and above",
+     "notes": "Psychology Elective Credit (for Psychology majors) or OT36 Social Sciences Credit (for Non-Psychology majors)"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HUMANITIES",
+     "exam_or_course_name": "CLEP Humanities",
+     "institution_course_equivalent": "OT36 Arts and Humanities Credit",
+     "minimum_score": "55 and above",
+     "notes": "OT36 Arts and Humanities Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INFORMATION-SYSTEMS",
+     "exam_or_course_name": "CLEP Information Systems",
+     "institution_course_equivalent": "General Elective Credit",
+     "minimum_score": "50 and above",
+     "notes": "General Elective Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY",
+     "exam_or_course_name": "CLEP Introduction to Educational Psychology",
+     "institution_course_equivalent": "OT36 Social Sciences Credit",
+     "minimum_score": "62 and above",
+     "notes": "OT36 Social Sciences Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-BUSINESS-LAW",
+     "exam_or_course_name": "CLEP Introductory Business Law",
+     "institution_course_equivalent": "BUSL 2550",
+     "minimum_score": "57 and above",
+     "notes": "Corporate Responsibility in a Legal Environment"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-PSYCHOLOGY",
+     "exam_or_course_name": "CLEP Introductory Psychology",
+     "institution_course_equivalent": "PSY 1010",
+     "minimum_score": "55 and above",
+     "notes": "General Psychology"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-SOCIOLOGY",
+     "exam_or_course_name": "CLEP Introductory Sociology",
+     "institution_course_equivalent": "SOC 1000",
+     "minimum_score": "56 and above",
+     "notes": "Introduction to Sociology"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-PRECALCULUS",
+     "exam_or_course_name": "CLEP Precalculus",
+     "institution_course_equivalent": "MATH 1300",
+     "minimum_score": "61 and above",
+     "notes": "Precalculus"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MACROECONOMICS",
+     "exam_or_course_name": "CLEP Principles of Macroeconomics",
+     "institution_course_equivalent": "ECON 1040",
+     "minimum_score": "56 and above",
+     "notes": "Principles of Macroeconomics"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MANAGEMENT",
+     "exam_or_course_name": "CLEP Principles of Management",
+     "institution_course_equivalent": "General Elective Credit",
+     "minimum_score": "50 and above",
+     "notes": "General Elective Credit"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MARKETING",
+     "exam_or_course_name": "CLEP Principles of Marketing",
+     "institution_course_equivalent": "MKT 2400",
+     "minimum_score": "65 and above",
+     "notes": "Introduction to Marketing Management"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MICROECONOMICS",
+     "exam_or_course_name": "CLEP Principles of Microeconomics",
+     "institution_course_equivalent": "ECON 1030",
+     "minimum_score": "57 and above",
+     "notes": "Principles of Microeconomics"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-SOCIAL-SCIENCES-HISTORY",
+     "exam_or_course_name": "CLEP Social Sciences & History",
+     "institution_course_equivalent": "OT36 Social Sciences Credit",
+     "minimum_score": "63 and above",
+     "notes": "OT36 Social Sciences Credit"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "SPAN 1110",
+     "minimum_score": "68 and above",
+     "notes": "Elementary Spanish I"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "Elementary Spanish II",
+     "minimum_score": "SPAN 1120",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "Intermediate Spanish I",
+     "minimum_score": "SPAN 2110",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "Intermediate Spanish II",
+     "minimum_score": "SPAN 2120",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "SPAN 1110",
+     "minimum_score": "63-67",
+     "notes": "Elementary Spanish I"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "SPAN 1110",
+     "minimum_score": "56-62",
+     "notes": "Elementary Spanish I"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "SPAN 1110",
+     "minimum_score": "65 and above",
+     "notes": "Elementary Spanish I"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "Elementary Spanish II",
+     "minimum_score": "SPAN 1120",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "Intermediate Spanish I",
+     "minimum_score": "SPAN 2110",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "Intermediate Spanish II",
+     "minimum_score": "SPAN 2120",
+     "notes": "3"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "SPAN 1110",
+     "minimum_score": "58-64",
+     "notes": "Elementary Spanish I"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "SPAN 1110",
+     "minimum_score": "50-57",
+     "notes": "Elementary Spanish I"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-WESTERN-CIVILIZATION-I",
+     "exam_or_course_name": "CLEP Western Civilization I",
+     "institution_course_equivalent": "HIST 1210",
+     "minimum_score": "55 and above",
+     "notes": "Western Civilization: Antiquity to 1500"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-WESTERN-CIVILIZATION-II",
+     "exam_or_course_name": "CLEP Western Civilization II",
+     "institution_course_equivalent": "HIST 1220",
+     "minimum_score": "54 and above",
+     "notes": "Western Civilization: Modernity from 1500"
+    }
+   ],
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "CLEP",
+   "policy_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/college-level-examination-program-clep",
+   "source_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/college-level-examination-program-clep",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:10+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 10:35:55 GMT",
+   "page_file": "8f4d4e9996ff4e8980cd.json.gz",
+   "requested_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/college-level-examination-program-clep",
+   "sha256": "8f4d4e9996ff4e8980cd6e83303345a289150b2cdbecdc2202184a5b81222a11",
+   "title": "College Level Examination Program Guide | Ohio University",
+   "url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/college-level-examination-program-clep"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "c66389d4d46994b7",
+  "checks": {
+   "columns": 1,
+   "rows": 12
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $9,176 | ✓ | ",
+    "value": 9176
+   },
+   {
+    "field": "on_campus:Fees",
+    "snippet": "Fees | $680 | ✓ | ",
+    "value": 680
+   },
+   {
+    "field": "on_campus:Housing**",
+    "snippet": "Housing** | $8,160 | ✓ | ",
+    "value": 8160
+   },
+   {
+    "field": "on_campus:Food**",
+    "snippet": "Food** | $6,016 | ✓ | ",
+    "value": 6016
+   },
+   {
+    "field": "on_campus:Health Insurance",
+    "snippet": "Health Insurance | $1,940 | ✓ | ",
+    "value": 1940
+   },
+   {
+    "field": "on_campus:Books/Supplies",
+    "snippet": "Books/Supplies | $710 |  | ✓",
+    "value": 710
+   },
+   {
+    "field": "on_campus:Loan Fees",
+    "snippet": "Loan Fees | $102 |  | ✓",
+    "value": 102
+   },
+   {
+    "field": "on_campus:Pers/Misc",
+    "snippet": "Pers/Misc | $2,800 |  | ✓",
+    "value": 2800
+   },
+   {
+    "field": "on_campus:Trans",
+    "snippet": "Trans | $920 |  | ✓",
+    "value": 920
+   },
+   {
+    "field": "on_campus:TOTAL",
+    "snippet": "TOTAL | $30,504 |  | ",
+    "value": 30504
+   },
+   {
+    "field": "on_campus:Non-Res Fee",
+    "snippet": "Non-Res Fee | $5,326 | ✓ | ",
+    "value": 5326
+   },
+   {
+    "field": "on_campus:TOTAL Non-OH RESIDENT",
+    "snippet": "TOTAL Non-OH RESIDENT | $35,830 |  | ",
+    "value": 35830
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-201441",
+  "issues": [
+   "multiple_total_rows",
+   "residency_unknown",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 710,
+   "components": {
+    "Books/Supplies": 710,
+    "Fees": 680,
+    "Food**": 6016,
+    "Health Insurance": 1940,
+    "Housing**": 8160,
+    "Loan Fees": 102,
+    "Non-Res Fee": 5326,
+    "Pers/Misc": 2800,
+    "TOTAL": 30504,
+    "TOTAL Non-OH RESIDENT": 35830,
+    "Trans": 920,
+    "Tuition": 9176
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-201441",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Living On-Campus \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://www.bgsu.edu/financial-aid/cost-of-attendance.html",
+   "total_cost_of_attendance": null,
+   "tuition": 9176,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:12+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:20:12 GMT",
+   "page_file": "47fbf351740a3cb302e8.json.gz",
+   "requested_url": "https://www.bgsu.edu/financial-aid/cost-of-attendance.html",
+   "sha256": "47fbf351740a3cb302e807569371ea2a1cd97212e24a2ccbcc2fdfee0a8571d0",
+   "title": "Cost of Attendance | Financial Aid and Scholarships | Bowling Green State UniversityCost of Attendance | Financial Aid and Scholarships | Bowling Green State University",
+   "url": "https://www.bgsu.edu/financial-aid/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "252547b3a623788d",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $14,772 | $14,772",
+    "value": 14772
+   },
+   {
+    "field": "on_campus:On-campus housing",
+    "snippet": "On-campus housing | $6,760 | $6,760",
+    "value": 6760
+   },
+   {
+    "field": "on_campus:On-campus food",
+    "snippet": "On-campus food | $4,464 | $4,464",
+    "value": 4464
+   },
+   {
+    "field": "on_campus:Total estimated costs",
+    "snippet": "Total estimated costs | $25,996 | $33,984",
+    "value": 25996
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-201441",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "On-campus food": 4464,
+    "On-campus housing": 6760,
+    "Total estimated costs": 25996,
+    "Tuition": 14772
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-201441",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" How much will BGSU cost me? \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://www.bgsu.edu/financial-aid/cost-overview.html",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 25996,
+   "tuition": 14772,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:14+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:20:14 GMT",
+   "page_file": "39fc224b2ab17469b37a.json.gz",
+   "requested_url": "https://www.bgsu.edu/financial-aid/cost-overview.html",
+   "sha256": "39fc224b2ab17469b37a9957d434117d87518116067685309ac20660bf500e21",
+   "title": "Cost Overview | Financial Aid and Scholarships | Bowling Green State UniversityCost Overview | Financial Aid and Scholarships | Bowling Green State University",
+   "url": "https://www.bgsu.edu/financial-aid/cost-overview.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "faa6639d1e4c25b0",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 5
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $14,772 | $14,772",
+    "value": 14772
+   },
+   {
+    "field": "on_campus:Nonresident fee",
+    "snippet": "Nonresident fee | — | $7,988",
+    "value": 7988
+   },
+   {
+    "field": "on_campus:On-campus housing",
+    "snippet": "On-campus housing | $6,760 | $6,760",
+    "value": 6760
+   },
+   {
+    "field": "on_campus:On-campus food",
+    "snippet": "On-campus food | $4,464 | $4,464",
+    "value": 4464
+   },
+   {
+    "field": "on_campus:Total estimated costs",
+    "snippet": "Total estimated costs | $25,996 | $33,984",
+    "value": 33984
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-201441",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Nonresident fee": 7988,
+    "On-campus food": 4464,
+    "On-campus housing": 6760,
+    "Total estimated costs": 33984,
+    "Tuition": 14772
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-201441",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" How much will BGSU cost me? \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://www.bgsu.edu/financial-aid/cost-overview.html",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 33984,
+   "tuition": 14772,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:14+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:20:14 GMT",
+   "page_file": "39fc224b2ab17469b37a.json.gz",
+   "requested_url": "https://www.bgsu.edu/financial-aid/cost-overview.html",
+   "sha256": "39fc224b2ab17469b37a9957d434117d87518116067685309ac20660bf500e21",
+   "title": "Cost Overview | Financial Aid and Scholarships | Bowling Green State UniversityCost Overview | Financial Aid and Scholarships | Bowling Green State University",
+   "url": "https://www.bgsu.edu/financial-aid/cost-overview.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "909850bf3d2c7964",
+  "checks": {
+   "distinct_exams": 25,
+   "equivalencies": 74,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-FILM|SL 5+]",
+    "snippet": "Film | IFILS | SL | 5+ | FILM 1800 | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-FILM|HL 4+]",
+    "snippet": "Film | IFILH | HL | 4+ | FILM 1800 | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|SL 5+]",
+    "snippet": "Music | IMUSS | SL | 5+ | MUS 1250 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|HL 4+]",
+    "snippet": "Music | IMUSH | HL | 4+ | MUS 1250 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE|SL 5+]",
+    "snippet": "Theatre | ITHES | SL | 5+ | THAR 1710 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE|HL 4+]",
+    "snippet": "Theatre | ITHEH | HL | 4+ | THAR 1710 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS|SL 4]",
+    "snippet": "Visual Arts | IARTS | SL | 4 | ART 1240 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS|SL 5+]",
+    "snippet": "Visual Arts | IARTS | SL | 5+ | ART 1240 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS|HL 4+]",
+    "snippet": "Visual Arts | IARTH | HL | 4+ | ART 1240 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|SL 4+]",
+    "snippet": "Business Management | IBUMS | SL | 4+ | BA 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|HL 4+]",
+    "snippet": "Business Management | IBUMH | HL | 4+ | BA 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|SL 4]",
+    "snippet": "Economics | IECOS | SL | 4 | ECON 1000 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|SL 5+]",
+    "snippet": "Economics | IECOS | SL | 5+ | ECON 1030, ECON 1040 | 6.0"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|HL 4+]",
+    "snippet": "Economics | IECOH | HL | 4+ | ECON 1030, ECON 1040 | 6.0"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS|SL 4]",
+    "snippet": "Global Politics | IGLPS | SL | 4 | POLS 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS|SL 5+]",
+    "snippet": "Global Politics | IGLPS | SL | 5+ | POLS 1500 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS|HL 4+]",
+    "snippet": "Global Politics | IGLPH | HL | 4+ | POLS 1500 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|SL 4]",
+    "snippet": "History | IHISS | SL | 4 | HIST 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|SL 5+]",
+    "snippet": "History | IHISS | SL | 5+ | HIST 1330 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|HL 4+]",
+    "snippet": "History Africa and Middle East | IHAMH | HL | 4+ | HIST 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|HL 4+]",
+    "snippet": "History Europe | IHIEH | HL | 4+ | HIST 1210 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|SL 5+]",
+    "snippet": "Modern History of Kazakhstan | IKAZS | SL | 5+ | HIST 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY|SL 5+]",
+    "snippet": "Philosophy | IPHIS | SL | 5+ | PHIL 1010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY|HL 4+]",
+    "snippet": "Philosophy | IPHIH | HL | 4+ | PHIL 1010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|SL 4+]",
+    "snippet": "Psychology | IPSYS | SL | 4+ | PSY 1010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|HL 4+]",
+    "snippet": "Psychology | IPSYH | HL | 4+ | PSY 1010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|SL 5+]",
+    "snippet": "Social and Cultural Anthropology | ISATS | SL | 5+ | ANTH 1010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|HL 4+]",
+    "snippet": "Social and Cultural Anthropology | ISATH | HL | 4+ | ANTH 1010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|SL 5+]",
+    "snippet": "French Ab Initio | IFRIS | SL | 5+ | FR 1110, FR 1120, FR 2XXL | 12.0"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|SL 4]",
+    "snippet": "French B | IFRES | SL | 4 | FR 1110, FR 1120, FR 2XXL | 12.0"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|SL 5+]",
+    "snippet": "French B | IFRES | SL | 5+ | FR 1110, FR 1120, FR 2110, FR 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|HL 4+]",
+    "snippet": "French B | IFREH | HL | 4+ | FR 1110, FR 1120, FR 2110, FR 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|SL 5+]",
+    "snippet": "German Ab Initio | IGRIS | SL | 5+ | GER 1110, GER 1120, GER 2XXL | 12.0"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|SL 5+]",
+    "snippet": "German B | IGERS | SL | 5+ | GER 1110, GER 1120, GER 2110, GER 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|HL 4+]",
+    "snippet": "German B | IGERH | HL | 4+ | GER 1110, GER 1120, GER 2110, GER 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-LATIN|SL 5+]",
+    "snippet": "Latin | ILATS | SL | 5+ | LAT 1110, LAT 1120, LAT 2110, LAT 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-LATIN|HL 4+]",
+    "snippet": "Latin | ILATH | HL | 4+ | LAT 1110, LAT 1120, LAT 2110, LAT 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|SL 4+]",
+    "snippet": "Spanish Ab Initio | ISPIS | SL | 4+ | SPAN 1110, SPAN 1120, SPAN 2XXL | 12.0"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|SL 4]",
+    "snippet": "Spanish B | ISPNS | SL | 4 | SPAN 1110, SPAN 1120, SPAN 2XXL | 12.0"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|SL 5+]",
+    "snippet": "Spanish B | ISPNS | SL | 5+ | SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|HL 4+]",
+    "snippet": "Spanish B | ISPNH | HL | 4+ | SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120 | 14.0"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL 4]",
+    "snippet": "Mathematics Analysis and Approaches | IMAAS | SL | 4 | MATH 2XXL | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL 5+]",
+    "snippet": "Mathematics Analysis and Approaches | IMAAS | SL | 5+ | MATH 2301 and MATH 2302 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|HL 4+]",
+    "snippet": "Mathematics Analysis and Approaches | IMAAH | HL | 4+ | MATH 2301 and MATH 2302 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|SL 4]",
+    "snippet": "Mathematics Applications and Interpretations | IMAIS | SL | 4 | MATH 2XXL | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|SL 5+]",
+    "snippet": "Mathematics Applications and Interpretations | IMAIS | SL | 5+ | MATH 2500, MATH 2301 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|HL 4+]",
+    "snippet": "Mathematics Applications and Interpretations | IMAIH | HL | 4+ | MATH 2500 and MATH 2301 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|SL 4+]",
+    "snippet": "Biology | IBIOS | SL | 4+ | BIOS 1XXL | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|HL 4+]",
+    "snippet": "Biology | IBIOH | HL | 4+ | BIOS 1700, BIOS 1705, BIOS 1710 | 7.0"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|SL 4]",
+    "snippet": "Chemistry | ICHMS | SL | 4 | CHEM 1XXL | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|SL 5+]",
+    "snippet": "Chemistry | ICHMS | SL | 5+ | CHEM 1510, CHEM 1520 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|HL 4+]",
+    "snippet": "Chemistry | ICHMH | HL | 4+ | CHEM 1510, CHEM 1520 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|SL 5+]",
+    "snippet": "Computer Science | ICPTS | SL | 5+ | CTCH 1330 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|HL 4+]",
+    "snippet": "Computer Science | ICPTH | HL | 4+ | CTCH 1330 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|SL 5+]",
+    "snippet": "Geography | IGEOS | SL | 5+ | GEOG 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|HL 4+]",
+    "snippet": "Geography | IGEOH | HL | 4+ | GEOG 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|SL 4]",
+    "snippet": "Physics | IPHYS | SL | 4 | PHYS 2XXL | 4.0"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|SL 5+]",
+    "snippet": "Physics | IPHYS | SL | 5+ | PHYS 2001 and PHYS 2002 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|HL 4+]",
+    "snippet": "Physics | IPHYH | HL | 4+ | PHYS 2001 and PHYS 2002 | 8.0"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|SL 4]",
+    "snippet": "Environmental Systems and Societies | IENVS | SL | 4 | GEOG 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|SL 5+]",
+    "snippet": "Environmental Systems and Societies | IENVS | SL | 5+ | GEOG 2400 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|HL 4+]",
+    "snippet": "Environmental Systems and Societies | IENVH | HL | 4+ | GEOG 2400 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|SL 4]",
+    "snippet": "English A: Language and Literature | IENGS | SL | 4 | ENG 1XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|SL 5+]",
+    "snippet": "English A: Language and Literature | IENGS | SL | 5+ | ENG 1510, ENG 1XXL | 6.0"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|HL 4]",
+    "snippet": "English A: Language and Literature | IENGH | HL | 4 | ENG 1510, ENG 1XXL | 6.0"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|SL 4]",
+    "snippet": "English A: Literature | ILITS | SL | 4 | ENG 2XXL | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|SL 5+]",
+    "snippet": "English A: Literature | ILITS | SL | 5+ | ENG 2010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|HL 4]",
+    "snippet": "English A: Literature | ILITH | HL | 4 | ENG 2010 | 3.0"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|SL 5+]",
+    "snippet": "French A: Language and Literature | IFRAS | SL | 5+ | FR 1110, FR 1120, FR 2110, FR 2120, FR 3XXL | 17.0"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|HL 4+]",
+    "snippet": "French A: Language and Literature | IFRAH | HL | 4+ | FR 1110, FR 1120, FR 2110, FR 2120, FR 3XXL | 17.0"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|SL 5+]",
+    "snippet": "German A: Language and Literature | IGRAS | SL | 5+ | GER 1110, GER 1120, GER 2110, GER 2120, GER 3XXL | 17.0"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|HL 4+]",
+    "snippet": "German A: Language and Literature | IGRAH | HL | 4+ | GER 1110, GER 1120, GER 2110, GER 2120, GER 3XXL | 17.0"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|SL 5+]",
+    "snippet": "Spanish A: Language and Literature | ISPAS | SL | 5+ | SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120, SPAN 3XXL | 17.0"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|HL 4+]",
+    "snippet": "Spanish A: Language and Literature | ISPAH | HL | 4+ | SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120, SPAN 3XXL | 17.0"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "credits_implausible",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-FILM",
+     "exam_or_course_name": "IB Film",
+     "institution_course_equivalent": "FILM 1800",
+     "minimum_score": "SL 5+",
+     "notes": "IFILS"
+    },
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-FILM",
+     "exam_or_course_name": "IB Film",
+     "institution_course_equivalent": "FILM 1800",
+     "minimum_score": "HL 4+",
+     "notes": "IFILH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "MUS 1250",
+     "minimum_score": "SL 5+",
+     "notes": "IMUSS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "MUS 1250",
+     "minimum_score": "HL 4+",
+     "notes": "IMUSH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-THEATRE",
+     "exam_or_course_name": "IB Theatre",
+     "institution_course_equivalent": "THAR 1710",
+     "minimum_score": "SL 5+",
+     "notes": "ITHES"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-THEATRE",
+     "exam_or_course_name": "IB Theatre",
+     "institution_course_equivalent": "THAR 1710",
+     "minimum_score": "HL 4+",
+     "notes": "ITHEH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-VISUAL-ARTS",
+     "exam_or_course_name": "IB Visual Arts",
+     "institution_course_equivalent": "ART 1240",
+     "minimum_score": "SL 4",
+     "notes": "IARTS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-VISUAL-ARTS",
+     "exam_or_course_name": "IB Visual Arts",
+     "institution_course_equivalent": "ART 1240",
+     "minimum_score": "SL 5+",
+     "notes": "IARTS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-VISUAL-ARTS",
+     "exam_or_course_name": "IB Visual Arts",
+     "institution_course_equivalent": "ART 1240",
+     "minimum_score": "HL 4+",
+     "notes": "IARTH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT",
+     "exam_or_course_name": "IB Business Management",
+     "institution_course_equivalent": "BA 1XXL",
+     "minimum_score": "SL 4+",
+     "notes": "IBUMS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT",
+     "exam_or_course_name": "IB Business Management",
+     "institution_course_equivalent": "BA 1XXL",
+     "minimum_score": "HL 4+",
+     "notes": "IBUMH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON 1000",
+     "minimum_score": "SL 4",
+     "notes": "IECOS"
+    },
+    {
+     "credits_awarded": 6.0,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON 1030, ECON 1040",
+     "minimum_score": "SL 5+",
+     "notes": "IECOS"
+    },
+    {
+     "credits_awarded": 6.0,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON 1030, ECON 1040",
+     "minimum_score": "HL 4+",
+     "notes": "IECOH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS",
+     "exam_or_course_name": "IB Global Politics",
+     "institution_course_equivalent": "POLS 1XXL",
+     "minimum_score": "SL 4",
+     "notes": "IGLPS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS",
+     "exam_or_course_name": "IB Global Politics",
+     "institution_course_equivalent": "POLS 1500",
+     "minimum_score": "SL 5+",
+     "notes": "IGLPS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS",
+     "exam_or_course_name": "IB Global Politics",
+     "institution_course_equivalent": "POLS 1500",
+     "minimum_score": "HL 4+",
+     "notes": "IGLPH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1XXL",
+     "minimum_score": "SL 4",
+     "notes": "IHISS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1330",
+     "minimum_score": "SL 5+",
+     "notes": "IHISS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1XXL",
+     "minimum_score": "HL 4+",
+     "notes": "IHAMH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1210",
+     "minimum_score": "HL 4+",
+     "notes": "IHIEH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IKAZS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-PHILOSOPHY",
+     "exam_or_course_name": "IB Philosophy",
+     "institution_course_equivalent": "PHIL 1010",
+     "minimum_score": "SL 5+",
+     "notes": "IPHIS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-PHILOSOPHY",
+     "exam_or_course_name": "IB Philosophy",
+     "institution_course_equivalent": "PHIL 1010",
+     "minimum_score": "HL 4+",
+     "notes": "IPHIH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "PSY 1010",
+     "minimum_score": "SL 4+",
+     "notes": "IPSYS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "PSY 1010",
+     "minimum_score": "HL 4+",
+     "notes": "IPSYH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY",
+     "exam_or_course_name": "IB Social & Cultural Anthropology",
+     "institution_course_equivalent": "ANTH 1010",
+     "minimum_score": "SL 5+",
+     "notes": "ISATS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY",
+     "exam_or_course_name": "IB Social & Cultural Anthropology",
+     "institution_course_equivalent": "ANTH 1010",
+     "minimum_score": "HL 4+",
+     "notes": "ISATH"
+    },
+    {
+     "credits_awarded": 12.0,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FR 1110, FR 1120, FR 2XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IFRIS"
+    },
+    {
+     "credits_awarded": 12.0,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FR 1110, FR 1120, FR 2XXL",
+     "minimum_score": "SL 4",
+     "notes": "IFRES"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FR 1110, FR 1120, FR 2110, FR 2120",
+     "minimum_score": "SL 5+",
+     "notes": "IFRES"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FR 1110, FR 1120, FR 2110, FR 2120",
+     "minimum_score": "HL 4+",
+     "notes": "IFREH"
+    },
+    {
+     "credits_awarded": 12.0,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GER 1110, GER 1120, GER 2XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IGRIS"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GER 1110, GER 1120, GER 2110, GER 2120",
+     "minimum_score": "SL 5+",
+     "notes": "IGERS"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GER 1110, GER 1120, GER 2110, GER 2120",
+     "minimum_score": "HL 4+",
+     "notes": "IGERH"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-LATIN",
+     "exam_or_course_name": "IB Latin",
+     "institution_course_equivalent": "LAT 1110, LAT 1120, LAT 2110, LAT 2120",
+     "minimum_score": "SL 5+",
+     "notes": "ILATS"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-LATIN",
+     "exam_or_course_name": "IB Latin",
+     "institution_course_equivalent": "LAT 1110, LAT 1120, LAT 2110, LAT 2120",
+     "minimum_score": "HL 4+",
+     "notes": "ILATH"
+    },
+    {
+     "credits_awarded": 12.0,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1110, SPAN 1120, SPAN 2XXL",
+     "minimum_score": "SL 4+",
+     "notes": "ISPIS"
+    },
+    {
+     "credits_awarded": 12.0,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1110, SPAN 1120, SPAN 2XXL",
+     "minimum_score": "SL 4",
+     "notes": "ISPNS"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120",
+     "minimum_score": "SL 5+",
+     "notes": "ISPNS"
+    },
+    {
+     "credits_awarded": 14.0,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120",
+     "minimum_score": "HL 4+",
+     "notes": "ISPNH"
+    },
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 2XXL",
+     "minimum_score": "SL 4",
+     "notes": "IMAAS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 2301 and MATH 2302",
+     "minimum_score": "SL 5+",
+     "notes": "IMAAS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 2301 and MATH 2302",
+     "minimum_score": "HL 4+",
+     "notes": "IMAAH"
+    },
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 2XXL",
+     "minimum_score": "SL 4",
+     "notes": "IMAIS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 2500, MATH 2301",
+     "minimum_score": "SL 5+",
+     "notes": "IMAIS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 2500 and MATH 2301",
+     "minimum_score": "HL 4+",
+     "notes": "IMAIH"
+    },
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "BIOS 1XXL",
+     "minimum_score": "SL 4+",
+     "notes": "IBIOS"
+    },
+    {
+     "credits_awarded": 7.0,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "BIOS 1700, BIOS 1705, BIOS 1710",
+     "minimum_score": "HL 4+",
+     "notes": "IBIOH"
+    },
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 1XXL",
+     "minimum_score": "SL 4",
+     "notes": "ICHMS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 1510, CHEM 1520",
+     "minimum_score": "SL 5+",
+     "notes": "ICHMS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 1510, CHEM 1520",
+     "minimum_score": "HL 4+",
+     "notes": "ICHMH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "CTCH 1330",
+     "minimum_score": "SL 5+",
+     "notes": "ICPTS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "CTCH 1330",
+     "minimum_score": "HL 4+",
+     "notes": "ICPTH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "GEOG 1XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IGEOS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "GEOG 1XXL",
+     "minimum_score": "HL 4+",
+     "notes": "IGEOH"
+    },
+    {
+     "credits_awarded": 4.0,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 2XXL",
+     "minimum_score": "SL 4",
+     "notes": "IPHYS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 2001 and PHYS 2002",
+     "minimum_score": "SL 5+",
+     "notes": "IPHYS"
+    },
+    {
+     "credits_awarded": 8.0,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 2001 and PHYS 2002",
+     "minimum_score": "HL 4+",
+     "notes": "IPHYH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES",
+     "exam_or_course_name": "IB Environmental Systems & Societies",
+     "institution_course_equivalent": "GEOG 1XXL",
+     "minimum_score": "SL 4",
+     "notes": "IENVS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES",
+     "exam_or_course_name": "IB Environmental Systems & Societies",
+     "institution_course_equivalent": "GEOG 2400",
+     "minimum_score": "SL 5+",
+     "notes": "IENVS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES",
+     "exam_or_course_name": "IB Environmental Systems & Societies",
+     "institution_course_equivalent": "GEOG 2400",
+     "minimum_score": "HL 4+",
+     "notes": "IENVH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENG 1XXL",
+     "minimum_score": "SL 4",
+     "notes": "IENGS"
+    },
+    {
+     "credits_awarded": 6.0,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENG 1510, ENG 1XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IENGS"
+    },
+    {
+     "credits_awarded": 6.0,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENG 1510, ENG 1XXL",
+     "minimum_score": "HL 4",
+     "notes": "IENGH"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENG 2XXL",
+     "minimum_score": "SL 4",
+     "notes": "ILITS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENG 2010",
+     "minimum_score": "SL 5+",
+     "notes": "ILITS"
+    },
+    {
+     "credits_awarded": 3.0,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENG 2010",
+     "minimum_score": "HL 4",
+     "notes": "ILITH"
+    },
+    {
+     "credits_awarded": 17.0,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FR 1110, FR 1120, FR 2110, FR 2120, FR 3XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IFRAS"
+    },
+    {
+     "credits_awarded": 17.0,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FR 1110, FR 1120, FR 2110, FR 2120, FR 3XXL",
+     "minimum_score": "HL 4+",
+     "notes": "IFRAH"
+    },
+    {
+     "credits_awarded": 17.0,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GER 1110, GER 1120, GER 2110, GER 2120, GER 3XXL",
+     "minimum_score": "SL 5+",
+     "notes": "IGRAS"
+    },
+    {
+     "credits_awarded": 17.0,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GER 1110, GER 1120, GER 2110, GER 2120, GER 3XXL",
+     "minimum_score": "HL 4+",
+     "notes": "IGRAH"
+    },
+    {
+     "credits_awarded": 17.0,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120, SPAN 3XXL",
+     "minimum_score": "SL 5+",
+     "notes": "ISPAS"
+    },
+    {
+     "credits_awarded": 17.0,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1110, SPAN 1120, SPAN 2110, SPAN 2120, SPAN 3XXL",
+     "minimum_score": "HL 4+",
+     "notes": "ISPAH"
+    }
+   ],
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/international-baccalaureate-credit-guide",
+   "source_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/international-baccalaureate-credit-guide",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:22+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:20:20 GMT",
+   "page_file": "39d42228dee7048cd3db.json.gz",
+   "requested_url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/international-baccalaureate-credit-guide",
+   "sha256": "39d42228dee7048cd3dbcd00beabab18ea3e6133b4ecacafd2db9695f6d8624d",
+   "title": "International Baccalaureate Credit Guide | Ohio University",
+   "url": "https://www.ohio.edu/admissions/transfer-credits/credit-examination/international-baccalaureate-credit-guide"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "c2ca14d8afb58b51",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "We offer one-on-one appointments with a Financial Aid Officer for the following topics: Special Circumstance Appeal Income changes, separation, loss of income, and related circumstances.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Unusual Circumstance Appeal Dependency Status questions on the FAFSA do not apply to the student, but the student cannot obtain parent data.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-205470",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-205470",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.sinclair.edu/admissions/fafsa-workshops/",
+   "process_summary": "We offer one-on-one appointments with a Financial Aid Officer for the following topics: Special Circumstance Appeal Income changes, separation, loss of income, and related circumstances.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.sinclair.edu/admissions/fafsa-workshops/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:23:26+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e737dd2f546de96e6e83.json.gz",
+   "requested_url": "https://www.sinclair.edu/admissions/fafsa-workshops/",
+   "sha256": "e737dd2f546de96e6e83252966868f1b6f166b2b9f286ebb275295f2da8adb6e",
+   "title": "FAFSA Workshops Dates",
+   "url": "https://www.sinclair.edu/admissions/fafsa-workshops/"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "caf0a23ff1f00bf1",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Degree must be completed within specified maximum timeframe - 90 semester hours – associate degree 111 semester hours – associate degree in nursing 180 semester hours – bachelor's degree 90 semester hours – master's degree SAP Appeals Students who do not meet SAP requirements may appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Student and advisor must sign the SAP Appeal Form [PDF ADA] and the academic plan.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.ohio.edu/financial-aid/applications-deadlines/sap",
+   "process_summary": "Degree must be completed within specified maximum timeframe - 90 semester hours – associate degree 111 semester hours – associate degree in nursing 180 semester hours – bachelor's degree 90 semester hours – master's degree SAP Appeals Students who do not meet SAP requirements may appeal.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.ohio.edu/financial-aid/applications-deadlines/sap",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:24:13+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:14:54 GMT",
+   "page_file": "7d84f3713512685dfc59.json.gz",
+   "requested_url": "https://www.ohio.edu/financial-aid/applications-deadlines/sap",
+   "sha256": "7d84f3713512685dfc596738d60f6dd4ca8cd8cc435b7f171dff10070eebbd02",
+   "title": "Satisfactory Academic Progress (SAP) | Ohio University",
+   "url": "https://www.ohio.edu/financial-aid/applications-deadlines/sap"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "5b74d87540cafd94",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition and fees",
+    "snippet": "Tuition and fees | $15,018",
+    "value": 15018
+   },
+   {
+    "field": "column:Room(Classic Double)",
+    "snippet": "Room(Classic Double) | $8,954",
+    "value": 8954
+   },
+   {
+    "field": "column:Meal Plan(Traditional 14)",
+    "snippet": "Meal Plan(Traditional 14) | $5,582",
+    "value": 5582
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $29,554",
+    "value": 29554
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Meal Plan(Traditional 14)": 5582,
+    "Room(Classic Double)": 8954,
+    "TOTAL": 29554,
+    "Tuition and fees": 15018
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Ohio Residents 2026-2027 Ohio Residents 2026-2027 \"; printed rows copied, totals never recomputed. The printed total covers direct (billed) costs only, so it is not a cost of attendance.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://www.ohio.edu/admissions/freshman/costs-aid",
+   "total_cost_of_attendance": null,
+   "total_direct_cost": 29554,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 15018,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:24:33+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 10:13:56 GMT",
+   "page_file": "a008c641c723326c6ab9.json.gz",
+   "requested_url": "https://www.ohio.edu/admissions/admissions/freshman/costs-aid/",
+   "sha256": "a008c641c723326c6ab9bbbfc7d15f7da5b35fa5486b6424cee8b98001971116",
+   "title": "Freshman Costs and Aid | Ohio University",
+   "url": "https://www.ohio.edu/admissions/freshman/costs-aid"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "33a5528dfab0db88",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "However, life happens, so there is a SAP Appeal available if your status becomes ineligible.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "You are required to either meet the above SAP requirements or have an approved SAP Appeal on file to qualify for scholarship funding through the Sinclair Direct Promise program.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-205470",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-205470",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.sinclair.edu/admissions/direct-admission-program/",
+   "process_summary": "However, life happens, so there is a SAP Appeal available if your status becomes ineligible.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.sinclair.edu/admissions/direct-admission-program/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:25:47+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2d91a778bcf3d68a1dc6.json.gz",
+   "requested_url": "https://www.sinclair.edu/admissions/direct-admission-program/",
+   "sha256": "2d91a778bcf3d68a1dc6d435ee3b2343dad349f4879ac1ba97d43b30000b7c6b",
+   "title": "Direct Admission Program",
+   "url": "https://www.sinclair.edu/admissions/direct-admission-program/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "7afc6517e76a2973",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 13
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Special Circumstances | Ohio University Skip to main content Close Search Info for...",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Special Circumstances/Change of Income Special Circumstances refer to situations that may justify an aid administrator adjusting data elements on the FAFSA or budgeted expense items in the student’s annual Cost of Attendance.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Examples of Special Circumstances include loss of an income resource, parental marital status changes after FAFSA filing, or extraordinary expenses, such as medical expenses, or expenses related to the care of a dependent with disabilities.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Students who believe they have Special Circumstances that justify an adjustment should reach out to their Financial Aid Advisor with a description of their circumstances after receiving the initial financial aid offer.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Students who are selected for Verification must submit all requested documents before Special Circumstances can be reviewed.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Families that have Special Circumstances which involve a loss of income may be required to complete our online Change of Income application.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 13 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.ohio.edu/financial-aid/applications-deadlines/circumstances",
+   "process_summary": "Special Circumstances | Ohio University Skip to main content Close Search Info for...",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.ohio.edu/financial-aid/applications-deadlines/circumstances",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:33:09+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:33:08 GMT",
+   "page_file": "dd95299e9a242a80386c.json.gz",
+   "requested_url": "https://www.ohio.edu/financial-aid/applications-deadlines/circumstances",
+   "sha256": "dd95299e9a242a80386cab3d23c6e3ea131f8b3b8615bf7788e3255e0963a307",
+   "title": "Special Circumstances | Ohio University",
+   "url": "https://www.ohio.edu/financial-aid/applications-deadlines/circumstances"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "ma2410a2e53ff664",
+  "checks": {
+   "fields": [
+    "min_grade"
+   ],
+   "merged_pages": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "In general, college level courses taken at a Council for Higher Education (CHEA) recognized institution with accreditation meeting OHIO's transfer policy will transfer to Ohio University with a grade of \"D-\" or better.",
+    "source_url": "https://www.ohio.edu/admissions/transfer-credits",
+    "value": "D-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "The following courses generally transfer: Dual enrollment credits in college-level courses completed at a Council for Higher Education (CHEA) recognized institution with accreditation meeting OHIO's transfer policy with a grade of D- or better.",
+    "source_url": "https://www.ohio.edu/admissions/transfer-credits",
+    "value": "D-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "The following courses generally transfer: Dual enrollment credits in college-level courses completed at a Council for Higher Education (CHEA) recognized institution with accreditation meeting OHIO's transfer policy with a grade of D- or better.",
+    "source_url": "https://www.ohio.edu/admissions/transfer-credits",
+    "value": "D-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "In general, college level courses taken at a Council for Higher Education (CHEA) recognized institution with accreditation meeting OHIO's transfer policy will transfer to Ohio University with a grade of \"D-\" or better.",
+    "source_url": "https://www.ohio.edu/admissions/admitted/transfer",
+    "value": "D-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "The following courses generally transfer: Dual enrollment credits in college-level courses completed at a Council for Higher Education (CHEA) recognized institution with accreditation meeting OHIO's transfer policy with a grade of D- or better.",
+    "source_url": "https://www.ohio.edu/admissions/transfer-credits/transfer-credit-faqs",
+    "value": "D-"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-204857",
+  "issues": [
+   "ambiguous_year_labels",
+   "shared_site_attribution_review"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "additional_source_urls": [
+    "https://www.ohio.edu/admissions/admitted/transfer",
+    "https://www.ohio.edu/admissions/transfer-credits/transfer-credit-faqs"
+   ],
+   "institution_key": "ipeds-204857",
+   "last_verified_at": "2026-10-23",
+   "min_grade": "D-",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://www.ohio.edu/admissions/transfer-credits",
+   "source_url": "https://www.ohio.edu/admissions/transfer-credits",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:22:12+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 09:47:21 GMT",
+   "page_file": "942fddec81b5b14b9850.json.gz",
+   "requested_url": "https://www.ohio.edu/admissions/transfer-credits",
+   "sha256": "942fddec81b5b14b98502975b9c390f59b035c6cf16d3646c03d5f25b93ba62a",
+   "title": "Transfer Your Credits to Ohio University",
+   "url": "https://www.ohio.edu/admissions/transfer-credits"
+  },
+  "year_basis": "source_unlabeled"
+ }
+]
