@@ -31,7 +31,7 @@ export interface ReviewRecord {
 export const REVIEW_RECORD = record as unknown as ReviewRecord
 
 /** cyrb53: a fast 53-bit string hash. For change detection only; not a security control. */
-function cyrb53(str: string, seed = 0) {
+export function cyrb53(str: string, seed = 0) {
   let h1 = 0xdeadbeef ^ seed
   let h2 = 0x41c6ce57 ^ seed
   for (let i = 0; i < str.length; i++) {
