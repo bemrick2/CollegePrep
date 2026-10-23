@@ -99,5 +99,8 @@ At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()`
 ## Hand-off
 
 1. The workstream delivers a JSONL batch plus the rights evidence for each item.
-2. Design or the content lead runs the validator, fixes or returns failures, and adds passing items to the ledger at stage 3.
+2. Design or the content lead runs the validator, fixes or returns failures, and records passing items with `scripts/intakeQuestionBatch.ts` (`QUESTION_REVIEW_WORKFLOW.md`):
+   - each item becomes a draft practice or reserved-assessment candidate, entering the ledger at stage 3;
+   - a changed item becomes a new version, and earlier versions are kept;
+   - a duplicate of the bank or of an earlier batch is kept as retired, never deleted.
 3. Items are published only after stage 8, through the migration and import path. That path is held while hosted is paused.
