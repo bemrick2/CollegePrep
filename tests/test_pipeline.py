@@ -2479,6 +2479,10 @@ class MeritGridTests(unittest.TestCase):
 <tr><td>Current Students</td><td>Must be on track to complete your degree on time and earn 30 credits a year</td></tr>
 <tr><td>Students with an Associate's Degree</td><td>Must meet the academic requirements and income guidelines</td></tr></table>"""
         self.assertEqual(self.got(exc), {})  # NY (Brockport): under "Eligibility" only a tier grid is read
+        psu = """<title>Out-of-State Opportunity Scholarship</title><h2>Eligibility</h2><p>Transfer</p><table><tr><th>GPA</th><th>Award Amount</th></tr>
+<tr><td>3.75+</td><td>$6,000</td></tr><tr><td>3.0-3.74</td><td>$5,000</td></tr><tr><td>2.5 - 2.99</td><td>$4,000</td></tr></table>"""
+        self.assertEqual(self.got(psu), {})  # OR (PSU): the grid led "Transfer" is not the first-year award
+        self.assertTrue(self.got(psu.replace('<p>Transfer</p>', '<p>First Year</p>')))
 
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>

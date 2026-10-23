@@ -721,6 +721,7 @@ def extract(inst, entry, page, today_year):
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
+        if re.match(r'\s*(?:for\s+)?transfers?\b(?:\s+students?)?\s*:?\s*$', t.get('lead') or '', re.I): continue  # OR (PSU): the "Transfer" grid beside "First Year"
         if re.match(r'\s*(?:prior\s+to|before|until)\s+(?:the\s+)?(?:fall|spring|summer)?\s*(?:semester\s+)?(?:of\s+)?20\d{2}\b', ' '.join([t.get('heading') or '', t.get('lead') or '']).strip(), re.I) \
                 and not re.search(r'current', ' '.join(rows[0]), re.I):
             continue  # MI (Andrews): a table headed "Prior to Fall 2023" lists superseded amounts, never a current award

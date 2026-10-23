@@ -7,6 +7,7 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
+    ('pipeline/extractors/merit.py', "        if re.match(r'\\s*(?:for\\s+)?transfers?\\b(?:\\s+students?)?\\s*:?\\s*$', t.get('lead') or '', re.I): continue", "        pass"),
     ('pipeline/extractors/merit.py', " \\\n            or _score_row_grid(t, header, body, context, page)", ""),
     ('pipeline/extractors/merit.py', "        if len(r) != len(header): return []\n", ""),
     ('pipeline/extractors/merit.py', "            if not (T.money_values(c) or re.search(r'tuition|full\\s+ride|cost\\s+of\\s+attendance', c, re.I)): return []", "            if not (T.money_values(c) or re.search(r'tuition|full\\s+ride|cost\\s+of\\s+attendance', c, re.I)): continue"),
