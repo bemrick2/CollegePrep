@@ -2391,6 +2391,45 @@ class MeritGridTests(unittest.TestCase):
         r = self.got(jsu)['Gamecock Tradition']['record']
         self.assertEqual((r['test_requirement'], len(r['award_tiers'])), ('26-28 ACT or 1230-1320 SAT', 3))
 
+    def test_year_labels_that_belong_to_other_aid(self):
+        """2026-10-23 corrections: a year printed only for other aid (a federal grant table, FAFSA updates, cost of attendance) does
+        not date a merit table on a current-cycle page; a FAFSA year that is an award's own requirement does; a page whose only dates
+        are old is never re-dated as current."""
+        grid = """<h2>Merit Scholarships</h2><table><caption>Merit scholarship amounts for first-year students</caption>
+<tr><th>Scholarship</th><th>Annual Amount</th></tr><tr><td>Magis Scholarship</td><td>$30,000</td></tr>
+<tr><td>Presidential Scholarship</td><td>$26,000</td></tr><tr><td>University Scholarship</td><td>$22,000</td></tr></table>"""
+        fed = """<h2>Federal Grants</h2><table><caption>Federal grant programs with maximum award amounts for 2025-2026</caption>
+<tr><th>Grant</th><th>Maximum Award</th></tr><tr><td>Federal Pell Grant</td><td>$7,395</td></tr><tr><td>Federal SEOG</td><td>$1,000</td></tr></table>"""
+        cycle = '<p>To be eligible, you must apply for admission by November 1, 2026.</p>'
+        yr = lambda html: (lambda c: (c['academic_year'], c['year_basis'], c['issues']))(self.got('<title>Scholarships & Grants</title>' + html)['Magis Scholarship'])
+        self.assertEqual(yr(grid + fed + cycle), ('2026-27', 'source_unlabeled', ['page_label_only_in_other_aid:2025-26']))  # OH (JCU)
+        self.assertEqual(yr(grid + fed), ('2025-26', 'labeled_in_source', ['stale_year_label:2025-26']))  # no current-cycle date: never current
+        self.assertEqual(yr(grid + '<p>Requirements: Completed 2025-26 FAFSA.</p>' + cycle)[:2], ('2025-26', 'labeled_in_source'))  # OH (Malone)
+        self.assertEqual(yr(grid + '<p>Freshman & Transfer Scholarships for Fall 2027/Spring 2028</p>' + cycle)[:2], ('2027-28', 'labeled_in_source'))  # MO (SBU)
+        self.assertEqual(yr(grid + '<h3>2026-2027 FAFSA Updates</h3>' + cycle)[:2], ('2026-27', 'source_unlabeled'))  # NY (Canisius): a heading about FAFSA
+        hsu = """<title>Scholarships</title><h2>Academic Merit Scholarships</h2><p>For new incoming students in Fall 2025, we offer these awards:</p>
+<h3>New Freshmen in Fall 2026</h3><table><tr><th>Award</th><th>Annual Value</th><th>Credential Required</th></tr>
+<tr><td>Trustee Scholarship</td><td>$22,000</td><td>SAT = 1200 ACT = 25</td></tr><tr><td>Presidents Scholarship</td><td>$20,000</td><td>3.9+ GPA</td></tr>
+<tr><td>Deans Scholarship</td><td>$18,000</td><td>3.5 – 3.8 GPA</td></tr></table>
+<p>The above scholarships apply to first-time freshmen or transfer students who begin attendance in the 2025-2026 academic year.</p>"""
+        c = self.got(hsu)['Presidents Scholarship']  # TX (HSUTX): the page disagrees with its own table heading
+        self.assertEqual((c['academic_year'], c['issues']), ('2026-27', ['conflicting_year_statement:2025-26']))
+        self.assertEqual(self.got(hsu.replace('Fall 2025', 'Fall 2026').replace('2025-2026', '2026-2027'))['Presidents Scholarship']['issues'], [])
+
+    def test_and_above_band_and_superseded_tables(self):
+        man = """<title>Scholarships & Grants</title><h2>Earning Merit-Based Academic Scholarships</h2><table><tr><th>GPA Requirement</th><th>Scholarship Award</th></tr>
+<tr><td>4.0 and above</td><td>$21,000</td></tr><tr><td>3.75 – 3.99</td><td>$18,000</td></tr><tr><td>3.50 – 3.74</td><td>$16,000</td></tr></table>"""
+        r = next(iter(self.got(man).values()))['record']  # IN (Manchester): "and above" is a GPA band, not a stray row
+        self.assertEqual((len(r['award_tiers']), r['award_max']), (3, 21000))
+        andrews = """<title>Scholarships</title><h2>Partnership Scholarship</h2><table><tr><td>Prior to Fall 2023</td></tr><tr><th>GPA</th><th>ANNUAL AMOUNT</th></tr>
+<tr><td>3.50 and higher</td><td>$9,000</td></tr><tr><td>3.00 - 3.49</td><td>$7,000</td></tr><tr><td>2.50 - 2.99</td><td>$5,000</td></tr></table>"""
+        self.assertEqual(self.got(andrews.replace('<tr><td>Prior to Fall 2023</td></tr>', '').replace('<h2>Partnership Scholarship</h2>', '<h2>Prior to Fall 2023</h2>')), {})  # MI (Andrews): superseded amounts
+        cur = """<title>Scholarships</title><h2>Prior to Fall 2023</h2><table><tr><td>Current Amounts</td><td></td></tr><tr><td>GPA</td><td>ANNUAL AMOUNT</td></tr>
+<tr><td>3.90 to 4.00</td><td>$14,000</td></tr><tr><td>3.67 - 3.89</td><td>$12,000</td></tr><tr><td>3.50 - 3.66</td><td>$10,000</td></tr></table>"""
+        got = self.got(cur)  # "Current Amounts" above "GPA | ANNUAL AMOUNT" is a label row; the GPA bands are not award names
+        self.assertEqual(sorted(c['record'].get('award_amount_text') for c in got.values()), ['$10,000', '$12,000', '$14,000'])
+        self.assertFalse(any(n[:1].isdigit() for n in got))
+
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>
 <tr><th>Name</th><th>Amount (per year)*</th><th>GPA</th><th>SAT</th><th>ACT</th></tr>
