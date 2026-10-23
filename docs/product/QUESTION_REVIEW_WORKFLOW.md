@@ -19,8 +19,8 @@ that item's current content:
   wrote any version of it;
 - for an imported item, its rights check signed the item's exact current rights version.
 
-The ledger (`editorialLedger.ts`) and the candidate registry (`questionCandidates.ts`) enforce each condition above in
-code, each with a test. Eligibility is worked out from the registry's append-only history, so editing a summary field
+The ledger (`editorialLedger.ts`), the reviewer registry (`reviewerRegistry.ts`) and the candidate registry
+(`questionCandidates.ts`) enforce each condition above in code; the tests cover each rule listed in this document. Eligibility is worked out from the registry's append-only history, so editing a summary field
 (a status, a confirmer) doesn't make an item eligible.
 
 **Sampling is a process audit, not approval.** The content lead may re-check a random sample of passed items to test
@@ -32,15 +32,25 @@ applies it; it isn't automated): a failed sample reopens every item that reviewe
 Reviewers are entries in the **reviewer registry**, `web/src/lib/data/demo/reviewers.json` (`reviewerRegistry.ts`).
 - **Identity is the reviewer id.** Each person has a stable id (`rv-…`, never reused), the roles they may sign and who
   appointed them: the owner, or an active content lead. A sign-off counts only when its `reviewer_id` is an active entry
-  authorized for that stage. A revoked reviewer's sign-offs stop counting.
+  authorized for that stage, whose appointment chain reaches the owner through active content leads with no loop. A
+  revoked reviewer's sign-offs stop counting, and so do those of everyone they appointed (until re-appointed).
+- **One person, one id.** Two entries sharing a recorded name (ignoring case, accents and punctuation, but not word
+  order: "Li Wang" and "Wang Li" are two people) make the registry unusable until fixed, so one person can't be two
+  solvers. Two different people with the same name are recorded with each other's id in `distinct_from`, set by the
+  owner; nobody is asked to change their name. **A registry with any problem is not used: no sign-off counts.**
 - **Names are display only.** A sign-off's `by` and a reviewer's `display_name` are shown, never used to decide who
   someone is. Nobody is refused, or let through, for what their name looks like: a reviewer named "Claude Debussy" is
   entered like anyone else. Recorded `aliases` list the other names a person has used.
 - **Authors can't review their own items.** Authors are names in the import (`author`) or the ledger, so a reviewer
   whose display name or any alias matches an author name, ignoring case, accents, spacing, punctuation and word order,
-  counts as that author. This can only block a sign-off.
-- **Dates** must be real dates written YYYY-MM-DD and not in the future. They are a record; no rule depends on their
-  order.
+  counts as that author. This can only block a sign-off. Every author ever recorded stays excluded (authorship is
+  append-only). **Limitation:** this rests on names. An author recorded as "Jordan Smith" who is registered as "Jordy
+  Smith" with no alias is not caught; the content lead records each author's names as aliases of their registry entry.
+  Tying authors to reviewer ids would need a new import contract version (an owner decision).
+- **The sheet is not a signature.** `reviewer_id` is whatever the sheet says; whoever fills it in can type any id. The
+  content lead checks each sheet against the people who signed it. The registry only decides what a given id may sign.
+- **Dates** are a record; no rule depends on their order. A pass counts only with a real YYYY-MM-DD date no later than
+  tomorrow. A **fail always blocks**, whatever its date.
 
 | Role (registry) | Stages | Can't be |
 |---|---|---|
@@ -58,7 +68,7 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
 ## Steps for one batch
 
 1. **Issue packets.** From `web/`:
-   `npx vite-node scripts/local/editorialPackets.ts <out-dir> --ids <comma-separated ids> [--registry <candidates.json>]`
+   `npx vite-node scripts/local/editorialPackets.ts <out-dir> --ids <comma-separated ids> [--registry <candidates.json>] [--ledger <path>] [--reviewers <path>]`
    Without `--registry` the items come from the app's bank; with it, from an imported batch (the latest version of
    every candidate that isn't retired). This writes:
    - `blind-*.html` for solvers: no key, hints or explanations;
@@ -76,19 +86,26 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
    check.
 5. **Record.** `npx vite-node scripts/local/recordEditorial.ts <filled.csv> [--registry <candidates.json>]`. A row is
    refused, never guessed at, when:
-   - its reviewer id isn't active and authorized for the stage, or the reviewer is an author signing stage 4, 6 or 8;
+   - a **pass** comes from a reviewer id that isn't active and authorized for the stage, or from an author at stage 4,
+     6 or 8, or is a blind solve with no answer;
    - its hash isn't the current content, or a stage-3 row's `rights_hash` isn't the current rights version;
-   - its result isn't exactly `pass` or `fail`, or its date isn't YYYY-MM-DD;
-   - it's a blind solve with no answer.
+   - its result isn't exactly `pass` or `fail`, its date isn't YYYY-MM-DD (or is in the future), or `seconds` isn't a
+     whole number;
+   - it is partly filled in (only a completely blank template row is skipped);
+   - the reviewer registry has problems.
 
-   A newer row from the same reviewer replaces only their earlier **pass** for that stage and content. A recorded
-   **fail** is never removed or replaced: it stands until the item is revised.
-6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 4.
+   **One refused row and nothing is written**: fix the sheet and run again. A **fail** is recorded from anyone who is
+   named on the row, since it can only block. A newer row from the same reviewer replaces only their earlier **pass**
+   for that stage and content; a recorded fail is never removed or replaced: it stands until the item is revised.
+   For the app's bank, a stage-2 row adds an author (name in `note`). It needs an active content lead who isn't an
+   author, and the current hash; authors are only ever added.
+6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 3.
    This includes a key change: an earlier key, solve or approval never carries over to revised content.
    - A revision may not return to an earlier version's content; it is refused, so an old review can't revive.
-   - A change to the author, origin, license or source keeps the content hash but makes a new **rights version**
-     (`rights_hash`). A rights check counts only for the exact version it signed, so the earlier one stops counting and
-     a check of the new version counts as soon as it is recorded, the same day or any day.
+   - Every new version of an imported item has a new **rights version** (`rights_hash`: the version number, content,
+     author, origin, license and source). A rights check counts only for the exact version it signed, so an earlier
+     check never counts again, even if a revision returns to earlier rights claims; a check of the new version counts as
+     soon as it is recorded, the same day or any day. A stage-3 fail with no rights version recorded blocks.
 7. **Stage 8 and track.** The content lead approves each item individually, and confirms or changes its track:
    - a reserved item may move to practice;
    - a practice item never moves to reserved;

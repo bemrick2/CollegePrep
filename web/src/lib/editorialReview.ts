@@ -7,8 +7,8 @@
  */
 import type { FixtureQuestion } from './data/demo/fixtures'
 import { contentHash } from './data/demo/questionReview'
-import { AI_AUTHOR, editorialState, isIsoDate, STAGE_NAME, type Ledger, type SignOff, type Stage } from './data/demo/editorialLedger'
-import { authorized, isAuthor, STAGE_ROLE, type ReviewerRegistry } from './data/demo/reviewerRegistry'
+import { AI_AUTHOR, editorialState, isIsoDate, ledgerAuthors, STAGE_NAME, type Ledger, type SignOff, type Stage } from './data/demo/editorialLedger'
+import { authorized, isAuthor, registryProblems, STAGE_ROLE, type ReviewerRegistry } from './data/demo/reviewerRegistry'
 import { asQuestion, latest, rightsHash, type Registry, type Track } from './questionCandidates'
 
 export interface ReviewItem {
@@ -32,7 +32,7 @@ export function itemsFromBank(questions: FixtureQuestion[], reserved: Set<string
     question: q,
     track: reserved.has(q.id) ? 'assessment_candidate' : 'practice_candidate',
     content_hash: contentHash(q),
-    authors: [ledger.items[q.id]?.author ?? AI_AUTHOR],
+    authors: ledgerAuthors(ledger.items[q.id]),
     source: 'bank',
   }))
 }
@@ -156,11 +156,17 @@ export interface RecordResult {
 
 /**
  * Records filled-in sign-off rows. Returns a new ledger; the input isn't changed. A row is refused, never guessed at,
- * when its item, stage, reviewer, role, hash, rights version, date or result isn't exactly right.
+ * when its item, stage, reviewer, role, hash, rights version, date, result or seconds isn't exactly right. The
+ * recordEditorial script writes nothing when any row is refused.
  *
- * A newer row from the same reviewer for the same stage and the same content (and, at stage 3, the same rights
- * version) replaces that reviewer's earlier PASS. A recorded FAIL is never removed or replaced by any later row:
- * it stays until the item itself is revised.
+ * A PASS needs an active reviewer authorized for the stage who isn't an author (stages 4, 6, 8). A FAIL can only
+ * block, so it is recorded from anyone with a reviewer id or a name, as long as it names the current content.
+ * A newer row from the same reviewer for the same stage and content (and, at stage 3, rights version) replaces that
+ * reviewer's earlier PASS. A recorded FAIL is never removed or replaced by any later row: it stands until the item is
+ * revised.
+ *
+ * Stage 2 (app bank only) adds an author. It needs an active content lead who isn't an author, and the current hash;
+ * authors are append-only, so every author ever recorded stays excluded from stages 4, 6 and 8.
  */
 export function recordSignoffs(ledger: Ledger, items: ReviewItem[], rows: Record<string, string>[], reviewers: ReviewerRegistry, today: string, where = 'sheet'): RecordResult {
   const next: Ledger = JSON.parse(JSON.stringify(ledger))
@@ -168,6 +174,8 @@ export function recordSignoffs(ledger: Ledger, items: ReviewItem[], rows: Record
   const refused: string[] = []
   let added = 0
   const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10)
+  const registryBad = registryProblems(reviewers)
+  const FILLABLE = ['reviewer_id', 'by', 'date', 'result', 'answer', 'seconds', 'license', 'note'] as const
   rows.forEach((r, n) => {
     const at = `${where} row ${n + 2}`
     const id = r.id ?? ''
@@ -178,28 +186,41 @@ export function recordSignoffs(ledger: Ledger, items: ReviewItem[], rows: Record
     const refuse = (why: string) => refused.push(`${at} (${id || 'no id'}): ${why}`)
     if (!item) return refuse('unknown item, or not in this batch')
     if (![2, 3, 4, 5, 6, 7, 8].includes(stage) || !/^[2-8]$/.test(stageRaw)) return refuse(`bad stage "${stageRaw}"`)
-    if (!reviewerId && !r.result && !r.by) return // an unfilled template row
+    if (FILLABLE.every((k) => !(r[k] ?? '').trim())) return // an unfilled template row
+    if (registryBad.length) return refuse(`the reviewer registry has problems; nothing can be recorded: ${registryBad[0]}`)
+    if (r.hash !== item.content_hash) return refuse(`hash ${r.hash || '(blank)'} is not the current content (${item.content_hash}); re-issue the packet`)
+    const date = r.date || today
+    if (!isIsoDate(date) || date > tomorrow) return refuse(`date "${date}" must be YYYY-MM-DD and not in the future`)
+    // Authors as of this row: the item's, plus any recorded earlier in this same run (stage 2 is append-only).
+    const authorsNow = [...new Set([...item.authors, ...(next.items[id] ? ledgerAuthors(next.items[id]) : [])])]
+
     if (stage === 2) {
       // Authorship: for an imported item it comes from the import itself and isn't changed here.
       if (item.source === 'import') return refuse('an imported item’s author comes from the import, not the sign-off sheet')
-      if (!r.by) return refuse('stage 2 rows name the author in "by"')
+      if (!r.author?.trim() && !r.note?.trim()) return refuse('stage 2 rows give the author’s name in "note" (or an "author" column)')
+      const lead = authorized(reviewers, reviewerId, 'content_lead')
+      if (!lead) return refuse(`reviewer "${reviewerId}" is not an active content lead; only a content lead records authorship`)
+      if (isAuthor(lead, authorsNow)) return refuse(`${reviewerId} is an author of this item and can’t record its authorship`)
+      const name = (r.author?.trim() || r.note!.trim())
       const entry = (next.items[id] ??= { author: AI_AUTHOR, signoffs: [] })
-      entry.author = r.by
+      entry.authors = [...new Set([...ledgerAuthors(entry), name])]
+      entry.author = name
       added++
       return
     }
-    const role = STAGE_ROLE[stage as Exclude<Stage, 2>]
-    const reviewer = authorized(reviewers, reviewerId, role)
-    if (!reviewer) return refuse(`reviewer "${reviewerId}" is not an active reviewer authorized for ${role}`)
-    if ([4, 6, 8].includes(stage) && isAuthor(reviewer, item.authors)) return refuse(`${reviewerId} is an author of this item and can’t sign stage ${stage}`)
-    if (r.hash !== item.content_hash) return refuse(`hash ${r.hash || '(blank)'} is not the current content (${item.content_hash}); re-issue the packet`)
-    if (stage === 3 && item.rights_hash && r.rights_hash !== item.rights_hash) return refuse(`rights_hash ${r.rights_hash || '(blank)'} is not the current rights version (${item.rights_hash}); re-issue the packet`)
+
     const result = (r.result ?? '').toLowerCase()
     if (result !== 'pass' && result !== 'fail') return refuse(`result must be "pass" or "fail", not "${r.result ?? ''}"`)
-    const date = r.date || today
-    if (!isIsoDate(date) || date > tomorrow) return refuse(`date "${date}" must be YYYY-MM-DD and not in the future`)
-    if (stage === 4 && result === 'pass' && !r.answer) return refuse('a blind solve records the answer given')
-    const s: SignOff = { stage, reviewer_id: reviewer.id, by: r.by || reviewer.display_name, date, result, hash: item.content_hash }
+    if (stage === 3 && item.rights_hash && r.rights_hash !== item.rights_hash) return refuse(`rights_hash ${r.rights_hash || '(blank)'} is not the current rights version (${item.rights_hash}); re-issue the packet`)
+    if (r.seconds && !/^\d+$/.test(r.seconds)) return refuse(`seconds must be a whole number, not "${r.seconds}"`)
+    const role = STAGE_ROLE[stage as Exclude<Stage, 2>]
+    const reviewer = authorized(reviewers, reviewerId, role)
+    if (result === 'pass') {
+      if (!reviewer) return refuse(`reviewer "${reviewerId}" is not an active reviewer authorized for ${role}`)
+      if ([4, 6, 8].includes(stage) && isAuthor(reviewer, authorsNow)) return refuse(`${reviewerId} is an author of this item and can’t sign stage ${stage}`)
+      if (stage === 4 && !r.answer) return refuse('a blind solve records the answer given')
+    } else if (!reviewerId && !r.by) return refuse('a fail names who recorded it (reviewer_id or by)')
+    const s: SignOff = { stage, reviewer_id: reviewer?.id ?? reviewerId, by: r.by || reviewer?.display_name || reviewerId, date, result, hash: item.content_hash }
     if (stage === 3 && item.rights_hash) s.rights_hash = item.rights_hash
     if (r.answer) s.answer = r.answer
     if (r.seconds) s.seconds = Number(r.seconds)

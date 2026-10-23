@@ -5,6 +5,7 @@ import { IMPORT_CONTRACT, questionKey, type ImportedQuestion } from './questionI
 import * as QC from './questionCandidates'
 import { emptyRegistry, intake, latest, rightsHash, type Registry, type Track } from './questionCandidates'
 import { testId, testReviewers } from './data/demo/testReviewers'
+import { registryProblems } from './data/demo/reviewerRegistry'
 
 // TEST ONLY reviewers (testReviewers.ts). Tests name people by display name; the wrappers pass their stable test ids.
 const R = testReviewers()
@@ -389,16 +390,21 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
 
 
   it('identity comes from the registry: a registered reviewer under any name variant of the author is still the author', () => {
-    // Registered people whose display name or alias is a variant of the author's name.
-    const reviewers = testReviewers({
-      [testId('Sam Solver')]: { aliases: ['Writer, Jo'] },
-      [testId('Ana Solver')]: { display_name: 'JO  WRITER​' },
-      [testId('Kim Fair')]: { display_name: 'Jo-Writer (author)' },
-    })
     const reg = confirmedHuman()
-    const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), reviewers)
-    expect(e.eligible).toBe(false)
-    expect(e.problems).toContain('needs 2 more blind solve(s) by an authorized solver other than the author')
+    // Each registry has one reviewer whose display name or alias is a variant of the author's name (Jo's own entry removed).
+    const variants: [string, Partial<import('./data/demo/reviewerRegistry').Reviewer>][] = [
+      [testId('Sam Solver'), { aliases: ['Writer, Jo'] }],
+      [testId('Ana Solver'), { display_name: 'JO  WRITER\u200b' }],
+      [testId('Sam Solver'), { display_name: 'Jo-Writer (author)' }],
+    ]
+    for (const [who, patch] of variants) {
+      const reviewers = testReviewers({ [who]: patch })
+      delete reviewers.reviewers[testId('Jo Writer')]
+      expect(registryProblems(reviewers), JSON.stringify(patch)).toEqual([])
+      const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), reviewers)
+      expect(e.eligible, JSON.stringify(patch)).toBe(false)
+      expect(e.problems, JSON.stringify(patch)).toContain('needs 1 more blind solve(s) by an authorized solver other than the author')
+    }
     // Accents too.
     const acc = QC.setTrack(reg0([human({ author: 'Jose Writer' })]), id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R)
     expect(eligibility(acc.candidates[id]!, fullReview(acc, id, { 8: { by: 'José Writer' } })).eligible).toBe(false)
@@ -432,6 +438,44 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     const reg = confirmedHuman()
     const revoked = testReviewers({ [testId('Pat Lead')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'stepped down' } } })
     expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), revoked).problems).toContain(`track confirmed by ${testId('Pat Lead')}, who is not an active content lead`)
+  })
+
+  it('a revision back to earlier rights claims never revives the earlier rights pass, and needs its own check', () => {
+    let reg = confirmedHuman()
+    const l = fullReview(reg, id)
+    expect(eligibility(reg.candidates[id]!, l).eligible).toBe(true)
+    // v2: other rights claims, failed by the rights checker.
+    reg = intake(reg, [human({ license: 'licensed:acme', origin: 'licensed', source_attribution: 'Acme' })], 'v2.jsonl', AT, NOBANK).registry
+    const v2 = latest(reg.candidates[id]!)
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', v2.content_hash, { result: 'fail', note: 'copied', rights_hash: rightsHash(v2) }))
+    // v3: back to v1's exact rights claims.
+    reg = intake(reg, [human()], 'v3.jsonl', AT, NOBANK).registry
+    const c = reg.candidates[id]!
+    expect(c.versions).toHaveLength(3)
+    expect(rightsHash(latest(c))).not.toBe(rightsHash(c.versions[0]!))
+    expect(eligibility(c, l)).toMatchObject({ eligible: false })
+    expect(eligibility(c, l).problems.join(' ')).toMatch(/earlier rights version/)
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', latest(c).content_hash, { license: 'original', rights_hash: rightsHash(latest(c)) }))
+    expect(eligibility(c, l).eligible).toBe(true)
+  })
+
+  it('an author change can be re-reviewed to eligible: the new and every earlier author stay excluded', () => {
+    let reg = confirmedHuman()
+    reg = intake(reg, [human({ author: 'Ed Editor' })], 'v2.jsonl', AT, NOBANK).registry
+    const c = reg.candidates[id]!
+    const l = fullReview(reg, id)
+    l.items[id]!.author = 'Jo Writer' // a stale ledger field doesn't block the re-review
+    expect(eligibility(c, l).eligible).toBe(true)
+    // Jo (v1's author) still can't approve.
+    expect(eligibility(c, fullReview(reg, id, { 8: { by: 'Jo Writer' } })).eligible).toBe(false)
+  })
+
+  it('a registry with problems counts no solver for the answer key', () => {
+    const reg = confirmedHuman()
+    const c = reg.candidates[id]!
+    const twin = testReviewers({ [testId('Ana Solver')]: { aliases: ['Sam Solver'] } })
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), twin).verified).toBe(false)
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R).verified).toBe(true)
   })
 })
 

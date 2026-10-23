@@ -21,8 +21,8 @@
  */
 import type { FixtureQuestion } from './data/demo/fixtures'
 import { contentHash, cyrb53 } from './data/demo/questionReview'
-import { AI_AUTHOR, canonicalPerson as person, EDITORIAL_LEDGER, editorialState, type Ledger } from './data/demo/editorialLedger'
-import { authorized, isAuthor, REVIEWERS, type ReviewerRegistry } from './data/demo/reviewerRegistry'
+import { EDITORIAL_LEDGER, editorialState, type Ledger } from './data/demo/editorialLedger'
+import { authorized, isAuthor, registryProblems, REVIEWERS, samePerson, type Reviewer, type ReviewerRegistry } from './data/demo/reviewerRegistry'
 import { questionKey, type ImportedQuestion } from './questionImport'
 
 export type Track = 'practice_candidate' | 'assessment_candidate'
@@ -80,12 +80,13 @@ const recordHash = (item: ImportedQuestion) => cyrb53(canonicalJson(item))
 const authorNames = (c: Candidate) => [...new Set(c.versions.map((v) => v.item.author))]
 
 /**
- * The rights version a stage-3 check signs: the content hash plus author, origin, license, attribution and source.
- * Any change to those makes a new rights_hash, so an earlier rights check stops counting, and a check of the new
- * version counts as soon as it is recorded (no date comparison).
+ * The rights version a stage-3 check signs: the version number, the content hash, and author, origin, license,
+ * attribution and source. Every new version has a new rights_hash, so an earlier rights check never counts again, even
+ * when a revision returns to earlier rights claims; a check of the new version counts as soon as it is recorded
+ * (no date comparison).
  */
 export const rightsHash = (v: CandidateVersion) =>
-  cyrb53(canonicalJson({ content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) }))
+  cyrb53(canonicalJson({ version: v.version, content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) }))
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x))
 
 /** The question as the app and the ledger see it: the import line with its import_id as the id. */
@@ -252,18 +253,17 @@ export function answerKeyFor(c: Candidate, hash: string, ledger: Ledger = EDITOR
   if (!v) throw new Error(`${c.import_id}: no version has content ${hash}; a key is never attached to other content`)
   const authors = authorNames(c)
   const keys = v.item.accepted_answers.map((a) => a.trim().toLowerCase())
-  const solvers = new Set(
-    (ledger.items[c.import_id]?.signoffs ?? [])
-      .filter((s) => s.stage === 4 && s.result === 'pass' && s.hash === hash)
-      .filter((s) => {
-        const r = authorized(reviewers, s.reviewer_id, 'solver')
-        return !!r && !isAuthor(r, authors)
-      })
-      .filter((s) => keys.includes((s.answer ?? '').trim().toLowerCase()))
-      .map((s) => s.reviewer_id),
-  )
+  // Distinct people (entries sharing a recorded name are one person), and nothing counts against a broken registry.
+  const people: Reviewer[] = []
+  if (registryProblems(reviewers).length === 0)
+    for (const s of ledger.items[c.import_id]?.signoffs ?? []) {
+      if (s.stage !== 4 || s.result !== 'pass' || s.hash !== hash || !keys.includes((s.answer ?? '').trim().toLowerCase())) continue
+      const r = authorized(reviewers, s.reviewer_id, 'solver')
+      if (r && !isAuthor(r, authors) && !people.some((p) => samePerson(p, r))) people.push(r)
+    }
+  const solvers = people
   const prev = c.versions.filter((x) => x.version < v.version && x.content_hash !== hash && JSON.stringify(x.item.accepted_answers) === JSON.stringify(v.item.accepted_answers)).pop()
-  return { version: v.version, accepted_answers: [...v.item.accepted_answers], verified: solvers.size >= 2, ...(prev ? { carried_from: prev.version } : {}) }
+  return { version: v.version, accepted_answers: [...v.item.accepted_answers], verified: solvers.length >= 2, ...(prev ? { carried_from: prev.version } : {}) }
 }
 
 export interface Eligibility {
@@ -298,9 +298,9 @@ export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER, rev
     else if (isAuthor(lead, authors)) problems.push(`track confirmed by ${t.by}, who wrote a version of this item`)
   }
 
-  // The ledger's author is the import's author (not the AI default), so the author can't approve their own item.
+  // Authors come from the import (every version), not from the ledger entry, so an author change is reviewed against
+  // the new author and every earlier one, and never blocked by a stale ledger field.
   const entry = ledger.items[c.import_id]
-  if (entry && entry.author !== AI_AUTHOR && person(entry.author) !== person(v.item.author)) problems.push(`ledger author "${entry.author}" differs from the import author "${v.item.author}"`)
   const signoffs = entry?.signoffs ?? []
   // Every author of every version is excluded from stages 4, 6 and 8, and stage 3 must sign this exact rights version.
   const st = editorialState(q, { items: { [c.import_id]: { author: v.item.author, signoffs } } }, { reviewers, authors, rightsHash: rh })

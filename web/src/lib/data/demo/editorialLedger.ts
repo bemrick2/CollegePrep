@@ -1,7 +1,7 @@
 import type { FixtureQuestion } from './fixtures'
 import { contentHash } from './questionReview'
 import ledger from './editorialLedger.json'
-import { authorized, canonicalPerson, isAuthor, REVIEWERS, STAGE_ROLE, type ReviewerRegistry } from './reviewerRegistry'
+import { authorized, canonicalPerson, isAuthor, registryProblems, REVIEWERS, samePerson, STAGE_ROLE, type Reviewer, type ReviewerRegistry } from './reviewerRegistry'
 
 export { canonicalPerson }
 
@@ -55,6 +55,8 @@ export interface SignOff {
 export interface LedgerEntry {
   /** Who drafted the item: a person, or "AI (Claude)" for the existing bank. */
   author: string
+  /** Every author ever recorded for the item, append-only. Each stays excluded from stages 4, 6 and 8. */
+  authors?: string[]
   signoffs: SignOff[]
 }
 
@@ -89,27 +91,39 @@ export interface EditorialOptions {
   authors?: string[]
   /** When set, a rights check counts only if it signed exactly this rights version. */
   rightsHash?: string
+  /** Today (YYYY-MM-DD). A pass dated after tomorrow doesn't count. Default: the current date. */
+  today?: string
 }
+
+/** Every author name recorded for an item in the ledger: the current one and every earlier one. */
+export const ledgerAuthors = (entry: LedgerEntry | undefined) => [...new Set([...(entry?.authors ?? []), entry?.author ?? AI_AUTHOR])]
 
 export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGER, opts: EditorialOptions = {}): EditorialState {
   const reviewers = opts.reviewers ?? REVIEWERS
   const entry = rec.items[q.id]
-  const authors = opts.authors ?? [entry?.author ?? AI_AUTHOR]
+  const authors = [...new Set([...(opts.authors ?? []), ...ledgerAuthors(entry)])]
   const hash = contentHash(q)
   const all = entry?.signoffs ?? []
   const problems: string[] = []
   const stale = all.filter((s) => s.hash !== hash)
   if (stale.length) problems.push(`${stale.length} sign-off(s) were for earlier content and no longer count`)
-  for (const s of all) if (s.hash === hash && !isIsoDate(s.date)) problems.push(`stage ${s.stage}: date "${s.date}" is not YYYY-MM-DD and doesn't count`)
+  // A registry with any problem (a loop, a broken chain, one person under two ids) is not used: no pass counts.
+  const registryOk = registryProblems(reviewers).length === 0
+  if (!registryOk) problems.push('the reviewer registry has problems (see registryProblems); no sign-off counts until it is fixed')
+  const today = opts.today ?? new Date().toISOString().slice(0, 10)
+  const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10)
+  for (const s of all) if (s.hash === hash && !isIsoDate(s.date)) problems.push(`stage ${s.stage}: date "${s.date}" is not YYYY-MM-DD; a pass with it doesn't count`)
+  for (const s of all) if (s.hash === hash && isIsoDate(s.date) && s.date > tomorrow) problems.push(`stage ${s.stage}: dated ${s.date}, in the future; a pass with it doesn't count`)
 
-  // A pass counts only from an active reviewer authorized for that stage. A recorded FAIL on this content always
-  // blocks, whoever recorded it: fail-closed until the item is revised.
-  const current = all.filter((s) => s.hash === hash && isIsoDate(s.date))
-  const signer = (s: SignOff) => (s.stage === 2 ? null : authorized(reviewers, s.reviewer_id, STAGE_ROLE[s.stage as Exclude<Stage, 2>]))
+  // A pass counts only from an active reviewer authorized for that stage, with a valid date that isn't in the future.
+  // A recorded FAIL on this content always blocks, whoever recorded it and whatever its date: fail-closed until the
+  // item is revised. (Stage 3 of an imported item: a fail for a different rights version doesn't block this one.)
+  const current = all.filter((s) => s.hash === hash)
+  const signer = (s: SignOff): Reviewer | null => (s.stage === 2 || !registryOk ? null : authorized(reviewers, s.reviewer_id, STAGE_ROLE[s.stage as Exclude<Stage, 2>]))
   for (const s of current)
-    if (s.result === 'pass' && s.stage !== 2 && !signer(s))
+    if (s.result === 'pass' && s.stage !== 2 && registryOk && !signer(s))
       problems.push(`stage ${s.stage}: ${s.reviewer_id ? `reviewer ${s.reviewer_id}` : `"${s.by}" (no reviewer id)`} is not an active reviewer authorized for ${STAGE_ROLE[s.stage as Exclude<Stage, 2>]}; it doesn't count`)
-  const passes = (st: Stage) => current.filter((s) => s.stage === st && s.result === 'pass' && signer(s))
+  const passes = (st: Stage) => current.filter((s) => s.stage === st && s.result === 'pass' && isIsoDate(s.date) && s.date <= tomorrow && signer(s))
   const notAuthor = (s: SignOff) => !isAuthor(signer(s)!, authors)
 
   const checks: Record<Exclude<Stage, 2>, () => string | null> = {
@@ -120,8 +134,13 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
     },
     4: () => {
       const solves = passes(4).filter(notAuthor)
-      const people = new Set(solves.map((s) => s.reviewer_id))
-      if (people.size < 2) return `needs ${2 - people.size} more blind solve(s) by an authorized solver other than the author`
+      // Distinct people, not distinct ids: entries sharing any recorded name count as one person.
+      const people: Reviewer[] = []
+      for (const s of solves) {
+        const r = signer(s)!
+        if (!people.some((p) => samePerson(p, r))) people.push(r)
+      }
+      if (people.length < 2) return `needs ${2 - people.length} more blind solve(s) by an authorized solver other than the author`
       const wrong = solves.filter((s) => !q.accepted_answers.some((a) => a.trim().toLowerCase() === (s.answer ?? '').trim().toLowerCase()))
       return wrong.length ? `blind solve by ${wrong.map((s) => s.reviewer_id).join(', ')} did not match the key` : null
     },
@@ -132,7 +151,7 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
   }
   let passed: Stage = 2
   for (const st of [3, 4, 5, 6, 7, 8] as const) {
-    const failed = current.filter((s) => s.stage === st && s.result === 'fail' && (st !== 3 || opts.rightsHash === undefined || s.rights_hash === opts.rightsHash))
+    const failed = current.filter((s) => s.stage === st && s.result === 'fail' && (st !== 3 || opts.rightsHash === undefined || !s.rights_hash || s.rights_hash === opts.rightsHash))
     const why = failed.length ? `stage ${st} failed: ${failed.map((s) => s.note ?? s.reviewer_id ?? s.by).join('; ')}` : checks[st]()
     if (why) {
       problems.push(why)

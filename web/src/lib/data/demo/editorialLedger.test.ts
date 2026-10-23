@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './fixtures'
 import { contentHash, REVIEW_RECORD } from './questionReview'
 import { editorialState, type Ledger, type SignOff } from './editorialLedger'
-import { REVIEWERS, registryProblems, type ReviewerRegistry } from './reviewerRegistry'
+import { authorized, REVIEWERS, registryProblems, type ReviewerRegistry } from './reviewerRegistry'
 import { testId, testReviewers } from './testReviewers'
 
 const q = QUESTIONS[0]!
@@ -69,8 +69,9 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
 
   it('a lead appointed by a revoked or non-lead appointer does not count', () => {
     const viaBad = testReviewers({ [testId('Pat Lead')]: { appointed_by: testId('Ana Solver') } })
-    expect(registryProblems(viaBad).join(' ')).toMatch(/appointed_by must be "owner" or an active content lead/)
-    expect(state(full(), viaBad)).toMatchObject({ next: 8, humanApproved: false })
+    expect(registryProblems(viaBad).join(' ')).toMatch(/appointed_by must lead to "owner" through active content leads/)
+    // A registry with any problem counts no sign-off at all, so the item doesn't get past stage 3.
+    expect(state(full(), viaBad)).toMatchObject({ next: 3, humanApproved: false, problems: expect.arrayContaining([expect.stringMatching(/reviewer registry has problems/)]) })
   })
 
   it('an edit voids every earlier sign-off', () => {
@@ -131,4 +132,73 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
     l.items[q.id]!.signoffs[6] = so(8, 'Pat Lead', { date: 'Oct 8 2026' })
     expect(state(l)).toMatchObject({ next: 8, humanApproved: false })
   })
+
+  it('appointments must reach the owner through active leads: a loop or a revoked link anywhere above counts nothing', () => {
+    // A loop: two entries appoint each other, no owner anywhere.
+    const loop = testReviewers({ [testId('Pat Lead')]: { appointed_by: testId('Claude Debussy') }, [testId('Claude Debussy')]: { appointed_by: testId('Pat Lead') } })
+    expect(registryProblems(loop).join(' ')).toMatch(/lead to "owner" through active content leads, with no loop/)
+    expect(state(full(), loop)).toMatchObject({ humanApproved: false, problems: expect.arrayContaining([expect.stringMatching(/reviewer registry has problems/)]) })
+    // A broken chain: owner → Claude Debussy (lead) → Dana Author (lead) → Pat Lead (approver); then Claude is revoked.
+    const chain = testReviewers({ [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
+    expect(registryProblems(chain)).toEqual([])
+    expect(state(full(), chain)).toMatchObject({ humanApproved: true })
+    const broken = testReviewers({ [testId('Claude Debussy')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'left' } }, [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
+    expect(registryProblems(broken).join(' ')).toMatch(new RegExp(`${testId('Dana Author')}: appointed_by must lead to "owner"`))
+    expect(state(full(), broken)).toMatchObject({ humanApproved: false })
+  })
+
+  it('one person, one id: two entries sharing a name or alias make the registry unusable; two solves by one person count once', () => {
+    const twin = testReviewers({ [testId('Ana Solver')]: { display_name: 'Sam Solver' } })
+    expect(registryProblems(twin).join(' ')).toMatch(/shares a recorded name/)
+    expect(state(full(), twin)).toMatchObject({ humanApproved: false })
+    const alias = testReviewers({ [testId('Ana Solver')]: { aliases: ['S. Solver'] }, [testId('Sam Solver')]: { aliases: ['s solver'] } })
+    expect(registryProblems(alias).join(' ')).toMatch(/shares a recorded name/)
+    // Different real people are never merged by word order, and two people with one name are declared, not renamed.
+    expect(registryProblems(testReviewers({ [testId('Kim Fair')]: { display_name: 'Li Wang' }, [testId('Ed Copy')]: { display_name: 'Wang Li' } }))).toEqual([])
+    const sameName = testReviewers({ [testId('Ana Solver')]: { display_name: 'Maria Garcia' }, [testId('Sam Solver')]: { display_name: 'Maria Garcia' } })
+    expect(registryProblems(sameName).join(' ')).toMatch(/shares a recorded name/)
+    const declared = testReviewers({
+      [testId('Ana Solver')]: { display_name: 'Maria Garcia', distinct_from: [testId('Sam Solver')] },
+      [testId('Sam Solver')]: { display_name: 'Maria Garcia', distinct_from: [testId('Ana Solver')] },
+    })
+    expect(registryProblems(declared)).toEqual([])
+    expect(state(full(), declared)).toMatchObject({ humanApproved: true })
+  })
+
+  it('a recorded fail blocks whatever its date, and a pass dated in the future doesn’t count', () => {
+    const badDate = full()
+    badDate.items[q.id]!.signoffs.push(so(6, 'Kim Fair', { result: 'fail', date: '2026-10-32', note: 'bad date fail' }))
+    expect(state(badDate)).toMatchObject({ humanApproved: false, next: 6, problems: expect.arrayContaining(['stage 6 failed: bad date fail']) })
+    const future = full()
+    future.items[q.id]!.signoffs[6] = so(8, 'Pat Lead', { date: '2099-12-31' })
+    expect(state(future, R, { today: '2026-10-23' })).toMatchObject({ humanApproved: false, next: 8 })
+    expect(state(future, R, { today: '2099-12-31' })).toMatchObject({ humanApproved: true })
+  })
+
+  it('a stage-3 fail with no rights version recorded blocks; one for a different rights version does not', () => {
+    const l = full()
+    l.items[q.id]!.signoffs[0] = so(3, 'Lee Rights', { license: 'original', rights_hash: 'r2' })
+    l.items[q.id]!.signoffs.push(so(3, 'Lee Rights', { result: 'fail', note: 'no source on file' })) // no rights_hash
+    expect(state(l, R, { rightsHash: 'r2' })).toMatchObject({ humanApproved: false, next: 3 })
+    const other = full()
+    other.items[q.id]!.signoffs[0] = so(3, 'Lee Rights', { license: 'original', rights_hash: 'r2' })
+    other.items[q.id]!.signoffs.push(so(3, 'Lee Rights', { result: 'fail', note: 'v1 claim', rights_hash: 'r1' }))
+    expect(state(other, R, { rightsHash: 'r2' })).toMatchObject({ humanApproved: true })
+  })
+
+  it('every author ever recorded stays excluded: replacing the author does not let the earlier one approve', () => {
+    const l = full('Someone Else')
+    l.items[q.id]!.authors = ['Pat Lead', 'Someone Else']
+    expect(state(l)).toMatchObject({ next: 8, humanApproved: false })
+  })
+
+  it('authorized() alone refuses anyone below a revoked link or inside a loop', () => {
+    const broken = testReviewers({ [testId('Claude Debussy')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'left' } }, [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
+    expect(authorized(broken, testId('Pat Lead'), 'approver')).toBeNull()
+    const loop = testReviewers({ [testId('Pat Lead')]: { appointed_by: testId('Claude Debussy') }, [testId('Claude Debussy')]: { appointed_by: testId('Pat Lead') } })
+    expect(authorized(loop, testId('Pat Lead'), 'approver')).toBeNull()
+    const ok = testReviewers({ [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
+    expect(authorized(ok, testId('Pat Lead'), 'approver')?.id).toBe(testId('Pat Lead'))
+  })
 })
+

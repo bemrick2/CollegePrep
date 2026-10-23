@@ -196,3 +196,61 @@ describe('recording sign-offs: a recorded fail is never erased (regression, #276
     expect(fails(l, 3)).toHaveLength(1) // the old fail is still on record
   })
 })
+
+describe('recording sign-offs: review findings', () => {
+  const reg = batch(1)
+  const items = itemsFromRegistry(reg)
+  const it0 = items[0]!
+
+  it('a fail is recorded from anyone (it can only block), including an author’s own fairness fail', () => {
+    const stranger = recordSignoffs(EMPTY, items, [{ ...row(it0, 6, 'Kim Fair', { result: 'fail', note: 'flag' }), reviewer_id: 'rv-unknown' }], R, TODAY)
+    expect(stranger).toMatchObject({ added: 1, refused: [] })
+    const own = recordSignoffs(EMPTY, items, [row(it0, 6, 'Jo Writer', { result: 'fail', note: 'my own concern' })], R, TODAY)
+    expect(own).toMatchObject({ added: 1, refused: [] })
+    expect(stateOf(it0, own.ledger, R)).toMatchObject({ humanApproved: false })
+    // A fail still has to name the current content.
+    expect(recordSignoffs(EMPTY, items, [row(it0, 6, 'Kim Fair', { result: 'fail', hash: 'old' })], R, TODAY).refused.join(' ')).toMatch(/not the current content/)
+  })
+
+  it('a partly filled row is refused, not skipped; seconds must be a whole number', () => {
+    const partial = { id: it0.id, stage: '5', reviewer_id: '', by: '', date: '', result: '', hash: it0.content_hash, rights_hash: '', answer: '', seconds: '', license: '', note: 'looks fine' }
+    expect(recordSignoffs(EMPTY, items, [partial], R, TODAY).refused.join(' ')).toMatch(/result must be "pass" or "fail"/)
+    expect(recordSignoffs(EMPTY, items, [row(it0, 4, 'Sam Solver', { seconds: 'abc' })], R, TODAY).refused.join(' ')).toMatch(/seconds must be a whole number/)
+  })
+
+  it('nothing is recorded against a registry with problems', () => {
+    const twin = testReviewers({ [testId('Ana Solver')]: { display_name: 'Sam Solver' } })
+    const r = recordSignoffs(EMPTY, items, fullRows(it0), twin, TODAY)
+    expect(r.added).toBe(0)
+    expect(r.refused[0]).toMatch(/reviewer registry has problems/)
+  })
+})
+
+describe('recording authorship for the app’s bank (stage 2)', () => {
+  const bank = itemsFromBank(QUESTIONS.slice(0, 1), new Set(), EMPTY)
+  const b0 = bank[0]!
+  const author = (who: string, name: string, extra: Record<string, string> = {}) => ({ ...row(b0, 2, who), note: name, ...extra })
+
+  it('needs an active content lead who isn’t an author, and the current hash', () => {
+    expect(recordSignoffs(EMPTY, bank, [author('Ana Solver', 'Jo Writer')], R, TODAY).refused.join(' ')).toMatch(/not an active content lead/)
+    expect(recordSignoffs(EMPTY, bank, [{ ...author('Pat Lead', 'Jo Writer'), hash: 'old' }], R, TODAY).refused.join(' ')).toMatch(/not the current content/)
+    expect(recordSignoffs(EMPTY, bank, [{ ...author('Pat Lead', ''), note: '' }], R, TODAY).refused.join(' ')).toMatch(/author’s name/)
+    // A content lead who is an author can't record the item's authorship.
+    const jo = recordSignoffs(EMPTY, bank, [author('Pat Lead', 'Jo Writer')], R, TODAY).ledger
+    expect(recordSignoffs(jo, itemsFromBank(QUESTIONS.slice(0, 1), new Set(), jo), [author('Jo Writer', 'Someone Else')], R, TODAY).refused.join(' ')).toMatch(/is an author of this item and can’t record its authorship/)
+    const ok = recordSignoffs(EMPTY, bank, [author('Pat Lead', 'Jo Writer')], R, TODAY)
+    expect(ok).toMatchObject({ added: 1, refused: [] })
+    expect(ok.ledger.items[b0.id]).toMatchObject({ author: 'Jo Writer', authors: ['AI (Claude)', 'Jo Writer'] })
+  })
+
+  it('authors are append-only: renaming the author never lets the earlier one approve, even in the same run', () => {
+    const rows = [author('Pat Lead', 'Jo Writer'), author('Claude Debussy', 'Someone Else'), row(b0, 8, 'Jo Writer')]
+    const r = recordSignoffs(EMPTY, bank, rows, R, TODAY)
+    expect(r.ledger.items[b0.id]!.authors).toEqual(['AI (Claude)', 'Jo Writer', 'Someone Else'])
+    expect(r.refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 8/)
+    // And in the ledger state, Jo stays excluded.
+    const later = recordSignoffs(r.ledger, itemsFromBank(QUESTIONS.slice(0, 1), new Set(), r.ledger), [row(b0, 8, 'Jo Writer')], R, TODAY)
+    expect(later.refused.join(' ')).toMatch(/is an author/)
+  })
+})
+
