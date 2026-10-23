@@ -26,9 +26,15 @@ applies it; it isn't automated): a failed sample reopens every item that reviewe
 
 ## Roles
 
-Each sign-off names a person. Names are compared after removing case, spacing and invisible characters, so
-"Jo Writer" and "jo  writer" are one person. Obvious non-people (AI tools, roles, teams, placeholders) are refused, but
-that is a screen, not proof of identity: the content lead checks every name against the people actually reviewing.
+Each sign-off names a person.
+- **Name matching.** Names are compared ignoring case, spacing, punctuation, invisible characters, bracketed asides and
+  word order. "Jo Writer", "Jo-Writer." and "Writer, Jo" are one person.
+- **Refused names.** Names that mix Latin, Cyrillic or Greek letters are refused, and so are obvious non-people (AI
+  tools, roles, teams, placeholders).
+- **Not proof of identity.** This is a screen. Initials ("J. Writer") and other aliases still need the content lead to
+  check every name against the people actually reviewing.
+
+Dates must be written YYYY-MM-DD.
 
 | Role | Stages | Can't be |
 |---|---|---|
@@ -65,7 +71,7 @@ in code): a solver who has seen the review copy, with the key, can't solve that 
    This includes a key change: an earlier key, solve or approval never carries over to revised content.
    - A revision may not return to an earlier version's content; it is refused, so an old review can't revive.
    - A change to the author, origin, license or source keeps the content hash, but voids the rights check: stage 3
-     must be signed again after the date of the change.
+     must be signed again, dated the next day or later.
 7. **Stage 8 and track.** The content lead approves each item individually, and confirms or changes its track:
    - a reserved item may move to practice;
    - a practice item never moves to reserved;

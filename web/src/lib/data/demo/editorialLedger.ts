@@ -55,19 +55,52 @@ export const EDITORIAL_LEDGER = ledger as unknown as Ledger
 export const AI_AUTHOR = 'AI (Claude)'
 const ALLOWED_LICENSE = /^(original|public domain|federal|cc by(-sa)? \d)/i
 /**
- * One canonical form for comparing reviewer names: Unicode-normalized, invisible characters removed, spacing
- * collapsed, case folded. "Jo  Writer", "Jo Writer\u200b" and "jo writer" are the same person.
+ * One canonical form for comparing reviewer names, so variants of one name count as one person: Unicode-normalized,
+ * invisible characters and bracketed asides removed, punctuation ignored, case folded, and word order ignored.
+ * "Jo  Writer", "Jo Writer.", "Jo-Writer", "Writer, Jo" and "Jo Writer (author)" are all "jo writer". This errs toward
+ * merging names, which can only block a sign-off, never let an author through. Look-alike letters from another script
+ * are refused by isNotAPerson. Initials ("J. Writer") still need the content lead's check against the reviewer list.
  */
-export const canonicalPerson = (s: string) => s.normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/g, ' ').trim().toLowerCase()
+export const canonicalPerson = (s: string) =>
+  s
+    .normalize('NFKC')
+    .replace(/\p{Cf}/gu, '')
+    .replace(/\([^)]*\)|\[[^\]]*\]/g, ' ')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean)
+    .sort()
+    .join(' ')
+
+/** Whole names that are a tool, a role or a placeholder, not a person. */
+const NOT_A_PERSON_WHOLE = new Set([
+  'ai', 'a i', 'claude', 'anthropic', 'gpt', 'chatgpt', 'openai', 'gemini', 'bard', 'copilot', 'llama', 'mistral', 'opus', 'sonnet', 'haiku',
+  'assistant', 'bot', 'llm', 'model', 'system', 'team', 'staff', 'reviewer', 'solver', 'auditor', 'lead', 'content lead', 'editor', 'author',
+  'admin', 'tbd', 'todo', 'unknown', 'na', 'n a', 'none', 'anonymous', 'anon', 'test', 'intake', 'the content lead', 'the reviewer', 'the team',
+])
+/** First words that only a tool or a group uses ("Claude Opus", "GPT 5", "Team Rights"). */
+const NOT_A_PERSON_FIRST = /^(claude|anthropic|chatgpt|gpt|openai|gemini|copilot|assistant|llm|team|the)\b/
+const SCRIPTS = [/\p{Script=Latin}/u, /\p{Script=Cyrillic}/u, /\p{Script=Greek}/u]
 /**
- * A screen, not proof of identity: refuses obvious non-people (AI tools, roles, teams, placeholders). The content lead
- * still checks every name against the people actually doing the review.
+ * A screen, not proof of identity: refuses obvious non-people (AI tools, roles, teams, placeholders) and names mixing
+ * Latin, Cyrillic or Greek letters (look-alike spoofs). Real names such as "Ai Nguyen" or "Na Young Kim" pass. The
+ * content lead still checks every name against the people actually doing the review.
  */
-const NOT_A_PERSON_RE =
-  /^(the )?(ai|a i|claude|anthropic|gpt|chatgpt|openai|gemini|bard|copilot|llama|mistral|opus|sonnet|haiku|assistant|bot|llm|model|system|team|staff|reviewer|solver|auditor|content lead|lead|editor|author|admin|tbd|todo|unknown|n a|na|none|anonymous|anon|test|intake)\b/
 export const isNotAPerson = (s: string) => {
-  const c = canonicalPerson(s).replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim()
-  return !c || /^ai\b|^ai:/.test(canonicalPerson(s)) || NOT_A_PERSON_RE.test(c.replace(/\b(\w) (?=\w\b)/g, '$1'))
+  const raw = s.normalize('NFKC').replace(/\p{Cf}/gu, '').trim()
+  if (/^ai\s*:/i.test(raw) || /^ai\s*\(/i.test(raw)) return true
+  if (SCRIPTS.filter((re) => re.test(raw)).length > 1) return true
+  const inOrder = raw.toLowerCase().replace(/\([^)]*\)|\[[^\]]*\]/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
+  return !inOrder || NOT_A_PERSON_WHOLE.has(inOrder) || NOT_A_PERSON_WHOLE.has(inOrder.replace(/ /g, '')) || NOT_A_PERSON_FIRST.test(inOrder)
+}
+
+/** A sign-off date must be a real calendar date written YYYY-MM-DD; anything else doesn't count. */
+export const isIsoDate = (d: string) => {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return false
+  const t = new Date(`${d}T00:00:00Z`)
+  return !Number.isNaN(t.getTime()) && t.toISOString().slice(0, 10) === d
 }
 
 export interface EditorialState {
@@ -87,9 +120,10 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
   const all = entry?.signoffs ?? []
   const problems: string[] = []
   for (const s of all) if (isNotAPerson(s.by)) problems.push(`stage ${s.stage}: "${s.by}" is not a named person`)
+  for (const s of all) if (!isIsoDate(s.date)) problems.push(`stage ${s.stage}: date "${s.date}" is not YYYY-MM-DD and doesn't count`)
   const stale = all.filter((s) => s.hash !== hash)
   if (stale.length) problems.push(`${stale.length} sign-off(s) were for earlier content and no longer count`)
-  const current = all.filter((s) => s.hash === hash && !isNotAPerson(s.by))
+  const current = all.filter((s) => s.hash === hash && !isNotAPerson(s.by) && isIsoDate(s.date))
   const at = (st: Stage) => current.filter((s) => s.stage === st)
   const person = canonicalPerson
   const notAuthor = (s: SignOff) => person(s.by) !== person(author)

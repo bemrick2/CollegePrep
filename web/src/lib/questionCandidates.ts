@@ -21,7 +21,7 @@
  */
 import type { FixtureQuestion } from './data/demo/fixtures'
 import { contentHash, cyrb53 } from './data/demo/questionReview'
-import { AI_AUTHOR, canonicalPerson as person, EDITORIAL_LEDGER, editorialState, isNotAPerson, type Ledger } from './data/demo/editorialLedger'
+import { AI_AUTHOR, canonicalPerson as person, EDITORIAL_LEDGER, editorialState, isIsoDate, isNotAPerson, type Ledger } from './data/demo/editorialLedger'
 import { questionKey, type ImportedQuestion } from './questionImport'
 
 export type Track = 'practice_candidate' | 'assessment_candidate'
@@ -70,8 +70,12 @@ export const emptyRegistry = (): Registry => ({ contract: 'question_candidates/v
 const trackOf = (pool: ImportedQuestion['requested_pool']): Track => (pool === 'assessment' ? 'assessment_candidate' : 'practice_candidate')
 /** Who may claim rights and authorship: any change here voids the rights check (stage 3). */
 const RIGHTS_FIELDS = ['author', 'origin', 'license', 'source_attribution', 'source_url'] as const
-const sorted = (o: object) => JSON.stringify(o, Object.keys(o).sort())
-const recordHash = (item: ImportedQuestion) => cyrb53(sorted(item) + JSON.stringify(item))
+/** JSON with object keys sorted at every depth, so key order never makes a new version. */
+const canonicalJson = (v: unknown): string =>
+  Array.isArray(v) ? `[${v.map(canonicalJson).join(',')}]` : v && typeof v === 'object'
+    ? `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${canonicalJson((v as Record<string, unknown>)[k])}`).join(',')}}`
+    : JSON.stringify(v ?? null)
+const recordHash = (item: ImportedQuestion) => cyrb53(canonicalJson(item))
 const authorsOf = (c: Candidate) => new Set(c.versions.map((v) => person(v.item.author)))
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x))
 
@@ -105,7 +109,10 @@ export function intake(reg: Registry, items: ImportedQuestion[], batch: string, 
   // Every question any candidate has ever been (every version, retired candidates included), plus the bank.
   const owner = new Map<string, string>()
   for (const [k, id] of bankKeys) owner.set(k, `bank:${id}`)
-  for (const c of Object.values(next.candidates)) for (const v of c.versions) if (!owner.has(questionKey(v.item))) owner.set(questionKey(v.item), c.import_id)
+  // The bank first, then live candidates, then retired ones: a question is attributed to its live owner, never to a
+  // retired duplicate of it (whatever order the registry lists them in).
+  const byLiveness = Object.values(next.candidates).sort((a, b) => Number(isRetired(a)) - Number(isRetired(b)))
+  for (const c of byLiveness) for (const v of c.versions) if (!owner.has(questionKey(v.item))) owner.set(questionKey(v.item), c.import_id)
 
   for (const raw of items) {
     const item = clone(raw)
@@ -180,7 +187,9 @@ export function intake(reg: Registry, items: ImportedQuestion[], batch: string, 
   return { registry: next, result }
 }
 
-const isRetired = (c: Candidate) => c.status === 'retired' || c.history.some((h) => h.event === 'retired')
+function isRetired(c: Candidate) {
+  return c.status === 'retired' || c.history.some((h) => h.event === 'retired')
+}
 const lastTrackSet = (c: Candidate) => c.history.filter((h): h is Extract<HistoryEvent, { event: 'track_set' }> => h.event === 'track_set').pop()
 
 /**
@@ -280,8 +289,8 @@ export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER): El
 
   // A change to the rights basis or author keeps the content hash, so the rights check must be signed again after it.
   const rightsChange = c.history.filter((h) => h.event === 'revised' && h.rights_changed).pop()
-  if (rightsChange && !signoffs.some((s) => s.stage === 3 && s.result === 'pass' && s.hash === v.content_hash && !isNotAPerson(s.by) && s.date > rightsChange.at))
-    problems.push(`rights or authorship changed on ${rightsChange.at}; stage 3 must be signed again after that date`)
+  if (rightsChange && !signoffs.some((s) => s.stage === 3 && s.result === 'pass' && s.hash === v.content_hash && !isNotAPerson(s.by) && isIsoDate(s.date) && s.date > rightsChange.at))
+    problems.push(`rights or authorship changed on ${rightsChange.at}; stage 3 must be signed again, dated the next day or later`)
 
   // Anyone who wrote any version is not independent: their solve isn't blind, and they can't pass stages 6 or 8.
   const own = signoffs.filter((s) => s.hash === v.content_hash && [4, 6, 8].includes(s.stage) && authors.has(person(s.by)))

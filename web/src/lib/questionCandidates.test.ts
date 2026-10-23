@@ -350,4 +350,61 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     expect(() => retire(reg, id, 'Pat Lead', 'dup', AT, id)).toThrow(/not another candidate/)
     expect(() => retire(retire(reg, id, 'Pat Lead', 'x', AT), id, 'Pat Lead', 'again', AT)).toThrow(/already retired/)
   })
+
+  it('punctuation, word order and asides do not make the author someone else, or one solver two', () => {
+    const reg = confirmedHuman()
+    const h = latest(reg.candidates[id]!).content_hash
+    const key = latest(reg.candidates[id]!).item.accepted_answers[0]!
+    const l = fullReview(reg, id, { 8: { by: 'Writer, Jo' } })
+    l.items[id]!.signoffs = l.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(
+      { stage: 4, by: 'Jo Writer.', date: AT, result: 'pass', hash: h, answer: key },
+      { stage: 4, by: 'Jo-Writer (author)', date: AT, result: 'pass', hash: h, answer: key },
+    )
+    expect(eligibility(reg.candidates[id]!, l).eligible).toBe(false)
+    const one = fullReview(reg, id)
+    one.items[id]!.signoffs = one.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(
+      { stage: 4, by: 'Sam Solver', date: AT, result: 'pass', hash: h, answer: key },
+      { stage: 4, by: 'Sam Solver.', date: AT, result: 'pass', hash: h, answer: key },
+    )
+    expect(answerKeyFor(reg.candidates[id]!, h, one).verified).toBe(false)
+  })
+
+  it('a look-alike letter from another script is refused; real names like Ai Nguyen are accepted', () => {
+    expect(() => setTrack(reg0([human()]), id, 'practice_candidate', 'Jо Writer', 'r', AT, NONE)).toThrow(/not a named person/)
+    for (const n of ['Ai Nguyen', 'Na Young Kim', 'Bard Larsen', 'Lead Belly']) expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE)).not.toThrow()
+  })
+
+  it('the rights re-sign needs a real YYYY-MM-DD date after the change', () => {
+    let reg = confirmedHuman()
+    const l = fullReview(reg, id)
+    reg = intake(reg, [human({ source_url: 'https://example.org/source' })], 'v2.jsonl', '2026-10-24', NOBANK).registry
+    const c = reg.candidates[id]!
+    const resign = (date: string) => {
+      const x: Ledger = JSON.parse(JSON.stringify(l))
+      x.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date, result: 'pass', hash: latest(c).content_hash, license: 'original' })
+      return eligibility(c, x).eligible
+    }
+    expect(resign('Oct 20 2026')).toBe(false)
+    expect(resign('2026-13-40')).toBe(false)
+    expect(resign('2026-10-24')).toBe(false)
+    expect(resign('2026-10-25')).toBe(true)
+  })
+
+  it('a question is owned by its live candidate, not a retired duplicate listed first', () => {
+    let reg = reg0([imp(0)])
+    reg = intake(reg, [{ ...imp(0), import_id: '100' }], 'b.jsonl', AT, NOBANK).registry
+    expect(Object.keys(reg.candidates)[0]).toBe('100') // integer-like keys list first
+    const rev = intake(reg, [imp(0, { teaching_explanation: 'Clearer.' })], 'c.jsonl', AT, NOBANK)
+    expect(rev.result.revised).toEqual([id])
+    const dup = intake(reg, [{ ...imp(0), import_id: 'wk-dup-3' }], 'd.jsonl', AT, NOBANK)
+    expect(dup.result.retired).toEqual([{ import_id: 'wk-dup-3', duplicate_of: id }])
+  })
+
+  it('the same line with its keys in another order is unchanged, not a new version', () => {
+    const reg = reg0([imp(0)])
+    const reordered = Object.fromEntries(Object.entries(imp(0)).reverse()) as unknown as ImportedQuestion
+    expect(intake(reg, [reordered], 'b.jsonl', AT, NOBANK).result.unchanged).toEqual([id])
+    expect(intake(reg, [imp(0, { choices: imp(0).choices.map((c) => ({ text: c.text, key: c.key }) as typeof c) })], 'b.jsonl', AT, NOBANK).result.unchanged).toEqual([id])
+  })
 })
+
