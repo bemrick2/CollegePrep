@@ -13,10 +13,18 @@ import { questionKey, validateImport, type ImportedQuestion } from '../src/lib/q
 import { emptyRegistry, intake, summary, type Registry } from '../src/lib/questionCandidates'
 
 const args = process.argv.slice(2)
-const batch = args[0]
-const regPath = args[args.indexOf('--registry') + 1]
-const write = args.includes('--write')
-if (!batch || args.indexOf('--registry') < 0 || !regPath || regPath.startsWith('--')) {
+let batch: string | undefined
+let regPath: string | undefined
+let write = false
+let badArgs = false
+for (let i = 0; i < args.length; i++) {
+  const a = args[i]!
+  if (a === '--write') write = true
+  else if (a === '--registry' && args[i + 1] && !args[i + 1]!.startsWith('-')) regPath = args[++i]
+  else if (!a.startsWith('-') && !batch) batch = a
+  else badArgs = true
+}
+if (badArgs || !batch || !regPath) {
   console.error('usage: intakeQuestionBatch.ts <batch.jsonl> --registry <candidates.json> [--write]')
   process.exit(2)
 }
@@ -42,7 +50,10 @@ if (problems.length || bad) {
 }
 
 const reg: Registry = existsSync(regPath) ? JSON.parse(readFileSync(regPath, 'utf8')) : emptyRegistry()
-if (reg.contract !== 'question_candidates/v1') throw new Error(`${regPath} is not a question_candidates/v1 registry`)
+if (reg.contract !== 'question_candidates/v1' || typeof reg.candidates !== 'object' || reg.candidates === null) throw new Error(`${regPath} is not a question_candidates/v1 registry`)
+for (const [id, c] of Object.entries(reg.candidates))
+  if (c.import_id !== id || !Array.isArray(c.versions) || !c.versions.length || !Array.isArray(c.history) || c.versions.some((v) => !v.content_hash || !v.record_hash || !v.item))
+    throw new Error(`${regPath}: candidate ${id} is malformed; nothing recorded`)
 const bank = new Map(QUESTIONS.map((q) => [questionKey(q), q.id]))
 const { registry, result } = intake(reg, items as ImportedQuestion[], basename(batch), new Date().toISOString().slice(0, 10), bank)
 

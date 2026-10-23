@@ -16,16 +16,19 @@ that item's current content:
 - it isn't retired;
 - its answer key was matched by two blind solves of that content, by people who never wrote any version of it.
 
-The ledger (`editorialLedger.ts`) and the candidate registry (`questionCandidates.ts`) enforce this, and the tests
-fail if any step is skipped.
+The ledger (`editorialLedger.ts`) and the candidate registry (`questionCandidates.ts`) enforce each condition above in
+code, each with a test. Eligibility is worked out from the registry's append-only history, so editing a summary field
+(a status, a confirmer) doesn't make an item eligible.
 
 **Sampling is a process audit, not approval.** The content lead may re-check a random sample of passed items to test
-the reviewers. A clean sample says the process works. It never makes an unsampled item eligible. A failed sample
-reopens every item that reviewer signed off.
+the reviewers. A clean sample says the process works. It never makes an unsampled item eligible. Process rule (the content lead
+applies it; it isn't automated): a failed sample reopens every item that reviewer signed off.
 
 ## Roles
 
-Each person is named; a role, a team or "AI" is refused.
+Each sign-off names a person. Names are compared after removing case, spacing and invisible characters, so
+"Jo Writer" and "jo  writer" are one person. Obvious non-people (AI tools, roles, teams, placeholders) are refused, but
+that is a screen, not proof of identity: the content lead checks every name against the people actually reviewing.
 
 | Role | Stages | Can't be |
 |---|---|---|
@@ -36,8 +39,8 @@ Each person is named; a role, a team or "AI" is refused.
 | Copy and accessibility editor | 7 | — |
 | Content lead (approver; confirms tracks) | 8 | an author |
 
-One person may hold several roles, except that the two solvers must be different people. A solver who has seen the
-review copy (with the key) can't solve that item.
+One person may hold several roles, except that the two solvers must be different people. Process rule (not enforced
+in code): a solver who has seen the review copy, with the key, can't solve that item.
 
 ## Steps for one batch
 
@@ -60,6 +63,9 @@ review copy (with the key) can't solve that item.
    content is refused, so a sign-off can't attach to text nobody saw.
 6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 4.
    This includes a key change: an earlier key, solve or approval never carries over to revised content.
+   - A revision may not return to an earlier version's content; it is refused, so an old review can't revive.
+   - A change to the author, origin, license or source keeps the content hash, but voids the rights check: stage 3
+     must be signed again after the date of the change.
 7. **Stage 8 and track.** The content lead approves each item individually, and confirms or changes its track:
    - a reserved item may move to practice;
    - a practice item never moves to reserved;
@@ -74,8 +80,11 @@ review copy (with the key) can't solve that item.
 - **What gets recorded:**
   - a new item is a draft on its requested track, unconfirmed;
   - a changed item is a new version, and every earlier version and the history are kept;
-  - a duplicate of the app's bank or of an earlier bank is kept as **retired**, with `duplicate_of`. It is never deleted
-    and never eligible.
+  - a duplicate of the app's bank, or of any version of any earlier candidate (retired ones included), is kept as
+    **retired**, with `duplicate_of`. It is never deleted and never eligible;
+  - a revision that duplicates another item, returns to an earlier version or changes a retired item is refused and
+    noted in the history;
+  - an `import_id` that is already a bank question's id is refused.
 - **Dry run by default.** Without `--write`, no file changes.
 
 **Gap:** `editorialPackets.ts` and `recordEditorial.ts` read only the app's fixture bank. They must read the candidate

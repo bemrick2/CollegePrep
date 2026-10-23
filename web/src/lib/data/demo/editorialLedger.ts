@@ -54,7 +54,21 @@ export interface Ledger {
 export const EDITORIAL_LEDGER = ledger as unknown as Ledger
 export const AI_AUTHOR = 'AI (Claude)'
 const ALLOWED_LICENSE = /^(original|public domain|federal|cc by(-sa)? \d)/i
-const NOT_A_PERSON = /^(ai\b|claude|gpt|model|team|reviewer|content lead|editor|tbd|unknown)/i
+/**
+ * One canonical form for comparing reviewer names: Unicode-normalized, invisible characters removed, spacing
+ * collapsed, case folded. "Jo  Writer", "Jo Writer\u200b" and "jo writer" are the same person.
+ */
+export const canonicalPerson = (s: string) => s.normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/g, ' ').trim().toLowerCase()
+/**
+ * A screen, not proof of identity: refuses obvious non-people (AI tools, roles, teams, placeholders). The content lead
+ * still checks every name against the people actually doing the review.
+ */
+const NOT_A_PERSON_RE =
+  /^(the )?(ai|a i|claude|anthropic|gpt|chatgpt|openai|gemini|bard|copilot|llama|mistral|opus|sonnet|haiku|assistant|bot|llm|model|system|team|staff|reviewer|solver|auditor|content lead|lead|editor|author|admin|tbd|todo|unknown|n a|na|none|anonymous|anon|test|intake)\b/
+export const isNotAPerson = (s: string) => {
+  const c = canonicalPerson(s).replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim()
+  return !c || /^ai\b|^ai:/.test(canonicalPerson(s)) || NOT_A_PERSON_RE.test(c.replace(/\b(\w) (?=\w\b)/g, '$1'))
+}
 
 export interface EditorialState {
   /** The last stage passed in order (2 = drafted only). */
@@ -72,12 +86,12 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
   const hash = contentHash(q)
   const all = entry?.signoffs ?? []
   const problems: string[] = []
-  for (const s of all) if (NOT_A_PERSON.test(s.by.trim())) problems.push(`stage ${s.stage}: "${s.by}" is not a named person`)
+  for (const s of all) if (isNotAPerson(s.by)) problems.push(`stage ${s.stage}: "${s.by}" is not a named person`)
   const stale = all.filter((s) => s.hash !== hash)
   if (stale.length) problems.push(`${stale.length} sign-off(s) were for earlier content and no longer count`)
-  const current = all.filter((s) => s.hash === hash && !NOT_A_PERSON.test(s.by.trim()))
+  const current = all.filter((s) => s.hash === hash && !isNotAPerson(s.by))
   const at = (st: Stage) => current.filter((s) => s.stage === st)
-  const person = (s: string) => s.trim().toLowerCase()
+  const person = canonicalPerson
   const notAuthor = (s: SignOff) => person(s.by) !== person(author)
 
   const checks: Record<Exclude<Stage, 2>, () => string | null> = {

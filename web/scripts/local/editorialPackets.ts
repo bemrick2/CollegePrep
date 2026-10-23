@@ -14,10 +14,14 @@ import { practiceExclusions } from '../../src/lib/engine/freshness'
 import { contentHash } from '../../src/lib/data/demo/questionReview'
 import { editorialState, STAGE_NAME } from '../../src/lib/data/demo/editorialLedger'
 
-const out = process.argv[2]
-if (!out || out.startsWith('--')) throw new Error('usage: editorialPackets.ts <out-dir> [--ids id1,id2,...]')
-const idsArg = process.argv.indexOf('--ids')
-const wanted = idsArg > 0 ? (process.argv[idsArg + 1] ?? '').split(',').map((s) => s.trim()).filter(Boolean) : null
+// Strict arguments: an unrecognised flag (e.g. "--ids=a,b" or a typo) must never fall back to every item.
+const argv = process.argv.slice(2)
+const out = argv[0]
+const usage = 'usage: editorialPackets.ts <out-dir> [--ids id1,id2,...]'
+if (!out || out.startsWith('-')) throw new Error(usage)
+const rest = argv.slice(1)
+if (!(rest.length === 0 || (rest.length === 2 && rest[0] === '--ids'))) throw new Error(`unrecognised arguments: ${rest.join(' ')}. ${usage}`)
+const wanted = rest.length ? rest[1]!.split(',').map((s) => s.trim()).filter(Boolean) : null
 if (wanted) {
   const unknown = wanted.filter((id) => !ALL.some((q) => q.id === id))
   if (unknown.length || !wanted.length) throw new Error(`unknown or missing ids: ${unknown.join(', ') || '(none given)'}`)
