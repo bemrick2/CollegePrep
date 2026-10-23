@@ -111,8 +111,6 @@ def page_year_statement(page, today_year=None):
             if verb.startswith(('begin', 'start')) and not re.search(r'(?:freshm[ae]n|students?|first[- ]years?|class)\W{0,2}\s+(?:who\s+(?:are\s+)?)?$', s[:m.start()], re.I):
                 continue  # TX (LCU): "(1280 beginning Fall 2023)" is when a threshold changed; "freshmen beginning in Fall 2027" enter
             if CHANGE_BEFORE.search(s[:m.start()]): continue
-            if m.group(2) and today_year and T.academic_year(int(m.group(2))) < today_year:
-                continue  # LA (Louisiana Tech): "Category A (effective Fall 2023)" is when a rule began; it is still in force
             term.add(T.academic_year(int(m.group(1) or m.group(2))))
     if len(aid) == 1: return next(iter(aid)), 'labeled_in_source'
     if not aid and len(term) == 1: return next(iter(term)), 'labeled_entering_class'
@@ -641,7 +639,7 @@ GENERIC_HEADING = re.compile(r'\s*(?:qualifications?|eligibility(?:\s+(?:criteri
                              r'amounts?|award\s+grid|scholarship\s+grid|merit\s+scholarship\s+grid|merit\s+scholarship\s+tiers)\s*:?\s*', re.I)
 GPA_BAND_HEADER = re.compile(r'(?:\bgpa\b[^|]*\d\.\d|\d\.\d[^|]*\bgpa\b|^\s*(?:gpa\s*)?[<>≥≤=]?\s*\d\.\d{1,3}\s*(?:\+|[-–]\s*\d\.\d{1,3}|&\s*higher|and\s+(?:above|higher))?\s*$)', re.I)
 RANK_HEADER = re.compile(r'\btop\s+\d{1,2}\s*%', re.I)
-SCORE_LABEL = re.compile(r'\b(?:act|sat|clt|test|scores?)\b', re.I)
+SCORE_LABEL = re.compile(r'\b(?:act|sat|clt|psat)\b', re.I)  # never GRE, LSAT, MCAT, GMAT grids (graduate and professional tests)
 SCORE_BAND = re.compile(r'\d{2}|\bno\s+(?:test|score)|without\s+(?:a\s+)?(?:test|score)|submitted\s+scores|test[\s-]*optional', re.I)
 
 
@@ -665,7 +663,9 @@ def _score_row_grid(t, header, body, context, page=None):
         for i in lead:
             c, h = r[i].strip(), header[i].strip()
             if not c: continue
-            parts.append(c if re.search(r'\b(?:act|sat|clt)\b', c, re.I) or not re.fullmatch(r'(?i)act|sat|clt', h) else f'{h.upper()} {c}')
+            names = {x.upper() for x in re.findall(r'(?i)\b(act|sat|clt|psat)\b', h)}
+            # NJ (William Paterson): "SAT Score" over "1130 - 1600" reads "SAT 1130 - 1600"; "no test score" is never prefixed
+            parts.append(f'{next(iter(names))} {c}' if len(names) == 1 and re.search(r'\d', c) and not re.search(r'(?i)\b(?:act|sat|clt|psat)\b', c) else c)
         label = ' / '.join(parts)
         for i in crit:
             c = r[i].strip()
@@ -709,11 +709,12 @@ def extract(inst, entry, page, today_year):
         return []
     if NOT_MERIT_PAGE.search(page.title + ' ' + entry.get('url', '')): return []
     if re.search(r'(?:^|[-–|:]\s*)loans?\s*$', page.title, re.I): return []  # WI (UW-Platteville): a loans page's borrowing limits
-    if re.search(r'transfer', entry.get('url', '') + ' ' + page.title, re.I) and not re.search(r'freshm[ae]n|first[- ]year', page.title, re.I):
+    if re.search(r'transfer', entry.get('url', '') + ' ' + page.title, re.I) and (not re.search(r'freshm[ae]n|first[- ]year', page.title, re.I)
+                                                                                  or re.match(r'\s*transfer', page.title, re.I)):
         return []  # first-year merit only; transfer awards are a separate category (KS: KU "Merit Awards for Freshmen & Transfers" is both)
     mixed_transfer = bool(re.search(r'transfer', entry.get('url', '') + ' ' + page.title, re.I))
     year, basis, issues = common.resolve_year(page, entry, today_year)
-    out, printed = [], {}
+    out = []
     for t in page.tables:
         grid = T.expand_spans(t)
         rows = [r for r in (grid or t['rows']) if any(c.strip() for c in r)]  # the printed grid when spans were recorded
@@ -721,7 +722,10 @@ def extract(inst, entry, page, today_year):
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
-        if re.match(r'\s*(?:for\s+)?transfers?\b(?:\s+students?)?\s*:?\s*$', t.get('lead') or '', re.I): continue  # OR (PSU): the "Transfer" grid beside "First Year"
+        if re.match(r'\s*(?:for\s+)?transfers?\b(?:\s+students?)?\s*:?\s*$', t.get('lead') or '', re.I) or \
+                (mixed_transfer and re.match(r'\s*(?:for\s+)?(?:new\s+)?transfer', t.get('lead') or '', re.I)):
+            continue  # OR (PSU): the "Transfer" grid beside "First Year"; on a freshman-and-transfer page any table led by a transfer line
+            # (a table headed transfer is already skipped by NOT_MERIT)
         if re.match(r'\s*(?:prior\s+to|before|until)\s+(?:the\s+)?(?:fall|spring|summer)?\s*(?:semester\s+)?(?:of\s+)?20\d{2}\b', ' '.join([t.get('heading') or '', t.get('lead') or '']).strip(), re.I) \
                 and not re.search(r'current', ' '.join(rows[0]), re.I):
             continue  # MI (Andrews): a table headed "Prior to Fall 2023" lists superseded amounts, never a current award
@@ -805,9 +809,6 @@ def extract(inst, entry, page, today_year):
             rec['notes'] = f'Extracted by {EXTRACTOR} from the table "{(context or page.title)[:100]}"; cells copied as printed.'
             # The table's own label (year removed) lets review tell apart same-named awards on residency pages (UAH, UA, UMW).
             scope = re.sub(r'\s+', ' ', re.sub(T.YEAR_RE.pattern + r'|\b20\d{2}\b', '', context)).strip(' -–:|')
-            same = json.dumps([rec, scope, rec_year], sort_keys=True, default=str)
-            if printed.get(same, id(t)) != id(t): continue  # AL (South Alabama): the same grid printed twice (desktop and mobile copies)
-            printed.setdefault(same, id(t))  # a row repeated inside one table stays (LA: two "Robbins Award" rows)
             out.append(common.make('awards', inst['institution_key'], rec_year, rec_basis, rec, ev, entry, EXTRACTOR,
                                    {'award_name': rec['award_name']}, {'thresholds': rec.get('thresholds'), 'table_scope': scope},
                                    rec_issues + row_issues + ([span_issue] if span_issue else [])))

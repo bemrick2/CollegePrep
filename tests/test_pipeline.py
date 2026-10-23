@@ -2436,9 +2436,7 @@ class MeritGridTests(unittest.TestCase):
 <tr><th>ACT</th><th>SAT</th><th>High School GPA 3.0-3.49</th><th>High School GPA 3.5 - 3.74</th><th>High School GPA 3.75 &amp; Higher</th></tr>
 <tr><td>21-22</td><td>1060-1120</td><td>$2,000</td><td>$2,500</td><td>$3,000</td></tr><tr><td>23-24</td><td>1130-1190</td><td>$3,000</td><td>$3,500</td><td>$4,000</td></tr>
 <tr><td>≥ 32</td><td>1420-1600</td><td>$5,000</td><td>Full Tuition¹</td><td>Full Tuition¹</td></tr></table>"""
-        twice = usa + usa.split('<title>')[1].split('</h2>', 1)[1]
-        self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html(twice), '2026-27')), 1)  # the same grid printed twice is one record
-        got = self.got(twice)
+        got = self.got(usa)
         self.assertEqual(list(got), ['Scholarships for Incoming Freshman'])  # "Qualifications:" names no award; the page does
         r = got['Scholarships for Incoming Freshman']['record']
         self.assertEqual((len(r['award_tiers']), r['award_min'], r['award_max']), (9, 2000, 5000))
@@ -2453,7 +2451,12 @@ class MeritGridTests(unittest.TestCase):
 <tr><td>Academic Choice: ACT 20-22/SAT 1030-1120</td><td>N/A</td><td>$1,000</td></tr></table>
 <p>Bulldog Out-of-State Scholarship Incoming Freshmen – Category A (effective Fall 2023) Admitted students from Arkansas.</p>"""
         c = self.got(la)['Merit-Based Scholarships']
-        self.assertEqual((len(c['record']['award_tiers']), c['academic_year']), (5, '2026-27'))  # N/A is no tier; "effective Fall 2023" began a rule
+        self.assertEqual(len(c['record']['award_tiers']), 5)  # N/A is no tier
+        # an old "effective Fall 2023" keeps its stale label (held for review), never re-dated as current (#282 review)
+        self.assertEqual((c['academic_year'], c['issues']), ('2023-24', ['stale_year_label:2023-24']))
+        old = la.replace('Bulldog Out-of-State Scholarship Incoming Freshmen – Category A (effective Fall 2023) Admitted students from Arkansas.',
+                         'These merit scholarships are effective fall 2024 for incoming freshmen.')
+        self.assertEqual(self.got(old)['Merit-Based Scholarships']['academic_year'], '2024-25')
         tar = """<title>Guaranteed Scholarship Program - Freshman</title><h2>Guaranteed Awards</h2><table><tr><th>SAT, ACT, or CLT</th><th>top 10%</th><th>top 25% (not top 10%)</th></tr>
 <tr><td>1300+ or 28+ or 92+</td><td>$4,000</td><td>$2,000</td></tr><tr><td>1100+ or 22+ or 72+</td><td>$3,000</td><td>$1,500</td></tr></table>"""
         r = self.got(tar)['Guaranteed Awards']['record']
@@ -2462,6 +2465,16 @@ class MeritGridTests(unittest.TestCase):
 <tr><td>GPA</td><td>4.00+</td><td>$4,000</td><td>$4,000</td><td>$3,000</td></tr><tr><td>3.90</td><td>$4,000</td><td>$3,000</td><td>$3,000</td></tr>
 <tr><td>3.75</td><td>$4,000</td><td>$3,000</td><td>$2,000</td></tr></table>"""
         self.assertEqual(self.got(sd), {})  # SD (SDSU): rows shifted under a two-row header are never read by position
+        gre = usa.replace('<th>ACT</th><th>SAT</th>', '<th>GRE score</th><th>GMAT score</th>')
+        self.assertEqual(self.got(gre), {})  # graduate and professional tests are not first-year criteria
+
+        words = tar.replace('1100+ or 22+ or 72+', 'Recommended')
+        self.assertEqual(self.got(words), {})  # a side cell that is not a score band leaves the grid unread
+        mid = tar.replace('<th>top 10%</th><th>top 25% (not top 10%)</th>', '<th>top 10%</th><th>Notes</th><th>top 25% (not top 10%)</th>')
+        mid = mid.replace('<td>$4,000</td><td>$2,000</td>', '<td>$4,000</td><td>x</td><td>$2,000</td>').replace('<td>$3,000</td><td>$1,500</td>', '<td>$3,000</td><td>y</td><td>$1,500</td>')
+        self.assertEqual(self.got(mid), {})  # criteria columns must be one block at the right
+        self.assertEqual(self.got(usa.replace('<th>SAT</th>', '<th>SAT Score</th>'))['Scholarships for Incoming Freshman']['record']['award_tiers'][0]['test'],
+                         'ACT 21-22 / SAT 1060-1120')
 
     def test_freshman_pages_that_also_list_transfer_awards(self):
         ku = """<title>KU Scholarships | Renewable Merit Awards for Freshmen &amp; Transfers</title><h2>In-state freshman merit scholarships</h2><table>
@@ -2471,6 +2484,11 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual(sorted(got), ['Chancellor', 'Traditions'])
         self.assertEqual(got['Chancellor']['record']['award_max'], 5000)
         self.assertEqual(self.got(ku.replace('for Freshmen &amp; Transfers', 'for Transfers')), {})
+        self.assertEqual(self.got(ku.replace('KU Scholarships | Renewable Merit Awards for Freshmen &amp; Transfers', 'Transfer Scholarships: First-Year Credit Requirements')), {})
+        tr = ku.replace('<h2>In-state freshman merit scholarships</h2>', '<h2>Transfer Merit Scholarships</h2>').replace('Transfer Excellence', 'Dean')
+        self.assertEqual(self.got(tr), {})  # on a freshman-and-transfer page a table headed transfer is the transfer award
+        led = ku.replace('<h2>In-state freshman merit scholarships</h2>', '<h2>Merit scholarships</h2><p>Transfer students (24+ credits)</p>').replace('Transfer Excellence', 'Dean')
+        self.assertEqual(self.got(led), {})  # ... and so is a table led by a transfer line
         vcu = """<title>Out-of-state scholarships - Admissions</title><h2>Eligibility criteria</h2><table><tr><th>Minimum High School GPA</th><th>Annual Scholarship</th></tr>
 <tr><td>3.00</td><td>$10,000</td></tr><tr><td>3.25</td><td>$11,000</td></tr><tr><td>3.50</td><td>$12,000</td></tr></table>"""
         self.assertEqual(list(self.got(vcu)), ['Out-of-state scholarships'])  # VA (VCU): a GPA grid under "Eligibility criteria"
