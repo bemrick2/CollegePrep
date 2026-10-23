@@ -1,0 +1,2875 @@
+[
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "40824ccc0fd84e58",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Professional Judgement: Financial aid may be reassessed if the FAFSA on file doesn’t reflect your current financial situation (for example: divorce, loss of job, marriage, or other qualifying event).",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-126289",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required",
+   "conflicting_sources:https://www.arapahoe.edu/sites/default/files/finaid/2025-2026-professional-judgment-with-income-projection-form.pdf"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.arapahoe.edu/admissions/paying-college/financial-aid",
+   "process_summary": "Professional Judgement: Financial aid may be reassessed if the FAFSA on file doesn’t reflect your current financial situation (for example: divorce, loss of job, marriage, or other qualifying event).",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.arapahoe.edu/admissions/paying-college/financial-aid",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:51+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 09:19:59 GMT",
+   "page_file": "d89b3c2dc043943334bb.json.gz",
+   "requested_url": "https://www.arapahoe.edu/paying-college/financial-aid",
+   "sha256": "d89b3c2dc043943334bbca8ea4fca1386463b52e2fbcf3d911f4e121eea46dfa",
+   "title": "Financial Aid and Assistance | Arapahoe Community College",
+   "url": "https://www.arapahoe.edu/admissions/paying-college/financial-aid"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "a6f5a8ed85313789",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": true,
+   "rows": 7
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "off_campus_not_with_family:Tuition/Fees",
+    "snippet": "Tuition/Fees | $4,836 | $4,836 | $18,528 | $18,528",
+    "value": 4836
+   },
+   {
+    "field": "off_campus_not_with_family:Food & Housing",
+    "snippet": "Food & Housing | $17,442 | $11,781 | $17,442 | $11,781",
+    "value": 17442
+   },
+   {
+    "field": "off_campus_not_with_family:Books/Supplies",
+    "snippet": "Books/Supplies | $1,460 | $1,460 | $1,460 | $1,460",
+    "value": 1460
+   },
+   {
+    "field": "off_campus_not_with_family:Personal/Medical",
+    "snippet": "Personal/Medical | $9,918 | $9,819 | $9,918 | $9,819",
+    "value": 9918
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $1,512 | $1,512 | $1,512 | $1,512",
+    "value": 1512
+   },
+   {
+    "field": "off_campus_not_with_family:Loan Fees",
+    "snippet": "Loan Fees | $38 | $38 | $38 | $38",
+    "value": 38
+   },
+   {
+    "field": "off_campus_not_with_family:Total:",
+    "snippet": "Total: | $35,206 | $29,446 | $48,898 | $43,138",
+    "value": 35206
+   },
+   {
+    "field": "with_parents_or_family:Tuition/Fees",
+    "snippet": "Tuition/Fees | $4,836 | $4,836 | $18,528 | $18,528",
+    "value": 4836
+   },
+   {
+    "field": "with_parents_or_family:Food & Housing",
+    "snippet": "Food & Housing | $17,442 | $11,781 | $17,442 | $11,781",
+    "value": 11781
+   },
+   {
+    "field": "with_parents_or_family:Books/Supplies",
+    "snippet": "Books/Supplies | $1,460 | $1,460 | $1,460 | $1,460",
+    "value": 1460
+   },
+   {
+    "field": "with_parents_or_family:Personal/Medical",
+    "snippet": "Personal/Medical | $9,918 | $9,819 | $9,918 | $9,819",
+    "value": 9819
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $1,512 | $1,512 | $1,512 | $1,512",
+    "value": 1512
+   },
+   {
+    "field": "with_parents_or_family:Loan Fees",
+    "snippet": "Loan Fees | $38 | $38 | $38 | $38",
+    "value": 38
+   },
+   {
+    "field": "with_parents_or_family:Total:",
+    "snippet": "Total: | $35,206 | $29,446 | $48,898 | $43,138",
+    "value": 29446
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-127200",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "books_supplies": 1460,
+   "components": {
+    "Books/Supplies": 1460,
+    "Food & Housing": 17442,
+    "Loan Fees": 38,
+    "Personal/Medical": 9918,
+    "Total:": 35206,
+    "Transportation": 1512,
+    "Tuition/Fees": 4836
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-127200",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "off_campus_not_with_family",
+     "column_header": "Resident off-campus*",
+     "components": {
+      "Books/Supplies": 1460,
+      "Food & Housing": 17442,
+      "Loan Fees": 38,
+      "Personal/Medical": 9918,
+      "Total:": 35206,
+      "Transportation": 1512,
+      "Tuition/Fees": 4836
+     },
+     "total_cost_of_attendance": 35206
+    },
+    {
+     "arrangement": "with_parents_or_family",
+     "column_header": "Resident at home*",
+     "components": {
+      "Books/Supplies": 1460,
+      "Food & Housing": 11781,
+      "Loan Fees": 38,
+      "Personal/Medical": 9819,
+      "Total:": 29446,
+      "Transportation": 1512,
+      "Tuition/Fees": 4836
+     },
+     "total_cost_of_attendance": 29446
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Estimating Educational Expenses \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "total_cost_of_attendance": 35206,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 4836,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "023490fa48e73e9df388.json.gz",
+   "requested_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "sha256": "023490fa48e73e9df388805dcee19dbe4bae9bf5655eca707e04786d7c8bbb5e",
+   "title": "Front Range Community College - Cost of Attendance",
+   "url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6c4b45ea19246395",
+  "checks": {
+   "columns": 2,
+   "components_reconcile": true,
+   "rows": 7
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "off_campus_not_with_family:Tuition/Fees",
+    "snippet": "Tuition/Fees | $4,836 | $4,836 | $18,528 | $18,528",
+    "value": 18528
+   },
+   {
+    "field": "off_campus_not_with_family:Food & Housing",
+    "snippet": "Food & Housing | $17,442 | $11,781 | $17,442 | $11,781",
+    "value": 17442
+   },
+   {
+    "field": "off_campus_not_with_family:Books/Supplies",
+    "snippet": "Books/Supplies | $1,460 | $1,460 | $1,460 | $1,460",
+    "value": 1460
+   },
+   {
+    "field": "off_campus_not_with_family:Personal/Medical",
+    "snippet": "Personal/Medical | $9,918 | $9,819 | $9,918 | $9,819",
+    "value": 9918
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $1,512 | $1,512 | $1,512 | $1,512",
+    "value": 1512
+   },
+   {
+    "field": "off_campus_not_with_family:Loan Fees",
+    "snippet": "Loan Fees | $38 | $38 | $38 | $38",
+    "value": 38
+   },
+   {
+    "field": "off_campus_not_with_family:Total:",
+    "snippet": "Total: | $35,206 | $29,446 | $48,898 | $43,138",
+    "value": 48898
+   },
+   {
+    "field": "with_parents_or_family:Tuition/Fees",
+    "snippet": "Tuition/Fees | $4,836 | $4,836 | $18,528 | $18,528",
+    "value": 18528
+   },
+   {
+    "field": "with_parents_or_family:Food & Housing",
+    "snippet": "Food & Housing | $17,442 | $11,781 | $17,442 | $11,781",
+    "value": 11781
+   },
+   {
+    "field": "with_parents_or_family:Books/Supplies",
+    "snippet": "Books/Supplies | $1,460 | $1,460 | $1,460 | $1,460",
+    "value": 1460
+   },
+   {
+    "field": "with_parents_or_family:Personal/Medical",
+    "snippet": "Personal/Medical | $9,918 | $9,819 | $9,918 | $9,819",
+    "value": 9819
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $1,512 | $1,512 | $1,512 | $1,512",
+    "value": 1512
+   },
+   {
+    "field": "with_parents_or_family:Loan Fees",
+    "snippet": "Loan Fees | $38 | $38 | $38 | $38",
+    "value": 38
+   },
+   {
+    "field": "with_parents_or_family:Total:",
+    "snippet": "Total: | $35,206 | $29,446 | $48,898 | $43,138",
+    "value": 43138
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-127200",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "books_supplies": 1460,
+   "components": {
+    "Books/Supplies": 1460,
+    "Food & Housing": 17442,
+    "Loan Fees": 38,
+    "Personal/Medical": 9918,
+    "Total:": 48898,
+    "Transportation": 1512,
+    "Tuition/Fees": 18528
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-127200",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "off_campus_not_with_family",
+     "column_header": "Non-Resident off-campus",
+     "components": {
+      "Books/Supplies": 1460,
+      "Food & Housing": 17442,
+      "Loan Fees": 38,
+      "Personal/Medical": 9918,
+      "Total:": 48898,
+      "Transportation": 1512,
+      "Tuition/Fees": 18528
+     },
+     "total_cost_of_attendance": 48898
+    },
+    {
+     "arrangement": "with_parents_or_family",
+     "column_header": "Non-Resident at home",
+     "components": {
+      "Books/Supplies": 1460,
+      "Food & Housing": 11781,
+      "Loan Fees": 38,
+      "Personal/Medical": 9819,
+      "Total:": 43138,
+      "Transportation": 1512,
+      "Tuition/Fees": 18528
+     },
+     "total_cost_of_attendance": 43138
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Estimating Educational Expenses \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "total_cost_of_attendance": 48898,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 18528,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "023490fa48e73e9df388.json.gz",
+   "requested_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "sha256": "023490fa48e73e9df388805dcee19dbe4bae9bf5655eca707e04786d7c8bbb5e",
+   "title": "Front Range Community College - Cost of Attendance",
+   "url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6b2bd2d8074b2589",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Child Care Professional Judgment to Increase Cost of Attendance (COA) Students who feel that their assigned cost of attendance does not appropriately reflect their personal childcare expenses can file a Professional Judgment appeal to have their cost of attendance reevaluated.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-127200",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-127200",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "process_summary": "Child Care Professional Judgment to Increase Cost of Attendance (COA) Students who feel that their assigned cost of attendance does not appropriately reflect their personal childcare expenses can file a Professional Judgment appeal to have their cost of attendance reevaluated.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:52+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "023490fa48e73e9df388.json.gz",
+   "requested_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html",
+   "sha256": "023490fa48e73e9df388805dcee19dbe4bae9bf5655eca707e04786d7c8bbb5e",
+   "title": "Front Range Community College - Cost of Attendance",
+   "url": "https://www.frontrange.edu/admissions-aid/paying-for-college/tuition-fees/cost-of-attendance.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "138d23999e80c23e",
+  "checks": {
+   "columns": 1,
+   "rows": 2
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $4410.00 | Budgeted estimate based on on-campus tuition at 12 credits per semester. For specific tuition charges per credit hour, view the tables above.",
+    "value": 4410.0
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $455.66 | Estimate based on on-campus required fees. For specific fees, view the information in the Fees section below.",
+    "value": 455.66
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-126289",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Fees": 455.66,
+    "Tuition": 4410.0
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": 455.66,
+   "notes": "Extracted by cost_table/v2 from the table \"Resident Tuition Rate 2026-2027 Estimated Resident Tuition Rate 2026-2027 Estimated \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://www.arapahoe.edu/admissions/paying-college/tuition-fees",
+   "total_cost_of_attendance": null,
+   "tuition": 4410.0,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:52+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 11:21:31 GMT",
+   "page_file": "8432abf9728a5a2c5618.json.gz",
+   "requested_url": "https://www.arapahoe.edu/admissions/paying-college/tuition-fees",
+   "sha256": "8432abf9728a5a2c5618d7758bf3b358b12837f3d34ac76267ac7dc33bef9a18",
+   "title": "Tuition, Fees, and Costs for Arapahoe Community College",
+   "url": "https://www.arapahoe.edu/admissions/paying-college/tuition-fees"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "5035f126d968b566",
+  "checks": {
+   "columns": 1,
+   "rows": 2
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $18,102 | Budgeted estimate based on on-campus tuition at 12 credits per semester. For specific tuition charges per credit hour, view the table above.",
+    "value": 18102
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $455.66 | Estimate based on on-campus required fees. For specific fees, view the Fees section below.",
+    "value": 455.66
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-126289",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": null,
+   "components": {
+    "Fees": 455.66,
+    "Tuition": 18102
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": 455.66,
+   "notes": "Extracted by cost_table/v2 from the table \"Non-Resident Tuition Rate 2026-2027 Estimated Non-Resident Tuition Rate 2026-2027 Estimated \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://www.arapahoe.edu/admissions/paying-college/tuition-fees",
+   "total_cost_of_attendance": null,
+   "tuition": 18102,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:52+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 11:21:31 GMT",
+   "page_file": "8432abf9728a5a2c5618.json.gz",
+   "requested_url": "https://www.arapahoe.edu/admissions/paying-college/tuition-fees",
+   "sha256": "8432abf9728a5a2c5618d7758bf3b358b12837f3d34ac76267ac7dc33bef9a18",
+   "title": "Tuition, Fees, and Costs for Arapahoe Community College",
+   "url": "https://www.arapahoe.edu/admissions/paying-college/tuition-fees"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "230878f03de4866e",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Professional Judgment Request 2025-2026 A.",
+    "value": "professional_judgment"
+   },
+   {
+    "field": "sentence",
+    "snippet": "REASON FOR REQUEST • You can request a Professional Judgment review if something about your financial situation has changed since the tax year used on your FAFSA.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-126289",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required",
+   "conflicting_sources:https://www.arapahoe.edu/admissions/paying-college/financial-aid"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.arapahoe.edu/sites/default/files/finaid/2025-2026-professional-judgment-with-income-projection-form.pdf",
+   "process_summary": "Professional Judgment Request 2025-2026 A.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.arapahoe.edu/sites/default/files/finaid/2025-2026-professional-judgment-with-income-projection-form.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:57+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 20 Jan 2026 21:55:34 GMT",
+   "page_file": "da218d9c6e3461144bcb.json.gz",
+   "requested_url": "https://www.arapahoe.edu/sites/default/files/finaid/2025-2026-professional-judgment-with-income-projection-form.pdf",
+   "sha256": "da218d9c6e3461144bcb37f59d4cc69d0d6edbebac6b658667d53a80f822fe18",
+   "title": "Professional Judgment Request 2025-2026",
+   "url": "https://www.arapahoe.edu/sites/default/files/finaid/2025-2026-professional-judgment-with-income-projection-form.pdf"
+  },
+  "year_basis": "labeled_in_title"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "b4a34e5151d0be65",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "How to Request a Professional Judgment Review 1.",
+    "value": "professional_judgment"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Note: Professional Judgment is available under specific circumstances.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-126289",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf",
+   "process_summary": "How to Request a Professional Judgment Review 1.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:59+00:00",
+   "kind": "pdf",
+   "last_modified": "Fri, 17 Jul 2026 17:52:55 GMT",
+   "page_file": "4a393ec015d0b4d8672a.json.gz",
+   "requested_url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf",
+   "sha256": "4a393ec015d0b4d8672aca8b455a19d5ee89bf2a44f6511c0302828d30cc108e",
+   "title": "How to Request a Professional Judgment Review",
+   "url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "f765e88689b2d330",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Unusual Circumstances Appeal: If you are not in contact with your parents and want to be considered independent or if you are orphaned, an emancipated minor, etc. 2.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-126289",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf",
+   "process_summary": "Unusual Circumstances Appeal: If you are not in contact with your parents and want to be considered independent or if you are orphaned, an emancipated minor, etc. 2.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:06:59+00:00",
+   "kind": "pdf",
+   "last_modified": "Fri, 17 Jul 2026 17:52:55 GMT",
+   "page_file": "4a393ec015d0b4d8672a.json.gz",
+   "requested_url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf",
+   "sha256": "4a393ec015d0b4d8672aca8b455a19d5ee89bf2a44f6511c0302828d30cc108e",
+   "title": "How to Request a Professional Judgment Review",
+   "url": "https://www.arapahoe.edu/sites/default/files/finaid/how-to-request-professional-judgment-review.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "22c2865bff417ec9",
+  "checks": {
+   "distinct_exams": 34,
+   "equivalencies": 35,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|4,5]",
+    "snippet": "African American Studies | African American Studies | 4,5 | 3 lower-division Ethnic Studies (ETHN) credits that count toward Social Science category of the A&S Gen. Ed. Distribution Requirement | 3"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|5, 4]",
+    "snippet": "Biology | Biology | 5, 4 | EBIO 1210, EBIO 1220, EBIO 1230 and EBIO 1240 | 8"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "Chemistry | Chemistry | 5 | CHEM 1113 and CHEM 1114 | 5"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|5]",
+    "snippet": "Computer Science 1 | Computer Science A | 5 | CSCI 1300 | 4"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|5]",
+    "snippet": " | Computer Science Principles | 5 | CSCI 1300 | 4"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|5, 4]",
+    "snippet": "Economics | Economics: Micro | 5, 4 | ECON 2010 | 4"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|5, 4]",
+    "snippet": " | Economics: Macro | 5, 4 | ECON 2020 | 4"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|5,4]",
+    "snippet": "English | English Literature and Composition | 5,4 | ENGL 1500 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|5,4]",
+    "snippet": " | English Language and Composition | 5,4 | WRTG 1150 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|5, 4, 3]",
+    "snippet": "Environmental Science | Environmental Science | 5, 4, 3 | 4 lower-division Arts & Science credits that fulfill the lab portion of and count toward the A&S Gen. Ed. Natural Science requirement and the CMDI Core Natural World requirement | 4"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|5, 4]",
+    "snippet": "Fine Arts | Studio-Drawing Portfolio or Studio-General Portfolio | 5, 4 | 3 lower-division ARTS elective credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement | 3"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|5, 4]",
+    "snippet": " | Art History | 5, 4 | 3 lower-division ARTH credits that count toward ARTH and ARTS majors and the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement | 3"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|5, 4]",
+    "snippet": "Geography | Human Geography | 5, 4 | GEOG 1992 | 3"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|5, 4]",
+    "snippet": "History | US History | 5, 4 | HIST 1025 | 3"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|5, 4]",
+    "snippet": " | European History | 5, 4 | HIST 1012 | 3"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|5, 4]",
+    "snippet": " | World History | 5, 4 | 3 lower-division History credits that count toward the A&S Gen. Ed. Arts & Humanities requirement and the CMDI Core Humanities & the Arts and Historical Perspectives requirements | 3"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|5, 4]",
+    "snippet": "Mathematics | Math-Calculus AB | 5, 4 | MATH 1300 | 5"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|5, 4]",
+    "snippet": " | Math-Calculus BC | 5, 4 | MATH 1300 and MATH 2300 | 10"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": " | Math-Calculus BC | 3 |  | "
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|4,5]",
+    "snippet": " | Precalculus | 4,5 | MATH1150 | 4"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|5, 4]",
+    "snippet": " | Statistics | 5, 4 | MATH 2510 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|5]",
+    "snippet": "Music | Music Theory | 5 | MUSC 1101, MUSC 1111, MUSC 1121 and MUSC 1131 | 6"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|5, 4]",
+    "snippet": "Physics | Physics 1 | 5, 4 | PHYS 2010 | 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|5, 4]",
+    "snippet": " | Physics 2 | 5, 4 | PHYS 2020 | 5"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|5]",
+    "snippet": " | Physics C-Mechanics | 5 | PHYS 1110 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|5]",
+    "snippet": " | Physics C-Electricity and Magnetism | 5 | PHYS 1120 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|5, 4]",
+    "snippet": "Psychology | Psychology | 5, 4 | PSYC 1001 | 3"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]",
+    "snippet": "World Language | Chinese Language and Culture | 5 | CHIN 1020, CHIN 2110 and CHIN 2120 | 15"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": " | French Language and Culture | 5 | FREN 2110, FREN 2120 and FREN 3050 | 9"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]",
+    "snippet": " | German Language and Culture | 5 | GRMN 2020 and GRMN 3010 | 7"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]",
+    "snippet": " | Italian Language and Culture | 5 | ITAL 1020, ITAL 2110 and ITAL 2120 | 11"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|5]",
+    "snippet": " | Japanese Language and Culture | 5 | JPNS 1020, JPNS 2110 and JPNS 2120 | 15"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|5]",
+    "snippet": " | Latin | 5 | LATN 1024, LATN 2114 and LATN 2124 | 12"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": " | Spanish Language and Culture2 | 5 | SPAN 2110, SPAN 2120 and SPAN 3000 | 11"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|5]",
+    "snippet": " | Spanish Literature and Culture2 | 5 | SPAN 1000 and SPAN 3002 | 6"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-126614",
+  "issues": [
+   "conflicting_sources:https://catalog.colorado.edu/undergraduate/admissions/credit-examination/credit-examination.pdf"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": "3 lower-division Ethnic Studies (ETHN) credits that count toward Social Science category of the A&S Gen. Ed. Distribution Requirement",
+     "minimum_score": "4,5",
+     "notes": "African American Studies"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": "EBIO 1210, EBIO 1220, EBIO 1230 and EBIO 1240",
+     "minimum_score": "5, 4",
+     "notes": "Biology"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 1113 and CHEM 1114",
+     "minimum_score": "5",
+     "notes": "Chemistry"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-A",
+     "exam_or_course_name": "AP Computer Science A",
+     "institution_course_equivalent": "CSCI 1300",
+     "minimum_score": "5",
+     "notes": "Computer Science 1"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": "CSCI 1300",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": "ECON 2010",
+     "minimum_score": "5, 4",
+     "notes": "Economics"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": "ECON 2020",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": "ENGL 1500",
+     "minimum_score": "5,4",
+     "notes": "English"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": "WRTG 1150",
+     "minimum_score": "5,4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": "4 lower-division Arts & Science credits that fulfill the lab portion of and count toward the A&S Gen. Ed. Natural Science requirement and the CMDI Core Natural World requirement",
+     "minimum_score": "5, 4, 3",
+     "notes": "Environmental Science"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": "3 lower-division ARTS elective credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement",
+     "minimum_score": "5, 4",
+     "notes": "Fine Arts"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ART-HISTORY",
+     "exam_or_course_name": "AP Art History",
+     "institution_course_equivalent": "3 lower-division ARTH credits that count toward ARTH and ARTS majors and the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": "GEOG 1992",
+     "minimum_score": "5, 4",
+     "notes": "Geography"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": "HIST 1025",
+     "minimum_score": "5, 4",
+     "notes": "History"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": "HIST 1012",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": "3 lower-division History credits that count toward the A&S Gen. Ed. Arts & Humanities requirement and the CMDI Core Humanities & the Arts and Historical Perspectives requirements",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "MATH 1300",
+     "minimum_score": "5, 4",
+     "notes": "Mathematics"
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "MATH 1300 and MATH 2300",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": null,
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": "MATH1150",
+     "minimum_score": "4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": "MATH 2510",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": "MUSC 1101, MUSC 1111, MUSC 1121 and MUSC 1131",
+     "minimum_score": "5",
+     "notes": "Music"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": "PHYS 2010",
+     "minimum_score": "5, 4",
+     "notes": "Physics"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": "PHYS 2020",
+     "minimum_score": "5, 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": "PHYS 1110",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": "PHYS 1120",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": "PSYC 1001",
+     "minimum_score": "5, 4",
+     "notes": "Psychology"
+    },
+    {
+     "credits_awarded": 15,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "CHIN 1020, CHIN 2110 and CHIN 2120",
+     "minimum_score": "5",
+     "notes": "World Language"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FREN 2110, FREN 2120 and FREN 3050",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 7,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "GRMN 2020 and GRMN 3010",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 11,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "ITAL 1020, ITAL 2110 and ITAL 2120",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 15,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "JPNS 1020, JPNS 2110 and JPNS 2120",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LATN 1024, LATN 2114 and LATN 2124",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 11,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 2110, SPAN 2120 and SPAN 3000",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": "SPAN 1000 and SPAN 3002",
+     "minimum_score": "5",
+     "notes": null
+    }
+   ],
+   "institution_key": "ipeds-126614",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "AP",
+   "policy_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "source_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:41+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 10 Sep 2026 16:52:11 GMT",
+   "page_file": "a3cb7cb87fa0fd420158.json.gz",
+   "requested_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "sha256": "a3cb7cb87fa0fd420158a68a4f7f5395adf334dd9585043f6897e8a5f23b8ce0",
+   "title": "Credit by Examination < University of Colorado Boulder",
+   "url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "cb9527ddb538f242",
+  "checks": {
+   "distinct_exams": 23,
+   "equivalencies": 31,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|Higher]",
+    "snippet": "Anthropology | Higher | 4 | ANTH 2100 and 3 lower-division credit hours that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement | 6"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|Higher]",
+    "snippet": "Biology | Higher | 4 | EBIO 1210, EBIO 1220, EBIO 1230 and EBIO 1240 | 8"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|Higher]",
+    "snippet": "Business and Management | Higher | 4 | 6 lower-division BADM credit hours | 6"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|Higher]",
+    "snippet": "Chemistry | Higher | 7 | CHEM 1113, CHEM 1114, CHEM 1133 and CHEM 1134 | 10"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|Higher]",
+    "snippet": "Computer Science | Higher | 4 | CSCI 1300 | 4"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|Higher]",
+    "snippet": "Economics | Higher | 4 | 4 lower-division ECON credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement | 4"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|Higher]",
+    "snippet": "English A: Literature | Higher | 4 | ENGL 1500 | 3"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|Higher]",
+    "snippet": "English A: Language and Literature | Higher | 4 | WRTG 1150 | 3"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES|Standard]",
+    "snippet": "Environmental Systems & Societies | Standard | 4 | 3 lower-division Arts & Science credits that count toward the A&S Gen. Ed. Natural Science requirement and the CMDI Core Natural World requirement | 3"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|Higher]",
+    "snippet": "French B | Higher | 7 | FREN 2120 and FREN 2500 | 6"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|Standard]",
+    "snippet": "French B | Standard | 7 | FREN 2110 and FREN 2120 | 6"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|Initio]",
+    "snippet": "French AB | Initio | 7 | FREN 1050 | 5"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|Higher]",
+    "snippet": "Geography | Higher | 4 | GEOG 1992 and 3 lower-division GEOG credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement | 6"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|Standard]",
+    "snippet": "German B | Standard | 6, 7 | GRMN 1010 and GRMN 1020 | 8"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS|Higher]",
+    "snippet": "Global Politics | Higher | 4 | 3 lower division PSCI credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement | 3"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|Higher]",
+    "snippet": "History of Africa and the Middle East | Higher | 4 | Two 3-credit lower-division HIST courses that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements. One of the courses will also fulfill the Global Perspec"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|Higher]",
+    "snippet": "History of the Americas | Higher | 4 | HIST 1025 and 3 lower-division HIST credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements | 6"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|Higher]",
+    "snippet": "History of Asia and Oceania | Higher | 4 | Two 3-credit lower division HIST that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements | 6"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|Higher]",
+    "snippet": "History of Europe | Higher | 4 | HIST 1012 and 3 lower-division HIST credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements | 6"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|Standard]",
+    "snippet": "World History | Standard | 4 | 3 lower-division Arts & Science credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements | 3"
+   },
+   {
+    "field": "equivalencies[IB-LATIN|Higher]",
+    "snippet": "Latin | Higher | 6, 7 | LATN 1024, LATN 2114, LATN 2124 | 12"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|Higher]",
+    "snippet": "Mathematics: Analysis and Approaches | Higher | 7 | MATH1300 | 5"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|Higher]",
+    "snippet": "Mathematics: Applications and Interpretation | Higher | 4 , 5, 6, 7 | MATH 2510 | 3"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|Higher]",
+    "snippet": "Music | Higher | 4 | Elective credit hours | 6"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY|Higher]",
+    "snippet": "Philosophy | Higher | 4 | PHIL 1000 and 3 lower-division PHIL credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement | 6"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|Higher]",
+    "snippet": "Physics | Higher | 4 | PHYS 2010 and PHYS 2020 | 10"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|Higher]",
+    "snippet": "Psychology | Higher | 4 | PSYC 1001 and 3 lower-division PSYC credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement | 6"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Higher]",
+    "snippet": "Spanish A: Language and Literature | Higher | 4 | SPAN 3000 and SPAN 3100 | 8"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Higher]",
+    "snippet": "Spanish B | Higher | 7, 6 | SPAN 2110, SPAN 2120 and SPAN 3000 | 11"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|Standard]",
+    "snippet": "Spanish AB | Standard | 6 | SPAN 1010 | 5"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE|Higher]",
+    "snippet": "Theatre | Higher | 4 | THTR 1019 and 3 lower-division THTR credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement | 6"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-126614",
+  "issues": [
+   "score_column_not_scores"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "equivalencies": [
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY",
+     "exam_or_course_name": "IB Social & Cultural Anthropology",
+     "institution_course_equivalent": "ANTH 2100 and 3 lower-division credit hours that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "EBIO 1210, EBIO 1220, EBIO 1230 and EBIO 1240",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT",
+     "exam_or_course_name": "IB Business Management",
+     "institution_course_equivalent": "6 lower-division BADM credit hours",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 1113, CHEM 1114, CHEM 1133 and CHEM 1134",
+     "minimum_score": "Higher",
+     "notes": "7"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "CSCI 1300",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "4 lower-division ECON credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENGL 1500",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "WRTG 1150",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES",
+     "exam_or_course_name": "IB Environmental Systems & Societies",
+     "institution_course_equivalent": "3 lower-division Arts & Science credits that count toward the A&S Gen. Ed. Natural Science requirement and the CMDI Core Natural World requirement",
+     "minimum_score": "Standard",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FREN 2120 and FREN 2500",
+     "minimum_score": "Higher",
+     "notes": "7"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FREN 2110 and FREN 2120",
+     "minimum_score": "Standard",
+     "notes": "7"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FREN 1050",
+     "minimum_score": "Initio",
+     "notes": "7"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "GEOG 1992 and 3 lower-division GEOG credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GRMN 1010 and GRMN 1020",
+     "minimum_score": "Standard",
+     "notes": "6, 7"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS",
+     "exam_or_course_name": "IB Global Politics",
+     "institution_course_equivalent": "3 lower division PSCI credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "Two 3-credit lower-division HIST courses that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements. One of the courses will also fulfill the Global Perspectives requirement for A&S Gen. Ed.",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1025 and 3 lower-division HIST credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "Two 3-credit lower division HIST that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 1012 and 3 lower-division HIST credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "3 lower-division Arts & Science credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts and Historical Perspectives requirements",
+     "minimum_score": "Standard",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "IB-LATIN",
+     "exam_or_course_name": "IB Latin",
+     "institution_course_equivalent": "LATN 1024, LATN 2114, LATN 2124",
+     "minimum_score": "Higher",
+     "notes": "6, 7"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH1300",
+     "minimum_score": "Higher",
+     "notes": "7"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 2510",
+     "minimum_score": "Higher",
+     "notes": "4 , 5, 6, 7"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "Elective credit hours",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-PHILOSOPHY",
+     "exam_or_course_name": "IB Philosophy",
+     "institution_course_equivalent": "PHIL 1000 and 3 lower-division PHIL credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 2010 and PHYS 2020",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "PSYC 1001 and 3 lower-division PSYC credits that count toward the A&S Gen. Ed. Social Science requirement and the CMDI Core People and Society requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 3000 and SPAN 3100",
+     "minimum_score": "Higher",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 11,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 2110, SPAN 2120 and SPAN 3000",
+     "minimum_score": "Higher",
+     "notes": "7, 6"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 1010",
+     "minimum_score": "Standard",
+     "notes": "6"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-THEATRE",
+     "exam_or_course_name": "IB Theatre",
+     "institution_course_equivalent": "THTR 1019 and 3 lower-division THTR credits that count toward the A&S Gen. Ed. Arts and Humanities requirement and the CMDI Core Humanities and the Arts requirement",
+     "minimum_score": "Higher",
+     "notes": "4"
+    }
+   ],
+   "institution_key": "ipeds-126614",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "source_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:41+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 10 Sep 2026 16:52:11 GMT",
+   "page_file": "a3cb7cb87fa0fd420158.json.gz",
+   "requested_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "sha256": "a3cb7cb87fa0fd420158a68a4f7f5395adf334dd9585043f6897e8a5f23b8ce0",
+   "title": "Credit by Examination < University of Colorado Boulder",
+   "url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "d92890285d4fcf0f",
+  "checks": {
+   "distinct_exams": 27,
+   "equivalencies": 30,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|50]",
+    "snippet": "Composition and Literature | American Literature | 3 | 50 | ARSC 1999TC | AH2 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|50]",
+    "snippet": " | Analyzing and Interpreting Literature | 3 | 50 | ARSC 1999TC | AH2 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|50]",
+    "snippet": " | College Composition | 6 | 50 | ARSC 1999TC | CO1 & CO2 | Written Communication"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION-MODULAR|50]",
+    "snippet": " | College Composition Modular | 3 | 50 | ARSC 1999TC | CO1 | Written Communication"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|50]",
+    "snippet": " | English Literature | 3 | 50 | ARSC 1999TC | AH2 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|50]",
+    "snippet": "Humanities | Humanities | 3 | 50 | ARSC 1999TC | AH1 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|59]",
+    "snippet": "Languages | French Language: Level 2 | 9 | 59 | ARSC 1999TC | AH4 | 3 credits of Arts and Humanities and 6 credits of Electives"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|60]",
+    "snippet": " | German Language: Level 2 | 9 | 60 | ARSC 1999TC | AH4 | 3 credits of Arts and Humanities and 6 credits of Electives"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|63]",
+    "snippet": " | Spanish Language: Level 2 | 9 | 63 | ARSC 1999TC | AH4 | 3 credits of Arts and Humanities and 6 credits of Electives"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|65]",
+    "snippet": " | Spanish Language w/Writing: Level 2 | 12 | 65 | ARSC 1999TC | AH4 | 3 credits of Arts and Humanities and 9 credits of Electives"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|50]",
+    "snippet": "History and Social Sciences | American Government | 3 | 50 | ARSC 1999TC | SS1 | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-I|50]",
+    "snippet": " | History of the United States I | 3 | 50 | ARSC 1999TC | HI1 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-HISTORY-OF-THE-UNITED-STATES-II|50]",
+    "snippet": " | History of the United States II | 3 | 50 | ARSC 1999TC | HI1 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|50]",
+    "snippet": " | Human Growth and Development | 3 | 50 | ARSC 1999TC | SS3 | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY|50]",
+    "snippet": " | Introduction to Educational Psychology | 3 | 50 | ARSC 1999TC | SS3 | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|54]",
+    "snippet": " | Introductory Psychology | 3 | 54 | PSYC 1001 |  | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|54]",
+    "snippet": " | Introductory Sociology | 3 | 54 | SOCY 1001 | SS3 | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|54]",
+    "snippet": " | Principles of Macroeconomics | 4 | 54 | ECON 2020 |  | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|54]",
+    "snippet": " | Principles of Microeconomics | 4 | 54 | ECON 2010 |  | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|50]",
+    "snippet": " | Social Sciences and History | 3 | 50 | ARSC 1999TC | HI1 or SS1 | Social Sciences"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|50]",
+    "snippet": " | Western Civilization I: Ancient Near East to 1648 | 3 | 50 | ARSC 1999TC | HI1 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|50]",
+    "snippet": " | Western Civilization II: 1648 to the Present | 3 | 50 | ARSC 1999TC | HI1 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|54]",
+    "snippet": "Biological and Physical Sciences | Biology | 6 | 54 | EBIO 1210, EBIO 1220 | SC2 | Natural Science"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|54]",
+    "snippet": " | Chemistry | 6 | 54 | CHEM 1113, ARSC1999TC | SC2 | 4 credits of Natural Sciences and 2 credits of Electives"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|54]",
+    "snippet": "Mathematics | Calculus | 5 | 54 | MATH 1300 | MA1 | Quantitative Reasoning"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|50]",
+    "snippet": " | College Algebra | 3 | 50 | ARSC 1999TC | MA1 | Quantitative Reasoning"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|50]",
+    "snippet": " | College Mathematics | 3 | 50 | ARSC 1999TC | MA1 | Quantitative Reasoning"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|50]",
+    "snippet": " | Precalculus | 3 | 50 | ARSC 1999TC | MA1 | Quantitative Reasoning"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMANITIES|400]",
+    "snippet": "Humanities | Art of the Western World | 3 | 400 | ARSC 1999TC | AH1 | Arts and Humanities"
+   },
+   {
+    "field": "equivalencies[CLEP-SOCIAL-SCIENCES-HISTORY|400]",
+    "snippet": " | General Anthropology | 3 | 400 | ARSC 1999TC | SS3 | Social Sciences"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-126614",
+  "issues": [
+   "score_scale_mismatch"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-LITERATURE",
+     "exam_or_course_name": "CLEP American Literature",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "Composition and Literature | AH2 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-ANALYZING-INTERPRETING-LITERATURE",
+     "exam_or_course_name": "CLEP Analyzing & Interpreting Literature",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "AH2 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-COLLEGE-COMPOSITION",
+     "exam_or_course_name": "CLEP College Composition",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "CO1 & CO2 | Written Communication"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-COLLEGE-COMPOSITION-MODULAR",
+     "exam_or_course_name": "CLEP College Composition Modular",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "CO1 | Written Communication"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-ENGLISH-LITERATURE",
+     "exam_or_course_name": "CLEP English Literature",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "AH2 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HUMANITIES",
+     "exam_or_course_name": "CLEP Humanities",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "Humanities | AH1 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "59",
+     "notes": "Languages | AH4 | 3 credits of Arts and Humanities and 6 credits of Electives"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "60",
+     "notes": "AH4 | 3 credits of Arts and Humanities and 6 credits of Electives"
+    },
+    {
+     "credits_awarded": 9,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "63",
+     "notes": "AH4 | 3 credits of Arts and Humanities and 6 credits of Electives"
+    },
+    {
+     "credits_awarded": 12,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "65",
+     "notes": "AH4 | 3 credits of Arts and Humanities and 9 credits of Electives"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-GOVERNMENT",
+     "exam_or_course_name": "CLEP American Government",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "History and Social Sciences | SS1 | Social Sciences"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HISTORY-OF-THE-UNITED-STATES-I",
+     "exam_or_course_name": "CLEP History of the United States I",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "HI1 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HISTORY-OF-THE-UNITED-STATES-II",
+     "exam_or_course_name": "CLEP History of the United States II",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "HI1 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HUMAN-GROWTH-DEVELOPMENT",
+     "exam_or_course_name": "CLEP Human Growth & Development",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "SS3 | Social Sciences"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTION-TO-EDUCATIONAL-PSYCHOLOGY",
+     "exam_or_course_name": "CLEP Introduction to Educational Psychology",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "SS3 | Social Sciences"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-PSYCHOLOGY",
+     "exam_or_course_name": "CLEP Introductory Psychology",
+     "institution_course_equivalent": "PSYC 1001",
+     "minimum_score": "54",
+     "notes": "Social Sciences"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-SOCIOLOGY",
+     "exam_or_course_name": "CLEP Introductory Sociology",
+     "institution_course_equivalent": "SOCY 1001",
+     "minimum_score": "54",
+     "notes": "SS3 | Social Sciences"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MACROECONOMICS",
+     "exam_or_course_name": "CLEP Principles of Macroeconomics",
+     "institution_course_equivalent": "ECON 2020",
+     "minimum_score": "54",
+     "notes": "Social Sciences"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MICROECONOMICS",
+     "exam_or_course_name": "CLEP Principles of Microeconomics",
+     "institution_course_equivalent": "ECON 2010",
+     "minimum_score": "54",
+     "notes": "Social Sciences"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-SOCIAL-SCIENCES-HISTORY",
+     "exam_or_course_name": "CLEP Social Sciences & History",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "HI1 or SS1 | Social Sciences"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-WESTERN-CIVILIZATION-I",
+     "exam_or_course_name": "CLEP Western Civilization I",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "HI1 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-WESTERN-CIVILIZATION-II",
+     "exam_or_course_name": "CLEP Western Civilization II",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "HI1 | Arts and Humanities"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-BIOLOGY",
+     "exam_or_course_name": "CLEP Biology",
+     "institution_course_equivalent": "EBIO 1210, EBIO 1220",
+     "minimum_score": "54",
+     "notes": "Biological and Physical Sciences | SC2 | Natural Science"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-CHEMISTRY",
+     "exam_or_course_name": "CLEP Chemistry",
+     "institution_course_equivalent": "CHEM 1113, ARSC1999TC",
+     "minimum_score": "54",
+     "notes": "SC2 | 4 credits of Natural Sciences and 2 credits of Electives"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "CLEP-CALCULUS",
+     "exam_or_course_name": "CLEP Calculus",
+     "institution_course_equivalent": "MATH 1300",
+     "minimum_score": "54",
+     "notes": "Mathematics | MA1 | Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-COLLEGE-ALGEBRA",
+     "exam_or_course_name": "CLEP College Algebra",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "MA1 | Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-COLLEGE-MATHEMATICS",
+     "exam_or_course_name": "CLEP College Mathematics",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "MA1 | Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRECALCULUS",
+     "exam_or_course_name": "CLEP Precalculus",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "50",
+     "notes": "MA1 | Quantitative Reasoning"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HUMANITIES",
+     "exam_or_course_name": "CLEP Humanities",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "400",
+     "notes": "Humanities | Art of the Western World | AH1"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-SOCIAL-SCIENCES-HISTORY",
+     "exam_or_course_name": "CLEP Social Sciences & History",
+     "institution_course_equivalent": "ARSC 1999TC",
+     "minimum_score": "400",
+     "notes": "General Anthropology | SS3"
+    }
+   ],
+   "institution_key": "ipeds-126614",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "CLEP",
+   "policy_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "source_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:41+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 10 Sep 2026 16:52:11 GMT",
+   "page_file": "a3cb7cb87fa0fd420158.json.gz",
+   "requested_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/",
+   "sha256": "a3cb7cb87fa0fd420158a68a4f7f5395adf334dd9585043f6897e8a5f23b8ce0",
+   "title": "Credit by Examination < University of Colorado Boulder",
+   "url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "b97bb1cbdf1d8a41",
+  "checks": {
+   "fields": [
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied             6168      338       Not Available         6506",
+    "value": 6506
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted       6168      338       Not Available         6506",
+    "value": 6506
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled                2133      39        Not Available         2172",
+    "value": 2172
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-127200",
+  "issues": [
+   "stale_year_label:2024-25"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "admits": 6506,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 6506,
+   "enrolled": 2172,
+   "entering_fall_year": 2024,
+   "institution_key": "ipeds-127200",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2024-25 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "source_url": "https://www.frontrange.edu/_resources/docs/about-frcc/ir-student-data/FRCC%202024-2025%20CDS-remediated.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:42+00:00",
+   "kind": "pdf",
+   "last_modified": "Fri, 05 Sep 2025 18:11:36 GMT",
+   "page_file": "8fd7f53b8432a3e1241c.json.gz",
+   "requested_url": "https://www.frontrange.edu/_resources/docs/about-frcc/ir-student-data/FRCC%202024-2025%20CDS-remediated.pdf",
+   "sha256": "8fd7f53b8432a3e1241c5ae12c9a826e2eb0cd1f37c19c16994d3548647b3d13",
+   "title": "Common Data Set 2024-2025",
+   "url": "https://www.frontrange.edu/_resources/docs/about-frcc/ir-student-data/FRCC%202024-2025%20CDS-remediated.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "b71c7211e26b10c0",
+  "checks": {
+   "distinct_exams": 16,
+   "equivalencies": 27,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "Chemistry      Chemistry             5   CHEM 1113 and CHEM 1114 5                                                     Core Humanities and the"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "European History   5, HIST 1012                   3              Statistics          5, MATH 2510                     3"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3]",
+    "snippet": "World History      5, 3 lower-division History   3     Music     Music Theory        5   MUSC 1101, MUSC 1111,   6"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|5]",
+    "snippet": "Mathematics Math-Calculus AB    5, MATH 1300                   5                                  4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4]",
+    "snippet": "Physics C-Mechanics 5   PHYS 1110                    4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4]",
+    "snippet": "Physics C-Electricity 5   PHYS 1120                  4        department strongly recommends enrolling at the lower of the two"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3]",
+    "snippet": "Psychology   Psychology           5, PSYC 1001                    3"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "French Language      5    FREN 2110, FREN 2120 and 9      granted 24 hours of college credit. This credit will be applied toward"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]",
+    "snippet": "German Language      5    GRMN 2020 and              7    exam—shall be granted 24 hours of college credit. If a student scores"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|5]",
+    "snippet": "Latin                5    LATN 1024, LATN 2114 and 12"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "Spanish Language     5    SPAN 2110, SPAN 2120 and 11     Anthropology Higher                     4   ANTH 2100 and 3 lower-         6"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|5]",
+    "snippet": "Spanish Literature   5    SPAN 1000 and SPAN 3002 6                                                   Core People and Society"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4]",
+    "snippet": "Biology        Higher           4   EBIO 1210, EBIO 1220,       8                                  requirement and the CMDI"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|7]",
+    "snippet": "Chemistry      Higher           7   CHEM 1113, CHEM 1114,   10        Environmental Standard   4   3 lower-division Arts &     3"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Chinese A:   Higher             4   CHIN 3110, CHIN 3120        10                             5"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|4]",
+    "snippet": "World History Standard   4   3 lower-division Arts &      3    and                     6,"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|6]",
+    "snippet": "Italian B     Higher     7, ITAL 2110 and ITAL 2120       6                                Thinking requirement"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|7]",
+    "snippet": "Italian B     Standard   7   ITAL 2110 and ITAL 2120      6                                Reasoning & Mathematical"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|7]",
+    "snippet": "Italian AB    Initio     7   ITAL 1020                    5"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Japanese A: Higher       4   JPNS 3110, JPNS 3120         10                               Skills requirement and the"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|5]",
+    "snippet": "Japanese AB Initio       5   JPNS 1010, JPNS 1020         10"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|4]",
+    "snippet": "Psychology     Higher           4   PSYC 1001 and 3 lower-       6"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "Spanish A:   Higher             4   SPAN 3000 and SPAN 3100 8"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|60]",
+    "snippet": "German 9             60         ARSC       AH4        3 credits"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|63]",
+    "snippet": "Spanish 9            63         ARSC       AH4        3 credits              Western 3        50      ARSC     HI1       Arts and"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|65]",
+    "snippet": "Spanish 12           65         ARSC       AH4        3 credits              II: 1648"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|54]",
+    "snippet": "Chemistry 6           54         CHEM 1113,"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-126614",
+  "issues": [
+   "score_scale_mismatch",
+   "conflicting_sources:https://catalog.colorado.edu/undergraduate/admissions/credit-examination/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 1113 and CHEM 1114 5",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": "5, HIST 1012",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": "MUSC 1101, MUSC 1111,",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "5, MATH 1300",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": "PHYS 1110",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": "PHYS 1120",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": "5, PSYC 1001",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FREN 2110, FREN 2120 and 9",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 7,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "GRMN 2020 and",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LATN 1024, LATN 2114 and 12",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 2110, SPAN 2120 and 11",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": "SPAN 1000 and SPAN 3002 6",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": "EBIO 1210, EBIO 1220,",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 1113, CHEM 1114,",
+     "minimum_score": "7",
+     "notes": null
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "CHIN 3110, CHIN 3120",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": null,
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "7, ITAL 2110 and ITAL 2120",
+     "minimum_score": "6",
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "ITAL 2110 and ITAL 2120",
+     "minimum_score": "7",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "ITAL 1020",
+     "minimum_score": "7",
+     "notes": null
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "JPNS 3110, JPNS 3120",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "JPNS 1010, JPNS 1020",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": "PSYC 1001 and 3 lower-",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 3000 and SPAN 3100 8",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "3 credits",
+     "minimum_score": "60",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "3 credits",
+     "minimum_score": "63",
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "3 credits",
+     "minimum_score": "65",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 1113,",
+     "minimum_score": "54",
+     "notes": null
+    }
+   ],
+   "institution_key": "ipeds-126614",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "AP",
+   "policy_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/credit-examination.pdf",
+   "source_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/credit-examination.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:01+00:00",
+   "kind": "pdf",
+   "last_modified": "Thu, 10 Sep 2026 16:52:16 GMT",
+   "page_file": "31e6f7334e6b88bbadfe.json.gz",
+   "requested_url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/credit-examination.pdf",
+   "sha256": "31e6f7334e6b88bbadfe689df0331355e4617fe5ea6cb470abd0bd08352df4c3",
+   "title": "Credit by Examination         1",
+   "url": "https://catalog.colorado.edu/undergraduate/admissions/credit-examination/credit-examination.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "efbc2f1b63b2e94c",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Our Financial Aid Office will help you access funds from the state and FRCC programs. east Financial Aid Options Special & Unusual Circumstances Does the FAFSA (Free Application for Federal Student Aid) not portray an accurate picture of your situation?",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Learn more about special or unusual circumstances. east Special Circumstances More Information Financial Aid FAQs Financial Aid Tutorials Refunds Loan Repayment Satisfactory Academic Progress CARES ACT Report & Disclosure Front Range Community College home page chat_bubbleContact Usvolunteer_activismGive to FRCC Locations Boulder County 2190 Miller Drive Longmont, CO 80501 303-678-3722 Westminster",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-127200",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-127200",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/",
+   "process_summary": "Our Financial Aid Office will help you access funds from the state and FRCC programs. east Financial Aid Options Special & Unusual Circumstances Does the FAFSA (Free Application for Federal Student Aid) not portray an accurate picture of your situation?",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:04+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "930e5af230ba38dfe754.json.gz",
+   "requested_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/",
+   "sha256": "930e5af230ba38dfe7545afd1287a8e3d06c76dcf57b3cebc28d98346a78d2fc",
+   "title": "FRCC | financial aid options for help paying for college",
+   "url": "https://www.frontrange.edu/admissions-aid/paying-for-college/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "8f8f6afbeb0231c0",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Appeal Forms To complete a financial aid appeal, you will need to submit your request via the Financial Aid Satisfactory Academic Progress (SAP) Appeal form.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Financial Aid Satisfactory Academic Progress (SAP) Appeal Form If you are appealing for a medical and/or mental health reason, you are required to have your doctor or mental health practitioner complete the FRCC Medical/Mental Health Documentation Form to include with your appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Processing Timeline Satisfactory Academic Progress appeals are reviewed consistently throughout the year and students who have appealed through financial aid should receive a decision within two to three weeks after submitting the online SAP Appeal form.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-127200",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-127200",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 3 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/financial-aid/financial-aid-basics/satisfactory-academic-progress.html",
+   "process_summary": "Appeal Forms To complete a financial aid appeal, you will need to submit your request via the Financial Aid Satisfactory Academic Progress (SAP) Appeal form.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/financial-aid/financial-aid-basics/satisfactory-academic-progress.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:05+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "7eff1beaebc9d3d9ec55.json.gz",
+   "requested_url": "https://www.frontrange.edu/admissions-aid/paying-for-college/financial-aid/financial-aid-basics/satisfactory-academic-progress.html",
+   "sha256": "7eff1beaebc9d3d9ec554430cf1553c31c4fd46075e2996d66f4233bcad36018",
+   "title": "Academic Standards for Satisfactory Academic Progress Policy",
+   "url": "https://www.frontrange.edu/admissions-aid/paying-for-college/financial-aid/financial-aid-basics/satisfactory-academic-progress.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "760d4c63adb1aa61",
+  "checks": {
+   "fields": [
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied          2613         156              0          1      2770",
+    "value": 2770
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted    2613         156              0          1      2770",
+    "value": 2770
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) enrolled             1059         14               0          1      1074",
+    "value": 1074
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-126289",
+  "issues": [
+   "stale_year_label:2024-25"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "admits": 2770,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 2770,
+   "enrolled": 1074,
+   "entering_fall_year": 2024,
+   "institution_key": "ipeds-126289",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2024-25 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "source_url": "https://www.arapahoe.edu/sites/default/files/about-acc/ir/common-data-set-2024-2025-acc.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:41+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 01 Jul 2025 16:40:54 GMT",
+   "page_file": "bdaab3b5ec72b89152f3.json.gz",
+   "requested_url": "https://www.arapahoe.edu/sites/default/files/about-acc/ir/common-data-set-2024-2025-acc.pdf",
+   "sha256": "bdaab3b5ec72b89152f33bcf9220120e9704bb3c078cb6066872e8e9b8e8f67b",
+   "title": "Common Data Set 2024-2025",
+   "url": "https://www.arapahoe.edu/sites/default/files/about-acc/ir/common-data-set-2024-2025-acc.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "2237beaf20273255",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": false,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition*",
+    "snippet": "Tuition* | $3,600",
+    "value": 3600
+   },
+   {
+    "field": "column:Student Fees**",
+    "snippet": "Student Fees** | $744",
+    "value": 744
+   },
+   {
+    "field": "column:Health Insurance (Estimated)",
+    "snippet": "Health Insurance (Estimated) | $400",
+    "value": 400
+   },
+   {
+    "field": "column:Books (Estimated)",
+    "snippet": "Books (Estimated) | $250",
+    "value": 250
+   },
+   {
+    "field": "column:Other Living Expenses (Estimated)",
+    "snippet": "Other Living Expenses (Estimated) | $4,920",
+    "value": 4920
+   },
+   {
+    "field": "column:Total Cost of Attendance for I-20:",
+    "snippet": "Total Cost of Attendance for I-20: | $9,914",
+    "value": 9914
+   },
+   {
+    "field": "column:Cost per dependent (Estimated annually)",
+    "snippet": "Cost per dependent (Estimated annually) | $9,000",
+    "value": 9000
+   },
+   {
+    "field": "column:Total Tuition and Fee Charge",
+    "snippet": "Total Tuition and Fee Charge | $4,344",
+    "value": 4344
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-126562",
+  "issues": [
+   "components_do_not_reconcile",
+   "residency_unknown"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "books_supplies": 250,
+   "components": {
+    "Books (Estimated)": 250,
+    "Cost per dependent (Estimated annually)": 9000,
+    "Health Insurance (Estimated)": 400,
+    "Other Living Expenses (Estimated)": 4920,
+    "Student Fees**": 744,
+    "Total Cost of Attendance for I-20:": 9914,
+    "Total Tuition and Fee Charge": 4344,
+    "Tuition*": 3600
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-126562",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": 744,
+   "notes": "Extracted by cost_table/v2 from the table \" Tuition & Fees \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://clas.ucdenver.edu/esl/future-students/tuition-fees",
+   "total_cost_of_attendance": 9914,
+   "tuition": 3600,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:09:51+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:09:51 GMT",
+   "page_file": "eef7b2c909cd9e7bf48a.json.gz",
+   "requested_url": "https://clas.ucdenver.edu/esl/future-students/tuition-fees",
+   "sha256": "eef7b2c909cd9e7bf48ab927246446e0f131338f8438824373fed31102bc7f4d",
+   "title": "Tuition & Fees | English as a Second Language Academy | CU Denver College of Liberal Arts and Sciences",
+   "url": "https://clas.ucdenver.edu/esl/future-students/tuition-fees"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "71dbbd3a03a256d6",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition & Fees*",
+    "snippet": "Tuition & Fees* | $12,807",
+    "value": 12807
+   },
+   {
+    "field": "column:Living Expenses",
+    "snippet": "Living Expenses | $9,841",
+    "value": 9841
+   },
+   {
+    "field": "column:Books & Insurance",
+    "snippet": "Books & Insurance | $1,300",
+    "value": 1300
+   },
+   {
+    "field": "column:Total (I-20 Amount)",
+    "snippet": "Total (I-20 Amount) | $23,948",
+    "value": 23948
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-126562",
+  "issues": [
+   "residency_unknown",
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": 1300,
+   "components": {
+    "Books & Insurance": 1300,
+    "Living Expenses": 9841,
+    "Total (I-20 Amount)": 23948,
+    "Tuition & Fees*": 12807
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-126562",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Estimated Costs (USD): \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://clas.ucdenver.edu/esl/lynxdirect-pathway-program",
+   "total_cost_of_attendance": 23948,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 12807,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:09:53+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:09:53 GMT",
+   "page_file": "acbcc77e6cbc09d06667.json.gz",
+   "requested_url": "https://clas.ucdenver.edu/esl/lynxdirect-pathway-program",
+   "sha256": "acbcc77e6cbc09d06667f891eae8cdca651e98cd518b30443a4533231318f19e",
+   "title": "LynxDirect Pathway Program | English as a Second Language Academy | CU Denver College of Liberal Arts and Sciences",
+   "url": "https://clas.ucdenver.edu/esl/lynxdirect-pathway-program"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "mf758ef9217dc1ec",
+  "checks": {
+   "fields": [
+    "min_grade",
+    "residency_requirement_credits"
+   ],
+   "merged_pages": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "The minimum admission criteria to transfer to the BA in Computer Science Degree Program are as follows: Cumulative GPA of 2.5 or higher Calculus 1 (grade of C or better) Calculus 2 (grade of C or better) Introduction to Computer Programming Must be a computer programming language course (Java, Python, C, C++) C++ is preferred B grade or higher in all computing courses Note: AP/IB credit does not c",
+    "source_url": "https://www.colorado.edu/admissions/process/transfer/timeline/admissions-criteria",
+    "value": "C"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "The minimum admission criteria to transfer to the BA in Computer Science Degree Program are as follows: Cumulative GPA of 2.5 or higher Calculus 1 (grade of C or better) Calculus 2 (grade of C or better) Introduction to Computer Programming Must be a computer programming language course (Java, Python, C, C++) C++ is preferred B grade or higher in all computing courses Note: AP/IB credit does not c",
+    "source_url": "https://www.colorado.edu/admissions/process/transfer/timeline/admissions-criteria",
+    "value": "C"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "Criteria for Acceptance of Credit Only courses taken at a college or university of recognized standing with grades of C- (1.70) or better are accepted for transfer.",
+    "source_url": "https://catalog.colorado.edu/undergraduate/admissions/transfer-college-level-credit/",
+    "value": "C-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "Only courses taken at a college or university of recognized standing with grades of C- or better are accepted for transfer.",
+    "source_url": "https://catalog.colorado.edu/undergraduate/admissions/transfer-college-level-credit/",
+    "value": "C-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "Transfer of College-Level Credit 1 TRANSFER OF COLLEGE- Criteria for Acceptance of Credit Only courses taken at a college or university of recognized standing with LEVEL CREDIT grades of C- (1.70) or better are accepted for transfer.",
+    "source_url": "https://catalog.colorado.edu/undergraduate/admissions/transfer-college-level-credit/transfer-college-level-credit.pdf",
+    "value": "C-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "Transfer Credit Policies Transfer of credit from other institutions of higher education Work from another accredited institution of higher education that has been completed with a grade of C- (1.70) or better may be transferred to the University of Colorado.",
+    "source_url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/",
+    "value": "C-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "Only courses taken at a college or university of recognized standing with grades of C- or better are accepted for transfer.",
+    "source_url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/",
+    "value": "C-"
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "Graduation with Distinction Students will graduate \"With Distinction\" if they have completed at least 30 credit hours with a letter grade at the University of Colorado Boulder and have a grade point average of 3.750 or higher for all coursework completed at the University of Colorado.",
+    "source_url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/",
+    "value": 30
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-126614",
+  "issues": [
+   "conflicting_sources:min_grade"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "additional_source_urls": [
+    "https://catalog.colorado.edu/undergraduate/admissions/transfer-college-level-credit/",
+    "https://catalog.colorado.edu/undergraduate/admissions/transfer-college-level-credit/transfer-college-level-credit.pdf",
+    "https://www.colorado.edu/admissions/process/transfer/timeline/admissions-criteria"
+   ],
+   "institution_key": "ipeds-126614",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/",
+   "residency_requirement_credits": 30,
+   "source_url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:21+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 10 Sep 2026 16:56:37 GMT",
+   "page_file": "e5b015e8de041b2a7b02.json.gz",
+   "requested_url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/",
+   "sha256": "e5b015e8de041b2a7b02c15fdbbca62e71d6f59a9785c61cbbdf788e5b0c9339",
+   "title": "Policies & Requirements < University of Colorado Boulder",
+   "url": "https://catalog.colorado.edu/undergraduate/colleges-schools/arts-sciences/policies-requirements/"
+  },
+  "year_basis": "labeled_in_source"
+ }
+]
