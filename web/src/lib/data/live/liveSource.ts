@@ -594,7 +594,7 @@ export class LiveSource implements DataSource {
     return ((data ?? []) as PoolStatus[]).map((r) => ({ section: r.section, reserved: Number(r.reserved), unseen: Number(r.unseen) }))
   }
 
-  /** CR-23: the reserved items an open check may still use, in the server's order (unseen first, then repeats). */
+  /** CR-23, #263: the items the server assigned to this check at its start that it hasn't used yet, in the server's order (unseen first, then repeats). */
   async benchmarkQuestions(benchmarkId: string): Promise<CheckItem[]> {
     const rows = await rpc<{ section: string; question_id: string; seen_before: boolean }[]>(this.sb, 'benchmark_questions', { p_benchmark: benchmarkId })
     const ids = (rows ?? []).map((r) => r.question_id)
