@@ -47,7 +47,9 @@ const UNVERIFIED_PLAN = {
   label: 'Degree plan not yet verified',
   text: 'This school’s plan for this major is on file, but it isn’t verified yet, so it isn’t shown. Credit can be shown as accepted, but not where it counts.',
 }
-const statusOf = (r: Roadmap) => (r.status === 'blocked' && r.plan.evidence.verificationStatus === 'partially_verified' ? UNVERIFIED_PLAN : STATUS[r.status])
+/** A plan record exists (any status other than verified) but isn't shown. */
+const planOnFileUnverified = (r: Roadmap) => r.plan.value === null && r.plan.evidence.verificationStatus != null && r.plan.evidence.verificationStatus !== 'verified'
+const statusOf = (r: Roadmap) => (r.status === 'blocked' && planOnFileUnverified(r) ? UNVERIFIED_PLAN : STATUS[r.status])
 
 export function CollegePlan() {
   const { activeStudent } = useApp()
@@ -216,7 +218,7 @@ function RoadmapView({
         ) : (
           <>
             <Missing e={r.plan.evidence} />
-            {r.plan.evidence.verificationStatus === 'partially_verified' && (
+            {planOnFileUnverified(r) && (
               <p className="mt-1 text-sm text-ink-2">
                 {r.plan.evidence.notesCapture === 'incomplete'
                   ? 'A note printed with the plan, which can change the courses it requires, hasn’t been captured and checked yet. The plan is shown once it is. '

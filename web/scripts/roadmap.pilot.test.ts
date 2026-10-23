@@ -87,6 +87,20 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.unknowns.some((u) => u.topic === 'cost')).toBe(false)
   })
 
+  it('the plan reason wording covers every unverified plan: notes missing with or without reviewed rows, and other statuses', () => {
+    const withPlan = (patch: Rec) => {
+      const c = comparison('utc', '221740')
+      const reqs = (c.domains.degree_requirements as Rec[]).map((r) => (r.program_key === 'management-b-s-b-a' && r.requirement_kind === 'program_plan' ? { ...r, ...patch } : r))
+      return buildRoadmap({ comparison: { ...c, domains: { ...c.domains, degree_requirements: reqs } as never }, programKey: 'management-b-s-b-a', profile: persona })
+    }
+    const why = (r: ReturnType<typeof withPlan>) => r.unknowns.find((u) => u.topic === 'plan')?.text ?? ''
+    expect(why(withPlan({ captured_rows_reviewed: false }))).toMatch(/not yet verified: a note printed with it, which can change what it requires, isn’t captured yet/)
+    for (const status of ['unverified', 'stale']) {
+      const r = withPlan({ verification_status: status, notes_capture: undefined })
+      expect(r).toMatchObject({ status: 'blocked', plan: { value: null, evidence: { verificationStatus: status, missing: 'Plan on file but not verified.' } } })
+    }
+  })
+
   // Scenario, not today's data: the plan's note captured and its replacement reviewed (#218), and #191's tables verified.
   it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
     const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
