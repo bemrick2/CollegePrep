@@ -21,7 +21,8 @@
  */
 import type { FixtureQuestion } from './data/demo/fixtures'
 import { contentHash, cyrb53 } from './data/demo/questionReview'
-import { AI_AUTHOR, canonicalPerson as person, EDITORIAL_LEDGER, editorialState, isIsoDate, isNotAPerson, type Ledger } from './data/demo/editorialLedger'
+import { AI_AUTHOR, canonicalPerson as person, EDITORIAL_LEDGER, editorialState, type Ledger } from './data/demo/editorialLedger'
+import { authorized, isAuthor, REVIEWERS, type ReviewerRegistry } from './data/demo/reviewerRegistry'
 import { questionKey, type ImportedQuestion } from './questionImport'
 
 export type Track = 'practice_candidate' | 'assessment_candidate'
@@ -76,7 +77,15 @@ const canonicalJson = (v: unknown): string =>
     ? `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${canonicalJson((v as Record<string, unknown>)[k])}`).join(',')}}`
     : JSON.stringify(v ?? null)
 const recordHash = (item: ImportedQuestion) => cyrb53(canonicalJson(item))
-const authorsOf = (c: Candidate) => new Set(c.versions.map((v) => person(v.item.author)))
+const authorNames = (c: Candidate) => [...new Set(c.versions.map((v) => v.item.author))]
+
+/**
+ * The rights version a stage-3 check signs: the content hash plus author, origin, license, attribution and source.
+ * Any change to those makes a new rights_hash, so an earlier rights check stops counting, and a check of the new
+ * version counts as soon as it is recorded (no date comparison).
+ */
+export const rightsHash = (v: CandidateVersion) =>
+  cyrb53(canonicalJson({ content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) }))
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x))
 
 /** The question as the app and the ledger see it: the import line with its import_id as the id. */
@@ -193,16 +202,18 @@ function isRetired(c: Candidate) {
 const lastTrackSet = (c: Candidate) => c.history.filter((h): h is Extract<HistoryEvent, { event: 'track_set' }> => h.event === 'track_set').pop()
 
 /**
- * The content lead confirms or changes a track. `exposed`: ids any student has seen in practice (from the database
- * once hosted is back; pass an empty set explicitly when there is none). Throws when the move is not allowed.
+ * The content lead confirms or changes a track. `by`: the reviewer id of an active content lead (reviewerRegistry)
+ * who wrote no version. `exposed`: ids any student has seen in practice (from the database once hosted is back; pass
+ * an empty set explicitly when there is none). Throws when the move is not allowed.
  */
-export function setTrack(reg: Registry, id: string, track: Track, by: string, reason: string, at: string, exposed: Set<string>): Registry {
+export function setTrack(reg: Registry, id: string, track: Track, by: string, reason: string, at: string, exposed: Set<string>, reviewers: ReviewerRegistry = REVIEWERS): Registry {
   const c = reg.candidates[id]
   if (!c) throw new Error(`no candidate ${id}`)
   if (isRetired(c)) throw new Error(`${id} is retired`)
-  if (isNotAPerson(by)) throw new Error(`"${by}" is not a named person; only the content lead sets a track`)
+  const lead = authorized(reviewers, by, 'content_lead')
+  if (!lead) throw new Error(`${by} is not an active content lead in the reviewer registry; only a content lead sets a track`)
   if (!reason.trim()) throw new Error('a reason is required')
-  if (authorsOf(c).has(person(by))) throw new Error(`${by} wrote this item and can't set its track`)
+  if (isAuthor(lead, authorNames(c))) throw new Error(`${by} wrote this item and can't set its track`)
   if (track === 'assessment_candidate') {
     if (c.history.some((h) => h.event === 'track_set' && h.track === 'practice_candidate')) throw new Error(`${id} was confirmed for practice; a practice item never becomes a reserved assessment item`)
     if (exposed.has(id)) throw new Error(`${id} has been seen in practice and can't be reserved`)
@@ -210,42 +221,46 @@ export function setTrack(reg: Registry, id: string, track: Track, by: string, re
   const next: Registry = clone(reg)
   const n = next.candidates[id]!
   n.track = track
-  n.track_confirmed_by = by.trim()
-  n.history.push({ at, event: 'track_set', track, by: by.trim(), reason: reason.trim() })
+  n.track_confirmed_by = lead.id
+  n.history.push({ at, event: 'track_set', track, by: lead.id, reason: reason.trim() })
   return next
 }
 
-/** Retires a candidate (kept, never deleted). `duplicateOf`: another candidate's id or `bank:<id>`. */
-export function retire(reg: Registry, id: string, by: string, reason: string, at: string, duplicateOf?: string): Registry {
+/** Retires a candidate (kept, never deleted). `by`: an active content lead's reviewer id. `duplicateOf`: another candidate's id or `bank:<id>`. */
+export function retire(reg: Registry, id: string, by: string, reason: string, at: string, duplicateOf?: string, reviewers: ReviewerRegistry = REVIEWERS): Registry {
   const c = reg.candidates[id]
   if (!c) throw new Error(`no candidate ${id}`)
   if (isRetired(c)) throw new Error(`${id} is already retired`)
-  if (isNotAPerson(by)) throw new Error(`"${by}" is not a named person`)
+  if (!authorized(reviewers, by, 'content_lead')) throw new Error(`${by} is not an active content lead in the reviewer registry`)
   if (!reason.trim()) throw new Error('a reason is required')
   if (duplicateOf && !(duplicateOf.startsWith('bank:') || (reg.candidates[duplicateOf] && duplicateOf !== id))) throw new Error(`${duplicateOf} is not another candidate or a bank:<id>`)
   const next: Registry = clone(reg)
   const n = next.candidates[id]!
   n.status = 'retired'
   if (duplicateOf) n.duplicate_of = duplicateOf
-  n.history.push({ at, event: 'retired', reason: reason.trim(), by: by.trim(), ...(duplicateOf ? { duplicate_of: duplicateOf } : {}) })
+  n.history.push({ at, event: 'retired', reason: reason.trim(), by, ...(duplicateOf ? { duplicate_of: duplicateOf } : {}) })
   return next
 }
 
 /**
  * The answer key for one exact content. Throws unless `hash` is a version's content hash, so a key can never be
  * attached to different (revised or stale) content. `verified` is true only when two blind solves of exactly this
- * content, by different people who never authored any version, matched it.
+ * content, by two different authorized solvers (reviewer ids) who never authored any version, matched it.
  */
-export function answerKeyFor(c: Candidate, hash: string, ledger: Ledger = EDITORIAL_LEDGER): { version: number; accepted_answers: string[]; verified: boolean; carried_from?: number } {
+export function answerKeyFor(c: Candidate, hash: string, ledger: Ledger = EDITORIAL_LEDGER, reviewers: ReviewerRegistry = REVIEWERS): { version: number; accepted_answers: string[]; verified: boolean; carried_from?: number } {
   const v = c.versions.filter((x) => x.content_hash === hash).pop()
   if (!v) throw new Error(`${c.import_id}: no version has content ${hash}; a key is never attached to other content`)
-  const authors = authorsOf(c)
+  const authors = authorNames(c)
   const keys = v.item.accepted_answers.map((a) => a.trim().toLowerCase())
   const solvers = new Set(
     (ledger.items[c.import_id]?.signoffs ?? [])
-      .filter((s) => s.stage === 4 && s.result === 'pass' && s.hash === hash && !isNotAPerson(s.by) && !authors.has(person(s.by)))
+      .filter((s) => s.stage === 4 && s.result === 'pass' && s.hash === hash)
+      .filter((s) => {
+        const r = authorized(reviewers, s.reviewer_id, 'solver')
+        return !!r && !isAuthor(r, authors)
+      })
       .filter((s) => keys.includes((s.answer ?? '').trim().toLowerCase()))
-      .map((s) => person(s.by)),
+      .map((s) => s.reviewer_id),
   )
   const prev = c.versions.filter((x) => x.version < v.version && x.content_hash !== hash && JSON.stringify(x.item.accepted_answers) === JSON.stringify(v.item.accepted_answers)).pop()
   return { version: v.version, accepted_answers: [...v.item.accepted_answers], verified: solvers.size >= 2, ...(prev ? { carried_from: prev.version } : {}) }
@@ -256,6 +271,7 @@ export interface Eligibility {
   track: Track
   version: number
   content_hash: string
+  rights_hash: string
   eligible: boolean
   problems: string[]
 }
@@ -264,58 +280,48 @@ export interface Eligibility {
  * Whether one candidate may be published, judged on its latest version alone and from its history. Every condition
  * must hold for this item individually; nothing about other items (a sample, a batch pass rate) changes the answer.
  */
-export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER, today: string = new Date().toISOString().slice(0, 10)): Eligibility {
+export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER, reviewers: ReviewerRegistry = REVIEWERS): Eligibility {
   const v = latest(c)
   const q = asQuestion(v, c.import_id)
+  const rh = rightsHash(v)
   const problems: string[] = []
-  const authors = authorsOf(c)
+  const authors = authorNames(c)
   if (isRetired(c)) problems.push(c.duplicate_of ? `retired: duplicates ${c.duplicate_of}` : 'retired')
 
-  // The track counts only as the history records it: the last confirmation, by a named person who wrote no version.
+  // The track counts only as the history records it: the last confirmation, by an active content lead who wrote no version.
   const t = lastTrackSet(c)
   if (!t) problems.push('track is only the workstream’s request; the content lead has not confirmed it')
   else {
     if (t.track !== c.track) problems.push(`track ${c.track} doesn't match the last confirmation (${t.track})`)
-    if (isNotAPerson(t.by)) problems.push(`track confirmed by "${t.by}", who is not a named person`)
-    if (authors.has(person(t.by))) problems.push(`track confirmed by ${t.by}, who wrote a version of this item`)
+    const lead = authorized(reviewers, t.by, 'content_lead')
+    if (!lead) problems.push(`track confirmed by ${t.by}, who is not an active content lead`)
+    else if (isAuthor(lead, authors)) problems.push(`track confirmed by ${t.by}, who wrote a version of this item`)
   }
 
   // The ledger's author is the import's author (not the AI default), so the author can't approve their own item.
   const entry = ledger.items[c.import_id]
   if (entry && entry.author !== AI_AUTHOR && person(entry.author) !== person(v.item.author)) problems.push(`ledger author "${entry.author}" differs from the import author "${v.item.author}"`)
-  // A sign-off dated more than a day ahead of today (a hand edit, a typo) doesn't count anywhere.
-  const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10)
-  const future = (entry?.signoffs ?? []).filter((s) => isIsoDate(s.date) && s.date > tomorrow)
-  if (future.length) problems.push(`${future.length} sign-off(s) dated in the future don't count`)
-  const signoffs = (entry?.signoffs ?? []).filter((s) => !future.includes(s))
-  const st = editorialState(q, { items: { [c.import_id]: { author: v.item.author, signoffs } } })
+  const signoffs = entry?.signoffs ?? []
+  // Every author of every version is excluded from stages 4, 6 and 8, and stage 3 must sign this exact rights version.
+  const st = editorialState(q, { items: { [c.import_id]: { author: v.item.author, signoffs } } }, { reviewers, authors, rightsHash: rh })
   if (!st.humanApproved) problems.push(...st.problems, `editorial review is at stage ${st.next}`)
+  if (!answerKeyFor(c, v.content_hash, ledger, reviewers).verified) problems.push('answer key not confirmed by two independent blind solves of this version')
 
-  // A change to the rights basis or author keeps the content hash, so the rights check must be signed again after it.
-  const rightsChange = c.history.filter((h) => h.event === 'revised' && h.rights_changed).pop()
-  if (rightsChange && !signoffs.some((s) => s.stage === 3 && s.result === 'pass' && s.hash === v.content_hash && !isNotAPerson(s.by) && isIsoDate(s.date) && s.date > rightsChange.at))
-    problems.push(`rights or authorship changed on ${rightsChange.at}; stage 3 must be signed again, dated the next day or later`)
-
-  // Anyone who wrote any version is not independent: their solve isn't blind, and they can't pass stages 6 or 8.
-  const own = signoffs.filter((s) => s.hash === v.content_hash && [4, 6, 8].includes(s.stage) && authors.has(person(s.by)))
-  if (own.length) problems.push(`sign-off(s) at stage ${[...new Set(own.map((s) => s.stage))].join(', ')} by an author of a version`)
-  if (!answerKeyFor(c, v.content_hash, ledger).verified) problems.push('answer key not confirmed by two independent blind solves of this version')
-
-  return { import_id: c.import_id, track: c.track, version: v.version, content_hash: v.content_hash, eligible: problems.length === 0, problems: [...new Set(problems)] }
+  return { import_id: c.import_id, track: c.track, version: v.version, content_hash: v.content_hash, rights_hash: rh, eligible: problems.length === 0, problems: [...new Set(problems)] }
 }
 
 /** Eligible items of one track. Retired candidates and the other track are never included. */
-export function eligibleFor(reg: Registry, track: Track, ledger: Ledger = EDITORIAL_LEDGER, today?: string): Eligibility[] {
-  return Object.values(reg.candidates).filter((c) => c.track === track).map((c) => eligibility(c, ledger, today)).filter((e) => e.eligible)
+export function eligibleFor(reg: Registry, track: Track, ledger: Ledger = EDITORIAL_LEDGER, reviewers: ReviewerRegistry = REVIEWERS): Eligibility[] {
+  return Object.values(reg.candidates).filter((c) => c.track === track).map((c) => eligibility(c, ledger, reviewers)).filter((e) => e.eligible)
 }
 
 /** Counts by track and status, for reports. Eligible counts are per item. */
-export function summary(reg: Registry, ledger: Ledger = EDITORIAL_LEDGER) {
+export function summary(reg: Registry, ledger: Ledger = EDITORIAL_LEDGER, reviewers: ReviewerRegistry = REVIEWERS) {
   const out = { practice_candidate: { draft: 0, retired: 0, eligible: 0 }, assessment_candidate: { draft: 0, retired: 0, eligible: 0 }, versions: 0 }
   for (const c of Object.values(reg.candidates)) {
     out[c.track][isRetired(c) ? 'retired' : 'draft']++
     out.versions += c.versions.length
-    if (eligibility(c, ledger).eligible) out[c.track].eligible++
+    if (eligibility(c, ledger, reviewers).eligible) out[c.track].eligible++
   }
   return out
 }

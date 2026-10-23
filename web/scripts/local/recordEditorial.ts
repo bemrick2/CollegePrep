@@ -1,74 +1,45 @@
-// Imports filled-in editorial sign-offs into src/lib/data/demo/editorialLedger.json.
+// Imports filled-in editorial sign-offs into the editorial ledger.
 //
-//   npx vite-node scripts/local/recordEditorial.ts <signoffs.csv> [more.csv ...]
+//   npx vite-node scripts/local/recordEditorial.ts <signoffs.csv> [more.csv ...] [--registry candidates.json]
+//                                                  [--ledger editorialLedger.json] [--reviewers reviewers.json]
 //
-// CSV columns (header row required): id, stage, by, date, result, hash, answer, seconds, license, note
-//   stage 2 rows record the item's author (by). Every row must carry the hash printed on the packet it was made
-//   from; a row for content that has since changed is refused, so a sign-off can never attach to text nobody saw.
+// Columns (header row required): id, stage, reviewer_id, by, date, result, hash, rights_hash, answer, seconds, license, note
+// - reviewer_id must be an active reviewer authorized for the stage (reviewers.json); `by` is display only.
+// - hash must be the content printed on the packet, and stage 3 rows of imported items the rights version printed.
+// - result is exactly "pass" or "fail". A recorded fail is never removed by a later row.
+// Without --registry the rows are for the app's own bank; with it, for that imported batch.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { QUESTIONS } from '../../src/lib/data/demo/fixtures'
-import { contentHash } from '../../src/lib/data/demo/questionReview'
-import { canonicalPerson, EDITORIAL_LEDGER, editorialState, isIsoDate, type Ledger, type SignOff, type Stage } from '../../src/lib/data/demo/editorialLedger'
+import { practiceExclusions } from '../../src/lib/engine/freshness'
+import type { Ledger } from '../../src/lib/data/demo/editorialLedger'
+import { registryProblems, type ReviewerRegistry } from '../../src/lib/data/demo/reviewerRegistry'
+import { csvRows, itemsFromBank, itemsFromRegistry, recordSignoffs, stateOf } from '../../src/lib/editorialReview'
+import type { Registry } from '../../src/lib/questionCandidates'
+import { parseArgs } from './reviewArgs'
 
-const files = process.argv.slice(2)
-if (!files.length) throw new Error('usage: recordEditorial.ts <signoffs.csv> [...]')
+const usage = 'usage: recordEditorial.ts <signoffs.csv> [...] [--registry candidates.json] [--ledger path] [--reviewers path]'
+const { positional: files, opts } = parseArgs(process.argv.slice(2), ['--registry', '--ledger', '--reviewers'], usage)
+if (!files.length) throw new Error(usage)
+const ledgerPath = opts['--ledger'] ?? new URL('../../src/lib/data/demo/editorialLedger.json', import.meta.url).pathname
+const reviewersPath = opts['--reviewers'] ?? new URL('../../src/lib/data/demo/reviewers.json', import.meta.url).pathname
+const ledger = JSON.parse(readFileSync(ledgerPath, 'utf8')) as Ledger
+const reviewers = JSON.parse(readFileSync(reviewersPath, 'utf8')) as ReviewerRegistry
+const bad = registryProblems(reviewers)
+if (bad.length) throw new Error(`${reviewersPath} has problems; nothing recorded:\n${bad.join('\n')}`)
+const items = opts['--registry']
+  ? itemsFromRegistry(JSON.parse(readFileSync(opts['--registry'], 'utf8')) as Registry)
+  : itemsFromBank(QUESTIONS, new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)]), ledger)
 
-function parseCsv(text: string): string[][] {
-  const rows: string[][] = []
-  let row: string[] = []
-  let cell = ''
-  let quoted = false
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i]!
-    if (quoted) {
-      if (ch === '"' && text[i + 1] === '"') (cell += '"'), i++
-      else if (ch === '"') quoted = false
-      else cell += ch
-    } else if (ch === '"') quoted = true
-    else if (ch === ',') row.push(cell), (cell = '')
-    else if (ch === '\n' || ch === '\r') {
-      if (ch === '\r' && text[i + 1] === '\n') i++
-      row.push(cell), rows.push(row), (row = []), (cell = '')
-    } else cell += ch
-  }
-  if (cell || row.length) row.push(cell), rows.push(row)
-  return rows.filter((r) => r.some((c) => c.trim()))
-}
-
-const byId = new Map(QUESTIONS.map((q) => [q.id, q]))
-const ledger: Ledger = JSON.parse(JSON.stringify(EDITORIAL_LEDGER))
-const refused: string[] = []
+let current = ledger
 let added = 0
+const refused: string[] = []
+const today = new Date().toISOString().slice(0, 10)
 for (const f of files) {
-  const [head, ...rows] = parseCsv(readFileSync(f, 'utf8'))
-  const col = (r: string[], name: string) => (r[head!.indexOf(name)] ?? '').trim()
-  for (const r of rows) {
-    const id = col(r, 'id')
-    const q = byId.get(id)
-    const stage = Number(col(r, 'stage')) as Stage
-    const by = col(r, 'by')
-    if (!q) { refused.push(`${f}: unknown item ${id}`); continue }
-    if (![2, 3, 4, 5, 6, 7, 8].includes(stage)) { refused.push(`${id}: bad stage ${col(r, 'stage')}`); continue }
-    if (!by) continue // a blank template row
-    if (col(r, 'hash') !== contentHash(q)) { refused.push(`${id}: hash ${col(r, 'hash')} is not the current content (${contentHash(q)}); re-issue the packet`); continue }
-    const entry = (ledger.items[id] ??= { author: 'AI (Claude)', signoffs: [] })
-    if (stage === 2) { entry.author = by; continue }
-    const date = col(r, 'date') || new Date().toISOString().slice(0, 10)
-    // A date must be real and not in the future (a local day ahead of UTC is allowed).
-    if (!isIsoDate(date) || date > new Date(Date.now() + 86400000).toISOString().slice(0, 10)) { refused.push(`${id}: date "${date}" must be YYYY-MM-DD and not in the future`); continue }
-    const s: SignOff = { stage, by, date, result: col(r, 'result') === 'fail' ? 'fail' : 'pass', hash: contentHash(q) }
-    if (col(r, 'answer')) s.answer = col(r, 'answer')
-    if (col(r, 'seconds')) s.seconds = Number(col(r, 'seconds'))
-    if (col(r, 'license')) s.license = col(r, 'license')
-    if (col(r, 'note')) s.note = col(r, 'note')
-    // One sign-off per person per stage: a newer one replaces that person's earlier PASS only. A recorded fail is
-    // never removed by a later row (it stays until the item is revised), so a name that merely looks the same can't
-    // erase someone else's fail.
-    entry.signoffs = [...entry.signoffs.filter((x) => !(x.stage === stage && x.result === 'pass' && canonicalPerson(x.by) === canonicalPerson(by) && x.hash === s.hash)), s]
-    added++
-  }
+  const r = recordSignoffs(current, items, csvRows(readFileSync(f, 'utf8')), reviewers, today, f)
+  current = r.ledger
+  added += r.added
+  refused.push(...r.refused)
 }
-writeFileSync(new URL('../../src/lib/data/demo/editorialLedger.json', import.meta.url), JSON.stringify(ledger, null, 1) + '\n')
-const approved = QUESTIONS.filter((q) => editorialState(q, ledger).humanApproved).length
-console.log(`${added} sign-offs recorded; ${approved}/${QUESTIONS.length} items human-approved`)
+writeFileSync(ledgerPath, JSON.stringify(current, null, 1) + '\n')
+console.log(`${added} sign-offs recorded; ${items.filter((i) => stateOf(i, current, reviewers).humanApproved).length}/${items.length} items human-approved`)
 if (refused.length) console.log(`Refused ${refused.length}:\n${refused.join('\n')}`)

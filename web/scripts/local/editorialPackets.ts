@@ -1,77 +1,33 @@
-// Human editorial review (CONTENT_PLAN.md §5), offline. Writes, for the content lead:
-//   status.csv              one row per item: stage passed, next stage, problems (the tracking sheet)
-//   blind-<exam>-<section>.html  printable blind-solve packets: passage, stem and choices only; no key, hints or explanations
-//   solves-template.csv     the sheet solvers fill in and recordEditorial.ts imports
-//   review-<exam>-<section>.html full items with key and explanations, for stages 5-7 (never give these to solvers)
+// Human editorial review (CONTENT_PLAN.md §5, QUESTION_REVIEW_WORKFLOW.md), offline. Writes, for the content lead:
+//   status.csv                    one row per item: track, hashes, stage passed, next stage, problems
+//   blind-<exam>-<section>.html   printable blind-solve packets: passage, stem and choices only; no key, hints or explanations
+//   solves-template.csv           the sheet solvers fill in (two stage-4 rows per item)
+//   signoffs-template.csv         stages 3 and 5-8 (stage 3 rows carry the rights version to sign)
+//   review-<exam>-<section>.html  full items with key and explanations, for stages 3 and 5-7 (never give these to solvers)
 //
-//   npx vite-node scripts/local/editorialPackets.ts <out-dir> [--ids id1,id2,...]
+//   npx vite-node scripts/local/editorialPackets.ts <out-dir> [--ids id1,id2,...] [--registry candidates.json]
 //
-// --ids limits every file to a review batch (docs/product/QUESTION_REVIEW_WORKFLOW.md). Unknown ids are an error.
-// status.csv's track column is the current assignment (reserved for checks, or practice); the content lead confirms it.
-import { mkdirSync, writeFileSync } from 'node:fs'
-import { QUESTIONS as ALL, type FixtureQuestion } from '../../src/lib/data/demo/fixtures'
+// Without --registry: the app's own bank. With --registry: an imported batch (the latest version of every candidate
+// that isn't retired). --ids limits the files to a review batch; an unknown id is an error.
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { QUESTIONS } from '../../src/lib/data/demo/fixtures'
 import { practiceExclusions } from '../../src/lib/engine/freshness'
-import { contentHash } from '../../src/lib/data/demo/questionReview'
-import { editorialState, STAGE_NAME } from '../../src/lib/data/demo/editorialLedger'
+import { EDITORIAL_LEDGER } from '../../src/lib/data/demo/editorialLedger'
+import { REVIEWERS } from '../../src/lib/data/demo/reviewerRegistry'
+import { itemsFromBank, itemsFromRegistry, packetFiles, selectItems, stateOf } from '../../src/lib/editorialReview'
+import type { Registry } from '../../src/lib/questionCandidates'
+import { parseArgs } from './reviewArgs'
 
-// Strict arguments: an unrecognised flag (e.g. "--ids=a,b" or a typo) must never fall back to every item.
-const argv = process.argv.slice(2)
-const out = argv[0]
-const usage = 'usage: editorialPackets.ts <out-dir> [--ids id1,id2,...]'
-if (!out || out.startsWith('-')) throw new Error(usage)
-const rest = argv.slice(1)
-if (!(rest.length === 0 || (rest.length === 2 && rest[0] === '--ids'))) throw new Error(`unrecognised arguments: ${rest.join(' ')}. ${usage}`)
-const wanted = rest.length ? rest[1]!.split(',').map((s) => s.trim()).filter(Boolean) : null
-if (wanted) {
-  const unknown = wanted.filter((id) => !ALL.some((q) => q.id === id))
-  if (unknown.length || !wanted.length) throw new Error(`unknown or missing ids: ${unknown.join(', ') || '(none given)'}`)
-}
-const QUESTIONS = wanted ? ALL.filter((q) => wanted.includes(q.id)) : ALL
-const reserved = new Set([...practiceExclusions('act', ALL), ...practiceExclusions('sat', ALL)])
-const track = (q: FixtureQuestion) => (reserved.has(q.id) ? 'assessment_candidate' : 'practice_candidate')
+const usage = 'usage: editorialPackets.ts <out-dir> [--ids id1,id2,...] [--registry candidates.json]'
+const { positional, opts } = parseArgs(process.argv.slice(2), ['--ids', '--registry'], usage)
+if (positional.length !== 1) throw new Error(usage)
+const out = positional[0]!
+const all = opts['--registry']
+  ? itemsFromRegistry(JSON.parse(readFileSync(opts['--registry'], 'utf8')) as Registry)
+  : itemsFromBank(QUESTIONS, new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)]), EDITORIAL_LEDGER)
+const items = selectItems(all, opts['--ids'] ? opts['--ids'].split(',').map((s) => s.trim()).filter(Boolean) : null)
+const label = opts['--registry'] ? 'Imported batch' : 'App bank'
 mkdirSync(out, { recursive: true })
-
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
-const csv = (v: unknown) => `"${String(v ?? '').replace(/"/g, '""')}"`
-const page = (title: string, body: string) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title>
-<style>body{font:15px/1.5 Georgia,serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#111;background:#fff}
-article{break-inside:avoid;border-top:1px solid #999;padding:1rem 0}h1{font-size:1.3rem}.id{font:12px monospace;color:#555}
-.passage{white-space:pre-wrap;background:#f4f4f4;padding:.75rem}ul.choices{list-style:none;padding-left:0}.ans{margin-top:.5rem}
-.key{color:#064;font-weight:bold}</style></head><body><h1>${esc(title)}</h1>${body}</body></html>`
-
-const groups = new Map<string, FixtureQuestion[]>()
-for (const q of QUESTIONS) groups.set(`${q.exam_family}-${q.section}`, [...(groups.get(`${q.exam_family}-${q.section}`) ?? []), q])
-
-for (const [g, qs] of groups) {
-  const blind = qs
-    .map(
-      (q) => `<article><div class="id">${esc(q.id)} · hash ${contentHash(q)}</div>
-${q.passage ? `<div class="passage">${esc(q.passage)}</div>` : ''}<p>${esc(q.stem)}</p>
-${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<li><b>${esc(c.key)}.</b> ${esc(c.text)}</li>`).join('')}</ul>` : '<p>(Enter a number.)</p>'}
-<p class="ans">Your answer: ________ &nbsp; Time (seconds): ______</p></article>`,
-    )
-    .join('\n')
-  writeFileSync(`${out}/blind-${g}.html`, page(`Blind solve: ${g} (${qs.length} items). No key, hints or explanations.`, blind))
-  const full = qs
-    .map(
-      (q) => `<article><div class="id">${esc(q.id)} · difficulty ${q.difficulty} · skill ${esc(q.primary_skill_key)} · hash ${contentHash(q)}</div>
-${q.passage ? `<div class="passage">${esc(q.passage)}</div>` : ''}<p>${esc(q.stem)}</p>
-${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<li><b>${esc(c.key)}.</b> ${esc(c.text)}${q.accepted_answers.includes(c.key) ? ' <span class="key">(key)</span>' : ''}</li>`).join('')}</ul>` : `<p class="key">Accepted: ${esc(q.accepted_answers.join(', '))}</p>`}
-<p><b>Explanation.</b> ${esc(q.teaching_explanation)}</p><p><b>Strategy.</b> ${esc(q.strategy_explanation)}</p>
-<p><b>Hints.</b> ${q.hints.map(esc).join(' / ')}</p>
-<ul>${q.distractors.map((d) => `<li>${esc(d.choice)}: ${esc(d.rationale)}</li>`).join('')}</ul></article>`,
-    )
-    .join('\n')
-  writeFileSync(`${out}/review-${g}.html`, page(`Review copy: ${g}. Contains the key: not for blind solvers.`, full))
-}
-
-const rows = QUESTIONS.map((q) => {
-  const s = editorialState(q)
-  return [q.id, q.exam_family, q.section, q.difficulty, track(q), contentHash(q), `${s.passed} ${STAGE_NAME[s.passed]}`, s.next ? `${s.next} ${STAGE_NAME[s.next]}` : 'approved', s.problems.join('; ')]
-})
-writeFileSync(`${out}/status.csv`, [['id', 'exam', 'section', 'difficulty', 'track', 'hash', 'passed', 'next', 'problems'], ...rows].map((r) => r.map(csv).join(',')).join('\n') + '\n')
-writeFileSync(
-  `${out}/solves-template.csv`,
-  [['id', 'stage', 'by', 'date', 'result', 'hash', 'answer', 'seconds', 'license', 'note'], ...QUESTIONS.flatMap((q) => [1, 2].map(() => [q.id, 4, '', '', 'pass', contentHash(q), '', '', '', '']))].map((r) => r.map(csv).join(',')).join('\n') + '\n',
-)
-console.log(`${QUESTIONS.length} items, ${groups.size} packets; ${rows.filter((r) => r[7] === 'approved').length} human-approved`)
+for (const [name, text] of Object.entries(packetFiles(items, EDITORIAL_LEDGER, REVIEWERS, label))) writeFileSync(join(out, name), text)
+console.log(`${label}: ${items.length} items; ${items.filter((i) => stateOf(i, EDITORIAL_LEDGER, REVIEWERS).humanApproved).length} human-approved`)

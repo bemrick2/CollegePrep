@@ -2,7 +2,21 @@ import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './data/demo/fixtures'
 import type { Ledger, SignOff } from './data/demo/editorialLedger'
 import { IMPORT_CONTRACT, questionKey, type ImportedQuestion } from './questionImport'
-import { answerKeyFor, eligibility, eligibleFor, emptyRegistry, intake, latest, retire, setTrack, summary, type Registry } from './questionCandidates'
+import * as QC from './questionCandidates'
+import { emptyRegistry, intake, latest, rightsHash, type Registry, type Track } from './questionCandidates'
+import { testId, testReviewers } from './data/demo/testReviewers'
+
+// TEST ONLY reviewers (testReviewers.ts). Tests name people by display name; the wrappers pass their stable test ids.
+const R = testReviewers()
+const rid = (who: string) => (who.startsWith('rv-') ? who : testId(who))
+const setTrack = (reg: Registry, id: string, t: Track, who: string, reason: string, at: string, exposed: Set<string>) => QC.setTrack(reg, id, t, rid(who), reason, at, exposed, R)
+const retire = (reg: Registry, id: string, who: string, reason: string, at: string, dup?: string) => QC.retire(reg, id, rid(who), reason, at, dup, R)
+const eligibility = (c: QC.Candidate, l?: Ledger) => QC.eligibility(c, l, R)
+const eligibleFor = (reg: Registry, t: Track, l?: Ledger) => QC.eligibleFor(reg, t, l, R)
+const answerKeyFor = (c: QC.Candidate, h: string, l?: Ledger) => QC.answerKeyFor(c, h, l, R)
+const summary = (reg: Registry, l?: Ledger) => QC.summary(reg, l, R)
+/** A sign-off by the TEST reviewer with this display name. */
+const sig = (stage: SignOff['stage'], by: string, hash: string, extra: Partial<SignOff> = {}): SignOff => ({ stage, reviewer_id: testId(by), by, date: '2026-10-23', result: 'pass', hash, ...extra })
 
 function imp(i = 0, extra: Partial<ImportedQuestion> = {}): ImportedQuestion {
   const { id, ...q } = QUESTIONS[i]!
@@ -18,7 +32,10 @@ function fullReview(reg: Registry, id: string, overrides: Partial<Record<number,
   const c = reg.candidates[id]!
   const v = latest(c)
   const key = v.item.accepted_answers[0]!
-  const so = (stage: SignOff['stage'], by: string, extra: Partial<SignOff> = {}): SignOff => ({ stage, by, date: AT, result: 'pass', hash: v.content_hash, ...extra, ...(overrides[stage] ?? {}) })
+  const so = (stage: SignOff['stage'], by: string, extra: Partial<SignOff> = {}): SignOff => {
+    const x: SignOff = { stage, reviewer_id: '', by, date: AT, result: 'pass', hash: v.content_hash, ...(stage === 3 ? { rights_hash: rightsHash(v) } : {}), ...extra, ...(overrides[stage] ?? {}) }
+    return { ...x, reviewer_id: overrides[stage]?.reviewer_id ?? testId(x.by) }
+  }
   return {
     items: {
       [id]: {
@@ -37,16 +54,16 @@ describe('question candidates: tracks', () => {
     expect(b).toMatchObject({ track: 'assessment_candidate', status: 'draft', track_confirmed_by: null })
   })
 
-  it('only a named person who did not write the item sets a track, with a reason', () => {
+  it('only an active content lead, by reviewer id, who did not write the item sets a track, with a reason', () => {
     const reg = reg0([imp(0, { origin: 'human_original', author: 'Jo Writer' })])
     const id = imp(0).import_id
-    expect(() => setTrack(reg, id, 'assessment_candidate', 'AI (Claude)', 'r', AT, NONE)).toThrow(/not a named person/)
-    expect(() => setTrack(reg, id, 'assessment_candidate', 'Content Lead', 'r', AT, NONE)).toThrow(/not a named person/)
-    expect(() => setTrack(reg, id, 'assessment_candidate', 'ai:gpt', 'r', AT, NONE)).toThrow(/not a named person/)
+    expect(() => setTrack(reg, id, 'assessment_candidate', 'AI (Claude)', 'r', AT, NONE)).toThrow(/not an active content lead/)
+    expect(() => setTrack(reg, id, 'assessment_candidate', 'Ana Solver', 'r', AT, NONE)).toThrow(/not an active content lead/) // registered, wrong role
+    expect(() => QC.setTrack(reg, id, 'assessment_candidate', testId('Pat Lead'), 'r', AT, NONE)).toThrow(/not an active content lead/) // the real registry is empty
     expect(() => setTrack(reg, id, 'assessment_candidate', 'Pat Lead', ' ', AT, NONE)).toThrow(/reason/)
     expect(() => setTrack(reg, id, 'assessment_candidate', 'jo writer', 'r', AT, NONE)).toThrow(/wrote this item/)
     const after = setTrack(reg, id, 'assessment_candidate', 'Pat Lead', 'reserve for ACT mini check', AT, NONE)
-    expect(after.candidates[id]).toMatchObject({ track: 'assessment_candidate', track_confirmed_by: 'Pat Lead' })
+    expect(after.candidates[id]).toMatchObject({ track: 'assessment_candidate', track_confirmed_by: testId('Pat Lead') })
     expect(reg.candidates[id]!.track_confirmed_by).toBeNull() // the input is not changed
   })
 
@@ -197,7 +214,7 @@ describe('question candidates: publication eligibility is per item and never wea
     l.items[id]!.author = 'AI (Claude)' // the ledger default must not let the real author through
     const e = eligibility(reg.candidates[id]!, l)
     expect(e.eligible).toBe(false)
-    expect(e.problems).toContain('needs approval by a named content lead who is not the author')
+    expect(e.problems).toContain('needs approval by an authorized approver who is not the author')
   })
 
   it('a blind solve by any version’s author does not verify the key', () => {
@@ -207,8 +224,8 @@ describe('question candidates: publication eligibility is per item and never wea
     const l = fullReview(reg, id)
     const key = latest(c).item.accepted_answers[0]!
     l.items[id]!.signoffs = l.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(
-      { stage: 4, by: 'Jo Writer', date: AT, result: 'pass', hash: latest(c).content_hash, answer: key },
-      { stage: 4, by: 'Ana Solver', date: AT, result: 'pass', hash: latest(c).content_hash, answer: key },
+      sig(4, 'Jo Writer', latest(c).content_hash, { answer: key }),
+      sig(4, 'Ana Solver', latest(c).content_hash, { answer: key }),
     )
     expect(answerKeyFor(c, latest(c).content_hash, l).verified).toBe(false)
   })
@@ -220,7 +237,7 @@ describe('question candidates: publication eligibility is per item and never wea
     l.items[id]!.author = 'Ed Editor'
     const e = eligibility(reg.candidates[id]!, l)
     expect(e.eligible).toBe(false)
-    expect(e.problems.join(' ')).toMatch(/by an author of a version/)
+    expect(e.problems.join(' ')).toMatch(/needs a fairness review by an authorized reviewer other than the author/)
   })
 
   it('a complete individual review of the latest version is eligible; one failed stage is not', () => {
@@ -243,23 +260,6 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
   const id = imp(0).import_id
   const human = (extra: Partial<ImportedQuestion> = {}) => imp(0, { origin: 'human_original', author: 'Jo Writer', ...extra })
   const confirmedHuman = () => setTrack(reg0([human()]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
-
-  it('spacing, case and invisible characters do not make the author someone else', () => {
-    const reg = confirmedHuman()
-    const key = latest(reg.candidates[id]!).item.accepted_answers[0]!
-    const l = fullReview(reg, id, { 6: { by: 'Jo Writer' }, 8: { by: 'Jo Writer​' } })
-    l.items[id]!.signoffs = l.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(
-      { stage: 4, by: 'Jo  Writer', date: AT, result: 'pass', hash: latest(reg.candidates[id]!).content_hash, answer: key },
-      { stage: 4, by: 'JO WRITER ', date: AT, result: 'pass', hash: latest(reg.candidates[id]!).content_hash, answer: key },
-    )
-    expect(eligibility(reg.candidates[id]!, l).eligible).toBe(false)
-    expect(() => setTrack(reg0([human()]), id, 'practice_candidate', 'Jo​ Writer', 'r', AT, NONE)).toThrow(/wrote this item/)
-  })
-
-  it('obvious non-people are refused as reviewers', () => {
-    for (const n of ['A.I.', 'Gemini', 'Assistant', 'Opus', 'The content lead', '​AI', 'ai:gpt'])
-      expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE)).toThrow(/not a named person/)
-  })
 
   it('a revision may not return to an earlier version (that would revive its review)', () => {
     let reg = confirmedHuman()
@@ -315,24 +315,43 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     let reg = confirmedHuman()
     reg = intake(reg, [human({ author: 'Pat Lead', stem: QUESTIONS[0]!.stem + ' (edited)' })], 'v2.jsonl', AT, NOBANK).registry
     const l = fullReview(reg, id, { 8: { by: 'Lee Rights' } })
-    expect(eligibility(reg.candidates[id]!, l).problems).toContain('track confirmed by Pat Lead, who wrote a version of this item')
+    expect(eligibility(reg.candidates[id]!, l).problems).toContain(`track confirmed by ${testId('Pat Lead')}, who wrote a version of this item`)
   })
 
-  it('a rights or author change is a new version and voids the rights check until it is signed again later', () => {
+  it('a rights or author change voids the rights check by version, and a same-day re-check of the new version counts', () => {
     let reg = confirmedHuman()
     const l = fullReview(reg, id)
     expect(eligibility(reg.candidates[id]!, l).eligible).toBe(true)
-    const r = intake(reg, [human({ license: 'licensed:acme', origin: 'licensed', source_attribution: 'Acme' })], 'v2.jsonl', '2026-10-24', NOBANK)
+    const r = intake(reg, [human({ license: 'licensed:acme', origin: 'licensed', source_attribution: 'Acme' })], 'v2.jsonl', AT, NOBANK)
     expect(r.result.revised).toEqual([id])
     reg = r.registry
     const c = reg.candidates[id]!
     expect(c.versions).toHaveLength(2)
     expect(c.versions[1]!.content_hash).toBe(c.versions[0]!.content_hash)
-    expect(eligibility(c, l).problems.join(' ')).toMatch(/rights or authorship changed on 2026-10-24/)
-    l.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date: '2026-10-25', result: 'pass', hash: c.versions[1]!.content_hash, license: 'original' })
-    expect(eligibility(c, l, '2026-10-26').eligible).toBe(true)
+    expect(rightsHash(c.versions[1]!)).not.toBe(rightsHash(c.versions[0]!))
+    expect(eligibility(c, l).problems.join(' ')).toMatch(/rights check was for an earlier rights version/)
+    // Re-checked the same day, bound to the new rights version: counts at once. No date is compared.
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', c.versions[1]!.content_hash, { date: AT, license: 'licensed: acme', rights_hash: rightsHash(c.versions[1]!) }))
+    expect(eligibility(c, l).problems.join(' ')).toMatch(/no allowed license/)
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', c.versions[1]!.content_hash, { date: AT, license: 'original', rights_hash: rightsHash(c.versions[1]!) }))
+    expect(eligibility(c, l).eligible).toBe(true)
   })
 
+  it('a rights check of a newer version, recorded before an older one, still binds to its own version', () => {
+    let reg = confirmedHuman()
+    const v1 = latest(reg.candidates[id]!)
+    reg = intake(reg, [human({ source_url: 'https://example.org/s' })], 'v2.jsonl', AT, NOBANK).registry
+    const c = reg.candidates[id]!
+    const l = fullReview(reg, id)
+    // A stale v1 rights check appended last (and dated later) does not displace the v2 check.
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', v1.content_hash, { date: '2026-12-31', license: 'original', rights_hash: rightsHash(v1) }))
+    expect(eligibility(c, l).eligible).toBe(true)
+    // And a v1 rights FAIL doesn't block v2, while a v2 fail does.
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', v1.content_hash, { result: 'fail', note: 'v1 source unproven', rights_hash: rightsHash(v1) }))
+    expect(eligibility(c, l).eligible).toBe(true)
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', v1.content_hash, { result: 'fail', note: 'v2 source unproven', rights_hash: rightsHash(latest(c)) }))
+    expect(eligibility(c, l).eligible).toBe(false)
+  })
   it('intake and retire change neither the registry nor the items passed in', () => {
     const items = [imp(0)]
     const reg = reg0([imp(1)])
@@ -349,45 +368,6 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     expect(() => retire(reg, id, 'Pat Lead', 'dup', AT, 'nope')).toThrow(/not another candidate/)
     expect(() => retire(reg, id, 'Pat Lead', 'dup', AT, id)).toThrow(/not another candidate/)
     expect(() => retire(retire(reg, id, 'Pat Lead', 'x', AT), id, 'Pat Lead', 'again', AT)).toThrow(/already retired/)
-  })
-
-  it('punctuation, word order and asides do not make the author someone else, or one solver two', () => {
-    const reg = confirmedHuman()
-    const h = latest(reg.candidates[id]!).content_hash
-    const key = latest(reg.candidates[id]!).item.accepted_answers[0]!
-    const l = fullReview(reg, id, { 8: { by: 'Writer, Jo' } })
-    l.items[id]!.signoffs = l.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(
-      { stage: 4, by: 'Jo Writer.', date: AT, result: 'pass', hash: h, answer: key },
-      { stage: 4, by: 'Jo-Writer (author)', date: AT, result: 'pass', hash: h, answer: key },
-    )
-    expect(eligibility(reg.candidates[id]!, l).eligible).toBe(false)
-    const one = fullReview(reg, id)
-    one.items[id]!.signoffs = one.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(
-      { stage: 4, by: 'Sam Solver', date: AT, result: 'pass', hash: h, answer: key },
-      { stage: 4, by: 'Sam Solver.', date: AT, result: 'pass', hash: h, answer: key },
-    )
-    expect(answerKeyFor(reg.candidates[id]!, h, one).verified).toBe(false)
-  })
-
-  it('a look-alike letter from another script is refused; real names like Ai Nguyen are accepted', () => {
-    expect(() => setTrack(reg0([human()]), id, 'practice_candidate', 'Jо Writer', 'r', AT, NONE)).toThrow(/not a named person/)
-    for (const n of ['Ai Nguyen', 'Na Young Kim', 'Bard Larsen', 'Lead Belly']) expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE)).not.toThrow()
-  })
-
-  it('the rights re-sign needs a real YYYY-MM-DD date after the change', () => {
-    let reg = confirmedHuman()
-    const l = fullReview(reg, id)
-    reg = intake(reg, [human({ source_url: 'https://example.org/source' })], 'v2.jsonl', '2026-10-24', NOBANK).registry
-    const c = reg.candidates[id]!
-    const resign = (date: string) => {
-      const x: Ledger = JSON.parse(JSON.stringify(l))
-      x.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date, result: 'pass', hash: latest(c).content_hash, license: 'original' })
-      return eligibility(c, x, '2026-10-26').eligible
-    }
-    expect(resign('Oct 20 2026')).toBe(false)
-    expect(resign('2026-13-40')).toBe(false)
-    expect(resign('2026-10-24')).toBe(false)
-    expect(resign('2026-10-25')).toBe(true)
   })
 
   it('a question is owned by its live candidate, not a retired duplicate listed first', () => {
@@ -407,26 +387,51 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     expect(intake(reg, [imp(0, { choices: imp(0).choices.map((c) => ({ text: c.text, key: c.key }) as typeof c) })], 'b.jsonl', AT, NOBANK).result.unchanged).toEqual([id])
   })
 
-  it('accents do not make the author someone else', () => {
-    const reg = setTrack(reg0([human({ author: 'José Writer' })]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
-    expect(eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Jose Writer' } }), AT).eligible).toBe(false)
-    expect(() => setTrack(reg0([human({ author: 'Ana Straße' })]), id, 'practice_candidate', 'ana strasse', 'r', AT, NONE)).toThrow(/wrote this item/)
-  })
 
-  it('numbered roles, versioned model names and other-script look-alikes are refused', () => {
-    for (const n of ['Reviewer 1', 'Solver A', 'Solver 2', 'AI Assistant', 'AI Reviewer', 'Lead Reviewer', 'Unknown reviewer', 'Test User', 'Bot 1', 'Opus 4', 'Sonnet 4.5', 'Llama 3', 'Mistral Large', 'Grok', 'DeepSeek', 'J\u0585 Writer'])
-      expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE), n).toThrow(/not a named person/)
-    for (const n of ['Ai Nguyen', 'Haiku Tanaka', 'Bard Larsen', '山田 はなこ', 'José Núñez']) expect(() => setTrack(reg0([human()]), id, 'practice_candidate', n, 'r', AT, NONE), n).not.toThrow()
-  })
-
-  it('a sign-off dated in the future does not count, even as the rights re-sign', () => {
-    let reg = confirmedHuman()
-    const l = fullReview(reg, id)
-    reg = intake(reg, [human({ source_url: 'https://example.org/s' })], 'v2.jsonl', '2026-10-24', NOBANK).registry
-    l.items[id]!.signoffs.push({ stage: 3, by: 'Lee Rights', date: '2099-01-01', result: 'pass', hash: latest(reg.candidates[id]!).content_hash, license: 'original' })
-    const e = eligibility(reg.candidates[id]!, l, '2026-10-25')
+  it('identity comes from the registry: a registered reviewer under any name variant of the author is still the author', () => {
+    // Registered people whose display name or alias is a variant of the author's name.
+    const reviewers = testReviewers({
+      [testId('Sam Solver')]: { aliases: ['Writer, Jo'] },
+      [testId('Ana Solver')]: { display_name: 'JO  WRITER​' },
+      [testId('Kim Fair')]: { display_name: 'Jo-Writer (author)' },
+    })
+    const reg = confirmedHuman()
+    const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), reviewers)
     expect(e.eligible).toBe(false)
-    expect(e.problems).toContain("1 sign-off(s) dated in the future don't count")
+    expect(e.problems).toContain('needs 2 more blind solve(s) by an authorized solver other than the author')
+    // Accents too.
+    const acc = QC.setTrack(reg0([human({ author: 'Jose Writer' })]), id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R)
+    expect(eligibility(acc.candidates[id]!, fullReview(acc, id, { 8: { by: 'José Writer' } })).eligible).toBe(false)
+  })
+
+  it('one reviewer is one solver, whatever names they sign under', () => {
+    const reg = confirmedHuman()
+    const c = reg.candidates[id]!
+    const h = latest(c).content_hash
+    const key = latest(c).item.accepted_answers[0]!
+    const l = fullReview(reg, id)
+    l.items[id]!.signoffs = l.items[id]!.signoffs.filter((s) => s.stage !== 4).concat(sig(4, 'Sam Solver', h, { answer: key }), { ...sig(4, 'Sam Solver', h, { answer: key }), by: 'Samuel S.' })
+    expect(answerKeyFor(c, h, l).verified).toBe(false)
+  })
+
+  it('a display name is never a reason to refuse: registered reviewers named Claude Debussy or Ai Nguyen count', () => {
+    const reg = QC.setTrack(reg0([human()]), id, 'practice_candidate', testId('Claude Debussy'), 'reserve later', AT, NONE, R)
+    expect(reg.candidates[id]!.track_confirmed_by).toBe(testId('Claude Debussy'))
+    const l = fullReview(reg, id, { 8: { by: 'Claude Debussy' } })
+    l.items[id]!.signoffs = l.items[id]!.signoffs.map((s) => (s.stage === 4 && s.by === 'Ana Solver' ? { ...s, by: 'Ai Nguyen', reviewer_id: testId('Ai Nguyen') } : s))
+    expect(eligibility(reg.candidates[id]!, l).eligible).toBe(true)
+  })
+
+  it('with the real (empty) registry nothing is eligible and no track can be confirmed: no appointment is assumed', () => {
+    const reg = confirmedHuman()
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id)).eligible).toBe(false)
+    expect(() => QC.setTrack(reg0([human()]), id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE)).toThrow(/not an active content lead/)
+  })
+
+  it('a revoked content lead’s track confirmation stops counting', () => {
+    const reg = confirmedHuman()
+    const revoked = testReviewers({ [testId('Pat Lead')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'stepped down' } } })
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), revoked).problems).toContain(`track confirmed by ${testId('Pat Lead')}, who is not an active content lead`)
   })
 })
 
