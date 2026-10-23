@@ -1,0 +1,3831 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "986ea9229e8491ac",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Cost of Attendance Apply for & Receive Aid Key Dates FAQs Key Policies & Info Appeals & Special Circumstances Featured forms Satisfactory Academic Progress To be eligible for financial aid, students must maintain satisfactory academic progress standards.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "If you had special circumstances and didn’t meet the requirements, you may file an appeal.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://www.washington.edu/financialaid/cost-of-attendance/,https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/,https://www.washington.edu/financialaid/key-policies-information/satisfactory-academic-progress/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.washington.edu/financialaid/",
+   "process_summary": "Cost of Attendance Apply for & Receive Aid Key Dates FAQs Key Policies & Info Appeals & Special Circumstances Featured forms Satisfactory Academic Progress To be eligible for financial aid, students must maintain satisfactory academic progress standards.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.washington.edu/financialaid/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:18+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "5e058c55cf9006776e2f.json.gz",
+   "requested_url": "https://www.washington.edu/financialaid/",
+   "sha256": "5e058c55cf9006776e2ffdbf15834e880e4b22c392f4b7b640400da532548557",
+   "title": "Student Financial Aid – University of Washington",
+   "url": "https://www.washington.edu/financialaid/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "b9cd03887f64050a",
+  "checks": {
+   "distinct_exams": 4,
+   "equivalencies": 11,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|HL 4, 5, 6, 7]",
+    "snippet": "English A Language and Literature | HL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|HL 4, 5, 6, 7]",
+    "snippet": "English A Literature | HL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|SL 4, 5, 6, 7]",
+    "snippet": "English A Language and Literature | SL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|SL 4, 5, 6, 7]",
+    "snippet": "English A Literature | SL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|HL 6, 7]",
+    "snippet": "Mathematics: analysis and approaches | HL | 6, 7 | MATH 124 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|HL 4, 5]",
+    "snippet": "Mathematics: analysis and approaches | HL | 4, 5 | MATH 120 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|HL 5, 6, 7]",
+    "snippet": "Mathematics: applications and interpretations | HL | 5, 6, 7 | MATH 120 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|HL 4]",
+    "snippet": "Mathematics: applications and interpretations | HL | 4 | MATH 108 (5 CR.) | NSc"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL 6, 7]",
+    "snippet": "Mathematics: analysis and approaches | SL | 6, 7 | MATH 120 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL 4, 5]",
+    "snippet": "Mathematics: analysis and approaches | SL | 4, 5 | MATH 109 (5 CR.) | NSc"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|SL 5, 6, 7]",
+    "snippet": "Mathematics: applications and interpretations | SL | 5, 6, 7 | MATH 108 (5 CR.) | NSc"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "conflicting_sources:https://admit.washington.edu/apply/first-year/exams-for-credit/ib-archive/,https://admit.washington.edu/apply/first-year/exams-for-credit/ib/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "HL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "HL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "SL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "SL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 124 (5 CR.)",
+     "minimum_score": "HL 6, 7",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 120 (5 CR.)",
+     "minimum_score": "HL 4, 5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 120 (5 CR.)",
+     "minimum_score": "HL 5, 6, 7",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 108 (5 CR.)",
+     "minimum_score": "HL 4",
+     "notes": "NSc"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 120 (5 CR.)",
+     "minimum_score": "SL 6, 7",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 109 (5 CR.)",
+     "minimum_score": "SL 4, 5",
+     "notes": "NSc"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 108 (5 CR.)",
+     "minimum_score": "SL 5, 6, 7",
+     "notes": "NSc"
+    }
+   ],
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://admit.washington.edu/apply/transfer/exams-for-credit/ib/",
+   "source_url": "https://admit.washington.edu/apply/transfer/exams-for-credit/ib/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:20+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "eb12d6b0ba9412cf3820.json.gz",
+   "requested_url": "https://admit.washington.edu/apply/transfer/exams-for-credit/ib/",
+   "sha256": "eb12d6b0ba9412cf3820487b3c167371c209a25b53d8d9429383dddb484fe740",
+   "title": "International Baccalaureate (IB) – Office of Admissions",
+   "url": "https://admit.washington.edu/apply/transfer/exams-for-credit/ib/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "66fd618115ab4917",
+  "checks": {
+   "distinct_exams": 14,
+   "equivalencies": 24,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-HISTORY|7,6,5]",
+    "snippet": "African History | 7,6,5 | HIST 108 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|7,6,5]",
+    "snippet": "American History | 7,6,5 | HSTAA 101 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY|7,6,5]",
+    "snippet": "Anthropology | 7,6,5 | ANTH 202 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|7,6,5]",
+    "snippet": "Biology | 7,6,5 | BIOL 161-162 (10 cr.) | Counts toward Natural World general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|7]",
+    "snippet": "Chemistry | 7 | CHEM 142, 152, 162 (5, 5, 5) | General chemistry for science and engineering majors. Counts toward Natural World general education requirement for graduation. CHEM 142 also satisfies Quantitative and Symbolic Reasoning graduation requirement. Note Students with IB scores of 5, 6, or "
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|6]",
+    "snippet": "Chemistry | 6 | CHEM 142, 152 (5, 5) | General chemistry for science and engineering majors. Counts toward Natural World general education requirement for graduation. CHEM 142 also satisfies Quantitative and Symbolic Reasoning graduation requirement. Note Students with IB scores of 5, 6, or 7 on the"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|5]",
+    "snippet": "Chemistry | 5 | CHEM 142 (5) | General chemistry for science and engineering majors. Counts toward Natural World general education requirement for graduation. Note Students with IB scores of 5, 6, or 7 on the Higher Level Chemistry exam who plan to major in chemistry or biochemistry are strongly enc"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|7,6,5]",
+    "snippet": "Computer Science | 7,6,5 | CSE 100 (5 cr.) | Satisfies Quantitative and Symbolic Reasoning graduation requirement."
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|7,6,5]",
+    "snippet": "East/Southeast Asia and Oceania History | 7,6,5 | HSTAS 108 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|7,6]",
+    "snippet": "Economics | 7,6 | ECON 200, 201 (10 cr.) | Satisfies Quantitative and Symbolic Reasoning graduation requirement and/or counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|5]",
+    "snippet": "Economics | 5 | ECON 200 (5 cr.) | Satisfies Quantitative and Symbolic Reasoning graduation requirement or counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|7,6,5]",
+    "snippet": "European History | 7,6,5 | HIST 113 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|7]",
+    "snippet": "French B | 7 | FRENCH 201, 202, 203 (15 cr.) | Satisfies foreign language requirement, and credits count toward Visual, Literary, and Performing Arts general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|6]",
+    "snippet": "French B | 6 | FRENCH 201, 202 (10 cr.) | "
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|5]",
+    "snippet": "French B | 5 | FRENCH 201 (5 cr.) | "
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|7,6,5]",
+    "snippet": "Geography | 7,6,5 | GEOG 100 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-LATIN|7,6,5]",
+    "snippet": "Latin | 7,6,5 | LATIN 305, 306, 307 (15 cr.) | Satisfies foreign language requirement, and credits count toward Visual, Literary, and Performing Arts general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|7,6,5]",
+    "snippet": "Music | 7,6,5 | MUSIC 120 (5 cr.) | Counts toward Visual, Literary, and Performing Arts general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|7,6,5]",
+    "snippet": "Physics | 7,6,5 | PHYS 114/117, 115/118, 116/119 (15 cr.) | Satisfies Natural World general education requirement for graduation. PHYS 114 also satisfies Quantitative and Symbolic Reasoning basic skills requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|7,6,5]",
+    "snippet": "Psychology | 7,6,5 | PSYCH 101 (5 cr.) | Counts toward Individuals & Societies general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|7]",
+    "snippet": "Spanish B | 7 | SPAN 201, 202, 203 (15 cr.) | Satisfies foreign language requirement, and credits count toward general education requirement for graduation."
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|6]",
+    "snippet": "Spanish B | 6 | SPAN 201, 202 (10 cr.) | "
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|5]",
+    "snippet": "Spanish B | 5 | SPAN 201 (5 cr.) | "
+   },
+   {
+    "field": "equivalencies[IB-THEATRE|7,6,5]",
+    "snippet": "Theater Arts | 7,6,5 | DRAMA 101, 201 (10 cr.) | Counts toward Visual, Literary, and Performing Arts general education requirement for graduation."
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "conflicting_sources:https://admit.washington.edu/apply/first-year/exams-for-credit/ib/,https://admit.washington.edu/apply/transfer/exams-for-credit/ib/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 108 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HSTAA 101 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY",
+     "exam_or_course_name": "IB Social & Cultural Anthropology",
+     "institution_course_equivalent": "ANTH 202 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "BIOL 161-162 (10 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Natural World general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 142, 152, 162 (5, 5, 5)",
+     "minimum_score": "7",
+     "notes": "General chemistry for science and engineering majors. Counts toward Natural World general education requirement for graduation. CHEM 142 also satisfies Quantitative and Symbolic Reasoning graduation requirement. Note Students with IB scores of 5, 6, or 7 on the Higher Level Chemistry exam who plan to major in chemistry or biochemistry are strongly encouraged to discuss the option of enrolling in the honors introductory chemistry sequence, Chem 145-165, with the undergraduate advisers in the Chemistry department."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 142, 152 (5, 5)",
+     "minimum_score": "6",
+     "notes": "General chemistry for science and engineering majors. Counts toward Natural World general education requirement for graduation. CHEM 142 also satisfies Quantitative and Symbolic Reasoning graduation requirement. Note Students with IB scores of 5, 6, or 7 on the Higher Level Chemistry exam who plan to major in chemistry or biochemistry are strongly encouraged to discuss the option of enrolling in the honors introductory chemistry sequence, Chem 145-165, with the undergraduate advisers in the Chemistry department."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 142 (5)",
+     "minimum_score": "5",
+     "notes": "General chemistry for science and engineering majors. Counts toward Natural World general education requirement for graduation. Note Students with IB scores of 5, 6, or 7 on the Higher Level Chemistry exam who plan to major in chemistry or biochemistry are strongly encouraged to discuss the option of enrolling in the honors introductory chemistry sequence, Chem 145-165, with the undergraduate advisers in the Chemistry department."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "CSE 100 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Satisfies Quantitative and Symbolic Reasoning graduation requirement."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HSTAS 108 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON 200, 201 (10 cr.)",
+     "minimum_score": "7,6",
+     "notes": "Satisfies Quantitative and Symbolic Reasoning graduation requirement and/or counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON 200 (5 cr.)",
+     "minimum_score": "5",
+     "notes": "Satisfies Quantitative and Symbolic Reasoning graduation requirement or counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST 113 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FRENCH 201, 202, 203 (15 cr.)",
+     "minimum_score": "7",
+     "notes": "Satisfies foreign language requirement, and credits count toward Visual, Literary, and Performing Arts general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FRENCH 201, 202 (10 cr.)",
+     "minimum_score": "6",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FRENCH 201 (5 cr.)",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "GEOG 100 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN",
+     "exam_or_course_name": "IB Latin",
+     "institution_course_equivalent": "LATIN 305, 306, 307 (15 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Satisfies foreign language requirement, and credits count toward Visual, Literary, and Performing Arts general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "MUSIC 120 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Visual, Literary, and Performing Arts general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 114/117, 115/118, 116/119 (15 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Satisfies Natural World general education requirement for graduation. PHYS 114 also satisfies Quantitative and Symbolic Reasoning basic skills requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "PSYCH 101 (5 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Individuals & Societies general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 201, 202, 203 (15 cr.)",
+     "minimum_score": "7",
+     "notes": "Satisfies foreign language requirement, and credits count toward general education requirement for graduation."
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 201, 202 (10 cr.)",
+     "minimum_score": "6",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 201 (5 cr.)",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-THEATRE",
+     "exam_or_course_name": "IB Theatre",
+     "institution_course_equivalent": "DRAMA 101, 201 (10 cr.)",
+     "minimum_score": "7,6,5",
+     "notes": "Counts toward Visual, Literary, and Performing Arts general education requirement for graduation."
+    }
+   ],
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib-archive/",
+   "source_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib-archive/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:21+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "d85075b53d0283ed53c2.json.gz",
+   "requested_url": "https://admit.washington.edu/apply/freshman/exams-for-credit/ib-archive/",
+   "sha256": "d85075b53d0283ed53c290d8b1cebe50614f28997ee3c1de2c0557ad3b0be42f",
+   "title": "IB – Archive – Office of Admissions",
+   "url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib-archive/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "b8e5c1e8f40dd569",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "How to re-establish eligibility If you did not meet the progress requirements because you had special circumstances, you may file an appeal with our office.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "You will need to demonstrate unusual circumstances beyond your control that are not likely to recur in the immediate future.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "How to re-establish eligibility If you did not meet the progress requirements because you had special circumstances, you may file an appeal with our office.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "You will need to demonstrate unusual circumstances beyond your control that are not likely to recur in the immediate future.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://www.washington.edu/financialaid/,https://www.washington.edu/financialaid/cost-of-attendance/,https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 4 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.washington.edu/financialaid/key-policies-information/satisfactory-academic-progress/",
+   "process_summary": "How to re-establish eligibility If you did not meet the progress requirements because you had special circumstances, you may file an appeal with our office.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.washington.edu/financialaid/key-policies-information/satisfactory-academic-progress/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:23+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f1b4b4ba46fb10d5de88.json.gz",
+   "requested_url": "https://www.washington.edu/financialaid/receiving-aid/satisfactory-academic-progress/",
+   "sha256": "f1b4b4ba46fb10d5de880af46d768111175322c39bac7125bc64689eb77c4697",
+   "title": "Satisfactory academic progress – Student Financial Aid",
+   "url": "https://www.washington.edu/financialaid/key-policies-information/satisfactory-academic-progress/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6e81961988cc0b56",
+  "checks": {
+   "distinct_exams": 36,
+   "equivalencies": 74,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|3,4,5]",
+    "snippet": "African American Studies || African American Studies | 3,4,5 | AFRAM 102 | 5 | SSc, DIV"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|3,4,5]",
+    "snippet": "Art: Studio Art – Drawing | 3,4,5 | ART 102 | 5 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|3,4,5]",
+    "snippet": "Art: Studio Art – 2D Design | 3,4,5 | ART 103 | 5 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|3,4,5]",
+    "snippet": "Art: Studio Art – 3D Design | 3,4,5 | ART 104 | 5 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|4,5]",
+    "snippet": "Biology || Biology | 4,5 | BIOL 161, 162 | 5,5 | NSc"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|3]",
+    "snippet": "Biology || Biology | 3 | BIOL 161 | 5 | NSc"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|5]",
+    "snippet": "Chemistry || Chemistry | 5 | CHEM 142, 152, 162 | 5,5,5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|4]",
+    "snippet": "Chemistry || Chemistry | 4 | CHEM 142, 152 | 5,5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|3]",
+    "snippet": "Chemistry || Chemistry | 3 | CHEM 142 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|5]",
+    "snippet": "Chinese || Chinese Language & Culture | 5 | CHIN 133, 231, 232 | 5,5,5 | A&H*, FL"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Chinese || Chinese Language & Culture | 4 | CHIN 133, 231 | 5,5 | A&H*, FL"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Chinese || Chinese Language & Culture | 3 | CHIN 133 | 5 | FL"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-A|3,4,5]",
+    "snippet": "Computer Science A | 3,4,5 | CSE 121 | 4 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|3,4,5]",
+    "snippet": "Computer Science Principles | 3,4,5 | CSE 110 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|4,5]",
+    "snippet": "Economics: Micro | 4,5 | ECON 200 | 5 | SSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|3]",
+    "snippet": "Economics: Micro | 3 | ECON 190 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|4,5]",
+    "snippet": "Economics: Macro | 4,5 | ECON 201 | 5 | SSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|3]",
+    "snippet": "Economics: Macro | 3 | ECON 191 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|3,4,5]",
+    "snippet": "English Language & Composition | 3,4,5 | ENGL 106 | 5 | "
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|3,4,5]",
+    "snippet": "English Literature & Composition | 3,4,5 | ENGL 106 | 5 | "
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|3,4,5]",
+    "snippet": "Environmental Sciences || Environmental Sciences | 3,4,5 | ESRM 100 | 5 | SSc/NSc"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "French || French Language | 5 | FRENCH 201, 202, 203 | 5,5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "French || French Language | 4 | FRENCH 201, 202 | 5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French || French Language | 3 | FRENCH 201 | 5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|5]",
+    "snippet": "French || French Literature (exam no longer offered) | 5 | FRENCH 298 | 15 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|4]",
+    "snippet": "French || French Literature (exam no longer offered) | 4 | FRENCH 298 | 10 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|3]",
+    "snippet": "French || French Literature (exam no longer offered) | 3 | FRENCH 298 | 5 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|3,4,5]",
+    "snippet": "Human Geography | 3,4,5 | GEOG 100 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|5]",
+    "snippet": "German || German Language | 5 | GERMAN 201, 202, 203 | 5,5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|4]",
+    "snippet": "German || German Language | 4 | GERMAN 201, 202 | 5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|3]",
+    "snippet": "German || German Language | 3 | GERMAN 201 | 5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|4,5]",
+    "snippet": "European History | 4,5 | HSTEU 113 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|3]",
+    "snippet": "European History | 3 | HSTEU 100 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|4,5]",
+    "snippet": "United States History | 4,5 | HSTAA 101 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-UNITED-STATES-HISTORY|3]",
+    "snippet": "United States History | 3 | HSTAA 100 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|3,4,5]",
+    "snippet": "World History | 3,4,5 | HSTRY 100 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|5]",
+    "snippet": "Italian || Italian Language & Culture | 5 | ITAL 201, 202, 203 | 5,5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|4]",
+    "snippet": "Italian || Italian Language & Culture | 4 | ITAL 201, 202 | 5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|3]",
+    "snippet": "Italian || Italian Language & Culture | 3 | ITAL 201 | 5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|5]",
+    "snippet": "Japanese || Japanese Language & Culture | 5 | JAPAN 133, 231, 232 | 5,5,5 | A&H*, FL"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|4]",
+    "snippet": "Japanese || Japanese Language & Culture | 4 | JAPAN 133, 231 | 5,5 | A&H*, FL"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|3]",
+    "snippet": "Japanese || Japanese Language & Culture | 3 | JAPAN 133 | 5 | FL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4,5]",
+    "snippet": "Latin || Latin | 4,5 | LATIN 305, 307 | 5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|3]",
+    "snippet": "Latin || Latin | 3 | LATIN 103 | 5 | FL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4,5]",
+    "snippet": "Latin || Latin: Literature | 4,5 | LATIN 305, 306 | 5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|4,5]",
+    "snippet": "Latin || Latin: Literature AND Latin: Vergil | 4,5 | LATIN 305, 306, 307 | 5,5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|3,4,5]",
+    "snippet": "Mathematics: Calculus AB | 3,4,5 | MATH 124 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|2]",
+    "snippet": "Mathematics: Calculus AB | 2 | Placement into MATH 112 or MATH 124 | 0 | "
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|4,5]",
+    "snippet": "Mathematics: Calculus BC | 4,5 | MATH 124, 125 | 5,5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|3]",
+    "snippet": "Mathematics: Calculus BC | 3 | MATH 124 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|2 with subgrade of 3,4,5]",
+    "snippet": "Mathematics: Calculus BC (subscores) | 2 with subgrade of 3,4,5 | MATH 124 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|3,4,5]",
+    "snippet": "Mathematics: Precalculus | 3,4,5 | MATH 120 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|5]",
+    "snippet": "Music Theory | 5 | MUSIC 113, 119 | 1,3 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|4]",
+    "snippet": "Music Theory | 4 | MUSIC 117 | 2 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|3]",
+    "snippet": "Music Theory | 3 | MUSIC 116 | 2 | A&H"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|4,5]",
+    "snippet": "Physics C: Mechanics | 4,5 | PHYS 121 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|3]",
+    "snippet": "Physics C: Mechanics | 3 | PHYS 101 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|4,5]",
+    "snippet": "Physics C: Electricity & Magnetism | 4,5 | PHYS 122 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-ELECTRICITY-MAGNETISM|3]",
+    "snippet": "Physics C: Electricity & Magnetism | 3 | PHYS 102 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4,5]",
+    "snippet": "Physics 1 | 4,5 | PHYS 114, 117 | 4, 1 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|3]",
+    "snippet": "Physics 1 | 3 | PHYS 101 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|4,5]",
+    "snippet": "Physics 2 | 4,5 | PHYS 115, 118 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|3]",
+    "snippet": "Physics 2 | 3 | PHYS 102 | 5 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|4,5]",
+    "snippet": "Physics 1 AND Physics 2 (both have qualifying scores) | 4,5 | PHYS 114, 117, 115, 118, 116, 119 | 4, 1, 4, 1, 4, 1 | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|3,4,5]",
+    "snippet": "Psychology || Psychology | 3,4,5 | PSYCH 101 | 5 | SSc"
+   },
+   {
+    "field": "equivalencies[AP-RESEARCH|3,4,5]",
+    "snippet": "Research || Research | 3,4,5 | UW 115 | 5 | "
+   },
+   {
+    "field": "equivalencies[AP-SEMINAR|3,4,5]",
+    "snippet": "Seminar || Seminar | 3,4,5 | UW 116 | 5 | "
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "Spanish || Spanish Language | 5 | SPAN 201, 202, 203 | 5,5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "Spanish || Spanish Language | 4 | SPAN 201, 202 | 5,5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish || Spanish Language | 3 | SPAN 201 | 5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|5]",
+    "snippet": "Spanish || Spanish Literature | 5 | SPAN 298 | 15 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|4]",
+    "snippet": "Spanish || Spanish Literature | 4 | SPAN 298 | 10 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|3]",
+    "snippet": "Spanish || Spanish Literature | 3 | SPAN 298 | 5 | A&H, FL"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|3,4,5]",
+    "snippet": "Statistics || Statistics | 3,4,5 | STAT 290 | 5 | NSc, RSN"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": "AFRAM 102",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": "ART 102",
+     "minimum_score": "3,4,5",
+     "notes": "A&H"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-2-D-ART-DESIGN",
+     "exam_or_course_name": "AP 2-D Art & Design",
+     "institution_course_equivalent": "ART 103",
+     "minimum_score": "3,4,5",
+     "notes": "A&H"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-3-D-ART-DESIGN",
+     "exam_or_course_name": "AP 3-D Art & Design",
+     "institution_course_equivalent": "ART 104",
+     "minimum_score": "3,4,5",
+     "notes": "A&H"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": "BIOL 161, 162",
+     "minimum_score": "4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": "BIOL 161",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 142, 152, 162",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 142, 152",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "CHEM 142",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "CHIN 133, 231, 232",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "CHIN 133, 231",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "CHIN 133",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-A",
+     "exam_or_course_name": "AP Computer Science A",
+     "institution_course_equivalent": "CSE 121",
+     "minimum_score": "3,4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": "CSE 110",
+     "minimum_score": "3,4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": "ECON 200",
+     "minimum_score": "4,5",
+     "notes": "SSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": "ECON 190",
+     "minimum_score": "3",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": "ECON 201",
+     "minimum_score": "4,5",
+     "notes": "SSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": "ECON 191",
+     "minimum_score": "3",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": "ENGL 106",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": "ENGL 106",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": "ESRM 100",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FRENCH 201, 202, 203",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FRENCH 201, 202",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FRENCH 201",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 15,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FRENCH 298",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FRENCH 298",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "FRENCH 298",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": "GEOG 100",
+     "minimum_score": "3,4,5",
+     "notes": "5 | SSc"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "GERMAN 201, 202, 203",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "GERMAN 201, 202",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "GERMAN 201",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": "HSTEU 113",
+     "minimum_score": "4,5",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": "HSTEU 100",
+     "minimum_score": "3",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": "HSTAA 101",
+     "minimum_score": "4,5",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-UNITED-STATES-HISTORY",
+     "exam_or_course_name": "AP United States History",
+     "institution_course_equivalent": "HSTAA 100",
+     "minimum_score": "3",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": "HSTRY 100",
+     "minimum_score": "3,4,5",
+     "notes": "SSc"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "ITAL 201, 202, 203",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "ITAL 201, 202",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "ITAL 201",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "JAPAN 133, 231, 232",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "JAPAN 133, 231",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "JAPAN 133",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LATIN 305, 307",
+     "minimum_score": "4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LATIN 103",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LATIN 305, 306",
+     "minimum_score": "4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "LATIN 305, 306, 307",
+     "minimum_score": "4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "MATH 124",
+     "minimum_score": "3,4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 0,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "Placement into MATH 112 or MATH 124",
+     "minimum_score": "2",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "MATH 124, 125",
+     "minimum_score": "4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "MATH 124",
+     "minimum_score": "3",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "MATH 124",
+     "minimum_score": "2 with subgrade of 3,4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": "MATH 120",
+     "minimum_score": "3,4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": "MUSIC 113, 119",
+     "minimum_score": "5",
+     "notes": "A&H"
+    },
+    {
+     "credits_awarded": 2,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": "MUSIC 117",
+     "minimum_score": "4",
+     "notes": "A&H"
+    },
+    {
+     "credits_awarded": 2,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": "MUSIC 116",
+     "minimum_score": "3",
+     "notes": "A&H"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": "PHYS 121",
+     "minimum_score": "4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": "PHYS 101",
+     "minimum_score": "3",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": "PHYS 122",
+     "minimum_score": "4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-C-ELECTRICITY-MAGNETISM",
+     "exam_or_course_name": "AP Physics C: Electricity & Magnetism",
+     "institution_course_equivalent": "PHYS 102",
+     "minimum_score": "3",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": "PHYS 114, 117",
+     "minimum_score": "4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": "PHYS 101",
+     "minimum_score": "3",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": "PHYS 115, 118",
+     "minimum_score": "4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": "PHYS 102",
+     "minimum_score": "3",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": "PHYS 114, 117, 115, 118, 116, 119",
+     "minimum_score": "4,5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": "PSYCH 101",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-RESEARCH",
+     "exam_or_course_name": "AP Research",
+     "institution_course_equivalent": "UW 115",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SEMINAR",
+     "exam_or_course_name": "AP Seminar",
+     "institution_course_equivalent": "UW 116",
+     "minimum_score": "3,4,5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 201, 202, 203",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 201, 202",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 201",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": 15,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 298",
+     "minimum_score": "5",
+     "notes": null
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 298",
+     "minimum_score": "4",
+     "notes": null
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "SPAN 298",
+     "minimum_score": "3",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": "STAT 290",
+     "minimum_score": "3,4,5",
+     "notes": null
+    }
+   ],
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "AP",
+   "policy_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ap/",
+   "source_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ap/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:24+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "a22755be69cbbf809cb6.json.gz",
+   "requested_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ap/",
+   "sha256": "a22755be69cbbf809cb605d6d2e380275a377f4381426923b53a4af60b60fc3b",
+   "title": "Advanced Placement (AP) – Office of Admissions",
+   "url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ap/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "dbf3873479772c8d",
+  "checks": {
+   "distinct_exams": 4,
+   "equivalencies": 11,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|HL 4, 5, 6, 7]",
+    "snippet": "English A Language and Literature | HL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|HL 4, 5, 6, 7]",
+    "snippet": "English A Literature | HL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE|SL 4, 5, 6, 7]",
+    "snippet": "English A Language and Literature | SL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE|SL 4, 5, 6, 7]",
+    "snippet": "English A Literature | SL | 4, 5, 6, 7 | ENGL 107 (5 CR.) | "
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|HL 6, 7]",
+    "snippet": "Mathematics: analysis and approaches | HL | 6, 7 | MATH 124 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|HL 4, 5]",
+    "snippet": "Mathematics: analysis and approaches | HL | 4, 5 | MATH 120 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|HL 5, 6, 7]",
+    "snippet": "Mathematics: applications and interpretations | HL | 5, 6, 7 | MATH 120 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|HL 4]",
+    "snippet": "Mathematics: applications and interpretations | HL | 4 | MATH 108 (5 CR.) | NSc"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL 6, 7]",
+    "snippet": "Mathematics: analysis and approaches | SL | 6, 7 | MATH 120 (5 CR.) | NSc, RSN"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES|SL 4, 5]",
+    "snippet": "Mathematics: analysis and approaches | SL | 4, 5 | MATH 109 (5 CR.) | NSc"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION|SL 5, 6, 7]",
+    "snippet": "Mathematics: applications and interpretations | SL | 5, 6, 7 | MATH 108 (5 CR.) | NSc"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "conflicting_sources:https://admit.washington.edu/apply/first-year/exams-for-credit/ib-archive/,https://admit.washington.edu/apply/transfer/exams-for-credit/ib/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "HL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "HL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE",
+     "exam_or_course_name": "IB English A: Language & Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "SL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE",
+     "exam_or_course_name": "IB English A: Literature",
+     "institution_course_equivalent": "ENGL 107 (5 CR.)",
+     "minimum_score": "SL 4, 5, 6, 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 124 (5 CR.)",
+     "minimum_score": "HL 6, 7",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 120 (5 CR.)",
+     "minimum_score": "HL 4, 5",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 120 (5 CR.)",
+     "minimum_score": "HL 5, 6, 7",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 108 (5 CR.)",
+     "minimum_score": "HL 4",
+     "notes": "NSc"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 120 (5 CR.)",
+     "minimum_score": "SL 6, 7",
+     "notes": "NSc, RSN"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches",
+     "institution_course_equivalent": "MATH 109 (5 CR.)",
+     "minimum_score": "SL 4, 5",
+     "notes": "NSc"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation",
+     "institution_course_equivalent": "MATH 108 (5 CR.)",
+     "minimum_score": "SL 5, 6, 7",
+     "notes": "NSc"
+    }
+   ],
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib/",
+   "source_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "c9dee274a37d3fe4a83b.json.gz",
+   "requested_url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib/",
+   "sha256": "c9dee274a37d3fe4a83b65b32fc3772b4346846ba69bfbc4d8e2361c779a2c7b",
+   "title": "International Baccalaureate (IB) – Office of Admissions",
+   "url": "https://admit.washington.edu/apply/first-year/exams-for-credit/ib/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "65dce4a5801523e1",
+  "checks": {
+   "columns": 3,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Books & course supplies",
+    "snippet": "Books & course supplies | $900 | $900 | $900",
+    "value": 900
+   },
+   {
+    "field": "with_parents_or_family:Housing & food",
+    "snippet": "Housing & food | $6,156 | $18,858 | $23,199",
+    "value": 6156
+   },
+   {
+    "field": "with_parents_or_family:Personal/miscellaneous",
+    "snippet": "Personal/miscellaneous | $2,508 | $2,508 | $2,508",
+    "value": 2508
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $1,074 | $1,074 | $1,581",
+    "value": 1074
+   },
+   {
+    "field": "with_parents_or_family:Resident tuition",
+    "snippet": "Resident tuition | $13,406 | $13,406 | $13,406",
+    "value": 13406
+   },
+   {
+    "field": "with_parents_or_family:Resident total costs",
+    "snippet": "Resident total costs | $24,044 | $36,746 | $41,594",
+    "value": 24044
+   },
+   {
+    "field": "with_parents_or_family:Non-resident tuition",
+    "snippet": "Non-resident tuition | $44,460 | $44,460 | $44,460",
+    "value": 44460
+   },
+   {
+    "field": "with_parents_or_family:Non-resident total costs",
+    "snippet": "Non-resident total costs | $55,098 | $67,800 | $72,648",
+    "value": 55098
+   },
+   {
+    "field": "column:Books & course supplies",
+    "snippet": "Books & course supplies | $900 | $900 | $900",
+    "value": 900
+   },
+   {
+    "field": "column:Housing & food",
+    "snippet": "Housing & food | $6,156 | $18,858 | $23,199",
+    "value": 18858
+   },
+   {
+    "field": "column:Personal/miscellaneous",
+    "snippet": "Personal/miscellaneous | $2,508 | $2,508 | $2,508",
+    "value": 2508
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,074 | $1,074 | $1,581",
+    "value": 1074
+   },
+   {
+    "field": "column:Resident tuition",
+    "snippet": "Resident tuition | $13,406 | $13,406 | $13,406",
+    "value": 13406
+   },
+   {
+    "field": "column:Resident total costs",
+    "snippet": "Resident total costs | $24,044 | $36,746 | $41,594",
+    "value": 36746
+   },
+   {
+    "field": "column:Non-resident tuition",
+    "snippet": "Non-resident tuition | $44,460 | $44,460 | $44,460",
+    "value": 44460
+   },
+   {
+    "field": "column:Non-resident total costs",
+    "snippet": "Non-resident total costs | $55,098 | $67,800 | $72,648",
+    "value": 67800
+   },
+   {
+    "field": "column:Books & course supplies",
+    "snippet": "Books & course supplies | $900 | $900 | $900",
+    "value": 900
+   },
+   {
+    "field": "column:Housing & food",
+    "snippet": "Housing & food | $6,156 | $18,858 | $23,199",
+    "value": 23199
+   },
+   {
+    "field": "column:Personal/miscellaneous",
+    "snippet": "Personal/miscellaneous | $2,508 | $2,508 | $2,508",
+    "value": 2508
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,074 | $1,074 | $1,581",
+    "value": 1581
+   },
+   {
+    "field": "column:Resident tuition",
+    "snippet": "Resident tuition | $13,406 | $13,406 | $13,406",
+    "value": 13406
+   },
+   {
+    "field": "column:Resident total costs",
+    "snippet": "Resident total costs | $24,044 | $36,746 | $41,594",
+    "value": 41594
+   },
+   {
+    "field": "column:Non-resident tuition",
+    "snippet": "Non-resident tuition | $44,460 | $44,460 | $44,460",
+    "value": 44460
+   },
+   {
+    "field": "column:Non-resident total costs",
+    "snippet": "Non-resident total costs | $55,098 | $67,800 | $72,648",
+    "value": 72648
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "arrangement_unlabeled",
+   "multiple_total_rows",
+   "residency_unknown"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 900,
+   "components": {
+    "Books & course supplies": 900,
+    "Housing & food": 6156,
+    "Non-resident total costs": 55098,
+    "Non-resident tuition": 44460,
+    "Personal/miscellaneous": 2508,
+    "Resident total costs": 24044,
+    "Resident tuition": 13406,
+    "Transportation": 1074
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "with_parents_or_family",
+     "column_header": "Lives with parents/relatives",
+     "components": {
+      "Books & course supplies": 900,
+      "Housing & food": 6156,
+      "Non-resident total costs": 55098,
+      "Non-resident tuition": 44460,
+      "Personal/miscellaneous": 2508,
+      "Resident total costs": 24044,
+      "Resident tuition": 13406,
+      "Transportation": 1074
+     },
+     "total_cost_of_attendance": null
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Lives on/off campus",
+     "components": {
+      "Books & course supplies": 900,
+      "Housing & food": 18858,
+      "Non-resident total costs": 67800,
+      "Non-resident tuition": 44460,
+      "Personal/miscellaneous": 2508,
+      "Resident total costs": 36746,
+      "Resident tuition": 13406,
+      "Transportation": 1074
+     },
+     "total_cost_of_attendance": null
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "Students with dependents",
+     "components": {
+      "Books & course supplies": 900,
+      "Housing & food": 23199,
+      "Non-resident total costs": 72648,
+      "Non-resident tuition": 44460,
+      "Personal/miscellaneous": 2508,
+      "Resident total costs": 41594,
+      "Resident tuition": 13406,
+      "Transportation": 1581
+     },
+     "total_cost_of_attendance": null
+    }
+   ],
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Nine-month expenses for 2026-27 Nine-month expenses for 2026-27 \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://admit.washington.edu/costs/coa/",
+   "total_cost_of_attendance": null,
+   "tuition": 13406,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:48+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "88d6623d77adbb8a49a0.json.gz",
+   "requested_url": "https://admit.washington.edu/costs/coa/",
+   "sha256": "88d6623d77adbb8a49a0842e3d87608c1ec011d5aa79831e1999d8c25291e042",
+   "title": "Cost of attendance – Office of Admissions",
+   "url": "https://admit.washington.edu/costs/coa/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "2ad810f692d01a81",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Appeals Process, By Circumstance Appeals By Circumstance Satisfactory Academic Progress If you did not meet the satisfactory academic progress requirements because you had special circumstances you may file an appeal with our office.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/",
+   "process_summary": "Appeals Process, By Circumstance Appeals By Circumstance Satisfactory Academic Progress If you did not meet the satisfactory academic progress requirements because you had special circumstances you may file an appeal with our office.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:54+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f6c0c12a312b02ffaf02.json.gz",
+   "requested_url": "https://www.washington.edu/financialaid/appeals-special-circumstances/",
+   "sha256": "f6c0c12a312b02ffaf0216894c0cb08265a23223a620d1c7b4d7226e2cbbff92",
+   "title": "Appeals & special circumstances – Student Financial Aid",
+   "url": "https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "89fea926af24a325",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 5
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "You will need to demonstrate unusual circumstances beyond your control that are not likely to recur in the immediate future.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Unusual Circumstances: If you cannot provide parent information due to unusual family circumstances, you may appeal to apply for aid without parental information.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "For this purpose, an unusual circumstance includes, but is not limited to, a permanent, irreconcilable break in the relationship with the parent(s) due to abuse, abandonment, or extreme mistreatment.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Changes to your aid offer Change Parent’s Contribution If your parents are not able to make the contribution calculated for them, they may provide us with more comprehensive information about their situation and ask for a recalculation on the Revision Request for Change in Financial Situation (see Undergraduate forms or Graduate forms).",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Change Student’s Contribution If you are not able to make the expected contribution or if you no longer have the earnings, benefits, or other support you reported, explain on the Revision Request for Change in Financial Situations (see Undergraduate forms or Graduate forms).",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://www.washington.edu/financialaid/,https://www.washington.edu/financialaid/cost-of-attendance/,https://www.washington.edu/financialaid/key-policies-information/satisfactory-academic-progress/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 5 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/",
+   "process_summary": "You will need to demonstrate unusual circumstances beyond your control that are not likely to recur in the immediate future.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:54+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f6c0c12a312b02ffaf02.json.gz",
+   "requested_url": "https://www.washington.edu/financialaid/appeals-special-circumstances/",
+   "sha256": "f6c0c12a312b02ffaf0216894c0cb08265a23223a620d1c7b4d7226e2cbbff92",
+   "title": "Appeals & special circumstances – Student Financial Aid",
+   "url": "https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "4bbac3a378845ddb",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "If your financial aid offer is not enough to cover your expenses, you have several options: Talk to one of our counselors to see if any adjustments can be made to your aid offer If your and your family’s financial situation has changed since you completed the FAFSA, then you can let our office know by completing Revision Request for Change in Financial Situation If you incur expenses during the sc",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-236948",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://www.washington.edu/financialaid/,https://www.washington.edu/financialaid/key-policies-information/appeals-special-circumstances/,https://www.washington.edu/financialaid/key-policies-information/satisfactory-academic-progress/"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-236948",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.washington.edu/financialaid/cost-of-attendance/",
+   "process_summary": "If your financial aid offer is not enough to cover your expenses, you have several options: Talk to one of our counselors to see if any adjustments can be made to your aid offer If your and your family’s financial situation has changed since you completed the FAFSA, then you can let our office know by completing Revision Request for Change in Financial Situation If you incur expenses during the school year that are not part of the standard student budget that we use to offer financial aid, you may complete a Revision Request for Additional Expenses.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.washington.edu/financialaid/cost-of-attendance/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:55+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e204379152c538b74f6b.json.gz",
+   "requested_url": "https://www.washington.edu/financialaid/cost-of-attendance/",
+   "sha256": "e204379152c538b74f6bb3e08554c3214125cbeb365101f9122ce27940825b56",
+   "title": "Cost of attendance – Student Financial Aid",
+   "url": "https://www.washington.edu/financialaid/cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "e630b35ccd83b94e",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:New Student Enrollment Fee",
+    "snippet": "New Student Enrollment Fee | $450",
+    "value": 450
+   },
+   {
+    "field": "on_campus:Tuition and Fees",
+    "snippet": "Tuition and Fees | $8,808",
+    "value": 8808
+   },
+   {
+    "field": "on_campus:Additional Required Fees",
+    "snippet": "Additional Required Fees | $1,449",
+    "value": 1449
+   },
+   {
+    "field": "on_campus:Housing and Meals",
+    "snippet": "Housing and Meals | $16,893",
+    "value": 16893
+   },
+   {
+    "field": "on_campus:Books and Supplies",
+    "snippet": "Books and Supplies | $1,224",
+    "value": 1224
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $2,691",
+    "value": 2691
+   },
+   {
+    "field": "on_campus:Personal and Miscellaneous",
+    "snippet": "Personal and Miscellaneous | $1,968",
+    "value": 1968
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $33,483",
+    "value": 33483
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-237011",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1224,
+   "components": {
+    "Additional Required Fees": 1449,
+    "Books and Supplies": 1224,
+    "Housing and Meals": 16893,
+    "New Student Enrollment Fee": 450,
+    "Personal and Miscellaneous": 1968,
+    "Total Cost of Attendance": 33483,
+    "Transportation": 2691,
+    "Tuition and Fees": 8808
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-237011",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"2026-2027 Estimated Annual Cost of Attendance Washington Residents Estimated fees and total cost for resident students\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 16893,
+   "residency": "in_state",
+   "source_url": "https://admissions.wwu.edu/cost",
+   "total_cost_of_attendance": 33483,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 8808,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:12:59+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "bb942cc24f707c75f0d5.json.gz",
+   "requested_url": "https://admissions.wwu.edu/cost",
+   "sha256": "bb942cc24f707c75f0d5c77bb7d6ea7997de53cf764b9e5ef73816268437a088",
+   "title": "Tuition and Expenses | Admissions | Western Washington University",
+   "url": "https://admissions.wwu.edu/cost"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "def0952592bd3edf",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 9
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:New Student Enrollment Fee",
+    "snippet": "New Student Enrollment Fee | $450",
+    "value": 450
+   },
+   {
+    "field": "column:Tuition(10-18 credits)",
+    "snippet": "Tuition(10-18 credits) | $27,717",
+    "value": 27717
+   },
+   {
+    "field": "column:Fees(Mandatory fees include: International Service Fee, Health Service, Non-AcademicBuilding, Recreation Center, Technology, RenewableEnergy and Transportation.)",
+    "snippet": "Fees(Mandatory fees include: International Service Fee, Health Service, Non-AcademicBuilding, Recreation Center, Technology, RenewableEnergy and Transportation.) | $1,974",
+    "value": 1974
+   },
+   {
+    "field": "column:Housing & Meals(Based on a double room & Unlimited Meal Plan)",
+    "snippet": "Housing & Meals(Based on a double room & Unlimited Meal Plan) | $16,893",
+    "value": 16893
+   },
+   {
+    "field": "column:Books & Supplies*",
+    "snippet": "Books & Supplies* | $1,224",
+    "value": 1224
+   },
+   {
+    "field": "column:Transportation*",
+    "snippet": "Transportation* | $2,691",
+    "value": 2691
+   },
+   {
+    "field": "column:Personal & Miscellaneous*",
+    "snippet": "Personal & Miscellaneous* | $1,968",
+    "value": 1968
+   },
+   {
+    "field": "column:Emergency Health Insurance(required)",
+    "snippet": "Emergency Health Insurance(required) | $1,502",
+    "value": 1502
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $54,419",
+    "value": 54419
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-237011",
+  "issues": [
+   "residency_unknown"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "books_supplies": 1224,
+   "components": {
+    "Books & Supplies*": 1224,
+    "Emergency Health Insurance(required)": 1502,
+    "Fees(Mandatory fees include: International Service Fee, Health Service, Non-AcademicBuilding, Recreation Center, Technology, RenewableEnergy and Transportation.)": 1974,
+    "Housing & Meals(Based on a double room & Unlimited Meal Plan)": 16893,
+    "New Student Enrollment Fee": 450,
+    "Personal & Miscellaneous*": 1968,
+    "Total": 54419,
+    "Transportation*": 2691,
+    "Tuition(10-18 credits)": 27717
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-237011",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Tuition \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://admissions.wwu.edu/international/tuition-scholarships",
+   "total_cost_of_attendance": 54419,
+   "tuition": 27717,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:13:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "6a6359e6c4f526e389d5.json.gz",
+   "requested_url": "https://admissions.wwu.edu/cost/international-scholarships",
+   "sha256": "6a6359e6c4f526e389d56eee16a230b743f8123bde3fb2a3b914cd7c359fa122",
+   "title": "International Tuition & Scholarships | Western Washington University",
+   "url": "https://admissions.wwu.edu/international/tuition-scholarships"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "f92c1f5463deeedd",
+  "checks": {
+   "distinct_exams": 52,
+   "equivalencies": 112,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-BIOLOGY|3]",
+    "snippet": "AP | Biology | 3 |  | Biology 101 (4 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|4]",
+    "snippet": "AP | Biology | 4 |  | Biology 204 (5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|5]",
+    "snippet": "AP | Biology | 5 |  | Biology 204 (5 credits), Biology 205 (5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY-HL|HL 4+]",
+    "snippet": "IB | Biology (HL) | 4+ |  | Biology 101, Biology electives (8 credits Lab Science), Biology electives (7 credits Non-Lab Science) | Lab Science, Non-Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY-SL|SL 4+]",
+    "snippet": "IB | Biology (SL) | 4+ |  | Biology 101, Biology electives (8 credits Lab Science) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|A]",
+    "snippet": "CIE | Biology | A |  | BIOL 204, 205, BIOL electives (15 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY|AS]",
+    "snippet": "CIE | Biology | AS |  | BIOL 204, BIOL electives (7.5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|A]",
+    "snippet": "CIE | Business | A |  | MGMT electives (15 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT|AS]",
+    "snippet": "CIE | Business | AS |  | MGMT electives (7.5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT-HL|HL 4+]",
+    "snippet": "IB | Business Management (HL) | 4+ |  | Management electives (4 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|3+]",
+    "snippet": "AP | Chemistry | 3+ |  | Chemistry 161, 162 (10 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-HL|HL 4–5]",
+    "snippet": "IB | Chemistry (HL) | 4–5 |  | Chemistry 161 (5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-HL|HL 6]",
+    "snippet": "IB | Chemistry (HL) | 6 |  | Chemistry 161, 162 (10 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-HL|HL 7]",
+    "snippet": "IB | Chemistry (HL) | 7 |  | Chemistry 161, 162, 163 (15 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-SL|SL 4+]",
+    "snippet": "IB | Chemistry (SL) | 4+ |  | Chemistry elective (3 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|A]",
+    "snippet": "CIE | Chemistry | A |  | CHEM 161, 162, 163 (15 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY|AS]",
+    "snippet": "CIE | Chemistry | AS |  | CHEM electives (7.5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-HL|HL 4+]",
+    "snippet": "IB | Computer Science (HL) | 4+ |  | CSCI 141 (4 Credits), CSCI 145 (4 Credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-SL|SL 4+]",
+    "snippet": "IB | Computer Science (SL) | 4+ |  | CSCI 141 (4 Credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|A]",
+    "snippet": "CIE | Computer Science | A |  | CSCI 101, CSCI 120, CSCI electives (15 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|AS]",
+    "snippet": "CIE | Computer Science | AS |  | CSCI 120, CSCI electives (7.5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|3+]",
+    "snippet": "AP | Computer Science A | 3+ |  | Computer Science 141 (4 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE|3+]",
+    "snippet": "AP | Computer Science Principles | 3+ |  | General electives (3 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-HL|HL 4]",
+    "snippet": "IB | Economics (HL) | 4 |  | Economics 101 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-HL|HL 5+]",
+    "snippet": "IB | Economics (HL) | 5+ |  | Economics 206 and 207 (10 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-SL|SL 4+]",
+    "snippet": "IB | Economics (SL) | 4+ |  | Economics 101 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|A]",
+    "snippet": "CIE | Economics | A |  | ECON electives (15 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|AS]",
+    "snippet": "CIE | Economics | AS |  | ECON electives (7.5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|SL 4+]",
+    "snippet": "IB | Environmental Systems and Societies (SL) | 4+ |  | Environmental Science 101: 3 credits | Non-Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|4+]",
+    "snippet": "AP | European History | 4+ |  | History 113 (5 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FILM-HL|HL 4+]",
+    "snippet": "IB | Film (HL) | 4+ |  | General Electives (5 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FILM-SL|SL 4+]",
+    "snippet": "IB | Film (SL) | 4+ |  | General Electives (5 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|A]",
+    "snippet": "CIE | French | A |  | FREN 201, 202, 203 (15 credits) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|AS]",
+    "snippet": "CIE | French - Language | AS |  | FREN 201, FREN electives (7.5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-SL|SL 4-5]",
+    "snippet": "IB | French AB (SL) | 4-5 |  | French 102 (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-SL|SL 6+]",
+    "snippet": "IB | French AB (SL) | 6+ |  | French 103 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-HL|HL 4]",
+    "snippet": "IB | French B (HL) | 4 |  | French 201 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-HL|HL 5]",
+    "snippet": "IB | French B (HL) | 5 |  | French 201 (5 credits), French 202 (5 credits) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-HL|HL 6+]",
+    "snippet": "IB | French B (HL) | 6+ |  | French 201 (5 credits), French 202, 203 (10 credits) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-SL|SL 4-5]",
+    "snippet": "IB | French B (SL) | 4-5 |  | French 103 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-SL|SL 6+]",
+    "snippet": "IB | French B (SL) | 6+ |  | French 201 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|3]",
+    "snippet": "AP | French Language and Culture | 3 |  | French 104 (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|4]",
+    "snippet": "AP | French Language and Culture | 4 |  | French electives (10 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH|5]",
+    "snippet": "AP | French Language and Culture | 5 |  | French electives (15 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-HL|HL 4+]",
+    "snippet": "IB | Geography (HL) | 4+ |  | Environmental Studies 204 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-SL|SL 4+]",
+    "snippet": "IB | Geography (SL) | 4+ |  | Environmental Studies 204 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|A]",
+    "snippet": "CIE | Geography | A |  | ENVS electives (15 credits) | Non-Lab Science, Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|AS]",
+    "snippet": "CIE | Geography | AS |  | ENVS electives (7.5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|A]",
+    "snippet": "CIE | German | A |  | GERM 201, 202, 203 (15 credits) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|AS]",
+    "snippet": "CIE | German - Language | AS |  | GERM 201, GERM electives (7.5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN-SL|SL 4-5]",
+    "snippet": "IB | German AB (SL) | 4-5 |  | German 102 (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-GERMAN-SL|SL 6+]",
+    "snippet": "IB | German AB (SL) | 6+ |  | German 103 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|3]",
+    "snippet": "AP | German Language and Culture | 3 |  | German 101 (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-GERMAN|4+]",
+    "snippet": "AP | German Language and Culture | 4+ |  | German 101, 102 (10 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS-HL|HL 4+]",
+    "snippet": "IB | Global Politics (HL) | 4+ |  | Political Science 101, 271 (10 credits Social Sciences), 390 (5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS-SL|SL 4+]",
+    "snippet": "IB | Global Politics (SL) | 4+ |  | Political Science 101, 271 (6 credits Social Sciences), 390 (3 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|A]",
+    "snippet": "CIE | History | A |  | HIST electives (15 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|AS]",
+    "snippet": "CIE | History | AS |  | HIST electives (7.5 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-HL|HL 4+]",
+    "snippet": "IB | History: European (HL) | 4+ |  | History elective (10 credits), History elective (5 credits) | Humanities, Comparative, Gender, and Multicultural Studies Block B"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY|3+]",
+    "snippet": "AP | Human Geography | 3+ |  | Environmental Studies 204 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-LATIN-HL|HL 4]",
+    "snippet": "IB | Latin (HL) | 4 |  | Latin 201 (5 credits), Latin 202 (5 credits Humanities) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-LATIN-HL|HL 5+]",
+    "snippet": "IB | Latin (HL) | 5+ |  | Latin 201 (5 credits), Latin 202, 203 (10 credits) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-LATIN-SL|SL 4+]",
+    "snippet": "IB | Latin (SL) | 4+ |  | Latin 201 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|3+]",
+    "snippet": "AP | Macroeconomics | 3+ |  | Economics 207 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 4-5]",
+    "snippet": "IB | Mathematics: analysis and approaches (HL) | 4-5 |  | Math 118 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|HL 6+]",
+    "snippet": "IB | Mathematics: analysis and approaches (HL) | 6+ |  | Math 124 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 4-5]",
+    "snippet": "IB | Mathematics: analysis and approaches (SL) | 4-5 |  | Math 112 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|SL 6+]",
+    "snippet": "IB | Mathematics: analysis and approaches (SL) | 6+ |  | Math 118 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 4-5]",
+    "snippet": "IB | Mathematics: applications and interpretations (HL) | 4-5 |  | Math 112 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL|HL 6+]",
+    "snippet": "IB | Mathematics: applications and interpretations (HL) | 6+ |  | Math 118 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL|SL 5+]",
+    "snippet": "IB | Mathematics: applications and interpretations (SL) | 5+ |  | Math 112 (5 credits) | Quantitative & Symbolic Reasoning"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS|3+]",
+    "snippet": "AP | Microeconomics | 3+ |  | Economics 206 (4 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC-HL|HL 4+]",
+    "snippet": "IB | Music (HL) | 4+ |  | General Elective (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|A]",
+    "snippet": "CIE | Music | A |  | MUS electives (15 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|AS]",
+    "snippet": "CIE | Music | AS |  | MUS electives (7.5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-MUSIC|3+]",
+    "snippet": "AP | Music Aural Subscore | 3+ |  | Music electives (3 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY-HL|HL 4+]",
+    "snippet": "IB | Philosophy (HL) | 4+ |  | Philosophy electives (15 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY-SL|SL 4+]",
+    "snippet": "IB | Philosophy (SL) | 4+ |  | Philosophy electives (9 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-HL|HL 4+]",
+    "snippet": "IB | Physics (HL) | 4+ |  | Physics 115, 116 (10 credits Lab Science), Physics 114 (5 credits Non-Lab Science) | Lab Science, Non-Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-SL|SL 4+]",
+    "snippet": "IB | Physics (SL) | 4+ |  | Physics 115 (5 credits Lab Science), Physics 114 (5 credits Non-Lab Science) | Lab Science, Non-Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|A]",
+    "snippet": "CIE | Physics | A |  | PHYS 161, 162, PHYS electives (15 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|AS]",
+    "snippet": "CIE | Physics | AS |  | PHYS 101, PHYS electives (7.5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|3+]",
+    "snippet": "AP | Physics 1 and 2: Algebra-Based | 3+ |  | Physics 114, 115, 116: 10 credits (lab) and 5 credits (non-lab) | Lab Science, Non-Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|3+]",
+    "snippet": "AP | Physics 1: Algebra-Based | 3+ |  | Physics 114 (5 credits) | Non-Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|3+]",
+    "snippet": "AP | Physics 2: Algebra-Based | 3+ |  | Physics 115 (5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|3+]",
+    "snippet": "AP | Physics C: Electricity and Magnetism | 3+ |  | Physics 162 (5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS|3+]",
+    "snippet": "AP | Physics C: Mechanics | 3+ |  | Physics 161 (5 credits) | Lab Science"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|3+]",
+    "snippet": "AP | Psychology | 3+ |  | Psychology 101 (5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-HL|HL 4+]",
+    "snippet": "IB | Psychology (HL) | 4+ |  | Psychology 101 (5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-SL|SL 4+]",
+    "snippet": "IB | Psychology (SL) | 4+ |  | Psychology 101 (5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|A]",
+    "snippet": "CIE | Psychology | A |  | PSYCH 101, PSYCH electives (15 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY|AS]",
+    "snippet": "CIE | Psychology | AS |  | PSYCH electives (7.5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL 4+]",
+    "snippet": "IB | Social & Cultural Anthropology (HL) | 4+ |  | ANTH 201 (5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-SL|SL 4+]",
+    "snippet": "IB | Social & Cultural Anthropology (SL) | 4+ |  | ANTH 201 (5 credits) | Social Sciences"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|A]",
+    "snippet": "CIE | Spanish | A |  | SPAN 101, 102, 103 (15 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|AS]",
+    "snippet": "CIE | Spanish - Language | AS |  | SPAN 101, SPAN electives (7.5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|AS]",
+    "snippet": "CIE | Spanish - Literature | AS |  | SPAN Elective (7.5 credits) | Comparative, Gender, and Multicultural Studies Block B"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-SL|SL 4-5]",
+    "snippet": "IB | Spanish AB (SL) | 4-5 |  | Spanish 102 (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-SL|SL 6+]",
+    "snippet": "IB | Spanish AB (SL) | 6+ |  | Spanish 103 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-HL|HL 4]",
+    "snippet": "IB | Spanish B (HL) | 4 |  | Spanish 201 (5 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-HL|HL 5]",
+    "snippet": "IB | Spanish B (HL) | 5 |  | Spanish 201 (5 credits), Spanish 202 (5 credits Humanities) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-HL|HL 6+]",
+    "snippet": "IB | Spanish B (HL) | 6+ |  | Spanish 201 (5 credits), Spanish 202, 203 (10 credits Humanities) | Communication Block B, Humanities"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-SL|SL 4-5]",
+    "snippet": "IB | Spanish B (SL) | 4-5 |  | Spanish 103 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH-SL|SL 6+]",
+    "snippet": "IB | Spanish B (SL) | 6+ |  | Spanish 201 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|3]",
+    "snippet": "AP | Spanish Language & Culture | 3 |  | Spanish 104 (5 credits) | Communication Block B"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|4]",
+    "snippet": "AP | Spanish Language & Culture | 4 |  | Spanish electives (10 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|5]",
+    "snippet": "AP | Spanish Language & Culture | 5 |  | Spanish electives (15 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-SPANISH|3]",
+    "snippet": "AP | Spanish Literature & Culture | 3 |  | Spanish electives (5 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE-HL|HL 4+]",
+    "snippet": "IB | Theatre (HL) | 4+ |  | Theatre 101, 228, and either 160 or 210 (9 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-THEATRE-SL|SL 4+]",
+    "snippet": "IB | Theatre (SL) | 4+ |  | Theatre 101 and either 160 or 210 (6 credits) | "
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|4+]",
+    "snippet": "AP | United States History | 4+ |  | History elective (5 credits) | Humanities"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY|4+]",
+    "snippet": "AP | World History: Modern | 4+ |  | History 123 (5 credits) | Humanities"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-237011",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "Biology 101 (4 credits)",
+     "minimum_score": "3",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "Biology 204 (5 credits)",
+     "minimum_score": "4",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "Biology 204 (5 credits), Biology 205 (5 credits)",
+     "minimum_score": "5",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY-HL",
+     "exam_or_course_name": "IB Biology (HL)",
+     "institution_course_equivalent": "Biology 101, Biology electives (8 credits Lab Science), Biology electives (7 credits Non-Lab Science)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Lab Science, Non-Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY-SL",
+     "exam_or_course_name": "IB Biology (SL)",
+     "institution_course_equivalent": "Biology 101, Biology electives (8 credits Lab Science)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "BIOL 204, 205, BIOL electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY",
+     "exam_or_course_name": "IB Biology",
+     "institution_course_equivalent": "BIOL 204, BIOL electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT",
+     "exam_or_course_name": "IB Business Management",
+     "institution_course_equivalent": "MGMT electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT",
+     "exam_or_course_name": "IB Business Management",
+     "institution_course_equivalent": "MGMT electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT-HL",
+     "exam_or_course_name": "IB Business Management (HL)",
+     "institution_course_equivalent": "Management electives (4 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "Chemistry 161, 162 (10 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-HL",
+     "exam_or_course_name": "IB Chemistry (HL)",
+     "institution_course_equivalent": "Chemistry 161 (5 credits)",
+     "minimum_score": "HL 4–5",
+     "notes": "IB | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-HL",
+     "exam_or_course_name": "IB Chemistry (HL)",
+     "institution_course_equivalent": "Chemistry 161, 162 (10 credits)",
+     "minimum_score": "HL 6",
+     "notes": "IB | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-HL",
+     "exam_or_course_name": "IB Chemistry (HL)",
+     "institution_course_equivalent": "Chemistry 161, 162, 163 (15 credits)",
+     "minimum_score": "HL 7",
+     "notes": "IB | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-SL",
+     "exam_or_course_name": "IB Chemistry (SL)",
+     "institution_course_equivalent": "Chemistry elective (3 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM 161, 162, 163 (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY",
+     "exam_or_course_name": "IB Chemistry",
+     "institution_course_equivalent": "CHEM electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-HL",
+     "exam_or_course_name": "IB Computer Science (HL)",
+     "institution_course_equivalent": "CSCI 141 (4 Credits), CSCI 145 (4 Credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-SL",
+     "exam_or_course_name": "IB Computer Science (SL)",
+     "institution_course_equivalent": "CSCI 141 (4 Credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "CSCI 101, CSCI 120, CSCI electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "CSCI 120, CSCI electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "Computer Science 141 (4 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE",
+     "exam_or_course_name": "IB Computer Science",
+     "institution_course_equivalent": "General electives (3 credits)",
+     "minimum_score": "3+",
+     "notes": "AP"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-HL",
+     "exam_or_course_name": "IB Economics (HL)",
+     "institution_course_equivalent": "Economics 101 (4 credits)",
+     "minimum_score": "HL 4",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-HL",
+     "exam_or_course_name": "IB Economics (HL)",
+     "institution_course_equivalent": "Economics 206 and 207 (10 credits)",
+     "minimum_score": "HL 5+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-SL",
+     "exam_or_course_name": "IB Economics (SL)",
+     "institution_course_equivalent": "Economics 101 (4 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "ECON electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL",
+     "exam_or_course_name": "IB Environmental Systems & Societies (SL)",
+     "institution_course_equivalent": "Environmental Science 101: 3 credits",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Non-Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "History 113 (5 credits)",
+     "minimum_score": "4+",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FILM-HL",
+     "exam_or_course_name": "IB Film (HL)",
+     "institution_course_equivalent": "General Electives (5 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FILM-SL",
+     "exam_or_course_name": "IB Film (SL)",
+     "institution_course_equivalent": "General Electives (5 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FREN 201, 202, 203 (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "FREN 201, FREN electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-SL",
+     "exam_or_course_name": "IB French (SL)",
+     "institution_course_equivalent": "French 102 (5 credits)",
+     "minimum_score": "SL 4-5",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-SL",
+     "exam_or_course_name": "IB French (SL)",
+     "institution_course_equivalent": "French 103 (5 credits)",
+     "minimum_score": "SL 6+",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-HL",
+     "exam_or_course_name": "IB French (HL)",
+     "institution_course_equivalent": "French 201 (5 credits)",
+     "minimum_score": "HL 4",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-HL",
+     "exam_or_course_name": "IB French (HL)",
+     "institution_course_equivalent": "French 201 (5 credits), French 202 (5 credits)",
+     "minimum_score": "HL 5",
+     "notes": "IB | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-HL",
+     "exam_or_course_name": "IB French (HL)",
+     "institution_course_equivalent": "French 201 (5 credits), French 202, 203 (10 credits)",
+     "minimum_score": "HL 6+",
+     "notes": "IB | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-SL",
+     "exam_or_course_name": "IB French (SL)",
+     "institution_course_equivalent": "French 103 (5 credits)",
+     "minimum_score": "SL 4-5",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-SL",
+     "exam_or_course_name": "IB French (SL)",
+     "institution_course_equivalent": "French 201 (5 credits)",
+     "minimum_score": "SL 6+",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "French 104 (5 credits)",
+     "minimum_score": "3",
+     "notes": "AP"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "French electives (10 credits)",
+     "minimum_score": "4",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH",
+     "exam_or_course_name": "IB French",
+     "institution_course_equivalent": "French electives (15 credits)",
+     "minimum_score": "5",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY-HL",
+     "exam_or_course_name": "IB Geography (HL)",
+     "institution_course_equivalent": "Environmental Studies 204 (4 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY-SL",
+     "exam_or_course_name": "IB Geography (SL)",
+     "institution_course_equivalent": "Environmental Studies 204 (4 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "ENVS electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Non-Lab Science, Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "ENVS electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GERM 201, 202, 203 (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "GERM 201, GERM electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GERMAN-SL",
+     "exam_or_course_name": "IB German (SL)",
+     "institution_course_equivalent": "German 102 (5 credits)",
+     "minimum_score": "SL 4-5",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GERMAN-SL",
+     "exam_or_course_name": "IB German (SL)",
+     "institution_course_equivalent": "German 103 (5 credits)",
+     "minimum_score": "SL 6+",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "German 101 (5 credits)",
+     "minimum_score": "3",
+     "notes": "AP"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GERMAN",
+     "exam_or_course_name": "IB German",
+     "institution_course_equivalent": "German 101, 102 (10 credits)",
+     "minimum_score": "4+",
+     "notes": "AP"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS-HL",
+     "exam_or_course_name": "IB Global Politics (HL)",
+     "institution_course_equivalent": "Political Science 101, 271 (10 credits Social Sciences), 390 (5 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS-SL",
+     "exam_or_course_name": "IB Global Politics (SL)",
+     "institution_course_equivalent": "Political Science 101, 271 (6 credits Social Sciences), 390 (3 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "HIST electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-HL",
+     "exam_or_course_name": "IB History (HL)",
+     "institution_course_equivalent": "History elective (10 credits), History elective (5 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Humanities, Comparative, Gender, and Multicultural Studies Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY",
+     "exam_or_course_name": "IB Geography",
+     "institution_course_equivalent": "Environmental Studies 204 (4 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN-HL",
+     "exam_or_course_name": "IB Latin (HL)",
+     "institution_course_equivalent": "Latin 201 (5 credits), Latin 202 (5 credits Humanities)",
+     "minimum_score": "HL 4",
+     "notes": "IB | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN-HL",
+     "exam_or_course_name": "IB Latin (HL)",
+     "institution_course_equivalent": "Latin 201 (5 credits), Latin 202, 203 (10 credits)",
+     "minimum_score": "HL 5+",
+     "notes": "IB | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN-SL",
+     "exam_or_course_name": "IB Latin (SL)",
+     "institution_course_equivalent": "Latin 201 (5 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "Economics 207 (4 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-HL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (HL)",
+     "institution_course_equivalent": "Math 118 (5 credits)",
+     "minimum_score": "HL 4-5",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-HL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (HL)",
+     "institution_course_equivalent": "Math 124 (5 credits)",
+     "minimum_score": "HL 6+",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-SL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (SL)",
+     "institution_course_equivalent": "Math 112 (5 credits)",
+     "minimum_score": "SL 4-5",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-SL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (SL)",
+     "institution_course_equivalent": "Math 118 (5 credits)",
+     "minimum_score": "SL 6+",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation (HL)",
+     "institution_course_equivalent": "Math 112 (5 credits)",
+     "minimum_score": "HL 4-5",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-HL",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation (HL)",
+     "institution_course_equivalent": "Math 118 (5 credits)",
+     "minimum_score": "HL 6+",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MATHEMATICS-APPLICATIONS-INTERPRETATION-SL",
+     "exam_or_course_name": "IB Mathematics: Applications & Interpretation (SL)",
+     "institution_course_equivalent": "Math 112 (5 credits)",
+     "minimum_score": "SL 5+",
+     "notes": "IB | Quantitative & Symbolic Reasoning"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS",
+     "exam_or_course_name": "IB Economics",
+     "institution_course_equivalent": "Economics 206 (4 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC-HL",
+     "exam_or_course_name": "IB Music (HL)",
+     "institution_course_equivalent": "General Elective (5 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "MUS electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "MUS electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-MUSIC",
+     "exam_or_course_name": "IB Music",
+     "institution_course_equivalent": "Music electives (3 credits)",
+     "minimum_score": "3+",
+     "notes": "AP"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHILOSOPHY-HL",
+     "exam_or_course_name": "IB Philosophy (HL)",
+     "institution_course_equivalent": "Philosophy electives (15 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHILOSOPHY-SL",
+     "exam_or_course_name": "IB Philosophy (SL)",
+     "institution_course_equivalent": "Philosophy electives (9 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS-HL",
+     "exam_or_course_name": "IB Physics (HL)",
+     "institution_course_equivalent": "Physics 115, 116 (10 credits Lab Science), Physics 114 (5 credits Non-Lab Science)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Lab Science, Non-Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS-SL",
+     "exam_or_course_name": "IB Physics (SL)",
+     "institution_course_equivalent": "Physics 115 (5 credits Lab Science), Physics 114 (5 credits Non-Lab Science)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Lab Science, Non-Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 161, 162, PHYS electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "PHYS 101, PHYS electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "Physics 114, 115, 116: 10 credits (lab) and 5 credits (non-lab)",
+     "minimum_score": "3+",
+     "notes": "AP | Lab Science, Non-Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "Physics 114 (5 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Non-Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "Physics 115 (5 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "Physics 162 (5 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS",
+     "exam_or_course_name": "IB Physics",
+     "institution_course_equivalent": "Physics 161 (5 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Lab Science"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "Psychology 101 (5 credits)",
+     "minimum_score": "3+",
+     "notes": "AP | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY-HL",
+     "exam_or_course_name": "IB Psychology (HL)",
+     "institution_course_equivalent": "Psychology 101 (5 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY-SL",
+     "exam_or_course_name": "IB Psychology (SL)",
+     "institution_course_equivalent": "Psychology 101 (5 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "PSYCH 101, PSYCH electives (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY",
+     "exam_or_course_name": "IB Psychology",
+     "institution_course_equivalent": "PSYCH electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL",
+     "exam_or_course_name": "IB Social & Cultural Anthropology (HL)",
+     "institution_course_equivalent": "ANTH 201 (5 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY-SL",
+     "exam_or_course_name": "IB Social & Cultural Anthropology (SL)",
+     "institution_course_equivalent": "ANTH 201 (5 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB | Social Sciences"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 101, 102, 103 (15 credits)",
+     "minimum_score": "A",
+     "notes": "CIE | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN 101, SPAN electives (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "SPAN Elective (7.5 credits)",
+     "minimum_score": "AS",
+     "notes": "CIE | Comparative, Gender, and Multicultural Studies Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-SL",
+     "exam_or_course_name": "IB Spanish (SL)",
+     "institution_course_equivalent": "Spanish 102 (5 credits)",
+     "minimum_score": "SL 4-5",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-SL",
+     "exam_or_course_name": "IB Spanish (SL)",
+     "institution_course_equivalent": "Spanish 103 (5 credits)",
+     "minimum_score": "SL 6+",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-HL",
+     "exam_or_course_name": "IB Spanish (HL)",
+     "institution_course_equivalent": "Spanish 201 (5 credits)",
+     "minimum_score": "HL 4",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-HL",
+     "exam_or_course_name": "IB Spanish (HL)",
+     "institution_course_equivalent": "Spanish 201 (5 credits), Spanish 202 (5 credits Humanities)",
+     "minimum_score": "HL 5",
+     "notes": "IB | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-HL",
+     "exam_or_course_name": "IB Spanish (HL)",
+     "institution_course_equivalent": "Spanish 201 (5 credits), Spanish 202, 203 (10 credits Humanities)",
+     "minimum_score": "HL 6+",
+     "notes": "IB | Communication Block B, Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-SL",
+     "exam_or_course_name": "IB Spanish (SL)",
+     "institution_course_equivalent": "Spanish 103 (5 credits)",
+     "minimum_score": "SL 4-5",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH-SL",
+     "exam_or_course_name": "IB Spanish (SL)",
+     "institution_course_equivalent": "Spanish 201 (5 credits)",
+     "minimum_score": "SL 6+",
+     "notes": "IB | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "Spanish 104 (5 credits)",
+     "minimum_score": "3",
+     "notes": "AP | Communication Block B"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "Spanish electives (10 credits)",
+     "minimum_score": "4",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "Spanish electives (15 credits)",
+     "minimum_score": "5",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SPANISH",
+     "exam_or_course_name": "IB Spanish",
+     "institution_course_equivalent": "Spanish electives (5 credits)",
+     "minimum_score": "3",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-THEATRE-HL",
+     "exam_or_course_name": "IB Theatre (HL)",
+     "institution_course_equivalent": "Theatre 101, 228, and either 160 or 210 (9 credits)",
+     "minimum_score": "HL 4+",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-THEATRE-SL",
+     "exam_or_course_name": "IB Theatre (SL)",
+     "institution_course_equivalent": "Theatre 101 and either 160 or 210 (6 credits)",
+     "minimum_score": "SL 4+",
+     "notes": "IB"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "History elective (5 credits)",
+     "minimum_score": "4+",
+     "notes": "AP | Humanities"
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY",
+     "exam_or_course_name": "IB History",
+     "institution_course_equivalent": "History 123 (5 credits)",
+     "minimum_score": "4+",
+     "notes": "AP | Humanities"
+    }
+   ],
+   "institution_key": "ipeds-237011",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://admissions.wwu.edu/apply/ap-ib-cic",
+   "source_url": "https://admissions.wwu.edu/apply/ap-ib-cic",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:13:12+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "55dd891ff15c7b2d4050.json.gz",
+   "requested_url": "https://admissions.wwu.edu/apply/ap-ib-cic",
+   "sha256": "55dd891ff15c7b2d40501934a90ddd0c169d840e1ce38b9584ca6024887198db",
+   "title": "AP, IB, and Cambridge International Credit | Admissions | Western Washington University",
+   "url": "https://admissions.wwu.edu/apply/ap-ib-cic"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "fa79af56f1bebf1d",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:New Student Enrollment Fee",
+    "snippet": "New Student Enrollment Fee | $450",
+    "value": 450
+   },
+   {
+    "field": "column:Tuition and Fees",
+    "snippet": "Tuition and Fees | $27,717",
+    "value": 27717
+   },
+   {
+    "field": "column:Additional Required Fees",
+    "snippet": "Additional Required Fees | $1,449",
+    "value": 1449
+   },
+   {
+    "field": "column:Housing and Meals",
+    "snippet": "Housing and Meals | $16,893",
+    "value": 16893
+   },
+   {
+    "field": "column:Books and Supplies",
+    "snippet": "Books and Supplies | $1,224",
+    "value": 1224
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $2,691",
+    "value": 2691
+   },
+   {
+    "field": "column:Personal and Miscellaneous",
+    "snippet": "Personal and Miscellaneous | $1,968",
+    "value": 1968
+   },
+   {
+    "field": "column:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $52,392",
+    "value": 52392
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-237011",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1224,
+   "components": {
+    "Additional Required Fees": 1449,
+    "Books and Supplies": 1224,
+    "Housing and Meals": 16893,
+    "New Student Enrollment Fee": 450,
+    "Personal and Miscellaneous": 1968,
+    "Total Cost of Attendance": 52392,
+    "Transportation": 2691,
+    "Tuition and Fees": 27717
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-237011",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"2026-2027 Estimated Annual Cost of Attendance Out-of-State Student Costs Estimated fees and total cost for out of state \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://admissions.wwu.edu/index%2Ephp/cost",
+   "total_cost_of_attendance": 52392,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 27717,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:14:44+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "9af703431eb42df90257.json.gz",
+   "requested_url": "https://admissions.wwu.edu/index%2Ephp/cost",
+   "sha256": "9af703431eb42df90257d94a312223527cb73cd63920b09da4682c76c4ae6424",
+   "title": "Tuition and Expenses | Admissions | Western Washington University",
+   "url": "https://admissions.wwu.edu/index%2Ephp/cost"
+  },
+  "year_basis": "labeled_in_source"
+ }
+]
