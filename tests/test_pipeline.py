@@ -2430,6 +2430,56 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual(sorted(c['record'].get('award_amount_text') for c in got.values()), ['$10,000', '$12,000', '$14,000'])
         self.assertFalse(any(n[:1].isdigit() for n in got))
 
+    def test_score_rows_by_gpa_columns(self):
+        """Score bands down the side, GPA (or class-rank) bands across: AL (South Alabama), LA (Louisiana Tech), TX (Tarleton)."""
+        usa = """<title>Scholarships for Incoming Freshman | Scholarships</title><h2>Qualifications:</h2><table>
+<tr><th>ACT</th><th>SAT</th><th>High School GPA 3.0-3.49</th><th>High School GPA 3.5 - 3.74</th><th>High School GPA 3.75 &amp; Higher</th></tr>
+<tr><td>21-22</td><td>1060-1120</td><td>$2,000</td><td>$2,500</td><td>$3,000</td></tr><tr><td>23-24</td><td>1130-1190</td><td>$3,000</td><td>$3,500</td><td>$4,000</td></tr>
+<tr><td>≥ 32</td><td>1420-1600</td><td>$5,000</td><td>Full Tuition¹</td><td>Full Tuition¹</td></tr></table>"""
+        twice = usa + usa.split('<title>')[1].split('</h2>', 1)[1]
+        self.assertEqual(len(merit.extract(INST, ENTRY, T.parse_html(twice), '2026-27')), 1)  # the same grid printed twice is one record
+        got = self.got(twice)
+        self.assertEqual(list(got), ['Scholarships for Incoming Freshman'])  # "Qualifications:" names no award; the page does
+        r = got['Scholarships for Incoming Freshman']['record']
+        self.assertEqual((len(r['award_tiers']), r['award_min'], r['award_max']), (9, 2000, 5000))
+        self.assertEqual(r['award_tiers'][0], {'test': 'ACT 21-22 / SAT 1060-1120', 'gpa': 'High School GPA 3.0-3.49', 'amount_text': '$2,000'})
+        self.assertIn('ACT 21-22 / SAT 1060-1120, High School GPA 3.0-3.49 → $2,000', r['test_requirement'])
+        short = usa.replace('<td>23-24</td><td>1130-1190</td><td>$3,000</td>', '<td>23-24</td><td>1130-1190</td>')
+        self.assertEqual(self.got(short), {})  # a row that does not fill the grid leaves it unread
+        odd = usa.replace('<td>$3,500</td>', '<td>see note</td>')
+        self.assertEqual(self.got(odd), {})  # a cell that is neither an amount nor blank leaves it unread
+        la = """<title>Freshman Scholarships</title><h2>Merit-Based Scholarships</h2><table><tr><th>Scholarship Name: ACT / SAT Score</th><th>GPA 3.0-3.749</th><th>GPA 3.75-4.0</th></tr>
+<tr><td>Presidential: ACT 33+ / SAT 1450-1600</td><td>$9,000</td><td>$9,500</td></tr><tr><td>Deans’ Scholarship: ACT 32 / SAT 1420-1440</td><td>$8,000</td><td>$8,500</td></tr>
+<tr><td>Academic Choice: ACT 20-22/SAT 1030-1120</td><td>N/A</td><td>$1,000</td></tr></table>
+<p>Bulldog Out-of-State Scholarship Incoming Freshmen – Category A (effective Fall 2023) Admitted students from Arkansas.</p>"""
+        c = self.got(la)['Merit-Based Scholarships']
+        self.assertEqual((len(c['record']['award_tiers']), c['academic_year']), (5, '2026-27'))  # N/A is no tier; "effective Fall 2023" began a rule
+        tar = """<title>Guaranteed Scholarship Program - Freshman</title><h2>Guaranteed Awards</h2><table><tr><th>SAT, ACT, or CLT</th><th>top 10%</th><th>top 25% (not top 10%)</th></tr>
+<tr><td>1300+ or 28+ or 92+</td><td>$4,000</td><td>$2,000</td></tr><tr><td>1100+ or 22+ or 72+</td><td>$3,000</td><td>$1,500</td></tr></table>"""
+        r = self.got(tar)['Guaranteed Awards']['record']
+        self.assertEqual((r['award_tiers'][1]['class rank'], 'gpa_requirement' in r), ('top 25% (not top 10%)', False))
+        sd = """<title>First-Time Student Scholarships</title><h2>Grid</h2><table><tr><td>TEST SCORES</td><td>ACT</td><td>32+</td><td>28</td><td>26</td></tr>
+<tr><td>GPA</td><td>4.00+</td><td>$4,000</td><td>$4,000</td><td>$3,000</td></tr><tr><td>3.90</td><td>$4,000</td><td>$3,000</td><td>$3,000</td></tr>
+<tr><td>3.75</td><td>$4,000</td><td>$3,000</td><td>$2,000</td></tr></table>"""
+        self.assertEqual(self.got(sd), {})  # SD (SDSU): rows shifted under a two-row header are never read by position
+
+    def test_freshman_pages_that_also_list_transfer_awards(self):
+        ku = """<title>KU Scholarships | Renewable Merit Awards for Freshmen &amp; Transfers</title><h2>In-state freshman merit scholarships</h2><table>
+<tr><th>Name</th><th>GPA (based on 4.0 scale)</th><th>Amount</th></tr><tr><td>Chancellor</td><td>3.95+</td><td>$20,000 ($5,000 per year)</td></tr>
+<tr><td>Traditions</td><td>3.85 to 3.94</td><td>$16,000 ($4,000 per year)</td></tr><tr><td>Transfer Excellence</td><td>3.5+</td><td>$8,000 ($2,000 per year)</td></tr></table>"""
+        got = self.got(ku)  # KS (KU): a page for freshmen and transfers is read; its transfer award is not a first-year award
+        self.assertEqual(sorted(got), ['Chancellor', 'Traditions'])
+        self.assertEqual(got['Chancellor']['record']['award_max'], 5000)
+        self.assertEqual(self.got(ku.replace('for Freshmen &amp; Transfers', 'for Transfers')), {})
+        vcu = """<title>Out-of-state scholarships - Admissions</title><h2>Eligibility criteria</h2><table><tr><th>Minimum High School GPA</th><th>Annual Scholarship</th></tr>
+<tr><td>3.00</td><td>$10,000</td></tr><tr><td>3.25</td><td>$11,000</td></tr><tr><td>3.50</td><td>$12,000</td></tr></table>"""
+        self.assertEqual(list(self.got(vcu)), ['Out-of-state scholarships'])  # VA (VCU): a GPA grid under "Eligibility criteria"
+        exc = """<title>Excelsior Scholarship: SUNY Brockport</title><h2>Eligibility Requirements</h2><table><tr><th>Student Year</th><th>Requirements</th></tr>
+<tr><td>First-time Students</td><td>Must be a NYS resident whose family household adjusted gross income does not exceed $125,000</td></tr>
+<tr><td>Current Students</td><td>Must be on track to complete your degree on time and earn 30 credits a year</td></tr>
+<tr><td>Students with an Associate's Degree</td><td>Must meet the academic requirements and income guidelines</td></tr></table>"""
+        self.assertEqual(self.got(exc), {})  # NY (Brockport): under "Eligibility" only a tier grid is read
+
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>
 <tr><th>Name</th><th>Amount (per year)*</th><th>GPA</th><th>SAT</th><th>ACT</th></tr>

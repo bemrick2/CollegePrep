@@ -7,6 +7,18 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
+    ('pipeline/extractors/merit.py', " \\\n            or _score_row_grid(t, header, body, context, page)", ""),
+    ('pipeline/extractors/merit.py', "        if len(r) != len(header): return []\n", ""),
+    ('pipeline/extractors/merit.py', "            if not (T.money_values(c) or re.search(r'tuition|full\\s+ride|cost\\s+of\\s+attendance', c, re.I)): return []", "            if not (T.money_values(c) or re.search(r'tuition|full\\s+ride|cost\\s+of\\s+attendance', c, re.I)): continue"),
+    ('pipeline/extractors/merit.py', "            if not c or re.fullmatch(r'(?i)n/?a|none|[-–—]+|not\\s+eligible[^|]{0,60}', c): continue", "            if not c: continue"),
+    ('pipeline/extractors/merit.py', "            if m.group(2) and today_year and T.academic_year(int(m.group(2))) < today_year:\n                continue", "            if False:\n                continue"),
+    ('pipeline/extractors/merit.py', "    if any(len(r) != len(header) for r in gpa_rows): return []", "    pass"),
+    ('pipeline/extractors/merit.py', " and not re.search(r'freshm[ae]n|first[- ]year', page.title, re.I):", ":"),
+    ('pipeline/extractors/merit.py', "            if mixed_transfer and re.search(r'transfer|athlet', rec['award_name'], re.I):", "            if False:"),
+    ('pipeline/extractors/merit.py', "        found = shaped or ([] if eligibility_heading else _list_awards(t, header, body, label[:80], award_type))", "        found = shaped or _list_awards(t, header, body, label[:80], award_type)"),
+    ('pipeline/extractors/merit.py', "            if printed.get(same, id(t)) != id(t): continue", "            pass"),
+    ('pipeline/extractors/merit.py', "            if shaped and GENERIC_HEADING.fullmatch(rec['award_name'] or ''):", "            if False:"),
+    ('pipeline/extractors/merit.py', " or (NOT_NAME.search(context) and not eligibility_heading): continue", " or NOT_NAME.search(context): continue"),
     ('pipeline/extractors/merit.py', "    if basis == 'labeled_in_source' and not merit_text_labels(page) and (year >= today_year or current_cycle(page, today_year)):", "    if False:"),
     ('pipeline/extractors/merit.py', " and not merit_text_labels(page) and (year >= today_year or current_cycle(page, today_year)):", " and not merit_text_labels(page):"),
     ('pipeline/extractors/merit.py', "        if hits <= {'fafsa'} and FAFSA_REQUIREMENT.search(s):\n            return False", "        pass"),
