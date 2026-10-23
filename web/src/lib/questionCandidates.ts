@@ -85,6 +85,10 @@ const authorNames = (c: Candidate) => [...new Set(c.versions.map((v) => v.item.a
  * when a revision returns to earlier rights claims; a check of the new version counts as soon as it is recorded
  * (no date comparison).
  */
+/** The rights claims of a version, without its number: equal claims mean a stage-3 fail on one blocks the other. */
+const claimsOf = (v: CandidateVersion) => canonicalJson({ content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) })
+/** Every version's rights_hash whose claims equal this version's (including its own). */
+export const sameClaimsHashes = (c: Candidate, v: CandidateVersion) => c.versions.filter((x) => claimsOf(x) === claimsOf(v)).map(rightsHash)
 export const rightsHash = (v: CandidateVersion) =>
   cyrb53(canonicalJson({ version: v.version, content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) }))
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x))
@@ -303,7 +307,7 @@ export function eligibility(c: Candidate, ledger: Ledger = EDITORIAL_LEDGER, rev
   const entry = ledger.items[c.import_id]
   const signoffs = entry?.signoffs ?? []
   // Every author of every version is excluded from stages 4, 6 and 8, and stage 3 must sign this exact rights version.
-  const st = editorialState(q, { items: { [c.import_id]: { author: v.item.author, signoffs } } }, { reviewers, authors, rightsHash: rh })
+  const st = editorialState(q, { items: { [c.import_id]: { author: v.item.author, signoffs } } }, { reviewers, authors, rightsHash: rh, sameClaims: sameClaimsHashes(c, v) })
   if (!st.humanApproved) problems.push(...st.problems, `editorial review is at stage ${st.next}`)
   if (!answerKeyFor(c, v.content_hash, ledger, reviewers).verified) problems.push('answer key not confirmed by two independent blind solves of this version')
 

@@ -91,6 +91,12 @@ export interface EditorialOptions {
   authors?: string[]
   /** When set, a rights check counts only if it signed exactly this rights version. */
   rightsHash?: string
+  /**
+   * Rights versions making the same claims as the current one (same content, author, origin, license and source).
+   * A stage-3 fail recorded against any of them keeps blocking: a resubmission that changes nothing about the claims
+   * never clears a rights fail.
+   */
+  sameClaims?: string[]
   /** Today (YYYY-MM-DD). A pass dated after tomorrow doesn't count. Default: the current date. */
   today?: string
 }
@@ -151,7 +157,7 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
   }
   let passed: Stage = 2
   for (const st of [3, 4, 5, 6, 7, 8] as const) {
-    const failed = current.filter((s) => s.stage === st && s.result === 'fail' && (st !== 3 || opts.rightsHash === undefined || !s.rights_hash || s.rights_hash === opts.rightsHash))
+    const failed = current.filter((s) => s.stage === st && s.result === 'fail' && (st !== 3 || opts.rightsHash === undefined || !s.rights_hash || s.rights_hash === opts.rightsHash || (opts.sameClaims ?? []).includes(s.rights_hash)))
     const why = failed.length ? `stage ${st} failed: ${failed.map((s) => s.note ?? s.reviewer_id ?? s.by).join('; ')}` : checks[st]()
     if (why) {
       problems.push(why)

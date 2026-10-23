@@ -75,17 +75,20 @@ const ROLES: ReviewRole[] = ['rights', 'solver', 'auditor', 'fairness', 'copyedi
  * Whether an entry's appointment chain reaches the owner through active content leads only, without a loop.
  * "owner" appoints; every link above an entry must be an active, distinct content lead.
  */
-function chainReachesOwner(reg: ReviewerRegistry, r: Reviewer): boolean {
+function chainStatus(reg: ReviewerRegistry, r: Reviewer): 'ok' | 'revoked' | 'invalid' {
   const visited = new Set<string>([r.id])
   let cur = r
+  let revoked = false
   while (cur.appointed_by !== 'owner') {
     const by = reg.reviewers[cur.appointed_by]
-    if (!by || by.revoked || !by.roles.includes('content_lead') || visited.has(by.id)) return false
+    if (!by || !by.roles.includes('content_lead') || visited.has(by.id)) return 'invalid'
+    if (by.revoked) revoked = true
     visited.add(by.id)
     cur = by
   }
-  return true
+  return revoked ? 'revoked' : 'ok'
 }
+const chainReachesOwner = (reg: ReviewerRegistry, r: Reviewer) => chainStatus(reg, r) === 'ok'
 
 /**
  * Every problem with the registry itself; an empty list means it can be used. A registry with any problem is not used
@@ -103,13 +106,16 @@ export function registryProblems(reg: ReviewerRegistry): string[] {
     if (!Array.isArray(r.aliases)) out.push(`${key}: aliases must be a list`)
     if (!Array.isArray(r.roles) || !r.roles.length || r.roles.some((x) => !ROLES.includes(x))) out.push(`${key}: roles must be some of ${ROLES.join(', ')}`)
     if (r.appointed_by === r.id) out.push(`${key}: can't appoint themselves`)
-    else if (!r.revoked && !chainReachesOwner(reg, r)) out.push(`${key}: appointed_by must lead to "owner" through active content leads, with no loop`)
+    // A loop, an unknown appointer or a non-lead appointer is a problem with the file. A chain broken only by a
+    // revocation is not: those below it simply stop counting (authorized() returns null) until re-appointed.
+    else if (!r.revoked && chainStatus(reg, r) === 'invalid') out.push(`${key}: appointed_by must lead to "owner" through content leads, with no loop`)
     if (!r.appointed_on?.trim()) out.push(`${key}: appointed_on required`)
     // One person, one id: a name or alias shared by two entries means one person under two ids (two "independent"
     // solvers), unless both entries declare each other distinct_from (confirmed different people with one name).
-    if (Array.isArray(r.aliases))
+    // Revoked entries are left out, so a person can be re-appointed under a new id.
+    if (Array.isArray(r.aliases) && !r.revoked)
       for (const o of entries)
-        if (o.id < r.id && Array.isArray(o.aliases) && samePerson(r, o)) out.push(`${key}: shares a recorded name with ${o.id}; one person has one id (or record both in each other's distinct_from)`)
+        if (o.id < r.id && !o.revoked && Array.isArray(o.aliases) && samePerson(r, o)) out.push(`${key}: shares a recorded name with ${o.id}; one person has one id (or record both in each other's distinct_from)`)
     for (const d of r.distinct_from ?? []) if (!reg.reviewers[d]) out.push(`${key}: distinct_from names unknown id ${d}`)
   }
   return out

@@ -9,7 +9,7 @@ import type { FixtureQuestion } from './data/demo/fixtures'
 import { contentHash } from './data/demo/questionReview'
 import { AI_AUTHOR, editorialState, isIsoDate, ledgerAuthors, STAGE_NAME, type Ledger, type SignOff, type Stage } from './data/demo/editorialLedger'
 import { authorized, isAuthor, registryProblems, STAGE_ROLE, type ReviewerRegistry } from './data/demo/reviewerRegistry'
-import { asQuestion, latest, rightsHash, type Registry, type Track } from './questionCandidates'
+import { asQuestion, latest, rightsHash, sameClaimsHashes, type Registry, type Track } from './questionCandidates'
 
 export interface ReviewItem {
   id: string
@@ -18,6 +18,8 @@ export interface ReviewItem {
   content_hash: string
   /** Imported items only: the rights version a stage-3 check must sign. */
   rights_hash?: string
+  /** Imported items only: rights versions with the same claims (a stage-3 fail on any of them still blocks). */
+  same_claims?: string[]
   /** Every author name of the item (all versions); the AI default for the app's bank. */
   authors: string[]
   source: 'bank' | 'import'
@@ -49,6 +51,7 @@ export function itemsFromRegistry(reg: Registry): ReviewItem[] {
         track: c.track,
         content_hash: v.content_hash,
         rights_hash: rightsHash(v),
+        same_claims: sameClaimsHashes(c, v),
         authors: [...new Set(c.versions.map((x) => x.item.author))],
         source: 'import' as const,
         batch: v.batch,
@@ -66,7 +69,7 @@ export function selectItems(items: ReviewItem[], ids: string[] | null): ReviewIt
 }
 
 export const stateOf = (item: ReviewItem, ledger: Ledger, reviewers: ReviewerRegistry) =>
-  editorialState(item.question, ledger, { reviewers, authors: item.authors, ...(item.rights_hash ? { rightsHash: item.rights_hash } : {}) })
+  editorialState(item.question, ledger, { reviewers, authors: item.authors, ...(item.rights_hash ? { rightsHash: item.rights_hash, sameClaims: item.same_claims ?? [] } : {}) })
 
 // --- packets -------------------------------------------------------------------------------------------------------
 

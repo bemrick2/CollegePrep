@@ -69,7 +69,7 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
 
   it('a lead appointed by a revoked or non-lead appointer does not count', () => {
     const viaBad = testReviewers({ [testId('Pat Lead')]: { appointed_by: testId('Ana Solver') } })
-    expect(registryProblems(viaBad).join(' ')).toMatch(/appointed_by must lead to "owner" through active content leads/)
+    expect(registryProblems(viaBad).join(' ')).toMatch(/appointed_by must lead to "owner" through content leads/)
     // A registry with any problem counts no sign-off at all, so the item doesn't get past stage 3.
     expect(state(full(), viaBad)).toMatchObject({ next: 3, humanApproved: false, problems: expect.arrayContaining([expect.stringMatching(/reviewer registry has problems/)]) })
   })
@@ -136,15 +136,22 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
   it('appointments must reach the owner through active leads: a loop or a revoked link anywhere above counts nothing', () => {
     // A loop: two entries appoint each other, no owner anywhere.
     const loop = testReviewers({ [testId('Pat Lead')]: { appointed_by: testId('Claude Debussy') }, [testId('Claude Debussy')]: { appointed_by: testId('Pat Lead') } })
-    expect(registryProblems(loop).join(' ')).toMatch(/lead to "owner" through active content leads, with no loop/)
+    expect(registryProblems(loop).join(' ')).toMatch(/lead to "owner" through content leads, with no loop/)
     expect(state(full(), loop)).toMatchObject({ humanApproved: false, problems: expect.arrayContaining([expect.stringMatching(/reviewer registry has problems/)]) })
     // A broken chain: owner → Claude Debussy (lead) → Dana Author (lead) → Pat Lead (approver); then Claude is revoked.
     const chain = testReviewers({ [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
     expect(registryProblems(chain)).toEqual([])
     expect(state(full(), chain)).toMatchObject({ humanApproved: true })
     const broken = testReviewers({ [testId('Claude Debussy')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'left' } }, [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
-    expect(registryProblems(broken).join(' ')).toMatch(new RegExp(`${testId('Dana Author')}: appointed_by must lead to "owner"`))
-    expect(state(full(), broken)).toMatchObject({ humanApproved: false })
+    // A revocation isn't a fault in the file: only those below the revoked lead stop counting; everyone else carries on.
+    expect(registryProblems(broken)).toEqual([])
+    expect(state(full(), broken)).toMatchObject({ humanApproved: false, next: 8 })
+    const l = full()
+    l.items[q.id]!.signoffs[6] = so(8, 'Claude Debussy') // appointed by the owner directly
+    const brokenButClaudeActive = testReviewers({ [testId('Kim Fair')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'left' }, roles: ['fairness', 'content_lead'] }, [testId('Dana Author')]: { appointed_by: testId('Kim Fair') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
+    l.items[q.id]!.signoffs[4] = so(6, 'Ana Solver')
+    expect(registryProblems(brokenButClaudeActive)).toEqual([])
+    expect(state(l, testReviewers({ [testId('Ana Solver')]: { roles: ['solver', 'fairness'] }, [testId('Dana Author')]: { appointed_by: testId('Kim Fair') }, [testId('Kim Fair')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'left' }, roles: ['fairness', 'content_lead'] } }))).toMatchObject({ humanApproved: true })
   })
 
   it('one person, one id: two entries sharing a name or alias make the registry unusable; two solves by one person count once', () => {
@@ -199,6 +206,15 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
     expect(authorized(loop, testId('Pat Lead'), 'approver')).toBeNull()
     const ok = testReviewers({ [testId('Dana Author')]: { appointed_by: testId('Claude Debussy') }, [testId('Pat Lead')]: { appointed_by: testId('Dana Author') } })
     expect(authorized(ok, testId('Pat Lead'), 'approver')?.id).toBe(testId('Pat Lead'))
+  })
+
+  it('a revoked person can be re-appointed under a new id without making the registry unusable', () => {
+    const rehired = testReviewers({ [testId('Ana Solver')]: { revoked: { on: '2026-10-20', by: 'owner', reason: 'left' } } })
+    rehired.reviewers['rv-test-ana-solver-2'] = { id: 'rv-test-ana-solver-2', display_name: 'Ana Solver', aliases: [], roles: ['solver'], appointed_by: 'owner', appointed_on: '2026-10-23' }
+    expect(registryProblems(rehired)).toEqual([])
+    const l = full()
+    l.items[q.id]!.signoffs[2] = { ...so(4, 'Ana Solver', { answer: key }), reviewer_id: 'rv-test-ana-solver-2' }
+    expect(state(l, rehired)).toMatchObject({ humanApproved: true })
   })
 })
 

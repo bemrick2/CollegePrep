@@ -33,11 +33,18 @@ Reviewers are entries in the **reviewer registry**, `web/src/lib/data/demo/revie
 - **Identity is the reviewer id.** Each person has a stable id (`rv-…`, never reused), the roles they may sign and who
   appointed them: the owner, or an active content lead. A sign-off counts only when its `reviewer_id` is an active entry
   authorized for that stage, whose appointment chain reaches the owner through active content leads with no loop. A
-  revoked reviewer's sign-offs stop counting, and so do those of everyone they appointed (until re-appointed).
+  revoked reviewer's sign-offs stop counting, and so do those of everyone appointed below them (until re-appointed);
+  everyone else carries on. A revoked person can be re-appointed under a new id.
 - **One person, one id.** Two entries sharing a recorded name (ignoring case, accents and punctuation, but not word
   order: "Li Wang" and "Wang Li" are two people) make the registry unusable until fixed, so one person can't be two
-  solvers. Two different people with the same name are recorded with each other's id in `distinct_from`, set by the
-  owner; nobody is asked to change their name. **A registry with any problem is not used: no sign-off counts.**
+  solvers. Two different people with the same name are recorded with each other's id in `distinct_from`; nobody is
+  asked to change their name. **A registry with any problem (a loop, an unknown appointer, a shared name) is not used:
+  no sign-off counts.**
+- **What code can't check.** The code catches honest duplicates only. Whether an entry is a real, separate person,
+  whether `distinct_from` is true, and who added an entry (the owner or a lead) are enforced by **repository review**:
+  `.github/CODEOWNERS` asks for the owner's review of `reviewers.json` and `editorialLedger.json`, which takes effect
+  once branch protection requires code-owner review (an owner setting). A lead could otherwise add a second id for
+  themselves under another name.
 - **Names are display only.** A sign-off's `by` and a reviewer's `display_name` are shown, never used to decide who
   someone is. Nobody is refused, or let through, for what their name looks like: a reviewer named "Claude Debussy" is
   entered like anyone else. Recorded `aliases` list the other names a person has used.
@@ -95,7 +102,8 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
    - the reviewer registry has problems.
 
    **One refused row and nothing is written**: fix the sheet and run again. A **fail** is recorded from anyone who is
-   named on the row, since it can only block. A newer row from the same reviewer replaces only their earlier **pass**
+   named on the row, since it can only block. There is no recorded way yet to withdraw a mistaken fail (for example,
+   one entered on the wrong item); until there is, the content lead revises the item or makes a reviewed ledger edit. A newer row from the same reviewer replaces only their earlier **pass**
    for that stage and content; a recorded fail is never removed or replaced: it stands until the item is revised.
    For the app's bank, a stage-2 row adds an author (name in `note`). It needs an active content lead who isn't an
    author, and the current hash; authors are only ever added.
@@ -105,7 +113,9 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
    - Every new version of an imported item has a new **rights version** (`rights_hash`: the version number, content,
      author, origin, license and source). A rights check counts only for the exact version it signed, so an earlier
      check never counts again, even if a revision returns to earlier rights claims; a check of the new version counts as
-     soon as it is recorded, the same day or any day. A stage-3 fail with no rights version recorded blocks.
+     soon as it is recorded, the same day or any day. A stage-3 fail with no rights version recorded blocks, and a
+     stage-3 fail keeps blocking every later version that makes the same claims (same content, author, origin, license
+     and source): a resubmission that changes nothing about the rights never clears it.
 7. **Stage 8 and track.** The content lead approves each item individually, and confirms or changes its track:
    - a reserved item may move to practice;
    - a practice item never moves to reserved;

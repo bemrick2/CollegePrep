@@ -477,5 +477,25 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), twin).verified).toBe(false)
     expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R).verified).toBe(true)
   })
+
+  it('a stage-3 fail is not cleared by a resubmission that changes nothing about the claims', () => {
+    let reg = confirmedHuman()
+    const l = fullReview(reg, id)
+    const v1 = latest(reg.candidates[id]!)
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', v1.content_hash, { result: 'fail', note: 'passage copied', rights_hash: rightsHash(v1) }))
+    // The same line with only the requested pool changed: a new version, same content and rights claims.
+    reg = intake(reg, [human({ requested_pool: 'assessment' })], 'v2.jsonl', AT, NOBANK).registry
+    const c = reg.candidates[id]!
+    expect(c.versions).toHaveLength(2)
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', latest(c).content_hash, { license: 'original', rights_hash: rightsHash(latest(c)) }))
+    const e = eligibility(c, l)
+    expect(e.eligible).toBe(false)
+    expect(e.problems).toContain('stage 3 failed: passage copied')
+    // Changing the rights claims (a new source) is what lets a new rights check count.
+    reg = intake(reg, [human({ requested_pool: 'assessment', source_url: 'https://example.org/own-draft' })], 'v3.jsonl', AT, NOBANK).registry
+    const c3 = reg.candidates[id]!
+    l.items[id]!.signoffs.push(sig(3, 'Lee Rights', latest(c3).content_hash, { license: 'original', rights_hash: rightsHash(latest(c3)) }))
+    expect(eligibility(c3, l).eligible).toBe(true)
+  })
 })
 
