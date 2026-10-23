@@ -28,27 +28,33 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: plan footnotes kept with the plan
+## This PR: plans whose printed notes are not captured are partially verified (owner decision 2026-10-23)
 
-- **Reader:** each grid's printed footnotes go in `rule_details.footnotes` as `[{marker, text, grid?}]`, verbatim.
-  - A footnote's text runs to the next marker; its lines are joined by ' / '.
-  - The last footnote runs on only while it plainly continues.
-  - Markers can be numbers, letters, or + ^ ** †. Numbers must increase, but a skipped number is allowed.
-  - Inline symbol notes are read ('**This document …').
-  - A page whose footnotes can't be paired with its grids holds the plan (`footnotes_not_read`): Montana, Idaho and NJCU, 299 stored pages.
-  - `verify` checks each footnote verbatim.
-- **Stored pages:** 13,259 footnotes on 3,236 plan pages.
-- **Review, two independent reviewers** (own parsers, read-only):
-  - Round 1: 660 of 861 footnote-only re-reads and 109 of 140 others approved. The holds found 4 reader defects (notes of several lines, symbol and letter markers, skipped numbers, inline notes), all fixed.
-  - 758 re-reads equal to an approved version are promoted with `replaces_promoted`.
-  - 10 plans held by #229 need `replaces_correction`: 5 partially verified LMU/YSU plans and 5 verified plans replaced under #229 corrections.
-  - The 323 changed or held re-reads went to a third review: 240 approved and promoted, 83 held.
-    - 37 holds are footnote edge cases: a last note of several lines cut short; page text or a site footer swallowed into a note through a distant inline marker; '****' and roman-numeral markers; notes printed after a Course List that follows the grid; Oregon State's legend printed once after its last grid.
-    - 47 holds are flat choice blocks, identical to the records on file.
-- **Totals:** verified plans 3,517 → 3,524. 998 plans now carry their printed footnotes.
-- **Still open:**
-  - 113 verified plans at Idaho, Montana and Roosevelt come from pages whose footnotes can't be paired yet.
-  - Notes printed after the footnotes with no marker (Texas A&M 'Graduation requirements', LMU 'Notes:') aren't captured; this needs an owner decision.
+- **Audit:** every verified plan on main `b4b9ce2` was checked against its stored source.
+  - 998 plans already carry their printed footnotes (#275).
+  - 1,955 plans come from pages that print no footnotes.
+- **Downgraded: 303 plans** to `partially_verified`. Each keeps its rows and earlier review, and carries:
+  - `verification_correction_reason`;
+  - `captured_rows_reviewed: true`;
+  - `notes_capture: "incomplete"`;
+  - a `supabase/corrections.json` entry with `previous_status: "verified"`, always appended, so earlier #229 entries stay.
+- **Reasons:**
+  - 112: footnotes the reader can't pair with the grid (Idaho 58, Montana 39, Roosevelt 14, Georgian 1). These are the known 113 minus 1 already partially verified.
+  - 84: footnotes printed after the grid but not stored.
+  - 35: one legend for several grids (Oregon State 33, Oregon 2).
+  - 72: other readers whose source prints notes not stored (UTC 67, EOU 4, PDX 1).
+- **Not downgraded:**
+  - 37 other-reader plans whose source prints no marked notes;
+  - 4 whose note text is already in the record;
+  - **UTC Management (`management-b-s-b-a`)**, deferred to Design on #218. It is the Tennessee pilot's showcase plan and Design's UI tests assert it as verified. The data change is the same; Design lands it with the test updates.
+- **Totals:** verified plans 3,524 → 3,221 at 65 schools. Groups unchanged at 15,545.
+- **Next:**
+  - a reader for unmarked plan notes (owner decision 2026-10-23: exclusions, retake rules, substitutions, with source location and scope; hold when the end or scope is unclear);
+  - pairing footnotes for Idaho, Montana and Roosevelt;
+  - Oregon State's shared legend;
+  - the 37 footnote edge cases;
+  - then reviewed replacements with `replaces_correction`.
+- **Third review reconciliation:** 83 held = 47 flat choice blocks + 37 footnote cases − 1 in both (NC State `ebd315442e5756d0`).
 
 ## Merged on 2026-10-21/22
 
