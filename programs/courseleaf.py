@@ -135,20 +135,22 @@ def grids(page):
     return [t for t in page.tables if (t.get('caption') or '').strip().lower() in ('plan of study grid', 'degree map')]
 
 
-FOOTNOTE_MARK = re.compile(r'^(\d{1,2}|[a-zA-Z]|[*†‡§#+^]{1,3})$')
-FOOTNOTE_INLINE = re.compile(r'^([*†‡§#+^]{1,3})\s?([A-Z(].*)$')  # '**This document serves as a guide ...' (Slippery Rock)
-FOOTNOTE_GOES_ON = re.compile(r'^(?:[a-z(•\-–]|[Gg]roup\b|[Ss]elect\b|[Cc]hoose\b|[Oo]r\b|[Aa]nd\b)')
+FOOTNOTE_MARK = re.compile(r'^(\d{1,2}|[a-zA-Z]|ii|iii|iv|vi{0,3}|[*†‡§#+^]{1,4})[.)]?$')
+FOOTNOTE_INLINE = re.compile(r'^([*†‡§#+^]{1,4})\s?([A-Z(].*)$')  # '**This document serves as a guide ...' (Slippery Rock)
+FOOTNOTE_INLINE_NUM = re.compile(r'^(\d{1,2})[.)]?\s?([A-Z].*)$')  # '1 Requires English Composition Placement', '2This course ...' (Nebraska Omaha)
+LIST_LINE = re.compile(r'^(?:[A-Z]{2,5}[\s\xa0]?\d{3}|[•\-–]|\(?[a-z0-9]{1,2}[.)]\s|[Gg]roup\b|[Ss]elect\b|[Cc]hoose\b|[Oo]r\b|[Aa]nd\b|[a-z(])')
+PAGE_TEXT = re.compile(r'(©|\bcopyright\b|back to top|print options|quick links|find us|connect with|apply (online|for admission)|contact (admissions|us|information)|'
+                       r'privacy|webmaster|search (catalog|bulletin)|catalog navigation|program learning outcomes|learning outcomes|questions\?|'
+                       r'program contact|degree audit|accreditation|^\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}|\b\d{5}(-\d{4})?$|\bedition$|^\d{4}-\d{4}\b|'
+                       r'^(toggle|undergraduate|graduate|total)\b|navigation$|^faculty$|^staff$|^facebook$|^twitter$|^youtube$|^instagram$|^linkedin$)', re.I)
+PLAN_NOTE = re.compile(r'\b(must|required?|requires|requirement|may|should|cannot|can ?not|count(s|ed)? toward|substitut\w*|in (lieu|place) of|instead of|'
+                       r'retake|repeat\w*|grade|minimum|maximum|only|exclud\w*|except|elective|select|choose|complete[ds]?|recommended|placement|'
+                       r'prerequisite|appl(y|ied|ies)|consult|advisor|credits?|hours|units|courses?)\b', re.I)
 
 
-def grid_footnotes(page):
-    """The footnotes printed right after each plan grid, in grid order: [[{'marker', 'text'}, ...], ...]. CourseLeaf prints
-    a marker line and the note's text after the grid's last row ('1' / 'Must make a grade of C or better.', Texas A&M
-    2026-27); markers may be numbers, letters or symbols ('+', '^', '**', Oregon State, Tulane, Slippery Rock), and a symbol
-    may lead its text on one line ('**This document serves as a guide'). A note's text runs to the next marker, its lines
-    joined by ' / '. The last note runs on only while a line ends in ':', ';' or ',' or the next line plainly continues it
-    (a list item, 'Group B', lower case); reading stops at a table row, a caption, a page heading or the copyright line.
-    Numbered markers must increase (a skipped number is allowed: Saint Louis prints 1, 3, 4).
-    None when the page text does not show one caption per grid, so no note is ever paired with the wrong grid."""
+def _grid_tails(page):
+    """Per plan grid, what is printed after it up to the next caption or hard stop: (footnotes, rest), where rest is the list of
+    lines after the footnotes. None when the page text does not show one caption per grid."""
     lines = [re.sub(r'[\s\xa0]+', ' ', l).strip() for l in page.text.splitlines() if l.strip()]
     caps = [k for k, l in enumerate(lines) if l.lower() in ('plan of study grid', 'degree map')]
     gs = grids(page)
@@ -156,10 +158,14 @@ def grid_footnotes(page):
     heads = {re.sub(r'[\s\xa0]+', ' ', h).strip() for h in (page.headings or [])}
     hard = lambda l: l.startswith('|') or l.lower() in ('plan of study grid', 'degree map', 'course list') or l.startswith('©') or l in heads
 
-    def mark(l):
-        if FOOTNOTE_MARK.match(l): return l, None
+    def mark(l, last_num):
+        m = FOOTNOTE_MARK.match(l)
+        if m: return m.group(1), None
         m = FOOTNOTE_INLINE.match(l)
-        return (m.group(1), m.group(2)) if m else (None, None)
+        if m: return m.group(1), m.group(2)
+        m = FOOTNOTE_INLINE_NUM.match(l)  # a number leading its text only when it is the next number ('1 Requires ...')
+        if m and int(m.group(1)) == last_num + 1: return m.group(1), m.group(2)
+        return None, None
 
     out = []
     for n, (k, g) in enumerate(zip(caps, gs)):
@@ -171,23 +177,80 @@ def grid_footnotes(page):
         if end is None or not cells: return None
         j, notes, last_num = end + 1, [], 0
         while j < stop:
-            m, first = mark(lines[j])
+            m, first = mark(lines[j], last_num)
             if m is None or hard(lines[j]): break
-            if m.isdigit(): last_num = int(m)  # a number not above the last one ends the notes (checked where the last note is found)
-            body = [first] if first else []
+            if m.isdigit():
+                if notes and int(m) <= last_num: break
+                last_num = int(m)
             j += 1
-            while j < stop and not hard(lines[j]) and mark(lines[j])[0] is None:
+            body = [first] if first else []
+            if not body and j < stop and not hard(lines[j]) and mark(lines[j], last_num)[0] is not None and not FOOTNOTE_MARK.match(lines[j]):
+                body.append(lines[j]); j += 1  # a note whose printed text starts with a symbol ('*' / '*Approved electives ...', NC State)
+            while j < stop and not hard(lines[j]) and mark(lines[j], last_num)[0] is None:
                 body.append(lines[j]); j += 1
             if not body: break
-            if j >= stop or hard(lines[j]) or mark(lines[j])[0] is None or (mark(lines[j])[0].isdigit() and int(mark(lines[j])[0]) <= last_num):
-                # the last note: keep only the lines that plainly continue it; the rest is page text
-                keep = [body[0]]
+            nxt = mark(lines[j], last_num)[0] if j < stop and not hard(lines[j]) else None
+            if nxt is None or (nxt.isdigit() and int(nxt) <= last_num):
+                # the last note: its lines run on while they plainly continue it (a list after ':', lower case, 'Group B');
+                # what follows is page text or an unmarked note
+                keep, listing = [body[0]], body[0].endswith(':')
                 for l in body[1:]:
-                    if keep[-1].endswith((':', ';', ',')) or FOOTNOTE_GOES_ON.match(l): keep.append(l)
+                    if listing and (LIST_LINE.match(l) or len(l) < 90 and not PAGE_TEXT.search(l) and not l.endswith('.')): keep.append(l)
+                    elif keep[-1].endswith((':', ';', ',')) or LIST_LINE.match(l) and not PAGE_TEXT.search(l): keep.append(l); listing = listing or l.endswith(':')
                     else: break
-                notes.append({'marker': m, 'text': ' / '.join(keep)}); break
+                notes.append({'marker': m, 'text': ' / '.join(keep)})
+                j -= len(body) - len(keep)
+                break
             notes.append({'marker': m, 'text': ' / '.join(body)})
-        out.append(notes)
+        rest = []
+        while j < stop and not hard(lines[j]): rest.append(lines[j]); j += 1
+        out.append((notes, rest))
+    return out
+
+
+def grid_footnotes(page):
+    """The footnotes printed right after each plan grid, in grid order: [[{'marker', 'text'}, ...], ...]. CourseLeaf prints
+    a marker line and the note's text after the grid's last row ('1' / 'Must make a grade of C or better.', Texas A&M
+    2026-27); markers may be numbers ('1', '1.'), letters, roman numerals or symbols ('+', '^', '**', '****'), and a number
+    or symbol may lead its text on one line ('**This document serves as a guide', '1 Requires English Composition
+    Placement'). A note's text runs to the next marker, its lines joined by ' / '; the last note runs on while its lines
+    plainly continue it. Reading stops at a table row, a caption, a page heading or the copyright line. Numbered markers
+    must increase (a skipped number is allowed: Saint Louis prints 1, 3, 4). When a page prints one legend after the last
+    of several grids and none after the others (Oregon State), each of those grids gets the legend, marked 'shared'.
+    None when the page text does not show one caption per grid, so no note is ever paired with the wrong grid."""
+    tails = _grid_tails(page)
+    if tails is None: return None
+    out = [notes for notes, _ in tails]
+    if len(out) > 1 and out[-1] and not any(out[:-1]):
+        out = [[dict(x, shared=True) for x in out[-1]] for _ in out[:-1]] + [out[-1]]
+    return out
+
+
+def plan_notes(page):
+    """Unmarked notes printed after each plan grid and its footnotes, as printed: [{'text', 'location'}] per grid, or the
+    string 'unclear' when where the notes end cannot be told (a requirement-like sentence printed after page text such as a
+    contact block or a navigation line), or None when grids and captions cannot be paired. A note is a sentence that states
+    a requirement, option, exclusion or advice ('Graduation requirements include 3 hours of International and Cultural
+    Diversity', 'FINA courses do not count toward the major'); notes run from the first line after the footnotes while each
+    line is such a sentence, a 'Note:' heading or a list under one; page text (contacts, addresses, navigation, outcomes)
+    ends them."""
+    tails = _grid_tails(page)
+    if tails is None: return None
+    out = []
+    for notes, rest in tails:
+        got, k = [], 0
+        loc = 'printed after the plan grid' + (' and its footnotes' if notes else '')
+        while k < len(rest):
+            l = rest[k]
+            if PAGE_TEXT.search(l): break
+            is_note = re.match(r'^notes?\s*:?', l, re.I) or (len(l.split()) >= 5 and PLAN_NOTE.search(l)) or (got and got[-1]['text'].endswith(':') and len(l) < 160)
+            if not is_note: break
+            if got and got[-1]['text'].endswith(':'): got[-1]['text'] += ' / ' + l
+            else: got.append({'text': l, 'location': loc})
+            k += 1
+        later = [l for l in rest[k:] if len(l.split()) >= 6 and PLAN_NOTE.search(l) and not PAGE_TEXT.search(l)]
+        # stopped at a line that is neither a note nor page text, with requirement-like text after it: the end is unclear
+        out.append('unclear' if later and not PAGE_TEXT.search(rest[k]) else got)
     return out
 
 
@@ -358,6 +421,11 @@ def extract(inst, entry, page, year, year_line, have_program):
     notes = grid_footnotes(page)  # printed footnotes, one list per grid; None when they cannot be paired with their grids
     for k, t in enumerate(gs):
         t['_footnotes'] = notes[k] if notes is not None else None
+    pnotes = plan_notes(page)  # unmarked notes printed after each grid (owner decision 2026-10-23)
+    for k, t in enumerate(gs):
+        t['_plan_notes'] = pnotes[k] if pnotes is not None else []
+        # notes printed after the last of several plans' grids: which plans they apply to is not printed
+        if pnotes is not None and len(gs) > 1 and k == len(gs) - 1 and pnotes[k]: t['_plan_notes_scope_unclear'] = True
     if not have_program:
         prog = {'program_key': pkey, 'program_name': name, 'catalog_year': year, 'program_url': common.source_of(entry)['url'],
                 'credential_level': credential(name), 'notes': f'Extracted by {EXTRACTOR} from the published catalog program page.'}
@@ -374,6 +442,7 @@ def extract(inst, entry, page, year, year_line, have_program):
         totals = '; '.join(f"{g.get('_total_label') or 'Total Credits'} {tot} (as printed, grid {k} of {len(gs)})" for k, (g, (_, tot)) in enumerate(zip(gs, parsed), 1) if tot)
         merged = {'heading': headings[0], 'caption': gs[0].get('caption'), '_total_label': None,
                   '_footnotes': None if any(g['_footnotes'] is None for g in gs) else [dict(x, grid=k) for k, g in enumerate(gs, 1) for x in g['_footnotes']],
+                  '_plan_notes': 'unclear' if any(g['_plan_notes'] == 'unclear' for g in gs) else [dict(x, grid=k) for k, g in enumerate(gs, 1) for x in g['_plan_notes']],
                   '_unread_label': any(g.get('_unread_label') for g in gs), '_subtotal_spans': any(g.get('_subtotal_spans') for g in gs), '_rule_text': totals}
         gs, parsed, headings = [merged], [(terms, None)], [headings[0]]
         if grid_change_noted(page): merged['_grid_change_note'] = True
@@ -398,6 +467,8 @@ def extract(inst, entry, page, year, year_line, have_program):
         if total: rd['rule_text'] = f"{gs[i - 1].get('_total_label') or 'Total Credits'} {total} (as printed)"
         if gs[i - 1].get('_rule_text'): rd['rule_text'] = gs[i - 1]['_rule_text']
         if gs[i - 1].get('_footnotes'): rd['footnotes'] = gs[i - 1]['_footnotes']  # substitutions, options and notes, as printed
+        pn = gs[i - 1].get('_plan_notes')
+        if pn and pn != 'unclear': rd['plan_notes'] = [dict(x, scope='this plan') for x in pn]  # unmarked notes, as printed, with where they are printed
         rec = {'program_key': pkey, 'requirement_key': key, 'requirement_kind': 'program_plan', 'rule_details': rd}
         ev = [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t.get('credit_hours', '?')} credits"} for t in terms]
         issues = ['multiple_plan_grids'] if len(parsed) > 1 and not labelled else ['plan_heading_label'] if (track_labels or single_label) else []
@@ -405,6 +476,8 @@ def extract(inst, entry, page, year, year_line, have_program):
         if gs[i - 1].get('_subtotal_spans'): issues.append('subtotal_spans_terms')
         if gs[i - 1].get('_grid_change_note'): issues.append('grid_change_noted')
         if gs[i - 1].get('_footnotes', []) is None: issues.append('footnotes_not_read')
+        if gs[i - 1].get('_plan_notes') == 'unclear': issues.append('plan_note_unclear')
+        if gs[i - 1].get('_plan_notes_scope_unclear'): issues.append('plan_note_scope_unclear')
         out.append(common.make('degree_requirements', inst['institution_key'], acad, 'labeled_in_source', rec, ev, entry, PLAN_EXTRACTOR,
                                {'program_key': pkey, 'requirement_key': key}, {'terms': len(terms)}, issues))
     return out
