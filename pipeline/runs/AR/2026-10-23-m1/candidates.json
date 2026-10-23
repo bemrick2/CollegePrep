@@ -1,0 +1,171 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "80491145ad814774",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": false,
+   "rows": 10
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Hours",
+    "snippet": "Hours | 30",
+    "value": 30
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $8,336",
+    "value": 8336
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $2,580",
+    "value": 2580
+   },
+   {
+    "field": "column:Tuition/Fee Subtotal",
+    "snippet": "Tuition/Fee Subtotal | $10,916",
+    "value": 10916
+   },
+   {
+    "field": "column:Books",
+    "snippet": "Books | $1,270",
+    "value": 1270
+   },
+   {
+    "field": "column:Room",
+    "snippet": "Room | $10,144",
+    "value": 10144
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $5,550",
+    "value": 5550
+   },
+   {
+    "field": "column:Personal Expenses",
+    "snippet": "Personal Expenses | $3,452",
+    "value": 3452
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $2,656",
+    "value": 2656
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $33,988",
+    "value": 33988
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-106397",
+  "issues": [
+   "components_do_not_reconcile"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1270,
+   "components": {
+    "Books": 1270,
+    "Fees": 2580,
+    "Food": 5550,
+    "Hours": 30,
+    "Personal Expenses": 3452,
+    "Room": 10144,
+    "Total": 33988,
+    "Transportation": 2656,
+    "Tuition": 8336,
+    "Tuition/Fee Subtotal": 10916
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-106397",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Cost of Attendance for 2026-2027 Cost of Attendance for 2026-2027 \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://scholarships.uark.edu/nrta/",
+   "total_cost_of_attendance": 33988,
+   "tuition": null,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:30+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "b5352fa2272ca4a13a09.json.gz",
+   "requested_url": "https://scholarships.uark.edu/nrta/",
+   "sha256": "b5352fa2272ca4a13a0979b2b2233ec9e3ae78837504ec9c17b6175b6fe35016",
+   "title": "New Arkansan Non-Resident Tuition Award Scholarship NRTA Eligibility Map | Academic Scholarship Office | University of Arkansas",
+   "url": "https://scholarships.uark.edu/nrta/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "991b9d79a6f73990",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "The Office of Financial Aid and Academic Scholarships will attempt to eliminate an overaward by considering a student’s request for a COA/budget increase.",
+    "value": "budget_increase"
+   },
+   {
+    "field": "sentence",
+    "snippet": "A budget increase request should be made to the student's financial aid counselor.",
+    "value": "budget_increase"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Special Projects Policy In keeping with federal regulations, all University of Arkansas students that utilize federal financial aid, state aid, and/or institutional aid may receive a budget/cost of attendance increase up to the actual cost of a special project.",
+    "value": "budget_increase"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-106397",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "budget_increase",
+   "institution_key": "ipeds-106397",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 3 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://finaid.uark.edu/cost-of-attendance.php",
+   "process_summary": "The Office of Financial Aid and Academic Scholarships will attempt to eliminate an overaward by considering a student’s request for a COA/budget increase.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://finaid.uark.edu/cost-of-attendance.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:09:24+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "9eb1ac299c9501d7cf02.json.gz",
+   "requested_url": "https://finaid.uark.edu/cost-of-attendance.php",
+   "sha256": "9eb1ac299c9501d7cf022dc88e6cc979cb9e78e1f374853dbf642aee17a2157c",
+   "title": "Cost of Attendance | Financial Aid | University of Arkansas",
+   "url": "https://finaid.uark.edu/cost-of-attendance.php"
+  },
+  "year_basis": "labeled_in_source"
+ }
+]
