@@ -1,0 +1,889 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "16163222917ed58a",
+  "checks": {
+   "fields": [
+    "min_hs_gpa"
+   ],
+   "tiers": 1
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "Have a cumulative high school and WSU GPA of 3.00 or higher.",
+    "value": 3.0
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "institution_key": "ipeds-230782",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "dual_enrollment": {
+    "eligibility_tiers": [
+     {
+      "grades": [
+       "10",
+       "11",
+       "12"
+      ],
+      "line": "Have a cumulative high school and WSU GPA of 3.00 or higher.",
+      "min_hs_gpa": 3.0
+     }
+    ],
+    "min_hs_gpa": 3.0
+   },
+   "equivalencies": [],
+   "institution_key": "ipeds-230782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by dual_enrollment/v1; every field cites its line. Eligibility tiers are kept as printed.",
+   "policy_kind": "dual_enrollment",
+   "policy_url": "https://www.weber.edu/dual-enrollment/early-college.html",
+   "source_url": "https://www.weber.edu/dual-enrollment/early-college.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:20:51+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "770da9605f1670307741.json.gz",
+   "requested_url": "https://www.weber.edu/dual-enrollment/early-college.html",
+   "sha256": "770da9605f1670307741467ef66f428fb8f940eb931cf1a30bfa26d0e9f882cd",
+   "title": "What is Early College",
+   "url": "https://www.weber.edu/dual-enrollment/early-college.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "2204243d6fdf2aa5",
+  "checks": {
+   "distinct_exams": 29,
+   "equivalencies": 30,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-BIOLOGY-SL|Biology SL]",
+    "snippet": " | Biology SL | 4+ | ZOOL 1010 LS (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY-HL|Biology HL]",
+    "snippet": " | Biology HL | 4+ | ZOOL 1610 LS (4cr) | 4"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT-SL|Business Management SL]",
+    "snippet": " | Business Management SL | 4+ | BSAD 1XXX (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-BUSINESS-MANAGEMENT-HL|Business Management HL]",
+    "snippet": " | Business Management HL | 4+ | BSAD 1XXX (6cr) | 6"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-SL|Chemistry SL]",
+    "snippet": " | Chemistry SL | 4+ | CHEM 1XXX (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-HL|Chemistry HL]",
+    "snippet": " | Chemistry HL | 4+ | CHEM 1010 PS (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-SL|Computer Science SL]",
+    "snippet": " | Computer Science SL | 4+ | CS 1030 (4cr) | 4"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-HL|Computer Science HL]",
+    "snippet": " | Computer Science HL | 4+ | CS 1030 (4cr) | 4"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-SL|Economics SL]",
+    "snippet": " | Economics SL | 4+ | ECON 1010 SS (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-HL|Economics HL]",
+    "snippet": " | Economics HL | 4+ | ECON 2010 SS (3cr) & ECON SS 2020 (3cr) | 6"
+   },
+   {
+    "field": "equivalencies[IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL|Environmental Systems and Tech SL]",
+    "snippet": " | Environmental Systems and Tech SL | 4+ | BTNY 1XXX (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-FILM-SL|Film SL]",
+    "snippet": " | Film SL | 4+ | THEA 1023 CA (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-FILM-HL|Film HL]",
+    "snippet": " | Film HL | 4+ | THEA 1023 CA (3cr) and THEA 1XXX (2cr) | 5"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-SL|Geography SL]",
+    "snippet": " | Geography SL | 4+ | GEOG 1300 SS/CC (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-HL|Geography HL]",
+    "snippet": " | Geography HL | 4+ | GEOG 1000 PS (3cr) & GEOG 1300 SS/CC (3cr) | 6"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-SL|History SL]",
+    "snippet": " | History SL | 4+ | HIST 1XXX (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-HL|History HL]",
+    "snippet": " | History HL | 4+ | HIST 1XXX (3cr) and HIST 1510 SS/CC GLB (3cr) | 6"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-SL|Math: Analysis & Approaches SL]",
+    "snippet": " | Math: Analysis & Approaches SL | 4+ | MATH 1050 QL (4cr) | 4"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|Math: Analysis & Approaches HL]",
+    "snippet": " | Math: Analysis & Approaches HL | 4 | MATH 1080 QL (5cr) | 5"
+   },
+   {
+    "field": "equivalencies[IB-MATHEMATICS-ANALYSIS-APPROACHES-HL|Math: Analysis & Approaches HL]",
+    "snippet": " | Math: Analysis & Approaches HL | 5+ | MATH 1210 (4cr) | 4"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC-SL|Music SL]",
+    "snippet": " | Music SL | 4+ | MUSC 1XXX (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-MUSIC-HL|Music HL]",
+    "snippet": " | Music HL | 4+ | MUSC 1010 CA (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-SL|Physics SL]",
+    "snippet": " | Physics SL | 4+ | PHYS 1010 PS (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-HL|Physics HL]",
+    "snippet": " | Physics HL | 4+ | PHYS 2010 PS (5cr) & PHYS 2020 (5cr) | 10"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-SL|Psychology SL]",
+    "snippet": " | Psychology SL | 4+ | PSY 1010 SS (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-HL|Psychology HL]",
+    "snippet": " | Psychology HL | 4+ | PSY 1010 SS (3cr) & PSY 1XXX (3cr) | 6"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE-SL|Theatre SL]",
+    "snippet": " | Theatre SL | 4+ | THEA 1013 CA (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-THEATRE-HL|Theatre HL]",
+    "snippet": " | Theatre HL | 4+ | THEA 1013 CA (3cr) & THEA 1XXX (2cr) | 5"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS-SL|Visual Arts SL]",
+    "snippet": " | Visual Arts SL | 4+ | ART 1010 CA (3cr) | 3"
+   },
+   {
+    "field": "equivalencies[IB-VISUAL-ARTS-HL|Visual Arts HL]",
+    "snippet": " | Visual Arts HL | 4+ | ART 1010 CA (3cr) & ART 1XXX (3cr) | 6"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-230782",
+  "issues": [
+   "score_column_not_scores"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-BIOLOGY-SL",
+     "exam_or_course_name": "IB Biology (SL)",
+     "institution_course_equivalent": "ZOOL 1010 LS (3cr)",
+     "minimum_score": "Biology SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-BIOLOGY-HL",
+     "exam_or_course_name": "IB Biology (HL)",
+     "institution_course_equivalent": "ZOOL 1610 LS (4cr)",
+     "minimum_score": "Biology HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT-SL",
+     "exam_or_course_name": "IB Business Management (SL)",
+     "institution_course_equivalent": "BSAD 1XXX (3cr)",
+     "minimum_score": "Business Management SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-BUSINESS-MANAGEMENT-HL",
+     "exam_or_course_name": "IB Business Management (HL)",
+     "institution_course_equivalent": "BSAD 1XXX (6cr)",
+     "minimum_score": "Business Management HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-CHEMISTRY-SL",
+     "exam_or_course_name": "IB Chemistry (SL)",
+     "institution_course_equivalent": "CHEM 1XXX (3cr)",
+     "minimum_score": "Chemistry SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-CHEMISTRY-HL",
+     "exam_or_course_name": "IB Chemistry (HL)",
+     "institution_course_equivalent": "CHEM 1010 PS (3cr)",
+     "minimum_score": "Chemistry HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-SL",
+     "exam_or_course_name": "IB Computer Science (SL)",
+     "institution_course_equivalent": "CS 1030 (4cr)",
+     "minimum_score": "Computer Science SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-HL",
+     "exam_or_course_name": "IB Computer Science (HL)",
+     "institution_course_equivalent": "CS 1030 (4cr)",
+     "minimum_score": "Computer Science HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-ECONOMICS-SL",
+     "exam_or_course_name": "IB Economics (SL)",
+     "institution_course_equivalent": "ECON 1010 SS (3cr)",
+     "minimum_score": "Economics SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-ECONOMICS-HL",
+     "exam_or_course_name": "IB Economics (HL)",
+     "institution_course_equivalent": "ECON 2010 SS (3cr) & ECON SS 2020 (3cr)",
+     "minimum_score": "Economics HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-ENVIRONMENTAL-SYSTEMS-SOCIETIES-SL",
+     "exam_or_course_name": "IB Environmental Systems & Societies (SL)",
+     "institution_course_equivalent": "BTNY 1XXX (3cr)",
+     "minimum_score": "Environmental Systems and Tech SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-FILM-SL",
+     "exam_or_course_name": "IB Film (SL)",
+     "institution_course_equivalent": "THEA 1023 CA (3cr)",
+     "minimum_score": "Film SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "IB-FILM-HL",
+     "exam_or_course_name": "IB Film (HL)",
+     "institution_course_equivalent": "THEA 1023 CA (3cr) and THEA 1XXX (2cr)",
+     "minimum_score": "Film HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-GEOGRAPHY-SL",
+     "exam_or_course_name": "IB Geography (SL)",
+     "institution_course_equivalent": "GEOG 1300 SS/CC (3cr)",
+     "minimum_score": "Geography SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-GEOGRAPHY-HL",
+     "exam_or_course_name": "IB Geography (HL)",
+     "institution_course_equivalent": "GEOG 1000 PS (3cr) & GEOG 1300 SS/CC (3cr)",
+     "minimum_score": "Geography HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-HISTORY-SL",
+     "exam_or_course_name": "IB History (SL)",
+     "institution_course_equivalent": "HIST 1XXX (3cr)",
+     "minimum_score": "History SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-HISTORY-HL",
+     "exam_or_course_name": "IB History (HL)",
+     "institution_course_equivalent": "HIST 1XXX (3cr) and HIST 1510 SS/CC GLB (3cr)",
+     "minimum_score": "History HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-SL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (SL)",
+     "institution_course_equivalent": "MATH 1050 QL (4cr)",
+     "minimum_score": "Math: Analysis & Approaches SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-HL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (HL)",
+     "institution_course_equivalent": "MATH 1080 QL (5cr)",
+     "minimum_score": "Math: Analysis & Approaches HL",
+     "notes": "4"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "IB-MATHEMATICS-ANALYSIS-APPROACHES-HL",
+     "exam_or_course_name": "IB Mathematics: Analysis & Approaches (HL)",
+     "institution_course_equivalent": "MATH 1210 (4cr)",
+     "minimum_score": "Math: Analysis & Approaches HL",
+     "notes": "5+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-MUSIC-SL",
+     "exam_or_course_name": "IB Music (SL)",
+     "institution_course_equivalent": "MUSC 1XXX (3cr)",
+     "minimum_score": "Music SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-MUSIC-HL",
+     "exam_or_course_name": "IB Music (HL)",
+     "institution_course_equivalent": "MUSC 1010 CA (3cr)",
+     "minimum_score": "Music HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-PHYSICS-SL",
+     "exam_or_course_name": "IB Physics (SL)",
+     "institution_course_equivalent": "PHYS 1010 PS (3cr)",
+     "minimum_score": "Physics SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 10,
+     "exam_or_course_code": "IB-PHYSICS-HL",
+     "exam_or_course_name": "IB Physics (HL)",
+     "institution_course_equivalent": "PHYS 2010 PS (5cr) & PHYS 2020 (5cr)",
+     "minimum_score": "Physics HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-PSYCHOLOGY-SL",
+     "exam_or_course_name": "IB Psychology (SL)",
+     "institution_course_equivalent": "PSY 1010 SS (3cr)",
+     "minimum_score": "Psychology SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-PSYCHOLOGY-HL",
+     "exam_or_course_name": "IB Psychology (HL)",
+     "institution_course_equivalent": "PSY 1010 SS (3cr) & PSY 1XXX (3cr)",
+     "minimum_score": "Psychology HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-THEATRE-SL",
+     "exam_or_course_name": "IB Theatre (SL)",
+     "institution_course_equivalent": "THEA 1013 CA (3cr)",
+     "minimum_score": "Theatre SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 5,
+     "exam_or_course_code": "IB-THEATRE-HL",
+     "exam_or_course_name": "IB Theatre (HL)",
+     "institution_course_equivalent": "THEA 1013 CA (3cr) & THEA 1XXX (2cr)",
+     "minimum_score": "Theatre HL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "IB-VISUAL-ARTS-SL",
+     "exam_or_course_name": "IB Visual Arts (SL)",
+     "institution_course_equivalent": "ART 1010 CA (3cr)",
+     "minimum_score": "Visual Arts SL",
+     "notes": "4+"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "IB-VISUAL-ARTS-HL",
+     "exam_or_course_name": "IB Visual Arts (HL)",
+     "institution_course_equivalent": "ART 1010 CA (3cr) & ART 1XXX (3cr)",
+     "minimum_score": "Visual Arts HL",
+     "notes": "4+"
+    }
+   ],
+   "institution_key": "ipeds-230782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://www.weber.edu/Admissions/International_Baccalaureate.html",
+   "source_url": "https://www.weber.edu/Admissions/International_Baccalaureate.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:21:31+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "732c26efcb548159b1c0.json.gz",
+   "requested_url": "https://www.weber.edu/Admissions/International_Baccalaureate.html",
+   "sha256": "732c26efcb548159b1c0f05a486c4b99ab0c97db0279bcf081af1cfcfd229977",
+   "title": "IB Guidelines",
+   "url": "https://www.weber.edu/Admissions/International_Baccalaureate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "46a4f9b851e0bcba",
+  "checks": {
+   "distinct_exams": 27,
+   "equivalencies": 31,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[CLEP-AMERICAN-GOVERNMENT|American Government]",
+    "snippet": " | American Government | 50+ | POLS 1100 AI | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-AMERICAN-LITERATURE|American Literature]",
+    "snippet": " | American Literature | 50+ | ENGL 2200 HU/CC | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-ANALYZING-INTERPRETING-LITERATURE|Analyzing & Interpreting Literature]",
+    "snippet": " | Analyzing & Interpreting Literature | 50+ | ENGL 2200 HU/CC | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-BIOLOGY|Biology]",
+    "snippet": " | Biology | 50+ | ZOOL 1010 LS (No lab credit awarded) | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-CALCULUS|Calculus]",
+    "snippet": " | Calculus | 64+ | MATH 1210 | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-CHEMISTRY|General Chemistry]",
+    "snippet": " | General Chemistry | 50+ | CHEM 1010 PS | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-ALGEBRA|College Algebra]",
+    "snippet": " | College Algebra | 63+ | MATH 1050 QL | 4"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-COMPOSITION|College Composition]",
+    "snippet": " | College Composition | 50+ | ENGL 1010 EN | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-COLLEGE-MATHEMATICS|College Mathematics]",
+    "snippet": " | College Mathematics | 55+ | MATH 1030 QL | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-ENGLISH-LITERATURE|English Literature]",
+    "snippet": " | English Literature | 50+ | ENGL 2200 HU/CC | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FINANCIAL-ACCOUNTING|Financial Accounting]",
+    "snippet": " | Financial Accounting | 50+ | ACTG 2010 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|French Language, Level 1]",
+    "snippet": " | French Language, Level 1 | 50-58 | FRCH 1010 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-FRENCH-LANGUAGE|French Language, Level 2]",
+    "snippet": " | French Language, Level 2 | 59+ | FRCH 1020 & FRCH 2010 | 6"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|German Language, Level 1]",
+    "snippet": " | German Language, Level 1 | 50-58 | GRMN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-GERMAN-LANGUAGE|German Language, Level 2]",
+    "snippet": " | German Language, Level 2 | 59+ | GRMN 1020 & GRMN 2010 | 6"
+   },
+   {
+    "field": "equivalencies[CLEP-HUMAN-GROWTH-DEVELOPMENT|Human Growth & Development]",
+    "snippet": " | Human Growth & Development | 50+ | CHF 1500 SS | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INFORMATION-SYSTEMS|Information Systems]",
+    "snippet": " | Information Systems | 50+ | MIS 2XXX | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-BUSINESS-LAW|Introductory Business Law]",
+    "snippet": " | Introductory Business Law | 50+ | BSAD 2XXX | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-PSYCHOLOGY|Introductory Psychology]",
+    "snippet": " | Introductory Psychology | 50+ | PSY 1010 SS | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-INTRODUCTORY-SOCIOLOGY|Introductory Sociology]",
+    "snippet": " | Introductory Sociology | 50+ | SOC 1010 SS/CC | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRECALCULUS|Pre-Calculus]",
+    "snippet": " | Pre-Calculus | 61+ | MATH 1060 QL | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MACROECONOMICS|Principles of Macroeconomics]",
+    "snippet": " | Principles of Macroeconomics | 50+ | ECON 2020 SS | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MANAGEMENT|Principles of Management]",
+    "snippet": " | Principles of Management | 50+ | MGMT 2XXX | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MARKETING|Principles of Marketing]",
+    "snippet": " | Principles of Marketing | 50+ | MTKG 2XXX | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-PRINCIPLES-OF-MICROECONOMICS|Principles of Microeconomics]",
+    "snippet": " | Principles of Microeconomics | 50+ | ECON 2010 SS | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|Spanish Language, Level 1]",
+    "snippet": " | Spanish Language, Level 1 | 50-58 | SPAN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-LANGUAGE|Spanish Language, Level 2]",
+    "snippet": " | Spanish Language, Level 2 | 59+ | SPAN 1020 & SPAN 2010 | 6"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|Spanish with Writing, Level 1]",
+    "snippet": " | Spanish with Writing, Level 1 | 50-58 | SPAN 1010 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-SPANISH-WITH-WRITING|Spanish with Writing, Level 2]",
+    "snippet": " | Spanish with Writing, Level 2 | 59+ | SPAN 1020 & SPAN 2010 | 6"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-I|Western Civilization I]",
+    "snippet": " | Western Civilization I | 50+ | HIST 1100 | 3"
+   },
+   {
+    "field": "equivalencies[CLEP-WESTERN-CIVILIZATION-II|Western Civilization II]",
+    "snippet": " | Western Civilization II | 50+ | HIST 1110 | 3"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-230782",
+  "issues": [
+   "score_column_not_scores",
+   "score_scale_mismatch"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-GOVERNMENT",
+     "exam_or_course_name": "CLEP American Government",
+     "institution_course_equivalent": "POLS 1100 AI",
+     "minimum_score": "American Government",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-AMERICAN-LITERATURE",
+     "exam_or_course_name": "CLEP American Literature",
+     "institution_course_equivalent": "ENGL 2200 HU/CC",
+     "minimum_score": "American Literature",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-ANALYZING-INTERPRETING-LITERATURE",
+     "exam_or_course_name": "CLEP Analyzing & Interpreting Literature",
+     "institution_course_equivalent": "ENGL 2200 HU/CC",
+     "minimum_score": "Analyzing & Interpreting Literature",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-BIOLOGY",
+     "exam_or_course_name": "CLEP Biology",
+     "institution_course_equivalent": "ZOOL 1010 LS (No lab credit awarded)",
+     "minimum_score": "Biology",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-CALCULUS",
+     "exam_or_course_name": "CLEP Calculus",
+     "institution_course_equivalent": "MATH 1210",
+     "minimum_score": "Calculus",
+     "notes": "64+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-CHEMISTRY",
+     "exam_or_course_name": "CLEP Chemistry",
+     "institution_course_equivalent": "CHEM 1010 PS",
+     "minimum_score": "General Chemistry",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "CLEP-COLLEGE-ALGEBRA",
+     "exam_or_course_name": "CLEP College Algebra",
+     "institution_course_equivalent": "MATH 1050 QL",
+     "minimum_score": "College Algebra",
+     "notes": "63+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-COLLEGE-COMPOSITION",
+     "exam_or_course_name": "CLEP College Composition",
+     "institution_course_equivalent": "ENGL 1010 EN",
+     "minimum_score": "College Composition",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-COLLEGE-MATHEMATICS",
+     "exam_or_course_name": "CLEP College Mathematics",
+     "institution_course_equivalent": "MATH 1030 QL",
+     "minimum_score": "College Mathematics",
+     "notes": "55+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-ENGLISH-LITERATURE",
+     "exam_or_course_name": "CLEP English Literature",
+     "institution_course_equivalent": "ENGL 2200 HU/CC",
+     "minimum_score": "English Literature",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-FINANCIAL-ACCOUNTING",
+     "exam_or_course_name": "CLEP Financial Accounting",
+     "institution_course_equivalent": "ACTG 2010",
+     "minimum_score": "Financial Accounting",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "FRCH 1010",
+     "minimum_score": "French Language, Level 1",
+     "notes": "50-58"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-FRENCH-LANGUAGE",
+     "exam_or_course_name": "CLEP French Language",
+     "institution_course_equivalent": "FRCH 1020 & FRCH 2010",
+     "minimum_score": "French Language, Level 2",
+     "notes": "59+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "GRMN 1010",
+     "minimum_score": "German Language, Level 1",
+     "notes": "50-58"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-GERMAN-LANGUAGE",
+     "exam_or_course_name": "CLEP German Language",
+     "institution_course_equivalent": "GRMN 1020 & GRMN 2010",
+     "minimum_score": "German Language, Level 2",
+     "notes": "59+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-HUMAN-GROWTH-DEVELOPMENT",
+     "exam_or_course_name": "CLEP Human Growth & Development",
+     "institution_course_equivalent": "CHF 1500 SS",
+     "minimum_score": "Human Growth & Development",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INFORMATION-SYSTEMS",
+     "exam_or_course_name": "CLEP Information Systems",
+     "institution_course_equivalent": "MIS 2XXX",
+     "minimum_score": "Information Systems",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-BUSINESS-LAW",
+     "exam_or_course_name": "CLEP Introductory Business Law",
+     "institution_course_equivalent": "BSAD 2XXX",
+     "minimum_score": "Introductory Business Law",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-PSYCHOLOGY",
+     "exam_or_course_name": "CLEP Introductory Psychology",
+     "institution_course_equivalent": "PSY 1010 SS",
+     "minimum_score": "Introductory Psychology",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-INTRODUCTORY-SOCIOLOGY",
+     "exam_or_course_name": "CLEP Introductory Sociology",
+     "institution_course_equivalent": "SOC 1010 SS/CC",
+     "minimum_score": "Introductory Sociology",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRECALCULUS",
+     "exam_or_course_name": "CLEP Precalculus",
+     "institution_course_equivalent": "MATH 1060 QL",
+     "minimum_score": "Pre-Calculus",
+     "notes": "61+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MACROECONOMICS",
+     "exam_or_course_name": "CLEP Principles of Macroeconomics",
+     "institution_course_equivalent": "ECON 2020 SS",
+     "minimum_score": "Principles of Macroeconomics",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MANAGEMENT",
+     "exam_or_course_name": "CLEP Principles of Management",
+     "institution_course_equivalent": "MGMT 2XXX",
+     "minimum_score": "Principles of Management",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MARKETING",
+     "exam_or_course_name": "CLEP Principles of Marketing",
+     "institution_course_equivalent": "MTKG 2XXX",
+     "minimum_score": "Principles of Marketing",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-PRINCIPLES-OF-MICROECONOMICS",
+     "exam_or_course_name": "CLEP Principles of Microeconomics",
+     "institution_course_equivalent": "ECON 2010 SS",
+     "minimum_score": "Principles of Microeconomics",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "SPAN 1010",
+     "minimum_score": "Spanish Language, Level 1",
+     "notes": "50-58"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-SPANISH-LANGUAGE",
+     "exam_or_course_name": "CLEP Spanish Language",
+     "institution_course_equivalent": "SPAN 1020 & SPAN 2010",
+     "minimum_score": "Spanish Language, Level 2",
+     "notes": "59+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "SPAN 1010",
+     "minimum_score": "Spanish with Writing, Level 1",
+     "notes": "50-58"
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "CLEP-SPANISH-WITH-WRITING",
+     "exam_or_course_name": "CLEP Spanish with Writing",
+     "institution_course_equivalent": "SPAN 1020 & SPAN 2010",
+     "minimum_score": "Spanish with Writing, Level 2",
+     "notes": "59+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-WESTERN-CIVILIZATION-I",
+     "exam_or_course_name": "CLEP Western Civilization I",
+     "institution_course_equivalent": "HIST 1100",
+     "minimum_score": "Western Civilization I",
+     "notes": "50+"
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "CLEP-WESTERN-CIVILIZATION-II",
+     "exam_or_course_name": "CLEP Western Civilization II",
+     "institution_course_equivalent": "HIST 1110",
+     "minimum_score": "Western Civilization II",
+     "notes": "50+"
+    }
+   ],
+   "institution_key": "ipeds-230782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "CLEP",
+   "policy_url": "https://www.weber.edu/Admissions/cleptest.html",
+   "source_url": "https://www.weber.edu/Admissions/cleptest.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:21:32+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e779ecf498100d3fd34a.json.gz",
+   "requested_url": "https://www.weber.edu/Admissions/cleptest.html",
+   "sha256": "e779ecf498100d3fd34a3a7c8a09fbbb957acf1780bfd796266c37e8a398eb74",
+   "title": "CLEP Test Credit",
+   "url": "https://www.weber.edu/Admissions/cleptest.html"
+  },
+  "year_basis": "source_unlabeled"
+ }
+]
