@@ -85,12 +85,12 @@ const authorNames = (c: Candidate) => [...new Set(c.versions.map((v) => v.item.a
  * when a revision returns to earlier rights claims; a check of the new version counts as soon as it is recorded
  * (no date comparison).
  */
+export const rightsHash = (v: CandidateVersion) =>
+  cyrb53(canonicalJson({ version: v.version, content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) }))
 /** The rights claims of a version, without its number: equal claims mean a stage-3 fail on one blocks the other. */
 const claimsOf = (v: CandidateVersion) => canonicalJson({ content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) })
 /** Every version's rights_hash whose claims equal this version's (including its own). */
 export const sameClaimsHashes = (c: Candidate, v: CandidateVersion) => c.versions.filter((x) => claimsOf(x) === claimsOf(v)).map(rightsHash)
-export const rightsHash = (v: CandidateVersion) =>
-  cyrb53(canonicalJson({ version: v.version, content_hash: v.content_hash, ...Object.fromEntries(RIGHTS_FIELDS.map((f) => [f, v.item[f] ?? null])) }))
 const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x))
 
 /** The question as the app and the ledger see it: the import line with its import_id as the id. */
