@@ -43,6 +43,7 @@ function evidence(r: Rec | null | undefined, year: string | null, extra: Partial
     academicYearBasis: str(r?.academic_year_basis),
     lastVerifiedAt: str(r?.last_verified_at),
     publishedYear: year,
+    ...(r?.notes_capture != null ? { notesCapture: str(r.notes_capture) } : {}),
     ...extra,
   }
 }
@@ -50,6 +51,10 @@ function evidence(r: Rec | null | undefined, year: string | null, extra: Partial
 function notVerifiedWhy(r: Rec): string {
   if (r.verification_status === 'partially_verified' && /unlabeled/.test(String(r.academic_year_basis ?? '')))
     return ': the values were checked, but the page prints no academic year'
+  if (r.verification_status === 'partially_verified' && r.notes_capture === 'incomplete')
+    return r.captured_rows_reviewed === true
+      ? ': its course rows were checked, but a note printed with it, which can change what it requires, isn’t captured yet'
+      : ': a note printed with it, which can change what it requires, isn’t captured yet'
   return r.verification_status === 'partially_verified' ? ': some of its values are still being checked' : ''
 }
 const missing = (text: string, r?: Rec | null, year: string | null = null): Evidence => ({ ...evidence(r ?? null, year), state: 'missing', missing: text })
