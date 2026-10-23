@@ -1,0 +1,1691 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "ae088b65956234df",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "File Your FAFSA More in Financial Aid Office Appeals and Special Circumstances Federal Financial Aid Changes Financial Aid Checklist Financial Aid Eligibility Financial Aid for Study Abroad Grants and Scholarships HEERF Funding and Compliance Reporting Loan Information New Jersey Dream Act Student Handbook for Financial Aid Summer Financial Aid Types of Financial Aid Grants Grants are typically ne",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances,https://www.montclair.edu/admissions-aid/financial-aid"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office",
+   "process_summary": "File Your FAFSA More in Financial Aid Office Appeals and Special Circumstances Federal Financial Aid Changes Financial Aid Checklist Financial Aid Eligibility Financial Aid for Study Abroad Grants and Scholarships HEERF Funding and Compliance Reporting Loan Information New Jersey Dream Act Student Handbook for Financial Aid Summer Financial Aid Types of Financial Aid Grants Grants are typically need-based and do not need to be repaid.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:10:59+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:08:39 GMT",
+   "page_file": "2c51f5481b011214e972.json.gz",
+   "requested_url": "https://www.montclair.edu/red-hawk-central/financial-aid/",
+   "sha256": "2c51f5481b011214e97294c4111f44b6d8c76d45cb7a2d504aec39dd1c2a9145",
+   "title": "Financial Aid Office - Inside Montclair",
+   "url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "e97aed67179863ba",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition & Fees",
+    "snippet": "Tuition & Fees | 17,428",
+    "value": 17428
+   },
+   {
+    "field": "column:Books, Course Materials, Supplies, Equipment",
+    "snippet": "Books, Course Materials, Supplies, Equipment | 1,330",
+    "value": 1330
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | 11,550",
+    "value": 11550
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | 5,474",
+    "value": 5474
+   },
+   {
+    "field": "column:Personal Spending",
+    "snippet": "Personal Spending | 2,993",
+    "value": 2993
+   },
+   {
+    "field": "column:Transportation Expenses",
+    "snippet": "Transportation Expenses | 2,345",
+    "value": 2345
+   },
+   {
+    "field": "column:Federal Loan Fees",
+    "snippet": "Federal Loan Fees | 44",
+    "value": 44
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | 41,164",
+    "value": 41164
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": 1330,
+   "components": {
+    "Books, Course Materials, Supplies, Equipment": 1330,
+    "Federal Loan Fees": 44,
+    "Food": 5474,
+    "Housing": 11550,
+    "Personal Spending": 2993,
+    "TOTAL": 41164,
+    "Transportation Expenses": 2345,
+    "Tuition & Fees": 17428
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Cost of Attendance 2025 - 2026 Full-time Undergraduate In-State \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2526.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 41164,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 17428,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:01+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:12 GMT",
+   "page_file": "783ed052ccc27281a6f1.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2526.html",
+   "sha256": "783ed052ccc27281a6f1a6cbaa8dbd89ddc585847e1463fae7a83ef6907af6b2",
+   "title": "2025 - 2026",
+   "url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2526.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "cb59f72f903d8367",
+  "checks": {
+   "columns": 1,
+   "rows": 8
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "verified",
+   "status": "same"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition & Fees",
+    "snippet": "Tuition & Fees | 28,252",
+    "value": 28252
+   },
+   {
+    "field": "column:Books, Course Materials, Supplies, Equipment",
+    "snippet": "Books, Course Materials, Supplies, Equipment | 1,330",
+    "value": 1330
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | 11,550",
+    "value": 11550
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | 5,474",
+    "value": 5474
+   },
+   {
+    "field": "column:Personal Spending",
+    "snippet": "Personal Spending | 2,993",
+    "value": 2993
+   },
+   {
+    "field": "column:Transportation Expenses",
+    "snippet": "Transportation Expenses | 3,549",
+    "value": 3549
+   },
+   {
+    "field": "column:Federal Loan Fees",
+    "snippet": "Federal Loan Fees | 44",
+    "value": 44
+   },
+   {
+    "field": "column:TOTALS",
+    "snippet": "TOTALS | 53,192",
+    "value": 53192
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "books_supplies": 1330,
+   "components": {
+    "Books, Course Materials, Supplies, Equipment": 1330,
+    "Federal Loan Fees": 44,
+    "Food": 5474,
+    "Housing": 11550,
+    "Personal Spending": 2993,
+    "TOTALS": 53192,
+    "Transportation Expenses": 3549,
+    "Tuition & Fees": 28252
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Cost of Attendance 2025 - 2026 Full-time Undergraduate Out-of-State  Expense\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2526.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 28252,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:01+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:12 GMT",
+   "page_file": "783ed052ccc27281a6f1.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2526.html",
+   "sha256": "783ed052ccc27281a6f1a6cbaa8dbd89ddc585847e1463fae7a83ef6907af6b2",
+   "title": "2025 - 2026",
+   "url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2526.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "92289f13e1d125af",
+  "checks": {
+   "fields": [
+    "min_grade"
+   ]
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "min_grade",
+    "snippet": "What Credits Transfer Courses at the 100 level or higher with a grade of C- or higher, and “P,” “CR,” or “S” grades, are accepted for full credit.",
+    "value": "C-"
+   },
+   {
+    "field": "min_grade",
+    "snippet": "In general, no: only grades of C- or better are accepted in transfer; however there are two exceptions: When a D grade is earned through an associate degree (AA, AS, or AFA) from a community college.",
+    "value": "C-"
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "min_grade": "C-",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://www.montclair.edu/admissions-aid/transfer-students",
+   "source_url": "https://www.montclair.edu/admissions-aid/transfer-students",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:02+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 22 Oct 2026 18:26:51 GMT",
+   "page_file": "104f59937d0307bfd8d8.json.gz",
+   "requested_url": "https://www.montclair.edu/admissions-aid/transfer-students",
+   "sha256": "104f59937d0307bfd8d8f448d5c65dc996677c6329d8d0366e4f8d4fb0b5f4fb",
+   "title": "Transfer Students - Montclair State University",
+   "url": "https://www.montclair.edu/admissions-aid/transfer-students"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "7999da0b107ca056",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition & Fees",
+    "snippet": "Tuition & Fees | $18,300",
+    "value": 18300
+   },
+   {
+    "field": "column:Books, Course Materials, Supplies, Equipment",
+    "snippet": "Books, Course Materials, Supplies, Equipment | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $11,897",
+    "value": 11897
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $5,693",
+    "value": 5693
+   },
+   {
+    "field": "column:Personal Spending",
+    "snippet": "Personal Spending | $3,080",
+    "value": 3080
+   },
+   {
+    "field": "column:Transportation Expenses",
+    "snippet": "Transportation Expenses | $2,322",
+    "value": 2322
+   },
+   {
+    "field": "column:Federal Loan Fees",
+    "snippet": "Federal Loan Fees | $44",
+    "value": 44
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $42,666",
+    "value": 42666
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "conflicting_sources:https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1330,
+   "components": {
+    "Books, Course Materials, Supplies, Equipment": 1330,
+    "Federal Loan Fees": 44,
+    "Food": 5693,
+    "Housing": 11897,
+    "Personal Spending": 3080,
+    "TOTAL": 42666,
+    "Transportation Expenses": 2322,
+    "Tuition & Fees": 18300
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Cost of Attendance 2026-2027 Full-time Undergraduate In-State \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "in_state",
+   "source_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": 42666,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 18300,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:02+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:08 GMT",
+   "page_file": "0617bc13832dcbd48545.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html",
+   "sha256": "0617bc13832dcbd485453e0eb450a755e659c64f85c8646f1acba230e96ec175",
+   "title": "2026 - 2027",
+   "url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "89bb01e9ba8cbb93",
+  "checks": {
+   "columns": 1,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition & Fees",
+    "snippet": "Tuition & Fees | $29,664",
+    "value": 29664
+   },
+   {
+    "field": "column:Books, Course Materials, Supplies, Equipment",
+    "snippet": "Books, Course Materials, Supplies, Equipment | $1,330",
+    "value": 1330
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $11,897",
+    "value": 11897
+   },
+   {
+    "field": "column:Food",
+    "snippet": "Food | $5,693",
+    "value": 5693
+   },
+   {
+    "field": "column:Personal Spending",
+    "snippet": "Personal Spending | $3,080",
+    "value": 3080
+   },
+   {
+    "field": "column:Transportation Expenses",
+    "snippet": "Transportation Expenses | $2,922",
+    "value": 2922
+   },
+   {
+    "field": "column:Federal Loan Fees",
+    "snippet": "Federal Loan Fees | $44",
+    "value": 44
+   },
+   {
+    "field": "column:TOTALS",
+    "snippet": "TOTALS | $54,630",
+    "value": 54630
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "conflicting_sources:https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1330,
+   "components": {
+    "Books, Course Materials, Supplies, Equipment": 1330,
+    "Federal Loan Fees": 44,
+    "Food": 5693,
+    "Housing": 11897,
+    "Personal Spending": 3080,
+    "TOTALS": 54630,
+    "Transportation Expenses": 2922,
+    "Tuition & Fees": 29664
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \"Cost of Attendance 2026-2027 Full-time Undergraduate Out-of-State  Expense\"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "out_of_state",
+   "source_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html",
+   "student_population": "undergraduate",
+   "total_cost_of_attendance": null,
+   "tuition": null,
+   "tuition_and_mandatory_fees": 29664,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:02+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:08 GMT",
+   "page_file": "0617bc13832dcbd48545.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html",
+   "sha256": "0617bc13832dcbd485453e0eb450a755e659c64f85c8646f1acba230e96ec175",
+   "title": "2026 - 2027",
+   "url": "https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "9ad86e745eea0f2d",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition*",
+    "snippet": "Tuition* | $50,680 | $78,086 | ",
+    "value": 50680
+   },
+   {
+    "field": "on_campus:Student Fees*",
+    "snippet": "Student Fees* | $2,641 | $2,641 | ",
+    "value": 2641
+   },
+   {
+    "field": "on_campus:Direct Loan Origination Fee",
+    "snippet": "Direct Loan Origination Fee | $528 | $528 | ",
+    "value": 528
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,600 | $1,600 | ",
+    "value": 1600
+   },
+   {
+    "field": "on_campus:Food & Housing**",
+    "snippet": "Food & Housing** | $24,200 | $24,200 | ",
+    "value": 24200
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $4,950 | $4,950 | ",
+    "value": 4950
+   },
+   {
+    "field": "on_campus:Personal",
+    "snippet": "Personal | $2,200 | $2,200 | ",
+    "value": 2200
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | $86,799 | $114,205 | ",
+    "value": 86799
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1600,
+   "components": {
+    "Books & Supplies": 1600,
+    "Direct Loan Origination Fee": 528,
+    "Food & Housing**": 24200,
+    "Personal": 2200,
+    "Student Fees*": 2641,
+    "Total": 86799,
+    "Transportation": 4950,
+    "Tuition*": 50680
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Cost of Attendance \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 24200,
+   "residency": "in_state",
+   "source_url": "https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html",
+   "total_cost_of_attendance": 86799,
+   "tuition": 50680,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:06+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:11:21 GMT",
+   "page_file": "ff17b67fdfb68d089133.json.gz",
+   "requested_url": "https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html",
+   "sha256": "ff17b67fdfb68d089133536eea9cf9e922bf51b3da98811999b899a79a244db4",
+   "title": "Cost of Attendance | Cooper Medical School | Rowan University",
+   "url": "https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "0646eb71f041e0fb",
+  "checks": {
+   "columns": 1,
+   "components_reconcile": true,
+   "rows": 8
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "on_campus:Tuition*",
+    "snippet": "Tuition* | $50,680 | $78,086 | ",
+    "value": 78086
+   },
+   {
+    "field": "on_campus:Student Fees*",
+    "snippet": "Student Fees* | $2,641 | $2,641 | ",
+    "value": 2641
+   },
+   {
+    "field": "on_campus:Direct Loan Origination Fee",
+    "snippet": "Direct Loan Origination Fee | $528 | $528 | ",
+    "value": 528
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,600 | $1,600 | ",
+    "value": 1600
+   },
+   {
+    "field": "on_campus:Food & Housing**",
+    "snippet": "Food & Housing** | $24,200 | $24,200 | ",
+    "value": 24200
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $4,950 | $4,950 | ",
+    "value": 4950
+   },
+   {
+    "field": "on_campus:Personal",
+    "snippet": "Personal | $2,200 | $2,200 | ",
+    "value": 2200
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | $86,799 | $114,205 | ",
+    "value": 114205
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/cost-of-attendance/annual-coa-2627.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 1600,
+   "components": {
+    "Books & Supplies": 1600,
+    "Direct Loan Origination Fee": 528,
+    "Food & Housing**": 24200,
+    "Personal": 2200,
+    "Student Fees*": 2641,
+    "Total": 114205,
+    "Transportation": 4950,
+    "Tuition*": 78086
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "living_arrangement": "on_campus",
+   "mandatory_fees": null,
+   "notes": "Extracted by cost_table/v2 from the table \" Cost of Attendance \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": 24200,
+   "residency": "out_of_state",
+   "source_url": "https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html",
+   "total_cost_of_attendance": 114205,
+   "tuition": 78086,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:06+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:11:21 GMT",
+   "page_file": "ff17b67fdfb68d089133.json.gz",
+   "requested_url": "https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html",
+   "sha256": "ff17b67fdfb68d089133536eea9cf9e922bf51b3da98811999b899a79a244db4",
+   "title": "Cost of Attendance | Cooper Medical School | Rowan University",
+   "url": "https://cmsru.rowan.edu/admissions/financial-aid-services/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6f11882eb5a2f6ec",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Select the Reason for your Appeal SAP Appeal for GPA and/or PACE The appeal process requires the student to explain the circumstances that prevented you from meeting SAP requirements.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "SAP Appeal for Maximum Timeframe The appeal process requires a personal statement explaining why you have not yet completed your degree program.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "This form must be uploaded to your SAP appeal in your online portal.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/,https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html,https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 3 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html",
+   "process_summary": "Select the Reason for your Appeal SAP Appeal for GPA and/or PACE The appeal process requires the student to explain the circumstances that prevented you from meeting SAP requirements.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:07+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:05:50 GMT",
+   "page_file": "4ced4329f0ef0a30cbfb.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html",
+   "sha256": "4ced4329f0ef0a30cbfbe7afd9ed5eba650410ae3830dfcca8a50a67c5dd8eb8",
+   "title": "Appealing Loss of Aid",
+   "url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "f3576f65f02f7c9f",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Financial Aid Probation Continuing students are placed on financial aid probation after having a SAP appeal completed and approved.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/,https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html,https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html",
+   "process_summary": "Financial Aid Probation Continuing students are placed on financial aid probation after having a SAP appeal completed and approved.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:10+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:05:51 GMT",
+   "page_file": "436e90f8db99e3db80b6.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html",
+   "sha256": "436e90f8db99e3db80b6024d3a71a798e565b707e85854546e1071cbab43ca70",
+   "title": "SAP Policy",
+   "url": "https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "6253edd3d46ad129",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Cost of Attendance Appeals (Budget Adjustment Appeal) What is a Cost of Attendance (COA) Appeal?",
+    "value": "budget_increase"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Important Notes Budget adjustments are based on educational necessity, not lifestyle preferences.",
+    "value": "budget_increase"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "budget_increase",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://svm.rowan.edu/admissions-menu/financial-aid/cost-of-attendance.html",
+   "process_summary": "Cost of Attendance Appeals (Budget Adjustment Appeal) What is a Cost of Attendance (COA) Appeal?",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://svm.rowan.edu/admissions-menu/financial-aid/cost-of-attendance.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:15+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 12:12:07 GMT",
+   "page_file": "137a4ce22a017ace08d4.json.gz",
+   "requested_url": "https://svm.rowan.edu/admissions-menu/financial-aid/cost-of-attendance.html",
+   "sha256": "137a4ce22a017ace08d49a6da2bc224715c0a82c518f963e481e9e2718c1fd3a",
+   "title": "Cost of Attendance",
+   "url": "https://svm.rowan.edu/admissions-menu/financial-aid/cost-of-attendance.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "1d1ed69beef097ec",
+  "checks": {
+   "fields": [
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied                                               1152                141            22             1           1316",
+    "value": 1316
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted                                          806                 87             9             3            905",
+    "value": 905
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) who enrolled                                               129                  4             2             4            139",
+    "value": 139
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "conflicting_sources:https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202025-2026.pdf"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "admits": 905,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 1316,
+   "enrolled": 139,
+   "entering_fall_year": 2025,
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2025-26 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "source_url": "https://irdata.montclair.edu/institutionalresearch/CDS/Bloomfield%20CDS%202025-2026.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:45+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 08 Apr 2026 15:01:29 GMT",
+   "page_file": "fef42be6f7aeea599340.json.gz",
+   "requested_url": "https://irdata.montclair.edu/institutionalresearch/CDS/Bloomfield%20CDS%202025-2026.pdf",
+   "sha256": "fef42be6f7aeea599340aee18c75b60ce2463a2182392ded4f7edc7ef827b2ec",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://irdata.montclair.edu/institutionalresearch/CDS/Bloomfield%20CDS%202025-2026.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2024-25",
+  "candidate_id": "58d77dee3ad8cb3a",
+  "checks": {
+   "fields": [
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year",
+    "sat_composite_25",
+    "sat_composite_50",
+    "sat_composite_75",
+    "sat_math_25",
+    "sat_math_50",
+    "sat_math_75",
+    "sat_reading_25",
+    "sat_reading_50",
+    "sat_reading_75"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": false,
+    "field": "applications",
+    "snippet": "Total first-time, first-year who applied                                                                 26257              21495          3602          1160             0",
+    "value": 0
+   },
+   {
+    "breakdown_reconciles": false,
+    "field": "admits",
+    "snippet": "Total first-time, first-year who were admitted                                                           23076              19005          3103           968             0",
+    "value": 0
+   },
+   {
+    "breakdown_reconciles": false,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year who enrolled                                                                 4109                3854          182            73             0",
+    "value": 0
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                                930                             1080                   1200",
+    "value": [
+     930,
+     1080,
+     1200
+    ]
+   },
+   {
+    "field": "sat_reading_25..75",
+    "snippet": "SAT Evidence-Based Reading and Writing       480                              550                    620",
+    "value": [
+     480,
+     550,
+     620
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                                     430                              520                    590",
+    "value": [
+     430,
+     520,
+     590
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "applications_breakdown_does_not_reconcile",
+   "admits_breakdown_does_not_reconcile",
+   "enrolled_breakdown_does_not_reconcile",
+   "stale_year_label:2024-25"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2024-25",
+   "admits": 0,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 0,
+   "enrolled": 0,
+   "entering_fall_year": 2024,
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2024-25 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "sat_composite_25": 930,
+   "sat_composite_50": 1080,
+   "sat_composite_75": 1200,
+   "sat_math_25": 430,
+   "sat_math_50": 520,
+   "sat_math_75": 590,
+   "sat_reading_25": 480,
+   "sat_reading_50": 550,
+   "sat_reading_75": 620,
+   "source_url": "https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202024-2025.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:47+00:00",
+   "kind": "pdf",
+   "last_modified": "Fri, 07 Mar 2025 21:05:30 GMT",
+   "page_file": "f339450adf775612190e.json.gz",
+   "requested_url": "https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202024-2025.pdf",
+   "sha256": "f339450adf775612190e74ee8a1741095afb0209ce8c7a0bf5c4cf36130d48c5",
+   "title": "Common Data Set 2024-2025",
+   "url": "https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202024-2025.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "44d450bc6aab1a74",
+  "checks": {
+   "fields": [
+    "admits",
+    "applications",
+    "enrolled",
+    "entering_fall_year",
+    "sat_composite_25",
+    "sat_composite_50",
+    "sat_composite_75",
+    "sat_math_25",
+    "sat_math_50",
+    "sat_math_75",
+    "sat_reading_25",
+    "sat_reading_50",
+    "sat_reading_75"
+   ]
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "admissions_metrics",
+  "evidence": [
+   {
+    "breakdown_reconciles": true,
+    "field": "applications",
+    "snippet": "Total first-time, first-year (degree-seeking) who applied                                             21206                 3559          1459             0       26224",
+    "value": 26224
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "admits",
+    "snippet": "Total first-time, first-year (degree-seeking) who were admitted                                       19137                 3086          1220             0       23443",
+    "value": 23443
+   },
+   {
+    "breakdown_reconciles": true,
+    "field": "enrolled",
+    "snippet": "Total first-time, first-year (degree-seeking) who enrolled                                             3590                  175            51             0         3816",
+    "value": 3816
+   },
+   {
+    "field": "sat_composite_25..75",
+    "snippet": "SAT Composite                                            850                   1000                  1160",
+    "value": [
+     850,
+     1000,
+     1160
+    ]
+   },
+   {
+    "field": "sat_reading_25..75",
+    "snippet": "SAT Evidence-Based Reading and   430                    520                  600",
+    "value": [
+     430,
+     520,
+     600
+    ]
+   },
+   {
+    "field": "sat_math_25..75",
+    "snippet": "SAT Math                                                 418                    480                  560",
+    "value": [
+     418,
+     480,
+     560
+    ]
+   }
+  ],
+  "extractor": "common_data_set/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "conflicting_sources:https://irdata.montclair.edu/institutionalresearch/CDS/Bloomfield%20CDS%202025-2026.pdf"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "admits": 23443,
+   "applicant_population": "first_time_first_year_degree_seeking",
+   "applications": 26224,
+   "enrolled": 3816,
+   "entering_fall_year": 2025,
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Common Data Set 2025-26 sections C1/C9, extracted by common_data_set/v1; totals copied as printed.",
+   "sat_composite_25": 850,
+   "sat_composite_50": 1000,
+   "sat_composite_75": 1160,
+   "sat_math_25": 418,
+   "sat_math_50": 480,
+   "sat_math_75": 560,
+   "sat_reading_25": 430,
+   "sat_reading_50": 520,
+   "sat_reading_75": 600,
+   "source_url": "https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202025-2026.pdf",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:11:48+00:00",
+   "kind": "pdf",
+   "last_modified": "Tue, 10 Mar 2026 13:12:38 GMT",
+   "page_file": "fb766f5faad8895aa269.json.gz",
+   "requested_url": "https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202025-2026.pdf",
+   "sha256": "fb766f5faad8895aa269e70e245da9b39e372818e284580ae50198677f7b498e",
+   "title": "Common Data Set 2025-2026",
+   "url": "https://irdata.montclair.edu/institutionalresearch/CDS/CDS%202025-2026.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "8691f1f783a7d117",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Changes to your family’s financial situation → Special Circumstances (SAI Appeal) Unable to provide parent information → Unusual Circumstances Appeal Not meeting academic progress requirements → Visit Financial Aid Eligibility (SAP) Special Circumstances (SAI Appeal) What Are Special Circumstances?",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Important to Know About Special Circumstances You must receive your initial financial aid offer before submitting a request Incoming students must: Be accepted Pay their deposit File a FAFSA Unusual Circumstances (Dependency Appeal) What Are Unusual Circumstances?",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Filing a Request for Review or Unusual Circumstances appeal will not change loan eligibility.",
+    "value": "need_based_special_circumstances"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Important to Know About Unusual Circumstances Approval is not guaranteed.",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "semantic_review_required",
+   "conflicting_sources:https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office,https://www.montclair.edu/admissions-aid/financial-aid"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 4 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances",
+   "process_summary": "Changes to your family’s financial situation → Special Circumstances (SAI Appeal) Unable to provide parent information → Unusual Circumstances Appeal Not meeting academic progress requirements → Visit Financial Aid Eligibility (SAP) Special Circumstances (SAI Appeal) What Are Special Circumstances?",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:12:06+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:12:05 GMT",
+   "page_file": "40b68093e9b2f665ddf3.json.gz",
+   "requested_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances",
+   "sha256": "40b68093e9b2f665ddf324085406c669ca96c51f7a5d7d5410aa0f2665f7d3ac",
+   "title": "Appeals and Special Circumstances - Inside Montclair",
+   "url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "74c028d7b593e8ce",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "These cases may qualify for a dependency override.",
+    "value": "dependency_override"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "dependency_override",
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances",
+   "process_summary": "These cases may qualify for a dependency override.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:12:06+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 13:12:05 GMT",
+   "page_file": "40b68093e9b2f665ddf3.json.gz",
+   "requested_url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances",
+   "sha256": "40b68093e9b2f665ddf324085406c669ca96c51f7a5d7d5410aa0f2665f7d3ac",
+   "title": "Appeals and Special Circumstances - Inside Montclair",
+   "url": "https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "02f52339e863e27c",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Complete the FAFSA with your information and indicate that you have unusual circumstances (there is a check-off box).",
+    "value": "need_based_special_circumstances"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-185590",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office,https://inside.montclair.edu/resources/red-hawk-central/financial-aid-office/appeals-and-special-circumstances"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "need_based_special_circumstances",
+   "institution_key": "ipeds-185590",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://www.montclair.edu/admissions-aid/financial-aid",
+   "process_summary": "Complete the FAFSA with your information and indicate that you have unusual circumstances (there is a check-off box).",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://www.montclair.edu/admissions-aid/financial-aid",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:12:25+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 23 Oct 2026 02:27:42 GMT",
+   "page_file": "9caf9e45e23cf9a3e19e.json.gz",
+   "requested_url": "https://www.montclair.edu/admissions-aid/financial-aid",
+   "sha256": "9caf9e45e23cf9a3e19e01175217c3cd7aec4da3bf07ef3c36d4638759289999",
+   "title": "Financial Aid - Montclair State University",
+   "url": "https://www.montclair.edu/admissions-aid/financial-aid"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "5b9427babbb8cffe",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Federal guidelines stipulate the following conditions do not solely qualify as circumstances meriting a dependency override: Parent refusal to contribute to the student’s education Parent unwillingness to provide information on the FAFSA or to provide required verification documentation Parent does not claim the student as a dependent for income tax purposes Student demonstrates total self-suffici",
+    "value": "dependency_override"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/,https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "dependency_override",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/appeals/dependency.html",
+   "process_summary": "Federal guidelines stipulate the following conditions do not solely qualify as circumstances meriting a dependency override: Parent refusal to contribute to the student’s education Parent unwillingness to provide information on the FAFSA or to provide required verification documentation Parent does not claim the student as a dependent for income tax purposes Student demonstrates total self-sufficiency If your situation does not meet the requirements for a Dependency Override, but you still cannot provide parental information, you have the choice to submit the FAFSA without parental data.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/appeals/dependency.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:16:51+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:03:04 GMT",
+   "page_file": "db762664e6a514197a42.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/appeals/dependency.html",
+   "sha256": "db762664e6a514197a42606cd08c803047593bd4eb7265d30fcdb70a01d7b028",
+   "title": "Dependency Status Appeal",
+   "url": "https://sites.rowan.edu/financial-aid/appeals/dependency.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "136710e314003b77",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 2
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "These types of adjustments are made in accordance with our Professional Judgment Policy on a case-by-case basis.",
+    "value": "professional_judgment"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Once in the system, click on “Request” at the top, right corner of the page then select \"Professional Judgment: Special Circumstance EFC/SAI Appeal.\" If multiple award years are open, please pay special attention to the award year for which you are submitting an appeal.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 2 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/appeals/income-adjustment.html",
+   "process_summary": "These types of adjustments are made in accordance with our Professional Judgment Policy on a case-by-case basis.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/appeals/income-adjustment.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:16:52+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:03:04 GMT",
+   "page_file": "7c7be8c723c25eef892a.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/appeals/income-adjustment.html",
+   "sha256": "7c7be8c723c25eef892a27ecd7bfe9ca2c91ec2523f157fc42a84a80bfaec0f5",
+   "title": "Income Adjustment Appeal",
+   "url": "https://sites.rowan.edu/financial-aid/appeals/income-adjustment.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "abba3b3bd214671f",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Dependency Status Appeal Students who are unable to provide parents' information on their FAFSA, should consider this appeal.",
+    "value": "dependency_override"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/dependency.html,https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "dependency_override",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/appeals/",
+   "process_summary": "Dependency Status Appeal Students who are unable to provide parents' information on their FAFSA, should consider this appeal.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/appeals/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:16:54+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:03:05 GMT",
+   "page_file": "6abe1dd46c979100c4a2.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/appeals/index.html",
+   "sha256": "6abe1dd46c979100c4a2fd7339a4e3326896582e9ebe73a80bbd537a646eed9c",
+   "title": "Financial Aid Appeals",
+   "url": "https://sites.rowan.edu/financial-aid/appeals/"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "d9c328a69618016e",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Satisfactory Academic Progress Students who have been notified by our office that are not meeting Satisfactory Academic Progress (SAP), should consider this appeal.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html,https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html,https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/appeals/",
+   "process_summary": "Satisfactory Academic Progress Students who have been notified by our office that are not meeting Satisfactory Academic Progress (SAP), should consider this appeal.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/appeals/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:16:54+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:03:05 GMT",
+   "page_file": "6abe1dd46c979100c4a2.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/appeals/index.html",
+   "sha256": "6abe1dd46c979100c4a2fd7339a4e3326896582e9ebe73a80bbd537a646eed9c",
+   "title": "Financial Aid Appeals",
+   "url": "https://sites.rowan.edu/financial-aid/appeals/"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "dfa620d7a748f4cf",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "When you re-establish eligibility for financial aid by meeting the standards for Satisfactory Academic Progress (SAP) or successfully appeal your SAP aid suspension, you will regain eligibility for the Rowan Opportunity Program/Garden State Guarantee as well.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/,https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/appeal.html,https://sites.rowan.edu/financial-aid/eligibility/satisfactory-academic-progress/sap-policy.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "process_summary": "When you re-establish eligibility for financial aid by meeting the standards for Satisfactory Academic Progress (SAP) or successfully appeal your SAP aid suspension, you will regain eligibility for the Rowan Opportunity Program/Garden State Guarantee as well.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:04+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:14 GMT",
+   "page_file": "4903039bed729a4d2af9.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "sha256": "4903039bed729a4d2af92b71967c2e1e64ad6ea03340cc84551cedc921cd39a4",
+   "title": "Frequently Asked Questions",
+   "url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "9c6172281ff488b4",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "If you meet one of the criteria to be considered an independent student on the FAFSA, and so were not required to include parental information on the FAFSA; or you are approved for a dependency status appeal, then we will use your AGI to determine eligibility.",
+    "value": "dependency_override"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/,https://sites.rowan.edu/financial-aid/appeals/dependency.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "dependency_override",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "process_summary": "If you meet one of the criteria to be considered an independent student on the FAFSA, and so were not required to include parental information on the FAFSA; or you are approved for a dependency status appeal, then we will use your AGI to determine eligibility.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:04+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:14 GMT",
+   "page_file": "4903039bed729a4d2af9.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "sha256": "4903039bed729a4d2af92b71967c2e1e64ad6ea03340cc84551cedc921cd39a4",
+   "title": "Frequently Asked Questions",
+   "url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "bc69341d235c45d0",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "When the family circumstances change, you may qualify to have your aid eligibility reconsidered through an appeal process known as professional judgment.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-184782",
+  "issues": [
+   "ambiguous_year_labels",
+   "semantic_review_required",
+   "conflicting_sources:https://sites.rowan.edu/financial-aid/appeals/income-adjustment.html"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-184782",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "process_summary": "When the family circumstances change, you may qualify to have your aid eligibility reconsidered through an appeal process known as professional judgment.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:04+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 07 Oct 2026 03:02:14 GMT",
+   "page_file": "4903039bed729a4d2af9.json.gz",
+   "requested_url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html",
+   "sha256": "4903039bed729a4d2af92b71967c2e1e64ad6ea03340cc84551cedc921cd39a4",
+   "title": "Frequently Asked Questions",
+   "url": "https://sites.rowan.edu/financial-aid/tuition-free/faq.html"
+  },
+  "year_basis": "ambiguous_year_labels"
+ }
+]
