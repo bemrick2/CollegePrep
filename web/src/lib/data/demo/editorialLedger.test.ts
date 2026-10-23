@@ -64,4 +64,19 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
     l.items[q.id]!.signoffs.push(so(6, 'Kim Fair', { result: 'fail', note: 'context assumes a ski trip' }))
     expect(editorialState(q, l)).toMatchObject({ passed: 5, next: 6, problems: ['stage 6 failed: context assumes a ski trip'] })
   })
+
+  it('the author is the same person whatever the spacing, case or invisible characters', () => {
+    const l = full('Dana Author')
+    l.items[q.id]!.signoffs = l.items[q.id]!.signoffs.map((x) => (x.stage === 8 ? { ...x, by: 'DANA\u00a0 Author\u200b' } : x))
+    expect(editorialState(q, l)).toMatchObject({ humanApproved: false, next: 8 })
+  })
+
+  it('obvious non-people do not count as reviewers', () => {
+    for (const n of ['A.I.', 'Gemini', 'Assistant', 'The content lead']) {
+      const l = full()
+      l.items[q.id]!.signoffs = l.items[q.id]!.signoffs.map((x) => (x.stage === 8 ? { ...x, by: n } : x))
+      expect(editorialState(q, l).humanApproved).toBe(false)
+    }
+  })
 })
+

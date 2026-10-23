@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { QUESTIONS } from '../../src/lib/data/demo/fixtures'
 import { contentHash } from '../../src/lib/data/demo/questionReview'
-import { EDITORIAL_LEDGER, editorialState, type Ledger, type SignOff, type Stage } from '../../src/lib/data/demo/editorialLedger'
+import { canonicalPerson, EDITORIAL_LEDGER, editorialState, isIsoDate, type Ledger, type SignOff, type Stage } from '../../src/lib/data/demo/editorialLedger'
 
 const files = process.argv.slice(2)
 if (!files.length) throw new Error('usage: recordEditorial.ts <signoffs.csv> [...]')
@@ -53,13 +53,18 @@ for (const f of files) {
     if (col(r, 'hash') !== contentHash(q)) { refused.push(`${id}: hash ${col(r, 'hash')} is not the current content (${contentHash(q)}); re-issue the packet`); continue }
     const entry = (ledger.items[id] ??= { author: 'AI (Claude)', signoffs: [] })
     if (stage === 2) { entry.author = by; continue }
-    const s: SignOff = { stage, by, date: col(r, 'date') || new Date().toISOString().slice(0, 10), result: col(r, 'result') === 'fail' ? 'fail' : 'pass', hash: contentHash(q) }
+    const date = col(r, 'date') || new Date().toISOString().slice(0, 10)
+    // A date must be real and not in the future (a local day ahead of UTC is allowed).
+    if (!isIsoDate(date) || date > new Date(Date.now() + 86400000).toISOString().slice(0, 10)) { refused.push(`${id}: date "${date}" must be YYYY-MM-DD and not in the future`); continue }
+    const s: SignOff = { stage, by, date, result: col(r, 'result') === 'fail' ? 'fail' : 'pass', hash: contentHash(q) }
     if (col(r, 'answer')) s.answer = col(r, 'answer')
     if (col(r, 'seconds')) s.seconds = Number(col(r, 'seconds'))
     if (col(r, 'license')) s.license = col(r, 'license')
     if (col(r, 'note')) s.note = col(r, 'note')
-    // One sign-off per person per stage: a newer one replaces theirs.
-    entry.signoffs = [...entry.signoffs.filter((x) => !(x.stage === stage && x.by.trim().toLowerCase() === by.toLowerCase() && x.hash === s.hash)), s]
+    // One sign-off per person per stage: a newer one replaces that person's earlier PASS only. A recorded fail is
+    // never removed by a later row (it stays until the item is revised), so a name that merely looks the same can't
+    // erase someone else's fail.
+    entry.signoffs = [...entry.signoffs.filter((x) => !(x.stage === stage && x.result === 'pass' && canonicalPerson(x.by) === canonicalPerson(by) && x.hash === s.hash)), s]
     added++
   }
 }
