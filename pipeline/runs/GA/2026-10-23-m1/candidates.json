@@ -1,0 +1,1730 @@
+[
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "70372358dc0df389",
+  "checks": {
+   "fields": [
+    "min_hs_gpa"
+   ],
+   "tiers": 1
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "The student must present a cumulative grade point average (GPA) of 3.25 or higher in their Required High School Curriculum (RHSC) coursework (PDF), and the transcript must show evidence that the student is on track toward the completion of the USG RHSC requirements and high school graduation.",
+    "value": 3.25
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "institution_key": "ipeds-482680",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "dual_enrollment": {
+    "eligibility_tiers": [
+     {
+      "grades": [],
+      "line": "The student must present a cumulative grade point average (GPA) of 3.25 or higher in their Required High School Curriculum (RHSC) coursework (PDF), and the transcript must show evidence that the student is on track toward the completion of the USG RHSC requirements and high school graduation.",
+      "min_hs_gpa": 3.25
+     }
+    ],
+    "min_hs_gpa": 3.25
+   },
+   "equivalencies": [],
+   "institution_key": "ipeds-482680",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by dual_enrollment/v1; every field cites its line. Eligibility tiers are kept as printed.",
+   "policy_kind": "dual_enrollment",
+   "policy_url": "https://ung.edu/military-college-admissions/application-process/dual-enrolled-high-school-student.php",
+   "source_url": "https://ung.edu/military-college-admissions/application-process/dual-enrolled-high-school-student.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:02+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "99538b69fa090f490f95.json.gz",
+   "requested_url": "https://ung.edu/military-college-admissions/application-process/dual-enrolled-high-school-student.php",
+   "sha256": "99538b69fa090f490f957ae3793413d2a55b5dd678f499c76dcb79a7dd9fcce9",
+   "title": "Dual-Enrolled High School Student",
+   "url": "https://ung.edu/military-college-admissions/application-process/dual-enrolled-high-school-student.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "783a0eb9c2104771",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "SAP Appeal Plan – A student who was unable to meet the stipulations under the SAP Academic Plan will no longer be eligible for financial aid, but will retain the right to appeal the determination based on extenuating circumstances.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Students must complete the SAP Appeal Form.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Deadlines for Financial Aid Appeals Fall Semester: November 1 Spring Semester: April 1 Summer Semester: July 1 Review of Financial Aid Appeals Financial Aid Appeals will be reviewed by the financial aid director with guidance from an SAP Appeal Committee comprised of Student Affairs and Academic Affairs personnel.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Regaining Financial Aid Eligibility Once eligibility for financial aid has been denied by the SAP Appeal Committee, a student can only regain financial aid eligibility by meeting the SAP standards.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-482680",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-482680",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 4 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://ung.edu/cost-aid/financial-aid/satisfactory-academic-progress.php",
+   "process_summary": "SAP Appeal Plan – A student who was unable to meet the stipulations under the SAP Academic Plan will no longer be eligible for financial aid, but will retain the right to appeal the determination based on extenuating circumstances.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://ung.edu/cost-aid/financial-aid/satisfactory-academic-progress.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:30+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "341fb186177ecca16329.json.gz",
+   "requested_url": "https://ung.edu/cost-aid/financial-aid/satisfactory-academic-progress.php",
+   "sha256": "341fb186177ecca16329793be92b4aa67b37509b9ca8f611f76746f85dbb5259",
+   "title": "Satisfactory Academic Progress",
+   "url": "https://ung.edu/cost-aid/financial-aid/satisfactory-academic-progress.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "4a5ffdbaaa086ecb",
+  "checks": {
+   "fields": [
+    "min_hs_gpa"
+   ],
+   "tiers": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "The student must present a cumulative grade point average (GPA) of 3.25 or higher in their Required High School Curriculum (RHSC) coursework (PDF), and the transcript must show evidence that the student is on track toward the completion of the USG RHSC requirements and high school graduation.",
+    "value": 3.25
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "institution_key": "ipeds-482680",
+  "issues": [
+   "stale_year_label:2025-26"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "dual_enrollment": {
+    "eligibility_tiers": [
+     {
+      "grades": [],
+      "line": "The student must present a cumulative grade point average (GPA) of 3.25 or higher in their Required High School Curriculum (RHSC) coursework (PDF), and the transcript must show evidence that the student is on track toward the completion of the USG RHSC requirements and high school graduation.",
+      "min_hs_gpa": 3.25
+     }
+    ],
+    "min_hs_gpa": 3.25
+   },
+   "equivalencies": [],
+   "institution_key": "ipeds-482680",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by dual_enrollment/v1; every field cites its line. Eligibility tiers are kept as printed.",
+   "policy_kind": "dual_enrollment",
+   "policy_url": "https://ung.edu/undergraduate-admissions/how-to-apply/dual-enrollment.php",
+   "source_url": "https://ung.edu/undergraduate-admissions/how-to-apply/dual-enrollment.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:53+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "e932f4de592004311c57.json.gz",
+   "requested_url": "https://ung.edu/undergraduate-admissions/how-to-apply/dual-enrollment.php",
+   "sha256": "e932f4de592004311c57a0e48c21c15e85e490b812a2798c526c617be550f463",
+   "title": "Dual Enrollment Program at UNG",
+   "url": "https://ung.edu/undergraduate-admissions/how-to-apply/dual-enrollment.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "9cc67e55b8d24fa8",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "If a grade change would positively affect a student’s financial aid eligibility, the student may submit a SAP Appeal to the Office of Scholarships and Financial Aid.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "SAP Appeal Process Students who fail to meet SAP requirements may submit a SAP appeal to request reinstatement of financial aid.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Step 2: Initiate Your SAP Appeal Click Manage Request in the portal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Select SAP Appeal for the appropriate aid year.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-139755",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-139755",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 4 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://finaid.gatech.edu/manage-aid/academic-progress",
+   "process_summary": "If a grade change would positively affect a student’s financial aid eligibility, the student may submit a SAP Appeal to the Office of Scholarships and Financial Aid.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://finaid.gatech.edu/manage-aid/academic-progress",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:59+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "bbb39a989b1a3721004b.json.gz",
+   "requested_url": "https://finaid.gatech.edu/manage-aid/academic-progress",
+   "sha256": "bbb39a989b1a3721004b6f8d8f770f75a23228aca1d7a8fca3763efb782916dd",
+   "title": "Satisfactory Academic Progress Policy | Financial Aid",
+   "url": "https://finaid.gatech.edu/manage-aid/academic-progress"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "2b5e7394ee46245e",
+  "checks": {
+   "distinct_exams": 33,
+   "equivalencies": 34,
+   "rows_without_score": 34
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[AP-AFRICAN-AMERICAN-STUDIES|None]",
+    "snippet": "African American Studies | AP Score: 4 or 5 = HTS 1XXX | 3"
+   },
+   {
+    "field": "equivalencies[AP-ART-HISTORY|None]",
+    "snippet": "Art History | AP Score: 4 or 5 ID 2242 | 3"
+   },
+   {
+    "field": "equivalencies[AP-BIOLOGY|None]",
+    "snippet": "Biology | AP Score: 4 or 5 = BIOS 1107 and BIOS 1107L | 4"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-AB|None]",
+    "snippet": "Mathematics - Calculus AB | AP Score: 4 or 5 = MATH 1551 4 | 2"
+   },
+   {
+    "field": "equivalencies[AP-CALCULUS-BC|None]",
+    "snippet": "Mathematics - Calculus BC | AP Score: 4 or 5 = MATH 1551 & MATH 15524 | 6"
+   },
+   {
+    "field": "equivalencies[AP-PRECALCULUS|None]",
+    "snippet": "Mathematics - Precalculus | AP Score: 4 or 5 = MATH 1113 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|None]",
+    "snippet": "Chemistry - Effective Summer 2010 | AP Score: 4 = CHEM 1211K | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHEMISTRY|None]",
+    "snippet": "Chemistry | AP Score: 5 = CHEM 1310 | 4"
+   },
+   {
+    "field": "equivalencies[AP-CHINESE-LANGUAGE-CULTURE|None]",
+    "snippet": "Chinese Language and Culture | AP Score: 3 = CHIN 1001 and CHIN 1002 5 | 8"
+   },
+   {
+    "field": "equivalencies[AP-COMPUTER-SCIENCE-PRINCIPLES|None]",
+    "snippet": "Computer Science Principles | AP Score: 4 or 5 = CS 1XXX | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LANGUAGE-COMPOSITION|None]",
+    "snippet": "English Language and Composition | AP Score: 4 or 5 = ENGL 1101 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENGLISH-LITERATURE-COMPOSITION|None]",
+    "snippet": "English Literature and Composition | AP Score: 4 or 5 = ENGL 1101 | 3"
+   },
+   {
+    "field": "equivalencies[AP-ENVIRONMENTAL-SCIENCE|None]",
+    "snippet": "Environmental Science | AP Score: 4 or 5 = EAS 1600 | 4"
+   },
+   {
+    "field": "equivalencies[AP-EUROPEAN-HISTORY|None]",
+    "snippet": "European History | AP Score: 4 or 5 = HTS 1031 | 3"
+   },
+   {
+    "field": "equivalencies[AP-FRENCH-LANGUAGE-CULTURE|None]",
+    "snippet": "French Language and Culture | AP Score: 3 = FREN 1001 and FREN 1002 5 | 6"
+   },
+   {
+    "field": "equivalencies[AP-GERMAN-LANGUAGE-CULTURE|None]",
+    "snippet": "German Language and Culture | AP Score: 3 = GRMN 1001 & GRMN 1002 5 | 6"
+   },
+   {
+    "field": "equivalencies[AP-HUMAN-GEOGRAPHY|None]",
+    "snippet": "Human Geography | AP Score: 4 or 5 = SS 1XXX | 3"
+   },
+   {
+    "field": "equivalencies[AP-ITALIAN-LANGUAGE-CULTURE|None]",
+    "snippet": "Italian Language and Culture | No Credit Awarded | 0"
+   },
+   {
+    "field": "equivalencies[AP-JAPANESE-LANGUAGE-CULTURE|None]",
+    "snippet": "Japanese Language and Culture | AP Score: 3 = JAPN 1001 and JAPN 1002 5 | 8"
+   },
+   {
+    "field": "equivalencies[AP-LATIN|None]",
+    "snippet": "Latin (Language and Culture) | AP Score: 4 or 5 = LATN 2XXX | 6"
+   },
+   {
+    "field": "equivalencies[AP-MACROECONOMICS|None]",
+    "snippet": "Economics (Macroeconomics) | AP Score: 4 or 5 = ECON 2105 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MICROECONOMICS|None]",
+    "snippet": "Economics (Microeconomics) | AP Score: 4 or 5 = ECON 2106 | 3"
+   },
+   {
+    "field": "equivalencies[AP-MUSIC-THEORY|None]",
+    "snippet": "Music Theory | AP Score: 4 or 5 = MUSI 2700 | 3"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-C-MECHANICS|None]",
+    "snippet": "Physics C, Part I: Mechanics | AP Score: 5 = PHYS 22113 | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-1|None]",
+    "snippet": "Physics 1: Algebra-Based | AP Score: 4 or 5 = PHYS 1111K | 4"
+   },
+   {
+    "field": "equivalencies[AP-PHYSICS-2|None]",
+    "snippet": "Physics 2: Algebra-Based | AP Score: 4 or 5 = PHYS 2XXX | 3"
+   },
+   {
+    "field": "equivalencies[AP-PSYCHOLOGY|None]",
+    "snippet": "Psychology | AP Score: 4 or 5 = PSYC 1101 | 3"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LANGUAGE-CULTURE|None]",
+    "snippet": "Spanish Language & Culture | AP Score: 3 = SPAN 1001 & SPAN 1002 5 | 6"
+   },
+   {
+    "field": "equivalencies[AP-SPANISH-LITERATURE-CULTURE|None]",
+    "snippet": "Spanish Literature & Culture | AP Score: 3 = SPAN 1001 & SPAN 1002 5 | 6"
+   },
+   {
+    "field": "equivalencies[AP-STATISTICS|None]",
+    "snippet": "Statistics | No Credit Awarded | 0"
+   },
+   {
+    "field": "equivalencies[AP-2-D-ART-DESIGN|None]",
+    "snippet": "Studio Art: 2-D Design | AP Score: 4 or 5 = ARCH 1XXX | 3"
+   },
+   {
+    "field": "equivalencies[AP-3-D-ART-DESIGN|None]",
+    "snippet": "Studio Art: 3-D Design | AP Score: 4 or 5 = ARCH 1XXX | 3"
+   },
+   {
+    "field": "equivalencies[AP-DRAWING|None]",
+    "snippet": "Studio Art: Drawing | No Credit Awarded | 0"
+   },
+   {
+    "field": "equivalencies[AP-WORLD-HISTORY-MODERN|None]",
+    "snippet": "World History | AP Score: 4 or 5 = HTS 1XXX1 | 3"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-139755",
+  "issues": [
+   "rows_without_score"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "equivalencies": [
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-AFRICAN-AMERICAN-STUDIES",
+     "exam_or_course_name": "AP African American Studies",
+     "institution_course_equivalent": "AP Score: 4 or 5 = HTS 1XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ART-HISTORY",
+     "exam_or_course_name": "AP Art History",
+     "institution_course_equivalent": "AP Score: 4 or 5 ID 2242",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-BIOLOGY",
+     "exam_or_course_name": "AP Biology",
+     "institution_course_equivalent": "AP Score: 4 or 5 = BIOS 1107 and BIOS 1107L",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 2,
+     "exam_or_course_code": "AP-CALCULUS-AB",
+     "exam_or_course_name": "AP Calculus AB",
+     "institution_course_equivalent": "AP Score: 4 or 5 = MATH 1551 4",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-CALCULUS-BC",
+     "exam_or_course_name": "AP Calculus BC",
+     "institution_course_equivalent": "AP Score: 4 or 5 = MATH 1551 & MATH 15524",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PRECALCULUS",
+     "exam_or_course_name": "AP Precalculus",
+     "institution_course_equivalent": "AP Score: 4 or 5 = MATH 1113",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "AP Score: 4 = CHEM 1211K",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-CHEMISTRY",
+     "exam_or_course_name": "AP Chemistry",
+     "institution_course_equivalent": "AP Score: 5 = CHEM 1310",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-CHINESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Chinese Language & Culture",
+     "institution_course_equivalent": "AP Score: 3 = CHIN 1001 and CHIN 1002 5",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-COMPUTER-SCIENCE-PRINCIPLES",
+     "exam_or_course_name": "AP Computer Science Principles",
+     "institution_course_equivalent": "AP Score: 4 or 5 = CS 1XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LANGUAGE-COMPOSITION",
+     "exam_or_course_name": "AP English Language & Composition",
+     "institution_course_equivalent": "AP Score: 4 or 5 = ENGL 1101",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-ENGLISH-LITERATURE-COMPOSITION",
+     "exam_or_course_name": "AP English Literature & Composition",
+     "institution_course_equivalent": "AP Score: 4 or 5 = ENGL 1101",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-ENVIRONMENTAL-SCIENCE",
+     "exam_or_course_name": "AP Environmental Science",
+     "institution_course_equivalent": "AP Score: 4 or 5 = EAS 1600",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-EUROPEAN-HISTORY",
+     "exam_or_course_name": "AP European History",
+     "institution_course_equivalent": "AP Score: 4 or 5 = HTS 1031",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-FRENCH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP French Language & Culture",
+     "institution_course_equivalent": "AP Score: 3 = FREN 1001 and FREN 1002 5",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-GERMAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP German Language & Culture",
+     "institution_course_equivalent": "AP Score: 3 = GRMN 1001 & GRMN 1002 5",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-HUMAN-GEOGRAPHY",
+     "exam_or_course_name": "AP Human Geography",
+     "institution_course_equivalent": "AP Score: 4 or 5 = SS 1XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 0,
+     "exam_or_course_code": "AP-ITALIAN-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Italian Language & Culture",
+     "institution_course_equivalent": "No Credit Awarded",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 8,
+     "exam_or_course_code": "AP-JAPANESE-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Japanese Language & Culture",
+     "institution_course_equivalent": "AP Score: 3 = JAPN 1001 and JAPN 1002 5",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-LATIN",
+     "exam_or_course_name": "AP Latin",
+     "institution_course_equivalent": "AP Score: 4 or 5 = LATN 2XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MACROECONOMICS",
+     "exam_or_course_name": "AP Macroeconomics",
+     "institution_course_equivalent": "AP Score: 4 or 5 = ECON 2105",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MICROECONOMICS",
+     "exam_or_course_name": "AP Microeconomics",
+     "institution_course_equivalent": "AP Score: 4 or 5 = ECON 2106",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-MUSIC-THEORY",
+     "exam_or_course_name": "AP Music Theory",
+     "institution_course_equivalent": "AP Score: 4 or 5 = MUSI 2700",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-C-MECHANICS",
+     "exam_or_course_name": "AP Physics C: Mechanics",
+     "institution_course_equivalent": "AP Score: 5 = PHYS 22113",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 4,
+     "exam_or_course_code": "AP-PHYSICS-1",
+     "exam_or_course_name": "AP Physics 1",
+     "institution_course_equivalent": "AP Score: 4 or 5 = PHYS 1111K",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-PHYSICS-2",
+     "exam_or_course_name": "AP Physics 2",
+     "institution_course_equivalent": "AP Score: 4 or 5 = PHYS 2XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-PSYCHOLOGY",
+     "exam_or_course_name": "AP Psychology",
+     "institution_course_equivalent": "AP Score: 4 or 5 = PSYC 1101",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-SPANISH-LANGUAGE-CULTURE",
+     "exam_or_course_name": "AP Spanish Language & Culture",
+     "institution_course_equivalent": "AP Score: 3 = SPAN 1001 & SPAN 1002 5",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 6,
+     "exam_or_course_code": "AP-SPANISH-LITERATURE-CULTURE",
+     "exam_or_course_name": "AP Spanish Literature & Culture",
+     "institution_course_equivalent": "AP Score: 3 = SPAN 1001 & SPAN 1002 5",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 0,
+     "exam_or_course_code": "AP-STATISTICS",
+     "exam_or_course_name": "AP Statistics",
+     "institution_course_equivalent": "No Credit Awarded",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-2-D-ART-DESIGN",
+     "exam_or_course_name": "AP 2-D Art & Design",
+     "institution_course_equivalent": "AP Score: 4 or 5 = ARCH 1XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-3-D-ART-DESIGN",
+     "exam_or_course_name": "AP 3-D Art & Design",
+     "institution_course_equivalent": "AP Score: 4 or 5 = ARCH 1XXX",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 0,
+     "exam_or_course_code": "AP-DRAWING",
+     "exam_or_course_name": "AP Drawing",
+     "institution_course_equivalent": "No Credit Awarded",
+     "minimum_score": null,
+     "notes": null
+    },
+    {
+     "credits_awarded": 3,
+     "exam_or_course_code": "AP-WORLD-HISTORY-MODERN",
+     "exam_or_course_name": "AP World History: Modern",
+     "institution_course_equivalent": "AP Score: 4 or 5 = HTS 1XXX1",
+     "minimum_score": null,
+     "notes": null
+    }
+   ],
+   "institution_key": "ipeds-139755",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "AP",
+   "policy_url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/advanced-placement-exams/",
+   "source_url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/advanced-placement-exams/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:39+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 27 Jul 2026 19:18:50 GMT",
+   "page_file": "eecad63896f59003ded5.json.gz",
+   "requested_url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/advanced-placement-exams/",
+   "sha256": "eecad63896f59003ded594f6e974ba34c07395816746ac992196090ff5260eaf",
+   "title": "Advanced Placement Exams | Georgia Tech Catalog",
+   "url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/advanced-placement-exams/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "52afc911d219cad5",
+  "checks": {
+   "distinct_exams": 28,
+   "equivalencies": 30,
+   "rows_without_score": 0
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "equivalencies[IB-BIOLOGY-HL|HL 4-5]",
+    "snippet": "Biology HL | 4-5 | BIOS 1107 and BIOS 1107L"
+   },
+   {
+    "field": "equivalencies[IB-BIOLOGY-SL|SL 6-7]",
+    "snippet": "Biology SL | 6-7 | BIOS 1107 and BIOS 1107L"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-HL|HL 5-7]",
+    "snippet": "Chemistry HL | 5-7 | CHEM 1310"
+   },
+   {
+    "field": "equivalencies[IB-CHEMISTRY-SL|SL 6-7]",
+    "snippet": "Chemistry SL | 6-7 | CHEM 1XXX (4)"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-HL|HL 5-7]",
+    "snippet": "Computer Science HL | 5-7 | CS 1301"
+   },
+   {
+    "field": "equivalencies[IB-COMPUTER-SCIENCE-SL|SL 6-7]",
+    "snippet": "Computer Science SL | 6-7 | CS 1XXX (3)"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-HL|HL 5-7]",
+    "snippet": "Economics HL | 5-7 | ECON 2105 and ECON 2106*"
+   },
+   {
+    "field": "equivalencies[IB-ECONOMICS-SL|SL 6-7]",
+    "snippet": "Economics SL | 6-7 | ECON 2100"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE-HL|HL 5-7]",
+    "snippet": "English A: Language and Literature HL | 5-7 | LMC 2060"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LANGUAGE-LITERATURE-SL|SL 5-7]",
+    "snippet": "English A: Language and Literature SL | 5-7 | LMC 2060"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE-HL|HL 4-7]",
+    "snippet": "English A: Literature HL | 4-7 | ENGL 1101"
+   },
+   {
+    "field": "equivalencies[IB-ENGLISH-A-LITERATURE-SL|SL 6-7]",
+    "snippet": "English A: Literature SL | 6-7 | ENGL 1101"
+   },
+   {
+    "field": "equivalencies[IB-FILM-HL|HL 7]",
+    "snippet": "Film HL | 7 | LMC 3406"
+   },
+   {
+    "field": "equivalencies[IB-FILM-SL|SL 6-7]",
+    "snippet": "Film SL | 6-7 | LMC 2500"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-HL|HL 4]",
+    "snippet": "**Foreign Language B HL (Arabic, Chinese, French, German, Hindi, Japanese, Korean, Portuguese, Russian, Spanish) | 4 | 1001 and 1002"
+   },
+   {
+    "field": "equivalencies[IB-FRENCH-SL|SL 5]",
+    "snippet": "**Foreign Language B SL (Arabic, Chinese, French, German, Hebrew, Hindi, Japanese, Korean, Portuguese, Russian, Spanish) | 5 | 1001 and 1002"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-HL|HL 5-7]",
+    "snippet": "Geography HL | 5-7 | SS 1XXX (3)"
+   },
+   {
+    "field": "equivalencies[IB-GEOGRAPHY-SL|SL 6-7]",
+    "snippet": "Geography SL | 6-7 | SS 1XXX (3)"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS-HL|HL 5-7]",
+    "snippet": "Global Politics HL | 5-7 | INTA 1050 and INTA 3101"
+   },
+   {
+    "field": "equivalencies[IB-GLOBAL-POLITICS-SL|SL 6-7]",
+    "snippet": "Global Politics SL | 6-7 | INTA 1050"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-SL|SL 6-7]",
+    "snippet": "History SL | 6-7 | HTS 1XXX (3)"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-HL|HL 5-7]",
+    "snippet": "History of Africa and the Middle East HL | 5-7 | HTS 2XXX (3)"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-HL|HL 5-7]",
+    "snippet": "History of Americas HL | 5-7 | HIST 2112"
+   },
+   {
+    "field": "equivalencies[IB-HISTORY-HL|HL 5-7]",
+    "snippet": "History of Europe HL | 5-7 | HTS 2037"
+   },
+   {
+    "field": "equivalencies[IB-LATIN-HL|HL 4-7]",
+    "snippet": "Latin B HL | 4-7 | LATN 2XXX (6)"
+   },
+   {
+    "field": "equivalencies[IB-PHILOSOPHY-HL|HL 7]",
+    "snippet": "Philosophy HL | 7 | PHIL 2010"
+   },
+   {
+    "field": "equivalencies[IB-PHYSICS-HL|HL 7]",
+    "snippet": "Physics HL | 7 | PHYS 1111K"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-HL|HL 5-7]",
+    "snippet": "Psychology HL | 5-7 | PSYC 1101"
+   },
+   {
+    "field": "equivalencies[IB-PSYCHOLOGY-SL|SL 6-7]",
+    "snippet": "Psychology SL | 6-7 | PSYC 1XXX (3)"
+   },
+   {
+    "field": "equivalencies[IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL|HL 5-7]",
+    "snippet": "Social and Cultural Anthropology HL | 5-7 | SS 1XXX (3)"
+   }
+  ],
+  "extractor": "credit_table/v1",
+  "institution_key": "ipeds-139755",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "equivalencies": [
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY-HL",
+     "exam_or_course_name": "IB Biology (HL)",
+     "institution_course_equivalent": "BIOS 1107 and BIOS 1107L",
+     "minimum_score": "HL 4-5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-BIOLOGY-SL",
+     "exam_or_course_name": "IB Biology (SL)",
+     "institution_course_equivalent": "BIOS 1107 and BIOS 1107L",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-HL",
+     "exam_or_course_name": "IB Chemistry (HL)",
+     "institution_course_equivalent": "CHEM 1310",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-CHEMISTRY-SL",
+     "exam_or_course_name": "IB Chemistry (SL)",
+     "institution_course_equivalent": "CHEM 1XXX (4)",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-HL",
+     "exam_or_course_name": "IB Computer Science (HL)",
+     "institution_course_equivalent": "CS 1301",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-COMPUTER-SCIENCE-SL",
+     "exam_or_course_name": "IB Computer Science (SL)",
+     "institution_course_equivalent": "CS 1XXX (3)",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-HL",
+     "exam_or_course_name": "IB Economics (HL)",
+     "institution_course_equivalent": "ECON 2105 and ECON 2106*",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ECONOMICS-SL",
+     "exam_or_course_name": "IB Economics (SL)",
+     "institution_course_equivalent": "ECON 2100",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE-HL",
+     "exam_or_course_name": "IB English A: Language & Literature (HL)",
+     "institution_course_equivalent": "LMC 2060",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LANGUAGE-LITERATURE-SL",
+     "exam_or_course_name": "IB English A: Language & Literature (SL)",
+     "institution_course_equivalent": "LMC 2060",
+     "minimum_score": "SL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE-HL",
+     "exam_or_course_name": "IB English A: Literature (HL)",
+     "institution_course_equivalent": "ENGL 1101",
+     "minimum_score": "HL 4-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-ENGLISH-A-LITERATURE-SL",
+     "exam_or_course_name": "IB English A: Literature (SL)",
+     "institution_course_equivalent": "ENGL 1101",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FILM-HL",
+     "exam_or_course_name": "IB Film (HL)",
+     "institution_course_equivalent": "LMC 3406",
+     "minimum_score": "HL 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FILM-SL",
+     "exam_or_course_name": "IB Film (SL)",
+     "institution_course_equivalent": "LMC 2500",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-HL",
+     "exam_or_course_name": "IB French (HL)",
+     "institution_course_equivalent": "1001 and 1002",
+     "minimum_score": "HL 4",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-FRENCH-SL",
+     "exam_or_course_name": "IB French (SL)",
+     "institution_course_equivalent": "1001 and 1002",
+     "minimum_score": "SL 5",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY-HL",
+     "exam_or_course_name": "IB Geography (HL)",
+     "institution_course_equivalent": "SS 1XXX (3)",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GEOGRAPHY-SL",
+     "exam_or_course_name": "IB Geography (SL)",
+     "institution_course_equivalent": "SS 1XXX (3)",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS-HL",
+     "exam_or_course_name": "IB Global Politics (HL)",
+     "institution_course_equivalent": "INTA 1050 and INTA 3101",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-GLOBAL-POLITICS-SL",
+     "exam_or_course_name": "IB Global Politics (SL)",
+     "institution_course_equivalent": "INTA 1050",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-SL",
+     "exam_or_course_name": "IB History (SL)",
+     "institution_course_equivalent": "HTS 1XXX (3)",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-HL",
+     "exam_or_course_name": "IB History (HL)",
+     "institution_course_equivalent": "HTS 2XXX (3)",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-HL",
+     "exam_or_course_name": "IB History (HL)",
+     "institution_course_equivalent": "HIST 2112",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-HISTORY-HL",
+     "exam_or_course_name": "IB History (HL)",
+     "institution_course_equivalent": "HTS 2037",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-LATIN-HL",
+     "exam_or_course_name": "IB Latin (HL)",
+     "institution_course_equivalent": "LATN 2XXX (6)",
+     "minimum_score": "HL 4-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHILOSOPHY-HL",
+     "exam_or_course_name": "IB Philosophy (HL)",
+     "institution_course_equivalent": "PHIL 2010",
+     "minimum_score": "HL 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PHYSICS-HL",
+     "exam_or_course_name": "IB Physics (HL)",
+     "institution_course_equivalent": "PHYS 1111K",
+     "minimum_score": "HL 7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY-HL",
+     "exam_or_course_name": "IB Psychology (HL)",
+     "institution_course_equivalent": "PSYC 1101",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-PSYCHOLOGY-SL",
+     "exam_or_course_name": "IB Psychology (SL)",
+     "institution_course_equivalent": "PSYC 1XXX (3)",
+     "minimum_score": "SL 6-7",
+     "notes": null
+    },
+    {
+     "credits_awarded": null,
+     "exam_or_course_code": "IB-SOCIAL-CULTURAL-ANTHROPOLOGY-HL",
+     "exam_or_course_name": "IB Social & Cultural Anthropology (HL)",
+     "institution_course_equivalent": "SS 1XXX (3)",
+     "minimum_score": "HL 5-7",
+     "notes": null
+    }
+   ],
+   "institution_key": "ipeds-139755",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by credit_table/v1 from the published table; cells copied as printed.",
+   "policy_kind": "IB",
+   "policy_url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/international-baccalaureate-exams/",
+   "source_url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/international-baccalaureate-exams/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:08:40+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 27 Jul 2026 19:19:07 GMT",
+   "page_file": "41ae4b3bfa0c0b8e47ba.json.gz",
+   "requested_url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/international-baccalaureate-exams/",
+   "sha256": "41ae4b3bfa0c0b8e47baec8c8142e845976476e81c83475ce0446b1f9d3d048b",
+   "title": "International Baccalaureate Exams | Georgia Tech Catalog",
+   "url": "https://catalog.gatech.edu/academics/undergraduate/credit-tests-scores/international-baccalaureate-exams/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "676a217aab13ad7b",
+  "checks": {
+   "columns": 3,
+   "rows": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "costs",
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $2,880 | $2,880 | $5,760",
+    "value": 2880
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $594 | $594 | $1,188",
+    "value": 594
+   },
+   {
+    "field": "column:Books (May be less with Day One",
+    "snippet": "Books (May be less with Day One | $750 | $750 | $1,500",
+    "value": 750
+   },
+   {
+    "field": "column:Subtotal",
+    "snippet": "Subtotal | $4,224 | $4,224 | $8,448",
+    "value": 4224
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $2,880 | $2,880 | $5,760",
+    "value": 2880
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $594 | $594 | $1,188",
+    "value": 594
+   },
+   {
+    "field": "column:Books (May be less with Day One",
+    "snippet": "Books (May be less with Day One | $750 | $750 | $1,500",
+    "value": 750
+   },
+   {
+    "field": "column:Subtotal",
+    "snippet": "Subtotal | $4,224 | $4,224 | $8,448",
+    "value": 4224
+   },
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $2,880 | $2,880 | $5,760",
+    "value": 5760
+   },
+   {
+    "field": "column:Fees",
+    "snippet": "Fees | $594 | $594 | $1,188",
+    "value": 1188
+   },
+   {
+    "field": "column:Books (May be less with Day One",
+    "snippet": "Books (May be less with Day One | $750 | $750 | $1,500",
+    "value": 1500
+   },
+   {
+    "field": "column:Subtotal",
+    "snippet": "Subtotal | $4,224 | $4,224 | $8,448",
+    "value": 8448
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "institution_key": "ipeds-486840",
+  "issues": [
+   "arrangement_unlabeled",
+   "residency_unknown"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "books_supplies": 750,
+   "components": {
+    "Books (May be less with Day One": 750,
+    "Fees": 594,
+    "Subtotal": 4224,
+    "Tuition": 2880
+   },
+   "cost_period": "academic_year",
+   "currency": "USD",
+   "institution_key": "ipeds-486840",
+   "last_verified_at": "2026-10-23",
+   "living_arrangements": [
+    {
+     "arrangement": "unlabeled",
+     "column_header": "(15 Hours)",
+     "components": {
+      "Books (May be less with Day One": 750,
+      "Fees": 594,
+      "Subtotal": 4224,
+      "Tuition": 2880
+     },
+     "total_cost_of_attendance": null
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "(15 Hours)",
+     "components": {
+      "Books (May be less with Day One": 750,
+      "Fees": 594,
+      "Subtotal": 4224,
+      "Tuition": 2880
+     },
+     "total_cost_of_attendance": null
+    },
+    {
+     "arrangement": "unlabeled",
+     "column_header": "",
+     "components": {
+      "Books (May be less with Day One": 1500,
+      "Fees": 1188,
+      "Subtotal": 8448,
+      "Tuition": 5760
+     },
+     "total_cost_of_attendance": null
+    }
+   ],
+   "mandatory_fees": 594,
+   "notes": "Extracted by cost_table/v2 from the table \" ESTIMATING COST OF ATTENDANCE \"; printed rows copied, totals never recomputed.",
+   "on_campus_food_housing": null,
+   "residency": "not_applicable",
+   "source_url": "https://campus.kennesaw.edu/current-students/financial-aid/docs/financial-cost-worksheet.pdf",
+   "total_cost_of_attendance": null,
+   "tuition": 2880,
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:13:05+00:00",
+   "kind": "pdf",
+   "last_modified": "Wed, 24 Jun 2026 13:40:56 GMT",
+   "page_file": "15aa852c1dd6aa331a80.json.gz",
+   "requested_url": "https://campus.kennesaw.edu/current-students/financial-aid/docs/financial-cost-worksheet.pdf",
+   "sha256": "15aa852c1dd6aa331a8058c748c39956d891d6454feb5520c17065fa47586267",
+   "title": "ESTIMATING COST OF ATTENDANCE",
+   "url": "https://campus.kennesaw.edu/current-students/financial-aid/docs/financial-cost-worksheet.pdf"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2027-28",
+  "candidate_id": "45e18e52571d521a",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 3
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "If your SAP status is Failure and you cannot mathematically attain SAP requirements, an appeal will not be permissible.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "How do you regain eligibility? | SAP Appeal – If mitigating circumstances during a specific term of enrollment prevented you from meeting the requirements, you may file a SAP Appeal.",
+    "value": "sap_appeal"
+   },
+   {
+    "field": "sentence",
+    "snippet": "The appeal form must be submitted to the Office of Scholarships and Financial Aid within the prescribed dates as noted on the SAP Appeal Form.",
+    "value": "sap_appeal"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-486840",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2027-28",
+   "appeal_kind": "sap_appeal",
+   "institution_key": "ipeds-486840",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 3 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://campus.kennesaw.edu/current-students/financial-aid/policies/awarding-policy.php",
+   "process_summary": "If your SAP status is Failure and you cannot mathematically attain SAP requirements, an appeal will not be permissible.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://campus.kennesaw.edu/current-students/financial-aid/policies/awarding-policy.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:13:09+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "91701127c0d717ade48e.json.gz",
+   "requested_url": "https://campus.kennesaw.edu/current-students/financial-aid/policies/awarding-policy.php",
+   "sha256": "91701127c0d717ade48e4526d214cba7cf9c40fa08591dba07e4243edc513080",
+   "title": "Awarding Policy - Financial Aid",
+   "url": "https://campus.kennesaw.edu/current-students/financial-aid/policies/awarding-policy.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2025-26",
+  "candidate_id": "349d5a1b6e624a76",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Special Circumstances and Professional Judgment Contact Us Request Information Quick Facts Campus Maps & Directions Student Consumer Information UNG Listens Campus Safety Emergency Information Employment/HR UNG Policies & Procedures Title IX Campus Hazing Transparency Report UNG Alumni Association UNG Foundation Ethics & Compliance Hotline Human Trafficking Notice Equal Empl.",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-482680",
+  "issues": [
+   "stale_year_label:2025-26",
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2025-26",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-482680",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://ung.edu/cost-aid/financial-aid/index.php",
+   "process_summary": "Special Circumstances and Professional Judgment Contact Us Request Information Quick Facts Campus Maps & Directions Student Consumer Information UNG Listens Campus Safety Emergency Information Employment/HR UNG Policies & Procedures Title IX Campus Hazing Transparency Report UNG Alumni Association UNG Foundation Ethics & Compliance Hotline Human Trafficking Notice Equal Empl.",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://ung.edu/cost-aid/financial-aid/index.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:16:57+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f3724eef99a5f1a50427.json.gz",
+   "requested_url": "https://ung.edu/cost-aid/financial-aid/index.php",
+   "sha256": "f3724eef99a5f1a504275566ccc1a9078f876f1cb6a75c1613ebcb7f89956bd9",
+   "title": "Financial Aid",
+   "url": "https://ung.edu/cost-aid/financial-aid/index.php"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "c68136fb940e2c7b",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 4
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Special Circumstances and Professional Judgment Skip to Main Content Skip to Main Navigation Skip to Footer Info For...",
+    "value": "professional_judgment"
+   },
+   {
+    "field": "sentence",
+    "snippet": "While the Free Application for Federal Student Aid (FAFSA) determines financial aid eligibility based on data from two years prior, the Professional Judgment process exists to re-evaluate a student’s aid based on certain significant changes.",
+    "value": "professional_judgment"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Job loss due to cause or personal choice Standard living expenses (i.e., utilities, car payments) Mortgage payments Personal debt Bankruptcy Who is not eligible for a Professional Judgment?",
+    "value": "professional_judgment"
+   },
+   {
+    "field": "sentence",
+    "snippet": "Possible changes include: Costs associated with a student’s disability Childcare expenses for a dependent child of student One-time purchase of a computer for educational use One-time cost of professional licensure required for student’s major How to Apply for Professional Judgement If you meet one of the significant changes outlined in the Change to Student Aid Index (SAI) or the Change to Cost o",
+    "value": "professional_judgment"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-482680",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "professional_judgment",
+   "institution_key": "ipeds-482680",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 4 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php",
+   "process_summary": "Special Circumstances and Professional Judgment Skip to Main Content Skip to Main Navigation Skip to Footer Info For...",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:00+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ec927c2d9cb1382b38c6.json.gz",
+   "requested_url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php",
+   "sha256": "ec927c2d9cb1382b38c6de6acb3796cd17b48dffe8b2673cef8c2a43366f6f18",
+   "title": "Special Circumstances and Professional Judgment",
+   "url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "3dc91b9b1dfeba46",
+  "checks": {
+   "negative_sentences": 0,
+   "sentences": 1
+  },
+  "diff": {
+   "status": "new"
+  },
+  "domain": "appeals",
+  "evidence": [
+   {
+    "field": "sentence",
+    "snippet": "Graduate students (only eligible for Cost of Attendance adjustments in the form of loans).",
+    "value": "budget_increase"
+   }
+  ],
+  "extractor": "appeal_sentences/v1",
+  "institution_key": "ipeds-482680",
+  "issues": [
+   "semantic_review_required"
+  ],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "appeal_kind": "budget_increase",
+   "institution_key": "ipeds-482680",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by appeal_sentences/v1; 1 matching sentence(s), copied verbatim. Eligibility for the paid add-on is never set by the pipeline.",
+   "offered": true,
+   "policy_url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php",
+   "process_summary": "Graduate students (only eligible for Cost of Attendance adjustments in the form of loans).",
+   "qualifies_for_paid_addon": false,
+   "source_url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:17:00+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ec927c2d9cb1382b38c6.json.gz",
+   "requested_url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php",
+   "sha256": "ec927c2d9cb1382b38c6de6acb3796cd17b48dffe8b2673cef8c2a43366f6f18",
+   "title": "Special Circumstances and Professional Judgment",
+   "url": "https://ung.edu/cost-aid/financial-aid/special-circumstances-and-professional-judgment.php"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "m7290edda63eef45",
+  "checks": {
+   "fields": [
+    "residency_requirement_credits"
+   ],
+   "merged_pages": 2
+  },
+  "diff": {
+   "changes": [],
+   "existing_status": "partially_verified",
+   "status": "same"
+  },
+  "domain": "transfer_policies",
+  "evidence": [
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "As a prospective transfer student, it is important to note that to earn a UGA baccalaureate degree, at least 45 of the last 60 semester credit hours must be completed in residence at UGA.",
+    "source_url": "https://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/",
+    "value": 45
+   },
+   {
+    "field": "residency_requirement_credits",
+    "snippet": "As a prospective transfer student, it is important to note that to earn a UGA baccalaureate degree, at least 45 of the last 60 semester credit hours must be completed in residence at UGA.",
+    "source_url": "http://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/",
+    "value": 45
+   }
+  ],
+  "extractor": "transfer_sentences/v1",
+  "institution_key": "ipeds-139959",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "additional_source_urls": [
+    "http://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/"
+   ],
+   "institution_key": "ipeds-139959",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by transfer_sentences/v1; values copied from the cited sentences.",
+   "policy_url": "https://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/",
+   "residency_requirement_credits": 45,
+   "source_url": "https://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:05+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8c4330350bce88278658.json.gz",
+   "requested_url": "https://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/",
+   "sha256": "8c4330350bce882786589aea125fd1bcc43d6faa93e558bedf8d0726fdea7277",
+   "title": "Transfer FAQs - UGA Admissions",
+   "url": "https://admissions.uga.edu/apply/transfer-applicants/transfer-faqs/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ {
+  "academic_year": "2026-27",
+  "candidate_id": "mdc1c07f949f2719",
+  "checks": {
+   "fields": [
+    "min_hs_gpa"
+   ],
+   "merged_pages": 7,
+   "tiers": 1
+  },
+  "diff": {
+   "changes": [
+    {
+     "candidate": {
+      "eligibility_tiers": [
+       {
+        "grades": [],
+        "line": "3.5 unweighted GPA",
+        "min_hs_gpa": 3.5
+       },
+       {
+        "grades": [],
+        "line": "3.5 unweighted GPA.",
+        "min_hs_gpa": 3.5
+       }
+      ],
+      "min_hs_gpa": 3.5,
+      "per_credit_hour_charges": [
+       {
+        "amount": 353.93,
+        "kind": "tuition",
+        "line": "Tuition: $353.93 per credit hour for Georgia residents."
+       }
+      ],
+      "tuition_per_credit_hour": 353.93
+     },
+     "existing": {
+      "eligibility_tiers": [
+       {
+        "grades": [],
+        "line": "3.5 unweighted GPA.",
+        "min_hs_gpa": 3.5
+       },
+       {
+        "grades": [],
+        "line": "3.5 unweighted GPA",
+        "min_hs_gpa": 3.5
+       }
+      ],
+      "min_hs_gpa": 3.5,
+      "per_credit_hour_charges": [
+       {
+        "amount": 353.93,
+        "kind": "tuition",
+        "line": "Tuition: $353.93 per credit hour for Georgia residents."
+       }
+      ],
+      "tuition_per_credit_hour": 353.93
+     },
+     "field": "dual_enrollment"
+    }
+   ],
+   "existing_status": "partially_verified",
+   "status": "changed"
+  },
+  "domain": "credit_policies",
+  "evidence": [
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-math",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-math",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-math",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA.",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/application-and-admission",
+    "value": 3.5
+   },
+   {
+    "field": "per_credit_hour_charge",
+    "snippet": "Tuition: $353.93 per credit hour for Georgia residents.",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/enrollment-and-financial-information",
+    "value": 353.93
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-computer-science",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-computer-science",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-engineering",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-physics",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-psychology",
+    "value": 3.5
+   },
+   {
+    "field": "eligibility_tier",
+    "snippet": "3.5 unweighted GPA",
+    "source_url": "https://admission.gatech.edu/dual-enrollment/distance-psychology",
+    "value": 3.5
+   }
+  ],
+  "extractor": "dual_enrollment/v1",
+  "institution_key": "ipeds-139755",
+  "issues": [],
+  "pipeline_version": "research-pipeline/1",
+  "record": {
+   "academic_year": "2026-27",
+   "academic_year_basis": "aid_year_in_force_at_review_source_unlabeled",
+   "additional_source_urls": [
+    "https://admission.gatech.edu/dual-enrollment/application-and-admission",
+    "https://admission.gatech.edu/dual-enrollment/distance-computer-science",
+    "https://admission.gatech.edu/dual-enrollment/distance-engineering",
+    "https://admission.gatech.edu/dual-enrollment/distance-physics",
+    "https://admission.gatech.edu/dual-enrollment/distance-psychology",
+    "https://admission.gatech.edu/dual-enrollment/enrollment-and-financial-information"
+   ],
+   "dual_enrollment": {
+    "eligibility_tiers": [
+     {
+      "grades": [],
+      "line": "3.5 unweighted GPA",
+      "min_hs_gpa": 3.5
+     },
+     {
+      "grades": [],
+      "line": "3.5 unweighted GPA.",
+      "min_hs_gpa": 3.5
+     }
+    ],
+    "min_hs_gpa": 3.5,
+    "per_credit_hour_charges": [
+     {
+      "amount": 353.93,
+      "kind": "tuition",
+      "line": "Tuition: $353.93 per credit hour for Georgia residents."
+     }
+    ],
+    "tuition_per_credit_hour": 353.93
+   },
+   "equivalencies": [],
+   "institution_key": "ipeds-139755",
+   "last_verified_at": "2026-10-23",
+   "notes": "Extracted by dual_enrollment/v1; every field cites its line. Eligibility tiers are kept as printed.",
+   "policy_kind": "dual_enrollment",
+   "policy_url": "https://admission.gatech.edu/dual-enrollment/distance-math",
+   "source_url": "https://admission.gatech.edu/dual-enrollment/distance-math",
+   "verification_status": "unverified"
+  },
+  "source": {
+   "fetched_at": "2026-10-23T13:07:07+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "712a0aa9d74891a16990.json.gz",
+   "requested_url": "https://admission.gatech.edu/dual-enrollment/distance-math",
+   "sha256": "712a0aa9d74891a16990ffa74537e7a6e60940fd6f435383a5067b6f909f801d",
+   "title": "Distance Math Programs | Undergraduate Admission",
+   "url": "https://admission.gatech.edu/dual-enrollment/distance-math"
+  },
+  "year_basis": "source_unlabeled"
+ }
+]
