@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 // TEST SETUP: the demo's reserve is exactly one mini check, so every reserved item is always assigned. To show that
 // unassigned reserved items are refused and unlisted, this file shrinks the mini-check plan to 1 item per section
@@ -15,6 +15,8 @@ const { DemoSource, DEMO_STUDENT } = await import('./demoSource')
 const { emptyStore } = await import('./store')
 const { QUESTIONS } = await import('./fixtures')
 const { practiceExclusions } = await import('../../engine/freshness')
+
+afterEach(() => vi.useRealTimers())
 
 describe('demo progress checks (#263) with a check smaller than the reserve', () => {
   it('lists only the assigned items and refuses the rest of the reserve; the next check draws the unseen ones first', async () => {
@@ -39,6 +41,5 @@ describe('demo progress checks (#263) with a check smaller than the reserve', ()
     const next = await src.benchmarkQuestions(await src.startBenchmark(sid, 'mini', 'sat'), sid)
     expect(next).toHaveLength(2)
     expect(next.every((i) => !assigned.has(i.question.id) && !i.seen_before)).toBe(true)
-    vi.useRealTimers()
   })
 })

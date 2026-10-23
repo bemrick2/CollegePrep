@@ -241,7 +241,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
       const cl = c[who]
       expect(await readable(cl), who).toEqual(new Set())
       const list = await cl.rpc('benchmark_questions', { p_benchmark: live })
-      expect(list.error?.code, who).toMatch(/^(42501|22023)$/) // refused: not linked (42501), or not their student's open check (22023)
+      expect(list.error?.code, who).toBe('42501') // refused: the caller isn't linked to this student
       const rows = await cl.from('practice_benchmark_items').select('question_id').eq('benchmark_id', live)
       expect(rows.error, who).toBeNull()
       expect(rows.data, who).toEqual([])
