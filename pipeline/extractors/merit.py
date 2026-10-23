@@ -147,26 +147,12 @@ def class_statements(page):
     return out
 
 
-FAFSA_REQUIREMENT = re.compile(r'\b(?:complet\w*|submit\w*|fil(?:e|ed|ing)|verif\w*|determined\s+by)\b[^.]{0,40}\bfafsa\b', re.I)
-CYCLE_DATE = re.compile(r'\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+(20\d{2})\b', re.I)
-
-
-def current_cycle(page, today_year):
-    """The page prints this cycle's terms or dates (a fall term or a deadline in the current academic year or later). An
-    undated merit table on such a page is current-cycle content whose year is unconfirmed; on a page whose only dates are
-    old (NY: Alfred State's 2021-22 HEERF page) it is never re-dated as current."""
-    start = int(today_year[:4])
-    return bool(current_terms(page, today_year)) or any(int(m.group(1)) >= start for m in CYCLE_DATE.finditer(page.text[:60000]))
-
-
 def merit_text_labels(page):
     """Year labels in the page's text outside sentences and table lines about other aid (FAFSA, Pell, federal or state grants,
     loans, athletics; STATEMENT_OTHER_AID)."""
     def other(s):
         s = re.sub(r'free\s+application\s+for\s+federal\s+student\s+aid', 'FAFSA', s, flags=re.I)
         hits = {m.group(0).lower() for m in STATEMENT_OTHER_AID.finditer(s)}
-        if hits <= {'fafsa'} and FAFSA_REQUIREMENT.search(s):
-            return False  # OH (Malone): "Completed 2025-26 FAFSA" is an award's requirement and dates that award (ID: "Verifies your 2026-27 FAFSA")
         # MO (SBU): "Freshman & Transfer Scholarships for Fall 2027/Spring 2028" and AL (Stillman) "incoming first-year students,
         # transfers, and current students ... during the 2024-2025 academic year" date first-year awards too
         return bool(hits) and not (hits <= {'transfer'} and STATEMENT_FRESHMAN.search(s))
@@ -198,10 +184,12 @@ def record_year(page, t, year, basis, issues, today_year):
     if stated and not (basis in LABELED and stated < year): return done(stated, stated_basis)
     under = T.year_labels(t.get('year_heading') or '')
     if len(under) == 1: return done(next(iter(under)), 'labeled_in_heading')
-    if basis == 'labeled_in_source' and not merit_text_labels(page) and (year >= today_year or current_cycle(page, today_year)):
-        # OH (JCU): the page's only year label is a federal-grant table's "maximum award amounts for 2025-2026"; it never dated
-        # the merit table, so the table is unlabeled (held for review), not a 2025-26 award
-        return today_year, 'source_unlabeled', clean + [f'page_label_only_in_other_aid:{year}']
+    if basis == 'labeled_in_source' and not merit_text_labels(page):
+        # OH (JCU): the page's only year label is a federal-grant table's "maximum award amounts for 2025-2026", which may not date
+        # the merit table. Held for review with the year kept as found: never verified on that label, and never re-dated as
+        # current without evidence (#278 review); a FAFSA year beside an award is held the same way
+        y, b, found = done(year, basis)
+        return y, b, found + [f'year_label_only_in_other_aid:{year}']
     if basis in LABELED and year < today_year and current_terms(page, today_year):
         # VA (Regent): "Aid for 2023-24" statistics and FAFSA notes beside a current chart (Fall 2026 dates) do not date the chart.
         return today_year, 'source_unlabeled', clean + [f'stale_page_label_beside_current_terms:{year}']
@@ -426,9 +414,6 @@ def group_label_row(rows, spanned=False):
     """True when rows[0] is a group label printed above the real header (OK, Oklahoma Christian: "Minimum Scores of Recipient"
     over GPA | ACT | SAT). On the printed grid a spanning label is padded to full width, so it is told apart by how many cells
     it fills, not by its length (#273 review)."""
-    if len(rows) > 3 and len(rows[0]) == len(rows[1]) == 2 and _filled(rows[0]) == 1 and _filled(rows[1]) == 2 and rows[0][0].strip() \
-            and all(HEADER_WORDS.search(c) for c in rows[1]):
-        return True  # MI (Andrews): "Current Amounts" above "GPA | ANNUAL AMOUNT"
     if not (len(rows) > 3 and len(rows[0]) >= 2 and _filled(rows[0]) <= 2 and not re.search(r'\d', ' '.join(rows[0])) and len(rows[1]) >= 3):
         return False
     if len(rows[1]) > len(rows[0]): return True
@@ -667,7 +652,7 @@ def extract(inst, entry, page, today_year):
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
-        if re.match(r'\s*(?:prior\s+to|before|until)\s+(?:the\s+)?(?:fall|spring|summer)?\s*(?:semester\s+)?(?:of\s+)?20\d{2}\b', ' '.join([t.get('heading') or '', t.get('lead') or '']).strip(), re.I) \
+        if re.match(r'\s*(?:prior\s+to|before)\s+(?:the\s+)?(?:fall|spring|summer)?\s*(?:semester\s+)?(?:of\s+)?20\d{2}\b', ' '.join([t.get('heading') or '', t.get('lead') or '']).strip(), re.I) \
                 and not re.search(r'current', ' '.join(rows[0]), re.I):
             continue  # MI (Andrews): a table headed "Prior to Fall 2023" lists superseded amounts, never a current award
         scope_test = None
