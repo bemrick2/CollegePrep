@@ -3076,6 +3076,23 @@ class PlanNoteTests(unittest.TestCase):
         got = CL.plan_notes(self.page('1\nC- or better\nNotes:\nThis is a sample schedule only.\n'))[0]
         self.assertEqual((got[0]['text'], got[0]['location']), ('Notes: / This is a sample schedule only.', 'printed after the plan grid and its footnotes'))
 
+    def test_boundaries_mutation_cases(self):
+        from programs import courseleaf as CL
+        fn = lambda tail: [(x['marker'], x['text']) for x in CL.grid_footnotes(self.page(tail))[0]]
+        pn = lambda tail: CL.plan_notes(self.page(tail))[0]
+        self.assertEqual([x['text'] for x in pn('Students must complete the core first.\n.\nAll majors must complete a capstone.\n')],
+                         ['Students must complete the core first.', 'All majors must complete a capstone.'])  # a lone '.' (NC State)
+        self.assertEqual(pn('Biology is the study of living things and you will explore many courses.\n'), [])  # description, not a note
+        p = self.page('Pace Catalog\nAll nursing courses require a grade of C+.\n'); p.title = 'Nursing BS | Pace Catalog'
+        self.assertEqual(CL.plan_notes(p)[0], [])  # the site name from the page title ends the notes
+        self.assertEqual(pn('Approved electives for the major include:\nIntroduction to Ecology\nField Methods\n')[0]['text'],
+                         'Approved electives for the major include: / Introduction to Ecology / Field Methods')
+        self.assertEqual(fn('1\nTake it early.\n2\nSee advisor.\nUnrelated sentence here.\n1\nOther note.\n'), [('1', 'Take it early.'), ('2', 'See advisor.')])  # the last note is not extended by guess
+        self.assertEqual(fn('1\nNote applies.\nChoose a track:\nData Analytics\nMarketing\n'), [('1', 'Note applies. / Choose a track: / Data Analytics / Marketing')])
+        self.assertEqual(fn('1\nCourses must be\ncompleted in order.\n'), [('1', 'Courses must be / completed in order.')])
+        self.assertEqual(fn('*\nSee advisor.\n1 LMU Drive\n'), [('*', 'See advisor.')])
+        self.assertEqual(fn('3 Credits of electives.\n'), [])
+
     def test_extract_keeps_notes_and_holds_unclear_ones(self):
         from programs import courseleaf as CL, verify as V
         e = {'url': 'https://catalog.x.edu/bio/', 'sha256': 's', 'fetched_at': '2026-10-23T00:00:00'}
