@@ -7695,6 +7695,88 @@
  "5a2e1bed4023ae7b": {
   "decision": {
    "candidate_id": "5a2e1bed4023ae7b",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Program Learning Outcomes\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#5a2e1bed4023ae7b) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 15 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:04:58+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:30:21 GMT",
+   "page_file": "9434d47f5081f6bdd334.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/engineering-physical-sciences/programs-study/chemical-engineering/bioengineering-major-bs/",
+   "sha256": "9434d47f5081f6bdd334cd68ecc1f4dad12be4c116f930f04906f6f8af970d32",
+   "title": "Bioengineering Major (B.S.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/engineering-physical-sciences/programs-study/chemical-engineering/bioengineering-major-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5a2e1bed4023ae7b~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "5a2e1bed4023ae7b",
    "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 5 footnote(s) ['1', '2', '3', '4', '5'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"The Discovery ETS category requirement is met upon\")",
    "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#5a2e1bed4023ae7b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
@@ -7774,7 +7856,7 @@
   },
   "year_basis": "labeled_in_source"
  },
- "5a2e1bed4023ae7b~superseded-2026-10-22": {
+ "5a2e1bed4023ae7b~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "5a2e1bed4023ae7b",
    "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 5 footnote(s) ['1', '2', '3', '4', '5'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"The Discovery ETS category requirement is met upon\")",
@@ -10078,8 +10160,8 @@
  "6ebef14b7ccd26d5": {
   "decision": {
    "candidate_id": "6ebef14b7ccd26d5",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 130 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#6ebef14b7ccd26d5) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Program Learning Outcomes\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#6ebef14b7ccd26d5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -10142,6 +10224,48 @@
    {
     "field": "term",
     "snippet": "Fourth Year: 11 items, 32 credits",
+    "value": "Fourth Year"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:07:23+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:40:56 GMT",
+   "page_file": "51ed56c4cacd1fc918ac.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/forestry/forestry-major-bsf/",
+   "sha256": "51ed56c4cacd1fc918acc67d83a13c206b95b38ebbbcf6ac41d80e2fea7c6015",
+   "title": "Forestry Major (B.S.F.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/life-sciences-agriculture/programs-study/forestry/forestry-major-bsf/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6ebef14b7ccd26d5~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "6ebef14b7ccd26d5",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credits 130 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#6ebef14b7ccd26d5) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 9 items, 34 credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 9 items, 32 credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 8 items, 32 credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 8 items, 32 credits",
     "value": "Fourth Year"
    }
   ],
@@ -17284,8 +17408,8 @@
  "be1e4c9fdf02ca9d": {
   "decision": {
    "candidate_id": "be1e4c9fdf02ca9d",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"All students must take four writing intensive cour\")",
-   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#be1e4c9fdf02ca9d) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Program Learning Outcomes\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#be1e4c9fdf02ca9d) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -17445,6 +17569,88 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "be1e4c9fdf02ca9d~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "be1e4c9fdf02ca9d",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"All students must take four writing intensive cour\")",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#be1e4c9fdf02ca9d) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 15 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 5 items, 17 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:05:21+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:31:36 GMT",
+   "page_file": "dd360060a871cfa1b7cc.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/engineering-physical-sciences/programs-study/earth-sciences/environmental-sciences-major-earth-systems-option-bs/",
+   "sha256": "dd360060a871cfa1b7cca4657c4027329862e4ac65ef6279097889ce329fa6e2",
+   "title": "Environmental Sciences Major: Earth Systems Option (B.S.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/engineering-physical-sciences/programs-study/earth-sciences/environmental-sciences-major-earth-systems-option-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "be56fe083020185d": {
   "decision": {
    "candidate_id": "be56fe083020185d",
@@ -17502,6 +17708,88 @@
   "year_basis": "labeled_in_source"
  },
  "bfbd4b7fd959e210": {
+  "decision": {
+   "candidate_id": "bfbd4b7fd959e210",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Program Learning Outcomes\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#bfbd4b7fd959e210) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 2 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 2 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:06:54+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:38:32 GMT",
+   "page_file": "2d66a48e9c8e17e60f2d.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/liberal-arts/programs-study/sociology/sociology-major-ba/",
+   "sha256": "2d66a48e9c8e17e60f2d4aff369fac632fe6d7e42635251cce5e41397030fef9",
+   "title": "Sociology Major (B.A.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/liberal-arts/programs-study/sociology/sociology-major-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "bfbd4b7fd959e210~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "bfbd4b7fd959e210",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -20730,6 +21018,88 @@
  "db3d98e52bee2836": {
   "decision": {
    "candidate_id": "db3d98e52bee2836",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 2 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Program Learning Outcomes\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#db3d98e52bee2836) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 18 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 14 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:05:11+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:31:20 GMT",
+   "page_file": "151ba137d8a9d4b5ad2e.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/engineering-physical-sciences/programs-study/computer-science/computer-science-major-artificial-intelligence-option-ba/",
+   "sha256": "151ba137d8a9d4b5ad2eac2d4bdaff273459ec484dcc99e5dd05f6f8a8feabf1",
+   "title": "Computer Science Major: Artificial Intelligence Option (B.A.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/engineering-physical-sciences/programs-study/computer-science/computer-science-major-artificial-intelligence-option-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "db3d98e52bee2836~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "db3d98e52bee2836",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence NH/2026-10-07-cat#a2685d628491b606) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -21284,6 +21654,88 @@
  "dd58a34877db084e": {
   "decision": {
    "candidate_id": "dd58a34877db084e",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 2 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Program Learning Outcomes\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#dd58a34877db084e) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 5 items, 17 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall: 4 items, 16 credits",
+    "value": "Fall"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring: 4 items, 16 credits",
+    "value": "Spring"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-07T12:06:42+00:00",
+   "kind": "html",
+   "last_modified": "Wed, 26 Aug 2026 16:37:55 GMT",
+   "page_file": "19f0de607622f191c8e9.json.gz",
+   "requested_url": "https://catalog.unh.edu/undergraduate/liberal-arts/programs-study/philosophy/philosophy-major-ba/",
+   "sha256": "19f0de607622f191c8e976b6ae26d3b2caf3ffafb2fd072bd9e22d9b16e505dc",
+   "title": "Philosophy Major (B.A.) | University of New Hampshire Academic Catalog",
+   "url": "https://catalog.unh.edu/undergraduate/liberal-arts/programs-study/philosophy/philosophy-major-ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "dd58a34877db084e~superseded-2026-10-22": {
+  "decision": {
+   "candidate_id": "dd58a34877db084e",
    "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"UNH philosophy majors acquire the ability to think\")",
    "replaces_promoted": "Plan on file (evidence NH/2026-10-07-cat#dd58a34877db084e) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
@@ -21363,7 +21815,7 @@
   },
   "year_basis": "labeled_in_source"
  },
- "dd58a34877db084e~superseded-2026-10-22": {
+ "dd58a34877db084e~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "dd58a34877db084e",
    "reason": "Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"UNH philosophy majors acquire the ability to think\")",
