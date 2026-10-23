@@ -56,13 +56,13 @@ const persona: PlanningProfile = {
 const have = existsSync(join(ROOT, 'institutions/utc')) && existsSync(join(ROOT, 'institutions/utk'))
 
 describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (#194)', () => {
-  it('UTC Management today: plan and cost verified (#206); credit tables not verified (no year printed), so credit is listed as missing, never shown', () => {
+  it('UTC Management today: cost verified (#206); plan partially verified until its printed ENGL placement note is captured and reviewed (owner-approved 2026-10-23); credit tables not verified (no year printed), so credit is listed as missing, never shown', () => {
     const r = buildRoadmap({ comparison: comparison('utc', '221740'), programKey: 'management-b-s-b-a', profile: persona })
-    expect(r.status).toBe('partial')
+    expect(r.status).toBe('blocked')
     expect(r.target.programName).toBe('Management, B.S.B.A.')
-    expect(r.plan.evidence.state).toBe('verified')
-    expect(r.plan.value).toMatchObject({ catalogYear: '2026-2027', totalCredits: 120 })
-    expect(r.plan.value!.terms).toHaveLength(8)
+    // The plan is on file but not shown: a note it prints ('If a student does not place into ENGL 1020 ..., ENGL 1010 or 1011 is required') is not captured yet.
+    expect(r.plan.evidence).toMatchObject({ state: 'missing', verificationStatus: 'partially_verified', missing: 'Plan on file but not verified.' })
+    expect(r.plan.value).toBeNull()
     expect(r.credit.every((x) => x.acceptance.value === null && x.acceptance.evidence.state === 'missing')).toBe(true)
     expect(r.options).toEqual([])
     // #206: verified from the raw 2026-27 PDF; shown as published, by living arrangement.
@@ -77,6 +77,7 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.savings.value).toBeNull()
     expect(r.unknowns.map((u) => u.text)).toEqual(
       expect.arrayContaining([
+        expect.stringMatching(/plan for this major is on file but not yet verified/),
         expect.stringMatching(/AP credit table is on file but not yet verified: the values were checked, but the page prints no academic year/),
         expect.stringMatching(/dual-enrollment policy is on file but not yet verified/),
       ]),
@@ -84,8 +85,8 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(r.unknowns.some((u) => u.topic === 'cost')).toBe(false)
   })
 
-  it('UTC Management once #191 verifies the tables and cost: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
-    const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs'])
+  it('UTC Management once #191 verifies the tables and cost and the plan's printed note is captured and reviewed: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
+    const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
     const r = buildRoadmap({ comparison: c, programKey: 'management-b-s-b-a', profile: persona, projection: projectRow(c, '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance' }) })
     expect(r.status).toBe('ready')
     const by = Object.fromEntries(r.credit.map((x) => [x.exam.name, x]))
