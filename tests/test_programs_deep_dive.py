@@ -3012,9 +3012,14 @@ class PlanNoteTests(unittest.TestCase):
 
     def test_shared_legend(self):  # Oregon State prints one legend after the last of several grids
         from programs import courseleaf as CL
-        two = self.G + 'Plan of Study Grid\n| First Year\n| Fall | Hours\n| BIOL 111 | Intro 1 | 4\n| | Total Hours | 4\n+\nBaccalaureate core course.\n'
-        out = CL.grid_footnotes(self.page('', n=2, text=two))
-        self.assertEqual(out, [[{'marker': '+', 'text': 'Baccalaureate core course.', 'shared': True}], [{'marker': '+', 'text': 'Baccalaureate core course.'}]])
+        from pipeline import text as T
+        g = {'caption': 'Plan of Study Grid', 'heading': 'Biology - BA', 'rows': [['First Year'], ['Fall', 'Hours'], ['BIOL 111', 'Intro', '4'], ['', 'Total Hours', '4']]}
+        cite = dict(g, rows=[['First Year'], ['Fall', 'Hours'], ['WR 121Z^', 'Writing', '4'], ['', 'Total Hours', '4']])
+        two = self.G + 'Plan of Study Grid\n| First Year\n| Fall | Hours\n| BIOL 111 | Intro | 4\n| | Total Hours | 4\n^\nBaccalaureate core course.\n'
+        out = CL.grid_footnotes(T.Page(two, 't', [cite, dict(g)], [], []))
+        self.assertEqual(out, [[{'marker': '^', 'text': 'Baccalaureate core course.', 'shared': True}], [{'marker': '^', 'text': 'Baccalaureate core course.'}]])
+        out = CL.grid_footnotes(T.Page(two, 't', [dict(g), dict(g)], [], []))  # a grid that cites none of the legend gets none (Oregon BA/BS)
+        self.assertEqual(out[0], [])
 
     def test_unmarked_notes(self):
         from programs import courseleaf as CL
@@ -3025,6 +3030,37 @@ class PlanNoteTests(unittest.TestCase):
         self.assertEqual(pn('Associate Chair\nStudents must complete 35 credits in the major.\n'), ['unclear'])  # where the notes end is not printed
         self.assertEqual(pn('(800) 543-5317\nAll prerequisites must be met before you enroll.\n'), [[]])  # page text ends the notes
         self.assertEqual(pn(''), [[]])
+
+    def test_review_layouts(self):  # the six failure classes of the 2026-10-23 review, on the layouts that showed them
+        from programs import courseleaf as CL
+        from pipeline import text as T
+        fn = lambda tail: [(x['marker'], x['text']) for x in CL.grid_footnotes(self.page(tail))[0]]
+        pn = lambda tail: CL.plan_notes(self.page(tail))[0]
+        # 1. page text never becomes a note: an address, social links, page metadata (LMU, NMC, Slippery Rock)
+        self.assertEqual(fn('*\nSee advisor.\nFind Us\n1 LMU Drive\nLos Angeles, CA 90045\nX\nYouTube\n'), [('*', 'See advisor.')])
+        self.assertEqual(fn('*\nSee advisor.\nMajor Code: 2 15\nRevision date: 05.03.2022\n'), [('*', 'See advisor.')])
+        self.assertEqual(pn('Pace University\nAll nursing courses require a grade of C+.\n'), [])
+        # 2./3. a note ending in ':' keeps the whole list printed under it (Kingsville, South Carolina, Temple)
+        self.assertEqual(fn('1\nList of Approved Electives:\nAGRI 3300 Farm Management\nAGRI 4310 Agricultural Policy and Law\nProgram Learning Outcomes\n'),
+                         [('1', 'List of Approved Electives: / AGRI 3300 Farm Management / AGRI 4310 Agricultural Policy and Law')])
+        self.assertEqual(pn('Advanced Science Courses for BS students consist of:\nCHEM 3301\nPHYS 2021\n')[0]['text'],
+                         'Advanced Science Courses for BS students consist of: / CHEM 3301 / PHYS 2021')
+        self.assertEqual(pn('One course: CHEM 122, CHEM 123\nand PHYS 141 fulfills four of the nine hours.\n')[0]['text'],
+                         'One course: CHEM 122, CHEM 123 / and PHYS 141 fulfills four of the nine hours.')  # one sentence over two lines (UIC)
+        # 4. notes JSU prints as table rows are read; a mark a row cites with no note after the grid holds the plan
+        self.assertEqual(fn('| 1 | Select from: EC 222, EC 231\n| 2 | See advisor for approval.\n'), [('1', 'Select from: EC 222, EC 231'), ('2', 'See advisor for approval.')])
+        e = {'url': 'https://catalog.x.edu/bio/', 'sha256': 's', 'fetched_at': '2026-10-23T00:00:00'}
+        g = {'caption': 'Plan of Study Grid', 'heading': 'Biology - BA', 'rows': [['First Year'], ['Fall', 'Hours'], ['BIOL 111', 'Intro 1', '4'], ['', 'Total Hours**', '4']]}
+        txt = self.G.replace('| | Total Hours | 4', '| | Total Hours** | 4')
+        c = [c for c in CL.extract({'institution_key': 'k'}, e, T.Page(txt + 'Course List\n', 't', [g], [], []), '2026-2027', '', True) if c['domain'] == 'degree_requirements'][0]
+        self.assertIn('footnote_missing', c['issues'])  # Slippery Rock: '**This document ...' printed after the elective Course Lists
+        self.assertEqual(CL.cited_symbols({'rows': [['+*WR 121Z', 'Writing', '4'], ['PHYS 120*', 'Physics', '4'], ['Calculus 2', '', '4']]}), {'+', '*'})
+        # 5. a note's end: a requirement-like line after something that is not a note holds the plan; a note after a
+        # footnote that does not end a sentence says so in its location
+        self.assertEqual(pn('Associate Chair\nStudents must complete 35 credits in the major.\n'), 'unclear')
+        got = CL.plan_notes(self.page('1\nC- or better\nNo course may satisfy more than one requirement.\n'))[0]
+        self.assertEqual(got[0]['location'], 'printed directly after footnote 1, which it may continue')
+        self.assertEqual(fn('1\nC- or better\nNo course may satisfy more than one requirement.\n'), [('1', 'C- or better')])
 
     def test_extract_keeps_notes_and_holds_unclear_ones(self):
         from programs import courseleaf as CL, verify as V
