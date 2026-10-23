@@ -53,6 +53,9 @@ insert into public.exam_versions(id, exam_family, version_key, name, effective_f
   '{"sections":[{"key":"math","modules":2,"minutes":70,"questions":44,"calculator":"allowed"}],"scale":{"min":400,"max":1600}}'),
  ('40000000-0000-0000-0000-000000000002', 'act', 'act_enhanced_2025', 'Enhanced ACT', '2025-04-01',
   '{"sections":[{"key":"math","minutes":50,"questions":45}],"scale":{"min":1,"max":36},"science_optional":true}');
+-- #263: the synthetic SAT version uses a 'reading' section (the real SAT has reading_writing); give it a check length.
+insert into public.practice_benchmark_plan(exam_family, kind, section, items) values
+ ('sat', 'initial', 'reading', 6), ('sat', 'mini', 'reading', 3), ('sat', 'full', 'reading', 99);
 insert into public.question_types(id, exam_version_id, type_key, name) values
  ('41000000-0000-0000-0000-000000000001', '40000000-0000-0000-0000-000000000001', 'multiple_choice', 'Multiple choice'),
  ('41000000-0000-0000-0000-000000000002', '40000000-0000-0000-0000-000000000001', 'student_produced_response', 'Student-produced response');
