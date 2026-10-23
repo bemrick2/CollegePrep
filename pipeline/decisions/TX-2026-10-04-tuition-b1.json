@@ -1,0 +1,31 @@
+{
+  "run": "pipeline/runs/TX/2026-10-04",
+  "reviewer": "Research session 2026-10-23 (current tuition b1)",
+  "approve": [
+    {"candidate_id": "76e9dea394bf9fd6", "reason": "TAMIU table headed \"Undergraduate 2026-2027\" (caption \"Cost of Attendance table\", lead \"Estimated Cost of Attendance for Fall and Spring\"); column \"Non-Resident On-Campus\" prints Tuition & Fees $24,534, Books $1,280, Living Expenses $13,394, Transportation $454, Miscellaneous Personal Expenses $2,322, Total $41,984, all copied as printed. Out-of-state undergraduate, academic year (Fall and Spring), on campus."},
+    {"candidate_id": "72a4a75ddac4471f", "accept_issues": true, "reason": "PVAMU table under heading \"2026 - 2027\", title row \"Undergraduate Student – Resident Full Time (15 Hours)\"; column \"On-Campus\" prints Tuition & Fees $11,299, Room & Board $12,900, Books $1,705, Loan Fees $80, Transportation $2,006, Miscellaneous $3,300, \"Total (Per Year)\" $31,291, all copied as printed. In-state (public, Resident) undergraduate, per year, on campus. Open issue components_do_not_reconcile accepted: the printed rows sum to $31,290, $1 under the page's own total, which is kept as printed and not recomputed."},
+    {"candidate_id": "c9cc20b15413f580", "accept_issues": true, "reason": "LCU \"Tuition and Fees\" table whose label line reads \"Fall and Spring Semesters Block Rate 2026-27 (per semester)\"; column \"12-18\" credit hours prints Tuition $15,370, Health Services Fee $70, Technology Fee $270, Total $15,710, copied as printed. Recorded as a per-semester cost (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. Private college, residency not applicable."}
+  ],
+  "reject": [
+    {"candidate_id": "8e90abd7169f3b1f", "reason": "Lone Star \"2026-2027 Cost of Attendance\": In-District and Out-of-District columns were merged into one record with residency not_applicable; district pricing is not a residency the reader assigns, so neither column can be recorded correctly."},
+    {"candidate_id": "2a803eadb128d125", "reason": "Austin CC payment-plan page: a worked example (\"Tuition charges 1,000.00 / Pending financial aid\"), not a price table."},
+    {"candidate_id": "a92377400f648c01", "reason": "Austin CC payment-plan page (?ref=bbox copy): a worked example, not a price table."},
+    {"candidate_id": "55cbf2a57b430539", "reason": "Austin CC payment-plan page: a worked example, not a price table."},
+    {"candidate_id": "311c6fb18b07eb48", "reason": "Austin CC \"2026-2027 In-District Cost of Attendance\": an in-district table recorded with residency not_applicable; the reader does not assign district residency."},
+    {"candidate_id": "551bc3776d8fe217", "reason": "Austin CC \"2026-2027 Out-of-State Cost of Attendance\" has a second header row (In-District / Out-Of-District under each living arrangement); the record's out-of-state tuition $6,540 is the \"In-District\" sub-column, so the column meaning is unclear."},
+    {"candidate_id": "35b9f6a2e89625d4", "reason": "Texas Tech \"TX Residents and *Bordering Counties of NM/OK\" table read with residency unknown; the in-state record from the same table is already on file."},
+    {"candidate_id": "dfb258d3331ed412", "reason": "UTRGV School of Medicine MS1 cost of attendance: a professional (medical school) price, not undergraduate."},
+    {"candidate_id": "7cce630d874df7e1", "reason": "UTRGV Luminary Scholars multi-year scholarship illustration ($10,000 x 4 ...), not a price table."},
+    {"candidate_id": "9d30c38d20b80f6e", "reason": "UTRGV Tuition Advantage worked aid scenario (Fall 2022-Spring 2023), not a price table."},
+    {"candidate_id": "342b1d4abecc3591", "reason": "TAMIU \"RELLIS Undergraduate 2026-2027\" table: the RELLIS campus, not the Laredo main campus."},
+    {"candidate_id": "b674aed7c0ecb421", "reason": "TAMIU \"Online Undergraduate 2026-2027\": online-only price."},
+    {"candidate_id": "f86de24993e93516", "reason": "UIW \"Main Campus Undergraduate - 2026-2027\" Direct Costs: the row \"Fees (includes books)\" $2,400 was read as books_supplies and the printed \"Total Direct Cost\" $56,012 was recorded as a total cost of attendance; both fields misstate the table."},
+    {"candidate_id": "2b94cc1b12d266d3", "reason": "UIW Doctor of Physical Therapy program costs: graduate/professional."},
+    {"candidate_id": "dfb9b771b5f0c679", "reason": "UIW Occupational Therapy Doctorate Year 3 projection: graduate/professional."},
+    {"candidate_id": "53c898fb843df22b", "reason": "UIW Occupational Therapy Doctorate total: graduate/professional, multi-year."},
+    {"candidate_id": "944bac8d2771e111", "reason": "Galveston College COA table columns are \"(In District)\"; the record's out_of_state residency came from a page heading, not the table."},
+    {"candidate_id": "13f00f9aad546219", "reason": "Galveston College in-district COA recorded with residency not_applicable; the reader does not assign district residency."},
+    {"candidate_id": "c894439e37dfeb93", "reason": "North American University table has two on-campus columns (\"On Campus – With Dependents\" and \"On Campus – No Dependents\"); the record's top-level components (Transportation $4,270, Totals $33,486) come from the first by position."},
+    {"candidate_id": "9a156115f5f03c59", "reason": "Dallas Christian College \"TUITION COSTS 2026-2027\": per-credit-hour online, traditional and graduate rates mixed in one list; no annual undergraduate price."}
+  ]
+}
