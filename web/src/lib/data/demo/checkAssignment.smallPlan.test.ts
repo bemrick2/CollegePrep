@@ -18,6 +18,8 @@ const { practiceExclusions } = await import('../../engine/freshness')
 
 describe('demo progress checks (#263) with a check smaller than the reserve', () => {
   it('lists only the assigned items and refuses the rest of the reserve; the next check draws the unseen ones first', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-23T12:00:00Z'))
     const src = new DemoSource(emptyStore())
     src.switchPersona(DEMO_STUDENT, 'Ava')
     const sid = await src.createSelfStudentProfile({ displayName: 'Ava', graduationYear: null, gradeLevel: 10, independent: false, timeZone: 'UTC' })
@@ -32,5 +34,11 @@ describe('demo progress checks (#263) with a check smaller than the reserve', ()
     // Exposure is the assignment: the pool now counts these two as seen, though none was answered.
     const pool = await src.assessmentPoolStatus(sid, 'sat')
     expect(pool!.reduce((n, s) => n + s.reserved - s.unseen, 0)).toBe(2)
+    // After it expires unanswered, the next check takes items it hasn't assigned before.
+    vi.setSystemTime(new Date('2026-10-23T17:00:00Z'))
+    const next = await src.benchmarkQuestions(await src.startBenchmark(sid, 'mini', 'sat'), sid)
+    expect(next).toHaveLength(2)
+    expect(next.every((i) => !assigned.has(i.question.id) && !i.seen_before)).toBe(true)
+    vi.useRealTimers()
   })
 })

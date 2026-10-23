@@ -728,18 +728,18 @@ export class DemoSource implements DataSource {
    * was seen at assignment, and the items already used in it.
    */
   private checks = new Map<string, { studentId: string; exam: ExamFamily; kind: BenchmarkSummary['kind']; startedAt: string; assigned: { id: string; seen: boolean }[]; used: Set<string> }>()
-  /** #263: every item ever assigned to a check of a student, and when. Assignment counts as seen, answered or not. */
-  private exposed = new Map<string, Map<string, string>>()
-
-  /** When each reserved item was last seen by a student: an attempt, or an assignment to any of their checks. */
-  private lastSeen(studentId: string, before?: string): Map<string, string> {
+  /**
+   * When each reserved item was last seen by a student: an attempt, or an assignment to any of their checks (#263:
+   * assignment counts as seen, answered or not). Assignments are kept in the saved demo store, so they survive a reload,
+   * as the server's assignment rows do.
+   */
+  private lastSeen(studentId: string): Map<string, string> {
     const last = new Map<string, string>()
     const note = (id: string, at: string) => {
-      if (before && at >= before) return
       if (!last.has(id) || at > last.get(id)!) last.set(id, at)
     }
     for (const a of this.attemptsOf(studentId)) note(a.question_id, a.presented_at)
-    for (const [id, at] of this.exposed.get(studentId) ?? []) note(id, at)
+    for (const [id, at] of Object.entries(this.s.checkExposure?.[studentId] ?? {})) note(id, at)
     return last
   }
 
@@ -765,15 +765,15 @@ export class DemoSource implements DataSource {
     const last = this.lastSeen(studentId)
     const mid = (d: number) => Math.abs(d - 3)
     const assigned: { id: string; seen: boolean }[] = []
-    for (const [section, want] of Object.entries(PER_SECTION[exam][kind])) {
+    for (const [section, want] of Object.entries(PER_SECTION[exam][kind]).sort(([a], [b]) => a.localeCompare(b))) {
       const pool = F.QUESTIONS.filter((q) => q.exam_family === exam && q.section === section && reserved.has(q.id))
       const unseen = pool.filter((q) => !last.has(q.id)).sort((a, b) => mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
-      const repeats = pool.filter((q) => last.has(q.id)).sort((a, b) => last.get(a.id)!.localeCompare(last.get(b.id)!) || a.id.localeCompare(b.id))
+      const repeats = pool.filter((q) => last.has(q.id)).sort((a, b) => last.get(a.id)!.localeCompare(last.get(b.id)!) || mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
       for (const q of [...unseen, ...repeats].slice(0, Math.min(want, pool.length))) assigned.push({ id: q.id, seen: last.has(q.id) })
     }
-    const seen = this.exposed.get(studentId) ?? new Map<string, string>()
-    for (const a of assigned) seen.set(a.id, startedAt)
-    this.exposed.set(studentId, seen)
+    const exposure = ((this.s.checkExposure ??= {})[studentId] ??= {})
+    for (const a of assigned) exposure[a.id] = startedAt
+    this.commit()
     const id = uid('bm-')
     this.checks.set(id, { studentId, exam, kind, startedAt, assigned, used: new Set() })
     return delay(id)

@@ -42,8 +42,9 @@ describe('demo progress checks mirror #263: items are assigned once, at start', 
     const { src, sid } = await student()
     const bm = await src.startBenchmark(sid, 'mini', 'sat')
     const assigned = new Set((await src.benchmarkQuestions(bm, sid)).map((i) => i.question.id))
-    const unassigned = [...RESERVED_SAT].find((id) => !assigned.has(id))
-    if (unassigned) await expect(src.startAttempt(sid, unassigned, null, bm)).rejects.toThrow('This question is not part of this progress check')
+    // (The demo reserve is exactly one mini check, so every reserved item is assigned here; refusing unassigned items
+    // is covered by checkAssignment.smallPlan.test.ts.)
+    expect(assigned).toEqual(RESERVED_SAT)
     const first = [...assigned][0]!
     await answer(src, sid, bm, first)
     await expect(src.startAttempt(sid, first, null, bm)).rejects.toThrow('A question is used once per progress check')
@@ -68,4 +69,21 @@ describe('demo progress checks mirror #263: items are assigned once, at start', 
     expect(second.every((i) => i.seen_before)).toBe(true)
     expect(before!.every((s) => s.unseen === 0)).toBe(true) // exposure counted from assignment, not from answers
   })
+
+  it('exposure survives a reload of the demo, as the server keeps assignment rows', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-23T12:00:00Z'))
+    const store = emptyStore()
+    const src = new DemoSource(store)
+    src.switchPersona(DEMO_STUDENT, 'Ava')
+    const sid = await src.createSelfStudentProfile({ displayName: 'Ava', graduationYear: null, gradeLevel: 10, independent: false, timeZone: 'UTC' })
+    await src.startBenchmark(sid, 'mini', 'act') // assigned, never answered
+    vi.setSystemTime(new Date('2026-10-23T17:00:00Z'))
+    const reloaded = new DemoSource(JSON.parse(JSON.stringify(store)))
+    reloaded.switchPersona(DEMO_STUDENT, 'Ava')
+    expect((await reloaded.assessmentPoolStatus(sid, 'act'))!.every((s) => s.unseen === 0)).toBe(true)
+    const bm = await reloaded.startBenchmark(sid, 'mini', 'act')
+    expect((await reloaded.benchmarkQuestions(bm, sid)).every((i) => i.seen_before)).toBe(true)
+  })
 })
+

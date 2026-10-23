@@ -4,6 +4,8 @@
 // each role with its own token. Skipped unless LOCAL_BACKEND_URL is set (scripts/local/live_stack.sh test).
 // Local only: this proves the server rules and the client path, not hosted.
 //
+// The tests run in order and share two students' history (T4 uses T3's answered item; T5–T7 and T10 share Blake's).
+//
 // LOCAL TEST SETUP, NOT PRODUCT DATA: the seeded reserve is exactly one check's worth, which can't show that unassigned
 // reserved items stay hidden. So this file, through psql on the local database only, shrinks the SAT mini-check plan
 // to 2 items per section (no other local test starts a SAT check) and restores it afterwards, and backdates checks
@@ -45,7 +47,18 @@ const uid = (name: string) => {
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-5${h.slice(13, 16)}-a${h.slice(17, 20)}-${h.slice(20, 32)}`
 }
 /** psql on the LOCAL database (live_stack.sh exports PGHOST/PGUSER/PGPASSWORD/PGDATABASE). */
-const sql = (q: string) => execFileSync('psql', ['-q', '-X', '-tA', '-v', 'ON_ERROR_STOP=1', '-c', q], { encoding: 'utf8' }).trim()
+const psql = (q: string) => execFileSync('psql', ['-q', '-X', '-tA', '-v', 'ON_ERROR_STOP=1', '-c', q], { encoding: 'utf8' }).trim()
+const LOCAL_DB = process.env.LOCAL_DB ?? 'cp_local'
+let dbChecked = false
+/** Every statement runs only after confirming it is the local stack's database, never a restored copy or production. */
+const sql = (q: string) => {
+  if (!dbChecked) {
+    const db = psql('select current_database()')
+    if (db !== LOCAL_DB) throw new Error(`refusing to write to database "${db}": this file writes only to the local stack's ${LOCAL_DB} (run it through scripts/local/live_stack.sh test)`)
+    dbChecked = true
+  }
+  return psql(q)
+}
 const pause = () => new Promise((r) => setTimeout(r, 25))
 const answerFor = new Map(QUESTIONS.map((q) => [uid(`q:${q.id}`), q.accepted_answers[0]!]))
 const sectionOf = new Map(QUESTIONS.map((q) => [uid(`q:${q.id}`), q.section]))
@@ -115,8 +128,9 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     for (const s of ['reading_writing', 'math']) expect(items.filter((i) => i.question.section === s)).toHaveLength(PER)
     expect(items.every((i) => RESERVED_SAT.has(i.question.id) && i.question.pool === 'assessment' && !i.seen_before)).toBe(true)
     // start_benchmark takes no item list: there is no parameter a client could use to choose ids.
-    const chosen = await c.STUDENT.rpc('start_benchmark', { p_student: sid, p_kind: 'mini', p_exam_version: null, p_items: [...RESERVED_SAT] } as never)
-    expect(chosen.error).not.toBeNull()
+    const version = sql(`select exam_version_id from public.practice_benchmarks where id = '${bm1}'`)
+    const chosen = await c.STUDENT.rpc('start_benchmark', { p_student: sid, p_kind: 'mini', p_exam_version: version, p_items: [...RESERVED_SAT] } as never)
+    expect(chosen.error?.code).toBe('PGRST202') // no such function signature
   })
 
   it('T2 read scope: while the check is open the student reads only its assigned stems, by every route', async () => {
@@ -144,7 +158,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expect(again.error).toMatchObject({ code: '22023', message: 'A question is used once per progress check' })
   })
 
-  it('T5 retries and resume: starting again returns the same check and assignment; nothing new is exposed', async () => {
+  it('T5 retries and resume of an unanswered check: the same check and assignment; nothing new is exposed (a partly answered check is not resumed: open with Research on #279)', async () => {
     // A fresh, unanswered check is resumed as it is.
     const r1 = await student2.startBenchmark(sid2, 'mini', 'sat')
     const set1 = new Set((await student2.benchmarkQuestions(r1)).map((i) => i.question.id))
@@ -172,6 +186,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     const bm2 = await student.startBenchmark(sid, 'mini', 'sat')
     expect(bm2).not.toBe(bm1)
     const items2 = await student.benchmarkQuestions(bm2)
+    expect(items2).toHaveLength(2 * PER)
     const assigned2 = new Set(items2.map((i) => i.question.id))
     // The other half of the reserve, never shown: all unseen.
     expect([...assigned2].filter((id) => assigned1.has(id))).toEqual([])
@@ -184,7 +199,8 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expect(items3.every((i) => i.seen_before)).toBe(true)
     const pool = await c.STUDENT.rpc('assessment_pool_status', { p_student: sid, p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${bm3}'`) })
     expect(pool.error).toBeNull()
-    expect(JSON.stringify(pool.data)).not.toMatch(/"unseen":\s*[1-9]/)
+    const counts = pool.data as { section: string; reserved: number; unseen: number }[]
+    expect(counts.map((x) => [x.section, x.reserved, x.unseen]).sort()).toEqual([['math', 4, 0], ['reading_writing', 4, 0]])
     // Answering them all gives a check scored with repeats and never "comparable".
     for (const it of items3) {
       const a = await student.startAttempt(sid, it.question.id, null, bm3)
@@ -219,14 +235,16 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     const live = await student.startBenchmark(sid, 'mini', 'sat') // resumes or opens a live check for Avery
     const ids = (await student.benchmarkQuestions(live)).map((i) => i.question.id)
     const a = anon()
-    expect((await a.rpc('benchmark_questions', { p_benchmark: live })).error?.code).toMatch(/42501|PGRST/)
-    expect((await a.from('practice_benchmark_items').select('*')).data ?? []).toEqual([])
+    expect((await a.rpc('benchmark_questions', { p_benchmark: live })).error?.code).toBe('42501')
+    expect((await a.from('practice_benchmark_items').select('*')).error?.code).toBe('42501')
     for (const who of ['OTHER_PARENT', 'OTHER_STUDENT', 'OUTSIDER', 'NOVIEW'] as const) {
       const cl = c[who]
       expect(await readable(cl), who).toEqual(new Set())
       const list = await cl.rpc('benchmark_questions', { p_benchmark: live })
-      expect(list.error !== null || ((list.data ?? []) as unknown[]).length === 0, who).toBe(true)
-      expect(((await cl.from('practice_benchmark_items').select('question_id').eq('benchmark_id', live)).data ?? []), who).toEqual([])
+      expect(list.error?.code, who).toMatch(/^(42501|22023)$/) // refused: not linked (42501), or not their student's open check (22023)
+      const rows = await cl.from('practice_benchmark_items').select('question_id').eq('benchmark_id', live)
+      expect(rows.error, who).toBeNull()
+      expect(rows.data, who).toEqual([])
       expect((await cl.rpc('start_benchmark', { p_student: sid, p_kind: 'mini', p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${live}'`) })).error, who).not.toBeNull()
       expect((await cl.rpc('start_practice_attempt', { p_student: sid, p_question: ids[0], p_benchmark: live })).error, who).not.toBeNull()
     }
@@ -238,10 +256,16 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expect((await v.rpc('start_benchmark', { p_student: sid, p_kind: 'mini', p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${live}'`) })).error).not.toBeNull()
     expect((await v.rpc('start_practice_attempt', { p_student: sid, p_question: ids[0], p_benchmark: live })).error).not.toBeNull()
     // Direct writes to the assignment are refused for every client.
+    const ev = sql(`select exam_version_id from public.practice_benchmarks where id = '${live}'`)
+    const extra = [...RESERVED_SAT].find((id) => !ids.includes(id)) ?? [...RESERVED_SAT][0]
     for (const cl of [c.STUDENT, c.PARENT, v]) {
-      expect((await cl.from('practice_benchmark_items').insert({ benchmark_id: live, question_id: [...RESERVED_SAT][0], student_id: sid })).error).not.toBeNull()
-      expect((await cl.from('practice_benchmarks').update({ items_assigned_at: null }).eq('id', live)).error ?? 'no-op').toBeTruthy()
+      // A complete row, so only the permission can refuse it.
+      const ins = await cl.from('practice_benchmark_items').insert({ benchmark_id: live, question_id: extra, student_id: sid, exam_version_id: ev, section: 'math', position: 99, seen_before: false })
+      expect(ins.error?.code).toBe('42501')
+      const upd = await cl.from('practice_benchmarks').update({ items_assigned_at: null }).eq('id', live)
+      expect(upd.error?.code).toBe('42501')
     }
+    expect(sql(`select items_assigned_at is not null from public.practice_benchmarks where id = '${live}'`)).toBe('t')
     expect(sql(`select count(*) from public.practice_benchmark_items where benchmark_id = '${live}'`)).toBe(String(ids.length))
     expire(live)
   })
@@ -251,7 +275,9 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     const assigned = new Set((await student.benchmarkQuestions(live)).map((i) => i.question.id))
     const s = await student.startSession(sid, 30, 'sat')
     expect(s.items.filter((x) => RESERVED_SAT.has(x.question.id) || x.question.pool !== 'practice')).toEqual([])
-    for (const q of [...assigned, ...[...RESERVED_SAT].filter((id) => !assigned.has(id))].slice(0, 3)) {
+    const unassigned = [...RESERVED_SAT].filter((id) => !assigned.has(id))
+    expect(unassigned.length).toBeGreaterThan(0)
+    for (const q of [...[...assigned].slice(0, 2), ...unassigned.slice(0, 2)]) {
       expect((await c.STUDENT.rpc('start_practice_attempt', { p_student: sid, p_question: q, p_session: s.id })).error?.code).toBe('22023')
       expect((await c.STUDENT.rpc('start_practice_attempt', { p_student: sid, p_question: q })).error?.code).toBe('22023')
     }
@@ -259,7 +285,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expire(live)
   })
 
-  it('T10 cap: a check accepts at most its assigned items; the reserve can’t be drained through one check', async () => {
+  it('T10 cap: a mini check accepts at most its assigned items (`full` is still limited only in the client: open with Research on #279)', async () => {
     const fresh = await student2.startBenchmark(sid2, 'mini', 'sat')
     const items = await student2.benchmarkQuestions(fresh)
     let accepted = 0
