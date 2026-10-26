@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T23:38:40+00:00",
+  "updated_at": "2026-10-26T23:40:05+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
     "act_math": 601,
     "act_english": 204,
     "act_reading": 178,
-    "sat_reading_writing": 198
+    "sat_reading_writing": 207
   },
   "review_totals": {
     "act_math": {
@@ -43,10 +43,10 @@
       "passed_after_revision": 15
     },
     "sat_reading_writing": {
-      "PASS": 203,
-      "REVISE": 19,
+      "PASS": 212,
+      "REVISE": 20,
       "REJECT": 1,
-      "candidates": 223,
+      "candidates": 233,
       "passed_after_revision": 17
     }
   },
@@ -1002,13 +1002,13 @@
       "passages": 22
     },
     "sat_reading_writing": {
-      "accepted": 198,
+      "accepted": 207,
       "retired_after_audit": 5,
       "by_skill": {
-        "Craft and Structure": 54,
-        "Expression of Ideas": 43,
-        "Information and Ideas": 53,
-        "Standard English Conventions": 48
+        "Craft and Structure": 56,
+        "Expression of Ideas": 45,
+        "Information and Ideas": 55,
+        "Standard English Conventions": 51
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -1034,6 +1034,7 @@
         "Command of evidence: textual (supporting a hypothesis)": 1,
         "Command of evidence: textual (weaken a hypothesis)": 1,
         "Command of evidence: textual (weaken)": 1,
+        "Commas around a mid-sentence \"however\"": 1,
         "Commas around a nonessential participial phrase": 1,
         "Compound predicate (no comma)": 1,
         "Cross-text connections": 7,
@@ -1044,10 +1045,10 @@
         "Function of a quotation": 1,
         "Function of a sentence": 5,
         "Function of a sentence (literary)": 2,
-        "Inferences": 14,
+        "Inferences": 15,
         "Inferences (alternative explanation)": 2,
         "Inferences (base rates)": 1,
-        "Inferences (literary)": 1,
+        "Inferences (literary)": 2,
         "Inferences (prediction from a hypothesis)": 1,
         "Inferences (sampling)": 1,
         "Inferring a character's reaction": 1,
@@ -1065,6 +1066,7 @@
         "Punctuating a quotation followed by an appositive": 1,
         "Punctuation between subject and verb": 1,
         "Punctuation with parentheses": 1,
+        "Relative pronoun \"whose\"": 1,
         "Restrictive clause (no commas)": 1,
         "Restrictive title after a noun": 1,
         "Rhetorical synthesis": 1,
@@ -1073,6 +1075,7 @@
         "Rhetorical synthesis (describing a method)": 1,
         "Rhetorical synthesis (emphasizing a contrast)": 2,
         "Rhetorical synthesis (emphasizing a similarity)": 1,
+        "Rhetorical synthesis (emphasizing rarity)": 1,
         "Rhetorical synthesis (emphasizing scale)": 1,
         "Rhetorical synthesis (explaining a cause)": 1,
         "Rhetorical synthesis (explaining a purpose)": 1,
@@ -1110,48 +1113,50 @@
         "Transitions (contrast)": 3,
         "Transitions (counterpoint)": 1,
         "Transitions (exception)": 1,
+        "Transitions (final outcome)": 1,
         "Transitions (reinforcing)": 1,
         "Transitions (restatement)": 1,
         "Transitions (similarity)": 1,
         "Transitions (specification)": 1,
         "Transitions (time sequence)": 1,
+        "Verb tense (future perfect)": 1,
         "Verb tense (past perfect progressive)": 1,
         "Verb tense (past perfect)": 1,
         "Verb tense with \"since\"": 1,
         "Who versus whom": 1,
-        "Words in context": 25,
+        "Words in context": 27,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 26,
+        "easy": 27,
         "hard": 30,
-        "medium": 142
+        "medium": 150
       },
       "by_difficulty_calibrated": {
-        "easy": 95,
+        "easy": 102,
         "hard": 9,
-        "medium": 94
+        "medium": 96
       },
       "calibrated_share": {
-        "easy": 0.48,
-        "hard": 0.045,
-        "medium": 0.475
+        "easy": 0.493,
+        "hard": 0.043,
+        "medium": 0.464
       },
       "answer_key_balance": {
-        "A": 50,
-        "B": 49,
-        "C": 49,
-        "D": 50
+        "A": 53,
+        "B": 50,
+        "C": 52,
+        "D": 52
       },
       "modeling_items": 0,
-      "passages": 203
+      "passages": 212
     }
   },
   "last_completed_batch": {
     "act_math": 62,
     "act_english": 20,
     "act_reading": 22,
-    "sat_reading_writing": 22
+    "sat_reading_writing": 23
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1183,14 +1188,6 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 21,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 19.7,
-        "Knowledge of Language": 14.9,
-        "Conventions of Standard English": -21.3
-      }
-    },
     "act_reading": {
       "next_batch": 23,
       "skill_gap_for_next_10": {
@@ -1199,13 +1196,21 @@
         "Integration of Knowledge and Ideas": -6.7
       }
     },
-    "sat_reading_writing": {
-      "next_batch": 23,
+    "act_english": {
+      "next_batch": 21,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 4.2,
-        "Information and Ideas": 1.1,
-        "Standard English Conventions": 6.1,
-        "Expression of Ideas": -1.4
+        "Production of Writing": 19.7,
+        "Knowledge of Language": 14.9,
+        "Conventions of Standard English": -21.3
+      }
+    },
+    "sat_reading_writing": {
+      "next_batch": 24,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 4.8,
+        "Information and Ideas": 1.4,
+        "Standard English Conventions": 5.4,
+        "Expression of Ideas": -1.6
       }
     }
   },
@@ -1227,14 +1232,14 @@
     },
     "sat_reading_writing": {
       "target": 700,
-      "accepted": 198,
-      "share_of_target": 0.283
+      "accepted": 207,
+      "share_of_target": 0.296
     }
   },
   "total_target": 4000,
-  "total_accepted": 1181,
+  "total_accepted": 1190,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "sat_reading_writing",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -47450,7 +47455,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 22,
+      "bank_version": 23,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -47566,7 +47571,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-26T23:38:40+00:00",
+    "heartbeat_at": "2026-10-26T23:40:04+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
