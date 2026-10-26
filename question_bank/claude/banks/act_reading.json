@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 18,
-  "updated_at": "2026-10-26T22:16:22+00:00",
+  "version": 19,
+  "updated_at": "2026-10-26T23:00:25+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -201,6 +201,17 @@
       "word_count": 506,
       "text": "Between 1883 and 1919, the industrialist Andrew Carnegie paid for the construction of more than 1,600 public library buildings in the United States. Many still stand, recognizable by their wide front steps, tall windows, and the word LIBRARY carved above the door. In some small towns the Carnegie library was the first public building made of stone, and for decades it was also the place where clubs met, lectures were held, and newcomers learned to read English. It is tempting to see them simply as gifts, the generosity of a wealthy man spread across the map. But Carnegie's arrangement with the towns that received them was more demanding, and more interesting, than a gift.\n\nCarnegie would pay for a building only if a town supplied the land and promised to spend, every year, an amount equal to a tenth of his grant on books, staff, and upkeep. A town that accepted $10,000 for a building was committing itself to $1,000 a year, indefinitely. Carnegie believed that people valued what they paid for, and that a library supported by local taxes would be treated as a public responsibility rather than as a rich man's charity.\n\nNot every town agreed, and the reasons for refusing varied as much as the towns themselves. Some refused because they could not afford the yearly cost. Others refused on principle. Labor organizers in several cities, remembering a bitter strike at one of Carnegie's steel mills, argued that money earned by cutting workers' wages should not be accepted as a favor. A few towns that had accepted the money later failed to keep their promise, and their libraries closed or were absorbed by other institutions.\n\nThe buildings themselves changed how libraries worked. In many older libraries, books were kept in closed stacks; a patron asked a clerk for a title, and the clerk retrieved it, often after a wait. Readers could see only the titles listed in a printed catalog, and many had no way of knowing what else the collection held. Many Carnegie libraries were designed instead with open shelves that readers could browse on their own, arranged around a central desk from which a single librarian could see the whole room. The design saved money on staff, but it also changed the experience of reading: a visitor who came for one book might leave with another, found by chance on a nearby shelf.\n\nHistorians still disagree about how to judge the program, and the disagreement has lasted for more than a century. To some, it was a model of partnership between private wealth and public institutions; to others, it was a way for a man with a damaged reputation to purchase gratitude. Both views may be partly right. What is harder to dispute is that the requirement Carnegie attached to his money did as much to shape American libraries as the money itself. By making towns pay to keep the doors open, he made the library a line in the local budget, and lines in a budget are hard to erase.",
       "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000019",
+      "title": "Paths Nobody Planned",
+      "genre": "social science",
+      "word_count": 455,
+      "text": "Almost every park or campus has one: a strip of bare dirt cutting diagonally across a lawn, worn down by thousands of shoes. Planners call it a desire path. It appears wherever the route a designer laid out is longer, or less direct, than the route people want to take. A sidewalk that turns two neat right angles around a lawn will, sooner or later, acquire a desire path along the lawn's diagonal.\n\nThe obvious explanation is that people are saving time, but the savings are often tiny. Observers have noticed walkers cutting a corner that spares them only a few steps, and doing so even when they are in no hurry at all. A desire path, it seems, is less about minutes than about a feeling: the satisfaction of walking straight toward the place one means to go. The path records not a calculation but an impulse, repeated by enough people that the grass gives up.\n\nPlanners have responded in roughly three ways. The first is resistance: a fence, a hedge, or a sign asking people to keep off the grass. Resistance rarely works for long; walkers step over low fences, and hedges develop gaps. The second is surrender, in which the path is simply paved. The third is patience. A story often told about a university campus describes builders who planted grass between the new buildings, waited a year, and then paved the paths the students had worn. The story may be improved in the retelling, but its appeal is easy to understand. It imagines a design process in which the people who use a place are allowed to help draw it.\n\nStill, not every desire path deserves to be paved. Some cross ground too fragile to bear constant traffic, such as a stream bank or a bed of young trees. Others are made by a small number of people whose shortcut costs everyone else something, as when a path through a community garden tramples the plants. A desire path is evidence of what people want; it is not, by itself, a verdict on what they should get. The planner's task is to weigh that evidence, not simply to obey it.\n\nIn recent years, some planners and advocates have begun to treat these traces as data. After a snowfall, the tracks of cars and feet show which parts of a wide intersection are never used, and photographs of the untouched snow have been used to argue for wider sidewalks and shorter crossings. Researchers have also studied satellite images of worn grass to see where official paths fail. Read this way, the strip of bare dirt is a kind of vote, cast slowly, one step at a time, by people who were never asked.",
+      "batch": 19,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -10991,6 +11002,581 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-018.review.json",
         "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000152",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "A desire path is evidence of what people want",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "choices": {
+        "A": "argue that planners should pave every path that walkers wear into a lawn.",
+        "B": "explain what desire paths reveal and how planners might respond to them.",
+        "C": "describe the history of a single university campus and the design of its walkways.",
+        "D": "criticize walkers who damage parks and gardens by ignoring official sidewalks."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage defines desire paths, explains why they form, surveys planners' responses, qualifies paving, and ends by treating the paths as data. B covers all of that.",
+      "distractor_explanations": {
+        "A": "Paragraph 4 says that not every desire path deserves to be paved.",
+        "C": "The campus story fills only part of paragraph 3.",
+        "D": "The author treats walkers' choices as evidence, not as wrongdoing to be criticized."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which choice covers every paragraph, not just one?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph in a few words, then match."
+      },
+      "remember": "A main-purpose answer must fit the whole passage.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-01",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: distractors are weak (A contradicts para 4 'not every desire path deserves to be paved'; C is one anecdote; D tone mismatch), so the item is easier than a typical ACT main-purpose question"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000153",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference about motivation",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "less about minutes than about a feeling",
+      "figure": null,
+      "stem": "Based on paragraph 2, the author most likely believes that walkers create desire paths mainly because they:",
+      "choices": {
+        "A": "prefer the feeling of heading straight toward a destination.",
+        "B": "are usually in a hurry and need to save as much time as possible.",
+        "C": "have calculated that the shortcut saves several minutes each day.",
+        "D": "want to protest designs that they find unattractive."
+      },
+      "correct_answer": "A",
+      "explanation": "The author dismisses time savings and says a desire path is about \"the satisfaction of walking straight toward the place one means to go.\"",
+      "distractor_explanations": {
+        "B": "The author notes walkers cut corners \"even when they are in no hurry at all.\"",
+        "C": "The author says the path records \"not a calculation but an impulse.\"",
+        "D": "Nothing in the paragraph suggests protest."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does the author say the path is \"less about\" and \"more about\"?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence that contrasts minutes with a feeling."
+      },
+      "remember": "Look for the author's own explanation, especially after a rejected one.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-02",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: stem says 'most likely believes' but the answer is a near-paraphrase of 'the satisfaction of walking straight toward the place one means to go'; B and C are directly contradicted by the paragraph"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000154",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude toward an anecdote",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "The story may be improved in the retelling, but its appeal is easy to understand.",
+      "figure": null,
+      "stem": "The author's attitude toward the story about the university campus (paragraph 3) is best described as:",
+      "choices": {
+        "A": "confident that it is an accurate account of a well-documented event.",
+        "B": "dismissive of it as a myth with nothing to teach planners.",
+        "C": "doubtful about its exact accuracy but appreciative of the idea it expresses.",
+        "D": "indifferent, since the author mentions it only as an aside."
+      },
+      "correct_answer": "C",
+      "explanation": "The author questions the story's accuracy (\"may be improved in the retelling\") but values its idea that users can help design a place: mixed, not wholly positive or negative.",
+      "distractor_explanations": {
+        "A": "The author says the story \"may be improved in the retelling.\"",
+        "B": "The author says its appeal is \"easy to understand\" and explains that appeal.",
+        "D": "The author spends several sentences on what the story means."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "Does the author fully believe the story? Does the author value it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that capture only one side of the attitude."
+      },
+      "remember": "When an author both doubts and values something, the answer names both.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-04",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000155",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Relationship between paragraphs",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "Still, not every desire path deserves to be paved.",
+      "figure": null,
+      "stem": "Paragraph 4 relates to paragraph 3 primarily by:",
+      "choices": {
+        "A": "limiting the case for paving by noting when following a path would be a mistake.",
+        "B": "offering further examples of the three responses described in paragraph 3.",
+        "C": "rejecting the idea that desire paths say anything about what people want.",
+        "D": "explaining why walkers create desire paths in the first place."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 3 ends by praising a process in which users help draw a place; paragraph 4 opens with \"Still\" and limits that idea with cases (fragile ground, harm to others) where a path should not be paved.",
+      "distractor_explanations": {
+        "B": "Paragraph 4 does not return to fences, hedges or the campus story; it limits the case for paving.",
+        "C": "Paragraph 4 calls a desire path \"evidence of what people want.\"",
+        "D": "That explanation appears in paragraph 2, not paragraph 4."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"Still\" at the start of paragraph 4 signal?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the last sentence of paragraph 3 with the first of paragraph 4."
+      },
+      "remember": "A paragraph opening with \"still\" or \"however\" usually qualifies what came before.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-05",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: R019-09's key (do not pave a path through young trees) draws on the same paragraph 4 content; the two items overlap in what they test, though neither choice set gives away the other"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000156",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "it is not, by itself, a verdict on what they should get",
+      "figure": null,
+      "stem": "As it is used in paragraph 4, the word \"verdict\" most nearly means:",
+      "choices": {
+        "A": "legal penalty.",
+        "B": "public vote.",
+        "C": "rough guess.",
+        "D": "final judgment."
+      },
+      "correct_answer": "D",
+      "explanation": "The author contrasts evidence, which must be weighed, with a verdict, a final judgment that settles the question.",
+      "distractor_explanations": {
+        "A": "Nothing is being punished; the sentence concerns what people \"should get.\"",
+        "B": "The author says the path is evidence to be weighed, not a decision; a vote would still be a decision.",
+        "C": "A guess is tentative; the author contrasts evidence with something final."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is the author contrasting with \"evidence\"?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the word with your own: \"final decision.\""
+      },
+      "remember": "Use the sentence's contrast to pin down a word's meaning.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-06",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: B 'public vote' is a deliberate lure from the final sentence's 'a kind of vote'; defensible as a distractor since substituting it yields an awkward reading contrasting with 'evidence', but reviewers should confirm it is not arguable"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000157",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "photographs of the untouched snow have been used to argue for wider sidewalks and shorter crossings",
+      "figure": null,
+      "stem": "According to paragraph 5, photographs of snow after a snowfall have been used to:",
+      "choices": {
+        "A": "show which lawns need fences to keep walkers off.",
+        "B": "argue for wider sidewalks and shorter crossings.",
+        "C": "measure how much snow falls on city intersections.",
+        "D": "decide where to plant new trees along city streets."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage states that the photographs have been used to argue for wider sidewalks and shorter crossings.",
+      "distractor_explanations": {
+        "A": "The photographs concern intersections, not lawns or fences.",
+        "C": "The photographs show untouched snow to reveal unused space, not snowfall amounts.",
+        "D": "The passage does not mention trees in this context."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Find the sentence about snow."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Return to paragraph 5 and read the sentence about snow."
+      },
+      "remember": "Detail questions are answered by a specific line.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-07",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [
+          "minor: verbatim lift ('used to argue for wider sidewalks and shorter crossings'); very low discrimination"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000158",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Interpreting a figurative statement",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "by people who were never asked",
+      "figure": null,
+      "stem": "In the final sentence, the author describes a desire path as \"a kind of vote\" most likely to suggest that the path:",
+      "choices": {
+        "A": "expresses many people's preferences even though no one asked them.",
+        "B": "was created by an official election held among a park's visitors.",
+        "C": "must be paved because the majority of walkers have chosen it.",
+        "D": "shows that walkers disagree sharply about which route is best."
+      },
+      "correct_answer": "A",
+      "explanation": "Like votes, footsteps add up to show what many people prefer; \"never asked\" stresses that this preference was expressed informally, without a formal process.",
+      "distractor_explanations": {
+        "B": "The author is speaking figuratively; no election took place.",
+        "C": "Paragraph 4 says the path is evidence to weigh, not a decision to obey.",
+        "D": "A worn path reflects agreement among many walkers, not disagreement."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "In what way are footsteps like votes?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate literal readings and readings that contradict paragraph 4."
+      },
+      "remember": "Interpret a metaphor in a way that fits the rest of the passage.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-08",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: A echoes the passage's closing words 'people who were never asked', making the key easy to match; C is a reasonable trap but is contradicted by para 4"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000159",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Applying the author's reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000019",
+      "underline": null,
+      "evidence": "Some cross ground too fragile to bear constant traffic, such as a stream bank or a bed of young trees.",
+      "figure": null,
+      "stem": "Based on the passage, which of the following situations would the author most likely consider a desire path that should NOT be paved?",
+      "choices": {
+        "A": "A path worn by most students between a dormitory and a dining hall",
+        "B": "A path worn diagonally across a lawn between two busy sidewalks",
+        "C": "A path worn by a few cyclists through a newly planted grove of young trees",
+        "D": "A path worn by many shoppers between a parking lot and a store entrance"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 4 names two reasons not to pave: fragile ground (such as young trees) and a shortcut used by a few that costs others. C has both.",
+      "distractor_explanations": {
+        "A": "This is the kind of widely used path the campus story praises paving.",
+        "B": "This is the passage's standard example of a desire path, with no harm named.",
+        "D": "This is a heavily used, harmless shortcut, not one the author warns against."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What two problems does paragraph 4 name?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "List paragraph 4's reasons, then test each choice."
+      },
+      "remember": "Apply the author's stated criteria, not your own preferences.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "R019-09",
+      "created_at": "2026-10-26T23:00:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: C combines both para-4 criteria (few users AND fragile young trees), so it stands out strongly; the other three describe heavily used, ordinary paths",
+          "minor: passage speaks of walkers; 'cyclists' is a slight extension but not a problem"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-019.review.json",
+        "computation": "checks/act_reading/batch_019.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

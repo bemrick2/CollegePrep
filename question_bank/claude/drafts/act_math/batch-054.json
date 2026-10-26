@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 54,
+ "plan": "3 hard (angle bisector, constrained maximum, range of a rational function) / 4 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B054-01",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Time from a printing rate",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A printer prints 18 pages per minute. At this rate, how many minutes will it take the printer to print 405 pages?",
+   "choices": {
+    "A": "22.5",
+    "B": "23",
+    "C": "387",
+    "D": "7,290"
+   },
+   "answer": "A",
+   "explanation": "Time = pages ÷ rate = 405 ÷ 18 = 22.5 minutes.",
+   "distractors": {
+    "B": {
+     "rationale": "23 rounds up to a whole minute, but the printer finishes at 22.5 minutes.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "387 subtracts 18 from 405 instead of dividing.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "7,290 multiplies 405 by 18 instead of dividing.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Pages ÷ pages per minute = minutes."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "t = 405/18."
+   },
+   "remember": "Divide the total by the rate to get the time.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Linear equation with a negative distributed coefficient",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies 5 − 2(x − 1) = 1 ?",
+   "choices": {
+    "A": "−3",
+    "B": "1",
+    "C": "3",
+    "D": "7/2"
+   },
+   "answer": "C",
+   "explanation": "Distribute: 5 − 2x + 2 = 1, so 7 − 2x = 1, −2x = −6 and x = 3.",
+   "distractors": {
+    "A": {
+     "rationale": "−3 has the right size but the wrong sign.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "1 distributes −2 as −2x − 2, getting 3 − 2x = 1.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "7/2 solves 7 − 2x = 0, dropping the 1 on the right side.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Distribute −2 to both terms in the parentheses."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check 5 − 2(3 − 1) = 1."
+   },
+   "remember": "−2 times −1 is +2.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of a cube from its surface area",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A cube has a total surface area of 150 square centimeters. What is the volume of the cube, in cubic centimeters?",
+   "choices": {
+    "A": "25",
+    "B": "125",
+    "C": "150",
+    "D": "625"
+   },
+   "answer": "B",
+   "explanation": "Each of the 6 faces has area 150 ÷ 6 = 25, so each edge is 5 cm and the volume is 5³ = 125 cubic centimeters.",
+   "distractors": {
+    "A": {
+     "rationale": "25 is the area of one face, not the volume.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "150 is the surface area itself.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "625 = 25² squares a face's area instead of cubing the edge.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many faces does a cube have?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "6s² = 150, then V = s³."
+   },
+   "remember": "Surface area of a cube = 6s²; volume = s³.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Combined mean of two groups of different sizes",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "In a class of 20 students, the mean test score is 75. In a second class of 30 students, the mean score on the same test is 85. What is the mean score of all 50 students together?",
+   "choices": {
+    "A": "79",
+    "B": "80",
+    "C": "81",
+    "D": "160"
+   },
+   "answer": "C",
+   "explanation": "The totals are 20 × 75 = 1,500 and 30 × 85 = 2,550. The combined mean is (1,500 + 2,550) ÷ 50 = 4,050 ÷ 50 = 81.",
+   "distractors": {
+    "A": {
+     "rationale": "79 swaps the class sizes, weighting 75 by 30 and 85 by 20.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "80 averages the two means without weighting by class size.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "160 adds the two means.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which class has more students?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find each total, then divide by 50."
+   },
+   "remember": "Combine means by combining totals.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Maximum height of a projectile model",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The height, in feet, of a ball t seconds after it is thrown is given by h(t) = −16t² + 64t + 5. What is the maximum height of the ball, in feet?",
+   "choices": {
+    "A": "2",
+    "B": "5",
+    "C": "64",
+    "D": "69"
+   },
+   "answer": "D",
+   "explanation": "The vertex occurs at t = −64/(2 · −16) = 2. Then h(2) = −64 + 128 + 5 = 69 feet.",
+   "distractors": {
+    "A": {
+     "rationale": "2 is the time of the maximum, not the height.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "5 is the starting height, h(0).",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "64 is the coefficient of t, not a height.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "When does the ball reach its highest point?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "t = −b/(2a), then evaluate h."
+   },
+   "remember": "The maximum of a downward parabola is at its vertex.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Solving a system for a difference of variables",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "If 2x + 3y = 13 and 4x − y = 5, what is the value of x − y ?",
+   "choices": {
+    "A": "−1",
+    "B": "1",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "A",
+   "explanation": "From 4x − y = 5, y = 4x − 5. Then 2x + 3(4x − 5) = 13, so 14x = 28, x = 2 and y = 3. So x − y = −1.",
+   "distractors": {
+    "B": {
+     "rationale": "1 is y − x.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "5 is x + y.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "6 is the product xy.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Solve for one variable first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute y = 4x − 5."
+   },
+   "remember": "Answer the question asked: x − y, not x or y.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Operations in scientific notation",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the value of (6 × 10^5)(4 × 10^−2) / (8 × 10^1) ?",
+   "choices": {
+    "A": "3 × 10^1",
+    "B": "3 × 10^2",
+    "C": "3 × 10^3",
+    "D": "3 × 10^4"
+   },
+   "answer": "B",
+   "explanation": "The coefficients give 6 × 4 ÷ 8 = 3. The exponents give 5 + (−2) − 1 = 2. The value is 3 × 10^2.",
+   "distractors": {
+    "A": {
+     "rationale": "3 × 10^1 subtracts 2 from the exponent once too often.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "3 × 10^3 ignores the 10^1 in the denominator.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3 × 10^4 adds the denominator's exponent instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Handle the coefficients and the powers of 10 separately."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add exponents when multiplying; subtract when dividing."
+   },
+   "remember": "Multiplying powers of 10 adds exponents; dividing subtracts.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B054-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Angle bisector theorem",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In triangle ABC, AB = 6, AC = 9 and BC = 10. The bisector of angle A meets side BC at point D. What is the length of BD ?",
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "6",
+    "D": "15"
+   },
+   "answer": "A",
+   "explanation": "An angle bisector divides the opposite side in the ratio of the adjacent sides: BD/DC = AB/AC = 6/9 = 2/3. So BD = (2/5)(10) = 4.",
+   "distractors": {
+    "B": {
+     "rationale": "5 assumes the bisector meets BC at its midpoint.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "6 is DC, the longer piece, which is next to the longer side AC.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "15 adds AB and AC.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How does an angle bisector split the opposite side?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the triangle and label BD = 2k, DC = 3k."
+   },
+   "remember": "An angle bisector splits the opposite side in the ratio of the other two sides.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must know or derive that the bisector splits BC proportionally to AB and AC; the midpoint assumption (5) catches most."
+   }
+  },
+  {
+   "cand": "B054-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Greatest possible value with mean and median constraints",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "A list of 7 different positive integers has a median of 10 and a mean of 10. What is the greatest possible value of the largest integer in the list?",
+   "choices": {
+    "A": "31",
+    "B": "37",
+    "C": "54",
+    "D": "60"
+   },
+   "answer": "A",
+   "explanation": "The total is 7 × 10 = 70. To make the largest value as big as possible, make the others as small as possible: 1, 2, 3 below the median, the median 10, and 11, 12 above it. Their sum is 39, so the largest is 70 − 39 = 31.",
+   "distractors": {
+    "B": {
+     "rationale": "37 allows repeated values (1, 1, 1, 10, 10, 10), but the integers must be different.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "54 forgets the two values that must lie between the median and the largest value.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "60 subtracts only the median from the total.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What must the other six values be to leave the most for the largest?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Write seven blanks with 10 in the middle."
+   },
+   "remember": "To maximize one value, minimize all the others within the rules.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires an optimization setup with three constraints (distinct, positive, median position); each trap drops one constraint."
+   }
+  },
+  {
+   "cand": "B054-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Value not in the range of a rational function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "Which of the following values is NOT in the range of the function f(x) = (2x + 1)/(x − 3) ?",
+   "choices": {
+    "A": "−1/3",
+    "B": "0",
+    "C": "1",
+    "D": "2"
+   },
+   "answer": "D",
+   "explanation": "Solving y = (2x + 1)/(x − 3) for x gives x = (3y + 1)/(y − 2), which is undefined when y = 2. So f(x) never equals 2; it is the horizontal asymptote.",
+   "distractors": {
+    "A": {
+     "rationale": "f(0) = −1/3, so −1/3 is in the range.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "f(−1/2) = 0, so 0 is in the range.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "f(−4) = −7/−7 = 1, so 1 is in the range.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Try setting f(x) equal to each choice and solving for x."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Set (2x + 1)/(x − 3) equal to each choice and solve."
+   },
+   "remember": "A rational function never reaches its horizontal asymptote when the equation y = f(x) has no solution.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must connect 'not in the range' to the horizontal asymptote, or test choices algebraically; confusing range with domain points to 3, which is not offered."
+   }
+  }
+ ]
+}
