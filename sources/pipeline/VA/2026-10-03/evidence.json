@@ -1906,62 +1906,6 @@
   },
   "year_basis": "labeled_in_source"
  },
- "3329d9ad6397a6d7": {
-  "decision": {
-   "candidate_id": "3329d9ad6397a6d7",
-   "reason": "Hollins table headed \"Undergraduate Tuition & Fees – Academic Year 2026-27\", column \"FULL-TIME RESIDENTIAL STUDENTS\": Tuition $44,550, Comprehensive Fee $62,170, First term only $31,085, Second term only $31,085, copied as printed and labelled as on the page (the term rows stay labelled components). Cells that carry text with the amount (Food & Housing $16,540 with a meal note, the per-year SGA/Technology/Green fees) were not copied, and nothing is computed. Private, undergraduate, academic year."
-  },
-  "evidence": [
-   {
-    "field": "on_campus:Tuition",
-    "snippet": "Tuition | $44,550 | $44,550 | $1,395 (per credit and Short Term Only credit)",
-    "value": 44550
-   },
-   {
-    "field": "on_campus:Comprehensive Fee",
-    "snippet": "Comprehensive Fee | $62,170 | — | —",
-    "value": 62170
-   },
-   {
-    "field": "on_campus:First term only (with or without Short Term)",
-    "snippet": "First term only (with or without Short Term) | $31,085 | $22,780 | —",
-    "value": 31085
-   },
-   {
-    "field": "on_campus:Second term only (with or without Short Term)",
-    "snippet": "Second term only (with or without Short Term) | $31,085 | $22,780 | —",
-    "value": 31085
-   },
-   {
-    "field": "with_parents_or_family:Tuition",
-    "snippet": "Tuition | $44,550 | $44,550 | $1,395 (per credit and Short Term Only credit)",
-    "value": 44550
-   },
-   {
-    "field": "with_parents_or_family:First term only (with or without Short Term)",
-    "snippet": "First term only (with or without Short Term) | $31,085 | $22,780 | —",
-    "value": 22780
-   },
-   {
-    "field": "with_parents_or_family:Second term only (with or without Short Term)",
-    "snippet": "Second term only (with or without Short Term) | $31,085 | $22,780 | —",
-    "value": 22780
-   }
-  ],
-  "extractor": "cost_table/v2",
-  "issues": [],
-  "source": {
-   "fetched_at": "2026-10-03T10:16:37+00:00",
-   "kind": "html",
-   "last_modified": null,
-   "page_file": "52763c9cdfa42bc6f5e0.json.gz",
-   "requested_url": "https://www.hollins.edu/admission-aid/tuition-fees/undergraduate-tuition-fee-details/",
-   "sha256": "52763c9cdfa42bc6f5e0a6dc53c79958a9497b44d9e93280a2f3dedba6092a71",
-   "title": "Undergraduate Tuition & Fees - Academic Year 2026-27 - Hollins University",
-   "url": "https://www.hollins.edu/admission-aid/tuition-fees/undergraduate-tuition-fee-details/"
-  },
-  "year_basis": "labeled_in_source"
- },
  "351fa74fce7032dc": {
   "decision": {
    "candidate_id": "351fa74fce7032dc",
@@ -9330,9 +9274,9 @@
  },
  "ea9d50f040045bea": {
   "decision": {
-   "accept_issues": true,
    "candidate_id": "ea9d50f040045bea",
-   "reason": "JMU Admissions Facts table titled \"Undergraduate (2026-27) - Per year\" (the label line directly above the table); column \"Out-of-State\": Tuition and Fees $32,576, Housing and Food $15,220, TOTAL $47,796, copied as printed (the In-State column, $14,768, matches the verified in-state record already on file). Out-of-state undergraduate, per year. The reader did not capture the title line, so the candidate is source_unlabeled with ambiguous_year_labels (the page also mentions 2025-26); accepted because the year is printed in the table's own title, and the record stays partially_verified."
+   "reason": "JMU Admissions Facts table whose title line (the lead directly above a table with no heading or caption) reads \"Undergraduate (2026-27) - Per year\"; column \"Out-of-State\": Tuition and Fees $32,576, Housing and Food $15,220, TOTAL $47,796, copied as printed (the In-State column, $14,768, matches the verified in-state record already on file). Out-of-state undergraduate, per year; the year is printed in the table's own title.",
+   "supersede": "Re-read after the lead-line year fix: the reader now dates this table from its own title line, so the candidate is labeled_in_source with no open issues; it replaces the partially verified record from the same JMU page, whose academic_year_basis wrongly said the year came from the aid year in force at review."
   },
   "evidence": [
    {
@@ -9352,9 +9296,7 @@
    }
   ],
   "extractor": "cost_table/v2",
-  "issues": [
-   "ambiguous_year_labels"
-  ],
+  "issues": [],
   "source": {
    "fetched_at": "2026-10-03T10:17:58+00:00",
    "kind": "html",
@@ -9365,7 +9307,48 @@
    "title": "Admissions Facts - JMU",
    "url": "https://www.jmu.edu/admissions/fastfacts.shtml"
   },
-  "year_basis": "source_unlabeled"
+  "superseded": [
+   {
+    "decision": {
+     "accept_issues": true,
+     "candidate_id": "ea9d50f040045bea",
+     "reason": "JMU Admissions Facts table titled \"Undergraduate (2026-27) - Per year\" (the label line directly above the table); column \"Out-of-State\": Tuition and Fees $32,576, Housing and Food $15,220, TOTAL $47,796, copied as printed (the In-State column, $14,768, matches the verified in-state record already on file). Out-of-state undergraduate, per year. The reader did not capture the title line, so the candidate is source_unlabeled with ambiguous_year_labels (the page also mentions 2025-26); accepted because the year is printed in the table's own title, and the record stays partially_verified."
+    },
+    "evidence": [
+     {
+      "field": "column:Tuition and Fees*",
+      "snippet": "Tuition and Fees* | $14,768 | $32,576",
+      "value": 32576
+     },
+     {
+      "field": "column:Housing and Food",
+      "snippet": "Housing and Food | $15,220 | $15,220",
+      "value": 15220
+     },
+     {
+      "field": "column:TOTAL",
+      "snippet": "TOTAL | $29,988 | $47,796",
+      "value": 47796
+     }
+    ],
+    "extractor": "cost_table/v2",
+    "issues": [
+     "ambiguous_year_labels"
+    ],
+    "source": {
+     "fetched_at": "2026-10-03T10:17:58+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "bcfaaf6d991c0700fdfe.json.gz",
+     "requested_url": "https://www.jmu.edu/admissions/fastfacts.shtml",
+     "sha256": "bcfaaf6d991c0700fdfeccd373784828455f5a07bcc3d54cb297b3d4d91c3ae8",
+     "title": "Admissions Facts - JMU",
+     "url": "https://www.jmu.edu/admissions/fastfacts.shtml"
+    },
+    "year_basis": "source_unlabeled"
+   }
+  ],
+  "year_basis": "labeled_in_source"
  },
  "ebdcf120baeed02a": {
   "decision": {
