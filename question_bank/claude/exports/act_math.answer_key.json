@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 49,
+  "bank_version": 50,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -8506,6 +8506,177 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "(12 + 6)/40."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000490",
+      "correct_answer": "A",
+      "explanation": "A = 2,000(1 + 0.05 × 3) = 2,000(1.15) = 2,300.",
+      "distractor_explanations": {
+        "B": "$2,315.25 compounds the interest, which this simple-interest formula does not do.",
+        "C": "$2,600 uses rt = 0.3, doubling the interest.",
+        "D": "$6,000 multiplies P by t and ignores the rate."
+      },
+      "hints": [
+        "Compute rt first, then 1 + rt."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute each value."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000491",
+      "correct_answer": "D",
+      "explanation": "g(-5) = |-2| = 2 and g(1) = |4| = 4, so the sum is 6.",
+      "distractor_explanations": {
+        "A": "-2 is -5 + 3 without the absolute value, and only one term.",
+        "B": "2 drops the absolute value on the first term: -2 + 4.",
+        "C": "4 is g(1) alone."
+      },
+      "hints": [
+        "Evaluate each term separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute |-5 + 3| and |1 + 3|."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000492",
+      "correct_answer": "D",
+      "explanation": "Each of the two hexagonal bases has 6 edges (12 total), and 6 more edges connect the bases: 18.",
+      "distractor_explanations": {
+        "A": "8 is the number of faces.",
+        "B": "12 counts only the edges of the two bases (or the vertices).",
+        "C": "14 adds the 8 faces and 6 connecting edges."
+      },
+      "hints": [
+        "Count the edges of each base, then the edges joining them."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the prism."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000493",
+      "correct_answer": "A",
+      "explanation": "30,000 + 5,000 = 35,000 = 3.5 × 10⁴.",
+      "distractor_explanations": {
+        "B": "3.5 × 10³ uses the smaller power of 10.",
+        "C": "8 × 10⁴ adds the coefficients without matching the powers of 10.",
+        "D": "8 × 10⁷ adds the coefficients and the exponents."
+      },
+      "hints": [
+        "Rewrite both numbers with the same power of 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "30,000 + 5,000."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000494",
+      "correct_answer": "C",
+      "explanation": "Each flip has 2 outcomes, so there are 2 × 2 × 2 × 2 = 2⁴ = 16 sequences.",
+      "distractor_explanations": {
+        "A": "4 counts one outcome per flip.",
+        "B": "8 = 2 × 4 multiplies instead of using a power.",
+        "D": "32 = 2⁵ uses one flip too many."
+      },
+      "hints": [
+        "How many outcomes does each flip have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2 × 2 × 2 × 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000495",
+      "correct_answer": "B",
+      "explanation": "20 × 4.5 = 90 minutes, plus 15 = 105 minutes = 1 hour 45 minutes.",
+      "distractor_explanations": {
+        "A": "1 hour 30 minutes forgets the extra 15 minutes.",
+        "C": "1 hour 50 minutes uses 95 + 15, an arithmetic slip on 20 × 4.5.",
+        "D": "2 hours 15 minutes uses 4.5 × 30."
+      },
+      "hints": [
+        "Compute the per-pound time, then add the fixed time."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "20 × 4.5 + 15."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000496",
+      "correct_answer": "C",
+      "explanation": "The radius is the distance from (1, 2) to (4, 6): √(3² + 4²) = 5. The area is 25π.",
+      "distractor_explanations": {
+        "A": "5π uses the radius in place of r².",
+        "B": "10π is the circumference.",
+        "D": "49π uses 3 + 4 = 7 as the radius."
+      },
+      "hints": [
+        "The radius is the distance from the center to any point on the circle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with legs 3 and 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000497",
+      "correct_answer": "A",
+      "explanation": "(x + 3)² = x² + 6x + 9, so k = 6.",
+      "distractor_explanations": {
+        "B": "9 matches the constant term, not the middle coefficient.",
+        "C": "12 = 4 × 3 multiplies the square root by 4 instead of 2.",
+        "D": "18 = 2 × 9 doubles the constant instead of its square root."
+      },
+      "hints": [
+        "Expand (x + a)². How is the middle coefficient related to a?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check (x + 3)²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000498",
+      "correct_answer": "B",
+      "explanation": "3n + 2 > 50 gives n ≥ 17 (the term 53), and 3n + 2 < 100 gives n ≤ 32 (the term 98). That is n = 17 through 32: 16 terms.",
+      "distractor_explanations": {
+        "A": "15 = 32 - 17 forgets to count both ends.",
+        "C": "17 counts one extra term, such as 50 or 101, which are not in the range.",
+        "D": "50 = 100 - 50 counts integers, not terms of the sequence."
+      },
+      "hints": [
+        "Find the first and last terms in the range.",
+        "Count the n-values inclusively."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "List: 53, 56, ..., 98."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000499",
+      "correct_answer": "B",
+      "explanation": "The minute hand gains 6 - 0.5 = 5.5° per minute. Closing a 120° gap takes 120 ÷ 5.5 = 240/11 = 21 9/11 minutes.",
+      "distractor_explanations": {
+        "A": "20 = 120 ÷ 6 ignores the hour hand's movement.",
+        "C": "22 rounds the correct time up to the next whole minute.",
+        "D": "24 divides by 5 instead of 5.5."
+      },
+      "hints": [
+        "How fast does the minute hand gain on the hour hand?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Gap ÷ relative speed."
       }
     }
   ]

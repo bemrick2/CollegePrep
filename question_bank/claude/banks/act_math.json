@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 49,
-  "updated_at": "2026-10-26T22:10:11+00:00",
+  "version": 50,
+  "updated_at": "2026-10-26T22:14:04+00:00",
   "passages": [],
   "questions": [
     {
@@ -34177,6 +34177,711 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-049.review.json",
         "computation": "checks/act_math/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000490",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Using a formula with substitution",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The formula A = P(1 + rt) gives the amount A in an account after t years when P dollars earn simple interest at annual rate r. What is A when P = 2,000, r = 0.05, and t = 3 ?",
+      "choices": {
+        "A": "$2,300",
+        "B": "$2,315.25",
+        "C": "$2,600",
+        "D": "$6,000"
+      },
+      "correct_answer": "A",
+      "explanation": "A = 2,000(1 + 0.05 × 3) = 2,000(1.15) = 2,300.",
+      "distractor_explanations": {
+        "B": "$2,315.25 compounds the interest, which this simple-interest formula does not do.",
+        "C": "$2,600 uses rt = 0.3, doubling the interest.",
+        "D": "$6,000 multiplies P by t and ignores the rate."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Compute rt first, then 1 + rt."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute each value."
+      },
+      "remember": "Evaluate formulas inside the parentheses first.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-01",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000491",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Evaluating an absolute value function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function g is defined by g(x) = |x + 3|. What is the value of g(-5) + g(1) ?",
+      "choices": {
+        "A": "-2",
+        "B": "2",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "D",
+      "explanation": "g(-5) = |-2| = 2 and g(1) = |4| = 4, so the sum is 6.",
+      "distractor_explanations": {
+        "A": "-2 is -5 + 3 without the absolute value, and only one term.",
+        "B": "2 drops the absolute value on the first term: -2 + 4.",
+        "C": "4 is g(1) alone."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Evaluate each term separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute |-5 + 3| and |1 + 3|."
+      },
+      "remember": "Add inside the absolute value bars before taking the absolute value.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-02",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000492",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Faces, edges and vertices of a prism",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many edges does a hexagonal prism have?",
+      "choices": {
+        "A": "8",
+        "B": "12",
+        "C": "14",
+        "D": "18"
+      },
+      "correct_answer": "D",
+      "explanation": "Each of the two hexagonal bases has 6 edges (12 total), and 6 more edges connect the bases: 18.",
+      "distractor_explanations": {
+        "A": "8 is the number of faces.",
+        "B": "12 counts only the edges of the two bases (or the vertices).",
+        "C": "14 adds the 8 faces and 6 connecting edges."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Count the edges of each base, then the edges joining them."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the prism."
+      },
+      "remember": "An n-gon prism has 3n edges.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-03",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: no figure; recall/visualization of prism structure (6+6+6) is the whole item"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000493",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Adding numbers in scientific notation",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of (3 × 10⁴) + (5 × 10³), written in scientific notation?",
+      "choices": {
+        "A": "3.5 × 10⁴",
+        "B": "3.5 × 10³",
+        "C": "8 × 10⁴",
+        "D": "8 × 10⁷"
+      },
+      "correct_answer": "A",
+      "explanation": "30,000 + 5,000 = 35,000 = 3.5 × 10⁴.",
+      "distractor_explanations": {
+        "B": "3.5 × 10³ uses the smaller power of 10.",
+        "C": "8 × 10⁴ adds the coefficients without matching the powers of 10.",
+        "D": "8 × 10⁷ adds the coefficients and the exponents."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Rewrite both numbers with the same power of 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "30,000 + 5,000."
+      },
+      "remember": "Match powers of 10 before adding.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-04",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000494",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Counting outcomes of repeated trials",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A coin is flipped 4 times, and the result of each flip (heads or tails) is recorded in order. How many different sequences of results are possible?",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "16",
+        "D": "32"
+      },
+      "correct_answer": "C",
+      "explanation": "Each flip has 2 outcomes, so there are 2 × 2 × 2 × 2 = 2⁴ = 16 sequences.",
+      "distractor_explanations": {
+        "A": "4 counts one outcome per flip.",
+        "B": "8 = 2 × 4 multiplies instead of using a power.",
+        "D": "32 = 2⁵ uses one flip too many."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many outcomes does each flip have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2 × 2 × 2 × 2."
+      },
+      "remember": "Independent stages: multiply the number of outcomes at each stage.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-05",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000495",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Linear time rule with a fixed add-on",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A recipe says to roast meat for 20 minutes per pound plus an extra 15 minutes. How long should a 4.5-pound roast cook?",
+      "choices": {
+        "A": "1 hour 30 minutes",
+        "B": "1 hour 45 minutes",
+        "C": "1 hour 50 minutes",
+        "D": "2 hours 15 minutes"
+      },
+      "correct_answer": "B",
+      "explanation": "20 × 4.5 = 90 minutes, plus 15 = 105 minutes = 1 hour 45 minutes.",
+      "distractor_explanations": {
+        "A": "1 hour 30 minutes forgets the extra 15 minutes.",
+        "C": "1 hour 50 minutes uses 95 + 15, an arithmetic slip on 20 × 4.5.",
+        "D": "2 hours 15 minutes uses 4.5 × 30."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Compute the per-pound time, then add the fixed time."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "20 × 4.5 + 15."
+      },
+      "remember": "Rate times amount, then add the fixed part.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-06",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000496",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Circle area from its center and a point",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, a circle has its center at (1, 2) and passes through the point (4, 6). What is the area of the circle?",
+      "choices": {
+        "A": "5π",
+        "B": "10π",
+        "C": "25π",
+        "D": "49π"
+      },
+      "correct_answer": "C",
+      "explanation": "The radius is the distance from (1, 2) to (4, 6): √(3² + 4²) = 5. The area is 25π.",
+      "distractor_explanations": {
+        "A": "5π uses the radius in place of r².",
+        "B": "10π is the circumference.",
+        "D": "49π uses 3 + 4 = 7 as the radius."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "The radius is the distance from the center to any point on the circle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with legs 3 and 4."
+      },
+      "remember": "Radius = distance from the center to a point on the circle.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-07",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000497",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Perfect square trinomials",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For what positive value of k is x² + kx + 9 a perfect square trinomial?",
+      "choices": {
+        "A": "6",
+        "B": "9",
+        "C": "12",
+        "D": "18"
+      },
+      "correct_answer": "A",
+      "explanation": "(x + 3)² = x² + 6x + 9, so k = 6.",
+      "distractor_explanations": {
+        "B": "9 matches the constant term, not the middle coefficient.",
+        "C": "12 = 4 × 3 multiplies the square root by 4 instead of 2.",
+        "D": "18 = 2 × 9 doubles the constant instead of its square root."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Expand (x + a)². How is the middle coefficient related to a?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check (x + 3)²."
+      },
+      "remember": "(x + a)² = x² + 2ax + a².",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-08",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000498",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Counting terms of an arithmetic sequence in a range",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The sequence defined by aₙ = 3n + 2 for n = 1, 2, 3, ... begins 5, 8, 11, .... How many terms of the sequence are greater than 50 and less than 100 ?",
+      "choices": {
+        "A": "15",
+        "B": "16",
+        "C": "17",
+        "D": "50"
+      },
+      "correct_answer": "B",
+      "explanation": "3n + 2 > 50 gives n ≥ 17 (the term 53), and 3n + 2 < 100 gives n ≤ 32 (the term 98). That is n = 17 through 32: 16 terms.",
+      "distractor_explanations": {
+        "A": "15 = 32 - 17 forgets to count both ends.",
+        "C": "17 counts one extra term, such as 50 or 101, which are not in the range.",
+        "D": "50 = 100 - 50 counts integers, not terms of the sequence."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the first and last terms in the range.",
+        "Count the n-values inclusively."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "List: 53, 56, ..., 98."
+      },
+      "remember": "Translate a range of terms into a range of n, then count inclusively.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-09",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000499",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Clock hand overlap",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At exactly 4:00, the hour hand and minute hand of a clock are 120° apart. The minute hand moves 6° per minute, and the hour hand moves 0.5° per minute. How many minutes after 4:00 will the two hands first point in the same direction?",
+      "choices": {
+        "A": "20",
+        "B": "21 9/11",
+        "C": "22",
+        "D": "24"
+      },
+      "correct_answer": "B",
+      "explanation": "The minute hand gains 6 - 0.5 = 5.5° per minute. Closing a 120° gap takes 120 ÷ 5.5 = 240/11 = 21 9/11 minutes.",
+      "distractor_explanations": {
+        "A": "20 = 120 ÷ 6 ignores the hour hand's movement.",
+        "C": "22 rounds the correct time up to the next whole minute.",
+        "D": "24 divides by 5 instead of 5.5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How fast does the minute hand gain on the hour hand?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Gap ÷ relative speed."
+      },
+      "remember": "Catching up: divide the gap by the difference in speeds.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "B050-10",
+      "created_at": "2026-10-26T22:14:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: giving both rates removes most of the insight; a solver who rounds 21.8 might pick C (22)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-050.review.json",
+        "computation": "checks/act_math/batch_050.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
