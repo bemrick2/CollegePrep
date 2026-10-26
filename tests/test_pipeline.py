@@ -1488,6 +1488,79 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual(costs.residency('resident students', 'KY'), 'in_state')  # public tuition tables (Ashland)
         self.assertEqual(costs.residency('nonresident', 'KY', private=True), 'out_of_state')
 
+    def test_in_district_column_is_district_residency(self):
+        """Regression (TX: Lone Star, Austin CC): 'In-District' columns were merged with 'Out-of-District' as residency unknown."""
+        self.assertEqual(costs.residency('in-district', 'TX'), 'district')
+        self.assertEqual(costs.residency('in-district student not living at home', 'TX'), 'district')
+        self.assertIsNone(costs.residency('out-of-district', 'TX'))
+        self.assertEqual(costs.residency('out-of-state student not living at home in-district', 'TX'), 'out_of_state')
+        # MD (UMD): the District of Columbia is not a district rate, and this heading is the out-of-state table.
+        self.assertEqual(costs.residency('2026-2027 residents of the district of columbia, other states, and other countries', 'MD'), 'out_of_state')
+        # IN (Manchester): a "Non-Residential" (commuter) budget at a private college is not out-of-state.
+        self.assertIsNone(costs.residency('non-residential undergraduate', 'IN', private=True))
+        self.assertEqual(costs.residency('non-resident', 'IN'), 'out_of_state')
+        self.assertIsNone(costs.column_meaning('Non-Residential Undergraduate', 'IN', True)['arrangement'])
+        self.assertEqual(costs.column_meaning('Residential Students', 'IN', True)['arrangement'], 'on_campus')
+        # PR #285 review: reciprocity and regional columns that name states stay non-out-of-state.
+        self.assertEqual(costs.residency('residents of ohio and other states with reciprocity', 'KY'), 'named_other_state')
+        self.assertEqual(costs.residency('residents of indiana, ohio and other states in the academic common market', 'KY'), 'named_other_state')
+        self.assertEqual(costs.residency('residents of new england and other states (nerc)', 'ME'), 'in_state')
+        # Mixed district headers and the District of Columbia are not a district rate.
+        self.assertEqual(costs.residency('in-district/in-state', 'TX'), 'in_state')
+        self.assertIsNone(costs.residency('in-district / out-of-county', 'TX'))
+        self.assertIsNone(costs.residency('in-district & out-of-service-area', 'TX'))
+        self.assertIsNone(costs.residency('students living in district of columbia', 'MD'))
+        rows = [['', 'In-District', 'Out-of-District', 'Out of State / International'],
+                ['Tuition and Fees', '$3,330', '$7,470', '$9,390'], ['Books and Supplies', '$2,450', '$2,450', '$2,450'],
+                ['TOTAL', '$5,780', '$9,920', '$11,840']]
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Cost of Attendance</h2><table>'
+                + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</table></body></html>')
+        got = {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'TX', 'control': 'public'},
+                                                                   {**ENTRY, 'url': 'https://x.edu/cost-of-attendance'},
+                                                                   T.parse_html(html.encode(), 'https://x.edu/cost-of-attendance'), '2026-27')}
+        self.assertEqual(got['district']['record']['tuition_and_mandatory_fees'], 3330)
+        self.assertEqual(got['district']['record']['components']['TOTAL'], 5780)
+        self.assertEqual(got['out_of_state']['record']['tuition_and_mandatory_fees'], 9390)
+        self.assertIn('residency_unknown', got['not_applicable']['issues'])  # Out-of-District alone stays unknown
+        self.assertEqual(got['not_applicable']['record']['tuition_and_mandatory_fees'], 7470)
+
+
+    def test_reciprocity_column_is_not_out_of_state_in_a_table(self):
+        """Regression (PR #285 review): 'Residents of Ohio and other states with reciprocity' became a clean out-of-state record."""
+        rows = [['', 'Kentucky Residents', 'Residents of Ohio and other states with reciprocity'],
+                ['Tuition', '$6,000', '$9,000'], ['Books', '$1,000', '$1,000'], ['Total', '$7,000', '$10,000']]
+        html = ('<html><head><title>Tuition</title></head><body><h2>2026-2027 Tuition</h2><table>'
+                + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</table></body></html>')
+        got = costs.extract({**INST, 'state': 'KY'}, {**ENTRY, 'url': 'https://x.edu/tuition'}, T.parse_html(html.encode(), 'https://x.edu/tuition'), '2026-27')
+        self.assertNotIn('out_of_state', [c['record']['residency'] for c in got])
+        self.assertEqual({c['record']['residency']: c['record']['tuition'] for c in got}.get('in_state'), 6000)
+
+    def _untitled_table_with_lead(self, lead, today='2026-27'):
+        html = ('<html><head><title>Facts</title></head><body><p>Fall 2025-26 class profile</p><p>%s</p><table>'
+                '<tr><td>Item</td><td>In-State</td><td>Out-of-State</td></tr><tr><td>Tuition and Fees</td><td>$14,768</td><td>$32,576</td></tr>'
+                '<tr><td>Housing and Food</td><td>$15,220</td><td>$15,220</td></tr><tr><td>TOTAL</td><td>$29,988</td><td>$47,796</td></tr>'
+                '</table></body></html>' % lead)
+        page = T.parse_html(html.encode(), 'https://x.edu/facts')
+        self.assertTrue(any(lead.split()[0] in (t.get('lead') or '') and not (t.get('heading') or t.get('caption')) for t in page.tables),
+                        'the parser must attach the lead line to the untitled table')
+        return {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'VA'}, {**ENTRY, 'url': 'https://x.edu/facts'}, page, today)}
+
+    def test_year_from_lead_of_an_untitled_table(self):
+        """Regression (VA, JMU): 'Undergraduate (2026-27) - Per year' above a headingless table was ignored."""
+        got = self._untitled_table_with_lead('Undergraduate (2026-27) - Per year')
+        self.assertEqual(got['out_of_state']['year_basis'], 'labeled_in_source')
+        self.assertEqual(got['out_of_state']['academic_year'], '2026-27')
+
+    def test_lead_sentence_does_not_date_an_untitled_table(self):
+        """PR #285 review: only a title-like lead dates a table; an aid deadline or a caveat sentence does not."""
+        for lead in ('Apply for 2026-27 aid by March 1.', '2026-27 rates have not been approved; the table shows current rates.',
+                     'Effective 2026-27'):
+            got = self._untitled_table_with_lead(lead, today='2027-28')
+            self.assertEqual(got['out_of_state']['year_basis'], 'source_unlabeled', lead)
+            self.assertEqual(got['out_of_state']['academic_year'], '2027-28', lead)
+        self.assertEqual(costs.lead_title_year('Undergraduate (2026-27) - Per year'), '2026-27')
+        self.assertIsNone(costs.lead_title_year('Tuition 2026-27 estimates are shown below'))
+
     def test_dual_gpa_ranges_and_course_scoped_tiers(self):
         """Regression (KY: Thomas More '2.5 to 2.79 GPA' -> 2.79; KCTCS technical-course 2.0 GPA shown as the general minimum)."""
         html = (b'<html><head><title>Dual Credit</title></head><body><p>Students admitted with an unweighted 2.5 to 2.79 GPA may only take one course.</p>'

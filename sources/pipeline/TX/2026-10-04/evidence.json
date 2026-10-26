@@ -2301,6 +2301,67 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "20b377a7afb7b054": {
+  "decision": {
+   "candidate_id": "20b377a7afb7b054",
+   "reason": "Lone Star table under heading \"2026-2027 Cost of Attendance\"; column \"In-District\" prints Tuition and Fees $3,330, Loan Fees $96, Books and Supplies $2,450, Food and Housing $10,960, Transportation $1,510, Personal / Misc $4,008, Professional Licensure Fee $410, TOTAL $22,764, all copied as printed. District residency, academic year; no living arrangement is printed for the column. Page conflict noted: the printed TOTAL $22,764 equals the sum of all printed rows including the $410 Professional Licensure Fee, while the page's footnote says that fee \"is not calculated in the total Cost of Attendance\"; the total is kept exactly as printed and the fee stays a labelled component."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees",
+    "snippet": "Tuition and Fees | $3,330 | $7,470 | $9,390",
+    "value": 3330
+   },
+   {
+    "field": "column:Loan Fees",
+    "snippet": "Loan Fees | $96 | $96 | $96",
+    "value": 96
+   },
+   {
+    "field": "column:Books and Supplies*",
+    "snippet": "Books and Supplies* | $2,450 | $2,450 | $2,450",
+    "value": 2450
+   },
+   {
+    "field": "column:Food and Housing",
+    "snippet": "Food and Housing | $10,960 | $10,960 | $10,960",
+    "value": 10960
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $1,510 | $1,510 | $2,510",
+    "value": 1510
+   },
+   {
+    "field": "column:Personal / Misc",
+    "snippet": "Personal / Misc | $4,008 | $4,008 | $4,008",
+    "value": 4008
+   },
+   {
+    "field": "column:Professional Licensure Fee**",
+    "snippet": "Professional Licensure Fee** | $410 | $410 | $410",
+    "value": 410
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $22,764 | $26,904 | $29,824",
+    "value": 22764
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T23:42:26+00:00",
+   "kind": "html",
+   "last_modified": "Sat, 03 Oct 2026 05:13:36 GMT",
+   "page_file": "30de372779b2428be122.json.gz",
+   "requested_url": "https://www.lonestar.edu/cost-of-attendance.htm",
+   "sha256": "30de372779b2428be12250113829240ff34479a388293654426fe3a6bff3c58b",
+   "title": "Cost of Attendance |",
+   "url": "https://www.lonestar.edu/cost-of-attendance.htm"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "22917b4a972d94ab": {
   "decision": {
    "candidate_id": "22917b4a972d94ab",
@@ -3996,6 +4057,90 @@
    "sha256": "d00481d830860f2894b1169631498a4d7b62dfaddbcd2a9306fbfb8de0cb57bd",
    "title": "Scholarships | South Texas College",
    "url": "https://studentservices.southtexascollege.edu/finaid/scholarships/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "37829683775a577b": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "37829683775a577b",
+   "reason": "Galveston College \"Cost of Attendance (COA)\" table whose header row prints \"2026-2027 | (In District) | (In District)\"; column \"Not Living with Parents\" prints Tuition/Fees $2,726, Books/Supplies $2,046, Housing/Food $11,274, Miscellaneous $2,826, Transportation $2,662, Total $21,534, and \"Dependent Living with Parents\" Housing/Food $5,300, Total $15,560, copied as printed. District residency, academic year. Open issue conflicting_sources accepted: the other two sources are copies of the same table on gc.edu (identical figures), rejected below as duplicates."
+  },
+  "evidence": [
+   {
+    "field": "off_campus_not_with_family:* Tuition/Fees",
+    "snippet": "* Tuition/Fees | $2,726 | $2,726",
+    "value": 2726
+   },
+   {
+    "field": "off_campus_not_with_family:* Books/Supplies",
+    "snippet": "* Books/Supplies | $2,046 | $2,046",
+    "value": 2046
+   },
+   {
+    "field": "off_campus_not_with_family:Housing/Food",
+    "snippet": "Housing/Food | $11,274 | $5,300",
+    "value": 11274
+   },
+   {
+    "field": "off_campus_not_with_family:Miscellaneous",
+    "snippet": "Miscellaneous | $2,826 | $2,826",
+    "value": 2826
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $2,662 | $2,662",
+    "value": 2662
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | $21,534 | $15,560",
+    "value": 21534
+   },
+   {
+    "field": "with_parents_or_family:* Tuition/Fees",
+    "snippet": "* Tuition/Fees | $2,726 | $2,726",
+    "value": 2726
+   },
+   {
+    "field": "with_parents_or_family:* Books/Supplies",
+    "snippet": "* Books/Supplies | $2,046 | $2,046",
+    "value": 2046
+   },
+   {
+    "field": "with_parents_or_family:Housing/Food",
+    "snippet": "Housing/Food | $11,274 | $5,300",
+    "value": 5300
+   },
+   {
+    "field": "with_parents_or_family:Miscellaneous",
+    "snippet": "Miscellaneous | $2,826 | $2,826",
+    "value": 2826
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $2,662 | $2,662",
+    "value": 2662
+   },
+   {
+    "field": "with_parents_or_family:Total",
+    "snippet": "Total | $21,534 | $15,560",
+    "value": 15560
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "conflicting_sources:https://gc.edu/admissions/calculating-tuition-fees.php,https://www.gc.edu/financial-aid/financial-aid-information.php"
+  ],
+  "source": {
+   "fetched_at": "2026-10-04T23:32:24+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "79bae56c07a70391a77b.json.gz",
+   "requested_url": "https://www.gc.edu/admissions/calculating-tuition-fees.php",
+   "sha256": "79bae56c07a70391a77b6132a026d37dc9e95c17d47feba417ad52ab214d78fa",
+   "title": "Galveston College – Calculating Tuition & Fees",
+   "url": "https://www.gc.edu/admissions/calculating-tuition-fees.php"
   },
   "year_basis": "labeled_in_source"
  },
@@ -8278,6 +8423,135 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "72a4a75ddac4471f": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "72a4a75ddac4471f",
+   "reason": "PVAMU table under heading \"2026 - 2027\", title row \"Undergraduate Student – Resident Full Time (15 Hours)\"; column \"On-Campus\" prints Tuition & Fees $11,299, Room & Board $12,900, Books $1,705, Loan Fees $80, Transportation $2,006, Miscellaneous $3,300, \"Total (Per Year)\" $31,291, all copied as printed. In-state (public, Resident) undergraduate, per year, on campus. Open issue components_do_not_reconcile accepted: the printed rows sum to $31,290, $1 under the page's own total, which is kept as printed and not recomputed."
+  },
+  "evidence": [
+   {
+    "field": "with_parents_or_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $11,299 | $11,299 | $11,299",
+    "value": 11299
+   },
+   {
+    "field": "with_parents_or_family:Room & Board",
+    "snippet": "Room & Board | $3,273 | $12,900 | $9,629",
+    "value": 3273
+   },
+   {
+    "field": "with_parents_or_family:Books",
+    "snippet": "Books | $1,705 | $1,705 | $1,705",
+    "value": 1705
+   },
+   {
+    "field": "with_parents_or_family:Loan Fees",
+    "snippet": "Loan Fees | $80 | $80 | $80",
+    "value": 80
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $2,006 | $2,006 | $2,006",
+    "value": 2006
+   },
+   {
+    "field": "with_parents_or_family:Miscellaneous",
+    "snippet": "Miscellaneous | $2,342 | $3,300 | $3,300",
+    "value": 2342
+   },
+   {
+    "field": "with_parents_or_family:Total (Per Year)",
+    "snippet": "Total (Per Year) | $20,706 | $31,291 | $28,020",
+    "value": 20706
+   },
+   {
+    "field": "on_campus:Tuition & Fees",
+    "snippet": "Tuition & Fees | $11,299 | $11,299 | $11,299",
+    "value": 11299
+   },
+   {
+    "field": "on_campus:Room & Board",
+    "snippet": "Room & Board | $3,273 | $12,900 | $9,629",
+    "value": 12900
+   },
+   {
+    "field": "on_campus:Books",
+    "snippet": "Books | $1,705 | $1,705 | $1,705",
+    "value": 1705
+   },
+   {
+    "field": "on_campus:Loan Fees",
+    "snippet": "Loan Fees | $80 | $80 | $80",
+    "value": 80
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $2,006 | $2,006 | $2,006",
+    "value": 2006
+   },
+   {
+    "field": "on_campus:Miscellaneous",
+    "snippet": "Miscellaneous | $2,342 | $3,300 | $3,300",
+    "value": 3300
+   },
+   {
+    "field": "on_campus:Total (Per Year)",
+    "snippet": "Total (Per Year) | $20,706 | $31,291 | $28,020",
+    "value": 31291
+   },
+   {
+    "field": "off_campus_not_with_family:Tuition & Fees",
+    "snippet": "Tuition & Fees | $11,299 | $11,299 | $11,299",
+    "value": 11299
+   },
+   {
+    "field": "off_campus_not_with_family:Room & Board",
+    "snippet": "Room & Board | $3,273 | $12,900 | $9,629",
+    "value": 9629
+   },
+   {
+    "field": "off_campus_not_with_family:Books",
+    "snippet": "Books | $1,705 | $1,705 | $1,705",
+    "value": 1705
+   },
+   {
+    "field": "off_campus_not_with_family:Loan Fees",
+    "snippet": "Loan Fees | $80 | $80 | $80",
+    "value": 80
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $2,006 | $2,006 | $2,006",
+    "value": 2006
+   },
+   {
+    "field": "off_campus_not_with_family:Miscellaneous",
+    "snippet": "Miscellaneous | $2,342 | $3,300 | $3,300",
+    "value": 3300
+   },
+   {
+    "field": "off_campus_not_with_family:Total (Per Year)",
+    "snippet": "Total (Per Year) | $20,706 | $31,291 | $28,020",
+    "value": 28020
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "components_do_not_reconcile"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T00:21:17+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "a5e5410c494b4d808a70.json.gz",
+   "requested_url": "https://www.pvamu.edu/faid/resources/cost-of-attendance/",
+   "sha256": "a5e5410c494b4d808a70424780eab8d5bc3e16f4a3d2bfba26c7761cb08ee8e3",
+   "title": "Cost of Attendance – Financial Aid",
+   "url": "https://www.pvamu.edu/faid/resources/cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "73cbb4933baa81da": {
   "decision": {
    "candidate_id": "73cbb4933baa81da",
@@ -8786,6 +9060,57 @@
    "url": "https://dallasinstitute.edu/admissions/advanced-placement-exam/"
   },
   "year_basis": "source_unlabeled"
+ },
+ "76e9dea394bf9fd6": {
+  "decision": {
+   "candidate_id": "76e9dea394bf9fd6",
+   "reason": "TAMIU table headed \"Undergraduate 2026-2027\" (caption \"Cost of Attendance table\", lead \"Estimated Cost of Attendance for Fall and Spring\"); column \"Non-Resident On-Campus\" prints Tuition & Fees $24,534, Books $1,280, Living Expenses $13,394, Transportation $454, Miscellaneous Personal Expenses $2,322, Total $41,984, all copied as printed. Out-of-state undergraduate, academic year (Fall and Spring), on campus."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition & Fees",
+    "snippet": "Tuition & Fees | $ 9,530 | $ 9,530 | $ 24,534",
+    "value": 24534
+   },
+   {
+    "field": "on_campus:Books, Course Materials, Supplies & Equipment",
+    "snippet": "Books, Course Materials, Supplies & Equipment | $ 1,280 | $ 1,280 | $ 1,280",
+    "value": 1280
+   },
+   {
+    "field": "on_campus:Living Expenses",
+    "snippet": "Living Expenses | $ 13,394 | $ 7,932 | $ 13,394",
+    "value": 13394
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $ 454 | $ 514 | $ 454",
+    "value": 454
+   },
+   {
+    "field": "on_campus:Miscellaneous Personal Expenses",
+    "snippet": "Miscellaneous Personal Expenses | $ 2,322 | $ 2,322 | $ 2,322",
+    "value": 2322
+   },
+   {
+    "field": "on_campus:Total",
+    "snippet": "Total | $ 26,980 | $ 21,578 | $ 41,984",
+    "value": 41984
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-05T00:05:44+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "8b39d11e3893538e04d5.json.gz",
+   "requested_url": "https://www.tamiu.edu/financialaid/26-27-cost-of-attendance.shtml",
+   "sha256": "8b39d11e3893538e04d5127e6b872f385206a6eb29e185f21da81aedab06ec46",
+   "title": "2026-2027 Cost of Attendance",
+   "url": "https://www.tamiu.edu/financialaid/26-27-cost-of-attendance.shtml"
+  },
+  "year_basis": "labeled_in_source"
  },
  "76f371d1ff343624": {
   "decision": {
@@ -17700,6 +18025,50 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "c9cc20b15413f580": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "c9cc20b15413f580",
+   "reason": "LCU \"Tuition and Fees\" table whose label line reads \"Fall and Spring Semesters Block Rate 2026-27 (per semester)\"; column \"12-18\" credit hours prints Tuition $15,370, Health Services Fee $70, Technology Fee $270, Total $15,710, copied as printed. Recorded as a per-semester cost (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. Private college, residency not applicable. Page conflict noted: the per-hour detail table on the same page prints the \"(12-18) Block Rate\" total as $15,110, while this summary table prints $15,710 (= $15,370 + $70 + $270); the summary table's figures are recorded."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $15,370",
+    "value": 15370
+   },
+   {
+    "field": "column:Health Services Fee",
+    "snippet": "Health Services Fee | $70",
+    "value": 70
+   },
+   {
+    "field": "column:Technology Fee*",
+    "snippet": "Technology Fee* | $270",
+    "value": 270
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $15,710",
+    "value": 15710
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "cost_period_semester"
+  ],
+  "source": {
+   "fetched_at": "2026-10-04T23:43:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "acc2c6d054298d277da4.json.gz",
+   "requested_url": "https://lcu.edu/financial-assistance/tuition-and-fees",
+   "sha256": "acc2c6d054298d277da4fd2f3e26f70f06ff7bcf44aa2a3e257646c48770e43c",
+   "title": "LCU: Tuition and Fees",
+   "url": "https://lcu.edu/financial-assistance/tuition-and-fees"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "ca64d2ad6d34fa5b": {
   "decision": {
    "candidate_id": "ca64d2ad6d34fa5b",
@@ -18742,6 +19111,87 @@
    "url": "https://tsu.edu/admissions/financial-aid/types-of-aid/scholarships/index.php"
   },
   "year_basis": "source_unlabeled"
+ },
+ "d43cdb64f647b2a2": {
+  "decision": {
+   "candidate_id": "d43cdb64f647b2a2",
+   "reason": "Austin CC table labelled \"2026-2027 In-District Cost of Attendance\"; columns \"In-district student not living at home\" (Tuition and fees $2,550, Housing and food $18,240, Books and Supplies $1,200, Transportation $1,824, Personal expenses $3,584, Total $27,398) and \"in-district student living at home with parents\" (Housing and food $8,800, Total $17,958), copied as printed with their headers. District residency, academic year."
+  },
+  "evidence": [
+   {
+    "field": "off_campus_not_with_family:Tuition and fees",
+    "snippet": "Tuition and fees | $2,550 | $2,550",
+    "value": 2550
+   },
+   {
+    "field": "off_campus_not_with_family:Housing and food",
+    "snippet": "Housing and food | $18,240 | $8,800",
+    "value": 18240
+   },
+   {
+    "field": "off_campus_not_with_family:Books and Supplies",
+    "snippet": "Books and Supplies | $1,200 | $1,200",
+    "value": 1200
+   },
+   {
+    "field": "off_campus_not_with_family:Transportation",
+    "snippet": "Transportation | $1,824 | $1,824",
+    "value": 1824
+   },
+   {
+    "field": "off_campus_not_with_family:Personal expenses",
+    "snippet": "Personal expenses | $3,584 | $3,584",
+    "value": 3584
+   },
+   {
+    "field": "off_campus_not_with_family:Total",
+    "snippet": "Total | $27,398 | $17,958",
+    "value": 27398
+   },
+   {
+    "field": "with_parents_or_family:Tuition and fees",
+    "snippet": "Tuition and fees | $2,550 | $2,550",
+    "value": 2550
+   },
+   {
+    "field": "with_parents_or_family:Housing and food",
+    "snippet": "Housing and food | $18,240 | $8,800",
+    "value": 8800
+   },
+   {
+    "field": "with_parents_or_family:Books and Supplies",
+    "snippet": "Books and Supplies | $1,200 | $1,200",
+    "value": 1200
+   },
+   {
+    "field": "with_parents_or_family:Transportation",
+    "snippet": "Transportation | $1,824 | $1,824",
+    "value": 1824
+   },
+   {
+    "field": "with_parents_or_family:Personal expenses",
+    "snippet": "Personal expenses | $3,584 | $3,584",
+    "value": 3584
+   },
+   {
+    "field": "with_parents_or_family:Total",
+    "snippet": "Total | $27,398 | $17,958",
+    "value": 17958
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-04T23:36:19+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "11f4f327f47774c48802.json.gz",
+   "requested_url": "https://students.austincc.edu/financial-aid/explore-your-financial-aid/cost-of-attendance/",
+   "sha256": "11f4f327f47774c48802d911dff3008ebfeb0993475ba36f30efd8320ef20ee5",
+   "title": "Cost of Attendance | Financial Aid | Austin Community College District",
+   "url": "https://students.austincc.edu/financial-aid/explore-your-financial-aid/cost-of-attendance/"
+  },
+  "year_basis": "labeled_in_source"
  },
  "d477657d52fa9098": {
   "decision": {

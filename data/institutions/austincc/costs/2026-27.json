@@ -1,0 +1,57 @@
+{
+  "institution_key": "ipeds-222992",
+  "academic_year": "2026-27",
+  "records": [
+    {
+      "books_supplies": 1200,
+      "components": {
+        "Books and Supplies": 1200,
+        "Housing and food": 18240,
+        "Personal expenses": 3584,
+        "Total": 27398,
+        "Transportation": 1824,
+        "Tuition and fees": 2550
+      },
+      "cost_period": "academic_year",
+      "currency": "USD",
+      "last_verified_at": "2026-10-04",
+      "living_arrangements": [
+        {
+          "arrangement": "off_campus_not_with_family",
+          "column_header": "In-district student not living at home",
+          "components": {
+            "Books and Supplies": 1200,
+            "Housing and food": 18240,
+            "Personal expenses": 3584,
+            "Total": 27398,
+            "Transportation": 1824,
+            "Tuition and fees": 2550
+          },
+          "total_cost_of_attendance": 27398
+        },
+        {
+          "arrangement": "with_parents_or_family",
+          "column_header": "in-district student living at home with parents",
+          "components": {
+            "Books and Supplies": 1200,
+            "Housing and food": 8800,
+            "Personal expenses": 3584,
+            "Total": 17958,
+            "Transportation": 1824,
+            "Tuition and fees": 2550
+          },
+          "total_cost_of_attendance": 17958
+        }
+      ],
+      "mandatory_fees": null,
+      "notes": "Extracted by cost_table/v2 from the table \" Cost of Attendance \"; printed rows copied, totals never recomputed. Reviewed 2026-10-23: Austin CC table labelled \"2026-2027 In-District Cost of Attendance\"; columns \"In-district student not living at home\" (Tuition and fees $2,550, Housing and food $18,240, Books and Supplies $1,200, Transportation $1,824, Personal expenses $3,584, Total $27,398) and \"in-district student living at home with parents\" (Housing and food $8,800, Total $17,958), copied as printed with their headers. District residency, academic year. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#d43cdb64f647b2a2.",
+      "on_campus_food_housing": null,
+      "residency": "district",
+      "source_url": "https://students.austincc.edu/financial-aid/explore-your-financial-aid/cost-of-attendance/",
+      "total_cost_of_attendance": 27398,
+      "tuition": null,
+      "tuition_and_mandatory_fees": 2550,
+      "verification_status": "verified"
+    }
+  ]
+}
