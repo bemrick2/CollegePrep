@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 8,
-  "updated_at": "2026-10-26T20:07:53+00:00",
+  "version": 9,
+  "updated_at": "2026-10-26T20:16:54+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -91,6 +91,17 @@
       "word_count": 419,
       "text": "In eighteenth-century England, a landowner who wanted his estate to look properly distinguished might commission, alongside the lawns and lakes, a ruin. Not an old building that had fallen down, but a new one designed to look as if it had: a broken tower with an artfully collapsed staircase, a chapel wall with empty windows framing a view of the hills. Builders were sometimes instructed to leave stones scattered at the base, as though they had dropped there over centuries.\n\nTo a modern visitor, the practice can seem faintly absurd, even dishonest. We are accustomed to valuing old buildings for their authenticity, for the fact that they were actually there when the events we associate with them took place. A ruin built in 1760 to evoke the Middle Ages appears to offer the feeling of history without the thing itself, the way a souvenir offers the feeling of a trip.\n\nBut that judgment assumes the builders were trying to deceive, and there is little evidence that they were. Visitors generally knew which ruins were new; guidebooks said so, and owners were often proud of the fact. What the sham ruin offered was not a false claim about the past but an occasion for a particular state of mind. Writers of the period described the pleasure of contemplating decay: the reminder that all human works, including the grand house a few hundred yards away, would eventually crumble. The ruin was less a history lesson than a kind of philosophical furniture.\n\nSeen this way, the sham ruin tells us less about how the eighteenth century misunderstood the past than about how it used the past. History, for these landowners, was not primarily a record to be consulted but a mood to be cultivated, a backdrop against which the present could feel both important and fleeting. The broken tower did not need to be old to do its work. It needed only to be broken.\n\nIt is tempting to feel superior to this attitude, and in some ways we are right to. The modern preservation movement, with its insistence on original materials and documented histories, has saved a great deal that the eighteenth century would have let fall or would have cheerfully \"improved.\" Yet the impulse behind the sham ruin has not disappeared. It survives whenever a new restaurant installs reclaimed barn wood, or a housing development is named for the farm it replaced. We still want the feeling of age; we have simply become more particular about where it comes from.",
       "batch": 8,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000009",
+      "title": "A Compass in the Eye",
+      "genre": "natural science",
+      "word_count": 405,
+      "text": "Each autumn, a young European robin that has never made the journey before leaves its breeding ground and flies hundreds of kilometers south, often at night and often alone. How it finds its way has puzzled biologists for more than a century. Young birds raised in isolation still orient in roughly the right direction when the season arrives, which suggests that at least part of the ability is inborn rather than learned.\n\nBirds are now known to use several cues. They can read the position of the sun, correcting for its movement across the sky during the day; they can use patterns of stars, learning as nestlings which part of the night sky rotates least; and they can sense Earth's magnetic field. The last of these has proved the most difficult to explain. Magnetic fields pass through living tissue almost without effect, so a sense that detects them needs some special mechanism, and for decades no one could say what it was.\n\nOne early proposal held that birds carry tiny crystals of magnetite, a magnetic iron mineral, that act like compass needles. Clusters of iron-rich cells were in fact found in the upper beaks of pigeons, and for a time the case seemed strong. Later work showed that many of those cells were not nerve cells at all but immune cells that had accumulated iron for unrelated reasons. The magnetite idea has not been entirely abandoned, but it no longer dominates the field.\n\nThe leading alternative is stranger. In the bird's eye, a light-sensitive protein called cryptochrome may form pairs of molecules whose chemical behavior depends slightly on the direction of a magnetic field. If so, a robin might literally see the field, perhaps as a faint pattern laid over its ordinary vision. The hypothesis fits two puzzling observations: in experiments, robins could orient magnetically only when some light was present, and very weak radio-frequency noise, far too weak to move a compass needle, was enough to disrupt their orientation.\n\nNone of this has been confirmed in a living bird's eye, and the chemistry involved operates at a scale where measurements are extraordinarily difficult. What researchers can say is that the robin's magnetic sense, whatever its mechanism, appears to be a compass rather than a map: it tells the bird which way is north, not where the bird is. Knowing where to go, and recognizing when it has arrived, may depend on other senses entirely.",
+      "batch": 9,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -5241,6 +5252,660 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-008.review.json",
         "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000073",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main focus of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "The last of these has proved the most difficult to explain.",
+      "figure": null,
+      "stem": "The passage mainly focuses on:",
+      "choices": {
+        "A": "the routes European robins follow between breeding and wintering grounds.",
+        "B": "efforts to explain how migrating birds sense Earth's magnetic field.",
+        "C": "evidence that young birds learn to navigate by following older birds.",
+        "D": "the ways birds use the positions of the sun and stars to find north."
+      },
+      "correct_answer": "B",
+      "explanation": "After listing cues, the passage spends three paragraphs on the magnetic sense: the magnetite proposal, the cryptochrome hypothesis, and what is still unknown.",
+      "distractor_explanations": {
+        "A": "Routes are never described; the robin is an example.",
+        "C": "Paragraph 1 says isolated young birds still orient, suggesting the ability is inborn.",
+        "D": "Sun and star cues are mentioned briefly in paragraph 2 before the focus shifts."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which cue gets most of the passage's attention?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize the passage in one sentence first."
+      },
+      "remember": "The main focus is where most of the paragraphs go.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-01",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: D (sun/stars) is a decent partial-scope distractor, but A and C are weak; overall easy main-idea item"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000074",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "Young birds raised in isolation still orient in roughly the right direction",
+      "figure": null,
+      "stem": "According to the passage, young birds raised in isolation:",
+      "choices": {
+        "A": "still orient in roughly the right direction when the season arrives.",
+        "B": "fail to migrate until they have watched older birds do so.",
+        "C": "orient correctly only after learning the night sky as adults.",
+        "D": "can sense magnetic fields only when kept in complete darkness."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 1 states that isolated young birds still orient roughly correctly, suggesting the ability is partly inborn.",
+      "distractor_explanations": {
+        "B": "The passage says the opposite: they orient without being taught.",
+        "C": "The passage says birds learn the sky as nestlings; isolation is not said to prevent orienting.",
+        "D": "Paragraph 4 says some light is needed for magnetic orientation."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Look at the end of paragraph 1."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence with \"isolation.\""
+      },
+      "remember": "Detail answers restate a specific line.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-02",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [
+          "minor: correct choice A is a verbatim copy of the passage sentence; pure word-matching, no paraphrase",
+          "minor: D (complete darkness) contradicts para 4 but is about a different detail; all distractors easily eliminated"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000075",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a statement",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "so a sense that detects them needs some special mechanism",
+      "figure": null,
+      "stem": "The statement that magnetic fields \"pass through living tissue almost without effect\" (paragraph 2) primarily serves to:",
+      "choices": {
+        "A": "show that no animal is able to detect magnetic fields under any conditions.",
+        "B": "suggest that birds rely mainly on the sun and stars rather than on magnetism.",
+        "C": "introduce the magnetite proposal as the proven answer to the problem.",
+        "D": "explain why a sense that detects magnetic fields would need a special mechanism."
+      },
+      "correct_answer": "D",
+      "explanation": "Because magnetic fields barely affect tissue, detecting them requires something unusual; the statement sets up the search for that mechanism.",
+      "distractor_explanations": {
+        "A": "The same paragraph says birds can sense the field.",
+        "B": "The statement concerns how hard magnetism is to explain, not which cue is most used.",
+        "C": "Paragraph 3 says the magnetite idea no longer dominates."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "out_of_scope",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "What does \"so\" introduce right after the statement?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the clause that follows the statement."
+      },
+      "remember": "A \"so\" clause often states a sentence's purpose.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-03",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [
+          "minor: D nearly restates the very next clause of the quoted sentence ('so a sense that detects them needs some special mechanism'); A and C are extreme and easily eliminated"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000076",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "The magnetite idea has not been entirely abandoned, but it no longer dominates the field.",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word \"dominates\" most nearly means:",
+      "choices": {
+        "A": "controls by force.",
+        "B": "is the leading view in.",
+        "C": "towers physically over.",
+        "D": "defeats in a contest."
+      },
+      "correct_answer": "B",
+      "explanation": "An idea that \"no longer dominates the field\" is no longer the main view among researchers.",
+      "distractor_explanations": {
+        "A": "No force is involved; the word describes scientific opinion.",
+        "C": "The physical meaning does not fit a scientific idea.",
+        "D": "No contest is being won; the idea has simply lost its lead."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "Substitute each choice into the sentence."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"is the main view in.\""
+      },
+      "remember": "Choose the meaning that fits ideas, not physical power.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-05",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: correct choice is the only one fitting 'the field' (academic field); A is the common-meaning trap but context is clear"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000077",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Evaluating evidence for a hypothesis",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "In the bird's eye, a light-sensitive protein called cryptochrome may form pairs of molecules",
+      "figure": null,
+      "stem": "Which finding, if true, would most directly support the cryptochrome hypothesis described in paragraph 4?",
+      "choices": {
+        "A": "Robins lacking cryptochrome in their eyes lose magnetic orientation but keep their sun compass.",
+        "B": "Robins orient more accurately on cloudy nights than on clear nights with visible stars.",
+        "C": "The iron-rich cells in robins' beaks turn out to be nerve cells connected to the brain.",
+        "D": "Strong magnets placed beside a robin's cage have no effect on the direction it faces."
+      },
+      "correct_answer": "A",
+      "explanation": "The hypothesis says magnetic sensing depends on cryptochrome in the eye. Losing magnetic orientation without cryptochrome, while other senses still work, would directly link the two.",
+      "distractor_explanations": {
+        "B": "This concerns star cues, not the eye-based magnetic mechanism.",
+        "C": "This would support the magnetite proposal, the rival idea.",
+        "D": "This would cast doubt on any magnetic sense, including the cryptochrome one."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What does the hypothesis say the magnetic sense depends on?",
+        "Which finding tests that dependence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask which hypothesis each finding favors."
+      },
+      "remember": "Support a hypothesis by testing what it says is necessary.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-06",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: A is the longest/most specific choice",
+          "minor: C supports the rival magnetite hypothesis, a good trap; D would undercut magnetic sense generally"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000078",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "far too weak to move a compass needle, was enough to disrupt their orientation",
+      "figure": null,
+      "stem": "The author notes that the radio-frequency noise was \"far too weak to move a compass needle\" (paragraph 4) most likely to:",
+      "choices": {
+        "A": "suggest that the birds' sense works differently from an ordinary magnetic compass.",
+        "B": "show that the robins in the experiments were not actually affected by the noise.",
+        "C": "argue that laboratory experiments on birds are too imprecise to be trusted.",
+        "D": "prove that robins navigate by the stars rather than by the magnetic field."
+      },
+      "correct_answer": "A",
+      "explanation": "A magnet-like (compass needle) mechanism should ignore such weak noise; the birds did not. That points away from a simple compass and toward the chemical mechanism the hypothesis proposes.",
+      "distractor_explanations": {
+        "B": "The passage says the noise was \"enough to disrupt their orientation.\"",
+        "C": "The author presents the experiments as informative, not unreliable.",
+        "D": "The detail concerns magnetic orientation, not stars."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "out_of_scope",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Would a compass needle be affected by the noise?",
+        "Were the birds affected?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare how a compass and the birds responded."
+      },
+      "remember": "A contrast detail often rules out a simpler explanation.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-07",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: B, C, D are clearly unsupported/extreme ('prove', 'too imprecise to be trusted'), making A easy to reach by elimination"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000079",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "None of this has been confirmed in a living bird's eye",
+      "figure": null,
+      "stem": "The author's attitude toward the cryptochrome hypothesis is best described as:",
+      "choices": {
+        "A": "fully convinced, since experiments have proved that robins see magnetic fields.",
+        "B": "dismissive, since the chemistry it requires is too small to measure at all.",
+        "C": "interested but cautious, since it has not been confirmed in a living bird.",
+        "D": "indifferent, since the author regards the compass sense as unimportant."
+      },
+      "correct_answer": "C",
+      "explanation": "The author calls it the leading alternative and shows how it fits observations, but stresses it remains unconfirmed.",
+      "distractor_explanations": {
+        "A": "Paragraph 5 says \"None of this has been confirmed in a living bird's eye.\"",
+        "B": "The author calls measurement difficult, not impossible, and calls the idea the leading one.",
+        "D": "The author devotes a paragraph to it and calls the observations puzzling."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "How does the author introduce the hypothesis?",
+        "What caution does paragraph 5 add?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate attitudes that are too extreme."
+      },
+      "remember": "Scientific writers often pair interest with caution.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-08",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [
+          "minor: classic 'interested but cautious' answer; other three are extreme attitudes, a well-known test-wise tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000080",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Synthesizing the passage",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "it tells the bird which way is north, not where the bird is",
+      "figure": null,
+      "stem": "Based on the passage as a whole, which conclusion about bird navigation is best supported?",
+      "choices": {
+        "A": "Birds likely combine several senses, with magnetism giving direction but not position.",
+        "B": "Birds navigate entirely by magnetism, and the sun and stars play no real role.",
+        "C": "Birds learn every part of their routes from older birds during their first year.",
+        "D": "Scientists have now fully explained how birds know where they are during migration."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 2 lists several cues; paragraph 5 says the magnetic sense is a compass (direction) rather than a map (position), and that other senses may supply location.",
+      "distractor_explanations": {
+        "B": "Paragraph 2 says birds use the sun and stars as well.",
+        "C": "Paragraph 1 suggests much of the ability is inborn.",
+        "D": "Paragraph 5 says position may depend on other senses and much is unconfirmed."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "What does paragraph 2 say about cues?",
+        "What does paragraph 5 say the magnetic sense does and does not do?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Combine the claims of paragraphs 2 and 5."
+      },
+      "remember": "Synthesis answers must fit several parts of the passage.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-09",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: B, C, D all use absolute language (entirely, every, fully) and are contradicted; A is the only hedged choice"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000081",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Function of examples",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "Yet the impulse behind the sham ruin has not disappeared. It survives whenever",
+      "figure": null,
+      "stem": "The examples of reclaimed barn wood and a housing development named for a farm (paragraph 5) mainly serve to:",
+      "choices": {
+        "A": "illustrate the preservation movement's insistence on using original materials.",
+        "B": "show that a modern version of the sham ruin's appeal still exists today.",
+        "C": "criticize modern builders for deliberately deceiving their customers.",
+        "D": "explain the reasons that eighteenth-century landowners built ruins."
+      },
+      "correct_answer": "B",
+      "explanation": "The examples follow the claim that the impulse \"has not disappeared\" and show new places borrowing the feeling of age.",
+      "distractor_explanations": {
+        "A": "Reclaimed wood here supplies a feeling of age to a new building, not preservation of an old one.",
+        "C": "The author does not accuse anyone of deception; the point is a shared desire.",
+        "D": "The examples are modern, not explanations of past motives."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "extreme_language",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What claim do the examples follow?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence right before the examples."
+      },
+      "remember": "Examples support the claim just before them.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "R009-10",
+      "created_at": "2026-10-26T20:16:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: B echoes the paragraph's own framing ('the impulse behind the sham ruin has not disappeared'); A is a reasonable trap since preservation movement is mentioned in the same paragraph"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-009.review.json",
+        "computation": "checks/act_reading/batch_009.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

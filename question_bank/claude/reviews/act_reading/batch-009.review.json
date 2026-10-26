@@ -1,0 +1,330 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 9,
+  "reviewed_at": "2026-10-26T20:16:54+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 9
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000073",
+    "CLD-ACT-R-000074",
+    "CLD-ACT-R-000075",
+    "CLD-ACT-R-000076",
+    "CLD-ACT-R-000077",
+    "CLD-ACT-R-000078",
+    "CLD-ACT-R-000079",
+    "CLD-ACT-R-000080",
+    "CLD-ACT-R-000081"
+  ],
+  "results": [
+    {
+      "cand": "R009-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: D (sun/stars) is a decent partial-scope distractor, but A and C are weak; overall easy main-idea item"
+      ],
+      "blind_notes": "Paragraphs 2-5 center on magnetite vs cryptochrome explanations of the magnetic sense; A off-topic, C contradicted, D only part of para 2.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: D (sun/stars) is a plausible scope trap from paragraph 2 only, but A and C are weak; overall easy main-idea item"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000073"
+    },
+    {
+      "cand": "R009-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        "minor: correct choice A is a verbatim copy of the passage sentence; pure word-matching, no paraphrase",
+        "minor: D (complete darkness) contradicts para 4 but is about a different detail; all distractors easily eliminated"
+      ],
+      "blind_notes": "Para 1 states it directly.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: correct choice copies paragraph 1 word for word ('still orient in roughly the right direction when the season arrives'), so it can be matched without comprehension",
+        "minor: D ('complete darkness') contradicts paragraph 4 and B/C contradict 'inborn'; all distractors are weak"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000074"
+    },
+    {
+      "cand": "R009-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: D nearly restates the very next clause of the quoted sentence ('so a sense that detects them needs some special mechanism'); A and C are extreme and easily eliminated"
+      ],
+      "blind_notes": "The clause sets up why a special mechanism is required.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: correct choice repeats the next clause of the sentence ('a sense that detects them needs some special mechanism'), so it can be matched by wording",
+        "minor: distractors A ('no animal ... under any conditions') and C ('proven answer') use extreme wording that a test-savvy student can rule out"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000075"
+    },
+    {
+      "cand": "R009-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: A, B, D are not supported at all by the passage; only one plausible option"
+      ],
+      "blind_notes": "Cells were immune cells that accumulated iron for unrelated reasons -> unrelated function.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: B ('any living animal at all') uses extreme wording that is easy to rule out"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R009-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: correct choice is the only one fitting 'the field' (academic field); A is the common-meaning trap but context is clear"
+      ],
+      "blind_notes": "'no longer dominates the field' = no longer the leading view in the field.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000076"
+    },
+    {
+      "cand": "R009-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: A is the longest/most specific choice",
+        "minor: C supports the rival magnetite hypothesis, a good trap; D would undercut magnetic sense generally"
+      ],
+      "blind_notes": "Knocking out cryptochrome selectively removes magnetic orientation while sparing other compass -> direct support. B irrelevant, C supports magnetite, D contradicts magnetoreception.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: the passage's 'pairs of molecules' simplifies the radical-pair mechanism (pairs of radicals, often within a single protein); acceptable for a general audience but slightly imprecise"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000077"
+    },
+    {
+      "cand": "R009-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: B, C, D are clearly unsupported/extreme ('prove', 'too imprecise to be trusted'), making A easy to reach by elimination"
+      ],
+      "blind_notes": "Noise too weak to move a needle still disrupted birds -> the sense is not a magnetite/compass-needle-type mechanism, consistent with radical-pair chemistry.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: A goes one inferential step past the text (the passage never says outright that the sense differs from a compass), but it is the only defensible choice; B contradicts 'was enough to disrupt'"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000078"
+    },
+    {
+      "cand": "R009-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: classic 'interested but cautious' answer; other three are extreme attitudes, a well-known test-wise tell"
+      ],
+      "blind_notes": "Author calls it 'leading alternative' but stresses 'None of this has been confirmed in a living bird's eye.'",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: the wrong choices are the extreme attitudes (fully convinced, dismissive, indifferent), so the moderate answer can be found by test-taking habit alone"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000079"
+    },
+    {
+      "cand": "R009-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: B, C, D all use absolute language (entirely, every, fully) and are contradicted; A is the only hedged choice"
+      ],
+      "blind_notes": "Para 2 lists several cues; para 5 says magnetism is compass not map and position may depend on other senses.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: B, C and D use absolute wording ('entirely', 'every', 'fully'), and the hedged correct choice stands out"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000080"
+    },
+    {
+      "cand": "R009-10",
+      "revision": 2,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: B echoes the paragraph's own framing ('the impulse behind the sham ruin has not disappeared'); A is a reasonable trap since preservation movement is mentioned in the same paragraph"
+      ],
+      "blind_notes": "Examples illustrate that the impulse behind the sham ruin survives today; 'we still want the feeling of age.'",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: A is a proximity trap, because the preservation movement is mentioned in the sentences just before"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000081"
+    }
+  ]
+}

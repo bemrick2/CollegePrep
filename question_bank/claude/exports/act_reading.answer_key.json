@@ -1,6 +1,6 @@
 {
   "bank": "act_reading",
-  "bank_version": 8,
+  "bank_version": 9,
   "answers": [
     {
       "id": "CLD-ACT-R-000001",
@@ -1271,6 +1271,163 @@
       "strategy": {
         "key": "predict_then_match",
         "explanation": "Outline the paragraphs before reading the choices."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000073",
+      "correct_answer": "B",
+      "explanation": "After listing cues, the passage spends three paragraphs on the magnetic sense: the magnetite proposal, the cryptochrome hypothesis, and what is still unknown.",
+      "distractor_explanations": {
+        "A": "Routes are never described; the robin is an example.",
+        "C": "Paragraph 1 says isolated young birds still orient, suggesting the ability is inborn.",
+        "D": "Sun and star cues are mentioned briefly in paragraph 2 before the focus shifts."
+      },
+      "hints": [
+        "Which cue gets most of the passage's attention?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize the passage in one sentence first."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000074",
+      "correct_answer": "A",
+      "explanation": "Paragraph 1 states that isolated young birds still orient roughly correctly, suggesting the ability is partly inborn.",
+      "distractor_explanations": {
+        "B": "The passage says the opposite: they orient without being taught.",
+        "C": "The passage says birds learn the sky as nestlings; isolation is not said to prevent orienting.",
+        "D": "Paragraph 4 says some light is needed for magnetic orientation."
+      },
+      "hints": [
+        "Look at the end of paragraph 1."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence with \"isolation.\""
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000075",
+      "correct_answer": "D",
+      "explanation": "Because magnetic fields barely affect tissue, detecting them requires something unusual; the statement sets up the search for that mechanism.",
+      "distractor_explanations": {
+        "A": "The same paragraph says birds can sense the field.",
+        "B": "The statement concerns how hard magnetism is to explain, not which cue is most used.",
+        "C": "Paragraph 3 says the magnetite idea no longer dominates."
+      },
+      "hints": [
+        "What does \"so\" introduce right after the statement?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the clause that follows the statement."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000076",
+      "correct_answer": "B",
+      "explanation": "An idea that \"no longer dominates the field\" is no longer the main view among researchers.",
+      "distractor_explanations": {
+        "A": "No force is involved; the word describes scientific opinion.",
+        "C": "The physical meaning does not fit a scientific idea.",
+        "D": "No contest is being won; the idea has simply lost its lead."
+      },
+      "hints": [
+        "Substitute each choice into the sentence."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"is the main view in.\""
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000077",
+      "correct_answer": "A",
+      "explanation": "The hypothesis says magnetic sensing depends on cryptochrome in the eye. Losing magnetic orientation without cryptochrome, while other senses still work, would directly link the two.",
+      "distractor_explanations": {
+        "B": "This concerns star cues, not the eye-based magnetic mechanism.",
+        "C": "This would support the magnetite proposal, the rival idea.",
+        "D": "This would cast doubt on any magnetic sense, including the cryptochrome one."
+      },
+      "hints": [
+        "What does the hypothesis say the magnetic sense depends on?",
+        "Which finding tests that dependence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask which hypothesis each finding favors."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000078",
+      "correct_answer": "A",
+      "explanation": "A magnet-like (compass needle) mechanism should ignore such weak noise; the birds did not. That points away from a simple compass and toward the chemical mechanism the hypothesis proposes.",
+      "distractor_explanations": {
+        "B": "The passage says the noise was \"enough to disrupt their orientation.\"",
+        "C": "The author presents the experiments as informative, not unreliable.",
+        "D": "The detail concerns magnetic orientation, not stars."
+      },
+      "hints": [
+        "Would a compass needle be affected by the noise?",
+        "Were the birds affected?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare how a compass and the birds responded."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000079",
+      "correct_answer": "C",
+      "explanation": "The author calls it the leading alternative and shows how it fits observations, but stresses it remains unconfirmed.",
+      "distractor_explanations": {
+        "A": "Paragraph 5 says \"None of this has been confirmed in a living bird's eye.\"",
+        "B": "The author calls measurement difficult, not impossible, and calls the idea the leading one.",
+        "D": "The author devotes a paragraph to it and calls the observations puzzling."
+      },
+      "hints": [
+        "How does the author introduce the hypothesis?",
+        "What caution does paragraph 5 add?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate attitudes that are too extreme."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000080",
+      "correct_answer": "A",
+      "explanation": "Paragraph 2 lists several cues; paragraph 5 says the magnetic sense is a compass (direction) rather than a map (position), and that other senses may supply location.",
+      "distractor_explanations": {
+        "B": "Paragraph 2 says birds use the sun and stars as well.",
+        "C": "Paragraph 1 suggests much of the ability is inborn.",
+        "D": "Paragraph 5 says position may depend on other senses and much is unconfirmed."
+      },
+      "hints": [
+        "What does paragraph 2 say about cues?",
+        "What does paragraph 5 say the magnetic sense does and does not do?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Combine the claims of paragraphs 2 and 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000081",
+      "correct_answer": "B",
+      "explanation": "The examples follow the claim that the impulse \"has not disappeared\" and show new places borrowing the feeling of age.",
+      "distractor_explanations": {
+        "A": "Reclaimed wood here supplies a feeling of age to a new building, not preservation of an old one.",
+        "C": "The author does not accuse anyone of deception; the point is a shared desire.",
+        "D": "The examples are modern, not explanations of past motives."
+      },
+      "hints": [
+        "What claim do the examples follow?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence right before the examples."
       }
     }
   ]
