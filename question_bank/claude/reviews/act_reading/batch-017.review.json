@@ -1,0 +1,254 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 17,
+  "reviewed_at": "2026-10-26T22:04:07+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 17
+  },
+  "counts": {
+    "PASS": 6,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000138",
+    "CLD-ACT-R-000139",
+    "CLD-ACT-R-000140",
+    "CLD-ACT-R-000141",
+    "CLD-ACT-R-000142",
+    "CLD-ACT-R-000143"
+  ],
+  "results": [
+    {
+      "cand": "R017-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: overlaps with R017-07 (both interpret Albescu's behavior in paragraph 5); item 07's 'calm under pressure' reading and this item's 'confidence' reading reinforce each other"
+      ],
+      "blind_notes": "Sending the critic's ticket to the narrator and leaving a knife with no note are wordless signals of trust. A (testing for failure) is the main trap but the knife gift contradicts it; C and D are unsupported.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: overlaps with R017-07 (both on Albescu's handling of the critic's ticket in paragraph 5)"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Requires combining two widely separated actions; considering paragraph 5 alone makes the \"test\" reading (A) tempting."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R017-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "The cooks' Lyon theory is offered as a possible reason, and 'Whether that was true, no one knew.' B ('real reason') is the trap for readers who skip that qualification; C overstates detail; D is unsupported (it is the narrator, not the cooks, who is said to resent her).",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000138"
+    },
+    {
+      "cand": "R017-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: tests the same phrase ('read her silence') as R017-06, so each item cues the other ('interpret' / 'looked for any sign')"
+      ],
+      "blind_notes": "Trying to read her silence shows the narrator wanted her approval. A takes the phrase literally, and B and C contradict paragraphs 2 and 3.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: shares the 'read her silence' phrase with R017-06; this stem's context helps cue 'interpret' there"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000139"
+    },
+    {
+      "cand": "R017-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: 'little public recognition' is a slightly soft fit, since the lamb was praised, though only in one sentence; still the only defensible choice"
+      ],
+      "blind_notes": "The lamb got a single sentence of praise while the dessert, which the narrator did not make, got three paragraphs, so the narrator's work received little public notice (a contrast with Albescu's private recognition). A contradicts the praise; B and D are unsupported.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: 'little public recognition' is slightly loose because the review did praise the lamb; it works only relative to the dessert, but it is still clearly the best choice"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000140"
+    },
+    {
+      "cand": "R017-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        "minor: the key closely paraphrases the passage sentence ('the host recognized him')"
+      ],
+      "blind_notes": "Directly stated in paragraph 5.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: the key closely paraphrases the passage wording ('the host recognized him')"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000141"
+    },
+    {
+      "cand": "R017-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "While others panic, she doesn't look up and finishes plating, which shows composure. A ('indifferent') is a trap based on 'didn't look up', but routing the ticket deliberately shows she cares. B and C are contradicted.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Choice A (indifference) fits her outward behavior; ruling it out requires weighing the deliberate handoff of the critic's order."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R017-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: the memory gap could also be read as nerves; C's 'intense and absorbing' covers that broadly enough to remain the single best answer"
+      ],
+      "blind_notes": "A blank memory of a high-stakes moment conveys its intensity. B is the trap (he had cooked it often, but 'no longer mattered' is wrong); A and D are unsupported.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000142"
+    },
+    {
+      "cand": "R017-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "'the one I had made every night for six weeks.' B (four months) and C (three months) are traps drawn from other time references in the passage.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: very easy retrieval; the distractors reuse other time figures from the passage (four months, three months), which is good practice"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000143"
+    }
+  ]
+}

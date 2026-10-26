@@ -1,0 +1,461 @@
+{
+ "bank": "act_math",
+ "batch": 48,
+ "plan": "Ten new items with stems checked against the bank (a both-independent-events idea dropped as close to the with-replacement draws item). 3 hard (arc from a chord, effective discount, zeros after a shift) / 2 medium / 5 easy.",
+ "candidates": [
+  {
+   "cand": "B048-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Writing a perimeter expression",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "The length of a rectangle is 3 more than twice its width, w. Which expression gives the perimeter of the rectangle?",
+   "choices": {
+    "A": "3w + 3",
+    "B": "4w + 6",
+    "C": "6w + 3",
+    "D": "6w + 6"
+   },
+   "answer": "D",
+   "explanation": "The length is 2w + 3, so the perimeter is 2(w + 2w + 3) = 2(3w + 3) = 6w + 6.",
+   "distractors": {
+    "A": {
+     "rationale": "3w + 3 adds one length and one width without doubling.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4w + 6 doubles the length but forgets the two widths.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "6w + 3 doubles the w-terms but not the 3.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write the length in terms of w first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let w = 1: length 5, perimeter 12."
+   },
+   "remember": "Perimeter = 2(length + width).",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Inverse values from a table",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "The table below shows values of a function f, which has an inverse function f⁻¹.\nx | 1 | 3 | 5 | 7\nf(x) | 4 | 7 | 2 | 9\nWhat is the value of f⁻¹(7) ?",
+   "choices": {
+    "A": "1/7",
+    "B": "3",
+    "C": "5",
+    "D": "9"
+   },
+   "answer": "B",
+   "explanation": "f⁻¹(7) is the input whose output is 7. Since f(3) = 7, f⁻¹(7) = 3.",
+   "distractors": {
+    "A": {
+     "rationale": "1/7 treats the inverse as a reciprocal.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5 is f⁻¹(2).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "9 is f(7), which reads the table in the wrong direction.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find 7 in the f(x) row."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Look for the output 7."
+   },
+   "remember": "f⁻¹(b) is the input that f sends to b.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Circumference ratio from areas",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Two circles have areas of 9π and 25π square units. What is the ratio of the circumference of the smaller circle to the circumference of the larger circle?",
+   "choices": {
+    "A": "3 : 5",
+    "B": "9 : 25",
+    "C": "6 : 10π",
+    "D": "81 : 625"
+   },
+   "answer": "A",
+   "explanation": "The radii are 3 and 5, so the circumferences are 6π and 10π, a ratio of 3 : 5.",
+   "distractors": {
+    "B": {
+     "rationale": "9 : 25 is the ratio of the areas, not the circumferences.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "6 : 10π mixes a circumference without π with one that includes π.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "81 : 625 squares the area ratio instead of taking its square root.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find each radius from its area."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Area ratio 9:25 → radius ratio 3:5."
+   },
+   "remember": "Circumferences scale like radii; areas scale like radii squared.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Terminating decimal to a fraction",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "Which fraction is equal to 0.375 ?",
+   "choices": {
+    "A": "3/8",
+    "B": "3/75",
+    "C": "37/100",
+    "D": "375/100"
+   },
+   "answer": "A",
+   "explanation": "0.375 = 375/1000 = 3/8.",
+   "distractors": {
+    "B": {
+     "rationale": "3/75 = 0.04 misreads the decimal.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "37/100 = 0.37 drops the final digit.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "375/100 = 3.75 misplaces the decimal point.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "0.375 has three decimal places. Over what power of 10 do you write it?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "375/1000, then simplify."
+   },
+   "remember": "Write the digits over the matching power of 10, then simplify.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Median of an even-sized list",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "What is the median of the data set 3, 8, 8, 10, 12, 15 ?",
+   "choices": {
+    "A": "8",
+    "B": "9",
+    "C": "10",
+    "D": "56/6"
+   },
+   "answer": "B",
+   "explanation": "With six values in order, the median is the mean of the 3rd and 4th values: (8 + 10)/2 = 9.",
+   "distractors": {
+    "A": {
+     "rationale": "8 is the mode.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "10 is the 4th value only.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "56/6 is the mean, not the median.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "With an even number of values, which two are in the middle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Average the 3rd and 4th values."
+   },
+   "remember": "Even count: the median is the average of the two middle values.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Hours needed to reach an earnings goal",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "Jordan earns $12.50 per hour and wants to earn at least $400. What is the least whole number of hours Jordan must work?",
+   "choices": {
+    "A": "25",
+    "B": "31",
+    "C": "32",
+    "D": "33"
+   },
+   "answer": "C",
+   "explanation": "400 ÷ 12.50 = 32, so 32 hours earns exactly $400.",
+   "distractors": {
+    "A": {
+     "rationale": "25 = 400 ÷ 16 uses the wrong hourly rate.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "31 hours earns only $387.50.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "33 hours is more than needed.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Divide the goal by the hourly rate."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check 32 × 12.50."
+   },
+   "remember": "Hours needed = goal ÷ hourly rate, rounded up if not whole.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Arc length from a chord",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In a circle of radius 10 centimeters, a chord is 10 centimeters long. What is the length of the minor arc cut off by the chord, in centimeters?",
+   "choices": {
+    "A": "10",
+    "B": "10π/3",
+    "C": "5π",
+    "D": "20π/3"
+   },
+   "answer": "B",
+   "explanation": "The chord and two radii form an equilateral triangle (all sides 10), so the central angle is 60°. The minor arc is (60/360)(2π · 10) = 10π/3.",
+   "distractors": {
+    "A": {
+     "rationale": "10 is the chord length; the arc is longer than the chord.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "5π uses a central angle of 90°.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "20π/3 uses a central angle of 120°.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Draw the two radii to the chord's endpoints. What kind of triangle is formed?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the triangle formed by the chord and radii."
+   },
+   "remember": "A chord equal to the radius subtends a 60° central angle.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires seeing the equilateral triangle formed by the chord and radii; without it, solvers guess a right or 120° angle."
+   }
+  },
+  {
+   "cand": "B048-08",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Effective discount of a promotion",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "A store sells T-shirts for the same price each. During a sale, a customer who buys 2 T-shirts at full price gets a third T-shirt at half price. To the nearest percent, what is the effective discount on the three T-shirts?",
+   "choices": {
+    "A": "17%",
+    "B": "25%",
+    "C": "33%",
+    "D": "50%"
+   },
+   "answer": "A",
+   "explanation": "Normally 3 shirts cost 3p; on sale they cost 2.5p. The discount is 0.5p/3p = 1/6 ≈ 17%.",
+   "distractors": {
+    "B": {
+     "rationale": "25% divides the savings by 2p, the full-price shirts only.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "33% treats the deal as one free shirt out of three.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "50% is the discount on the third shirt alone.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Compare the sale cost of three shirts with their full price."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let each shirt cost $10."
+   },
+   "remember": "Effective discount = savings ÷ original total.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The 50% on one item is the default answer; the discount must be spread over all three shirts."
+   }
+  },
+  {
+   "cand": "B048-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Solving a system, then evaluating an expression",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "A pair of numbers (x, y) satisfies 3x + y = 14 and x + y = 6. What is the product of x and y ?",
+   "choices": {
+    "A": "4",
+    "B": "6",
+    "C": "8",
+    "D": "16"
+   },
+   "answer": "C",
+   "explanation": "Subtracting the second equation from the first gives 2x = 8, so x = 4 and y = 2. The product is 8.",
+   "distractors": {
+    "A": {
+     "rationale": "4 is the value of x, not the product.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "6 is x + y.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "16 is x², squaring x instead of multiplying by y.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Subtract one equation from the other to eliminate y."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "2x = 8."
+   },
+   "remember": "Solve the system first, then evaluate the requested expression.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B048-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Zeros after a vertical shift",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = (x + 2)(x - 4). The function g is defined by g(x) = f(x) + 3. How many real zeros does g have?",
+   "choices": {
+    "A": "0",
+    "B": "1",
+    "C": "2",
+    "D": "4"
+   },
+   "answer": "C",
+   "explanation": "f has its minimum at x = 1, where f(1) = (3)(-3) = -9. Shifting up 3 gives a minimum of -6, which is still below 0, so g crosses the x-axis twice.",
+   "distractors": {
+    "A": {
+     "rationale": "0 assumes the upward shift lifts the graph entirely above the x-axis.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1 assumes the shift makes the vertex touch the x-axis.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4 adds the zeros of f to new zeros, but a vertical shift does not add zeros.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the minimum value of f?",
+    "After shifting up 3, is the minimum still negative?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the parabola and shift it up."
+   },
+   "remember": "A vertical shift changes zeros only by moving the vertex relative to the x-axis.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires finding the vertex value and comparing it with the shift; many solvers guess that any upward shift removes or keeps exactly the original zeros."
+   }
+  }
+ ]
+}
