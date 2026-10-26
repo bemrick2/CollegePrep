@@ -1,0 +1,462 @@
+{
+ "bank": "act_math",
+ "batch": 49,
+ "plan": "Ten new items with stems checked against the bank. 3 hard (batting average, self-inverse function, exponential factoring) / 3 medium / 4 easy.",
+ "candidates": [
+  {
+   "cand": "B049-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Least integer satisfying an inequality",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "What is the least integer x that satisfies the inequality x/3 - 2 > 1 ?",
+   "choices": {
+    "A": "3",
+    "B": "9",
+    "C": "10",
+    "D": "11"
+   },
+   "answer": "C",
+   "explanation": "Adding 2 gives x/3 > 3, so x > 9. The least integer greater than 9 is 10.",
+   "distractors": {
+    "A": {
+     "rationale": "3 divides by 3 instead of multiplying: from x/3 > 3 it takes x > 1.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "9 is the boundary, but the inequality is strict, so 9 does not satisfy it.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "11 skips over 10, which already satisfies the inequality.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Solve the inequality, then check whether the boundary is included."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test 9 and 10 in the inequality."
+   },
+   "remember": "Strict inequality: the boundary value is not a solution.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B049-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Evaluating a quadratic model",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "The height, in feet, of a ball t seconds after it is thrown upward is h(t) = -16t² + 64t + 5. What is the height of the ball 1 second after it is thrown?",
+   "choices": {
+    "A": "5",
+    "B": "48",
+    "C": "53",
+    "D": "85"
+   },
+   "answer": "C",
+   "explanation": "h(1) = -16(1) + 64(1) + 5 = 53.",
+   "distractors": {
+    "A": {
+     "rationale": "5 is the starting height, h(0).",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "48 omits the + 5.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "85 adds 16 instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Substitute t = 1."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Evaluate h(1)."
+   },
+   "remember": "Evaluate a model by substituting carefully, sign by sign.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B049-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Perimeter using the Pythagorean theorem",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A right triangle has legs of length 5 and 12 inches. What is the perimeter of the triangle, in inches?",
+   "choices": {
+    "A": "17",
+    "B": "30",
+    "C": "60",
+    "D": "169"
+   },
+   "answer": "B",
+   "explanation": "The hypotenuse is √(25 + 144) = 13, so the perimeter is 5 + 12 + 13 = 30.",
+   "distractors": {
+    "A": {
+     "rationale": "17 adds only the two legs.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "60 is twice the area, 5 × 12.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "169 is the square of the hypotenuse.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find the missing side first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Hypotenuse = √(5² + 12²)."
+   },
+   "remember": "Perimeter needs all three sides; find the hypotenuse first.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B049-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Negative exponents with fractions",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the value of (2/3)⁻² ?",
+   "choices": {
+    "A": "-4/9",
+    "B": "4/9",
+    "C": "9/4",
+    "D": "-9/4"
+   },
+   "answer": "C",
+   "explanation": "A negative exponent means the reciprocal: (2/3)⁻² = (3/2)² = 9/4.",
+   "distractors": {
+    "A": {
+     "rationale": "-4/9 treats the negative exponent as making the result negative.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "4/9 squares the fraction but ignores the negative sign of the exponent.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "-9/4 takes the reciprocal but also makes the result negative.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "What does a negative exponent tell you to do?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Flip, then square."
+   },
+   "remember": "(a/b)⁻ⁿ = (b/a)ⁿ.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B049-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Choosing mean or median for skewed data",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "The annual incomes of the 10 employees at a small firm are mostly between $40,000 and $60,000, but the owner earns $900,000. Which measure best represents a typical employee's income, and why?",
+   "choices": {
+    "A": "The mean, because it uses every income in the data set",
+    "B": "The median, because it is not pulled upward by the owner's very large income",
+    "C": "The mean, because the owner's income is part of the firm's payroll",
+    "D": "The range, because it shows the difference between the highest and lowest incomes"
+   },
+   "answer": "B",
+   "explanation": "One extreme value pulls the mean far above most incomes. The median is resistant to that outlier, so it better represents a typical income.",
+   "distractors": {
+    "A": {
+     "rationale": "Using every value is exactly why the mean is distorted by the outlier.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The owner's income being part of payroll does not make the mean typical.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The range measures spread, not a typical value.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How does a single very large value affect the mean?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate measures of spread and those sensitive to outliers."
+   },
+   "remember": "With a strong outlier, the median represents a typical value better than the mean.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B049-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Consecutive successes to reach a target rate",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "A baseball player has 30 hits in 100 at-bats. If the player gets a hit in every one of the next n at-bats, what is the least value of n that will raise the player's batting average (hits ÷ at-bats) to at least 0.350 ?",
+   "choices": {
+    "A": "5",
+    "B": "7",
+    "C": "8",
+    "D": "18"
+   },
+   "answer": "C",
+   "explanation": "(30 + n)/(100 + n) ≥ 0.35 gives 30 + n ≥ 35 + 0.35n, so 0.65n ≥ 5 and n ≥ 7.69. The least whole number is 8.",
+   "distractors": {
+    "A": {
+     "rationale": "5 adds hits without adding the at-bats they require: (30 + 5)/100 = 0.35.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "7 rounds 7.69 down, which falls just short: 37/107 ≈ 0.346.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "18 sets (30 + n)/(100 + n) equal to 0.4 instead of 0.35, overshooting.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Each new hit also adds an at-bat.",
+    "Set up (30 + n)/(100 + n) ≥ 0.35."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try n = 7 and n = 8."
+   },
+   "remember": "Adding successes also adds attempts; both numerator and denominator change.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Most solvers add hits without adding at-bats (5) or round 7.69 down (7); both numerator and denominator must change."
+   }
+  },
+  {
+   "cand": "B049-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Cylinder inscribed in a cube",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A right circular cylinder fits exactly inside a cube with edges of length 6 inches, touching all six faces. What is the volume of the cylinder, in cubic inches?",
+   "choices": {
+    "A": "36π",
+    "B": "54π",
+    "C": "108π",
+    "D": "216π"
+   },
+   "answer": "B",
+   "explanation": "The cylinder's diameter and height both equal the cube's edge, 6, so r = 3 and V = π(3²)(6) = 54π.",
+   "distractors": {
+    "A": {
+     "rationale": "36π = π(6²) gives the area of a circle with radius 6, not a volume.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "108π doubles the volume.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "216π uses the edge, 6, as the radius.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How are the cylinder's radius and height related to the cube's edge?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the cylinder inside the cube."
+   },
+   "remember": "An inscribed cylinder's diameter and height equal the cube's edge.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B049-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Evaluating a self-inverse function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = (x + 3)/(x - 1) for x ≠ 1. What is the value of f(f(2)) ?",
+   "choices": {
+    "A": "2",
+    "B": "5",
+    "C": "8/3",
+    "D": "5/4"
+   },
+   "answer": "A",
+   "explanation": "f(2) = 5/1 = 5, and f(5) = 8/4 = 2. So f(f(2)) = 2. (In fact, f(f(x)) = x for every x ≠ 1: f is its own inverse.)",
+   "distractors": {
+    "B": {
+     "rationale": "5 is f(2), only one application of f.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "8/3 evaluates f(5) as 8/3, subtracting 2 instead of 1 in the denominator.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "5/4 computes (2 + 3)/4, mixing the steps.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find f(2) first, then apply f to that result."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute step by step."
+   },
+   "remember": "Evaluate nested functions from the inside out.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Two careful substitutions with fractions; the result returning to 2 surprises solvers who expect a new number."
+   }
+  },
+  {
+   "cand": "B049-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Exponential equations by factoring",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "If 2ˣ⁺¹ + 2ˣ = 48, what is the value of x ?",
+   "choices": {
+    "A": "3",
+    "B": "4",
+    "C": "5",
+    "D": "24"
+   },
+   "answer": "B",
+   "explanation": "2ˣ⁺¹ = 2 · 2ˣ, so the left side is 3 · 2ˣ = 48. Then 2ˣ = 16 and x = 4.",
+   "distractors": {
+    "A": {
+     "rationale": "3 solves 2ˣ = 8, dividing 48 by 6 instead of by 3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5 adds the exponents, treating the sum as 2²ˣ⁺¹ = 48 and rounding.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "24 halves 48, treating the equation as linear.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Rewrite 2ˣ⁺¹ as 2 · 2ˣ.",
+    "Then factor out 2ˣ."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = 4: 32 + 16 = 48."
+   },
+   "remember": "Factor out the common power: aˣ⁺¹ + aˣ = (a + 1)aˣ.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires rewriting 2ˣ⁺¹ as 2 · 2ˣ and factoring; adding exponents is the usual error."
+   }
+  },
+  {
+   "cand": "B049-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability from a frequency table",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "The table below shows the number of siblings reported by the 40 students in a class.\nNumber of siblings | 0 | 1 | 2 | 3 or more\nNumber of students | 8 | 14 | 12 | 6\nIf a student is chosen at random, what is the probability that the student has at least 2 siblings?",
+   "choices": {
+    "A": "3/20",
+    "B": "3/10",
+    "C": "9/20",
+    "D": "4/5"
+   },
+   "answer": "C",
+   "explanation": "Students with at least 2 siblings: 12 + 6 = 18. Probability = 18/40 = 9/20.",
+   "distractors": {
+    "A": {
+     "rationale": "3/20 counts only the students with 3 or more siblings.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3/10 counts only the students with exactly 2 siblings.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4/5 counts students with at least 1 sibling.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which columns count as \"at least 2\"?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(12 + 6)/40."
+   },
+   "remember": "\"At least\" includes the boundary value and everything above it.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

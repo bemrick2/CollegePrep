@@ -1,0 +1,296 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 18,
+  "reviewed_at": "2026-10-26T22:07:46+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 18
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 1,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000160",
+    "CLD-SAT-RW-000161",
+    "CLD-SAT-RW-000162",
+    "CLD-SAT-RW-000163",
+    "CLD-SAT-RW-000164",
+    "CLD-SAT-RW-000165",
+    "CLD-SAT-RW-000166",
+    "CLD-SAT-RW-000167"
+  ],
+  "results": [
+    {
+      "cand": "S018-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Page-long looping sentences that eventually arrive at the point = circuitous. Terse is the opposite; didactic and cryptic are not supported. 'Circuitous' is mid-tier vocabulary, but the direct opposite (terse) and the clear context make it routine.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "passage": "CLD-P-SAT-RW-000165",
+          "matches": [
+            {
+              "with": "CLD-P-SAT-RW-000089",
+              "similarity": 0.56
+            }
+          ]
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "S018-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Praise combined with warning = mixed feelings = ambivalent. Effusive misses the warning and scathing misses the praise; perfunctory is unsupported. The colon setup is clear, but 'ambivalent' and 'perfunctory' are moderately hard words.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000160"
+    },
+    {
+      "cand": "S018-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "The note links screen time to sleep, and D compares sleep across the two extreme groups. A uses test scores, B gives only one group, and C is irrelevant and adds a claim about 'passing' that is not in the table. A is a plausible trap but easy to rule out.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000161"
+    },
+    {
+      "cand": "S018-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "Passage says 'The following text is adapted from a poem' but no text follows. Only the claim is given. Reword to the standard SAT framing (e.g., '[Title] is a [year] poem by [poet]. In the poem, the speaker expresses surprise at how quickly the seasons pass.'), and give a poet and title for realism."
+      ],
+      "blind_notes": "A maple planted in April is already scarlet and bare = the seasons pass surprisingly fast. D says the opposite (long and slow), and A and C show no surprise at speed.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: the passage line says 'The following text is adapted from a poem', but no poem text follows, only the claim. Official wording is usually like 'In the poem, the speaker expresses...'. Rephrase so the claim reads clearly as the claim."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Passage says 'The following text is adapted from a poem' but no text follows. Only the claim is given. Reword to the standard SAT framing (e.g., '[Title] is a [year] poem by [poet]. In the poem, the speaker expresses surprise at how quickly the seasons pass.'), and give a poet and title for realism."
+    },
+    {
+      "cand": "S018-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "The clay comes only from inland, and there is no evidence of travel, so trade is the best explanation. B contradicts 'occurs only' inland, C contradicts the lack of travel evidence, and D is irrelevant.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000162"
+    },
+    {
+      "cand": "S018-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Storing water leads to surviving drought: a cause-effect relationship.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000163"
+    },
+    {
+      "cand": "S018-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: the key is the only choice that addresses both parts of the goal and is visibly built from the goal's wording ('began...only in her mid-fifties'), which is typical of the format."
+      ],
+      "blind_notes": "The goal has two parts: a late start and a large accomplishment. D covers both. B covers only the accomplishment, and C gives the duration without making the late age clear.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: D is the only choice that hits both goals (late start + amount accomplished), so a quick keyword match solves it; typical for this type."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000164"
+    },
+    {
+      "cand": "S018-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "'A number of' takes a plural verb, so 'have found'. C and D create a fragment. Some students wrongly pick 'has' by treating 'number' as singular.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000165"
+    },
+    {
+      "cand": "S018-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "The singular subject 'team' takes 'submits', and the simple present fits 'every spring'. The intervening 'of engineers' and 'bridge' are attraction traps, and 'are submitting' and 'have submitted' are plural.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000166"
+    },
+    {
+      "cand": "S018-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: B uses the extreme wording 'growing everywhere' and D is off-topic, so the item comes down to A versus C."
+      ],
+      "blind_notes": "'Not all... however' qualifies the general claim of shrinking glaciers. A describes the second sentence.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000167"
+    }
+  ]
+}

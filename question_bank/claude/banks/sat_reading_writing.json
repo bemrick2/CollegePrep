@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Reading and Writing",
   "id_prefix": "CLD-SAT-RW-",
-  "version": 17,
-  "updated_at": "2026-10-26T21:55:43+00:00",
+  "version": 18,
+  "updated_at": "2026-10-26T22:07:46+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-SAT-RW-000001",
@@ -1752,6 +1752,94 @@
       "word_count": 24,
       "text": "An animal behaviorist hypothesizes that sheep identify familiar people mainly by their faces rather than by other cues, such as voice, clothing, or smell.",
       "batch": 17,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000166",
+      "title": "Bridge reviews",
+      "genre": "engineering",
+      "word_count": 26,
+      "text": "Early reviews of the bridge's design were ______: engineers praised its daring, record-setting span while warning that its slender supports might not survive a strong earthquake.",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000167",
+      "title": "Screen time and sleep",
+      "genre": "health / data",
+      "word_count": 69,
+      "text": "A researcher surveyed students about their daily screen time, their average nightly sleep, and their scores on a reading test.\nDaily screen time | Average sleep (hours) | Average test score\nLess than 1 hour | 8.2 | 84\n1 to 3 hours | 7.6 | 81\nMore than 3 hours | 6.9 | 76\nThe researcher notes that students who reported more screen time also reported less sleep.",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000169",
+      "title": "Inland clay",
+      "genre": "archaeology",
+      "word_count": 50,
+      "text": "Archaeologists studying a coastal settlement found that its pottery was made from a type of clay that occurs only in deposits about 300 kilometers inland. The settlement's residents left no tools, paths, or other evidence of travel to the interior, so the researchers concluded that the residents most likely ______",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000170",
+      "title": "Desert plants",
+      "genre": "botany",
+      "word_count": 22,
+      "text": "Many desert plants store water in thick, fleshy stems or leaves. ______ they can survive long periods with no rainfall at all.",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000171",
+      "title": "A late start",
+      "genre": "history of science / notes",
+      "word_count": 53,
+      "text": "While researching a topic, a student has taken the following notes:\n• Ynes Mexia (1870–1938) was a Mexican American botanist.\n• She began collecting plants professionally in her mid-fifties.\n• Over the next thirteen years, she gathered about 145,000 plant specimens.\n• About 500 of the species she collected were new to science.",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000172",
+      "title": "Urban birdsong",
+      "genre": "biology",
+      "word_count": 29,
+      "text": "A number of recent studies ______ that birds living in noisy cities tend to sing at higher pitches than birds of the same species living in quieter rural areas.",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000173",
+      "title": "Bridge inspectors",
+      "genre": "engineering",
+      "word_count": 29,
+      "text": "The team of engineers that inspects the city's oldest bridge ______ a detailed report to the city council every spring, listing any repairs that should be made before winter.",
+      "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000174",
+      "title": "Remote glaciers",
+      "genre": "earth science",
+      "word_count": 48,
+      "text": "Satellite measurements show that many mountain glaciers have been shrinking for decades. For example, glaciers in the Alps have lost roughly half of their volume since the mid-1800s. Not all glaciers are retreating at the same rate, however; a few in high, snowy ranges have remained nearly stable.",
+      "batch": 18,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -13065,6 +13153,570 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_reading_writing/batch-017.review.json",
         "computation": "checks/sat_reading_writing/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000160",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Words in context",
+      "modeling": false,
+      "repo_skill_key": "sat_craft_structure",
+      "passage_id": "CLD-P-SAT-RW-000166",
+      "underline": null,
+      "evidence": "praised its daring, record-setting span while warning",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": {
+        "A": "ambivalent",
+        "B": "effusive",
+        "C": "scathing",
+        "D": "perfunctory"
+      },
+      "correct_answer": "A",
+      "explanation": "The reviews combined praise and concern, so they were \"ambivalent.\"",
+      "distractor_explanations": {
+        "B": "\"Effusive\" means full of unrestrained praise, but the reviews also contained warnings.",
+        "C": "\"Scathing\" means harshly critical, but the reviews also praised the design.",
+        "D": "\"Perfunctory\" means done with little care; nothing suggests the reviews were careless."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Were the reviews positive, negative, or both?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"mixed.\""
+      },
+      "remember": "A blank followed by praise and criticism calls for a word meaning mixed.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-02",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000161",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Command of evidence: quantitative",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000167",
+      "underline": null,
+      "evidence": "students who reported more screen time also reported less sleep",
+      "figure": null,
+      "stem": "Which choice most effectively uses data from the table to support the researcher's note?",
+      "choices": {
+        "A": "Students with more than 3 hours of daily screen time averaged 76 on the test, compared with 84 for those with less than 1 hour.",
+        "B": "Students with 1 to 3 hours of daily screen time averaged 7.6 hours of sleep and scored 81 on the reading test.",
+        "C": "Students in every screen-time group averaged at least 76 on the reading test, a score the researcher considered passing.",
+        "D": "Students with more than 3 hours of daily screen time averaged 6.9 hours of sleep, compared with 8.2 hours for those with less than 1 hour."
+      },
+      "correct_answer": "D",
+      "explanation": "The note links screen time to sleep. Only D compares sleep across screen-time groups.",
+      "distractor_explanations": {
+        "A": "This is true, but it concerns test scores, not sleep.",
+        "B": "A single group cannot show a relationship between screen time and sleep.",
+        "C": "This concerns test scores and adds a claim not in the table."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "partial_answer",
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "Which two columns does the note connect?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Match the claim's variables to the table's columns."
+      },
+      "remember": "Evidence must address the variables named in the claim.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-03",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000162",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Inferences",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000169",
+      "underline": null,
+      "evidence": "left no tools, paths, or other evidence of travel to the interior",
+      "figure": null,
+      "stem": "Which choice most logically completes the text?",
+      "choices": {
+        "A": "acquired the pottery or the clay through trade with people living farther inland.",
+        "B": "made the pottery from clay that they dug along the coast near their own settlement.",
+        "C": "traveled inland on a regular basis to dig the clay and carry it back home.",
+        "D": "used the pottery only in special ceremonies that were held a few times each year."
+      },
+      "correct_answer": "A",
+      "explanation": "The clay came from inland, but the residents show no sign of going there, so they most likely obtained it through others: trade.",
+      "distractor_explanations": {
+        "B": "The clay occurs only inland, so it could not have come from the coast.",
+        "C": "The text says there is no evidence of travel inland.",
+        "D": "Nothing in the text concerns how the pottery was used."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "If the clay came from inland but the residents did not go there, how did they get it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices the evidence rules out."
+      },
+      "remember": "Combine two facts to reach the only remaining explanation.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-05",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000163",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Transitions (consequence)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000170",
+      "underline": null,
+      "evidence": "store water in thick, fleshy stems or leaves",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical transition?",
+      "choices": {
+        "A": "However,",
+        "B": "For example,",
+        "C": "As a result,",
+        "D": "Similarly,"
+      },
+      "correct_answer": "C",
+      "explanation": "Storing water allows the plants to survive without rain: cause and effect, so \"As a result.\"",
+      "distractor_explanations": {
+        "A": "Surviving without rain follows from storing water; it does not contrast with it.",
+        "B": "Surviving without rain is a result of storing water, not an example of it.",
+        "D": "The second sentence is a consequence of the first, not a similar fact."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Why can the plants survive without rain?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"so.\""
+      },
+      "remember": "Name the relationship before choosing the transition.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-06",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000164",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Rhetorical synthesis (emphasizing a contrast)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000171",
+      "underline": null,
+      "evidence": "She began collecting plants professionally in her mid-fifties.",
+      "figure": null,
+      "stem": "The student wants to emphasize how late in life Mexia began her career and how much she accomplished. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "choices": {
+        "A": "Ynes Mexia, who lived from 1870 to 1938, was a Mexican American botanist and plant collector.",
+        "B": "About 500 of the plant species that Ynes Mexia collected during her career were new to science.",
+        "C": "Mexia collected plants for about thirteen years in total, beginning sometime in the 1920s.",
+        "D": "Though she began collecting plants only in her mid-fifties, Mexia gathered about 145,000 specimens."
+      },
+      "correct_answer": "D",
+      "explanation": "The goal has two parts, a late start and a large accomplishment. Only D combines her age at the start with the 145,000 specimens.",
+      "distractor_explanations": {
+        "A": "This identifies Mexia but does not mention her late start or her output.",
+        "B": "This shows accomplishment but not that she started late.",
+        "C": "This gives a time span but neither her age nor her output."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "The goal has two parts. Which choice includes both?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check each choice against both parts of the goal."
+      },
+      "remember": "Two-part goals need both parts in the answer.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-07",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [
+          "minor: the key is the only choice that addresses both parts of the goal and is visibly built from the goal's wording ('began...only in her mid-fifties'), which is typical of the format."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000165",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Subject-verb agreement (\"a number of\")",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000172",
+      "underline": null,
+      "evidence": "A number of recent studies",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": {
+        "A": "has found",
+        "B": "have found",
+        "C": "finding",
+        "D": "having found"
+      },
+      "correct_answer": "B",
+      "explanation": "\"A number of\" means \"several\" and takes a plural verb: \"have found.\" (Compare \"the number of,\" which is singular.)",
+      "distractor_explanations": {
+        "A": "\"A number of studies\" means several studies and takes a plural verb.",
+        "C": "\"Finding\" leaves the sentence without a main verb.",
+        "D": "\"Having found\" also leaves the sentence without a main verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does \"a number of studies\" mean one thing or several?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices without a finite verb, then check agreement."
+      },
+      "remember": "\"A number of\" is plural; \"the number of\" is singular.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-08",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000166",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Subject-verb agreement (collective noun)",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000173",
+      "underline": null,
+      "evidence": "The team of engineers that inspects the city's oldest bridge",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": {
+        "A": "submits",
+        "B": "submit",
+        "C": "are submitting",
+        "D": "have submitted"
+      },
+      "correct_answer": "A",
+      "explanation": "The simple subject is \"team,\" a singular collective noun, so the verb is \"submits.\" \"Every spring\" signals the simple present.",
+      "distractor_explanations": {
+        "B": "The subject is \"team,\" which is singular; \"engineers\" is part of a prepositional phrase.",
+        "C": "\"Are\" is plural and does not agree with \"team.\"",
+        "D": "\"Have\" is plural, and \"every spring\" calls for the simple present."
+      },
+      "distractor_traps": {
+        "B": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the simple subject: \"team\" or \"engineers\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove the phrase between subject and verb."
+      },
+      "remember": "A collective noun acting as a unit takes a singular verb.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-09",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000167",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a sentence",
+      "modeling": false,
+      "repo_skill_key": "sat_craft_structure",
+      "passage_id": "CLD-P-SAT-RW-000174",
+      "underline": null,
+      "evidence": "Not all glaciers are retreating at the same rate, however",
+      "figure": null,
+      "stem": "Which choice best describes the function of the third sentence in the overall structure of the text?",
+      "choices": {
+        "A": "It provides a specific example that supports the general claim made in the first sentence.",
+        "B": "It contradicts the general claim by showing that glaciers are actually growing everywhere.",
+        "C": "It qualifies the general claim by noting that the trend is not uniform.",
+        "D": "It explains the method that satellites use to measure changes in the volume of glaciers."
+      },
+      "correct_answer": "C",
+      "explanation": "Sentence 1 makes a general claim, sentence 2 supports it with an example, and sentence 3 introduces an exception, qualifying it.",
+      "distractor_explanations": {
+        "A": "The second sentence gives the example; the third limits the claim.",
+        "B": "It says a few glaciers are stable, not that glaciers are growing everywhere.",
+        "D": "No measurement method is described."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What does \"however\" signal about the third sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each sentence's role."
+      },
+      "remember": "\"However\" after a claim and an example often signals a qualification.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "S018-10",
+      "created_at": "2026-10-26T22:07:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: B uses the extreme wording 'growing everywhere' and D is off-topic, so the item comes down to A versus C."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-018.review.json",
+        "computation": "checks/sat_reading_writing/batch_018.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
