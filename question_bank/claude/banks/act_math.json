@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 8,
-  "updated_at": "2026-10-26T18:15:56+00:00",
+  "version": 9,
+  "updated_at": "2026-10-26T18:18:11+00:00",
   "passages": [],
   "questions": [
     {
@@ -5260,6 +5260,700 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-008.review.json",
         "computation": "checks/act_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000079",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Absolute value of numerical expressions",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "What is the value of |3 − 8| + |−4| ?",
+      "choices": {
+        "A": "−9",
+        "B": "−1",
+        "C": "1",
+        "D": "9"
+      },
+      "correct_answer": "D",
+      "explanation": "|3 − 8| = |−5| = 5 and |−4| = 4, so the sum is 5 + 4 = 9.",
+      "distractor_explanations": {
+        "A": "This drops the absolute value bars: (3 − 8) + (−4) = −9.",
+        "B": "This removes the bars from the first term only: −5 + 4 = −1.",
+        "C": "This keeps the bars on the first term but treats |−4| as −4: 5 − 4 = 1."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "C": "sign_error"
+      },
+      "hints": [
+        "Simplify inside each set of absolute value bars first.",
+        "An absolute value is never negative."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Evaluate |−5| = 5 and |−4| = 4, then add."
+      },
+      "remember": "Absolute value is a distance, so it is never negative.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-01",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000080",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear equations with distribution",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "figure": null,
+      "stem": "What value of x satisfies 3(x − 2) = 2x + 5 ?",
+      "choices": {
+        "A": "−1",
+        "B": "1",
+        "C": "7",
+        "D": "11"
+      },
+      "correct_answer": "D",
+      "explanation": "Distribute: 3x − 6 = 2x + 5. Subtract 2x: x − 6 = 5. Add 6: x = 11. Check: 3(9) = 27 and 2(11) + 5 = 27.",
+      "distractor_explanations": {
+        "A": "This distributes as 3x + 6, giving 3x + 6 = 2x + 5 and x = −1.",
+        "B": "This flips the sign of the 5 while rearranging: 3x − 6 = 2x − 5 gives x = 1.",
+        "C": "This multiplies only the x by 3: 3x − 2 = 2x + 5 gives x = 7."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Distribute the 3 to both terms in the parentheses.",
+        "Collect the x-terms on one side."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 11: 3(11 − 2) = 27 and 2(11) + 5 = 27."
+      },
+      "remember": "Distribute to every term inside the parentheses.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-02",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000081",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Exponential equations by substitution",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "What is the set of all real solutions of the equation 4^x − 3 · 2^x − 4 = 0 ?",
+      "choices": {
+        "A": "{2}",
+        "B": "{4}",
+        "C": "{−1, 4}",
+        "D": "{−1, 2}"
+      },
+      "correct_answer": "A",
+      "explanation": "Since 4^x = (2^x)², let u = 2^x: u² − 3u − 4 = 0, so (u − 4)(u + 1) = 0 and u = 4 or u = −1. Then 2^x = 4 gives x = 2, while 2^x = −1 is impossible because 2^x is always positive. The only solution is x = 2.",
+      "distractor_explanations": {
+        "B": "4 is the value of 2^x, not of x.",
+        "C": "These are the solutions for u = 2^x, not for x.",
+        "D": "This turns u = −1 into x = −1, but 2^x can never equal −1 (and 2^(−1) = 1/2)."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Write 4^x as a power of 2^x.",
+        "After substituting u = 2^x, remember that 2^x must be positive."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 2: 16 − 12 − 4 = 0. Test x = −1: 1/4 − 3/2 − 4 ≠ 0. Test x = 4: 256 − 48 − 4 ≠ 0. Only {2} works."
+      },
+      "remember": "Quadratic in disguise: substitute, solve, then undo the substitution.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-03",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000082",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Scale drawings and area cost",
+      "modeling": true,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "On a floor plan, 1 inch represents 4 feet. A rectangular room on the plan measures 3.5 inches by 5 inches. Flooring for the room costs $6 per square foot. What is the cost of flooring for the whole room?",
+      "choices": {
+        "A": "$105",
+        "B": "$420",
+        "C": "$1,680",
+        "D": "$6,720"
+      },
+      "correct_answer": "C",
+      "explanation": "The actual room measures 3.5 × 4 = 14 feet by 5 × 4 = 20 feet, so its area is 280 square feet. At $6 per square foot, the cost is 280 × 6 = $1,680. (Areas scale by 4² = 16, not by 4: 17.5 square inches × 16 = 280 square feet.)",
+      "distractor_explanations": {
+        "A": "This prices the plan's area, 17.5 square inches, as if it were square feet: 17.5 × 6.",
+        "B": "This scales the area by 4 instead of 4² = 16: 17.5 × 4 = 70 square feet, costing $420.",
+        "D": "This scales the area by 4 twice after already converting both sides, using 280 × 4 = 1,120 square feet."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Convert each side of the room to feet before finding the area.",
+        "If you scale an area directly, use the square of the length scale."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the real room 14 ft by 20 ft, multiply to 280 square feet, then by $6."
+      },
+      "remember": "Lengths scale by k; areas scale by k².",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-04",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000083",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Range on a restricted domain",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² − 6x + 11 for 0 ≤ x ≤ 4. What is the range of f ?",
+      "choices": {
+        "A": "2 ≤ f(x) ≤ 11",
+        "B": "3 ≤ f(x) ≤ 11",
+        "C": "2 ≤ f(x) ≤ 3",
+        "D": "f(x) ≥ 2"
+      },
+      "correct_answer": "A",
+      "explanation": "Complete the square: f(x) = (x − 3)² + 2, so the minimum value 2 occurs at x = 3, which is inside the domain. The greatest value on 0 ≤ x ≤ 4 occurs at the endpoint farther from 3, x = 0: f(0) = 11. (f(4) = 3.) The range is 2 ≤ f(x) ≤ 11.",
+      "distractor_explanations": {
+        "B": "This evaluates only the endpoints, f(4) = 3 and f(0) = 11, and misses the lower minimum at the vertex x = 3.",
+        "C": "This uses the vertex and the nearer endpoint, x = 4, but the farther endpoint x = 0 gives the larger value 11.",
+        "D": "This is the range on all real numbers; the restricted domain also caps the values at 11."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Find the vertex. Is it inside 0 ≤ x ≤ 4?",
+        "Check both endpoints to find the largest value."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the upward parabola with vertex (3, 2) and mark x = 0 and x = 4; read the lowest and highest points on that piece."
+      },
+      "remember": "On a closed interval, check the vertex and both endpoints.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-05",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000084",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Vertical angles",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Two lines intersect at a point. One of the angles formed measures (3x + 10)°, and the angle vertical to it measures (5x − 30)°. What is the value of x ?",
+      "choices": {
+        "A": "20",
+        "B": "25",
+        "C": "40",
+        "D": "70"
+      },
+      "correct_answer": "A",
+      "explanation": "Vertical angles are equal: 3x + 10 = 5x − 30, so 40 = 2x and x = 20. (Each angle measures 70°.)",
+      "distractor_explanations": {
+        "B": "This treats the angles as supplementary: (3x + 10) + (5x − 30) = 180 gives x = 25.",
+        "C": "40 is 2x, before the final division by 2.",
+        "D": "70 is the measure of each angle, not the value of x."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How do vertical angles compare?",
+        "Set the two expressions equal and solve."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "x = 20 gives 70° and 70°, which are equal, as vertical angles must be."
+      },
+      "remember": "Vertical angles are equal; adjacent angles on a line are supplementary.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-06",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000085",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Altitude to the hypotenuse (geometric mean)",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": {
+        "description": "Right triangle ABC, right angle at C, altitude CD to hypotenuse AB with AD = 4, DB = 9. Optional for production."
+      },
+      "stem": "In right triangle ABC, ∠C is the right angle. Point D lies on hypotenuse AB so that segment CD is perpendicular to AB. If AD = 4 and DB = 9, what is the length of CD ?",
+      "choices": {
+        "A": "6",
+        "B": "6.5",
+        "C": "√97",
+        "D": "13"
+      },
+      "correct_answer": "A",
+      "explanation": "The altitude to the hypotenuse creates two triangles similar to each other: triangle ACD ~ triangle CBD. So AD/CD = CD/DB, which gives CD² = AD · DB = 4 · 9 = 36 and CD = 6. (Check: AC = √(16 + 36) = √52 and BC = √(81 + 36) = √117, and 52 + 117 = 169 = 13².)",
+      "distractor_explanations": {
+        "B": "6.5 is the arithmetic mean of 4 and 9; the altitude is their geometric mean.",
+        "C": "This treats 4 and 9 as legs of a right triangle with CD as hypotenuse: √(16 + 81) = √97.",
+        "D": "13 is the length of the hypotenuse AB, not the altitude."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "The altitude to the hypotenuse splits the triangle into two smaller triangles that are similar.",
+        "Set up a proportion that uses CD twice."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the altitude; matching the small triangles gives 4/CD = CD/9, so CD² = 36."
+      },
+      "remember": "Altitude to hypotenuse = geometric mean of the two segments.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-07",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: no figure; a diagram would be typical but the text is sufficient"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000086",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Binomial counting",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A fair coin is tossed 5 times. What is the probability that it lands heads up exactly 3 times?",
+      "choices": {
+        "A": "1/32",
+        "B": "5/32",
+        "C": "5/16",
+        "D": "3/5"
+      },
+      "correct_answer": "C",
+      "explanation": "There are 2⁵ = 32 equally likely sequences. The number with exactly 3 heads is the number of ways to choose which 3 of the 5 tosses are heads: C(5, 3) = 10. The probability is 10/32 = 5/16.",
+      "distractor_explanations": {
+        "A": "1/32 is the probability of one particular sequence, such as HHHTT; it ignores the other orders.",
+        "B": "This counts only 5 arrangements (for example, sliding a block of 3 heads), but there are C(5, 3) = 10.",
+        "D": "3/5 is the fraction of tosses that are heads in such an outcome, not the probability of that outcome."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many equally likely heads-tails sequences are there in 5 tosses?",
+        "In how many of them are exactly 3 of the tosses heads?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Probability = C(5, 3)/2⁵ = 10/32."
+      },
+      "remember": "Exactly k successes: choose which positions, then divide by all outcomes.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-08",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000087",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Division with whole-unit rounding",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A 20-liter container of juice is poured into bottles that each hold 0.75 liter. How many bottles can be filled completely?",
+      "choices": {
+        "A": "15",
+        "B": "26",
+        "C": "27",
+        "D": "266"
+      },
+      "correct_answer": "B",
+      "explanation": "20 ÷ 0.75 = 26.67. Only 26 bottles can be filled completely; the 27th would be only partly full (26 × 0.75 = 19.5 liters, leaving 0.5 liter).",
+      "distractor_explanations": {
+        "A": "This multiplies 20 by 0.75 instead of dividing.",
+        "C": "This rounds 26.67 up, but the 27th bottle cannot be filled completely.",
+        "D": "This misplaces the decimal, dividing 20 by 0.075."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many 0.75-liter portions fit in 20 liters?",
+        "Can a partly filled bottle count?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "20 ÷ 0.75 = 26.67; round down to 26 full bottles."
+      },
+      "remember": "'Filled completely' means round down.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-09",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000088",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Overlapping groups (Venn reasoning with percents)",
+      "modeling": true,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "figure": null,
+      "stem": "At a high school, 60% of the students take Spanish, 45% take French, and 20% take both Spanish and French. What percent of the students take Spanish but not French?",
+      "choices": {
+        "A": "15%",
+        "B": "20%",
+        "C": "40%",
+        "D": "60%"
+      },
+      "correct_answer": "C",
+      "explanation": "The 60% who take Spanish include the 20% who take both. So the students who take Spanish but not French are 60% − 20% = 40%. (For reference: 25% take French only, and 15% take neither.)",
+      "distractor_explanations": {
+        "A": "15% is the percent taking neither language: 100 − (60 + 45 − 20).",
+        "B": "20% is the percent taking both languages.",
+        "D": "60% is everyone who takes Spanish, including those who also take French."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Draw two overlapping circles and fill in the overlap first.",
+        "The Spanish circle's 60% includes the overlap."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Venn diagram: overlap 20, Spanish only 40, French only 25, neither 15."
+      },
+      "remember": "Fill the overlap of a Venn diagram first.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "B009-10",
+      "created_at": "2026-10-26T18:18:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-009.review.json",
+        "computation": "checks/act_math/batch_009.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

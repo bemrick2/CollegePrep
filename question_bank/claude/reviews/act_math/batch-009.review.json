@@ -1,0 +1,259 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 9,
+  "reviewed_at": "2026-10-26T18:18:11+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 9
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000079",
+    "CLD-ACT-M-000080",
+    "CLD-ACT-M-000081",
+    "CLD-ACT-M-000082",
+    "CLD-ACT-M-000083",
+    "CLD-ACT-M-000084",
+    "CLD-ACT-M-000085",
+    "CLD-ACT-M-000086",
+    "CLD-ACT-M-000087",
+    "CLD-ACT-M-000088"
+  ],
+  "results": [
+    {
+      "cand": "B009-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "|-5| + |-4| = 5 + 4 = 9.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000079"
+    },
+    {
+      "cand": "B009-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "3x - 6 = 2x + 5 -> x = 11.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000080"
+    },
+    {
+      "cand": "B009-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "u = 2^x: u^2 - 3u - 4 = (u-4)(u+1) = 0; u = 4 gives x = 2; u = -1 has no solution because 2^x > 0. Distractors C and D catch students who stop at u or keep the extraneous root. The substitution step is borderline hard for typical ACT takers.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "hidden-quadratic substitution plus rejecting an impossible branch",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000081"
+    },
+    {
+      "cand": "B009-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "14 ft x 20 ft = 280 sq ft; 280 x 6 = $1,680. Trap B ($420) comes from scaling the area by 4 instead of 16.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "linear-versus-square scaling trap in a multi-step cost context"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000082"
+    },
+    {
+      "cand": "B009-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Vertex (3,2) is inside [0,4]; f(0)=11, f(4)=3, so range is 2 <= f <= 11. Trap B uses only the endpoints.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "vertex inside the interval plus the farther endpoint; two strong partial-answer traps",
+        "dup_note": "differs from the app fixture asking for the minimum of 3x² − 12x + 7: here the domain is restricted and the full range is asked"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000083"
+    },
+    {
+      "cand": "B009-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Vertical angles are equal: 3x + 10 = 5x - 30 -> x = 20. D (70) is the angle measure.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000084"
+    },
+    {
+      "cand": "B009-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: no figure; a diagram would be typical but the text is sufficient"
+      ],
+      "blind_notes": "Altitude to the hypotenuse is the geometric mean: CD^2 = 4*9 = 36, CD = 6. This can also be done with similar triangles. Students who don't know the fact may struggle, so it's near the medium/hard line.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "similar-triangle insight inside one figure; arithmetic-mean trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000085"
+    },
+    {
+      "cand": "B009-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "C(5,3)/2^5 = 10/32 = 5/16. Trap B (5/32) uses a wrong count of 5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "combinations required; the single-sequence probability is a strong trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000086"
+    },
+    {
+      "cand": "B009-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "20/0.75 = 26.67, so only 26 bottles are full. Trap C is rounding up to 27. Near the easy/medium line.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000087"
+    },
+    {
+      "cand": "B009-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Spanish only = 60 - 20 = 40%. Not French is not 'only French'; percentages overlap consistently (union 85%).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000088"
+    }
+  ]
+}
