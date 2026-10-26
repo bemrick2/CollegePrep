@@ -1,0 +1,477 @@
+{
+  "bank": "act_math",
+  "batch": 17,
+  "plan": "Gaps at 158: Algebra 3, Geometry 2, N&Q 2, S&P 2, Functions 1; 5 hard / 5 medium. Calibrated hard share ~14%. All subskills new to the bank.",
+  "candidates": [
+    {
+      "cand": "B017-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Matrix multiplication",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "Matrix A has rows (1, 2) and (3, 4). Matrix B has rows (2, 0) and (1, 5). What is the entry in row 2, column 1 of the matrix product AB ?",
+      "choices": {
+        "A": "3",
+        "B": "10",
+        "C": "16",
+        "D": "23"
+      },
+      "answer": "B",
+      "explanation": "The entry in row 2, column 1 of AB is row 2 of A times column 1 of B: (3)(2) + (4)(1) = 6 + 4 = 10.",
+      "distractors": {
+        "A": {
+          "rationale": "This multiplies only the matching entries (3 × 1), as if the product were taken entry by entry.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "16 is the row 2, column 1 entry of BA, not AB: (1)(1) + (5)(3). Matrix multiplication is not commutative.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This multiplies row 2 of A by row 2 of B: (3)(1) + (4)(5). Rows of A pair with columns of B.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "An entry of AB pairs a row of A with a column of B.",
+        "Column 1 of B is (2, 1)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Row 2 of A · column 1 of B = 3·2 + 4·1."
+      },
+      "remember": "AB entry (i, j) = row i of A · column j of B.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "matrices described by rows in text"
+      }
+    },
+    {
+      "cand": "B017-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Repeating decimals as fractions",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "The decimal 0.363636…, in which the digits 36 repeat forever, is equal to which of the following fractions?",
+      "choices": {
+        "A": "4/11",
+        "B": "9/25",
+        "C": "3/8",
+        "D": "11/30"
+      },
+      "answer": "A",
+      "explanation": "Let x = 0.3636…. Then 100x = 36.3636…, and subtracting gives 99x = 36, so x = 36/99 = 4/11.",
+      "distractors": {
+        "B": {
+          "rationale": "9/25 = 0.36 exactly; it does not repeat.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "3/8 = 0.375, not 0.3636….",
+          "trap": null
+        },
+        "D": {
+          "rationale": "11/30 = 0.3666…, where only the 6 repeats.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Multiply the decimal by 100 to shift one full repeating block.",
+        "Subtract the original number to cancel the repeating part."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Divide each fraction on a calculator: only 4/11 gives 0.363636…."
+      },
+      "remember": "A two-digit repeating block over 99.",
+      "expected_time_seconds": 45,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B017-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear equations with no solution",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "medium",
+      "stem": "In the equation kx + 3 = 4x − 7, k is a constant. For what value of k does the equation have no solution?",
+      "choices": {
+        "A": "−4",
+        "B": "0",
+        "C": "3",
+        "D": "4"
+      },
+      "answer": "D",
+      "explanation": "Rearrange: kx − 4x = −10, so (k − 4)x = −10. If k = 4, this becomes 0 = −10, which is never true, so there is no solution. For any other k, x = −10/(k − 4) is a solution.",
+      "distractors": {
+        "A": {
+          "rationale": "With k = −4, −8x = −10 has the solution x = 5/4.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "With k = 0, the equation 3 = 4x − 7 has the solution x = 2.5.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "3 matches the constant term on the left, not the x-coefficient on the right; with k = 3, x = 10.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Collect the x-terms on one side.",
+        "When does an equation of the form (number)x = −10 have no solution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(k − 4)x = −10 has no solution only when k − 4 = 0."
+      },
+      "remember": "No solution: same x-coefficient on both sides, different constants.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B017-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Equations with rational exponents",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "What is the set of all real solutions of the equation x^(2/3) = 16 ?",
+      "choices": {
+        "A": "{64}",
+        "B": "{−64, 64}",
+        "C": "{8}",
+        "D": "{4,096}"
+      },
+      "answer": "B",
+      "explanation": "x^(2/3) = (x^(1/3))², so (x^(1/3))² = 16 gives x^(1/3) = 4 or x^(1/3) = −4. Cubing: x = 64 or x = −64. Both check: the cube root of −64 is −4, and (−4)² = 16.",
+      "distractors": {
+        "A": {
+          "rationale": "This misses the negative solution; cube roots of negative numbers are real, and their squares are positive.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This raises 16 to the 3/4 power instead of the 3/2 power (inverting 2/3 incorrectly).",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This cubes 16 instead of taking its square root first: 16³ = 4,096.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Think of x^(2/3) as the square of the cube root of x.",
+        "Which numbers squared give 16?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test −64: its cube root is −4, and (−4)² = 16. So −64 must be included."
+      },
+      "remember": "Even powers hide signs; check the negative root.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "the negative solution is routinely missed",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B017-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Age problems with a system",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "medium",
+      "stem": "In 5 years, Ana will be twice as old as Ben was 3 years ago. Ana's and Ben's current ages add up to 31 years. How old is Ana now?",
+      "choices": {
+        "A": "17",
+        "B": "18",
+        "C": "21",
+        "D": "28"
+      },
+      "answer": "A",
+      "explanation": "Let a and b be the current ages. Then a + 5 = 2(b − 3), so a = 2b − 11, and a + b = 31. Substituting: 3b − 11 = 31, so b = 14 and a = 17. Check: in 5 years Ana is 22, and 3 years ago Ben was 11.",
+      "distractors": {
+        "B": {
+          "rationale": "This distributes 2(b − 3) as 2b − 3, giving a = 2b − 8, b = 13 and a = 18.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This uses 3 years from now for Ben, a + 5 = 2(b + 3), giving b = 10 and a = 21.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "28 is twice Ben's current age, 14, not Ana's age.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Write each phrase as an expression in the current ages.",
+        "Use the sum of the ages as the second equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 17: Ben is 14; 17 + 5 = 22 and 2(14 − 3) = 22. It works."
+      },
+      "remember": "Shift each age by the stated number of years before comparing.",
+      "expected_time_seconds": 75,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B017-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Geometric sequences in context",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "A ball is dropped from a height of 16 feet. Each time it hits the ground, it bounces back up to half the height from which it last fell. What total vertical distance, in feet, has the ball traveled at the moment it hits the ground for the 4th time?",
+      "choices": {
+        "A": "30",
+        "B": "44",
+        "C": "46",
+        "D": "48"
+      },
+      "answer": "B",
+      "explanation": "The ball falls 16 ft (1st hit), rises and falls 8 ft (2nd hit), rises and falls 4 ft (3rd hit), and rises and falls 2 ft (4th hit). Total: 16 + 2(8) + 2(4) + 2(2) = 16 + 16 + 8 + 4 = 44 feet.",
+      "distractors": {
+        "A": {
+          "rationale": "This counts each height once, 16 + 8 + 4 + 2, forgetting that every bounce goes up and back down.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "46 is the distance at the 5th hit, one bounce too many.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "48 is the total distance if the ball bounced forever, 16 + 2(16).",
+          "trap": "overextend_trend"
+        }
+      },
+      "hints": [
+        "List each fall and each rise separately.",
+        "The first drop happens only once; every later height is traveled twice."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the bounces: down 16, up-down 8, up-down 4, up-down 2."
+      },
+      "remember": "Bounces: count each rebound height twice, up and down.",
+      "expected_time_seconds": 80,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "counting the up-and-down segments correctly; three near-miss traps"
+      }
+    },
+    {
+      "cand": "B017-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Law of cosines",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "In triangle PQR, PQ = 7, PR = 8 and the measure of ∠P is 60°. What is the length of QR ? (Law of cosines: c² = a² + b² − 2ab cos C, and cos 60° = 1/2.)",
+      "choices": {
+        "A": "√57",
+        "B": "√113",
+        "C": "13",
+        "D": "15"
+      },
+      "answer": "A",
+      "explanation": "QR is opposite ∠P: QR² = 7² + 8² − 2(7)(8)cos 60° = 49 + 64 − 56 = 57. So QR = √57 ≈ 7.55.",
+      "distractors": {
+        "B": {
+          "rationale": "This omits the −2ab cos C term, treating the triangle as if ∠P were a right angle.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This adds 56 instead of subtracting it: √169 = 13.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "This adds the two sides; a side of a triangle is always less than the sum of the other two.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Which side is opposite the 60° angle?",
+        "Substitute into the law of cosines with C = 60°."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "QR² = 49 + 64 − 112(1/2) = 57."
+      },
+      "remember": "Law of cosines generalizes the Pythagorean theorem.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "formula supplied, as ACT does"
+      }
+    },
+    {
+      "cand": "B017-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Common external tangent of two circles",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "Two circles have radii 5 and 3, and their centers are 10 units apart. A line is tangent to both circles, and both circles lie on the same side of the line. What is the distance between the two points of tangency?",
+      "choices": {
+        "A": "6",
+        "B": "8",
+        "C": "4√6",
+        "D": "10"
+      },
+      "answer": "C",
+      "explanation": "Both radii to the tangency points are perpendicular to the tangent line, so they are parallel. Draw a segment from the smaller circle's center parallel to the tangent line: it forms a right triangle with hypotenuse 10 (the distance between centers) and one leg 5 − 3 = 2. The other leg equals the tangent length: √(10² − 2²) = √96 = 4√6 ≈ 9.8.",
+      "distractors": {
+        "A": {
+          "rationale": "6 = √(10² − 8²) is the length for a tangent that crosses between the circles (internal tangent), which uses 5 + 3.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "8 is the sum of the radii, not a tangent length.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "10 is the distance between the centers; the tangent segment is shorter because the radii differ.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Each radius to a point of tangency is perpendicular to the tangent line.",
+        "Build a right triangle using the centers and the difference of the radii."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Right triangle with hypotenuse 10 and leg 2: the other leg is √96."
+      },
+      "remember": "External tangent length = √(d² − (r₁ − r₂)²).",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "figure": {
+        "description": "Two circles (r = 5, r = 3), centers 10 apart, with a common external tangent. Optional for production."
+      },
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "constructing the auxiliary right triangle is the non-obvious step"
+      }
+    },
+    {
+      "cand": "B017-09",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Arrangements with repeated letters",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "How many different 5-letter arrangements can be made from all the letters of the word LEVEL ?",
+      "choices": {
+        "A": "15",
+        "B": "20",
+        "C": "24",
+        "D": "30"
+      },
+      "answer": "D",
+      "explanation": "LEVEL has 5 letters: L twice, E twice and V once. Arrangements = 5!/(2! · 2!) = 120/4 = 30.",
+      "distractors": {
+        "A": {
+          "rationale": "This divides by an extra factor of 2, as if all three letter types were repeated.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This divides 5! by 3!, treating the repeated letters as if one letter appeared three times.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "24 = 4! treats the word as having only 4 distinct positions to fill.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Count the arrangements as if all 5 letters were different.",
+        "Swapping two identical letters does not create a new arrangement; divide that out."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5!/(2!2!) = 30."
+      },
+      "remember": "Repeated letters: divide n! by k! for each letter repeated k times.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "repeated-object counting is uncommon and often misapplied"
+      }
+    },
+    {
+      "cand": "B017-10",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Effect of added values on summary statistics",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "medium",
+      "stem": "The data set 4, 7, 9, 12, 15 is changed by adding two new values, 1 and 20. Which of the following statistics is the same for the new data set as for the original data set?",
+      "choices": {
+        "A": "The median only",
+        "B": "The mean only",
+        "C": "The median and the range",
+        "D": "The mean and the median"
+      },
+      "answer": "A",
+      "explanation": "Original: median 9, mean 47/5 = 9.4, range 11. New data 1, 4, 7, 9, 12, 15, 20: median still 9, mean 68/7 ≈ 9.71, range 19. Only the median is unchanged.",
+      "distractors": {
+        "B": {
+          "rationale": "The mean changes from 9.4 to about 9.71, because 1 and 20 do not average to 9.4.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "The range grows from 11 to 19.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "The median stays the same, but the mean changes.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Adding one value below and one above the middle keeps the middle the same.",
+        "Check whether the two new values average to the old mean."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The range clearly grows (rule out C); compute the means to rule out B and D."
+      },
+      "remember": "Adding a value on each side keeps the median; the mean shifts unless they balance.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

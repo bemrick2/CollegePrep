@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:35:49+00:00",
+  "updated_at": "2026-10-26T18:40:08+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 158,
+    "act_math": 168,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 158,
+      "PASS": 168,
       "REVISE": 1,
       "REJECT": 2,
-      "candidates": 161,
+      "candidates": 171,
       "passed_after_revision": 1
     },
     "act_english": {
@@ -52,18 +52,19 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 158,
+      "accepted": 168,
       "by_skill": {
-        "Algebra": 28,
-        "Functions": 30,
-        "Geometry": 29,
+        "Algebra": 31,
+        "Functions": 31,
+        "Geometry": 31,
         "Integrating Essential Skills": 33,
-        "Number & Quantity": 17,
-        "Statistics & Probability": 21
+        "Number & Quantity": 19,
+        "Statistics & Probability": 23
       },
       "by_subskill": {
         "Absolute value as distance": 1,
         "Absolute value of numerical expressions": 1,
+        "Age problems with a system": 1,
         "Algebraic identities (square of a sum)": 1,
         "Altitude to the hypotenuse (geometric mean)": 1,
         "Altitude via area in the coordinate plane": 1,
@@ -76,6 +77,7 @@
         "Area with unit conversion": 1,
         "Arithmetic sequences": 1,
         "Arrangements with a restriction": 1,
+        "Arrangements with repeated letters": 1,
         "Average rate of change": 1,
         "Average speed over unequal times": 1,
         "Binomial counting": 1,
@@ -90,6 +92,7 @@
         "Combined population density": 1,
         "Combined transformations": 1,
         "Combined work rates": 1,
+        "Common external tangent of two circles": 1,
         "Comparing exponential and linear growth": 1,
         "Comparing numbers in different forms": 1,
         "Comparing rational numbers": 1,
@@ -113,7 +116,9 @@
         "Divisors and primes": 1,
         "Domain of a composition": 1,
         "Domain of a function": 1,
+        "Effect of added values on summary statistics": 1,
         "Equation of a circle": 1,
+        "Equations with rational exponents": 1,
         "Expected value": 1,
         "Expected value of a game": 1,
         "Exponent substitution": 1,
@@ -125,6 +130,7 @@
         "Factored form: finding the leading coefficient": 1,
         "Function composition": 1,
         "Geometric probability": 1,
+        "Geometric sequences in context": 1,
         "Incircle of a right triangle": 1,
         "Independent events: exactly one": 1,
         "Inscribed angles and arcs": 1,
@@ -132,10 +138,12 @@
         "Interquartile range": 1,
         "Inverse functions and excluded values": 1,
         "Inverse of a linear function": 1,
+        "Law of cosines": 1,
         "Least common multiple in context": 1,
         "Linear equations with distribution": 1,
         "Linear equations with fractions": 1,
         "Linear equations with integer constraints": 1,
+        "Linear equations with no solution": 1,
         "Linear equations: equal outputs of two formulas": 1,
         "Linear function from a table": 1,
         "Linear inequalities in context": 1,
@@ -144,6 +152,7 @@
         "Linear transformations of data": 1,
         "Logarithm properties": 1,
         "Logarithmic equations": 1,
+        "Matrix multiplication": 1,
         "Mean and total": 1,
         "Mean equals median with an unknown": 1,
         "Mean, median and mode constraints": 1,
@@ -184,6 +193,7 @@
         "Recursively defined functions": 1,
         "Reflections to minimize a path": 1,
         "Repeated dilution": 1,
+        "Repeating decimals as fractions": 1,
         "Residuals from a line of fit": 1,
         "Reverse percent (finding the original)": 1,
         "Right-triangle trigonometry in context": 1,
@@ -223,26 +233,26 @@
       },
       "by_difficulty_author": {
         "easy": 27,
-        "hard": 68,
-        "medium": 63
+        "hard": 73,
+        "medium": 68
       },
       "by_difficulty_calibrated": {
-        "easy": 40,
-        "hard": 22,
-        "medium": 96
+        "easy": 41,
+        "hard": 25,
+        "medium": 102
       },
       "calibrated_share": {
-        "easy": 0.253,
-        "hard": 0.139,
-        "medium": 0.608
+        "easy": 0.244,
+        "hard": 0.149,
+        "medium": 0.607
       },
       "answer_key_balance": {
-        "A": 37,
-        "B": 41,
-        "C": 45,
-        "D": 35
+        "A": 41,
+        "B": 44,
+        "C": 46,
+        "D": 37
       },
-      "modeling_items": 51,
+      "modeling_items": 53,
       "passages": 0
     },
     "act_english": {
@@ -280,40 +290,40 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 16,
+    "act_math": 17,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 17,
+      "next_batch": 18,
       "underrepresented_skills_vs_blueprint": [
+        "Integrating Essential Skills",
         "Algebra",
+        "Functions",
         "Geometry",
         "Statistics & Probability",
-        "Number & Quantity",
-        "Functions",
-        "Integrating Essential Skills"
+        "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 1.5,
-        "Algebra": 3.1,
-        "Functions": 1.1,
-        "Geometry": 2.1,
-        "Statistics & Probability": 1.7,
-        "Integrating Essential Skills": 0.6
+        "Number & Quantity": 0.6,
+        "Algebra": 1.9,
+        "Functions": 1.9,
+        "Geometry": 1.9,
+        "Statistics & Probability": 1.0,
+        "Integrating Essential Skills": 2.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 2.0,
-        "medium": -12.0,
-        "hard": 20.0
+        "easy": 3.5,
+        "medium": -13.0,
+        "hard": 19.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 5.0,
-        "B": 1.0,
-        "C": -3.0,
-        "D": 7.0
+        "A": 3.5,
+        "B": 0.5,
+        "C": -1.5,
+        "D": 7.5
       }
     }
   },
@@ -326,6 +336,14 @@
         "Integration of Knowledge and Ideas": 2.2
       }
     },
+    "act_english": {
+      "next_batch": 1,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 4.1,
+        "Knowledge of Language": 2.0,
+        "Conventions of Standard English": 4.1
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 1,
       "skill_gap_for_next_10": {
@@ -334,21 +352,13 @@
         "Standard English Conventions": 2.6,
         "Expression of Ideas": 2.0
       }
-    },
-    "act_english": {
-      "next_batch": 1,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.1,
-        "Knowledge of Language": 2.0,
-        "Conventions of Standard English": 4.1
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 158,
-      "share_of_target": 0.079
+      "accepted": 168,
+      "share_of_target": 0.084
     },
     "act_english": {
       "target": 700,
@@ -367,7 +377,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 158,
+  "total_accepted": 168,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -475,7 +485,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 16,
+      "bank_version": 17,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -519,7 +529,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:35:48+00:00",
+    "heartbeat_at": "2026-10-26T18:40:08+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

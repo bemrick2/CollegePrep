@@ -1,0 +1,473 @@
+{
+  "bank": "act_math",
+  "batch": 18,
+  "plan": "Gaps at 168: IES 3, Algebra 2, Functions 2, Geometry 2, S&P 1; 5 hard / 3 medium / 2 easy. Keys weighted to D (most under-used).",
+  "candidates": [
+    {
+      "cand": "B018-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Solving a formula for a variable",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "medium",
+      "stem": "The sum S of an arithmetic sequence with n terms, first term a and last term l is S = (n/2)(a + l). Which of the following expresses l in terms of S, n and a ?",
+      "choices": {
+        "A": "l = 2S − a/n",
+        "B": "l = (S − a)/(n/2)",
+        "C": "l = 2S/(n − a)",
+        "D": "l = 2S/n − a"
+      },
+      "answer": "D",
+      "explanation": "Multiply both sides by 2/n: 2S/n = a + l. Subtract a: l = 2S/n − a.",
+      "distractors": {
+        "A": {
+          "rationale": "This multiplies S by 2 but divides only a by n.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This subtracts a before undoing the multiplication by n/2, but a is inside the parentheses being multiplied.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This treats n − a as a single factor, which mixes up the order of operations.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Undo the multiplication by n/2 first.",
+        "Then isolate l inside the parentheses."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try n = 2, a = 1, l = 3: S = 4. Only 2S/n − a = 4 − 1 = 3 returns l."
+      },
+      "remember": "Undo operations in reverse order.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B018-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Multiplying rational expressions",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "For all x ≠ 2 and x ≠ −2, the expression [(x² − 4)/(x² − 4x + 4)] · [(x − 2)/(x + 2)] is equivalent to which of the following?",
+      "choices": {
+        "A": "(x + 2)/(x − 2)",
+        "B": "(x − 2)/(x + 2)",
+        "C": "x − 2",
+        "D": "1"
+      },
+      "answer": "D",
+      "explanation": "Factor: x² − 4 = (x − 2)(x + 2) and x² − 4x + 4 = (x − 2)². The product is [(x − 2)(x + 2)/(x − 2)²] · [(x − 2)/(x + 2)] = (x − 2)²(x + 2)/[(x − 2)²(x + 2)] = 1.",
+      "distractors": {
+        "A": {
+          "rationale": "This simplifies the first fraction to (x + 2)/(x − 2) and then forgets to multiply by the second fraction.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This is the second fraction alone; the first fraction does not simplify to 1.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This factors x² − 4x + 4 as (x − 2)(x + 2), leaving an extra factor of x − 2.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Factor every numerator and denominator completely.",
+        "Cancel common factors across the whole product."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 3: (5/1)(1/5) = 1. Let x = 4: (12/4)(2/6) = 1. Only D gives 1 both times."
+      },
+      "remember": "Factor everything, then cancel across the product.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "two factorizations with a perfect-square trinomial; partial simplifications are tempting",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B018-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Arithmetic series in context",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The first row of a theater has 20 seats, and each row after the first has 2 more seats than the row in front of it. The theater has 15 rows. How many seats are in the theater altogether?",
+      "choices": {
+        "A": "48",
+        "B": "300",
+        "C": "462",
+        "D": "510"
+      },
+      "answer": "D",
+      "explanation": "The rows have 20, 22, 24, …, seats; the 15th row has 20 + 14(2) = 48 seats. The total is the number of rows times the average of the first and last rows: 15 × (20 + 48)/2 = 15 × 34 = 510.",
+      "distractors": {
+        "A": {
+          "rationale": "48 is the number of seats in the 15th row only.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This multiplies 20 seats by 15 rows, ignoring the extra seats in later rows.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This adds up only 14 rows (from 20 to 46 seats), one row short.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many seats are in the 15th row?",
+        "The average row has the average of the first and last rows' seats."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Last row 48; total = 15(20 + 48)/2 = 510."
+      },
+      "remember": "Arithmetic series sum = number of terms × average of first and last.",
+      "expected_time_seconds": 75,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "series sum without a supplied formula; off-by-one trap"
+      }
+    },
+    {
+      "cand": "B018-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Differences of exponential outputs",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "The function f is defined by f(x) = 3^x. Which of the following is equal to f(x + 1) − f(x) for all real numbers x ?",
+      "choices": {
+        "A": "2 · 3^x",
+        "B": "3",
+        "C": "1",
+        "D": "3^(x + 1)"
+      },
+      "answer": "A",
+      "explanation": "f(x + 1) − f(x) = 3^(x + 1) − 3^x = 3 · 3^x − 3^x = (3 − 1)3^x = 2 · 3^x.",
+      "distractors": {
+        "B": {
+          "rationale": "This treats the exponential like a linear function with a constant difference.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This subtracts the exponents, (x + 1) − x = 1, instead of the values.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "3^(x + 1) is f(x + 1) alone; f(x) was not subtracted.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Write 3^(x + 1) as 3 · 3^x.",
+        "Factor out 3^x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 0: 3 − 1 = 2 = 2 · 3⁰; x = 1: 9 − 3 = 6 = 2 · 3¹. Only A matches both."
+      },
+      "remember": "Exponential differences grow; they are not constant.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B018-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume displacement",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "A right circular cylinder with an inside radius of 6 centimeters is partly filled with water. A solid metal sphere with a radius of 3 centimeters is placed in the cylinder and is completely covered by the water, and no water spills out. By how many centimeters does the water level rise? (The volume of a sphere with radius r is (4/3)πr³.)",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "answer": "A",
+      "explanation": "The water rises by the sphere's volume divided by the cylinder's cross-sectional area. Sphere: (4/3)π(27) = 36π cm³. Cross-section: π(6²) = 36π cm². Rise = 36π ÷ 36π = 1 cm.",
+      "distractors": {
+        "B": {
+          "rationale": "3 is the sphere's radius, not the rise in water level.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This divides by π(3²) = 9π, using the sphere's radius for the cylinder's cross-section.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "6 is the sphere's diameter; the water rises far less because the cylinder is wide.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The water rises by a volume equal to the sphere's volume.",
+        "Divide that volume by the area of the cylinder's circular base."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "36π ÷ 36π = 1."
+      },
+      "remember": "Rise in level = volume added ÷ base area.",
+      "expected_time_seconds": 80,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "displacement principle links two solids; the sphere's own size is the trap"
+      }
+    },
+    {
+      "cand": "B018-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "30°-60°-90° triangles",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "easy",
+      "stem": "In a 30°-60°-90° triangle, the hypotenuse has length 10. What is the length of the side opposite the 60° angle?",
+      "choices": {
+        "A": "5",
+        "B": "10√3/3",
+        "C": "5√2",
+        "D": "5√3"
+      },
+      "answer": "D",
+      "explanation": "The sides of a 30°-60°-90° triangle are in the ratio 1 : √3 : 2. The hypotenuse is 10, so the shorter leg (opposite 30°) is 5 and the longer leg (opposite 60°) is 5√3 ≈ 8.66.",
+      "distractors": {
+        "A": {
+          "rationale": "5 is the side opposite the 30° angle.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "This divides 10 by √3 instead of multiplying the short leg by √3.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "5√2 belongs to a 45°-45°-90° triangle with hypotenuse 10.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The side opposite 30° is half the hypotenuse.",
+        "The side opposite 60° is √3 times the side opposite 30°."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Short leg 5; long leg 5√3."
+      },
+      "remember": "30-60-90 sides: x, x√3, 2x.",
+      "expected_time_seconds": 35,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B018-07",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percent change in area from a change in length",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "The radius of a circle is increased by 50%. By what percent does the area of the circle increase?",
+      "choices": {
+        "A": "50%",
+        "B": "100%",
+        "C": "125%",
+        "D": "225%"
+      },
+      "answer": "C",
+      "explanation": "The new radius is 1.5r, so the new area is π(1.5r)² = 2.25πr². The area is multiplied by 2.25, an increase of 125%.",
+      "distractors": {
+        "A": {
+          "rationale": "This assumes area changes by the same percent as the radius.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This doubles the 50% instead of squaring the factor 1.5.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "225% is the new area as a percent of the old area, not the increase.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Write the new radius as a multiple of the old one.",
+        "Area depends on the square of the radius; then subtract the original 100%."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "r = 2 → area 4π; r = 3 → area 9π; increase 5π is 125% of 4π."
+      },
+      "remember": "Scale lengths by k, areas by k²; increase = k² − 1.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "squared scaling plus the new-versus-increase distinction (225% trap)"
+      }
+    },
+    {
+      "cand": "B018-08",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Combining two ratios",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "In a collection of coins, the ratio of pennies to nickels is 2:3, and the ratio of nickels to dimes is 4:5. The collection has 210 coins in all, all of them pennies, nickels or dimes. How many dimes are in the collection?",
+      "choices": {
+        "A": "70",
+        "B": "72",
+        "C": "75",
+        "D": "90"
+      },
+      "answer": "D",
+      "explanation": "Make the nickel parts match: 2:3 = 8:12 and 4:5 = 12:15, so pennies : nickels : dimes = 8 : 12 : 15, a total of 35 parts. Each part is 210 ÷ 35 = 6 coins, so there are 15 × 6 = 90 dimes.",
+      "distractors": {
+        "A": {
+          "rationale": "This splits 210 coins equally among the three kinds.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "72 is the number of nickels (12 parts × 6), not dimes.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This strings the ratios together as 2 : 3 : 5 without making the nickel numbers match (3 and 4), giving 210 × 5/14 = 75.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The nickels appear in both ratios; rewrite both ratios so the nickel number is the same.",
+        "Then find the value of one part."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8 : 12 : 15 = 35 parts; 210/35 = 6; dimes = 90."
+      },
+      "remember": "Link ratios through the shared quantity.",
+      "expected_time_seconds": 85,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "linking ratios through a common term; naive 2:3:5 combination is the trap"
+      }
+    },
+    {
+      "cand": "B018-09",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Compound versus simple interest",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "Kai deposits $2,000 in an account that earns 5% interest compounded annually. How much more interest does the account earn in 3 years than it would earn with 5% simple interest per year on the original $2,000 over the same 3 years?",
+      "choices": {
+        "A": "$15.25",
+        "B": "$100.00",
+        "C": "$300.00",
+        "D": "$315.25"
+      },
+      "answer": "A",
+      "explanation": "Compound: 2,000(1.05)³ = 2,000(1.157625) = $2,315.25, so the interest is $315.25. Simple: 2,000 × 0.05 × 3 = $300.00. The difference is $15.25.",
+      "distractors": {
+        "B": {
+          "rationale": "$100.00 is one year of simple interest.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "$300.00 is the simple interest itself, not the difference.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "$315.25 is the compound interest itself, not the difference.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Compute the compound interest and the simple interest separately.",
+        "The question asks for the difference between them."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "315.25 − 300.00 = 15.25."
+      },
+      "remember": "Compound interest earns interest on earlier interest.",
+      "expected_time_seconds": 60,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B018-10",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability from category counts",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "easy",
+      "stem": "In a survey of 40 pet owners, 12 owned only a cat, 18 owned only a dog, 6 owned only a bird and 4 owned only a fish. If one of these pet owners is chosen at random, what is the probability that the person owns a dog or a bird?",
+      "choices": {
+        "A": "3/20",
+        "B": "9/20",
+        "C": "1/2",
+        "D": "3/5"
+      },
+      "answer": "D",
+      "explanation": "Each person owns only one kind of pet, so dog owners and bird owners do not overlap: 18 + 6 = 24 people. The probability is 24/40 = 3/5.",
+      "distractors": {
+        "A": {
+          "rationale": "3/20 = 6/40 counts only bird owners.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "9/20 = 18/40 counts only dog owners.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This assumes two of the four categories make half; the categories have different sizes.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many people own a dog or a bird?",
+        "Divide by the total number surveyed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(18 + 6)/40 = 24/40."
+      },
+      "remember": "'Or' with no overlap: add the counts.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

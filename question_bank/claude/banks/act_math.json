@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 16,
-  "updated_at": "2026-10-26T18:33:55+00:00",
+  "version": 17,
+  "updated_at": "2026-10-26T18:39:54+00:00",
   "passages": [],
   "questions": [
     {
@@ -10798,6 +10798,722 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-016.review.json",
         "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000159",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Matrix multiplication",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Matrix A has rows (1, 2) and (3, 4). Matrix B has rows (2, 0) and (1, 5). What is the entry in row 2, column 1 of the matrix product AB ?",
+      "choices": {
+        "A": "3",
+        "B": "10",
+        "C": "16",
+        "D": "23"
+      },
+      "correct_answer": "B",
+      "explanation": "The entry in row 2, column 1 of AB is row 2 of A times column 1 of B: (3)(2) + (4)(1) = 6 + 4 = 10.",
+      "distractor_explanations": {
+        "A": "This multiplies only the matching entries (3 × 1), as if the product were taken entry by entry.",
+        "C": "16 is the row 2, column 1 entry of BA, not AB: (1)(1) + (5)(3). Matrix multiplication is not commutative.",
+        "D": "This multiplies row 2 of A by row 2 of B: (3)(1) + (4)(5). Rows of A pair with columns of B."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "An entry of AB pairs a row of A with a column of B.",
+        "Column 1 of B is (2, 1)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Row 2 of A · column 1 of B = 3·2 + 4·1."
+      },
+      "remember": "AB entry (i, j) = row i of A · column j of B.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-01",
+      "created_at": "2026-10-26T18:39:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000160",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Repeating decimals as fractions",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The decimal 0.363636…, in which the digits 36 repeat forever, is equal to which of the following fractions?",
+      "choices": {
+        "A": "4/11",
+        "B": "9/25",
+        "C": "3/8",
+        "D": "11/30"
+      },
+      "correct_answer": "A",
+      "explanation": "Let x = 0.3636…. Then 100x = 36.3636…, and subtracting gives 99x = 36, so x = 36/99 = 4/11.",
+      "distractor_explanations": {
+        "B": "9/25 = 0.36 exactly; it does not repeat.",
+        "C": "3/8 = 0.375, not 0.3636….",
+        "D": "11/30 = 0.3666…, where only the 6 repeats."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Multiply the decimal by 100 to shift one full repeating block.",
+        "Subtract the original number to cancel the repeating part."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Divide each fraction on a calculator: only 4/11 gives 0.363636…."
+      },
+      "remember": "A two-digit repeating block over 99.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-02",
+      "created_at": "2026-10-26T18:39:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000161",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear equations with no solution",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation kx + 3 = 4x − 7, k is a constant. For what value of k does the equation have no solution?",
+      "choices": {
+        "A": "−4",
+        "B": "0",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "D",
+      "explanation": "Rearrange: kx − 4x = −10, so (k − 4)x = −10. If k = 4, this becomes 0 = −10, which is never true, so there is no solution. For any other k, x = −10/(k − 4) is a solution.",
+      "distractor_explanations": {
+        "A": "With k = −4, −8x = −10 has the solution x = 5/4.",
+        "B": "With k = 0, the equation 3 = 4x − 7 has the solution x = 2.5.",
+        "C": "3 matches the constant term on the left, not the x-coefficient on the right; with k = 3, x = 10."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Collect the x-terms on one side.",
+        "When does an equation of the form (number)x = −10 have no solution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(k − 4)x = −10 has no solution only when k − 4 = 0."
+      },
+      "remember": "No solution: same x-coefficient on both sides, different constants.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-03",
+      "created_at": "2026-10-26T18:39:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000162",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Equations with rational exponents",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the set of all real solutions of the equation x^(2/3) = 16 ?",
+      "choices": {
+        "A": "{64}",
+        "B": "{−64, 64}",
+        "C": "{8}",
+        "D": "{4,096}"
+      },
+      "correct_answer": "B",
+      "explanation": "x^(2/3) = (x^(1/3))², so (x^(1/3))² = 16 gives x^(1/3) = 4 or x^(1/3) = −4. Cubing: x = 64 or x = −64. Both check: the cube root of −64 is −4, and (−4)² = 16.",
+      "distractor_explanations": {
+        "A": "This misses the negative solution; cube roots of negative numbers are real, and their squares are positive.",
+        "C": "This raises 16 to the 3/4 power instead of the 3/2 power (inverting 2/3 incorrectly).",
+        "D": "This cubes 16 instead of taking its square root first: 16³ = 4,096."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Think of x^(2/3) as the square of the cube root of x.",
+        "Which numbers squared give 16?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test −64: its cube root is −4, and (−4)² = 16. So −64 must be included."
+      },
+      "remember": "Even powers hide signs; check the negative root.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-04",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [
+          "minor: many calculators return an error or a non-real value for (-64)^(2/3), but the standard algebra convention (cube root, then square) makes -64 valid, and {-64, 64} is the intended answer"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000163",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Age problems with a system",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In 5 years, Ana will be twice as old as Ben was 3 years ago. Ana's and Ben's current ages add up to 31 years. How old is Ana now?",
+      "choices": {
+        "A": "17",
+        "B": "18",
+        "C": "21",
+        "D": "28"
+      },
+      "correct_answer": "A",
+      "explanation": "Let a and b be the current ages. Then a + 5 = 2(b − 3), so a = 2b − 11, and a + b = 31. Substituting: 3b − 11 = 31, so b = 14 and a = 17. Check: in 5 years Ana is 22, and 3 years ago Ben was 11.",
+      "distractor_explanations": {
+        "B": "This distributes 2(b − 3) as 2b − 3, giving a = 2b − 8, b = 13 and a = 18.",
+        "C": "This uses 3 years from now for Ben, a + 5 = 2(b + 3), giving b = 10 and a = 21.",
+        "D": "28 is twice Ben's current age, 14, not Ana's age."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "sign_error",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write each phrase as an expression in the current ages.",
+        "Use the sum of the ages as the second equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 17: Ben is 14; 17 + 5 = 22 and 2(14 − 3) = 22. It works."
+      },
+      "remember": "Shift each age by the stated number of years before comparing.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-05",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000164",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Geometric sequences in context",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A ball is dropped from a height of 16 feet. Each time it hits the ground, it bounces back up to half the height from which it last fell. What total vertical distance, in feet, has the ball traveled at the moment it hits the ground for the 4th time?",
+      "choices": {
+        "A": "30",
+        "B": "44",
+        "C": "46",
+        "D": "48"
+      },
+      "correct_answer": "B",
+      "explanation": "The ball falls 16 ft (1st hit), rises and falls 8 ft (2nd hit), rises and falls 4 ft (3rd hit), and rises and falls 2 ft (4th hit). Total: 16 + 2(8) + 2(4) + 2(2) = 16 + 16 + 8 + 4 = 44 feet.",
+      "distractor_explanations": {
+        "A": "This counts each height once, 16 + 8 + 4 + 2, forgetting that every bounce goes up and back down.",
+        "C": "46 is the distance at the 5th hit, one bounce too many.",
+        "D": "48 is the total distance if the ball bounced forever, 16 + 2(16)."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "overextend_trend"
+      },
+      "hints": [
+        "List each fall and each rise separately.",
+        "The first drop happens only once; every later height is traveled twice."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the bounces: down 16, up-down 8, up-down 4, up-down 2."
+      },
+      "remember": "Bounces: count each rebound height twice, up and down.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-06",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000165",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Law of cosines",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle PQR, PQ = 7, PR = 8 and the measure of ∠P is 60°. What is the length of QR ? (Law of cosines: c² = a² + b² − 2ab cos C, and cos 60° = 1/2.)",
+      "choices": {
+        "A": "√57",
+        "B": "√113",
+        "C": "13",
+        "D": "15"
+      },
+      "correct_answer": "A",
+      "explanation": "QR is opposite ∠P: QR² = 7² + 8² − 2(7)(8)cos 60° = 49 + 64 − 56 = 57. So QR = √57 ≈ 7.55.",
+      "distractor_explanations": {
+        "B": "This omits the −2ab cos C term, treating the triangle as if ∠P were a right angle.",
+        "C": "This adds 56 instead of subtracting it: √169 = 13.",
+        "D": "This adds the two sides; a side of a triangle is always less than the sum of the other two."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Which side is opposite the 60° angle?",
+        "Substitute into the law of cosines with C = 60°."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "QR² = 49 + 64 − 112(1/2) = 57."
+      },
+      "remember": "Law of cosines generalizes the Pythagorean theorem.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-07",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: the formula is given in generic a, b, C notation, so the student must map it to the sides here; that is fine"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000166",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Common external tangent of two circles",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": {
+        "description": "Two circles (r = 5, r = 3), centers 10 apart, with a common external tangent. Optional for production."
+      },
+      "stem": "Two circles have radii 5 and 3, and their centers are 10 units apart. A line is tangent to both circles, and both circles lie on the same side of the line. What is the distance between the two points of tangency?",
+      "choices": {
+        "A": "6",
+        "B": "8",
+        "C": "4√6",
+        "D": "10"
+      },
+      "correct_answer": "C",
+      "explanation": "Both radii to the tangency points are perpendicular to the tangent line, so they are parallel. Draw a segment from the smaller circle's center parallel to the tangent line: it forms a right triangle with hypotenuse 10 (the distance between centers) and one leg 5 − 3 = 2. The other leg equals the tangent length: √(10² − 2²) = √96 = 4√6 ≈ 9.8.",
+      "distractor_explanations": {
+        "A": "6 = √(10² − 8²) is the length for a tangent that crosses between the circles (internal tangent), which uses 5 + 3.",
+        "B": "8 is the sum of the radii, not a tangent length.",
+        "D": "10 is the distance between the centers; the tangent segment is shorter because the radii differ."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Each radius to a point of tangency is perpendicular to the tangent line.",
+        "Build a right triangle using the centers and the difference of the radii."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Right triangle with hypotenuse 10 and leg 2: the other leg is √96."
+      },
+      "remember": "External tangent length = √(d² − (r₁ − r₂)²).",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-08",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000167",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Arrangements with repeated letters",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many different 5-letter arrangements can be made from all the letters of the word LEVEL ?",
+      "choices": {
+        "A": "15",
+        "B": "20",
+        "C": "24",
+        "D": "30"
+      },
+      "correct_answer": "D",
+      "explanation": "LEVEL has 5 letters: L twice, E twice and V once. Arrangements = 5!/(2! · 2!) = 120/4 = 30.",
+      "distractor_explanations": {
+        "A": "This divides by an extra factor of 2, as if all three letter types were repeated.",
+        "B": "This divides 5! by 3!, treating the repeated letters as if one letter appeared three times.",
+        "C": "24 = 4! treats the word as having only 4 distinct positions to fill."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Count the arrangements as if all 5 letters were different.",
+        "Swapping two identical letters does not create a new arrangement; divide that out."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5!/(2!2!) = 30."
+      },
+      "remember": "Repeated letters: divide n! by k! for each letter repeated k times.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-09",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000168",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Effect of added values on summary statistics",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The data set 4, 7, 9, 12, 15 is changed by adding two new values, 1 and 20. Which of the following statistics is the same for the new data set as for the original data set?",
+      "choices": {
+        "A": "The median only",
+        "B": "The mean only",
+        "C": "The median and the range",
+        "D": "The mean and the median"
+      },
+      "correct_answer": "A",
+      "explanation": "Original: median 9, mean 47/5 = 9.4, range 11. New data 1, 4, 7, 9, 12, 15, 20: median still 9, mean 68/7 ≈ 9.71, range 19. Only the median is unchanged.",
+      "distractor_explanations": {
+        "B": "The mean changes from 9.4 to about 9.71, because 1 and 20 do not average to 9.4.",
+        "C": "The range grows from 11 to 19.",
+        "D": "The median stays the same, but the mean changes."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Adding one value below and one above the middle keeps the middle the same.",
+        "Check whether the two new values average to the old mean."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The range clearly grows (rule out C); compute the means to rule out B and D."
+      },
+      "remember": "Adding a value on each side keeps the median; the mean shifts unless they balance.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "B017-10",
+      "created_at": "2026-10-26T18:39:54+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-017.review.json",
+        "computation": "checks/act_math/batch_017.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
