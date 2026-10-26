@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 37,
+  "bank_version": 38,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -6436,6 +6436,181 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the segment from (8, 6) to the center."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000370",
+      "correct_answer": "D",
+      "explanation": "Cross-multiplying gives 2(x + 2) = 5(x - 1), so 2x + 4 = 5x - 5 and x = 3.",
+      "distractor_explanations": {
+        "A": "-4 multiplies each numerator by its own denominator: 5(x + 2) = 2(x - 1).",
+        "B": "5/3 distributes 5(x - 1) as 5x - 1.",
+        "C": "7/3 distributes 2(x + 2) as 2x + 2."
+      },
+      "hints": [
+        "Cross-multiply, then distribute carefully."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice in both fractions."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000371",
+      "correct_answer": "A",
+      "explanation": "The graph is a downward-opening parabola with vertex (2, 7). It rises to the left of the vertex, so f is increasing for x < 2.",
+      "distractor_explanations": {
+        "B": "x > 2 is where the downward parabola is decreasing.",
+        "C": "7 is the maximum value of f, not an x-coordinate.",
+        "D": "x > -2 misreads the vertex as x = -2."
+      },
+      "hints": [
+        "Which way does the parabola open?",
+        "Where is its vertex?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola from its vertex."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000372",
+      "correct_answer": "C",
+      "explanation": "The area of a kite is half the product of its diagonals: (1/2)(10)(14) = 70.",
+      "distractor_explanations": {
+        "A": "24 adds the diagonals.",
+        "B": "35 takes half of the product twice.",
+        "D": "140 forgets the factor of 1/2."
+      },
+      "hints": [
+        "The diagonals of a kite are perpendicular. How does that help with area?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The kite fills half of a 10-by-14 rectangle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000373",
+      "correct_answer": "B",
+      "explanation": "0.4 hour = 0.4 × 60 = 24 minutes, so the trip took 2 hours 24 minutes.",
+      "distractor_explanations": {
+        "A": "This reads 0.4 hour as 4 minutes.",
+        "C": "This reads 0.4 hour as 40 minutes, as if an hour had 100 minutes.",
+        "D": "This adds 4 and 40 minutes, mixing two misreadings."
+      },
+      "hints": [
+        "How many minutes are in 0.4 of an hour?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the decimal part by 60."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000374",
+      "correct_answer": "C",
+      "explanation": "The product is odd only when both numbers are odd: (2/4)(2/4) = 1/4. So the probability that it is even is 1 - 1/4 = 3/4.",
+      "distractor_explanations": {
+        "A": "1/4 is the probability that the product is odd.",
+        "B": "1/2 assumes even and odd products are equally likely.",
+        "D": "7/8 subtracts only 1/8, miscounting the odd-odd outcomes."
+      },
+      "hints": [
+        "When is a product odd?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a 4 × 4 table of products."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000375",
+      "correct_answer": "A",
+      "explanation": "40 hours at $16 earns $640. The remaining $120 is earned at $24 per hour: 120 ÷ 24 = 5 hours. Total: 45 hours.",
+      "distractor_explanations": {
+        "B": "47.5 = 760 ÷ 16 ignores the overtime rate.",
+        "C": "50 = 40 + 120 ÷ 12 uses half the regular rate for overtime instead of 1.5 times it.",
+        "D": "55 = 40 + 120 ÷ 8 confuses the overtime premium ($8) with the overtime rate ($24)."
+      },
+      "hints": [
+        "How much is earned in the first 40 hours?",
+        "What is the overtime hourly rate?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Compute the pay for 45 hours."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000376",
+      "correct_answer": "B",
+      "explanation": "The radius to the point of tangency is perpendicular to the chord and bisects it. With R the larger radius and r the smaller, R² = r² + 5², so R² - r² = 25. The area between the circles is π(R² - r²) = 25π.",
+      "distractor_explanations": {
+        "A": "10π uses the chord length as if it were R² - r².",
+        "C": "50π uses R² - r² = 2 × 25, doubling the half-chord's square.",
+        "D": "100π uses the whole chord, 10², instead of the half-chord, 5²."
+      },
+      "hints": [
+        "Draw the smaller radius to the point of tangency and the larger radius to the chord's endpoint.",
+        "You do not need R or r separately, only R² - r²."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Form a right triangle with legs r and 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000377",
+      "correct_answer": "B",
+      "explanation": "Represent the balls as 5 stars and the dividers between boxes as 2 bars. Each arrangement of 5 stars and 2 bars in a row is one distribution: C(7, 2) = 21.",
+      "distractor_explanations": {
+        "A": "15 = C(6, 2) uses one too few positions in the row.",
+        "C": "35 = C(7, 3) uses 3 dividers instead of 2.",
+        "D": "243 = 3⁵ treats the balls as distinguishable."
+      },
+      "hints": [
+        "The balls are identical, so only the number in each box matters.",
+        "How many dividers separate 3 boxes?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write each distribution as stars and bars, like ★★|★|★★."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000378",
+      "correct_answer": "A",
+      "explanation": "The height is 6√3. The center of the inscribed circle is the centroid, which lies 1/3 of the way up the height from each side, so r = (1/3)(6√3) = 2√3.",
+      "distractor_explanations": {
+        "B": "3√3 is half the height.",
+        "C": "4√3 is the circumradius, two-thirds of the height.",
+        "D": "6√3 is the height of the triangle."
+      },
+      "hints": [
+        "Where is the incircle's center in an equilateral triangle?",
+        "What fraction of the height is the inradius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the height and mark the centroid."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000379",
+      "correct_answer": "D",
+      "explanation": "Together they print 75 pages per minute, so the job takes 300 ÷ 75 = 4 minutes. Printer B prints 45 × 4 = 180 pages.",
+      "distractor_explanations": {
+        "A": "100 splits the job into three equal parts without regard to the rates.",
+        "B": "120 is Printer A's share.",
+        "C": "150 splits the job evenly, which would not let both finish together."
+      },
+      "hints": [
+        "How long does the job take with both printers working?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Time = 300 ÷ (30 + 45)."
       }
     }
   ]
