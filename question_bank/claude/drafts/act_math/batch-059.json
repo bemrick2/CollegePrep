@@ -52,41 +52,41 @@
    "cand": "B059-02",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Geometry",
-   "subskill": "Perimeter from area and one side",
+   "subskill": "Base angles of an isosceles triangle",
    "repo_skill_key": "act_geometry",
    "difficulty": "easy",
-   "stem": "A rectangle has an area of 48 square inches and a length of 8 inches. What is the perimeter of the rectangle, in inches?",
+   "stem": "In an isosceles triangle, the angle between the two equal sides measures 40°. What is the measure of each of the other two angles?",
    "choices": {
-    "A": "6",
-    "B": "14",
-    "C": "16",
-    "D": "28"
+    "A": "20°",
+    "B": "40°",
+    "C": "50°",
+    "D": "70°"
    },
    "answer": "D",
-   "explanation": "The width is 48 ÷ 8 = 6 inches. The perimeter is 2(8 + 6) = 28 inches.",
+   "explanation": "The base angles are equal and the three angles sum to 180°, so each base angle is (180° − 40°) ÷ 2 = 70°.",
    "distractors": {
     "A": {
-     "rationale": "6 is the width, not the perimeter.",
-     "trap": "wrong_quantity"
+     "rationale": "20° halves the 40° angle instead of the remaining 140°.",
+     "trap": null
     },
     "B": {
-     "rationale": "14 is the length plus the width, half the perimeter.",
-     "trap": "partial_answer"
+     "rationale": "40° assumes all three angles are equal to the given one.",
+     "trap": null
     },
     "C": {
-     "rationale": "16 doubles the length only.",
+     "rationale": "50° = 90° − 40° treats the triangle as a right triangle.",
      "trap": null
     }
    },
    "hints": [
-    "Find the width first."
+    "What do the three angles add up to?"
    ],
    "strategy": {
     "key": "translate_to_algebra",
-    "explanation": "Width = area ÷ length; perimeter = 2(l + w)."
+    "explanation": "40 + 2x = 180."
    },
-   "remember": "Perimeter counts each side length twice.",
-   "expected_time_seconds": 30,
+   "remember": "The base angles of an isosceles triangle are equal.",
+   "expected_time_seconds": 25,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,

@@ -21,8 +21,7 @@ def c01(ch):
 
 
 def c02(ch):
-    w = F(48, 8)
-    return pick(ch, 2 * (8 + w))
+    return pick(ch, F(180 - 40, 2), conv=lambda t: F(t.rstrip('°')))
 
 
 def c03(ch):
