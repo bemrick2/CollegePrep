@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 7,
-  "updated_at": "2026-10-26T19:34:57+00:00",
+  "version": 8,
+  "updated_at": "2026-10-26T20:07:53+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -80,6 +80,17 @@
       "word_count": 510,
       "text": "My aunt Theodora kept records of everything. When the lawyer handed me the keys to her house on Alder Street, he also handed me a ledger bound in green cloth, and in it, in her small upright hand, was an inventory of the house's contents: every chair, every teacup, every one of the eleven clocks, each with the date and price of its purchase. \"She made my job very easy,\" the lawyer said. I thanked him, though it seemed to me, even then, that a person who records the price of every teacup is not making anyone's job easy so much as making sure no one can say she was careless.\n\nI spent the first week checking the ledger against the rooms. The work suited me. I had been, for most of my adult life, the member of the family who could be relied upon to show up with a notebook, and I took a certain pride in finding that the inventory was, as far as I could tell, perfect. The clocks were where she had said they would be. The teacups numbered forty-two. In the pantry, the ledger told me, I would find a copper kettle bought in 1961 for four dollars and fifty cents, and there it was, dented exactly where I would have expected a kettle of that age to be dented.\n\nIt was on the eighth day, in the back bedroom, that I found the box. It was a shoebox, unremarkable, pushed to the back of the closet shelf behind a stack of folded blankets, and it did not appear in the ledger at all. Inside were perhaps two hundred letters, all addressed to my aunt, all from the same person, a woman named Celia whose return address changed four times over thirty years. I read the first one standing up. I read the second sitting on the edge of the bed. By the time I looked up, the light in the window had gone from white to orange, and I had not opened the ledger in hours.\n\nI do not intend to describe the letters. They were not mine, and in any case what struck me was less what they said than where they had been kept. My aunt had written down the price of a kettle. She had numbered her teacups. And she had left out of a record so complete that a lawyer could call it easy the one thing in the house she had evidently returned to again and again, for the envelopes were soft at the edges from handling.\n\nI had always thought of the ledger as a kind of self-portrait, and I suppose it was, though not in the way I had assumed. A list can be honest about every item on it and still be a disguise. I put the box back behind the blankets, though I knew I would have to decide, eventually, what to do with it, and I went downstairs and made tea in the copper kettle, and I did not write down anything at all.",
       "batch": 7,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000008",
+      "title": "Ruins on Purpose",
+      "genre": "humanities",
+      "word_count": 419,
+      "text": "In eighteenth-century England, a landowner who wanted his estate to look properly distinguished might commission, alongside the lawns and lakes, a ruin. Not an old building that had fallen down, but a new one designed to look as if it had: a broken tower with an artfully collapsed staircase, a chapel wall with empty windows framing a view of the hills. Builders were sometimes instructed to leave stones scattered at the base, as though they had dropped there over centuries.\n\nTo a modern visitor, the practice can seem faintly absurd, even dishonest. We are accustomed to valuing old buildings for their authenticity, for the fact that they were actually there when the events we associate with them took place. A ruin built in 1760 to evoke the Middle Ages appears to offer the feeling of history without the thing itself, the way a souvenir offers the feeling of a trip.\n\nBut that judgment assumes the builders were trying to deceive, and there is little evidence that they were. Visitors generally knew which ruins were new; guidebooks said so, and owners were often proud of the fact. What the sham ruin offered was not a false claim about the past but an occasion for a particular state of mind. Writers of the period described the pleasure of contemplating decay: the reminder that all human works, including the grand house a few hundred yards away, would eventually crumble. The ruin was less a history lesson than a kind of philosophical furniture.\n\nSeen this way, the sham ruin tells us less about how the eighteenth century misunderstood the past than about how it used the past. History, for these landowners, was not primarily a record to be consulted but a mood to be cultivated, a backdrop against which the present could feel both important and fleeting. The broken tower did not need to be old to do its work. It needed only to be broken.\n\nIt is tempting to feel superior to this attitude, and in some ways we are right to. The modern preservation movement, with its insistence on original materials and documented histories, has saved a great deal that the eighteenth century would have let fall or would have cheerfully \"improved.\" Yet the impulse behind the sham ruin has not disappeared. It survives whenever a new restaurant installs reclaimed barn wood, or a housing development is named for the farm it replaced. We still want the feeling of age; we have simply become more particular about where it comes from.",
+      "batch": 8,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -4658,6 +4669,578 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-007.review.json",
         "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000065",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "But that judgment assumes the builders were trying to deceive, and there is little evidence that they were.",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "choices": {
+        "A": "argue that sham ruins deserve the same careful preservation as genuine old buildings.",
+        "B": "describe the building techniques used to make new structures look centuries old.",
+        "C": "reinterpret a practice that can seem dishonest by explaining what it was meant to do.",
+        "D": "criticize the modern preservation movement for valuing authenticity too highly."
+      },
+      "correct_answer": "C",
+      "explanation": "The passage raises the modern charge of dishonesty, rebuts it, and explains the ruins' purpose: an occasion for contemplating time and decay.",
+      "distractor_explanations": {
+        "A": "The passage never argues for preserving sham ruins.",
+        "B": "Construction details appear only in paragraph 1 as setup.",
+        "D": "The author says we are \"right\" in some ways and credits what preservation has saved."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "partial_answer",
+        "D": "extreme_language"
+      },
+      "hints": [
+        "Where does the passage turn?",
+        "What does it say the ruins were for?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize the argument in one sentence first."
+      },
+      "remember": "A purpose answer must cover the whole argument.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-01",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000066",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "Builders were sometimes instructed to leave stones scattered at the base",
+      "figure": null,
+      "stem": "According to the passage, builders of sham ruins were sometimes instructed to:",
+      "choices": {
+        "A": "leave stones scattered around the base of the structure.",
+        "B": "reuse stones taken from genuine medieval buildings nearby.",
+        "C": "place each ruin where it could be seen from the main road.",
+        "D": "copy the exact design of a particular medieval chapel."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 1 says builders were sometimes told to leave stones scattered at the base.",
+      "distractor_explanations": {
+        "B": "The passage never mentions reused medieval stone.",
+        "C": "Placement relative to roads is not mentioned.",
+        "D": "No specific chapel is said to have been copied."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": "out_of_scope",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Look near the end of paragraph 1."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence with \"instructed.\""
+      },
+      "remember": "Detail answers restate a specific line.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-02",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [
+          "minor: answer reuses passage wording almost verbatim ('stones scattered at the base'); pure lookup"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000067",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a comparison",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "But that judgment assumes the builders were trying to deceive",
+      "figure": null,
+      "stem": "The comparison to a souvenir in paragraph 2 primarily serves to:",
+      "choices": {
+        "A": "show that eighteenth-century visitors bought souvenirs when they toured ruins.",
+        "B": "illustrate a modern objection that the author then goes on to challenge.",
+        "C": "reveal that the author considers sham ruins to be essentially worthless.",
+        "D": "explain why landowners chose to build ruins near their own grand houses."
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 2 voices the modern view that sham ruins offer only the feeling of history, like a souvenir; paragraph 3 calls this a \"judgment\" and challenges it.",
+      "distractor_explanations": {
+        "A": "The souvenir is an analogy, not a historical detail.",
+        "C": "Paragraph 3 begins \"But that judgment assumes,\" so the view is not the author's own.",
+        "D": "The comparison concerns modern judgment, not landowners' reasons."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Whose view does paragraph 2 present?",
+        "How does paragraph 3 respond to it?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check whether the author endorses or challenges the view."
+      },
+      "remember": "An author may present a view in order to dispute it.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-03",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000068",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Function of evidence",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "there is little evidence that they were. Visitors generally knew which ruins were new; guidebooks said so",
+      "figure": null,
+      "stem": "The author mentions that \"guidebooks said so\" (paragraph 3) mainly as evidence that:",
+      "choices": {
+        "A": "guidebooks were the main source of historical knowledge for visitors.",
+        "B": "visitors of the period preferred new ruins to genuinely old ones.",
+        "C": "owners were privately embarrassed by the ruins they had built.",
+        "D": "the builders were not trying to fool visitors about the ruins' age."
+      },
+      "correct_answer": "D",
+      "explanation": "The author claims there is little evidence of deception; guidebooks openly identifying new ruins supports that claim.",
+      "distractor_explanations": {
+        "A": "The point is what the guidebooks reveal about honesty, not their role in education.",
+        "B": "Nothing compares visitors' preferences for new and old ruins.",
+        "C": "Owners were \"often proud of the fact.\""
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "out_of_scope",
+        "C": null
+      },
+      "hints": [
+        "What claim comes just before this evidence?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Link the evidence to the claim it supports."
+      },
+      "remember": "Ask which claim a piece of evidence supports.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-04",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000069",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "What the sham ruin offered was not a false claim about the past but an occasion for a particular state of mind.",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word \"occasion\" most nearly means:",
+      "choices": {
+        "A": "celebration.",
+        "B": "opportunity.",
+        "C": "excuse.",
+        "D": "anniversary."
+      },
+      "correct_answer": "B",
+      "explanation": "The ruin provided a chance, or opening, for a certain mood: an \"opportunity.\"",
+      "distractor_explanations": {
+        "A": "No event is being celebrated.",
+        "C": "An excuse justifies something; the ruin invites a state of mind.",
+        "D": "No date is being marked."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "Substitute each choice into the sentence."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"chance\" for the blank."
+      },
+      "remember": "Common words often carry less common meanings in context.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-05",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: C 'excuse' is the only semi-plausible distractor; A/D are the common-meaning traps"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000070",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Applying the author's reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "a backdrop against which the present could feel both important and fleeting",
+      "figure": null,
+      "stem": "Based on paragraph 4, the author would most likely say that a sham ruin succeeded if it:",
+      "choices": {
+        "A": "convinced visitors that it had truly been built in the Middle Ages.",
+        "B": "taught visitors accurate facts about the history of their region.",
+        "C": "led visitors to reflect on time and the impermanence of their world.",
+        "D": "matched the architectural style of the main house on the estate."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 4 says the ruin's work was to create a mood in which the present felt important and fleeting; it \"needed only to be broken.\"",
+      "distractor_explanations": {
+        "A": "Paragraph 3 says visitors generally knew the ruins were new.",
+        "B": "History was \"not primarily a record to be consulted.\"",
+        "D": "Matching styles is never mentioned as a goal."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What was the ruin's \"work,\" according to paragraph 4?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate goals the author says the ruins did not have."
+      },
+      "remember": "Apply the author's own stated criterion.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-07",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000071",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "has saved a great deal that the eighteenth century would have let fall",
+      "figure": null,
+      "stem": "In the last paragraph, the author's attitude toward the modern preservation movement is best described as:",
+      "choices": {
+        "A": "approving of what it has saved, while noting that the wish for a feeling of age persists.",
+        "B": "dismissive, because it values original materials more than the moods buildings create.",
+        "C": "nostalgic for the period before the movement existed, when ruins were built freely.",
+        "D": "neutral, since the author describes the movement without evaluating it in any way."
+      },
+      "correct_answer": "A",
+      "explanation": "The author grants that we are right in some ways and that preservation has saved much, then adds that the desire for the feeling of age has not disappeared.",
+      "distractor_explanations": {
+        "B": "The author credits it with saving a great deal.",
+        "C": "The author never expresses longing for that period.",
+        "D": "\"In some ways we are right to\" feel superior is an evaluation."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What does the author credit the movement with?",
+        "What does \"Yet\" introduce?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate attitudes that are too extreme or too flat."
+      },
+      "remember": "Mixed attitudes often pair a concession with a \"yet.\"",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-08",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: correct answer is the longest choice and the only two-part 'X, while Y' option, a test-wise tell",
+          "minor: second half of A ('wish for a feeling of age persists') is about people generally rather than the movement per se; acceptable but slightly loose"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000072",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Overall structure of an argument",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000008",
+      "underline": null,
+      "evidence": "It is tempting to feel superior to this attitude",
+      "figure": null,
+      "stem": "Which choice best describes the structure of the passage's argument?",
+      "choices": {
+        "A": "It traces the history of ruins in England from the Middle Ages to modern times.",
+        "B": "It compares two rival theories of why ruins were built and then endorses one of them.",
+        "C": "It describes a practice, states an objection, rebuts it, and links the practice to the present.",
+        "D": "It argues that modern preservation is misguided and proposes a better alternative."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 1 describes sham ruins; paragraph 2 gives the modern objection; paragraphs 3 and 4 rebut it; paragraph 5 connects the impulse to the present.",
+      "distractor_explanations": {
+        "A": "The passage focuses on eighteenth-century sham ruins, not a full history.",
+        "B": "Only one objection and one interpretation are presented.",
+        "D": "The author largely approves of modern preservation."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "Label each paragraph's role."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Outline the paragraphs before reading the choices."
+      },
+      "remember": "Structure answers must fit every paragraph in order.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "R008-10",
+      "created_at": "2026-10-26T20:07:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: C is noticeably longer and more detailed than the others, mapping each paragraph"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-008.review.json",
+        "computation": "checks/act_reading/batch_008.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
