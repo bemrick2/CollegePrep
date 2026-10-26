@@ -1,0 +1,261 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 19,
+  "reviewed_at": "2026-10-26T18:43:59+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 19
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000179",
+    "CLD-ACT-M-000180",
+    "CLD-ACT-M-000181",
+    "CLD-ACT-M-000182",
+    "CLD-ACT-M-000183",
+    "CLD-ACT-M-000184",
+    "CLD-ACT-M-000185",
+    "CLD-ACT-M-000186",
+    "CLD-ACT-M-000187",
+    "CLD-ACT-M-000188"
+  ],
+  "results": [
+    {
+      "cand": "B019-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [
+        "minor: modulus definition given in stem makes this nearly a plug-in; borderline easy"
+      ],
+      "blind_notes": "|3-4i|=5, |1+i|=sqrt2, product 5sqrt2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "definition supplied"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000179"
+    },
+    {
+      "cand": "B019-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Units cycle 7,9,3,1 (period 4); 100 mod 4 = 0 -> 1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "pattern plus remainder mapping (remainder 0 ↔ 4th term)",
+        "dup_note": "related to the powers-of-i cycle item (CLD-ACT-M-000069) but a different object"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000180"
+    },
+    {
+      "cand": "B019-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "Case x>=4: x=-5 rejected; case x<4: 4-x=2x+1 -> x=1 (RHS=3>=0). {1}. C is the extraneous-root trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "case split plus rejection of an extraneous solution"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000181"
+    },
+    {
+      "cand": "B019-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Slope 3; y=3x-7; x-int 7/3. -7 is y-intercept distractor.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "the bank has a perpendicular-line item (CLD-ACT-M-000034) with y-intercept; this uses parallel lines and the x-intercept"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000182"
+    },
+    {
+      "cand": "B019-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "sin(pi t/6)>1/2 -> pi t/6 in (pi/6,5pi/6) -> t in (1,5): 4 hours. Unique within 0..12 (sin negative for t>6).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "unit-circle reasoning inside a model; symmetric-interval traps"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000183"
+    },
+    {
+      "cand": "B019-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "b^3=8 -> b=2; 8/3 is divide-by-3 trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000184"
+    },
+    {
+      "cand": "B019-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Shoelace: 1(4-6)+5(6-1)+(-2)(1-3)... = -2+25+6=29, area 14.5; 29 is forgot-half trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "no side is on a grid line; requires decomposition",
+        "dup_note": "the bank's altitude item (CLD-ACT-M-000073) has a side on the x-axis; this does not"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000185"
+    },
+    {
+      "cand": "B019-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "(8-2)180/8=135.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000186"
+    },
+    {
+      "cand": "B019-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "0.7=0.4+p-0.4p -> 0.6p=0.3 -> p=0.5. 0.3 is mutually-exclusive trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "addition rule plus independence, solved backward"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000187"
+    },
+    {
+      "cand": "B019-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "1 m^2 = 10,000 cm^2; 2.5*10,000=25,000. 250 is linear-conversion trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000188"
+    }
+  ]
+}

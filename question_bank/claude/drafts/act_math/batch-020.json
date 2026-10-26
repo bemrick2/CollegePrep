@@ -1,0 +1,472 @@
+{
+  "bank": "act_math",
+  "batch": 20,
+  "plan": "Gaps at 188: Algebra 2, Geometry 2, S&P 2, IES 2, N&Q 1, Functions 1; 4 hard / 5 medium / 1 easy. New subskills: negative-exponent scientific arithmetic, integer roots via coefficients, monomial exponent rules, zeros of a quadratic, trapezoid diagonal ratios, cone from slant height, dartboard rings, effect of a value on spread, break-even with a strict inequality, percent of a percent.",
+  "candidates": [
+    {
+      "cand": "B020-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Scientific notation with negative exponents",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "What is the value of (4 × 10⁻³)² ÷ (2 × 10⁻⁵) ?",
+      "choices": {
+        "A": "0.4",
+        "B": "0.8",
+        "C": "80",
+        "D": "800"
+      },
+      "answer": "B",
+      "explanation": "(4 × 10⁻³)² = 16 × 10⁻⁶. Dividing by 2 × 10⁻⁵ gives (16 ÷ 2) × 10^(−6 − (−5)) = 8 × 10⁻¹ = 0.8.",
+      "distractors": {
+        "A": {
+          "rationale": "This doubles 4 instead of squaring it: 8 × 10⁻⁶ ÷ (2 × 10⁻⁵) = 0.4.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This subtracts the exponents in the wrong order, −5 − (−6) = 1, giving 8 × 10¹.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "This squares the 4 but not 10⁻³: 16 × 10⁻³ ÷ (2 × 10⁻⁵) = 800.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Square both factors inside the parentheses.",
+        "When dividing powers of 10, subtract the exponents: −6 − (−5)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "16 ÷ 2 = 8 and 10^(−6 + 5) = 10⁻¹, so 0.8."
+      },
+      "remember": "Subtracting a negative exponent adds.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B020-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Integer roots from coefficients",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The equation x² + bx + 24 = 0, where b is a constant, has two solutions that are both positive integers. What is the greatest possible value of b ?",
+      "choices": {
+        "A": "−25",
+        "B": "−14",
+        "C": "−11",
+        "D": "−10"
+      },
+      "answer": "D",
+      "explanation": "If the solutions are r and s, then rs = 24 and r + s = −b. Positive integer pairs with product 24 are (1, 24), (2, 12), (3, 8) and (4, 6), with sums 25, 14, 11 and 10. Since b = −(r + s), the possible values of b are −25, −14, −11 and −10. The greatest is −10.",
+      "distractors": {
+        "A": {
+          "rationale": "−25 is the least possible value of b, from the roots 1 and 24.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "−14 comes from the roots 2 and 12, which is not the greatest value.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "−11 comes from the roots 3 and 8, which is not the greatest value.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How are the two roots related to 24 and to b?",
+        "List positive integer pairs whose product is 24."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "b = −10: x² − 10x + 24 = (x − 4)(x − 6), positive integer roots. Since −10 is the largest choice, it is the answer if it works."
+      },
+      "remember": "For x² + bx + c: roots multiply to c and add to −b.",
+      "expected_time_seconds": 85,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "root–coefficient relationships plus a sign twist (greatest b means smallest sum)",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B020-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Monomial exponent rules",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "For all nonzero x and y, which of the following is equivalent to (2x³y)² · 3xy⁻⁴ ?",
+      "choices": {
+        "A": "12x⁷/y²",
+        "B": "6x⁷/y²",
+        "C": "12x⁶/y⁸",
+        "D": "7x⁷y⁻²"
+      },
+      "answer": "A",
+      "explanation": "(2x³y)² = 4x⁶y². Multiplying by 3xy⁻⁴: 4 · 3 = 12, x⁶ · x = x⁷, and y² · y⁻⁴ = y⁻². The result is 12x⁷y⁻² = 12x⁷/y².",
+      "distractors": {
+        "B": {
+          "rationale": "This doubles 2 instead of squaring it, using 2 · 3 = 6 for the coefficient.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This multiplies the exponents of x (6 · 1) and of y (2 · 4) instead of adding them.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This adds the coefficients 4 + 3 instead of multiplying them.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Square every factor inside the parentheses, including the 2.",
+        "When multiplying powers of the same base, add the exponents."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 2 and y = 1: (2 · 8 · 1)² · 3 · 2 · 1 = 256 · 6 = 1,536. Choice A gives 12 · 2⁷ = 1,536; choice C gives 12 · 2⁶ = 768."
+      },
+      "remember": "Coefficients multiply; same-base exponents add.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B020-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Zeros of a quadratic function",
+      "repo_skill_key": "act_functions",
+      "difficulty": "easy",
+      "stem": "What are the zeros of the function f(x) = 2x² − 8 ?",
+      "choices": {
+        "A": "2 only",
+        "B": "4 only",
+        "C": "−2 and 2",
+        "D": "−4 and 4"
+      },
+      "answer": "C",
+      "explanation": "Set 2x² − 8 = 0: x² = 4, so x = 2 or x = −2.",
+      "distractors": {
+        "A": {
+          "rationale": "This misses the negative square root of 4.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "4 is the value of x², not of x.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This multiplies 8 by 2 instead of dividing, getting x² = 16 and x = ±4.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Set f(x) equal to 0 and isolate x².",
+        "x² = 4 has two solutions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2x² = 8 → x² = 4 → x = ±2."
+      },
+      "remember": "Square roots come in ± pairs.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B020-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Diagonals of a trapezoid (similar triangles)",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "In trapezoid ABCD, side AB is parallel to side CD, AB = 6 and CD = 15. Diagonals AC and BD intersect at point E. If AC = 14, what is the length of AE ?",
+      "choices": {
+        "A": "4",
+        "B": "5.6",
+        "C": "6",
+        "D": "7"
+      },
+      "answer": "A",
+      "explanation": "Because AB ∥ CD, triangles ABE and CDE are similar (alternate interior angles), with ratio AB : CD = 6 : 15 = 2 : 5. So AE : EC = 2 : 5, and AE = (2/7)(14) = 4.",
+      "distractors": {
+        "B": {
+          "rationale": "This treats 2 : 5 as a part-to-whole ratio, taking AE = (2/5)(14) = 5.6; AE is 2 of 2 + 5 = 7 parts.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "6 is the length of AB; the segments of the diagonal are not equal to the bases.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "7 assumes the diagonals bisect each other, which is true for a parallelogram, not a trapezoid with unequal bases.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The parallel sides create two similar triangles at the intersection of the diagonals.",
+        "Their similarity ratio splits each diagonal in the same ratio."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trapezoid: triangle ABE ~ triangle CDE with ratio 2 : 5, so AC splits 2 : 5 and AE = 14 × 2/7."
+      },
+      "remember": "Trapezoid diagonals divide each other in the ratio of the bases.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "spotting similar triangles formed by diagonals; bisection trap"
+      }
+    },
+    {
+      "cand": "B020-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Cone volume from slant height",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "A right circular cone has a base radius of 3 centimeters and a slant height of 5 centimeters. What is the volume of the cone, in cubic centimeters? (The volume of a cone is (1/3)πr²h.)",
+      "choices": {
+        "A": "9π",
+        "B": "12π",
+        "C": "15π",
+        "D": "36π"
+      },
+      "answer": "B",
+      "explanation": "The height, radius and slant height form a right triangle: h = √(5² − 3²) = 4. Volume = (1/3)π(3²)(4) = 12π cubic centimeters.",
+      "distractors": {
+        "A": {
+          "rationale": "9π is πr², the base area, not the volume.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This uses the slant height 5 as the height: (1/3)π(9)(5) = 15π.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This forgets the factor 1/3: π(9)(4) = 36π is the volume of a cylinder.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "The slant height is not the height.",
+        "Use the Pythagorean theorem with the radius and slant height."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "3-4-5 right triangle gives h = 4; then (1/3)(9)(4)π."
+      },
+      "remember": "Cone height ≠ slant height; use the Pythagorean theorem.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B020-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Geometric probability with concentric circles",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "A circular target consists of three regions bounded by concentric circles with radii 2, 4 and 6 inches: an inner disk, a middle ring and an outer ring. A dart lands at a random point on the target, with every point equally likely. What is the probability that it lands in the middle ring?",
+      "choices": {
+        "A": "1/9",
+        "B": "1/3",
+        "C": "4/9",
+        "D": "2/3"
+      },
+      "answer": "B",
+      "explanation": "The whole target has area π(6²) = 36π. The middle ring is between radii 2 and 4: π(4²) − π(2²) = 16π − 4π = 12π. The probability is 12π/36π = 1/3.",
+      "distractors": {
+        "A": {
+          "rationale": "1/9 = 4π/36π is the probability of the inner disk.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "4/9 = 16π/36π is the probability of landing within radius 4, which includes the inner disk.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This compares radii (4/6) instead of areas; probability depends on area.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Probability = area of the region ÷ area of the whole target.",
+        "The ring's area is the difference of two circle areas."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(16π − 4π)/36π = 1/3."
+      },
+      "remember": "Ring area = π(R² − r²).",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "area difference for an annulus; the 'within radius 4' trap"
+      }
+    },
+    {
+      "cand": "B020-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Effect of an added value on standard deviation",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "medium",
+      "stem": "The data set 10, 12, 14, 16, 18 has a mean of 14. If one of the following values is added to the data set, which one will DECREASE the standard deviation?",
+      "choices": {
+        "A": "10",
+        "B": "14",
+        "C": "18",
+        "D": "30"
+      },
+      "answer": "B",
+      "explanation": "Standard deviation measures typical distance from the mean. Adding a value equal to the mean (14) adds a point with zero distance, which lowers the typical distance. Adding 10 or 18 (each 4 from the mean, more than the current typical distance of about 2.8) or 30 increases the spread.",
+      "distractors": {
+        "A": {
+          "rationale": "10 is 4 below the mean, farther than the typical distance (about 2.8), so it increases the standard deviation.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "18 is 4 above the mean, which also increases the spread.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "30 is far from the mean and greatly increases the spread.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Standard deviation measures how far values typically are from the mean.",
+        "Which new value is closest to the mean?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Only a value near the mean can shrink the spread; 14 is exactly the mean."
+      },
+      "remember": "Adding the mean shrinks the standard deviation.",
+      "expected_time_seconds": 45,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B020-09",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Break-even with a strict inequality",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "hard",
+      "stem": "Rental company A charges $40 plus $0.25 per mile. Rental company B charges $25 plus $0.40 per mile. What is the least whole number of miles for which company A is cheaper than company B?",
+      "choices": {
+        "A": "99",
+        "B": "100",
+        "C": "101",
+        "D": "150"
+      },
+      "answer": "C",
+      "explanation": "A is cheaper when 40 + 0.25m < 25 + 0.40m, so 15 < 0.15m and m > 100. At exactly 100 miles both cost $65, so A is not cheaper there. The least whole number of miles is 101.",
+      "distractors": {
+        "A": {
+          "rationale": "At 99 miles, A costs $64.75 and B costs $64.60, so B is cheaper.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "At 100 miles the costs are equal ($65); A is not yet cheaper.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "A is cheaper at 150 miles, but it is already cheaper at 101 miles.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Write an inequality comparing the two total costs.",
+        "Check what happens at exactly the break-even point."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 100: both $65 (tie). Test 101: A $65.25, B $65.40. So 101."
+      },
+      "remember": "'Cheaper than' is strict: the tie point does not count.",
+      "expected_time_seconds": 70,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "strict inequality at an exact tie; the break-even value is the trap"
+      }
+    },
+    {
+      "cand": "B020-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percents of an unknown whole",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "If 15% of a number is 27, what is 40% of the same number?",
+      "choices": {
+        "A": "10.8",
+        "B": "42",
+        "C": "54",
+        "D": "72"
+      },
+      "answer": "D",
+      "explanation": "15% of n is 27, so n = 27 ÷ 0.15 = 180. Then 40% of 180 = 72.",
+      "distractors": {
+        "A": {
+          "rationale": "10.8 is 40% of 27, not 40% of the number.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "This adds 15 to 27 instead of working with percents.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This doubles 27, treating 40% as about twice 15%; 40/15 is about 2.67.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the whole number first.",
+        "Or scale: 40% is 40/15 times 15%."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "27 × 40/15 = 72."
+      },
+      "remember": "Find the whole, then take the new percent.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

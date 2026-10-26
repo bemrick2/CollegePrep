@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:41:58+00:00",
+  "updated_at": "2026-10-26T18:44:17+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 178,
+    "act_math": 188,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 178,
+      "PASS": 188,
       "REVISE": 1,
       "REJECT": 2,
-      "candidates": 181,
+      "candidates": 191,
       "passed_after_revision": 1
     },
     "act_english": {
@@ -52,18 +52,19 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 178,
+      "accepted": 188,
       "by_skill": {
-        "Algebra": 33,
-        "Functions": 33,
-        "Geometry": 33,
-        "Integrating Essential Skills": 36,
-        "Number & Quantity": 19,
-        "Statistics & Probability": 24
+        "Algebra": 35,
+        "Functions": 35,
+        "Geometry": 35,
+        "Integrating Essential Skills": 37,
+        "Number & Quantity": 21,
+        "Statistics & Probability": 25
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
         "Absolute value as distance": 1,
+        "Absolute value equations with an extraneous branch": 1,
         "Absolute value of numerical expressions": 1,
         "Age problems with a system": 1,
         "Algebraic identities (square of a sum)": 1,
@@ -73,6 +74,7 @@
         "Angle bisector theorem": 1,
         "Arc length and sector area": 1,
         "Area modeling with a quadratic": 1,
+        "Area of a triangle by decomposition in the plane": 1,
         "Area of an equilateral triangle": 1,
         "Area of an isosceles trapezoid": 1,
         "Area with unit conversion": 1,
@@ -132,6 +134,7 @@
         "Exponential equations with a common base": 1,
         "Exponential function properties": 1,
         "Exponential growth models and logarithms": 1,
+        "Exponential model from two points": 1,
         "Factored form: finding the leading coefficient": 1,
         "Function composition": 1,
         "Geometric probability": 1,
@@ -140,6 +143,7 @@
         "Independent events: exactly one": 1,
         "Inscribed angles and arcs": 1,
         "Inscribed figures: composite area": 1,
+        "Interior angles of regular polygons": 1,
         "Interquartile range": 1,
         "Inverse functions and excluded values": 1,
         "Inverse of a linear function": 1,
@@ -164,12 +168,14 @@
         "Median from a frequency table": 1,
         "Midpoint: finding an endpoint": 1,
         "Mixture problems": 1,
+        "Modulus of complex numbers": 1,
         "Multi-part rate and cost": 1,
         "Multiplying rational expressions": 1,
         "Negative rational exponents": 1,
         "Odd and even functions": 1,
         "Opposing rates (fill and drain)": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
+        "Parallel lines and intercepts": 1,
         "Percent change in area from a change in length": 1,
         "Percent decrease then recovery": 1,
         "Percent targets across parts": 1,
@@ -214,10 +220,12 @@
         "Similar triangles: area ratios": 1,
         "Simplifying expressions with rational exponents": 1,
         "Simplifying rational expressions": 1,
+        "Sinusoidal models: time above a threshold": 1,
         "Solving a formula for a variable": 1,
         "Solving f(x) = k for a linear function": 1,
         "Solving for an inner function in a composition": 1,
         "Space diagonal of a cube": 1,
+        "Square-unit conversion": 1,
         "Successive percent change": 1,
         "Surface area with whole-unit purchase": 1,
         "Systems of linear equations in context": 1,
@@ -229,8 +237,10 @@
         "Translating relationships into a system": 1,
         "Triangle angle sum": 1,
         "Trigonometric identities and quadrant signs": 1,
+        "Union of independent events": 1,
         "Unit price comparison": 1,
         "Unit price with unit conversion": 1,
+        "Units-digit cycles": 1,
         "Vector operations and magnitude": 1,
         "Vertical angles": 1,
         "Volume and rates with unit conversion": 1,
@@ -242,27 +252,27 @@
         "Work problems with a mid-job change": 1
       },
       "by_difficulty_author": {
-        "easy": 29,
-        "hard": 78,
-        "medium": 71
+        "easy": 30,
+        "hard": 83,
+        "medium": 75
       },
       "by_difficulty_calibrated": {
-        "easy": 43,
-        "hard": 25,
-        "medium": 110
+        "easy": 45,
+        "hard": 26,
+        "medium": 117
       },
       "calibrated_share": {
-        "easy": 0.242,
-        "hard": 0.14,
-        "medium": 0.618
+        "easy": 0.239,
+        "hard": 0.138,
+        "medium": 0.622
       },
       "answer_key_balance": {
-        "A": 44,
-        "B": 44,
-        "C": 47,
+        "A": 48,
+        "B": 46,
+        "C": 51,
         "D": 43
       },
-      "modeling_items": 56,
+      "modeling_items": 59,
       "passages": 0
     },
     "act_english": {
@@ -300,44 +310,53 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 18,
+    "act_math": 19,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 19,
+      "next_batch": 20,
       "underrepresented_skills_vs_blueprint": [
+        "Integrating Essential Skills",
+        "Statistics & Probability",
         "Algebra",
         "Functions",
         "Geometry",
-        "Number & Quantity",
-        "Integrating Essential Skills",
-        "Statistics & Probability"
+        "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 1.7,
-        "Algebra": 1.8,
-        "Functions": 1.8,
-        "Geometry": 1.8,
-        "Statistics & Probability": 1.4,
-        "Integrating Essential Skills": 1.6
+        "Number & Quantity": 0.8,
+        "Algebra": 1.6,
+        "Functions": 1.6,
+        "Geometry": 1.6,
+        "Statistics & Probability": 1.7,
+        "Integrating Essential Skills": 2.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 4.0,
-        "medium": -16.0,
-        "hard": 22.0
+        "easy": 4.5,
+        "medium": -18.0,
+        "hard": 23.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 3.0,
-        "B": 3.0,
-        "C": 0.0,
-        "D": 4.0
+        "A": 1.5,
+        "B": 3.5,
+        "C": -1.5,
+        "D": 6.5
       }
     }
   },
   "verbal_guidance": {
+    "sat_reading_writing": {
+      "next_batch": 1,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 2.8,
+        "Information and Ideas": 2.6,
+        "Standard English Conventions": 2.6,
+        "Expression of Ideas": 2.0
+      }
+    },
     "act_english": {
       "next_batch": 1,
       "skill_gap_for_next_10": {
@@ -353,22 +372,13 @@
         "Craft and Structure": 2.9,
         "Integration of Knowledge and Ideas": 2.2
       }
-    },
-    "sat_reading_writing": {
-      "next_batch": 1,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 2.8,
-        "Information and Ideas": 2.6,
-        "Standard English Conventions": 2.6,
-        "Expression of Ideas": 2.0
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 178,
-      "share_of_target": 0.089
+      "accepted": 188,
+      "share_of_target": 0.094
     },
     "act_english": {
       "target": 700,
@@ -387,7 +397,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 178,
+  "total_accepted": 188,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -495,7 +505,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 18,
+      "bank_version": 19,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -539,7 +549,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:41:58+00:00",
+    "heartbeat_at": "2026-10-26T18:44:17+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

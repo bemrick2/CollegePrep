@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 18,
-  "updated_at": "2026-10-26T18:41:43+00:00",
+  "version": 19,
+  "updated_at": "2026-10-26T18:43:59+00:00",
   "passages": [],
   "questions": [
     {
@@ -12227,6 +12227,718 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-018.review.json",
         "computation": "checks/act_math/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000179",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Modulus of complex numbers",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For i = √(−1), the absolute value of a complex number a + bi is √(a² + b²). What is the value of |3 − 4i| · |1 + i| ?",
+      "choices": {
+        "A": "5",
+        "B": "5√2",
+        "C": "7",
+        "D": "10"
+      },
+      "correct_answer": "B",
+      "explanation": "|3 − 4i| = √(9 + 16) = 5 and |1 + i| = √(1 + 1) = √2. The product is 5√2 ≈ 7.07.",
+      "distractor_explanations": {
+        "A": "5 is |3 − 4i| alone; it still must be multiplied by |1 + i| = √2.",
+        "C": "This adds the parts of 3 − 4i as 3 + 4 = 7 instead of using the square root formula.",
+        "D": "This takes |1 + i| as 2 (adding 1 + 1) instead of √2."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find each absolute value separately using the formula.",
+        "Multiply the two results."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5 × √2 = 5√2."
+      },
+      "remember": "|a + bi| = √(a² + b²).",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-01",
+      "created_at": "2026-10-26T18:43:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: modulus definition given in stem makes this nearly a plug-in; borderline easy"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000180",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Units-digit cycles",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the units digit of 7¹⁰⁰ ?",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "7",
+        "D": "9"
+      },
+      "correct_answer": "A",
+      "explanation": "The units digits of powers of 7 repeat in a cycle of 4: 7¹ → 7, 7² → 9, 7³ → 3, 7⁴ → 1, then 7, 9, 3, 1 again. Since 100 is a multiple of 4, 7¹⁰⁰ has the same units digit as 7⁴, which is 1.",
+      "distractor_explanations": {
+        "B": "3 is the units digit of 7³, the third term of the cycle; 100 leaves remainder 0 when divided by 4, which matches the 4th term.",
+        "C": "This assumes every power of 7 ends in 7.",
+        "D": "9 is the units digit of 7², which would correspond to a remainder of 2."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the units digits of 7, 7², 7³, 7⁴ and 7⁵.",
+        "Where does 100 fall in the repeating cycle?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Cycle 7, 9, 3, 1 of length 4; 100 ÷ 4 has remainder 0, so the digit is the last in the cycle: 1."
+      },
+      "remember": "Units digits of powers repeat; use the remainder.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-02",
+      "created_at": "2026-10-26T18:43:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000181",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Absolute value equations with an extraneous branch",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the set of all real solutions of the equation |x − 4| = 2x + 1 ?",
+      "choices": {
+        "A": "{1}",
+        "B": "{−5}",
+        "C": "{−5, 1}",
+        "D": "The empty set"
+      },
+      "correct_answer": "A",
+      "explanation": "Case 1: x − 4 = 2x + 1 gives x = −5, but then the right side is 2(−5) + 1 = −9, and an absolute value cannot equal a negative number, so −5 is rejected. Case 2: −(x − 4) = 2x + 1 gives 4 − x = 2x + 1, so x = 1; check: |1 − 4| = 3 and 2(1) + 1 = 3. The only solution is x = 1.",
+      "distractor_explanations": {
+        "B": "−5 comes from the first case, but it makes the right side negative (−9), which an absolute value can never equal.",
+        "C": "These are the solutions of both cases before checking; −5 is extraneous.",
+        "D": "x = 1 does satisfy the equation, so the solution set is not empty."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Split into the two cases x − 4 = 2x + 1 and x − 4 = −(2x + 1).",
+        "Check each result in the original equation; the right side must not be negative."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 1: |−3| = 3 = 3. Test −5: |−9| = 9 but 2(−5) + 1 = −9. Only {1}."
+      },
+      "remember": "If the other side has a variable, check for extraneous solutions.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-03",
+      "created_at": "2026-10-26T18:43:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000182",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Parallel lines and intercepts",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, line m passes through the point (2, −1) and is parallel to the line 3x − y = 4. What is the x-intercept of line m ?",
+      "choices": {
+        "A": "−7",
+        "B": "1/3",
+        "C": "7/3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "3x − y = 4 can be written y = 3x − 4, with slope 3. Line m: y − (−1) = 3(x − 2), so y = 3x − 7. Setting y = 0: 3x = 7, x = 7/3.",
+      "distractor_explanations": {
+        "A": "−7 is the y-intercept of line m, not the x-intercept.",
+        "B": "This uses the perpendicular slope −1/3 instead of the parallel slope.",
+        "D": "4 relates to the given line 3x − y = 4, not to line m."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Parallel lines have equal slopes.",
+        "The x-intercept is where y = 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "y = 3x − 7; set y = 0 to get x = 7/3."
+      },
+      "remember": "Parallel: same slope. x-intercept: set y = 0.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-04",
+      "created_at": "2026-10-26T18:43:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000183",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Sinusoidal models: time above a threshold",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The water depth, in meters, at a pier t hours after midnight is modeled by h(t) = 3 sin(πt/6) + 5 for 0 ≤ t ≤ 12. According to the model, for how many hours during this period is the depth greater than 6.5 meters?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "explanation": "h(t) > 6.5 means 3 sin(πt/6) > 1.5, so sin(πt/6) > 1/2. On 0 ≤ πt/6 ≤ 2π, sine exceeds 1/2 for π/6 < πt/6 < 5π/6, that is, 1 < t < 5. That is 4 hours.",
+      "distractor_explanations": {
+        "A": "This finds only the time from t = 1 to the peak at t = 3, forgetting the symmetric time after the peak.",
+        "C": "6 hours is the time the depth is above the midline, 5 meters (0 < t < 6), not above 6.5 meters.",
+        "D": "This counts the time the depth is NOT above 6.5 m within the 12-hour period."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Rewrite h(t) > 6.5 as an inequality about sin(πt/6).",
+        "For which angles between 0 and 2π is the sine greater than 1/2?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch one period (12 hours) peaking at t = 3; the depth exceeds 6.5 between t = 1 and t = 5."
+      },
+      "remember": "sin θ > 1/2 for π/6 < θ < 5π/6 in one cycle.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-05",
+      "created_at": "2026-10-26T18:43:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000184",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential model from two points",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A population is modeled by P(t) = 200b^t, where t is in years and b is a positive constant. If P(3) = 1,600, what is the value of b ?",
+      "choices": {
+        "A": "2",
+        "B": "8/3",
+        "C": "3",
+        "D": "8"
+      },
+      "correct_answer": "A",
+      "explanation": "200b³ = 1,600, so b³ = 8 and b = 2. Check: 200 × 2³ = 1,600.",
+      "distractor_explanations": {
+        "B": "This divides 8 by 3 instead of taking the cube root.",
+        "C": "This confuses the exponent 3 with the base b.",
+        "D": "8 is b³, not b."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Substitute t = 3 and P = 1,600.",
+        "After dividing by 200, take a cube root."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "b = 2: 200 × 8 = 1,600."
+      },
+      "remember": "Solve b^n = k with the nth root.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-06",
+      "created_at": "2026-10-26T18:43:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000185",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of a triangle by decomposition in the plane",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what is the area, in square units, of the triangle with vertices (1, 1), (5, 4) and (−2, 6) ?",
+      "choices": {
+        "A": "14.5",
+        "B": "20.5",
+        "C": "29",
+        "D": "35"
+      },
+      "correct_answer": "A",
+      "explanation": "Enclose the triangle in the rectangle from x = −2 to 5 and y = 1 to 6: area 7 × 5 = 35. Subtract the three right triangles around it: (1/2)(4)(3) = 6 [between (1, 1) and (5, 4)], (1/2)(7)(2) = 7 [between (5, 4) and (−2, 6)], and (1/2)(3)(5) = 7.5 [between (−2, 6) and (1, 1)]. Area = 35 − 20.5 = 14.5.",
+      "distractor_explanations": {
+        "B": "20.5 is the total area of the three corner triangles that are cut away, not the triangle itself.",
+        "C": "29 is twice the area (the shoelace sum before halving).",
+        "D": "35 is the area of the enclosing rectangle."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "None of the sides is horizontal or vertical. Try enclosing the triangle in a rectangle.",
+        "Subtract the right triangles that lie inside the rectangle but outside the triangle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Box method: 35 − (6 + 7 + 7.5) = 14.5."
+      },
+      "remember": "Slanted triangle: enclose in a box and subtract corners.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-07",
+      "created_at": "2026-10-26T18:43:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000186",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Interior angles of regular polygons",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the measure of each interior angle of a regular octagon?",
+      "choices": {
+        "A": "108°",
+        "B": "120°",
+        "C": "135°",
+        "D": "140°"
+      },
+      "correct_answer": "C",
+      "explanation": "The interior angles of an n-sided polygon sum to (n − 2) × 180°. For an octagon, (8 − 2) × 180° = 1,080°, and each of the 8 equal angles is 1,080° ÷ 8 = 135°.",
+      "distractor_explanations": {
+        "A": "108° is the interior angle of a regular pentagon.",
+        "B": "120° is the interior angle of a regular hexagon.",
+        "D": "140° is the interior angle of a regular nonagon (9 sides)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many triangles can an octagon be split into from one vertex?",
+        "Divide the angle sum by 8."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Exterior angle 360° ÷ 8 = 45°, so the interior angle is 180° − 45° = 135°."
+      },
+      "remember": "Interior angle sum: (n − 2) × 180°.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-08",
+      "created_at": "2026-10-26T18:43:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000187",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Union of independent events",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Events A and B are independent. P(A) = 0.4 and P(A or B) = 0.7. What is P(B) ?",
+      "choices": {
+        "A": "0.28",
+        "B": "0.3",
+        "C": "0.5",
+        "D": "0.75"
+      },
+      "correct_answer": "C",
+      "explanation": "P(A or B) = P(A) + P(B) − P(A and B), and for independent events P(A and B) = P(A)P(B). So 0.7 = 0.4 + p − 0.4p = 0.4 + 0.6p, giving 0.6p = 0.3 and p = 0.5.",
+      "distractor_explanations": {
+        "A": "0.28 = 0.4 × 0.7 multiplies the two given probabilities, which is not P(B).",
+        "B": "This subtracts 0.4 from 0.7, ignoring the overlap P(A and B).",
+        "D": "This divides 0.3 by 0.4 instead of by 0.6."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Write P(A or B) using the addition rule.",
+        "For independent events, P(A and B) = P(A) × P(B)."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 0.5: 0.4 + 0.5 − 0.2 = 0.7. It works."
+      },
+      "remember": "P(A or B) = P(A) + P(B) − P(A and B).",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-09",
+      "created_at": "2026-10-26T18:43:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000188",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Square-unit conversion",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A floor tile has an area of 2.5 square meters. What is its area in square centimeters? (1 meter = 100 centimeters)",
+      "choices": {
+        "A": "250",
+        "B": "2,500",
+        "C": "25,000",
+        "D": "250,000"
+      },
+      "correct_answer": "C",
+      "explanation": "1 square meter = 100 cm × 100 cm = 10,000 square centimeters. So 2.5 square meters = 2.5 × 10,000 = 25,000 square centimeters.",
+      "distractor_explanations": {
+        "A": "This multiplies by 100, converting as if the units were lengths, not areas.",
+        "B": "This multiplies by 1,000, which is neither the length factor nor the area factor.",
+        "D": "This multiplies by 100,000, one zero too many."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many square centimeters are in one square meter?",
+        "Square the length conversion factor."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2.5 × 100² = 25,000."
+      },
+      "remember": "Area conversion uses the length factor squared.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "B019-10",
+      "created_at": "2026-10-26T18:43:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-019.review.json",
+        "computation": "checks/act_math/batch_019.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
