@@ -52,41 +52,41 @@
    "cand": "B056-02",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Algebra",
-   "subskill": "Simplifying a difference of distributed expressions",
+   "subskill": "Solving a proportion between two variables",
    "repo_skill_key": "act_algebra_linear",
    "difficulty": "easy",
-   "stem": "Which of the following expressions is equivalent to 3(2x − 4) − 2(x − 5) ?",
+   "stem": "If 3a = 2b and b = 12, what is the value of a ?",
    "choices": {
-    "A": "4x − 2",
-    "B": "4x + 2",
-    "C": "4x − 22",
-    "D": "8x − 2"
+    "A": "4",
+    "B": "8",
+    "C": "18",
+    "D": "36"
    },
-   "answer": "A",
-   "explanation": "3(2x − 4) = 6x − 12 and −2(x − 5) = −2x + 10. Combining gives 4x − 2.",
+   "answer": "B",
+   "explanation": "Substitute b = 12: 3a = 24, so a = 8.",
    "distractors": {
-    "B": {
-     "rationale": "4x + 2 makes both constants change sign: −(−12) + ... instead of −12 + 10.",
-     "trap": "sign_error"
+    "A": {
+     "rationale": "4 divides 12 by 3 and ignores the factor of 2.",
+     "trap": null
     },
     "C": {
-     "rationale": "4x − 22 distributes −2 to the 5 as −10 instead of +10.",
-     "trap": "sign_error"
+     "rationale": "18 solves 2a = 3b instead, swapping the coefficients.",
+     "trap": null
     },
     "D": {
-     "rationale": "8x − 2 adds the x-coefficients 6 and 2 instead of subtracting.",
+     "rationale": "36 multiplies 12 by 3.",
      "trap": null
     }
    },
    "hints": [
-    "Distribute −2, not 2, to the second parentheses."
+    "Substitute 12 for b first."
    ],
    "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Try x = 1 in the original and in each choice."
+    "key": "backsolve",
+    "explanation": "Check 3a = 2(12) with each choice."
    },
-   "remember": "Distribute a negative to every term inside the parentheses.",
-   "expected_time_seconds": 35,
+   "remember": "Substitute known values, then solve.",
+   "expected_time_seconds": 25,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -304,7 +304,7 @@
     }
    },
    "hints": [
-    "What is the slope of a line perpendicular to slope 2?"
+    "Find the new line's slope first, then use the given point."
    ],
    "strategy": {
     "key": "translate_to_algebra",

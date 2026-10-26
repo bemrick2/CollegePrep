@@ -17,14 +17,7 @@ def c01(ch):
 
 
 def c02(ch):
-    hits = []
-    for k, v in ch.items():
-        a, b = v.replace('−', '-').replace(' ', '').split('x')
-        f = lambda x: F(a) * x + F(b)  # noqa: E731
-        if all(f(x) == 3 * (2 * x - 4) - 2 * (x - 5) for x in (0, 1, 7)):
-            hits.append(k)
-    assert len(hits) == 1
-    return hits[0]
+    return pick(ch, F(2 * 12, 3))
 
 
 def c03(ch):

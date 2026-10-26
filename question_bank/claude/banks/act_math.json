@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 55,
-  "updated_at": "2026-10-26T23:06:08+00:00",
+  "version": 56,
+  "updated_at": "2026-10-26T23:08:57+00:00",
   "passages": [],
   "questions": [
     {
@@ -38182,6 +38182,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-055.review.json",
         "computation": "checks/act_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000547",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Geometry",
+      "subskill": "Counting square tiles to cover a rectangle",
+      "modeling": true,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular floor measures 2.5 meters by 4 meters. How many square tiles that are 0.5 meter on each side are needed to cover the floor exactly?",
+      "choices": {
+        "A": "13",
+        "B": "20",
+        "C": "40",
+        "D": "80"
+      },
+      "correct_answer": "C",
+      "explanation": "The floor's area is 2.5 × 4 = 10 square meters, and each tile covers 0.5 × 0.5 = 0.25 square meter. 10 ÷ 0.25 = 40 tiles. (Equivalently, 5 tiles by 8 tiles.)",
+      "distractor_explanations": {
+        "A": "13 is the floor's perimeter in meters, not a tile count.",
+        "B": "20 divides the area by 0.5, the tile's side, instead of by the tile's area.",
+        "D": "80 doubles the correct count."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many tiles fit along each side?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "2.5 ÷ 0.5 = 5 tiles by 4 ÷ 0.5 = 8 tiles."
+      },
+      "remember": "Divide area by area, or count tiles along each side.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-01",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000548",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Solving a proportion between two variables",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 3a = 2b and b = 12, what is the value of a ?",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "18",
+        "D": "36"
+      },
+      "correct_answer": "B",
+      "explanation": "Substitute b = 12: 3a = 24, so a = 8.",
+      "distractor_explanations": {
+        "A": "4 divides 12 by 3 and ignores the factor of 2.",
+        "C": "18 solves 2a = 3b instead, swapping the coefficients.",
+        "D": "36 multiplies 12 by 3."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Substitute 12 for b first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 3a = 2(12) with each choice."
+      },
+      "remember": "Substitute known values, then solve.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-02",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000549",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Questions missed from a percent correct",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A test has 40 questions. Jana answered 85% of them correctly. How many questions did Jana answer incorrectly?",
+      "choices": {
+        "A": "6",
+        "B": "15",
+        "C": "34",
+        "D": "85"
+      },
+      "correct_answer": "A",
+      "explanation": "She answered 0.85 × 40 = 34 correctly, so she missed 40 − 34 = 6.",
+      "distractor_explanations": {
+        "B": "15 is the percent missed, not the number of questions.",
+        "C": "34 is the number answered correctly.",
+        "D": "85 is the percent answered correctly."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What percent did Jana miss?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "0.15 × 40."
+      },
+      "remember": "Percent missed = 100% − percent correct.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-03",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000550",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a cone from its slant height",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right circular cone has a base radius of 6 inches and a slant height of 10 inches. What is the volume of the cone, in cubic inches?",
+      "choices": {
+        "A": "32π",
+        "B": "48π",
+        "C": "60π",
+        "D": "96π"
+      },
+      "correct_answer": "D",
+      "explanation": "The height is √(10² − 6²) = 8. The volume is (1/3)π(6²)(8) = 96π.",
+      "distractor_explanations": {
+        "A": "32π divides the correct volume by 3 a second time.",
+        "B": "48π uses a height of 4, half the correct height.",
+        "C": "60π = π(6)(10) is the lateral surface area, not the volume."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "The slant height is not the height. How are they related?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle formed by radius, height and slant height."
+      },
+      "remember": "Use the Pythagorean theorem to get a cone's height from its slant height.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-04",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000551",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Minimum of an absolute value function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the minimum value of the function f(x) = |x − 4| − 2 ?",
+      "choices": {
+        "A": "−6",
+        "B": "−4",
+        "C": "−2",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "|x − 4| is never less than 0, and it equals 0 at x = 4. So the minimum of f is 0 − 2 = −2.",
+      "distractor_explanations": {
+        "A": "−6 treats |x − 4| as if it could equal −4.",
+        "B": "−4 is the opposite of the horizontal shift, not an output of f.",
+        "D": "4 is the x-value where the minimum occurs, not the minimum value."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the smallest value an absolute value can take?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Minimize |x − 4| first."
+      },
+      "remember": "|A| ≥ 0, with equality only when A = 0.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-05",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000552",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Converting square units",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "There are 2.54 centimeters in 1 inch and 12 inches in 1 foot. Approximately how many square centimeters are in 1 square foot?",
+      "choices": {
+        "A": "30.48",
+        "B": "365.76",
+        "C": "929.03",
+        "D": "1,858.06"
+      },
+      "correct_answer": "C",
+      "explanation": "1 foot = 12 × 2.54 = 30.48 cm, so 1 square foot = 30.48² ≈ 929.03 square centimeters.",
+      "distractor_explanations": {
+        "A": "30.48 is the number of centimeters in 1 foot, a length, not an area.",
+        "B": "365.76 = 144 × 2.54 squares the inches but not the centimeter conversion.",
+        "D": "1,858.06 doubles the area instead of squaring the length factor once."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How many centimeters long is one side of a 1-foot square?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a 1-foot square and label its sides in centimeters."
+      },
+      "remember": "Square the conversion factor when converting areas.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-06",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000553",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Perpendicular line through a point: y-intercept",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A line passes through the point (−2, 3) and is perpendicular to the line y = 2x + 1. What is the y-intercept of the line?",
+      "choices": {
+        "A": "−1",
+        "B": "2",
+        "C": "4",
+        "D": "7"
+      },
+      "correct_answer": "B",
+      "explanation": "The slope is −1/2. Using y = −(1/2)x + b with (−2, 3): 3 = 1 + b, so b = 2.",
+      "distractor_explanations": {
+        "A": "−1 uses slope −2 instead of −1/2.",
+        "C": "4 uses slope 1/2, forgetting to change the sign.",
+        "D": "7 uses slope 2, the slope of the given line."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Find the new line's slope first, then use the given point."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Negative reciprocal, then substitute the point."
+      },
+      "remember": "Perpendicular slopes are negative reciprocals.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-07",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000554",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Mean after adding position numbers",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The mean of a list of 10 numbers is 20. A new list is formed by adding 1 to the first number, 2 to the second number, 3 to the third, and so on, adding 10 to the tenth number. What is the mean of the new list?",
+      "choices": {
+        "A": "21",
+        "B": "25.5",
+        "C": "30",
+        "D": "75"
+      },
+      "correct_answer": "B",
+      "explanation": "The total increases by 1 + 2 + … + 10 = 55, from 200 to 255. The new mean is 255 ÷ 10 = 25.5.",
+      "distractor_explanations": {
+        "A": "21 adds only 1 to the mean.",
+        "C": "30 adds 10, the largest increase, to the mean.",
+        "D": "75 adds the total increase, 55, to the mean instead of to the total."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "By how much does the total of the list increase?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "New total = 200 + 55."
+      },
+      "remember": "Changes to a list change its total first; divide by the count after.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-08",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000555",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of a square or a cube with overlap",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A number is chosen at random from the integers 1 through 100, inclusive. What is the probability that the number is a perfect square or a perfect cube (or both)?",
+      "choices": {
+        "A": "1/10",
+        "B": "3/25",
+        "C": "13/100",
+        "D": "7/50"
+      },
+      "correct_answer": "B",
+      "explanation": "There are 10 perfect squares (1² to 10²) and 4 perfect cubes (1, 8, 27, 64). Two numbers, 1 and 64, are both. So 10 + 4 − 2 = 12 numbers qualify, and the probability is 12/100 = 3/25.",
+      "distractor_explanations": {
+        "A": "1/10 counts only the perfect squares.",
+        "C": "13/100 subtracts only 1 for the overlap, missing that 64 is both a square and a cube.",
+        "D": "7/50 = 14/100 adds squares and cubes without removing the overlap."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which numbers are both squares and cubes?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List the cubes up to 100 and check which are squares."
+      },
+      "remember": "For 'A or B', subtract the overlap: n(A) + n(B) − n(A and B).",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-09",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000556",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Function defined by a constant step",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A function f satisfies f(0) = 2 and f(x + 1) = f(x) + 3 for every integer x. What is the value of f(10) ?",
+      "choices": {
+        "A": "13",
+        "B": "30",
+        "C": "32",
+        "D": "35"
+      },
+      "correct_answer": "C",
+      "explanation": "Each step from x to x + 1 adds 3. From 0 to 10 there are 10 steps, so f(10) = 2 + 10 × 3 = 32.",
+      "distractor_explanations": {
+        "A": "13 adds 3 to 10 instead of adding 3 ten times.",
+        "B": "30 forgets the starting value f(0) = 2.",
+        "D": "35 counts 11 steps instead of 10."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How many steps are there from x = 0 to x = 10?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Compute f(1), f(2), f(3) and look for the pattern."
+      },
+      "remember": "A constant step is a linear pattern: start + steps × step size.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "B056-10",
+      "created_at": "2026-10-26T23:08:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: 'for every integer x' is fine; function-notation recursion may look unfamiliar but is one routine step (2 + 10*3)."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-056.review.json",
+        "computation": "checks/act_math/batch_056.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
