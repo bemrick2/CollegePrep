@@ -2,7 +2,7 @@ import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInt
 import { INVITE_TTL_HOURS } from '../../invites'
 import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { CheckItem, PoolStatus, AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { CheckItem, CheckOptions, CheckProgress, PoolStatus, AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import { DEFAULT_REMINDERS } from '../../../../../supabase/functions/_shared/reminders.ts'
@@ -603,6 +603,30 @@ export class LiveSource implements DataSource {
     if (error) fail(error)
     const byId = new Map(((data ?? []) as unknown as QuestionRow[]).map((q) => [q.id, toPublic(q)]))
     return (rows ?? []).filter((r) => byId.has(r.question_id)).map((r) => ({ question: byId.get(r.question_id)!, seen_before: !!r.seen_before }))
+  }
+
+  /** #279 (contract proposed on #279, comment 6421822021): what the server will open now, and the live check if any. */
+  async benchmarkOptions(studentId: string, examFamily: ExamFamily): Promise<CheckOptions> {
+    const version = await this.currentExamVersion(examFamily)
+    const rows = await rpc<{ initial_allowed: boolean; mini_allowed: boolean; mini_opens_on: string | null; full_allowed: boolean; open_id: string | null; open_kind: 'initial' | 'mini' | 'full' | null; open_started_at?: string | null }[]>(
+      this.sb,
+      'benchmark_options',
+      { p_student: studentId, p_exam_version: version },
+    )
+    const r = (Array.isArray(rows) ? rows[0] : rows) ?? null
+    if (!r) return { initialAllowed: false, miniAllowed: false, miniOpensOn: null, fullAllowed: false, open: null }
+    return {
+      initialAllowed: !!r.initial_allowed,
+      miniAllowed: !!r.mini_allowed,
+      miniOpensOn: r.mini_opens_on ?? null,
+      fullAllowed: !!r.full_allowed,
+      open: r.open_id && r.open_kind ? { id: r.open_id, kind: r.open_kind, startedAt: r.open_started_at ?? '' } : null,
+    }
+  }
+
+  async benchmarkProgress(benchmarkId: string): Promise<CheckProgress[]> {
+    const rows = await rpc<{ section: string; assigned: number; used: number }[]>(this.sb, 'benchmark_progress', { p_benchmark: benchmarkId })
+    return (rows ?? []).map((r) => ({ section: r.section, assigned: Number(r.assigned), used: Number(r.used) }))
   }
 
   async endSession(sessionId: string) {

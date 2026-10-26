@@ -13,6 +13,7 @@ import { Book, ChevronLeft, Clock, Compass, Flag, X } from '../../components/ico
 import { BenchmarkResults } from './BenchmarkResults'
 import { useCatalog } from '../practice/useCatalog'
 import { EXAM_NAME } from '../onboarding/options'
+import { formatShortDate } from '../../lib/engine/dates'
 
 interface Open {
   question: PublicQuestion
@@ -49,6 +50,10 @@ export function Benchmark() {
   // CR-23: a check uses the reserved assessment pool only, never practice questions. Its content stays hidden until the
   // check opens, so before that the plan comes from counts (assessment_pool_status); null = the source can't say.
   const poolStatus = useAsync(() => (student ? source.assessmentPoolStatus(student.id, exam) : Promise.resolve(null)), [source, student?.id, exam])
+  // #279: what the server will open now, and the student's live check (resumed, never replaced by fresh questions).
+  const checkOpts = useAsync(() => (student ? source.benchmarkOptions(student.id, exam) : Promise.resolve(null)), [source, student?.id, exam])
+  const openCheck = checkOpts.data?.open ?? null
+  const openProgress = useAsync(() => (student && openCheck ? source.benchmarkProgress(openCheck.id, student.id) : Promise.resolve(null)), [source, student?.id, openCheck?.id])
   // The open check's own reserved items (benchmark_questions), once it has started.
   const [items, setItems] = useState<CheckItem[] | null>(null)
   const catalog = useCatalog(exam)
@@ -81,6 +86,10 @@ export function Benchmark() {
     submitted: new Set<string>(),
     /** Answers saved by the server whose reply was lost: this run's own record lacks them. */
     lostReplies: 0,
+    /** A resumed check: answers from before the reload aren't in this run's record, so the server's metrics are shown. */
+    resumed: false,
+    /** Per section, items already used before a resume (they count toward the section's length). */
+    usedBefore: {} as Record<string, number>,
   })
   // One action at a time (answer, skip, continue, next section): a double tap or a slow network can't run two.
   const lock = useRef(false)
@@ -102,8 +111,14 @@ export function Benchmark() {
   // The home screen links straight to the kind that is due (?kind=mini|full); otherwise use the schedule.
   const [params] = useSearchParams()
   const asked = params.get('kind')
-  const defaultKind: BenchmarkKind =
+  const scheduled: BenchmarkKind =
     (history.data?.length ?? 0) === 0 ? 'initial' : asked === 'mini' || (asked === 'full' && FULL_FORM_READY) ? asked : benchmarkSchedule(history.data ?? []).kind === 'full' ? 'full' : 'mini'
+  // The kinds the server will open now (#279). Without that answer (an older source), the history decides, as before.
+  const o = checkOpts.data
+  const allowed: BenchmarkKind[] = o
+    ? [...(o.initialAllowed ? (['initial'] as const) : []), ...(o.miniAllowed ? (['mini'] as const) : []), ...(o.fullAllowed && FULL_FORM_READY ? (['full'] as const) : [])]
+    : (history.data?.length ?? 0) === 0 ? ['initial'] : FULL_FORM_READY ? ['mini', 'full'] : ['mini']
+  const defaultKind: BenchmarkKind = openCheck ? openCheck.kind : allowed.includes(scheduled) ? scheduled : (allowed[0] ?? scheduled)
   const chosenKind = kind ?? defaultKind
   const wanted = (k: BenchmarkKind) => Object.fromEntries(SECTION_ORDER[exam].map((sec) => [sec, PER_SECTION[exam][k][sec] ?? 0]))
   // What the reserved pool allows, per section: fresh, with repeats (no verdict), shortened, or not measured.
@@ -198,13 +213,13 @@ export function Benchmark() {
     done.then(
       // Show this run's full detail now (history reads the stored copy). If a reply was lost, this screen's own record
       // is missing an answer the server has, so the server's metrics are shown instead.
-      (saved) => setSummary(run.current.lostReplies > 0 ? saved : { ...saved, metrics: s.metrics }),
+      (saved) => setSummary(run.current.lostReplies > 0 || run.current.resumed ? saved : { ...saved, metrics: s.metrics }),
       (e: Error) => setError(e.message),
     )
   }, [phase, summary, student, records, chosenKind, exam, source])
 
   if (!student) return <Navigate to="/student" replace />
-  if (plan.loading || pool.loading || history.loading || answered.loading || poolStatus.loading) return <PageLoading />
+  if (plan.loading || pool.loading || history.loading || answered.loading || poolStatus.loading || checkOpts.loading || openProgress.loading) return <PageLoading />
 
   // Known to be empty (counts, or the open check's items): no check can be taken.
   if (bplan && bplan.totalQuestions === 0)
@@ -224,7 +239,8 @@ export function Benchmark() {
 
   const startSection = (idx: number) =>
     exclusive(async () => {
-      run.current = { ...run.current, used: run.current.used, served: 0, target: 3, skipped: [], returning: false }
+      const served = run.current.usedBefore[run.current.plan!.sections[idx]!.section] ?? 0
+      run.current = { ...run.current, used: run.current.used, served, target: 3, skipped: [], returning: false }
       setSectionIdx(idx)
       setPhase('running')
       setError(null)
@@ -333,8 +349,76 @@ export function Benchmark() {
       await moveOnNow()
     })
 
+  /** Resumes the student's live check (#279): the same check and assignment, from the first section with items left. */
+  const resumeOpen = async () => {
+    if (!openCheck || lock.current) return
+    lock.current = true
+    setBusy(true)
+    let begin: number | null = null
+    try {
+      const id = openCheck.id
+      const [list, prog] = await Promise.all([source.benchmarkQuestions(id, student.id, exam), source.benchmarkProgress(id, student.id)])
+      const sections = SECTION_ORDER[exam].flatMap((sec) => {
+        const p = prog.find((x) => x.section === sec)
+        return p && p.assigned > 0 ? [{ section: sec, count: p.assigned }] : []
+      })
+      const total = sections.reduce((n, x) => n + x.count, 0)
+      run.current.benchmarkId = id
+      run.current.startedAt = openCheck.startedAt || new Date().toISOString()
+      run.current.resumed = true
+      run.current.usedBefore = Object.fromEntries(prog.map((p) => [p.section, p.used]))
+      run.current.items = list
+      run.current.plan = { exam, kind: openCheck.kind, sections, totalQuestions: total, expectedMinutes: Math.round((total * avgSecs * 1.3) / 60) }
+      setKind(openCheck.kind)
+      setItems(list)
+      const idx = sections.findIndex((x) => (run.current.usedBefore[x.section] ?? 0) < x.count)
+      begin = idx
+    } catch (e) {
+      setError((e as Error).message)
+    } finally {
+      lock.current = false
+      setBusy(false)
+    }
+    if (begin === -1) setPhase('done')
+    else if (begin !== null) void startSection(begin)
+  }
+
+  if (phase === 'intro' && openCheck) {
+    const left = (openProgress.data ?? []).reduce((n, p) => n + Math.max(0, p.assigned - p.used), 0)
+    return (
+      <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-xl flex-col px-4">
+        <div className="flex h-16 items-center">
+          <button onClick={() => navigate('/student')} className="grid h-10 w-10 place-items-center rounded-full text-ink-2 hover:bg-surface-2" aria-label="Back">
+            <ChevronLeft />
+          </button>
+        </div>
+        <div className="anim-rise flex-1">
+          <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-brand">
+            <Compass size={28} />
+          </span>
+          <h1 className="display mt-4 text-[32px] font-semibold leading-tight text-ink">Your progress check is still open</h1>
+          <p className="mt-2 text-ink-2">
+            Pick up where you left off: {left === 1 ? '1 question is' : `${left} questions are`} left. Questions you were already shown stay used, and no new
+            ones are added.
+          </p>
+          {error && (
+            <Notice tone="bad" title="The check couldn't continue" className="mt-4">
+              {error}
+            </Notice>
+          )}
+        </div>
+        <div className="sticky bottom-0 -mx-4 border-t border-line bg-bg/95 px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+          <Button size="lg" block disabled={busy} onClick={() => void resumeOpen()}>
+            Resume the check
+          </Button>
+        </div>
+      </div>
+    )
+  }
+
   if (phase === 'intro') {
-    const options: BenchmarkKind[] = (history.data?.length ?? 0) === 0 ? ['initial'] : FULL_FORM_READY ? ['mini', 'full'] : ['mini']
+    const options = allowed
+    const blockedUntil = !options.length && o?.miniOpensOn ? o.miniOpensOn : null
     return (
       <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-xl flex-col px-4">
         <div className="flex h-16 items-center">
@@ -359,7 +443,17 @@ export function Benchmark() {
               A full-length check isn't available yet. It needs its own set of questions that never appear in practice, and those haven't been written.
             </p>
           )}
-          {poolPlan && <PoolNotice plan={poolPlan} />}
+          {poolPlan && options.length > 0 && <PoolNotice plan={poolPlan} />}
+          {!options.length && (
+            <Notice tone="warn" title={blockedUntil ? `Your next progress check opens on ${formatShortDate(blockedUntil)}` : 'No progress check can be started right now'} className="mt-4">
+              Checks are spaced out so each one has questions you haven't seen. Practice in the meantime counts toward the next one.
+            </Notice>
+          )}
+          {error && (
+            <Notice tone="bad" title="The check didn't start" className="mt-4">
+              {error}
+            </Notice>
+          )}
           {options.length > 1 && (
             <div className="mt-6 grid gap-3">
               {options.map((k) => {
@@ -387,7 +481,7 @@ export function Benchmark() {
           <Button
             size="lg"
             block
-            disabled={busy}
+            disabled={busy || !options.includes(chosenKind)}
             onClick={async () => {
               // Under the same lock as every other action, so a double tap can't open two checks.
               if (lock.current) return
@@ -406,6 +500,8 @@ export function Benchmark() {
                 begin = run.current.plan.totalQuestions > 0
               } catch (e) {
                 setError((e as Error).message)
+                // The server's answer wins (e.g. a check opened on another device): read it again.
+                checkOpts.reload()
               } finally {
                 lock.current = false
                 setBusy(false)
@@ -446,7 +542,8 @@ export function Benchmark() {
     return <BenchmarkResults summary={summary} strategies={catalog.strategies} traps={catalog.traps} skillName={catalog.skillName} history={history.data ?? []} attempts={answered.data ?? []} currentRepeats={repeatsIn(records, new Set([...seenBefore, ...(items ?? []).filter((i) => i.seen_before).map((i) => i.question.id)]))} />
   }
 
-  const answeredInSection = records.filter((r) => r.section === section?.section).length
+  // A resumed section counts the questions used before the reload (answered or shown), as the server does.
+  const answeredInSection = records.filter((r) => r.section === section?.section).length + (section ? (run.current.usedBefore[section.section] ?? 0) : 0)
   return (
     <div className="mx-auto flex min-h-[calc(100dvh-28px)] max-w-5xl flex-col px-4">
       <div className="flex h-16 items-center gap-3">
