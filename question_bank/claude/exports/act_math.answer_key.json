@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 46,
+  "bank_version": 47,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -7990,6 +7990,178 @@
       "strategy": {
         "key": "find_the_trend",
         "explanation": "3 = 6 - 3, 3 + 6 = 12 - 3, 3 + 6 + 12 = 24 - 3, ..."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000460",
+      "correct_answer": "B",
+      "explanation": "Combine the x² terms: 3x² - x² = 2x². Combine the x terms: 2x + 5x = 7x. The result is 2x² + 7x.",
+      "distractor_explanations": {
+        "A": "9x² adds all the coefficients as if every term were an x² term.",
+        "C": "4x² + 7x adds -x² instead of subtracting it.",
+        "D": "2x² + 3x subtracts 2x from 5x instead of adding."
+      },
+      "hints": [
+        "Which terms are like terms?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: 3 + 2 - 1 + 5 = 9. Which choice gives 9?"
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000461",
+      "correct_answer": "A",
+      "explanation": "The tank is empty when V(t) = 0: 500 - 25t = 0, so t = 20.",
+      "distractor_explanations": {
+        "B": "25 is the draining rate in gallons per minute.",
+        "C": "475 is the volume after 1 minute.",
+        "D": "525 adds the rate to the starting volume."
+      },
+      "hints": [
+        "What is V(t) when the tank is empty?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 500 - 25t = 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000462",
+      "correct_answer": "B",
+      "explanation": "Let the angle be x. Then 180 - x = 3(90 - x), so 180 - x = 270 - 3x, 2x = 90, and x = 45°.",
+      "distractor_explanations": {
+        "A": "30° makes the complement three times the angle: 90 - x = 2x.",
+        "C": "60° makes the supplement three times the angle itself: 180 - x = 2x.",
+        "D": "67.5° solves 180 - x = 3(90 - x) with a sign error, getting 4x = 270."
+      },
+      "hints": [
+        "Write the complement and supplement of x in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "180 - x = 3(90 - x)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000463",
+      "correct_answer": "C",
+      "explanation": "1/3 ≈ 0.333 and 1/2 = 0.5. Since 2/5 = 0.4, it lies between them.",
+      "distractor_explanations": {
+        "A": "1/4 = 0.25 is less than 1/3.",
+        "B": "3/5 = 0.6 is greater than 1/2.",
+        "D": "2/3 ≈ 0.667 is greater than 1/2."
+      },
+      "hints": [
+        "Convert each fraction to a decimal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare decimals."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000464",
+      "correct_answer": "D",
+      "explanation": "Range = greatest value - least value = 19 - 3 = 16.",
+      "distractor_explanations": {
+        "A": "3 is the least value, not the range.",
+        "B": "11.2 is the mean, (12 + 7 + 19 + 3 + 15)/5.",
+        "C": "12 is the median."
+      },
+      "hints": [
+        "Find the greatest and least values."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "19 - 3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000465",
+      "correct_answer": "A",
+      "explanation": "Rosa takes 3/12 hour = 15 minutes. Her brother takes 2/6 hour = 20 minutes. Rosa arrives 5 minutes earlier.",
+      "distractor_explanations": {
+        "B": "10 subtracts the distances times 10, or misconverts one of the times.",
+        "C": "15 is Rosa's travel time.",
+        "D": "20 is her brother's travel time."
+      },
+      "hints": [
+        "Find each travel time in minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Time = distance ÷ speed, then × 60."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000466",
+      "correct_answer": "C",
+      "explanation": "A line is tangent to a circle when its distance from the center equals the radius. The distance from (0, 0) to x - y + b = 0 is |b|/√2, and the radius is √8 = 2√2. So b/√2 = 2√2 and b = 4. (Equivalently, substituting y = x + b gives 2x² + 2bx + b² - 8 = 0, whose discriminant is 0 when b = 4.)",
+      "distractor_explanations": {
+        "A": "2 sets b/√2 equal to √2 instead of the radius 2√2.",
+        "B": "2√2 is the radius, not the intercept b.",
+        "D": "8 is the square of the radius."
+      },
+      "hints": [
+        "What is the distance from the center to a tangent line?",
+        "Or: substitute and require exactly one solution."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle and a line of slope 1 just touching it."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000467",
+      "correct_answer": "B",
+      "explanation": "Let the sides be l and w. Then l + w = 23 and l² + w² = 17² = 289. Since (l + w)² = l² + 2lw + w², 529 = 289 + 2lw, so lw = 120. (The sides are 8 and 15.)",
+      "distractor_explanations": {
+        "A": "60 is half the area.",
+        "C": "144 = 12² treats the rectangle as a square with side 46 ÷ 4 rounded to 12.",
+        "D": "240 is 2lw, forgetting to divide by 2."
+      },
+      "hints": [
+        "Write l + w and l² + w² from the given facts.",
+        "How is (l + w)² related to l² + w²?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(l + w)² - (l² + w²) = 2lw."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000468",
+      "correct_answer": "C",
+      "explanation": "P(red) = (1/2)(3/5) + (1/2)(1/5) = 3/10 + 1/10 = 2/5.",
+      "distractor_explanations": {
+        "A": "1/10 is the probability of choosing bag B and then drawing red, only one of the two paths.",
+        "B": "1/5 is the probability of red from bag B alone.",
+        "D": "3/5 is the probability of red from bag A alone."
+      },
+      "hints": [
+        "Consider each bag separately, then weight by the chance of choosing it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a two-stage tree."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000469",
+      "correct_answer": "D",
+      "explanation": "The final price is (1 + x/100)(1 - x/100) = 1 - (x/100)² times the original. Setting 1 - (x/100)² = 0.96 gives (x/100)² = 0.04, so x/100 = 0.2 and x = 20.",
+      "distractor_explanations": {
+        "A": "2 halves the 4% loss.",
+        "B": "4 assumes the net change equals x.",
+        "C": "16 squares 4 instead of taking a square root."
+      },
+      "hints": [
+        "Write the final price as a multiple of the original price."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try x = 20: 1.2 × 0.8 = 0.96."
       }
     }
   ]

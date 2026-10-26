@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 15,
-  "updated_at": "2026-10-26T21:48:47+00:00",
+  "version": 16,
+  "updated_at": "2026-10-26T22:00:42+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -168,6 +168,17 @@
       "word_count": 303,
       "text": "Twice a month, during the lowest tides, a group of volunteers gathers on the rocks below Point Harlan with clipboards and measuring tapes. They are counting sea stars{{1|, the}} task is slower than it sounds. Each animal must be found, measured, and checked for signs of the wasting disease that killed millions of sea stars along the Pacific coast beginning in 2013.\n\nThe survey was started by Lena Ashby, a marine biologist {{2|which}} teaches at the community college nearby. When the disease first appeared, she realized that no one had kept careful records of how many sea stars lived at the point before the outbreak. {{3|Without those numbers, it was impossible to say how much had been lost.}} She resolved that if another outbreak came, there would be a baseline.\n\nThe volunteers range from retirees to high school students. Most had never {{4|seen, a sea star}} up close before joining, and Ashby trains them in a single afternoon. Two people looking at the same pool, she has found, rarely count exactly the same number of animals. {{5|For this reason,}} she insists that every count be checked by a second person.\n\nThe work has already paid off. In 2021, the volunteers noticed young sea stars in pools where none had been seen for years. Because the survey had begun well before the recovery, Ashby had the numbers to measure it. By the time she published her report in 2023, the number of juveniles {{6|has tripled}} since the first sightings{{7|. A}} finding she later shared with researchers at three universities.\n\nAshby says the most important quality in a volunteer is not expertise but {{8|patience and the patient ability to wait calmly}}. The {{9|volunteers}} records now fill eleven binders, and she hopes they will someday make dull reading: a long, uneventful list of healthy sea stars.",
       "batch": 15,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000016",
+      "title": "The First Forecasts",
+      "genre": "informational essay",
+      "word_count": 301,
+      "text": "In August 1861, readers of The Times in London found something new in their newspaper: a forecast of the next day's weather. The prediction was the work of Robert FitzRoy, a naval officer who had once commanded HMS Beagle on Charles Darwin's famous voyage. FitzRoy had grown alarmed by the {{1|amount of}} ships lost in storms along the British coast, and he believed that many could be saved if sailors had some warning. A storm in 1859 that sank more than a hundred vessels, including a passenger ship off the coast of Wales, convinced him that the problem could no longer be ignored.\n\nFitzRoy's method relied on a newer technology: the telegraph. Each morning, observers at stations around the coast sent {{2|they're}} readings of air pressure, temperature, and wind to London. By comparing the readings, FitzRoy could see a storm approaching before it arrived. He called his predictions \"forecasts,\" {{3|a word that he chose and selected because}} it suggested a reasoned estimate rather than a prophecy. He also arranged for warning signals, made of canvas cones and drums, to be hoisted at harbors when a gale was expected.\n\nThe forecasts were popular with the public, but scientists {{4|were less impressed, many of them}} dismissed FitzRoy's work as guesswork. {{5|In contrast,}} the forecasts were often wrong, and newspapers sometimes printed the errors with amusement. FitzRoy, who took the criticism personally, worked {{6|ceaselessly, and tirelessly}} to improve them.\n\nAfter FitzRoy's death in 1865, the forecasts were halted. Ships' captains and ordinary readers {{7|complained, and}} within two years storm warnings had returned; printed daily forecasts followed in 1879. {{8|Today, weather forecasts are produced by computer models that process millions of observations every day.}} The basic idea, however, remains {{9|FitzRoys gather}} observations from many places at once and look for the pattern they make together.",
+      "batch": 16,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -11219,6 +11230,710 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-015.review.json",
         "computation": "checks/act_english/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000157",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Amount versus number",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 1,
+      "evidence": "ships lost in storms along the British coast",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "number of",
+        "C": "much of the",
+        "D": "amounts of"
+      },
+      "correct_answer": "B",
+      "explanation": "Ships are countable, so \"number of\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Amount\" is used with things that cannot be counted; ships can be counted.",
+        "C": "\"Much\" is also used with uncountable nouns and makes the phrase ungrammatical here.",
+        "D": "Making \"amount\" plural does not fix its use with a countable noun."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can you count ships?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Countable nouns take \"number,\" not \"amount.\""
+      },
+      "remember": "Number (and fewer) for countable things; amount (and less) for uncountable ones.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-01",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000158",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Their / there / they're",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 2,
+      "evidence": "observers at stations around the coast sent",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "there",
+        "C": "their",
+        "D": "its"
+      },
+      "correct_answer": "C",
+      "explanation": "The readings belong to the observers, so the plural possessive \"their\" is correct.",
+      "distractor_explanations": {
+        "A": "\"They're\" means \"they are,\" which makes no sense before \"readings.\"",
+        "B": "\"There\" indicates a place, not possession.",
+        "D": "\"Its\" is singular, but \"observers\" is plural."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Whose readings are they?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test \"they are readings.\""
+      },
+      "remember": "Their = belonging to them; there = place; they're = they are.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-02",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000159",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 3,
+      "evidence": "it suggested a reasoned estimate rather than a prophecy",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "a word he chose and picked because",
+        "C": "a word chosen and selected by him because",
+        "D": "a word he chose because"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Chose\" alone says everything needed.",
+      "distractor_explanations": {
+        "A": "\"Chose\" and \"selected\" mean the same thing.",
+        "B": "\"Chose\" and \"picked\" repeat each other.",
+        "C": "This is wordy and repeats the same idea."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "Do \"chose\" and \"selected\" add different meanings?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      },
+      "remember": "Cut synonyms that repeat each other.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-03",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: correct answer is the shortest choice and the only one without a doubled verb, a strong test-wise tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000160",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 4,
+      "evidence": "dismissed FitzRoy's work as guesswork",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were less impressed; many of them",
+        "C": "were less impressed many of them",
+        "D": "were less impressed: and many of them"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Scientists were less impressed\" and \"many of them dismissed ...\" are both independent clauses, so a semicolon joins them.",
+      "distractor_explanations": {
+        "A": "Two independent clauses are joined by only a comma: a comma splice.",
+        "C": "With no punctuation, the two clauses run together.",
+        "D": "A colon followed by \"and\" is not standard punctuation here."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone as a sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate splices and run-ons."
+      },
+      "remember": "Join two independent clauses with a semicolon, not a comma alone.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-04",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000161",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (reinforcing)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 5,
+      "evidence": "dismissed FitzRoy's work as guesswork",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Likewise,",
+        "C": "Indeed,",
+        "D": "Nevertheless,"
+      },
+      "correct_answer": "C",
+      "explanation": "The sentence about frequent errors gives evidence that strengthens the scientists' criticism, so \"Indeed\" fits.",
+      "distractor_explanations": {
+        "A": "Frequent errors support the scientists' view; they do not contrast with it.",
+        "B": "The errors are evidence for the criticism, not a similar but separate point.",
+        "D": "\"Nevertheless\" signals a result despite something, but the errors reinforce the criticism."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Does the sentence support, contrast with, or illustrate the previous one?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"in fact.\""
+      },
+      "remember": "\"Indeed\" adds evidence for the point just made.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-05",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000162",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 6,
+      "evidence": "to improve them",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "tirelessly",
+        "C": "ceaselessly and without tiring",
+        "D": "tirelessly, without rest,"
+      },
+      "correct_answer": "B",
+      "explanation": "One adverb is enough: \"worked tirelessly to improve them.\"",
+      "distractor_explanations": {
+        "A": "\"Ceaselessly\" and \"tirelessly\" repeat each other, and the comma is unnecessary.",
+        "C": "This still repeats the same idea.",
+        "D": "\"Without rest\" repeats \"tirelessly.\""
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do the two adverbs mean different things?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      },
+      "remember": "Cut repeated modifiers.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-06",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: correct answer is the shortest choice"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000163",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma before a coordinating conjunction",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 7,
+      "evidence": "within two years storm warnings had returned",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "complained; and",
+        "C": "complained and,",
+        "D": "complained. And,"
+      },
+      "correct_answer": "A",
+      "explanation": "Two independent clauses joined by \"and\" take a comma before \"and,\" exactly as written.",
+      "distractor_explanations": {
+        "B": "A semicolon should not be followed by a coordinating conjunction joining these clauses.",
+        "C": "The comma belongs before \"and,\" not after it.",
+        "D": "Splitting the clauses with a period and adding a comma after \"And\" is incorrect here."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the second part an independent clause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Comma + and joins two independent clauses."
+      },
+      "remember": "Comma before a coordinating conjunction joining independent clauses.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-07",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000164",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deciding whether to keep a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 8,
+      "evidence": "The basic idea, however, remains",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it sets up the contrast with FitzRoy's basic idea in the sentence that follows.",
+        "B": "Kept, because it explains how FitzRoy first used computers to improve his forecasts.",
+        "C": "Deleted, because it shifts the focus away from FitzRoy and the history of forecasting.",
+        "D": "Deleted, because it repeats information given in the second paragraph about the telegraph."
+      },
+      "correct_answer": "A",
+      "explanation": "The next sentence says \"The basic idea, however, remains\" FitzRoy's; it contrasts with modern computer models, so the sentence about them is needed.",
+      "distractor_explanations": {
+        "B": "FitzRoy did not use computers; the sentence describes forecasting today.",
+        "C": "The sentence is needed for \"however\" in the next sentence to make sense.",
+        "D": "The sentence is about modern computer models, not the telegraph."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"however\" in the next sentence contrast with?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the paragraph without the sentence."
+      },
+      "remember": "Keep sentences that the next sentence depends on.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-08",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000165",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon after a complete clause with a possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": 9,
+      "evidence": "The basic idea, however, remains",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "FitzRoys': gather",
+        "C": "FitzRoy's gather",
+        "D": "FitzRoy's: gather"
+      },
+      "correct_answer": "D",
+      "explanation": "\"The basic idea remains FitzRoy's\" is a complete clause; a colon then introduces what the idea is, \"gather observations ... and look for the pattern.\"",
+      "distractor_explanations": {
+        "A": "\"FitzRoys\" needs an apostrophe to show possession, and the explanation that follows needs a colon.",
+        "B": "The apostrophe after the s makes a plural possessive, but FitzRoy is one person.",
+        "C": "Without a colon, the explanation runs directly into the possessive."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Whose idea is it, and what follows the complete clause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Fix the possessive, then the punctuation."
+      },
+      "remember": "Singular possessive: 's. A colon introduces an explanation after a complete clause.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-09",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000166",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000016",
+      "underline": null,
+      "evidence": "scientists were less impressed",
+      "figure": null,
+      "stem": "Suppose the writer's goal had been to show how a person's idea outlasted the criticism it first received. Would this essay accomplish that goal?",
+      "choices": {
+        "A": "Yes, because it describes how scientists dismissed FitzRoy's forecasts and ends by showing that his basic approach is still used.",
+        "B": "Yes, because it explains in careful technical detail how the computer models of today produce their weather forecasts each day.",
+        "C": "No, because it focuses mainly on the history of the telegraph rather than on how FitzRoy's ideas were first received.",
+        "D": "No, because it never describes any of the criticism that FitzRoy's forecasts received from people of his own time."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay presents the criticism (scientists' dismissal, printed errors) and the endurance of the idea (forecasts restored; the basic idea remains), so it meets the goal.",
+      "distractor_explanations": {
+        "B": "The essay mentions modern models only briefly; that is not the goal.",
+        "C": "The telegraph is one detail; the essay covers the reception of FitzRoy's forecasts.",
+        "D": "The essay says scientists dismissed his work as guesswork."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the essay include both the criticism and the idea's survival?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check both parts of the goal against the essay."
+      },
+      "remember": "Goal questions: confirm every part of the stated goal appears in the essay.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "E016-10",
+      "created_at": "2026-10-26T22:00:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-016.review.json",
+        "computation": "checks/act_english/batch_016.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

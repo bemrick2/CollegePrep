@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 46,
-  "updated_at": "2026-10-26T21:57:17+00:00",
+  "version": 47,
+  "updated_at": "2026-10-26T22:00:43+00:00",
   "passages": [],
   "questions": [
     {
@@ -32061,6 +32061,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-046.review.json",
         "computation": "checks/act_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000460",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Combining like terms with powers",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to 3x² + 2x - x² + 5x ?",
+      "choices": {
+        "A": "9x²",
+        "B": "2x² + 7x",
+        "C": "4x² + 7x",
+        "D": "2x² + 3x"
+      },
+      "correct_answer": "B",
+      "explanation": "Combine the x² terms: 3x² - x² = 2x². Combine the x terms: 2x + 5x = 7x. The result is 2x² + 7x.",
+      "distractor_explanations": {
+        "A": "9x² adds all the coefficients as if every term were an x² term.",
+        "C": "4x² + 7x adds -x² instead of subtracting it.",
+        "D": "2x² + 3x subtracts 2x from 5x instead of adding."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Which terms are like terms?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: 3 + 2 - 1 + 5 = 9. Which choice gives 9?"
+      },
+      "remember": "Only like terms (same variable and power) combine.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-01",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000461",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Interpreting the zero of a linear model",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A tank holds 500 gallons of water and is drained at a constant rate. The volume of water in the tank t minutes after draining begins is V(t) = 500 - 25t. After how many minutes will the tank be empty?",
+      "choices": {
+        "A": "20",
+        "B": "25",
+        "C": "475",
+        "D": "525"
+      },
+      "correct_answer": "A",
+      "explanation": "The tank is empty when V(t) = 0: 500 - 25t = 0, so t = 20.",
+      "distractor_explanations": {
+        "B": "25 is the draining rate in gallons per minute.",
+        "C": "475 is the volume after 1 minute.",
+        "D": "525 adds the rate to the starting volume."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What is V(t) when the tank is empty?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 500 - 25t = 0."
+      },
+      "remember": "\"Empty\" or \"reaches zero\" means set the function equal to 0.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-02",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000462",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Complement and supplement of an angle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The supplement of an angle is three times the complement of the same angle. What is the measure of the angle?",
+      "choices": {
+        "A": "30°",
+        "B": "45°",
+        "C": "60°",
+        "D": "67.5°"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the angle be x. Then 180 - x = 3(90 - x), so 180 - x = 270 - 3x, 2x = 90, and x = 45°.",
+      "distractor_explanations": {
+        "A": "30° makes the complement three times the angle: 90 - x = 2x.",
+        "C": "60° makes the supplement three times the angle itself: 180 - x = 2x.",
+        "D": "67.5° solves 180 - x = 3(90 - x) with a sign error, getting 4x = 270."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Write the complement and supplement of x in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "180 - x = 3(90 - x)."
+      },
+      "remember": "Complement = 90° - x; supplement = 180° - x.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-03",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000463",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Finding a fraction between two fractions",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following numbers is between 1/3 and 1/2 ?",
+      "choices": {
+        "A": "1/4",
+        "B": "3/5",
+        "C": "2/5",
+        "D": "2/3"
+      },
+      "correct_answer": "C",
+      "explanation": "1/3 ≈ 0.333 and 1/2 = 0.5. Since 2/5 = 0.4, it lies between them.",
+      "distractor_explanations": {
+        "A": "1/4 = 0.25 is less than 1/3.",
+        "B": "3/5 = 0.6 is greater than 1/2.",
+        "D": "2/3 ≈ 0.667 is greater than 1/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Convert each fraction to a decimal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare decimals."
+      },
+      "remember": "To compare fractions, use decimals or a common denominator.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-04",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000464",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Range of a data set",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the range of the data set 12, 7, 19, 3, 15 ?",
+      "choices": {
+        "A": "3",
+        "B": "11.2",
+        "C": "12",
+        "D": "16"
+      },
+      "correct_answer": "D",
+      "explanation": "Range = greatest value - least value = 19 - 3 = 16.",
+      "distractor_explanations": {
+        "A": "3 is the least value, not the range.",
+        "B": "11.2 is the mean, (12 + 7 + 19 + 3 + 15)/5.",
+        "C": "12 is the median."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Find the greatest and least values."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "19 - 3."
+      },
+      "remember": "Range = maximum - minimum.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-05",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000465",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Comparing travel times",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Rosa bikes 3 kilometers to school at 12 kilometers per hour. Her brother walks 2 kilometers to the same school at 6 kilometers per hour. If they leave home at the same time, how many minutes earlier does Rosa arrive?",
+      "choices": {
+        "A": "5",
+        "B": "10",
+        "C": "15",
+        "D": "20"
+      },
+      "correct_answer": "A",
+      "explanation": "Rosa takes 3/12 hour = 15 minutes. Her brother takes 2/6 hour = 20 minutes. Rosa arrives 5 minutes earlier.",
+      "distractor_explanations": {
+        "B": "10 subtracts the distances times 10, or misconverts one of the times.",
+        "C": "15 is Rosa's travel time.",
+        "D": "20 is her brother's travel time."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find each travel time in minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Time = distance ÷ speed, then × 60."
+      },
+      "remember": "Convert each time to minutes before comparing.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-06",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000466",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Tangent line to a circle with a parameter",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, the line y = x + b is tangent to the circle x² + y² = 8. If b > 0, what is the value of b ?",
+      "choices": {
+        "A": "2",
+        "B": "2√2",
+        "C": "4",
+        "D": "8"
+      },
+      "correct_answer": "C",
+      "explanation": "A line is tangent to a circle when its distance from the center equals the radius. The distance from (0, 0) to x - y + b = 0 is |b|/√2, and the radius is √8 = 2√2. So b/√2 = 2√2 and b = 4. (Equivalently, substituting y = x + b gives 2x² + 2bx + b² - 8 = 0, whose discriminant is 0 when b = 4.)",
+      "distractor_explanations": {
+        "A": "2 sets b/√2 equal to √2 instead of the radius 2√2.",
+        "B": "2√2 is the radius, not the intercept b.",
+        "D": "8 is the square of the radius."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the distance from the center to a tangent line?",
+        "Or: substitute and require exactly one solution."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle and a line of slope 1 just touching it."
+      },
+      "remember": "Tangent: distance from center to line = radius (or discriminant = 0).",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-07",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 33,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000467",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Rectangle from perimeter and diagonal",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle has a perimeter of 46 centimeters and a diagonal of 17 centimeters. What is the area of the rectangle, in square centimeters?",
+      "choices": {
+        "A": "60",
+        "B": "120",
+        "C": "144",
+        "D": "240"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the sides be l and w. Then l + w = 23 and l² + w² = 17² = 289. Since (l + w)² = l² + 2lw + w², 529 = 289 + 2lw, so lw = 120. (The sides are 8 and 15.)",
+      "distractor_explanations": {
+        "A": "60 is half the area.",
+        "C": "144 = 12² treats the rectangle as a square with side 46 ÷ 4 rounded to 12.",
+        "D": "240 is 2lw, forgetting to divide by 2."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Write l + w and l² + w² from the given facts.",
+        "How is (l + w)² related to l² + w²?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(l + w)² - (l² + w²) = 2lw."
+      },
+      "remember": "Use (l + w)² = l² + w² + 2lw to get lw directly.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-08",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000468",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Two-stage (total) probability",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Bag A contains 3 red and 2 blue marbles. Bag B contains 1 red and 4 blue marbles. A bag is chosen at random, each with probability 1/2, and then one marble is drawn at random from that bag. What is the probability that the marble is red?",
+      "choices": {
+        "A": "1/10",
+        "B": "1/5",
+        "C": "2/5",
+        "D": "3/5"
+      },
+      "correct_answer": "C",
+      "explanation": "P(red) = (1/2)(3/5) + (1/2)(1/5) = 3/10 + 1/10 = 2/5.",
+      "distractor_explanations": {
+        "A": "1/10 is the probability of choosing bag B and then drawing red, only one of the two paths.",
+        "B": "1/5 is the probability of red from bag B alone.",
+        "D": "3/5 is the probability of red from bag A alone."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Consider each bag separately, then weight by the chance of choosing it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a two-stage tree."
+      },
+      "remember": "Total probability: add the probability of each path.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-09",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000469",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Equal percent increase and decrease",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A price is increased by x percent, and the new price is then decreased by x percent. The final price is 4% less than the original price. What is the value of x ?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "16",
+        "D": "20"
+      },
+      "correct_answer": "D",
+      "explanation": "The final price is (1 + x/100)(1 - x/100) = 1 - (x/100)² times the original. Setting 1 - (x/100)² = 0.96 gives (x/100)² = 0.04, so x/100 = 0.2 and x = 20.",
+      "distractor_explanations": {
+        "A": "2 halves the 4% loss.",
+        "B": "4 assumes the net change equals x.",
+        "C": "16 squares 4 instead of taking a square root."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Write the final price as a multiple of the original price."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try x = 20: 1.2 × 0.8 = 0.96."
+      },
+      "remember": "An x% rise then x% fall multiplies by 1 - (x/100)².",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "B047-10",
+      "created_at": "2026-10-26T22:00:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-047.review.json",
+        "computation": "checks/act_math/batch_047.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
