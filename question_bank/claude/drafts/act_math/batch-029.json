@@ -1,0 +1,464 @@
+{
+ "bank": "act_math",
+ "batch": 29,
+ "plan": "Ten items with stems checked against the bank. 3 hard (perpendicular bisector, capture-recapture, sin 2x solutions) / 4 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B029-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Factoring out a common binomial",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "Which of the following is equivalent to x(x − 3) + 4(x − 3) ?",
+   "choices": {
+    "A": "(x − 3)²",
+    "B": "(x + 4)(x + 3)",
+    "C": "(x + 4)(x − 3)",
+    "D": "4x(x − 3)"
+   },
+   "answer": "C",
+   "explanation": "Both terms share the factor (x − 3): x(x − 3) + 4(x − 3) = (x + 4)(x − 3).",
+   "distractors": {
+    "A": {
+     "rationale": "(x − 3)² treats the 4 as if it were x − 3.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This changes the sign inside the common factor.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This multiplies x and 4 instead of adding them.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What factor do both terms share?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "x = 0: 0 + 4(−3) = −12 = (4)(−3)."
+   },
+   "remember": "Factor out a common binomial just like a common number.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Counting integers in a quadratic inequality",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "How many integers x satisfy x² − x − 12 < 0 ?",
+   "choices": {
+    "A": "5",
+    "B": "6",
+    "C": "7",
+    "D": "8"
+   },
+   "answer": "B",
+   "explanation": "x² − x − 12 = (x − 4)(x + 3) < 0 when −3 < x < 4. The integers are −2, −1, 0, 1, 2, 3: six of them.",
+   "distractors": {
+    "A": {
+     "rationale": "5 drops one of the integers, such as 0.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "7 includes one endpoint, where the expression equals 0.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "8 includes both endpoints, −3 and 4.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Factor, then find where the product is negative.",
+    "Are the endpoints included in a strict inequality?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 0 and x = 5."
+   },
+   "remember": "Strict inequalities exclude the roots.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Range of a square-root function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "What is the range of the function f(x) = √(x − 3) + 2 ?",
+   "choices": {
+    "A": "All real numbers y ≥ 2",
+    "B": "All real numbers y ≥ 3",
+    "C": "All real numbers y ≥ 0",
+    "D": "All real numbers"
+   },
+   "answer": "A",
+   "explanation": "The square root is never negative, so its smallest value is 0 (at x = 3). Adding 2 makes the smallest output 2: the range is y ≥ 2.",
+   "distractors": {
+    "B": {
+     "rationale": "3 is the boundary of the domain (x ≥ 3), not the range.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "This ignores the + 2 shift.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "A square root cannot produce outputs below its minimum.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the smallest value of a square root?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "f(3) = 2; outputs only increase from there."
+   },
+   "remember": "Domain limits x; range limits y.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Isosceles right triangle from its area",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "An isosceles right triangle has an area of 18 square units. What is the length of its hypotenuse?",
+   "choices": {
+    "A": "6",
+    "B": "6√2",
+    "C": "9",
+    "D": "12"
+   },
+   "answer": "B",
+   "explanation": "If each leg is s, the area is s²/2 = 18, so s = 6. The hypotenuse is s√2 = 6√2.",
+   "distractors": {
+    "A": {
+     "rationale": "6 is the length of each leg.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "9 is half the area.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "12 doubles a leg instead of multiplying by √2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write the area in terms of a leg."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "s²/2 = 18."
+   },
+   "remember": "In a 45-45-90 triangle, the hypotenuse is leg × √2.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Perpendicular bisector of a segment",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In the standard (x, y) coordinate plane, what is the y-intercept of the perpendicular bisector of the segment with endpoints (1, 2) and (7, 6) ?",
+   "choices": {
+    "A": "4/3",
+    "B": "4",
+    "C": "20/3",
+    "D": "10"
+   },
+   "answer": "D",
+   "explanation": "The midpoint is (4, 4). The segment's slope is 4/6 = 2/3, so the perpendicular slope is −3/2. The line y − 4 = −(3/2)(x − 4) gives y = −(3/2)x + 10, so the y-intercept is 10.",
+   "distractors": {
+    "A": {
+     "rationale": "4/3 uses the segment's own slope, 2/3, through the midpoint.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4 is the y-coordinate of the midpoint.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "20/3 uses −2/3 (the negative but not the reciprocal) as the slope.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Find the midpoint and the segment's slope.",
+    "The perpendicular slope is the negative reciprocal."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Midpoint (4, 4), slope −3/2."
+   },
+   "remember": "Perpendicular bisector: midpoint + negative reciprocal slope.",
+   "expected_time_seconds": 105,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "three steps (midpoint, negative reciprocal, intercept) with a trap at each"
+   }
+  },
+  {
+   "cand": "B029-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of A or B with overlap (cards)",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "One card is drawn at random from a standard 52-card deck. What is the probability that the card is a heart or a face card (jack, queen, or king)?",
+   "choices": {
+    "A": "3/13",
+    "B": "1/4",
+    "C": "11/26",
+    "D": "25/52"
+   },
+   "answer": "C",
+   "explanation": "There are 13 hearts and 12 face cards, but 3 cards are both. So 13 + 12 − 3 = 22 cards qualify: 22/52 = 11/26.",
+   "distractors": {
+    "A": {
+     "rationale": "3/13 is the probability of a face card alone.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/4 is the probability of a heart alone.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "25/52 adds 13 and 12 without removing the 3 cards counted twice.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which cards are both hearts and face cards?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(13 + 12 − 3)/52."
+   },
+   "remember": "\"Or\" with overlap: add, then subtract the overlap.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-07",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Statistics & Probability",
+   "subskill": "Estimating a population by capture and recapture",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "To estimate the number of fish in a pond, biologists catch, tag, and release 50 fish. A week later they catch 40 fish and find that 5 of them are tagged. Assuming the tagged fish have mixed evenly through the pond, what is the best estimate of the number of fish in the pond?",
+   "choices": {
+    "A": "80",
+    "B": "200",
+    "C": "250",
+    "D": "400"
+   },
+   "answer": "D",
+   "explanation": "The proportion tagged in the sample, 5/40 = 1/8, should match the proportion tagged in the pond, 50/N. So N = 50 × 8 = 400.",
+   "distractors": {
+    "A": {
+     "rationale": "80 multiplies 40 by 2 without using the tagged proportion.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "200 is 40 × 5, multiplying the sample size by the number tagged.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "250 is 50 × 5, multiplying the tagged count by the recaptured tagged count.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What fraction of the second catch is tagged?",
+    "Set that equal to 50 out of the whole population."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "5/40 = 50/N."
+   },
+   "remember": "Sample proportion estimates population proportion.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "setting up a proportion from an unfamiliar sampling method"
+   }
+  },
+  {
+   "cand": "B029-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Exponent rules with different bases",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the value of (2⁷ · 4³) / 8³ ?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "8",
+    "D": "16"
+   },
+   "answer": "D",
+   "explanation": "Write everything as powers of 2: 4³ = 2⁶ and 8³ = 2⁹. Then 2⁷ · 2⁶ / 2⁹ = 2⁴ = 16.",
+   "distractors": {
+    "A": {
+     "rationale": "2 subtracts the exponents 7 + 3 − 9 without converting the bases (2¹).",
+     "trap": null
+    },
+    "B": {
+     "rationale": "4 = 2² treats 4³ as 2⁴.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 = 2³ treats 4³ as 2⁵.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Rewrite 4 and 8 as powers of 2."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "2^(7 + 6 − 9)."
+   },
+   "remember": "Use a common base before combining exponents.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Enlarging a photo proportionally",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A photo measures 4 inches by 6 inches. It is enlarged proportionally so that its shorter side is 10 inches. How long is the longer side of the enlargement, in inches?",
+   "choices": {
+    "A": "12",
+    "B": "15",
+    "C": "16",
+    "D": "24"
+   },
+   "answer": "B",
+   "explanation": "The scale factor is 10/4 = 2.5, so the longer side is 6 × 2.5 = 15 inches.",
+   "distractors": {
+    "A": {
+     "rationale": "12 adds 6 to the original longer side.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "16 adds the 6-inch increase (10 − 4) to the longer side, 6 + 10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "24 multiplies 6 by 4.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the scale factor?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "6 × 10/4."
+   },
+   "remember": "Proportional enlargement multiplies every length by the same factor.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B029-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Counting solutions of a trigonometric equation",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "How many solutions does the equation sin(2x) = 1/2 have for 0 ≤ x < 2π ?",
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "C",
+   "explanation": "As x runs from 0 to 2π, 2x runs from 0 to 4π, which is two full cycles of sine. sin θ = 1/2 has 2 solutions in each cycle, so there are 4.",
+   "distractors": {
+    "A": {
+     "rationale": "1 gives only the first solution, x = π/12.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2 counts solutions of sin x = 1/2, ignoring that 2x covers two cycles.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "8 doubles the count twice.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What interval does 2x cover?",
+    "How many solutions are there per cycle?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch sin(2x): two waves on [0, 2π)."
+   },
+   "remember": "Changing the period changes the number of solutions.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "doubled frequency doubles the solutions; most answer 2"
+   }
+  }
+ ]
+}
