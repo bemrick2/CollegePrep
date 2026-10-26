@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 61,
-  "updated_at": "2026-10-26T23:26:20+00:00",
+  "version": 62,
+  "updated_at": "2026-10-26T23:36:15+00:00",
   "passages": [],
   "questions": [
     {
@@ -42390,6 +42390,706 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-061.review.json",
         "computation": "checks/act_math/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000607",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Solving a monthly bill for usage",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A phone plan charges $30 per month plus $0.10 for each text message sent. One month's bill was $42.50. How many text messages were sent that month?",
+      "choices": {
+        "A": "125",
+        "B": "300",
+        "C": "425",
+        "D": "725"
+      },
+      "correct_answer": "A",
+      "explanation": "The texts cost $42.50 − $30 = $12.50. At $0.10 each, that is 12.50 ÷ 0.10 = 125 texts.",
+      "distractor_explanations": {
+        "B": "300 = 30 ÷ 0.10 divides the monthly fee by the text price.",
+        "C": "425 = 42.50 ÷ 0.10 ignores the $30 monthly fee.",
+        "D": "725 = (42.50 + 30) ÷ 0.10 adds the fee instead of subtracting it."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "How much of the bill was for texts?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "30 + 0.10t = 42.50."
+      },
+      "remember": "Subtract the fixed fee before dividing by the rate.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-01",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000608",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of a right triangle in the coordinate plane",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the area of the triangle with vertices (0, 0), (8, 0) and (0, 15) in the standard (x, y) coordinate plane?",
+      "choices": {
+        "A": "17",
+        "B": "23",
+        "C": "40",
+        "D": "60"
+      },
+      "correct_answer": "D",
+      "explanation": "The legs lie along the axes with lengths 8 and 15, so the area is (1/2)(8)(15) = 60.",
+      "distractor_explanations": {
+        "A": "17 is the length of the hypotenuse.",
+        "B": "23 adds the two legs.",
+        "C": "40 is the perimeter, 8 + 15 + 17."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "What are the lengths of the legs?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the three points."
+      },
+      "remember": "Area of a right triangle = half the product of the legs.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-02",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000609",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Translating a verbal equation",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Four more than 3 times a number is 25. What is the number?",
+      "choices": {
+        "A": "3",
+        "B": "7",
+        "C": "21",
+        "D": "29"
+      },
+      "correct_answer": "B",
+      "explanation": "3n + 4 = 25, so 3n = 21 and n = 7.",
+      "distractor_explanations": {
+        "A": "3 divides 25 − 4 by 7 instead of by 3.",
+        "C": "21 is 3n, not n.",
+        "D": "29 adds 4 to 25 instead of subtracting it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Write the sentence as an equation."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3n + 4 = 25."
+      },
+      "remember": "Translate word by word, then solve.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-03",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000610",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Solving for an input from a quadratic output",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If g(x) = 2x² − 5, what positive value of x satisfies g(x) = 27 ?",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "11",
+        "D": "16"
+      },
+      "correct_answer": "A",
+      "explanation": "2x² − 5 = 27 gives 2x² = 32, so x² = 16 and the positive solution is x = 4.",
+      "distractor_explanations": {
+        "B": "8 solves 2x = 16, treating x² as x.",
+        "C": "11 = (27 − 5)/2 subtracts 5 instead of adding it and stops before taking a root.",
+        "D": "16 is x², not x."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Isolate x² before taking a square root."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Compute g(4)."
+      },
+      "remember": "Solve for x², then take the square root.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-04",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000611",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Missing value from a mean",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The mean of three numbers is 10. Two of the numbers are 4 and 9. What is the third number?",
+      "choices": {
+        "A": "7",
+        "B": "10",
+        "C": "13",
+        "D": "17"
+      },
+      "correct_answer": "D",
+      "explanation": "The three numbers total 3 × 10 = 30, so the third number is 30 − 4 − 9 = 17.",
+      "distractor_explanations": {
+        "A": "7 makes the mean of all three about 6.7, not 10.",
+        "B": "10 assumes the missing number equals the mean.",
+        "C": "13 is the sum of the two known numbers."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "What must the three numbers add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Mean × count = total."
+      },
+      "remember": "Use the total, not the mean, to find a missing value.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-05",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000612",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a sphere from its surface area",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sphere has a surface area of 100π square centimeters. What is the volume of the sphere, in cubic centimeters? (The surface area of a sphere is 4πr², and its volume is (4/3)πr³.)",
+      "choices": {
+        "A": "25π",
+        "B": "100π",
+        "C": "125π",
+        "D": "500π/3"
+      },
+      "correct_answer": "D",
+      "explanation": "4πr² = 100π gives r² = 25 and r = 5. The volume is (4/3)π(125) = 500π/3.",
+      "distractor_explanations": {
+        "A": "25π = πr² is the area of a circle with radius 5.",
+        "B": "100π is the surface area, not the volume.",
+        "C": "125π = πr³ forgets the factor 4/3."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Find the radius from the surface area first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "4πr² = 100π, then (4/3)πr³."
+      },
+      "remember": "Find the radius, then use the volume formula.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-06",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000613",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Product of solutions of a simple system",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x + y = 10 and x − y = 4, what is the value of xy ?",
+      "choices": {
+        "A": "3",
+        "B": "7",
+        "C": "10",
+        "D": "21"
+      },
+      "correct_answer": "D",
+      "explanation": "Adding the equations gives 2x = 14, so x = 7 and y = 3. Then xy = 21.",
+      "distractor_explanations": {
+        "A": "3 is y.",
+        "B": "7 is x.",
+        "C": "10 is x + y."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Add the two equations to eliminate y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for x and y, then multiply."
+      },
+      "remember": "Answer the question asked: the product, not one variable.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-07",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000614",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Sum of the multiples of 3 up to 100",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all positive integers less than 100 that are multiples of 3 ?",
+      "choices": {
+        "A": "1,650",
+        "B": "1,683",
+        "C": "1,700",
+        "D": "3,366"
+      },
+      "correct_answer": "B",
+      "explanation": "The multiples are 3, 6, …, 99: 33 terms. Their sum is (number of terms) × (first + last)/2 = 33 × 102/2 = 1,683.",
+      "distractor_explanations": {
+        "A": "1,650 = 33 × 50 uses 50 as the average term instead of (3 + 99)/2 = 51.",
+        "C": "1,700 = 34 × 50 counts 34 terms and uses the wrong average.",
+        "D": "3,366 = 33 × 102 forgets to divide by 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "How many multiples of 3 are there, and what is their average?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum = n × (first + last)/2."
+      },
+      "remember": "Arithmetic series sum = number of terms × average of first and last.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-08",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000615",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Group size from a combined mean",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A team has 12 junior members, whose mean score on a test was 72, and some senior members, whose mean score was 81. The mean score of the whole team was 78. How many senior members are on the team?",
+      "choices": {
+        "A": "12",
+        "B": "18",
+        "C": "24",
+        "D": "36"
+      },
+      "correct_answer": "C",
+      "explanation": "Let s be the number of seniors. Then 12(72) + 81s = 78(12 + s), so 864 + 81s = 936 + 78s, 3s = 72 and s = 24. (Equivalently, the team mean is twice as far from 72 as from 81, so there are twice as many seniors as juniors.)",
+      "distractor_explanations": {
+        "A": "12 assumes equal groups, which would give a mean of 76.5, not 78.",
+        "B": "18 gives a team mean of 77.4.",
+        "D": "36 gives a team mean of about 78.75."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write the total of all scores two ways."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice in the weighted-mean formula."
+      },
+      "remember": "A combined mean lies closer to the larger group's mean.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-09",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000616",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of at least 4 correct guesses",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A quiz has 5 true-or-false questions. A student guesses on every question. What is the probability that the student answers at least 4 questions correctly?",
+      "choices": {
+        "A": "1/32",
+        "B": "5/32",
+        "C": "3/16",
+        "D": "1/4"
+      },
+      "correct_answer": "C",
+      "explanation": "Exactly 4 correct can happen in C(5, 4) = 5 ways and exactly 5 correct in 1 way, out of 2⁵ = 32 equally likely outcomes. (5 + 1)/32 = 6/32 = 3/16.",
+      "distractor_explanations": {
+        "A": "1/32 is the probability of all 5 correct only.",
+        "B": "5/32 is the probability of exactly 4 correct only.",
+        "D": "1/4 = 8/32 overcounts the ways to get at least 4 correct."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "\"At least 4\" includes which outcomes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(4) + P(5) using combinations."
+      },
+      "remember": "\"At least\" means add every qualifying case.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "B062-10",
+      "created_at": "2026-10-26T23:36:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-062.review.json",
+        "computation": "checks/act_math/batch_062.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
