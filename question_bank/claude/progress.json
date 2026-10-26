@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:02:23+00:00",
+  "updated_at": "2026-10-26T18:03:49+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -117,14 +117,14 @@
         "medium": 24
       },
       "by_difficulty_calibrated": {
-        "easy": 12,
-        "hard": 12,
-        "medium": 24
+        "easy": 14,
+        "hard": 9,
+        "medium": 25
       },
       "calibrated_share": {
-        "easy": 0.25,
-        "hard": 0.25,
-        "medium": 0.5
+        "easy": 0.292,
+        "hard": 0.188,
+        "medium": 0.521
       },
       "answer_key_balance": {
         "A": 11,
@@ -194,9 +194,9 @@
         "Integrating Essential Skills": 2.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 2.5,
-        "medium": 5.0,
-        "hard": 2.5
+        "easy": 0.5,
+        "medium": 4.0,
+        "hard": 5.5
       },
       "answer_key_gap_for_next_10": {
         "A": 3.5,
@@ -300,15 +300,26 @@
     }
   },
   "next_recommended_work": [
-    "ACT Math batch 6: Algebra +3, IES +2-3, Functions +2, Geometry +2, S&P +1; write markedly harder \"hard\" items (multi-step, less familiar setups) and place more answer keys at D.",
-    "Get a human to blind-solve a sample of the existing items to calibrate difficulty; the AI solver rates most items easier than labeled.",
     "Verify the enhanced-ACT blueprint percentages directly on act.org (unreachable from this environment).",
     "If reference practice exams become available, calibrate style and difficulty once against them.",
     "Before starting ACT English, ACT Reading or SAT Reading & Writing, agree on passage-ID conventions with the ChatGPT workstream so the banks can merge.",
-    "Content lead: run the human stages 3-8 (QUESTION_REVIEW_WORKFLOW.md) on exports/import/act_math.jsonl before any intake."
+    "Content lead: run the human stages 3-8 (QUESTION_REVIEW_WORKFLOW.md) on exports/import/act_math.jsonl before any intake.",
+    "Have a person blind-solve a sample to check the AI difficulty calibration."
   ],
-  "calibration_notes": [],
-  "lock": null,
+  "calibration_notes": [
+    {
+      "date": "2026-10-26",
+      "bank": "act_math",
+      "summary": "All 48 accepted items were re-rated by an independent rubric rater (answer-free). Author labels: 12 easy / 24 medium / 12 hard. Calibrated: 14 / 25 / 9. Changes: 5 hard to medium, 3 medium to easy, 2 medium to hard, 1 easy to medium. The rater also solved every item, and all 48 answers match the keys. Accepted records are unchanged; calibrated labels are in calibration/act_math.json and drive targeting and the import export difficulty. From batch 6 on, the blind solver applies the same rubric (v2), and a hard-labelled item rated easy goes to REVISE."
+    }
+  ],
+  "lock": {
+    "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
+    "acquired_at": "2026-10-26T18:02:34+00:00",
+    "heartbeat_at": "2026-10-26T18:03:49+00:00",
+    "ttl_minutes": 120,
+    "previous_holder": null
+  },
   "execution_log": [
     {
       "execution": 1,
