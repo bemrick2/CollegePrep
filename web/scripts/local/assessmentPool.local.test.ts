@@ -4,6 +4,7 @@
 // substitute practice questions, and no other role can get around either rule. Raw PostgREST calls with each role's
 // own token, plus LiveSource for the full student flow. Skipped unless LOCAL_BACKEND_URL is set
 // (scripts/local/live_stack.sh test). Local only: this proves the server rules and the client path, not hosted.
+import { execFileSync } from 'node:child_process'
 import { createHash, createHmac } from 'node:crypto'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { beforeAll, describe, expect, it } from 'vitest'
@@ -38,6 +39,11 @@ const uid = (name: string) => {
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-5${h.slice(13, 16)}-a${h.slice(17, 20)}-${h.slice(20, 32)}`
 }
 const pause = () => new Promise((r) => setTimeout(r, 25))
+/** #263: a repeat (mini) check opens 28 days after the last completed one. Local database only: move this student's
+ *  completed checks a month back, as if that time had passed (the same PG* settings and LOCAL_DB as live_stack.sh). */
+const monthLater = (id: string) =>
+  execFileSync('psql', ['-X', '-q', '-v', 'ON_ERROR_STOP=1', '-d', process.env.LOCAL_DB ?? 'cp_local', '-c',
+    `update public.practice_benchmarks set started_at = started_at - interval '29 days', completed_at = completed_at - interval '29 days' where student_id = '${id}' and completed_at is not null`])
 const answerFor = new Map(QUESTIONS.map((q) => [uid(`q:${q.id}`), q.accepted_answers[0]!]))
 // The seeded assessment pool (seedFromFixtures.ts marks exactly these) and the ACT practice items.
 const RESERVED_ACT = new Set([...practiceExclusions('act', QUESTIONS)].map((id) => uid(`q:${id}`)))
@@ -129,6 +135,7 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
   })
 
   it('a second check can only repeat the reserve: every item is flagged, and no section gets a progress verdict', async () => {
+    monthLater(studentId)
     const bm = await student.startBenchmark(studentId, 'mini', 'act')
     const items = await student.benchmarkQuestions(bm)
     expect(items.length).toBe(13)
@@ -148,6 +155,7 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
   })
 
   it('no other role can get around it: not the parent, a view-only guardian or an outsider; nobody can re-pool a question', async () => {
+    monthLater(studentId)
     const bm = await student.startBenchmark(studentId, 'mini', 'act')
     for (const who of ['PARENT', 'VIEWER', 'OUTSIDER'] as const) {
       const list = await c[who].rpc('benchmark_questions', { p_benchmark: bm })
@@ -216,11 +224,13 @@ describe.skipIf(!URL_)('reserved assessment pool on the server (CR-23)', () => {
       expect([who, new Set((read.data ?? []).map((r) => r.id as string))]).toEqual([who, attempted])
     }
     // A closed check can't take more answers.
+    monthLater(studentId)
     const done = await student.startBenchmark(studentId, 'mini', 'act')
     expect((await c.STUDENT.rpc('complete_benchmark', { p_benchmark: done })).error).toBeNull()
     const late = await c.STUDENT.rpc('start_practice_attempt', { p_student: studentId, p_question: anyReserved(), p_benchmark: done })
     expect([late.error?.code, late.error?.message]).toEqual(['22023', expect.stringMatching(/not an open benchmark/)])
     // An ACT check can't take a reserved SAT question (the check's own exam version only).
+    monthLater(studentId)
     const open = await student.startBenchmark(studentId, 'mini', 'act')
     expect(RESERVED_SAT.length).toBeGreaterThan(0)
     const cross = await c.STUDENT.rpc('start_practice_attempt', { p_student: studentId, p_question: RESERVED_SAT[0], p_benchmark: open })
