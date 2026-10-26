@@ -1,0 +1,255 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 30,
+  "reviewed_at": "2026-10-26T20:35:50+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 30
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000289",
+    "CLD-ACT-M-000290",
+    "CLD-ACT-M-000291",
+    "CLD-ACT-M-000292",
+    "CLD-ACT-M-000293",
+    "CLD-ACT-M-000294",
+    "CLD-ACT-M-000295",
+    "CLD-ACT-M-000296",
+    "CLD-ACT-M-000297",
+    "CLD-ACT-M-000298"
+  ],
+  "results": [
+    {
+      "cand": "B030-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: D (75) is an implausible distractor (150/2), fine but weak"
+      ],
+      "blind_notes": "sqrt(150)=12.25; least integer greater is 13.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000289"
+    },
+    {
+      "cand": "B030-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "l+w=17, lw=60 -> 12 and 5; longer side 12. Borderline easy/medium.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000290"
+    },
+    {
+      "cand": "B030-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x^2-2x-3<0 -> -1<x<3 -> x=0,1,2 -> 3 integers.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "set up and solve a quadratic inequality, then count integers excluding endpoints"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000291"
+    },
+    {
+      "cand": "B030-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "(ab)(bc)(ca)=3600 -> abc=60 (dims 3,4,5). Requires product-of-faces insight; D 3600 is the trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "needs the insight that the product of face areas is the squared volume"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000292"
+    },
+    {
+      "cand": "B030-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Central angle 100 deg; arc = (100/360)(18pi)=5pi. Trap B uses 50 deg.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000293"
+    },
+    {
+      "cand": "B030-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Remaining c,d,e free: 2^3=8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000294"
+    },
+    {
+      "cand": "B030-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "TP=180, FP=0.1*800=80; 180/260=9/13. Trap D 9/10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "reversing a conditional; most choose the 90% detection rate"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000295"
+    },
+    {
+      "cand": "B030-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(5-4)/4=25%. Trap A (1 percentage point).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000296"
+    },
+    {
+      "cand": "B030-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "840/12=70; 7*70=490.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000297"
+    },
+    {
+      "cand": "B030-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "sqrt(81+144)=15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000298"
+    }
+  ]
+}

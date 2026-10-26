@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 29,
-  "updated_at": "2026-10-26T20:32:55+00:00",
+  "version": 30,
+  "updated_at": "2026-10-26T20:35:50+00:00",
   "passages": [],
   "questions": [
     {
@@ -20017,6 +20017,712 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-029.review.json",
         "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000289",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Bounding a square root",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the least integer greater than √150 ?",
+      "choices": {
+        "A": "12",
+        "B": "13",
+        "C": "14",
+        "D": "75"
+      },
+      "correct_answer": "B",
+      "explanation": "12² = 144 < 150 < 169 = 13², so √150 is between 12 and 13. The least integer greater than it is 13.",
+      "distractor_explanations": {
+        "A": "12 is less than √150, since 12² = 144.",
+        "C": "14 is greater than √150 but not the least such integer.",
+        "D": "75 is half of 150, not its square root."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which perfect squares are just below and just above 150?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "144 < 150 < 169."
+      },
+      "remember": "Bracket a square root between consecutive perfect squares.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-01",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: D (75) is an implausible distractor (150/2), fine but weak"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000290",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Rectangle from perimeter and area",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle has a perimeter of 34 centimeters and an area of 60 square centimeters. What is the length of its longer side, in centimeters?",
+      "choices": {
+        "A": "5",
+        "B": "10",
+        "C": "12",
+        "D": "15"
+      },
+      "correct_answer": "C",
+      "explanation": "The sides sum to 17 and multiply to 60, so they are the solutions of x² − 17x + 60 = 0: x = 5 and x = 12. The longer side is 12.",
+      "distractor_explanations": {
+        "A": "5 is the shorter side.",
+        "B": "10 assumes a side of 10 without checking: 10 × 7 = 70, not 60.",
+        "D": "15 uses the full perimeter instead of half: 15 × 4 = 60 but 2(15 + 4) = 38."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What do the two side lengths add to?",
+        "Which two numbers add to 17 and multiply to 60?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 12: other side 5, area 60."
+      },
+      "remember": "Half the perimeter is the sum of length and width.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-02",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000291",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Comparing a linear and a quadratic function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Let f(x) = 2x + 1 and g(x) = x² − 2. For how many integer values of x is f(x) > g(x) ?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "f(x) > g(x) means x² − 2x − 3 < 0, or (x − 3)(x + 1) < 0, so −1 < x < 3. The integers are 0, 1 and 2.",
+      "distractor_explanations": {
+        "A": "1 counts only x = 1, where the gap is largest.",
+        "B": "2 drops x = 0.",
+        "D": "4 includes an endpoint, where f(x) = g(x)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Rewrite as a single inequality and factor.",
+        "Are the endpoints included?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = −1, 0, 3."
+      },
+      "remember": "Compare functions by moving everything to one side.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-03",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000292",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a box from its face areas",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular box has three faces with areas 12, 15, and 20 square inches. What is the volume of the box, in cubic inches?",
+      "choices": {
+        "A": "47",
+        "B": "60",
+        "C": "120",
+        "D": "3,600"
+      },
+      "correct_answer": "B",
+      "explanation": "If the edges are a, b and c, then ab = 12, bc = 15 and ac = 20. Multiplying gives (abc)² = 3,600, so abc = 60. (The edges are 3, 4 and 5.)",
+      "distractor_explanations": {
+        "A": "47 adds the three face areas.",
+        "C": "120 doubles the volume.",
+        "D": "3,600 is the square of the volume."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Let the edges be a, b, c. What does each face area equal?",
+        "What happens if you multiply all three face areas?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(ab)(bc)(ac) = (abc)²."
+      },
+      "remember": "Multiplying the three face areas gives the volume squared.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-04",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000293",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Arc length from an inscribed angle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a circle with radius 9, an inscribed angle measures 50°. What is the length of the arc it intercepts?",
+      "choices": {
+        "A": "π",
+        "B": "5π/2",
+        "C": "5π",
+        "D": "9π"
+      },
+      "correct_answer": "C",
+      "explanation": "The intercepted arc measures 2 × 50° = 100°. Its length is (100/360) × 2π(9) = 5π.",
+      "distractor_explanations": {
+        "A": "π uses an arc of 20°.",
+        "B": "5π/2 uses the inscribed angle (50°) as the arc measure, forgetting to double it.",
+        "D": "9π is half the circumference."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How does an inscribed angle compare with its intercepted arc?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(100/360)(18π)."
+      },
+      "remember": "An intercepted arc is twice the inscribed angle.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-05",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000294",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Counting subsets with required elements",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many subsets of the set {a, b, c, d, e} contain both a and b ?",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "10",
+        "D": "16"
+      },
+      "correct_answer": "B",
+      "explanation": "With a and b included, each of c, d and e is either in or out: 2³ = 8 subsets.",
+      "distractor_explanations": {
+        "A": "4 counts only the choices for two of the remaining three elements.",
+        "C": "10 = C(5, 2) counts pairs of elements, not subsets.",
+        "D": "16 counts subsets that contain a, without requiring b."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Once a and b are in, how many choices remain?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2³."
+      },
+      "remember": "Each free element doubles the number of subsets.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-06",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000295",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Conditional probability with a screening test",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a group of 1,000 people, 200 have a certain condition. A screening test correctly gives a positive result for 90% of the people who have the condition, and it incorrectly gives a positive result for 10% of the people who do not. If a person in the group tests positive, what is the probability that the person has the condition?",
+      "choices": {
+        "A": "1/5",
+        "B": "9/13",
+        "C": "18/25",
+        "D": "9/10"
+      },
+      "correct_answer": "B",
+      "explanation": "True positives: 0.9 × 200 = 180. False positives: 0.1 × 800 = 80. Of the 260 positives, 180 have the condition: 180/260 = 9/13.",
+      "distractor_explanations": {
+        "A": "1/5 is the share of the whole group with the condition.",
+        "C": "18/25 divides 180 by 250, miscounting the false positives as 70.",
+        "D": "9/10 is the test's detection rate among people who have the condition, not the reverse."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Count true positives and false positives.",
+        "Of everyone who tests positive, how many have the condition?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a two-way table of condition by test result."
+      },
+      "remember": "P(condition | positive) differs from P(positive | condition).",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-07",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000296",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percent change versus percentage points",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A town's unemployment rate rose from 4% to 5%. By what percent did the unemployment rate increase?",
+      "choices": {
+        "A": "1%",
+        "B": "5%",
+        "C": "20%",
+        "D": "25%"
+      },
+      "correct_answer": "D",
+      "explanation": "The rate rose by 1 percentage point. As a percent of the original rate: 1/4 = 25%.",
+      "distractor_explanations": {
+        "A": "1% is the increase in percentage points, not the percent increase.",
+        "B": "5% is the new rate.",
+        "C": "20% divides the change by the new rate, 5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "What is the change, and what was the original rate?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(5 − 4)/4."
+      },
+      "remember": "A change in percentage points is not a percent change.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-08",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000297",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Dividing a quantity in a given ratio",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Three partners divide a profit of $840 in the ratio 2:3:7. How much does the partner with the largest share receive?",
+      "choices": {
+        "A": "$140",
+        "B": "$210",
+        "C": "$280",
+        "D": "$490"
+      },
+      "correct_answer": "D",
+      "explanation": "The ratio has 2 + 3 + 7 = 12 parts, so each part is $840/12 = $70. The largest share is 7 × $70 = $490.",
+      "distractor_explanations": {
+        "A": "$140 is the smallest share (2 parts).",
+        "B": "$210 is the middle share (3 parts).",
+        "C": "$280 divides $840 by 3 partners."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "How many parts are there in total?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "840/12 × 7."
+      },
+      "remember": "Find the value of one part first.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-09",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000298",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Diagonal of a rectangle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle measures 9 inches by 12 inches. What is the length of its diagonal, in inches?",
+      "choices": {
+        "A": "15",
+        "B": "21",
+        "C": "42",
+        "D": "108"
+      },
+      "correct_answer": "A",
+      "explanation": "The diagonal is √(9² + 12²) = √225 = 15.",
+      "distractor_explanations": {
+        "B": "21 adds the two sides.",
+        "C": "42 is the perimeter.",
+        "D": "108 is the area."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "The diagonal is the hypotenuse of a right triangle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "9-12-15 triangle."
+      },
+      "remember": "A rectangle's diagonal: √(length² + width²).",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "B030-10",
+      "created_at": "2026-10-26T20:35:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-030.review.json",
+        "computation": "checks/act_math/batch_030.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

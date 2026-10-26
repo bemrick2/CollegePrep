@@ -1,0 +1,464 @@
+{
+ "bank": "act_math",
+ "batch": 30,
+ "plan": "Ten items with stems checked against the bank; takes ACT Math past 300 (audit and whole-bank re-rating). 3 hard (f > g integer count, box from face areas, screening-test conditional) / 4 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B030-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Bounding a square root",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "What is the least integer greater than √150 ?",
+   "choices": {
+    "A": "12",
+    "B": "13",
+    "C": "14",
+    "D": "75"
+   },
+   "answer": "B",
+   "explanation": "12² = 144 < 150 < 169 = 13², so √150 is between 12 and 13. The least integer greater than it is 13.",
+   "distractors": {
+    "A": {
+     "rationale": "12 is less than √150, since 12² = 144.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "14 is greater than √150 but not the least such integer.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "75 is half of 150, not its square root.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which perfect squares are just below and just above 150?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "144 < 150 < 169."
+   },
+   "remember": "Bracket a square root between consecutive perfect squares.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B030-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Rectangle from perimeter and area",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "A rectangle has a perimeter of 34 centimeters and an area of 60 square centimeters. What is the length of its longer side, in centimeters?",
+   "choices": {
+    "A": "5",
+    "B": "10",
+    "C": "12",
+    "D": "15"
+   },
+   "answer": "C",
+   "explanation": "The sides sum to 17 and multiply to 60, so they are the solutions of x² − 17x + 60 = 0: x = 5 and x = 12. The longer side is 12.",
+   "distractors": {
+    "A": {
+     "rationale": "5 is the shorter side.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "10 assumes a side of 10 without checking: 10 × 7 = 70, not 60.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "15 uses the full perimeter instead of half: 15 × 4 = 60 but 2(15 + 4) = 38.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What do the two side lengths add to?",
+    "Which two numbers add to 17 and multiply to 60?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try 12: other side 5, area 60."
+   },
+   "remember": "Half the perimeter is the sum of length and width.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B030-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Comparing a linear and a quadratic function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "Let f(x) = 2x + 1 and g(x) = x² − 2. For how many integer values of x is f(x) > g(x) ?",
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "C",
+   "explanation": "f(x) > g(x) means x² − 2x − 3 < 0, or (x − 3)(x + 1) < 0, so −1 < x < 3. The integers are 0, 1 and 2.",
+   "distractors": {
+    "A": {
+     "rationale": "1 counts only x = 1, where the gap is largest.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2 drops x = 0.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4 includes an endpoint, where f(x) = g(x).",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Rewrite as a single inequality and factor.",
+    "Are the endpoints included?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = −1, 0, 3."
+   },
+   "remember": "Compare functions by moving everything to one side.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "set up and solve a quadratic inequality, then count integers excluding endpoints"
+   }
+  },
+  {
+   "cand": "B030-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of a box from its face areas",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A rectangular box has three faces with areas 12, 15, and 20 square inches. What is the volume of the box, in cubic inches?",
+   "choices": {
+    "A": "47",
+    "B": "60",
+    "C": "120",
+    "D": "3,600"
+   },
+   "answer": "B",
+   "explanation": "If the edges are a, b and c, then ab = 12, bc = 15 and ac = 20. Multiplying gives (abc)² = 3,600, so abc = 60. (The edges are 3, 4 and 5.)",
+   "distractors": {
+    "A": {
+     "rationale": "47 adds the three face areas.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "120 doubles the volume.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3,600 is the square of the volume.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Let the edges be a, b, c. What does each face area equal?",
+    "What happens if you multiply all three face areas?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(ab)(bc)(ac) = (abc)²."
+   },
+   "remember": "Multiplying the three face areas gives the volume squared.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "needs the insight that the product of face areas is the squared volume"
+   }
+  },
+  {
+   "cand": "B030-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Arc length from an inscribed angle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In a circle with radius 9, an inscribed angle measures 50°. What is the length of the arc it intercepts?",
+   "choices": {
+    "A": "π",
+    "B": "5π/2",
+    "C": "5π",
+    "D": "9π"
+   },
+   "answer": "C",
+   "explanation": "The intercepted arc measures 2 × 50° = 100°. Its length is (100/360) × 2π(9) = 5π.",
+   "distractors": {
+    "A": {
+     "rationale": "π uses an arc of 20°.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "5π/2 uses the inscribed angle (50°) as the arc measure, forgetting to double it.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "9π is half the circumference.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How does an inscribed angle compare with its intercepted arc?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(100/360)(18π)."
+   },
+   "remember": "An intercepted arc is twice the inscribed angle.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B030-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Counting subsets with required elements",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "How many subsets of the set {a, b, c, d, e} contain both a and b ?",
+   "choices": {
+    "A": "4",
+    "B": "8",
+    "C": "10",
+    "D": "16"
+   },
+   "answer": "B",
+   "explanation": "With a and b included, each of c, d and e is either in or out: 2³ = 8 subsets.",
+   "distractors": {
+    "A": {
+     "rationale": "4 counts only the choices for two of the remaining three elements.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10 = C(5, 2) counts pairs of elements, not subsets.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "16 counts subsets that contain a, without requiring b.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Once a and b are in, how many choices remain?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "2³."
+   },
+   "remember": "Each free element doubles the number of subsets.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B030-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Conditional probability with a screening test",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "In a group of 1,000 people, 200 have a certain condition. A screening test correctly gives a positive result for 90% of the people who have the condition, and it incorrectly gives a positive result for 10% of the people who do not. If a person in the group tests positive, what is the probability that the person has the condition?",
+   "choices": {
+    "A": "1/5",
+    "B": "9/13",
+    "C": "18/25",
+    "D": "9/10"
+   },
+   "answer": "B",
+   "explanation": "True positives: 0.9 × 200 = 180. False positives: 0.1 × 800 = 80. Of the 260 positives, 180 have the condition: 180/260 = 9/13.",
+   "distractors": {
+    "A": {
+     "rationale": "1/5 is the share of the whole group with the condition.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "18/25 divides 180 by 250, miscounting the false positives as 70.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "9/10 is the test's detection rate among people who have the condition, not the reverse.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Count true positives and false positives.",
+    "Of everyone who tests positive, how many have the condition?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Make a two-way table of condition by test result."
+   },
+   "remember": "P(condition | positive) differs from P(positive | condition).",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "reversing a conditional; most choose the 90% detection rate"
+   }
+  },
+  {
+   "cand": "B030-08",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Percent change versus percentage points",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "A town's unemployment rate rose from 4% to 5%. By what percent did the unemployment rate increase?",
+   "choices": {
+    "A": "1%",
+    "B": "5%",
+    "C": "20%",
+    "D": "25%"
+   },
+   "answer": "D",
+   "explanation": "The rate rose by 1 percentage point. As a percent of the original rate: 1/4 = 25%.",
+   "distractors": {
+    "A": {
+     "rationale": "1% is the increase in percentage points, not the percent increase.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "5% is the new rate.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "20% divides the change by the new rate, 5.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the change, and what was the original rate?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(5 − 4)/4."
+   },
+   "remember": "A change in percentage points is not a percent change.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B030-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Dividing a quantity in a given ratio",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "Three partners divide a profit of $840 in the ratio 2:3:7. How much does the partner with the largest share receive?",
+   "choices": {
+    "A": "$140",
+    "B": "$210",
+    "C": "$280",
+    "D": "$490"
+   },
+   "answer": "D",
+   "explanation": "The ratio has 2 + 3 + 7 = 12 parts, so each part is $840/12 = $70. The largest share is 7 × $70 = $490.",
+   "distractors": {
+    "A": {
+     "rationale": "$140 is the smallest share (2 parts).",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "$210 is the middle share (3 parts).",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "$280 divides $840 by 3 partners.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many parts are there in total?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "840/12 × 7."
+   },
+   "remember": "Find the value of one part first.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B030-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Diagonal of a rectangle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A rectangle measures 9 inches by 12 inches. What is the length of its diagonal, in inches?",
+   "choices": {
+    "A": "15",
+    "B": "21",
+    "C": "42",
+    "D": "108"
+   },
+   "answer": "A",
+   "explanation": "The diagonal is √(9² + 12²) = √225 = 15.",
+   "distractors": {
+    "B": {
+     "rationale": "21 adds the two sides.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "42 is the perimeter.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "108 is the area.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "The diagonal is the hypotenuse of a right triangle."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "9-12-15 triangle."
+   },
+   "remember": "A rectangle's diagonal: √(length² + width²).",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

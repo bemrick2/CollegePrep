@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 29,
+  "bank_version": 30,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -5037,6 +5037,180 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch sin(2x): two waves on [0, 2π)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000289",
+      "correct_answer": "B",
+      "explanation": "12² = 144 < 150 < 169 = 13², so √150 is between 12 and 13. The least integer greater than it is 13.",
+      "distractor_explanations": {
+        "A": "12 is less than √150, since 12² = 144.",
+        "C": "14 is greater than √150 but not the least such integer.",
+        "D": "75 is half of 150, not its square root."
+      },
+      "hints": [
+        "Which perfect squares are just below and just above 150?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "144 < 150 < 169."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000290",
+      "correct_answer": "C",
+      "explanation": "The sides sum to 17 and multiply to 60, so they are the solutions of x² − 17x + 60 = 0: x = 5 and x = 12. The longer side is 12.",
+      "distractor_explanations": {
+        "A": "5 is the shorter side.",
+        "B": "10 assumes a side of 10 without checking: 10 × 7 = 70, not 60.",
+        "D": "15 uses the full perimeter instead of half: 15 × 4 = 60 but 2(15 + 4) = 38."
+      },
+      "hints": [
+        "What do the two side lengths add to?",
+        "Which two numbers add to 17 and multiply to 60?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 12: other side 5, area 60."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000291",
+      "correct_answer": "C",
+      "explanation": "f(x) > g(x) means x² − 2x − 3 < 0, or (x − 3)(x + 1) < 0, so −1 < x < 3. The integers are 0, 1 and 2.",
+      "distractor_explanations": {
+        "A": "1 counts only x = 1, where the gap is largest.",
+        "B": "2 drops x = 0.",
+        "D": "4 includes an endpoint, where f(x) = g(x)."
+      },
+      "hints": [
+        "Rewrite as a single inequality and factor.",
+        "Are the endpoints included?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = −1, 0, 3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000292",
+      "correct_answer": "B",
+      "explanation": "If the edges are a, b and c, then ab = 12, bc = 15 and ac = 20. Multiplying gives (abc)² = 3,600, so abc = 60. (The edges are 3, 4 and 5.)",
+      "distractor_explanations": {
+        "A": "47 adds the three face areas.",
+        "C": "120 doubles the volume.",
+        "D": "3,600 is the square of the volume."
+      },
+      "hints": [
+        "Let the edges be a, b, c. What does each face area equal?",
+        "What happens if you multiply all three face areas?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(ab)(bc)(ac) = (abc)²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000293",
+      "correct_answer": "C",
+      "explanation": "The intercepted arc measures 2 × 50° = 100°. Its length is (100/360) × 2π(9) = 5π.",
+      "distractor_explanations": {
+        "A": "π uses an arc of 20°.",
+        "B": "5π/2 uses the inscribed angle (50°) as the arc measure, forgetting to double it.",
+        "D": "9π is half the circumference."
+      },
+      "hints": [
+        "How does an inscribed angle compare with its intercepted arc?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(100/360)(18π)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000294",
+      "correct_answer": "B",
+      "explanation": "With a and b included, each of c, d and e is either in or out: 2³ = 8 subsets.",
+      "distractor_explanations": {
+        "A": "4 counts only the choices for two of the remaining three elements.",
+        "C": "10 = C(5, 2) counts pairs of elements, not subsets.",
+        "D": "16 counts subsets that contain a, without requiring b."
+      },
+      "hints": [
+        "Once a and b are in, how many choices remain?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2³."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000295",
+      "correct_answer": "B",
+      "explanation": "True positives: 0.9 × 200 = 180. False positives: 0.1 × 800 = 80. Of the 260 positives, 180 have the condition: 180/260 = 9/13.",
+      "distractor_explanations": {
+        "A": "1/5 is the share of the whole group with the condition.",
+        "C": "18/25 divides 180 by 250, miscounting the false positives as 70.",
+        "D": "9/10 is the test's detection rate among people who have the condition, not the reverse."
+      },
+      "hints": [
+        "Count true positives and false positives.",
+        "Of everyone who tests positive, how many have the condition?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a two-way table of condition by test result."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000296",
+      "correct_answer": "D",
+      "explanation": "The rate rose by 1 percentage point. As a percent of the original rate: 1/4 = 25%.",
+      "distractor_explanations": {
+        "A": "1% is the increase in percentage points, not the percent increase.",
+        "B": "5% is the new rate.",
+        "C": "20% divides the change by the new rate, 5."
+      },
+      "hints": [
+        "What is the change, and what was the original rate?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(5 − 4)/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000297",
+      "correct_answer": "D",
+      "explanation": "The ratio has 2 + 3 + 7 = 12 parts, so each part is $840/12 = $70. The largest share is 7 × $70 = $490.",
+      "distractor_explanations": {
+        "A": "$140 is the smallest share (2 parts).",
+        "B": "$210 is the middle share (3 parts).",
+        "C": "$280 divides $840 by 3 partners."
+      },
+      "hints": [
+        "How many parts are there in total?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "840/12 × 7."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000298",
+      "correct_answer": "A",
+      "explanation": "The diagonal is √(9² + 12²) = √225 = 15.",
+      "distractor_explanations": {
+        "B": "21 adds the two sides.",
+        "C": "42 is the perimeter.",
+        "D": "108 is the area."
+      },
+      "hints": [
+        "The diagonal is the hypotenuse of a right triangle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "9-12-15 triangle."
       }
     }
   ]
