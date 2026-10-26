@@ -94,6 +94,8 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     // gap. T11 puts the real rules back for its own checks. Restored in afterAll.
     if (sql(`select to_regclass('public.practice_benchmark_kinds') is not null`) === 't') {
       savedMini = sql(`select needs_prior || ',' || min_days_after_prior from public.practice_benchmark_kinds where kind = 'mini'`)
+      // The server's rules as migrated. A different value means an earlier run of this file aborted without restoring.
+      expect(savedMini, 'practice_benchmark_kinds mini row (rerun live_stack.sh test for a fresh database)').toBe('true,28')
       sql(`update public.practice_benchmark_kinds set needs_prior = false, min_days_after_prior = 0 where kind = 'mini'`)
     }
     const subs = { PARENT, VIEWER, NOVIEW, STUDENT, STUDENT2, OTHER_PARENT, OTHER_STUDENT, OUTSIDER }
@@ -322,35 +324,38 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
   // After T10: T5b answers an item, and an answered item stays readable to the student, which T6–T8 would count.
   it('T5b resume of a partly answered check: a reload or retry returns the same check; its used items stay used, no new item is assigned', async () => {
     const r1 = await student2.startBenchmark(sid2, 'mini', 'sat')
-    const before = await student2.benchmarkQuestions(r1)
-    const first = before[0]!.question.id
-    const a = await student2.startAttempt(sid2, first, null, r1)
-    await pause()
-    await student2.submitAttempt(a, { answer: answerFor.get(first) ?? 'A', activeMs: 5 })
-    // Reload: a new client, the same student; and a retry of the start itself.
-    const reloadedClient = await raw(STUDENT2)
-    const reloaded = new LiveSource(reloadedClient)
-    const version = sql(`select exam_version_id from public.practice_benchmarks where id = '${r1}'`)
-    const allowed = await reloadedClient.rpc('benchmark_allowed_kinds', { p_student: sid2, p_exam_version: version })
-    expect(allowed.error).toBeNull()
-    expect((allowed.data as { live_benchmark: string; live_kind: string; allowed_kinds: string[] }[])[0]).toMatchObject({ live_benchmark: r1, live_kind: 'mini', allowed_kinds: ['mini'] })
-    expect(await reloaded.startBenchmark(sid2, 'mini', 'sat')).toBe(r1)
-    expect(await student2.startBenchmark(sid2, 'mini', 'sat')).toBe(r1)
-    const after = await reloaded.benchmarkQuestions(r1)
-    expect(after.map((i) => i.question.id)).toEqual(before.slice(1).map((i) => i.question.id))
-    expect(sql(`select count(*) from public.practice_benchmark_items where benchmark_id = '${r1}'`)).toBe(String(2 * PER))
-    expect(sql(`select count(*) from public.practice_benchmarks where student_id = '${sid2}' and completed_at is null and started_at > now() - interval '4 hours'`)).toBe('1')
-    // What a client reads for progress (#291): the student's own assignment rows and attempts in the check.
-    const rows = await reloadedClient.from('practice_benchmark_items').select('question_id').eq('benchmark_id', r1)
-    expect(rows.error).toBeNull()
-    expect(rows.data).toHaveLength(2 * PER)
-    const used = await reloadedClient.from('practice_attempts').select('question_id').eq('benchmark_id', r1)
-    expect(used.data?.map((x) => x.question_id)).toEqual([first])
-    // Another kind while it is live is refused, not opened beside it.
-    const other = await c.STUDENT2.rpc('start_benchmark', { p_student: sid2, p_kind: 'initial', p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${r1}'`) })
-    expect(other.error).toMatchObject({ code: '22023' })
-    expect(other.error!.message).toMatch(/already open for this exam; resume it/)
-    expire(r1)
+    try {
+      const before = await student2.benchmarkQuestions(r1)
+      const first = before[0]!.question.id
+      const a = await student2.startAttempt(sid2, first, null, r1)
+      await pause()
+      await student2.submitAttempt(a, { answer: answerFor.get(first) ?? 'A', activeMs: 5 })
+      // Reload: a new client, the same student; and a retry of the start itself.
+      const reloadedClient = await raw(STUDENT2)
+      const reloaded = new LiveSource(reloadedClient)
+      const version = sql(`select exam_version_id from public.practice_benchmarks where id = '${r1}'`)
+      const allowed = await reloadedClient.rpc('benchmark_allowed_kinds', { p_student: sid2, p_exam_version: version })
+      expect(allowed.error).toBeNull()
+      expect((allowed.data as { live_benchmark: string; live_kind: string; allowed_kinds: string[] }[])[0]).toMatchObject({ live_benchmark: r1, live_kind: 'mini', allowed_kinds: ['mini'] })
+      expect(await reloaded.startBenchmark(sid2, 'mini', 'sat')).toBe(r1)
+      expect(await student2.startBenchmark(sid2, 'mini', 'sat')).toBe(r1)
+      const after = await reloaded.benchmarkQuestions(r1)
+      expect(after.map((i) => i.question.id)).toEqual(before.slice(1).map((i) => i.question.id))
+      expect(sql(`select count(*) from public.practice_benchmark_items where benchmark_id = '${r1}'`)).toBe(String(2 * PER))
+      expect(sql(`select count(*) from public.practice_benchmarks where student_id = '${sid2}' and completed_at is null and started_at > now() - interval '4 hours'`)).toBe('1')
+      // What a client reads for progress (#291): the student's own assignment rows and attempts in the check.
+      const rows = await reloadedClient.from('practice_benchmark_items').select('question_id').eq('benchmark_id', r1)
+      expect(rows.error).toBeNull()
+      expect(rows.data).toHaveLength(2 * PER)
+      const used = await reloadedClient.from('practice_attempts').select('question_id').eq('benchmark_id', r1)
+      expect(used.data?.map((x) => x.question_id)).toEqual([first])
+      // Another kind while it is live is refused, not opened beside it.
+      const other = await c.STUDENT2.rpc('start_benchmark', { p_student: sid2, p_kind: 'initial', p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${r1}'`) })
+      expect(other.error).toMatchObject({ code: '22023' })
+      expect(other.error!.message).toMatch(/already open for this exam; resume it/)
+    } finally {
+      expire(r1) // even on failure, so T12 doesn't find it live
+    }
   })
 
   it('T12 (#291 client) LiveSource reads the live check, its progress and the allowed kinds from the real server', async () => {
