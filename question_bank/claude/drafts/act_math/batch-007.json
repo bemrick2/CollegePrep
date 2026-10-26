@@ -1,0 +1,474 @@
+{
+  "bank": "act_math",
+  "batch": 7,
+  "plan": "Gaps after batch 6: N&Q 2, Algebra 2, Functions 2, Geometry 1, S&P 1, IES 2; 1 easy / 4 medium / 5 hard. Keys weighted to A and D. Hard items: prime-square divisor insight, root-location conditions, inverse-function excluded value, multi-constraint data list, harmonic average speed.",
+  "candidates": [
+    {
+      "cand": "B007-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Divisors and primes",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "Consider the positive integers n from 1 through 9 for which n² has exactly 3 positive divisors. What is the sum of all such values of n ?",
+      "choices": {
+        "A": "17",
+        "B": "18",
+        "C": "26",
+        "D": "45"
+      },
+      "answer": "A",
+      "explanation": "If n is prime, the divisors of n² are exactly 1, n and n², which is 3 divisors. If n = 1, n² = 1 has only 1 divisor. If n is composite, n has another divisor d with 1 < d < n, and d also divides n², giving more than 3 divisors (for example, 4² = 16 has 5). So n must be prime: 2, 3, 5 or 7, and the sum is 17.",
+      "distractors": {
+        "B": {
+          "rationale": "This includes n = 1, but 1² = 1 has only one positive divisor.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This also includes n = 9, but 81 has five divisors (1, 3, 9, 27, 81), not three.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This assumes every n² has exactly the divisors 1, n and n², so it adds 1 through 9; composite n give more divisors.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "List the divisors of n² for a prime n and for a composite n such as 4 or 6.",
+        "Which kind of number n makes 1, n and n² the only divisors of n²?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test n = 2, 4 and 9: 4 has divisors 1, 2, 4 (three), 16 has five, 81 has five. Only primes work."
+      },
+      "remember": "n² has exactly 3 divisors exactly when n is prime.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "requires the structural insight that n must be prime; the 1, n, n² misconception is tempting"
+      }
+    },
+    {
+      "cand": "B007-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Negative rational exponents",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "easy",
+      "stem": "What is the value of 27^(−2/3) ?",
+      "choices": {
+        "A": "1/9",
+        "B": "1/18",
+        "C": "−9",
+        "D": "9"
+      },
+      "answer": "A",
+      "explanation": "27^(1/3) = 3 (the cube root), so 27^(2/3) = 3² = 9. A negative exponent means a reciprocal: 27^(−2/3) = 1/9.",
+      "distractors": {
+        "B": {
+          "rationale": "This multiplies 27 by 2/3 to get 18; a fractional exponent is a root and a power, not a multiplier.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "A negative exponent gives a reciprocal, not a negative number.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "9 is 27^(2/3); the negative sign in the exponent was ignored.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "The denominator 3 in the exponent means a cube root.",
+        "What does a negative exponent do to a number?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cube root of 27 is 3, squared is 9, reciprocal is 1/9."
+      },
+      "remember": "a^(−m/n) = 1 ÷ (nth root of a)^m.",
+      "expected_time_seconds": 35,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B007-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Conditions on quadratic roots",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The equation x² − 6x + c = 0, where c is a constant, has two different real solutions, and both solutions are greater than 1. Which of the following describes all possible values of c ?",
+      "choices": {
+        "A": "c < 9",
+        "B": "c > 5",
+        "C": "1 < c < 9",
+        "D": "5 < c < 9"
+      },
+      "answer": "D",
+      "explanation": "Two different real solutions require a positive discriminant: 36 − 4c > 0, so c < 9. The parabola y = x² − 6x + c has its axis at x = 3, which is greater than 1, so both roots exceed 1 exactly when the value at x = 1 is positive: 1 − 6 + c > 0, so c > 5. Together, 5 < c < 9. (For example, c = 2 gives roots 3 ± √7, and 3 − √7 ≈ 0.35 is less than 1.)",
+      "distractors": {
+        "A": {
+          "rationale": "This uses only the discriminant condition; it allows values such as c = 2, which gives a root less than 1.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This uses only the condition at x = 1; values c ≥ 9 give a repeated root or no real roots.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "A product of roots greater than 1 is necessary but not sufficient; c = 2 has product 2 but one root is about 0.35.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "What condition guarantees two different real solutions?",
+        "Think of the graph y = x² − 6x + c: where is its vertex, and what must be true of its value at x = 1?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test c = 2 (roots 3 ± √7; one is below 1, so eliminate A and C) and c = 10 (no real roots; eliminate B)."
+      },
+      "remember": "Root-location questions: check the discriminant, the vertex and the value at the boundary.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "two independent conditions must be combined; each one-condition distractor is tempting",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B007-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear models from two data points",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "medium",
+      "stem": "A candle burns down at a constant rate. Two hours after it is lit, the candle is 17 centimeters tall. Five hours after it is lit, it is 9.5 centimeters tall. How many hours after it is lit will the candle burn down completely?",
+      "choices": {
+        "A": "3.8",
+        "B": "6.8",
+        "C": "8.8",
+        "D": "11.8"
+      },
+      "answer": "C",
+      "explanation": "The candle loses (17 − 9.5) ÷ (5 − 2) = 2.5 centimeters per hour. Its height when lit was 17 + 2(2.5) = 22 centimeters. It burns out when 22 − 2.5t = 0, so t = 8.8 hours.",
+      "distractors": {
+        "A": {
+          "rationale": "3.8 hours is the time remaining after the 5-hour mark (9.5 ÷ 2.5), not the time since the candle was lit.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "6.8 hours is the time remaining after the 2-hour mark (17 ÷ 2.5); the first 2 hours must be added.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This adds 5 hours to the time remaining after the 2-hour mark, mixing the two reference times.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the rate at which the height decreases.",
+        "Find the starting height, or add the time already elapsed to the time remaining."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Height h = 22 − 2.5t; set h = 0 and solve: t = 8.8."
+      },
+      "remember": "Measure time from the event the question names.",
+      "expected_time_seconds": 70,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B007-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Inverse functions and excluded values",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The function f is defined by f(x) = (3x + 1)/(x − 2) for all x ≠ 2. The function f has an inverse function, f⁻¹. For which value of x is f⁻¹(x) undefined?",
+      "choices": {
+        "A": "−1/3",
+        "B": "2",
+        "C": "3",
+        "D": "−1/2"
+      },
+      "answer": "C",
+      "explanation": "Solve y = (3x + 1)/(x − 2) for x: y(x − 2) = 3x + 1, so yx − 3x = 2y + 1 and x = (2y + 1)/(y − 3). So f⁻¹(x) = (2x + 1)/(x − 3), which is undefined at x = 3. (Equivalently, f never outputs 3, its horizontal asymptote, so 3 is not in the domain of f⁻¹.)",
+      "distractors": {
+        "A": {
+          "rationale": "−1/3 is the zero of f (where 3x + 1 = 0), which is a value in the domain of f⁻¹ (f⁻¹(0) = −1/2).",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "2 is excluded from the domain of f, so it is excluded from the range of f⁻¹, not its domain.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "−1/2 is where f⁻¹ equals 0; f⁻¹ is defined there.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The inputs of f⁻¹ are the outputs of f.",
+        "Solve y = (3x + 1)/(x − 2) for x, or ask which output f can never produce."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Swap and solve to get f⁻¹(x) = (2x + 1)/(x − 3); its denominator is zero at x = 3."
+      },
+      "remember": "The domain of f⁻¹ is the range of f.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "domain/range swap insight; the excluded value of f (2) is the tempting trap"
+      }
+    },
+    {
+      "cand": "B007-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential function properties",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "The function g is defined by g(x) = 2^x. Which of the following is equal to g(x + 3) for all real numbers x ?",
+      "choices": {
+        "A": "g(x) + 3",
+        "B": "g(x) + 8",
+        "C": "3g(x)",
+        "D": "8g(x)"
+      },
+      "answer": "D",
+      "explanation": "g(x + 3) = 2^(x + 3) = 2^x · 2³ = 8 · 2^x = 8g(x).",
+      "distractors": {
+        "A": {
+          "rationale": "Adding 3 to the input of an exponential function does not add 3 to the output.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "2³ = 8 multiplies the output; it is not added to it.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This multiplies by the exponent 3 instead of by 2³.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Write g(x + 3) as a power of 2 and use the product rule for exponents.",
+        "What is 2³?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: g(4) = 16 and g(1) = 2. Only 8g(1) = 16."
+      },
+      "remember": "Adding to an exponent multiplies the power.",
+      "expected_time_seconds": 45,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B007-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Inscribed angles and arcs",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "Triangle ABC is inscribed in a circle, and side AB is a diameter of the circle. The measure of ∠BAC is 28°. What is the measure of minor arc BC ?",
+      "choices": {
+        "A": "28°",
+        "B": "56°",
+        "C": "62°",
+        "D": "124°"
+      },
+      "answer": "B",
+      "explanation": "∠BAC is an inscribed angle that intercepts arc BC, and an inscribed angle measures half its intercepted arc. So arc BC = 2(28°) = 56°. (Because AB is a diameter, ∠ACB = 90° and ∠ABC = 62°, which intercepts arc AC = 124°; the arcs BC and AC together make the 180° semicircle.)",
+      "distractors": {
+        "A": {
+          "rationale": "28° is the inscribed angle itself; the intercepted arc is twice as large.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "62° is the measure of ∠ABC, an angle, not arc BC.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "124° is arc AC, the arc intercepted by ∠ABC, not arc BC.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Which arc does ∠BAC intercept?",
+        "How does an inscribed angle compare with its intercepted arc?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle with diameter AB and point C; the angle at A opens onto arc BC, so double 28°."
+      },
+      "remember": "Inscribed angle = half its intercepted arc.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "figure": null,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B007-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Mean, median and mode constraints",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "A list of 5 positive integers has a median of 8, a mean of 7, and a mode of 10. No other value appears in the list as often as 10 does. How many different lists of 5 numbers, written in order from least to greatest, satisfy all of these conditions?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "answer": "B",
+      "explanation": "In order, the list is a, b, 8, d, e. The mode 10 must appear at least twice, and it must be greater than the median, so d = e = 10. The sum is 5 × 7 = 35, so a + b = 35 − 8 − 20 = 7. If a = b, or if b = 8, another value would appear twice and tie with 10, so a < b ≤ 7 with a ≥ 1. The pairs (1, 6), (2, 5) and (3, 4) work, giving 3 lists.",
+      "distractors": {
+        "A": {
+          "rationale": "This misses one valid pair, typically (1, 6) or (3, 4).",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This also counts (0, 7), but the numbers must be positive integers.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This counts ordered pairs such as (1, 6) and (6, 1) separately, but the list is written in increasing order.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Where in the ordered list must the two 10s go?",
+        "Use the mean to find the sum of the two smallest numbers, then check the mode condition."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write five blanks: _, _, 8, 10, 10. The first two sum to 7, must differ, and must be positive."
+      },
+      "remember": "Sum = mean × count; a unique mode cannot be tied.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "four interacting constraints; the unique-mode condition rules out ties"
+      }
+    },
+    {
+      "cand": "B007-09",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Area with unit conversion",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "A rectangular lawn measures 30 feet by 45 feet. It will be covered completely with sod sold in rolls that each cover 10 square yards. What is the least number of rolls needed? (1 yard = 3 feet)",
+      "choices": {
+        "A": "15",
+        "B": "45",
+        "C": "135",
+        "D": "405"
+      },
+      "answer": "A",
+      "explanation": "The lawn's area is 30 × 45 = 1,350 square feet. One square yard is 3 × 3 = 9 square feet, so the lawn is 1,350 ÷ 9 = 150 square yards. At 10 square yards per roll, 15 rolls are needed.",
+      "distractors": {
+        "B": {
+          "rationale": "This divides the square feet by 3 instead of 9; a square yard is 3 feet by 3 feet.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This ignores the unit conversion and divides 1,350 square feet by 10.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This multiplies by 3 instead of dividing when converting, then divides by 10.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the area in square feet first.",
+        "How many square feet are in one square yard?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the sides first: 10 yd by 15 yd = 150 square yards; 150 ÷ 10 = 15."
+      },
+      "remember": "Square units convert by the square of the length factor.",
+      "expected_time_seconds": 55,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B007-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Average speed over unequal times",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "A cyclist rides 12 kilometers up a hill at an average speed of 8 kilometers per hour and then rides the same 12 kilometers back down at an average speed of 24 kilometers per hour. What is the cyclist's average speed, in kilometers per hour, for the entire 24-kilometer trip?",
+      "choices": {
+        "A": "6",
+        "B": "12",
+        "C": "16",
+        "D": "32"
+      },
+      "answer": "B",
+      "explanation": "Average speed = total distance ÷ total time. Uphill takes 12 ÷ 8 = 1.5 hours, and downhill takes 12 ÷ 24 = 0.5 hour. The total time is 2 hours for 24 kilometers, so the average speed is 12 kilometers per hour.",
+      "distractors": {
+        "A": {
+          "rationale": "6 divides only one leg's distance, 12 km, by the total time of 2 hours.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "16 is the plain average of 8 and 24, which would be right only if equal TIME were spent at each speed; more time is spent at the slower speed.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This adds the two speeds; speeds on separate legs do not add.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Average speed is total distance divided by total time.",
+        "Find how long each leg takes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Times: 1.5 h and 0.5 h. 24 km ÷ 2 h = 12 km/h."
+      },
+      "remember": "Average speed = total distance ÷ total time, not the average of speeds.",
+      "expected_time_seconds": 60,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "strong trap (16); the correct value equals the slower-weighted harmonic mean"
+      }
+    }
+  ]
+}

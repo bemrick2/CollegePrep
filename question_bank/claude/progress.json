@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:03:49+00:00",
+  "updated_at": "2026-10-26T18:11:01+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 48,
+    "act_math": 58,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 48,
+      "PASS": 58,
       "REVISE": 0,
       "REJECT": 2,
-      "candidates": 50,
+      "candidates": 60,
       "passed_after_revision": 0
     },
     "act_english": {
@@ -52,16 +52,17 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 48,
+      "accepted": 58,
       "by_skill": {
-        "Algebra": 8,
-        "Functions": 9,
-        "Geometry": 9,
-        "Integrating Essential Skills": 9,
+        "Algebra": 11,
+        "Functions": 11,
+        "Geometry": 11,
+        "Integrating Essential Skills": 11,
         "Number & Quantity": 6,
-        "Statistics & Probability": 7
+        "Statistics & Probability": 8
       },
       "by_subskill": {
+        "Algebraic identities (square of a sum)": 1,
         "Arc length and sector area": 1,
         "Area of an equilateral triangle": 1,
         "Average rate of change": 1,
@@ -77,9 +78,11 @@
         "Exponential equations with a common base": 1,
         "Exponential growth models and logarithms": 1,
         "Function composition": 1,
+        "Geometric probability": 1,
         "Inscribed figures: composite area": 1,
         "Least common multiple in context": 1,
         "Linear equations with fractions": 1,
+        "Linear equations with integer constraints": 1,
         "Linear function from a table": 1,
         "Linear inequalities in context": 1,
         "Logarithm properties": 1,
@@ -87,23 +90,30 @@
         "Median from a frequency table": 1,
         "Mixture problems": 1,
         "Multi-part rate and cost": 1,
+        "Opposing rates (fill and drain)": 1,
         "Period of a trigonometric function": 1,
         "Perpendicular lines in the coordinate plane": 1,
         "Probability of 'at least one' with combinations": 1,
         "Quadratic equations: solutions": 1,
         "Quadratic functions from key features": 1,
+        "Quadratic inequalities in context": 1,
         "Radical equations and extraneous solutions": 1,
         "Rational equations and extraneous solutions": 1,
         "Rational exponents": 1,
+        "Ratios that change": 1,
+        "Recursively defined functions": 1,
         "Reverse percent (finding the original)": 1,
+        "Right-triangle trigonometry in context": 1,
         "Scale drawings and proportions": 1,
         "Scientific notation operations": 1,
         "Similar solids: area and volume ratios": 1,
         "Similar triangles: area ratios": 1,
+        "Simplifying rational expressions": 1,
         "Successive percent change": 1,
         "Surface area with whole-unit purchase": 1,
         "Systems of linear equations in context": 1,
         "Systems of linear equations: number of solutions": 1,
+        "Tangent lines and chords": 1,
         "Transformations of functions": 1,
         "Triangle angle sum": 1,
         "Unit price comparison": 1,
@@ -113,26 +123,26 @@
       },
       "by_difficulty_author": {
         "easy": 12,
-        "hard": 12,
-        "medium": 24
+        "hard": 17,
+        "medium": 29
       },
       "by_difficulty_calibrated": {
-        "easy": 14,
-        "hard": 9,
-        "medium": 25
+        "easy": 15,
+        "hard": 10,
+        "medium": 33
       },
       "calibrated_share": {
-        "easy": 0.292,
-        "hard": 0.188,
-        "medium": 0.521
+        "easy": 0.259,
+        "hard": 0.172,
+        "medium": 0.569
       },
       "answer_key_balance": {
         "A": 11,
-        "B": 17,
-        "C": 13,
-        "D": 7
+        "B": 20,
+        "C": 17,
+        "D": 10
       },
-      "modeling_items": 16,
+      "modeling_items": 21,
       "passages": 0
     },
     "act_english": {
@@ -170,47 +180,48 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 5,
+    "act_math": 6,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 6,
+      "next_batch": 7,
       "underrepresented_skills_vs_blueprint": [
-        "Algebra",
         "Integrating Essential Skills",
+        "Algebra",
         "Functions",
         "Geometry",
+        "Number & Quantity",
         "Statistics & Probability"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 0.4,
-        "Algebra": 2.7,
-        "Functions": 1.7,
-        "Geometry": 1.7,
-        "Statistics & Probability": 0.8,
+        "Number & Quantity": 1.5,
+        "Algebra": 1.6,
+        "Functions": 1.6,
+        "Geometry": 1.6,
+        "Statistics & Probability": 1.2,
         "Integrating Essential Skills": 2.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 0.5,
-        "medium": 4.0,
-        "hard": 5.5
+        "easy": 2.0,
+        "medium": 1.0,
+        "hard": 7.0
       },
       "answer_key_gap_for_next_10": {
-        "A": 3.5,
-        "B": -2.5,
-        "C": 1.5,
-        "D": 7.5
+        "A": 6.0,
+        "B": -3.0,
+        "C": 0.0,
+        "D": 7.0
       }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 48,
-      "share_of_target": 0.024
+      "accepted": 58,
+      "share_of_target": 0.029
     },
     "act_english": {
       "target": 700,
@@ -229,7 +240,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 48,
+  "total_accepted": 58,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -272,7 +283,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 5,
+      "bank_version": 6,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -316,7 +327,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:03:49+00:00",
+    "heartbeat_at": "2026-10-26T18:11:01+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

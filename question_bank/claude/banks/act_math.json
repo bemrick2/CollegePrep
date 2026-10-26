@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 5,
-  "updated_at": "2026-10-26T17:48:56+00:00",
+  "version": 6,
+  "updated_at": "2026-10-26T18:10:38+00:00",
   "passages": [],
   "questions": [
     {
@@ -3182,6 +3182,698 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-005.review.json",
         "computation": "checks/act_math/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000049",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Algebraic identities (square of a sum)",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "If x + 1/x = 5, what is the value of x² + 1/x² ?",
+      "choices": {
+        "A": "10",
+        "B": "21",
+        "C": "23",
+        "D": "25"
+      },
+      "correct_answer": "C",
+      "explanation": "Square both sides of x + 1/x = 5: (x + 1/x)² = x² + 2·x·(1/x) + 1/x² = x² + 2 + 1/x² = 25. So x² + 1/x² = 25 − 2 = 23. There is no need to find x.",
+      "distractor_explanations": {
+        "A": "This doubles 5, as if squaring the expression meant multiplying it by 2.",
+        "B": "This subtracts 2² = 4 instead of the middle term 2·x·(1/x) = 2.",
+        "D": "This squares each term separately and forgets the middle term: (a + b)² is not a² + b²."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Instead of solving for x, try squaring both sides of the given equation.",
+        "What does x · (1/x) equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the given equation; the cross term 2·x·(1/x) is the constant 2, so subtract it from 25."
+      },
+      "remember": "(a + b)² = a² + 2ab + b²; never drop the middle term.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-01",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000050",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear equations with integer constraints",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A store sells pens only in packs of 3 and packs of 5. Jamal bought exactly 31 pens. What is the greatest number of packs Jamal could have bought?",
+      "choices": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10"
+      },
+      "correct_answer": "C",
+      "explanation": "Let t be the number of 3-packs and f the number of 5-packs: 3t + 5f = 31 with t and f whole numbers. Testing f = 0, 1, 2, … gives whole-number t only for f = 2 (t = 7) and f = 5 (t = 2). These are 9 packs and 7 packs, so the greatest possible number is 9.",
+      "distractor_explanations": {
+        "A": "7 packs (2 threes and 5 fives) is the other way to buy 31 pens; it is the least number of packs, not the greatest.",
+        "B": "8 packs would need 3t + 5f = 31 with t + f = 8, which gives f = 3.5, not a whole number.",
+        "D": "31 ÷ 3 ≈ 10.3 suggests 10 packs, but 10 packs hold an even number of extra pens over 30 (30 + 2f), never exactly 31."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write an equation using the number of each kind of pack, and remember both numbers must be whole numbers.",
+        "To get the most packs, use as many of the smaller packs as possible; check which counts of 5-packs work."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Start with the largest choice. 10 packs: 30 + 2f = 31, no. 9 packs: 27 + 2f = 31, so f = 2 and t = 7. It works."
+      },
+      "remember": "Counts of items must be whole numbers; test the possibilities.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-02",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000051",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Simplifying rational expressions",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "For all values of x for which the expression is defined, (x² − 9)/(x² + x − 6) is equivalent to which of the following?",
+      "choices": {
+        "A": "3/2",
+        "B": "(x + 3)/(x + 2)",
+        "C": "(x − 3)/(x + 2)",
+        "D": "(x − 3)/(x − 2)"
+      },
+      "correct_answer": "D",
+      "explanation": "Factor both parts: x² − 9 = (x − 3)(x + 3) and x² + x − 6 = (x + 3)(x − 2). Cancel the common factor (x + 3) to get (x − 3)/(x − 2).",
+      "distractor_explanations": {
+        "A": "This cancels the x² terms and the x term as if they were factors, leaving −9/−6 = 3/2. Only common factors can be cancelled.",
+        "B": "This factors the denominator as (x − 3)(x + 2), which is x² − x − 6, and then cancels x − 3.",
+        "C": "This cancels x + 3 correctly but writes the remaining denominator factor as x + 2 instead of x − 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": "sign_error"
+      },
+      "hints": [
+        "Factor the numerator and the denominator completely.",
+        "You may cancel only a factor that appears in both."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 0: the original is −9/−6 = 3/2, and only (x − 3)/(x − 2) also gives 3/2 at x = 0. Check x = 1 to rule out the constant 3/2: the original gives −8/−4 = 2."
+      },
+      "remember": "Cancel factors, never terms.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-03",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000052",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Recursively defined functions",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A function f is defined for all nonnegative integers n by f(0) = 3 and f(n + 1) = 2f(n) − 1. What is the value of f(4) ?",
+      "choices": {
+        "A": "9",
+        "B": "17",
+        "C": "31",
+        "D": "33"
+      },
+      "correct_answer": "D",
+      "explanation": "Apply the rule one step at a time: f(1) = 2(3) − 1 = 5, f(2) = 2(5) − 1 = 9, f(3) = 2(9) − 1 = 17, f(4) = 2(17) − 1 = 33.",
+      "distractor_explanations": {
+        "A": "9 is f(2); two more steps are needed.",
+        "B": "17 is f(3); the rule must be applied once more.",
+        "C": "This guesses the pattern f(n) = 2^(n + 1) − 1, which would make f(0) = 1, not 3."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Use f(0) to find f(1), then f(1) to find f(2), and so on.",
+        "Count how many times you apply the rule to get from f(0) to f(4)."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Build the list 3, 5, 9, 17, 33; each term is one less than double the previous one."
+      },
+      "remember": "Recursive rules: apply them one step at a time.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-04",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000053",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Quadratic inequalities in context",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A ball is thrown upward from a balcony. Its height above the ground, in meters, t seconds after it is thrown is modeled by h(t) = −5t² + 20t + 1.75. According to the model, for how many seconds is the ball more than 16.75 meters above the ground?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "explanation": "Solve h(t) > 16.75: −5t² + 20t + 1.75 > 16.75 gives −5t² + 20t − 15 > 0. Dividing by −5 reverses the inequality: t² − 4t + 3 < 0, or (t − 1)(t − 3) < 0, so 1 < t < 3. The ball is above 16.75 meters from t = 1 to t = 3, a span of 2 seconds.",
+      "distractor_explanations": {
+        "A": "1 is the time when the ball first reaches 16.75 meters, not how long it stays above that height.",
+        "C": "3 is the time when the ball comes back down to 16.75 meters; the interval starts at t = 1, not t = 0.",
+        "D": "4 is when the ball returns to its starting height of 1.75 meters (−5t² + 20t = 0), which answers a different question."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Set up an inequality and move everything to one side.",
+        "Find the two times when the height is exactly 16.75 meters; the answer is the length of time between them."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite as t² − 4t + 3 < 0, factor to (t − 1)(t − 3) < 0, and subtract the endpoints: 3 − 1 = 2."
+      },
+      "remember": "Duration above a height = difference between the two crossing times.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-05",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 48,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000054",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Tangent lines and chords",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": {
+        "description": "Circle with center O, radius 5; external point P with OP = 13; tangent segments PT and PS; chord TS. Not needed to solve; for production only."
+      },
+      "stem": "Point P is 13 units from the center O of a circle that has a radius of 5 units. The two lines through P that are tangent to the circle touch the circle at points T and S. What is the length, in units, of segment TS ?",
+      "choices": {
+        "A": "60/13",
+        "B": "120/13",
+        "C": "10",
+        "D": "12"
+      },
+      "correct_answer": "B",
+      "explanation": "A tangent is perpendicular to the radius at the point of tangency, so triangle OTP has a right angle at T, with OT = 5 and OP = 13; then PT = 12. By symmetry, segment OP is the perpendicular bisector of TS, so half of TS is the altitude from T to the hypotenuse OP. That altitude is (OT · PT)/OP = (5 · 12)/13 = 60/13. So TS = 2(60/13) = 120/13 ≈ 9.2.",
+      "distractor_explanations": {
+        "A": "60/13 is the distance from T to line OP, which is only half of TS.",
+        "C": "10 is the circle's diameter; T and S lie on the side of the circle facing P, so TS is a shorter chord, not a diameter.",
+        "D": "12 is the length of a tangent segment, PT, not the chord TS."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What angle does a tangent line make with the radius drawn to the point of tangency?",
+        "Segment OP cuts TS in half at a right angle; half of TS is an altitude of a right triangle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw OT ⟂ PT, find PT = 12 from the 5-12-13 triangle, then use area two ways: (1/2)(5)(12) = (1/2)(13)h, so h = 60/13 and TS = 2h."
+      },
+      "remember": "Tangent ⟂ radius; altitude to hypotenuse = (leg · leg) ÷ hypotenuse.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-06",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000055",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Right-triangle trigonometry in context",
+      "modeling": true,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A wheelchair ramp makes a 6° angle with the level ground and rises a vertical distance of 1.2 meters from bottom to top. Which of the following expressions gives the length, in meters, of the ramp's sloped surface?",
+      "choices": {
+        "A": "1.2 sin 6°",
+        "B": "1.2 cos 6°",
+        "C": "1.2 / tan 6°",
+        "D": "1.2 / sin 6°"
+      },
+      "correct_answer": "D",
+      "explanation": "The ramp's surface is the hypotenuse L of a right triangle whose side opposite the 6° angle is the rise, 1.2 m. So sin 6° = 1.2/L, and L = 1.2/sin 6° ≈ 11.5 meters.",
+      "distractor_explanations": {
+        "A": "This multiplies by sin 6° instead of dividing, giving about 0.13 m, far shorter than the rise itself.",
+        "B": "Cosine relates the hypotenuse to the horizontal side, not to the rise, and the rise is not the hypotenuse.",
+        "C": "1.2 / tan 6° is the horizontal run along the ground, not the sloped length."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Sketch the right triangle: which side is the rise, and which side is the ramp?",
+        "Which trigonometric ratio connects the opposite side and the hypotenuse?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the 1.2 m rise as opposite the 6° angle and the ramp as the hypotenuse; SOH gives L = 1.2 / sin 6°."
+      },
+      "remember": "SOH: sine = opposite ÷ hypotenuse.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-07",
+      "created_at": "2026-10-26T18:10:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000056",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Geometric probability",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A point is selected at random from the interior of a square with side length 10 centimeters. What is the probability that the point is within 2 centimeters of at least one side of the square?",
+      "choices": {
+        "A": "9/25",
+        "B": "2/5",
+        "C": "16/25",
+        "D": "4/5"
+      },
+      "correct_answer": "C",
+      "explanation": "The points that are more than 2 cm from every side form a smaller square in the middle with side 10 − 2 − 2 = 6 cm and area 36 cm². Everything else in the 100 cm² square is within 2 cm of some side: 100 − 36 = 64 cm². The probability is 64/100 = 16/25.",
+      "distractor_explanations": {
+        "A": "9/25 = 36/100 is the probability of landing in the inner square, the complement of the event asked about.",
+        "B": "This treats the problem in one dimension, 2 cm at each end of a 10 cm side: 4/10 = 2/5.",
+        "D": "This adds four 2-by-10 strips (80 cm²) and counts each 2-by-2 corner region twice."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Describe the region of points that are NOT within 2 cm of any side.",
+        "Find that region's area and subtract it from the whole square."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the 6-by-6 inner square; the border region is 100 − 36 = 64, avoiding double-counting the corners."
+      },
+      "remember": "Geometric probability = favorable area ÷ total area; complements avoid double counting.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-08",
+      "created_at": "2026-10-26T18:10:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000057",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Opposing rates (fill and drain)",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "An inflow pipe can fill an empty tank in 6 hours, and a drain can empty a full tank in 9 hours. The tank is currently 1/3 full. If the inflow pipe and the drain are both open, how many hours will it take for the tank to become completely full?",
+      "choices": {
+        "A": "3.6",
+        "B": "4",
+        "C": "12",
+        "D": "18"
+      },
+      "correct_answer": "C",
+      "explanation": "The pipe adds 1/6 of a tank per hour and the drain removes 1/9 of a tank per hour, a net gain of 1/6 − 1/9 = 3/18 − 2/18 = 1/18 tank per hour. The tank needs 1 − 1/3 = 2/3 more tank, which takes (2/3) ÷ (1/18) = 12 hours.",
+      "distractor_explanations": {
+        "A": "This adds the two rates (1/6 + 1/9 = 5/18) and fills a whole tank: 18/5 = 3.6. The drain works against the pipe.",
+        "B": "This ignores the drain: 2/3 of a tank at 1/6 tank per hour takes 4 hours.",
+        "D": "18 hours fills an empty tank at the net rate; the tank is already 1/3 full."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Write each rate as a fraction of the tank per hour.",
+        "The drain's rate works against the pipe's rate, and the tank does not start empty."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Net rate 1/6 − 1/9 = 1/18 tank per hour; remaining 2/3 tank ÷ 1/18 = 12 hours."
+      },
+      "remember": "Opposing rates subtract; then account for the starting amount.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-09",
+      "created_at": "2026-10-26T18:10:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000058",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Ratios that change",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "In a club, the ratio of boys to girls is 3:5. After 6 more boys join the club and no members leave, the club has the same number of boys as girls. How many members did the club have before the 6 boys joined?",
+      "choices": {
+        "A": "15",
+        "B": "24",
+        "C": "30",
+        "D": "48"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the club have 3k boys and 5k girls. After 6 boys join, 3k + 6 = 5k, so 2k = 6 and k = 3. Originally there were 9 boys and 15 girls, or 24 members.",
+      "distractor_explanations": {
+        "A": "15 is the number of girls, not the total membership.",
+        "C": "30 is the membership after the 6 boys join.",
+        "D": "This treats the 6 new boys as one ratio part (k = 6) instead of the 2-part gap between 3 and 5."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Write the numbers of boys and girls using a single multiplier k.",
+        "Which part of the ratio do the 6 new boys make up?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 24: 9 boys and 15 girls (3:5); adding 6 boys gives 15 and 15. It works."
+      },
+      "remember": "Ratios: write each quantity as a multiple of one unknown.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "B006-10",
+      "created_at": "2026-10-26T18:10:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-006.review.json",
+        "computation": "checks/act_math/batch_006.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

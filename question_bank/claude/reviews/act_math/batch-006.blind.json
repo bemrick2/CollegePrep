@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 6},
+ "answers": {
+  "B006-01": {"answer": "C", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "(x+1/x)^2 = x^2+2+1/x^2 = 25, so 23. Trap D (25) from squaring the 5 without removing the cross term."},
+  "B006-02": {"answer": "C", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "3a+5b=31: (a,b)=(7,2) gives 9 packs, (2,5) gives 7. The most packs comes from using as many 3-packs as possible, so 9. A (7) is the minimum."},
+  "B006-03": {"answer": "D", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "(x-3)(x+3)/((x+3)(x-2)) = (x-3)/(x-2). Two factorings and one cancellation."},
+  "B006-04": {"answer": "D", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "f(1)=5, f(2)=9, f(3)=17, f(4)=33. Routine iteration. Traps: 17 (stopping one step early) and 31."},
+  "B006-05": {"answer": "B", "confidence": "high", "est_pct_correct": 48, "difficulty_opinion": "medium", "flags": [], "notes": "-5t^2+20t+1.75>16.75 gives t^2-4t+3<0, so 1<t<3, which is 2 seconds. Students who report a root (1 or 3) choose a distractor."},
+  "B006-06": {"answer": "B", "confidence": "high", "est_pct_correct": 30, "difficulty_opinion": "hard", "flags": [], "notes": "PT=12 (5-12-13). Half-chord = 5*12/13 = 60/13, so TS = 120/13. Needs the non-obvious step of using the altitude to the hypotenuse. Trap A (60/13) is the half-chord."},
+  "B006-07": {"answer": "D", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "The sloped surface is the hypotenuse and 1.2 is the side opposite the angle, so L = 1.2/sin 6 deg. C gives the horizontal run. One SOH-CAH-TOA step, but choosing the ratio trips some students (borderline easy)."},
+  "B006-08": {"answer": "C", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "The region within 2 of no side is a 6x6 square (36), so P = 1 - 36/100 = 16/25. Trap A (9/25) is the complement, and an 8x8 inner square leads to a wrong value."},
+  "B006-09": {"answer": "C", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "Net rate 1/6-1/9 = 1/18 tank per hour; 2/3 of the tank remains, so 12 hours. Trap D (18) fills from empty; A (3.6) adds the rates."},
+  "B006-10": {"answer": "B", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "3k+6=5k gives k=3, so 9 boys + 15 girls = 24. Trap C (30) is the total after the boys join."}
+ }}

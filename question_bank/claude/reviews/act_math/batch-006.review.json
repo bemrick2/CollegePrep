@@ -1,0 +1,258 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 6,
+  "reviewed_at": "2026-10-26T18:10:38+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 6
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000049",
+    "CLD-ACT-M-000050",
+    "CLD-ACT-M-000051",
+    "CLD-ACT-M-000052",
+    "CLD-ACT-M-000053",
+    "CLD-ACT-M-000054",
+    "CLD-ACT-M-000055",
+    "CLD-ACT-M-000056",
+    "CLD-ACT-M-000057",
+    "CLD-ACT-M-000058"
+  ],
+  "results": [
+    {
+      "cand": "B006-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(x+1/x)^2 = x^2+2+1/x^2 = 25, so 23. Trap D (25) from squaring the 5 without removing the cross term.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "requires the insight to square rather than solve; the obvious wrong path (25) is tempting",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000049"
+    },
+    {
+      "cand": "B006-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "3a+5b=31: (a,b)=(7,2) gives 9 packs, (2,5) gives 7. The most packs comes from using as many 3-packs as possible, so 9. A (7) is the minimum.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "integer constraint must be recognized; the obvious 31/3 path is wrong"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000050"
+    },
+    {
+      "cand": "B006-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "(x-3)(x+3)/((x+3)(x-2)) = (x-3)/(x-2). Two factorings and one cancellation.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "at x = 0 choice A also equals 3/2; strategy explanation tells students to test a second value"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000051"
+    },
+    {
+      "cand": "B006-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "f(1)=5, f(2)=9, f(3)=17, f(4)=33. Routine iteration. Traps: 17 (stopping one step early) and 31.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000052"
+    },
+    {
+      "cand": "B006-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 48,
+      "blind_flags": [],
+      "blind_notes": "-5t^2+20t+1.75>16.75 gives t^2-4t+3<0, so 1<t<3, which is 2 seconds. Students who report a root (1 or 3) choose a distractor.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "revision_note": "rewritten before review: first draft shared the parabola-symmetry setup of CLD-ACT-M-000022",
+        "hardness": "modeling, inequality-direction flip on dividing by a negative, and the answer is a duration, not a root"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000053"
+    },
+    {
+      "cand": "B006-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "PT=12 (5-12-13). Half-chord = 5*12/13 = 60/13, so TS = 120/13. Needs the non-obvious step of using the altitude to the hypotenuse. Trap A (60/13) is the half-chord.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "needs tangent-radius perpendicularity plus the perpendicular-bisector and altitude insight"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000054"
+    },
+    {
+      "cand": "B006-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "The sloped surface is the hypotenuse and 1.2 is the side opposite the angle, so L = 1.2/sin 6 deg. C gives the horizontal run. One SOH-CAH-TOA step, but choosing the ratio trips some students (borderline easy).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000055"
+    },
+    {
+      "cand": "B006-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "The region within 2 of no side is a 6x6 square (36), so P = 1 - 36/100 = 16/25. Trap A (9/25) is the complement, and an 8x8 inner square leads to a wrong value.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "complement insight; the four-strip approach double counts corners"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000056"
+    },
+    {
+      "cand": "B006-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Net rate 1/6-1/9 = 1/18 tank per hour; 2/3 of the tank remains, so 12 hours. Trap D (18) fills from empty; A (3.6) adds the rates.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000057"
+    },
+    {
+      "cand": "B006-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "3k+6=5k gives k=3, so 9 boys + 15 girls = 24. Trap C (30) is the total after the boys join.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000058"
+    }
+  ]
+}

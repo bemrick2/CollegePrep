@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 5,
+  "bank_version": 6,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -864,6 +864,186 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Gallons = 300/30 + 120/20 = 16; multiply by $3.60."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000049",
+      "correct_answer": "C",
+      "explanation": "Square both sides of x + 1/x = 5: (x + 1/x)² = x² + 2·x·(1/x) + 1/x² = x² + 2 + 1/x² = 25. So x² + 1/x² = 25 − 2 = 23. There is no need to find x.",
+      "distractor_explanations": {
+        "A": "This doubles 5, as if squaring the expression meant multiplying it by 2.",
+        "B": "This subtracts 2² = 4 instead of the middle term 2·x·(1/x) = 2.",
+        "D": "This squares each term separately and forgets the middle term: (a + b)² is not a² + b²."
+      },
+      "hints": [
+        "Instead of solving for x, try squaring both sides of the given equation.",
+        "What does x · (1/x) equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the given equation; the cross term 2·x·(1/x) is the constant 2, so subtract it from 25."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000050",
+      "correct_answer": "C",
+      "explanation": "Let t be the number of 3-packs and f the number of 5-packs: 3t + 5f = 31 with t and f whole numbers. Testing f = 0, 1, 2, … gives whole-number t only for f = 2 (t = 7) and f = 5 (t = 2). These are 9 packs and 7 packs, so the greatest possible number is 9.",
+      "distractor_explanations": {
+        "A": "7 packs (2 threes and 5 fives) is the other way to buy 31 pens; it is the least number of packs, not the greatest.",
+        "B": "8 packs would need 3t + 5f = 31 with t + f = 8, which gives f = 3.5, not a whole number.",
+        "D": "31 ÷ 3 ≈ 10.3 suggests 10 packs, but 10 packs hold an even number of extra pens over 30 (30 + 2f), never exactly 31."
+      },
+      "hints": [
+        "Write an equation using the number of each kind of pack, and remember both numbers must be whole numbers.",
+        "To get the most packs, use as many of the smaller packs as possible; check which counts of 5-packs work."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Start with the largest choice. 10 packs: 30 + 2f = 31, no. 9 packs: 27 + 2f = 31, so f = 2 and t = 7. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000051",
+      "correct_answer": "D",
+      "explanation": "Factor both parts: x² − 9 = (x − 3)(x + 3) and x² + x − 6 = (x + 3)(x − 2). Cancel the common factor (x + 3) to get (x − 3)/(x − 2).",
+      "distractor_explanations": {
+        "A": "This cancels the x² terms and the x term as if they were factors, leaving −9/−6 = 3/2. Only common factors can be cancelled.",
+        "B": "This factors the denominator as (x − 3)(x + 2), which is x² − x − 6, and then cancels x − 3.",
+        "C": "This cancels x + 3 correctly but writes the remaining denominator factor as x + 2 instead of x − 2."
+      },
+      "hints": [
+        "Factor the numerator and the denominator completely.",
+        "You may cancel only a factor that appears in both."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 0: the original is −9/−6 = 3/2, and only (x − 3)/(x − 2) also gives 3/2 at x = 0. Check x = 1 to rule out the constant 3/2: the original gives −8/−4 = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000052",
+      "correct_answer": "D",
+      "explanation": "Apply the rule one step at a time: f(1) = 2(3) − 1 = 5, f(2) = 2(5) − 1 = 9, f(3) = 2(9) − 1 = 17, f(4) = 2(17) − 1 = 33.",
+      "distractor_explanations": {
+        "A": "9 is f(2); two more steps are needed.",
+        "B": "17 is f(3); the rule must be applied once more.",
+        "C": "This guesses the pattern f(n) = 2^(n + 1) − 1, which would make f(0) = 1, not 3."
+      },
+      "hints": [
+        "Use f(0) to find f(1), then f(1) to find f(2), and so on.",
+        "Count how many times you apply the rule to get from f(0) to f(4)."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Build the list 3, 5, 9, 17, 33; each term is one less than double the previous one."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000053",
+      "correct_answer": "B",
+      "explanation": "Solve h(t) > 16.75: −5t² + 20t + 1.75 > 16.75 gives −5t² + 20t − 15 > 0. Dividing by −5 reverses the inequality: t² − 4t + 3 < 0, or (t − 1)(t − 3) < 0, so 1 < t < 3. The ball is above 16.75 meters from t = 1 to t = 3, a span of 2 seconds.",
+      "distractor_explanations": {
+        "A": "1 is the time when the ball first reaches 16.75 meters, not how long it stays above that height.",
+        "C": "3 is the time when the ball comes back down to 16.75 meters; the interval starts at t = 1, not t = 0.",
+        "D": "4 is when the ball returns to its starting height of 1.75 meters (−5t² + 20t = 0), which answers a different question."
+      },
+      "hints": [
+        "Set up an inequality and move everything to one side.",
+        "Find the two times when the height is exactly 16.75 meters; the answer is the length of time between them."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite as t² − 4t + 3 < 0, factor to (t − 1)(t − 3) < 0, and subtract the endpoints: 3 − 1 = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000054",
+      "correct_answer": "B",
+      "explanation": "A tangent is perpendicular to the radius at the point of tangency, so triangle OTP has a right angle at T, with OT = 5 and OP = 13; then PT = 12. By symmetry, segment OP is the perpendicular bisector of TS, so half of TS is the altitude from T to the hypotenuse OP. That altitude is (OT · PT)/OP = (5 · 12)/13 = 60/13. So TS = 2(60/13) = 120/13 ≈ 9.2.",
+      "distractor_explanations": {
+        "A": "60/13 is the distance from T to line OP, which is only half of TS.",
+        "C": "10 is the circle's diameter; T and S lie on the side of the circle facing P, so TS is a shorter chord, not a diameter.",
+        "D": "12 is the length of a tangent segment, PT, not the chord TS."
+      },
+      "hints": [
+        "What angle does a tangent line make with the radius drawn to the point of tangency?",
+        "Segment OP cuts TS in half at a right angle; half of TS is an altitude of a right triangle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw OT ⟂ PT, find PT = 12 from the 5-12-13 triangle, then use area two ways: (1/2)(5)(12) = (1/2)(13)h, so h = 60/13 and TS = 2h."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000055",
+      "correct_answer": "D",
+      "explanation": "The ramp's surface is the hypotenuse L of a right triangle whose side opposite the 6° angle is the rise, 1.2 m. So sin 6° = 1.2/L, and L = 1.2/sin 6° ≈ 11.5 meters.",
+      "distractor_explanations": {
+        "A": "This multiplies by sin 6° instead of dividing, giving about 0.13 m, far shorter than the rise itself.",
+        "B": "Cosine relates the hypotenuse to the horizontal side, not to the rise, and the rise is not the hypotenuse.",
+        "C": "1.2 / tan 6° is the horizontal run along the ground, not the sloped length."
+      },
+      "hints": [
+        "Sketch the right triangle: which side is the rise, and which side is the ramp?",
+        "Which trigonometric ratio connects the opposite side and the hypotenuse?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the 1.2 m rise as opposite the 6° angle and the ramp as the hypotenuse; SOH gives L = 1.2 / sin 6°."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000056",
+      "correct_answer": "C",
+      "explanation": "The points that are more than 2 cm from every side form a smaller square in the middle with side 10 − 2 − 2 = 6 cm and area 36 cm². Everything else in the 100 cm² square is within 2 cm of some side: 100 − 36 = 64 cm². The probability is 64/100 = 16/25.",
+      "distractor_explanations": {
+        "A": "9/25 = 36/100 is the probability of landing in the inner square, the complement of the event asked about.",
+        "B": "This treats the problem in one dimension, 2 cm at each end of a 10 cm side: 4/10 = 2/5.",
+        "D": "This adds four 2-by-10 strips (80 cm²) and counts each 2-by-2 corner region twice."
+      },
+      "hints": [
+        "Describe the region of points that are NOT within 2 cm of any side.",
+        "Find that region's area and subtract it from the whole square."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the 6-by-6 inner square; the border region is 100 − 36 = 64, avoiding double-counting the corners."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000057",
+      "correct_answer": "C",
+      "explanation": "The pipe adds 1/6 of a tank per hour and the drain removes 1/9 of a tank per hour, a net gain of 1/6 − 1/9 = 3/18 − 2/18 = 1/18 tank per hour. The tank needs 1 − 1/3 = 2/3 more tank, which takes (2/3) ÷ (1/18) = 12 hours.",
+      "distractor_explanations": {
+        "A": "This adds the two rates (1/6 + 1/9 = 5/18) and fills a whole tank: 18/5 = 3.6. The drain works against the pipe.",
+        "B": "This ignores the drain: 2/3 of a tank at 1/6 tank per hour takes 4 hours.",
+        "D": "18 hours fills an empty tank at the net rate; the tank is already 1/3 full."
+      },
+      "hints": [
+        "Write each rate as a fraction of the tank per hour.",
+        "The drain's rate works against the pipe's rate, and the tank does not start empty."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Net rate 1/6 − 1/9 = 1/18 tank per hour; remaining 2/3 tank ÷ 1/18 = 12 hours."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000058",
+      "correct_answer": "B",
+      "explanation": "Let the club have 3k boys and 5k girls. After 6 boys join, 3k + 6 = 5k, so 2k = 6 and k = 3. Originally there were 9 boys and 15 girls, or 24 members.",
+      "distractor_explanations": {
+        "A": "15 is the number of girls, not the total membership.",
+        "C": "30 is the membership after the 6 boys join.",
+        "D": "This treats the 6 new boys as one ratio part (k = 6) instead of the 2-part gap between 3 and 5."
+      },
+      "hints": [
+        "Write the numbers of boys and girls using a single multiplier k.",
+        "Which part of the ratio do the 6 new boys make up?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 24: 9 boys and 15 girls (3:5); adding 6 boys gives 15 and 15. It works."
       }
     }
   ]
