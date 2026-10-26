@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 25,
+  "bank_version": 26,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -4344,6 +4344,180 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch y = |x² − 4| and the line y = 3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000249",
+      "correct_answer": "C",
+      "explanation": "The circle has center (0, 0) and radius 5, so 3² + y² = 25 and y = 4. Triangle ABC has base AB = 10 and height 4, so its area is (1/2)(10)(4) = 20.",
+      "distractor_explanations": {
+        "A": "12 uses the legs 3 and 4 from the origin: (1/2)(3)(4) × 2.",
+        "B": "15 uses height 3 (the x-coordinate) instead of 4.",
+        "D": "40 forgets the factor 1/2."
+      },
+      "hints": [
+        "What is the radius of the circle?",
+        "How tall is the triangle above the diameter?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "y = 4; base 10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000250",
+      "correct_answer": "D",
+      "explanation": "16 ≤ 3n − 5 ≤ 31 gives 21 ≤ 3n ≤ 36, so 7 ≤ n ≤ 12. The greatest integer is 12.",
+      "distractor_explanations": {
+        "A": "7 is the least integer value, not the greatest.",
+        "B": "9 solves 3n − 5 = 22 by mistake (31 − 9).",
+        "C": "11 treats \"at most 31\" as a strict inequality."
+      },
+      "hints": [
+        "Write the compound inequality.",
+        "Solve all three parts at once."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "21 ≤ 3n ≤ 36."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000251",
+      "correct_answer": "C",
+      "explanation": "All committees: C(9, 3) = 84. All-teacher committees: C(5, 3) = 10. All-student committees: C(4, 3) = 4. Committees with at least one of each: 84 − 10 − 4 = 70.",
+      "distractor_explanations": {
+        "A": "40 counts only committees with 2 teachers and 1 student, C(5, 2) × C(4, 1).",
+        "B": "64 subtracts the 10 all-teacher committees twice.",
+        "D": "74 removes the all-teacher committees but not the all-student ones."
+      },
+      "hints": [
+        "Count all committees, then remove the ones that fail.",
+        "Which committees lack a teacher or lack a student?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "84 − 10 − 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000252",
+      "correct_answer": "D",
+      "explanation": "Because the period is 5, f(51) = f(51 − 50) = f(1) = 3.",
+      "distractor_explanations": {
+        "A": "−1 is f(2), from an off-by-one remainder.",
+        "B": "0 is f(3).",
+        "C": "2 is f(4)."
+      },
+      "hints": [
+        "Subtract multiples of 5 until the input is between 1 and 5."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "51 = 50 + 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000253",
+      "correct_answer": "A",
+      "explanation": "Reflecting across y = x swaps the coordinates, so P′ = (4, 3). The distance is √((4 − 3)² + (3 − 4)²) = √2.",
+      "distractor_explanations": {
+        "B": "2 adds the coordinate differences instead of using the distance formula.",
+        "C": "5 is the distance from P to the origin.",
+        "D": "7 adds the coordinates of P."
+      },
+      "hints": [
+        "What happens to the coordinates when reflecting across y = x?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "(3, 4) → (4, 3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000254",
+      "correct_answer": "A",
+      "explanation": "√8 · √18 = √144 = 12, and √4 = 2, so the value is 12 / 2 = 6.",
+      "distractor_explanations": {
+        "B": "12 is √8 · √18 before dividing by √4.",
+        "C": "36 divides 144 by 4 without taking the square root.",
+        "D": "72 divides 144 by 2, taking only one square root."
+      },
+      "hints": [
+        "Combine the radicals in the numerator first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "√144 / √4 = 12/2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000255",
+      "correct_answer": "B",
+      "explanation": "By inclusion-exclusion, the number studying at least one language is 15 + 12 + 8 − 5 − 3 − 2 + 1 = 26. So 30 − 26 = 4 study none.",
+      "distractor_explanations": {
+        "A": "1 is the number who study all three.",
+        "C": "6 forgets to add back the 1 student counted in all three overlaps.",
+        "D": "10 never subtracts the pairwise overlaps beyond the first."
+      },
+      "hints": [
+        "Add the three groups, subtract the pairs, add back the triple."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw three overlapping circles and fill from the center."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000256",
+      "correct_answer": "B",
+      "explanation": "Volume = 4 × 5 × 10 = 200 cubic centimeters. Density = 1,560 ÷ 200 = 7.8 grams per cubic centimeter.",
+      "distractor_explanations": {
+        "A": "3.9 doubles the volume to 400.",
+        "C": "15.6 divides by 100, the area of one 10 × 10 face.",
+        "D": "78 divides by 20, the area of the 4 × 5 face."
+      },
+      "hints": [
+        "Find the volume first.",
+        "Density is mass divided by volume."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1560 ÷ 200."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000257",
+      "correct_answer": "D",
+      "explanation": "The triangles are similar, so height/shadow is the same: 6/4 = h/30, giving h = 45.",
+      "distractor_explanations": {
+        "A": "20 inverts the ratio: 30 × 4/6.",
+        "B": "24 multiplies the person's height by the person's shadow.",
+        "C": "36 adds 6 to 30."
+      },
+      "hints": [
+        "Set up height/shadow for both."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "6/4 = h/30."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000258",
+      "correct_answer": "C",
+      "explanation": "(3/5)(2/4)(2/3) = 12/60 = 1/5.",
+      "distractor_explanations": {
+        "A": "1/10 forgets that one red was removed: (3/5)(2/4)(1/3).",
+        "B": "18/125 = (3/5)(2/5)(3/5) treats the draws as with replacement.",
+        "D": "3/10 = (3/5)(2/4) stops after two draws."
+      },
+      "hints": [
+        "Update the counts after each draw."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(3/5)(2/4)(2/3)."
       }
     }
   ]
