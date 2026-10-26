@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 5,
-  "updated_at": "2026-10-26T19:26:48+00:00",
+  "version": 6,
+  "updated_at": "2026-10-26T19:33:18+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -58,6 +58,17 @@
       "word_count": 251,
       "text": "For eleven years, the clock on the Harmon County Courthouse showed the same time: 4:17. Residents {{1|had long since stopped expecting it to move, they}} gave directions by it (\"turn left when the clock says quarter past four\") and joked that the county had finally found a way to stop time. {{2|The courthouse itself was built in 1902 from local limestone.}}\n\nEllison found the mechanism in worse shape than she {{3|expected. Pigeons}} had nested in the gear housing, and decades of grease had hardened into something closer to tar. {{4|Ellison, however, had spent thirty years repairing factory equipment, and she was not discouraged.}} She removed each gear, {{5|soaked it overnight in solvent, and scrubbing}} the teeth with a brass brush.\n\nThe hardest problem was a part worn beyond repair: a small toothed wheel, called the escapement wheel, {{6|that release}} the clock's stored energy in measured steps. {{7|Escapement wheels were first used in European clocks centuries ago.}} Ellison {{8|admired}} the worn edges of the broken original, calculated the angle of each tooth, and cut a new wheel by hand over the course of a winter.\n\nOn a Saturday morning in June, Ellison set the hands to the correct time and released the pendulum. The clock {{9|began to tick, and it was ticking}}. A small crowd had gathered on the courthouse lawn, and when the minute hand moved for the first time in eleven years, somebody started clapping. {{10|Within a week, a few residents admitted they no longer knew where to turn left.}}",
       "batch": 5,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000006",
+      "title": "Mapping the Dark",
+      "genre": "informational essay",
+      "word_count": 239,
+      "text": "When most people imagine cave exploration, they picture squeezing through tight passages in search {{1|for}} undiscovered chambers. The work that occupies most cavers, however, is slower and less glamorous: making maps. {{2|Without a map, a cave that has been explored is, for practical purposes, a cave that has been lost.}}\n\nA survey team usually has three members. The first sets a station—a small numbered marker—at a point the others can see. {{3|The second, who holds a laser rangefinder, measures}} the distance to the station, while the third reads the compass bearing and the slope. {{4|Each of these numbers are recorded}} in a waterproof notebook, along with a sketch of the passage's walls.\n\n[1] Back on the surface, the numbers become a map. [2] A single misread digit can send that path through solid rock. [3] Software converts each set of measurements into a line segment, and the segments, joined end to end, trace the cave's path. [4] For this reason, many teams measure every leg twice, once in each direction.\n\nThe work is slow. A team might survey only a few hundred meters in a long day, {{5|and the rangefinders run on rechargeable batteries}}. {{6|Yet}} cavers keep at it, {{7|year after year, decade after decade, for many years}}, because a good map is the one discovery that lasts: {{8|its useful}} to every caver, scientist, and rescue team that enters the cave afterward. {{9|Whom}} else would bother to do it?",
+      "batch": 6,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -3971,6 +3982,854 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-005.review.json",
         "computation": "checks/act_english/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000056",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Idiom (preposition)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 1,
+      "evidence": "in search for undiscovered chambers",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "of",
+        "C": "to",
+        "D": "about"
+      },
+      "correct_answer": "B",
+      "explanation": "The standard idiom is \"in search of.\"",
+      "distractor_explanations": {
+        "A": "The idiom is \"in search of,\" not \"in search for.\"",
+        "C": "\"In search to\" is not idiomatic.",
+        "D": "\"In search about\" is not idiomatic."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Say the phrase aloud with each preposition."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Supply the idiom yourself."
+      },
+      "remember": "Idioms have fixed prepositions.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-01",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000057",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Function of a sentence (what would be lost)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 2,
+      "evidence": "a cave that has been explored is, for practical purposes, a cave that has been lost",
+      "figure": null,
+      "stem": "If the writer deleted the underlined sentence, the paragraph would primarily lose:",
+      "choices": {
+        "A": "a description of the instruments cavers use to make maps.",
+        "B": "evidence that most of the world's caves remain unexplored.",
+        "C": "a transition into the history of cave exploration.",
+        "D": "an explanation of why the less glamorous work of mapping matters."
+      },
+      "correct_answer": "D",
+      "explanation": "The paragraph says mapping is less glamorous; this sentence explains why it matters anyway: without a map, exploration is effectively lost.",
+      "distractor_explanations": {
+        "A": "Instruments are described in the next paragraph, not here.",
+        "B": "The sentence makes no claim about how many caves are unexplored.",
+        "C": "The essay never turns to history."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "out_of_scope",
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What does the sentence add after \"making maps\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what the paragraph would be missing."
+      },
+      "remember": "Ask what job a sentence does in its paragraph.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-02",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000058",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas with a nonessential clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 3,
+      "evidence": "while the third reads the compass bearing",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "The second who holds a laser rangefinder, measures",
+        "C": "The second, who holds a laser rangefinder measures",
+        "D": "The second who, holds a laser rangefinder, measures"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Who holds a laser rangefinder\" is extra information about \"The second\" and is set off by a pair of commas.",
+      "distractor_explanations": {
+        "B": "Without the opening comma, the closing comma wrongly separates the subject from its verb.",
+        "C": "The clause opened with a comma must close with one before \"measures.\"",
+        "D": "The commas split \"who\" from its own verb."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can the clause be removed without losing the sentence's core?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Nonessential clauses need commas on both sides."
+      },
+      "remember": "Interrupting clauses take a pair of commas.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-03",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000059",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (\"each of\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 4,
+      "evidence": "A survey team usually has three members",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Each of these numbers is recorded",
+        "C": "Each of these numbers were recorded",
+        "D": "Each of these numbers have been recorded"
+      },
+      "correct_answer": "B",
+      "explanation": "The subject is \"Each,\" which is singular; the passage is in the present tense, so \"is recorded.\"",
+      "distractor_explanations": {
+        "A": "\"Each\" is singular, so \"are\" does not agree.",
+        "C": "\"Were\" is plural and shifts out of the present tense.",
+        "D": "\"Have\" is plural."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Is the subject \"Each\" or \"numbers\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ignore the \"of\" phrase and match the verb to \"Each.\""
+      },
+      "remember": "\"Each\" takes a singular verb.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-04",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000060",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Relevance (supporting a point)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 5,
+      "evidence": "A team might survey only a few hundred meters in a long day",
+      "figure": null,
+      "stem": "Which choice most effectively emphasizes how slow the work is compared with the size of the task?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "and the team members often take turns at each job",
+        "C": "and most teams eat lunch underground to save time",
+        "D": "and some cave systems extend for more than a hundred kilometers"
+      },
+      "correct_answer": "D",
+      "explanation": "A few hundred meters a day set against systems over a hundred kilometers long shows how slow the work is relative to the job.",
+      "distractor_explanations": {
+        "A": "Battery type says nothing about the size of the task.",
+        "B": "Rotating jobs does not show the scale of the task.",
+        "C": "Lunch habits do not compare speed with scale."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "true_but_irrelevant",
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "What would make a few hundred meters a day seem slow?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the goal: compare speed with scale."
+      },
+      "remember": "Match the choice to the goal in the stem.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-05",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: D is the only choice that mentions size or distance, so the stem's 'size of the task' points straight to it"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000061",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (contrast)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 6,
+      "evidence": "The work is slow.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Therefore,",
+        "C": "Similarly,",
+        "D": "For example,"
+      },
+      "correct_answer": "A",
+      "explanation": "Cavers persist despite the slow work, a contrast: \"Yet.\"",
+      "distractor_explanations": {
+        "B": "Continuing despite slowness is not a result of the slowness.",
+        "C": "Persisting is not similar to the work being slow.",
+        "D": "Persisting is not an example of slowness."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Do cavers keep going because of or in spite of the slowness?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"but\" or \"despite this.\""
+      },
+      "remember": "Persistence despite difficulty signals contrast.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-06",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000062",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 7,
+      "evidence": "Yet cavers keep at it",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "year after year, for many years",
+        "C": "year after year",
+        "D": "annually, year after year"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Year after year\" conveys the persistence; the other versions repeat it.",
+      "distractor_explanations": {
+        "A": "\"Decade after decade\" and \"for many years\" repeat the same idea.",
+        "B": "\"For many years\" repeats \"year after year.\"",
+        "D": "\"Annually\" and \"year after year\" say the same thing."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which words say the same thing twice?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Pick the shortest version that keeps the meaning."
+      },
+      "remember": "Cut repeated ideas.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-07",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: the correct answer is the shortest choice, the usual redundancy tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000063",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "It's / its",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 8,
+      "evidence": "a good map is the one discovery that lasts",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "its' useful",
+        "C": "it's useful",
+        "D": "it is usefully"
+      },
+      "correct_answer": "C",
+      "explanation": "The sentence means \"it is useful,\" so the contraction \"it's\" is needed.",
+      "distractor_explanations": {
+        "A": "\"Its\" is possessive; the sentence needs \"it is.\"",
+        "B": "\"Its'\" is not a word.",
+        "D": "\"Usefully\" is an adverb and cannot follow \"is\" here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Try reading it as \"it is.\""
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Expand contractions to test them."
+      },
+      "remember": "It's = it is.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-08",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000064",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun case (who/whom)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": 9,
+      "evidence": "else would bother to do it",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Whose",
+        "C": "Who's",
+        "D": "Who"
+      },
+      "correct_answer": "D",
+      "explanation": "The pronoun is the subject of \"would bother,\" so the subject form \"Who\" is correct (\"He would bother,\" not \"him\").",
+      "distractor_explanations": {
+        "A": "\"Whom\" is an object form, but the pronoun is the subject of \"would bother.\"",
+        "B": "\"Whose\" is possessive.",
+        "C": "\"Who's\" means \"who is.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Answer the question with he/him: \"___ would bother.\""
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute he/him to choose who/whom."
+      },
+      "remember": "Use who where he fits; whom where him fits.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-09",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000065",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Sentence placement",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": null,
+      "evidence": "A single misread digit can send that path through solid rock.",
+      "figure": null,
+      "stem": "For the sake of the logic and coherence of the third paragraph, Sentence 2 should be placed:",
+      "choices": {
+        "A": "where it is now.",
+        "B": "before Sentence 1.",
+        "C": "after Sentence 3.",
+        "D": "after Sentence 4."
+      },
+      "correct_answer": "C",
+      "explanation": "\"That path\" points back to the path traced in Sentence 3, and Sentence 4's \"For this reason\" points back to the danger of misread digits. So Sentence 2 belongs between them: after Sentence 3.",
+      "distractor_explanations": {
+        "A": "\"That path\" refers to the cave's path, which is not mentioned until Sentence 3.",
+        "B": "\"That path\" would still have nothing to refer to.",
+        "D": "Then \"For this reason\" in Sentence 4 would have no reason before it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"that path\" refer to?",
+        "What reason does \"For this reason\" refer to?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Use pointer words (that, this) to order sentences."
+      },
+      "remember": "Pointer words must follow what they point to.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-10",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000066",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000006",
+      "underline": null,
+      "evidence": "a good map is the one discovery that lasts",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to describe how cavers make maps and why they value them. Would this essay accomplish that purpose?",
+      "choices": {
+        "A": "Yes, because it explains the survey process and why maps matter to later visitors.",
+        "B": "Yes, because it describes the many dangers that cavers face underground.",
+        "C": "No, because it focuses mainly on the long history of cave exploration.",
+        "D": "No, because it describes only the equipment that survey teams carry."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay walks through the survey method and ends by explaining why maps are valued.",
+      "distractor_explanations": {
+        "B": "The essay barely mentions danger.",
+        "C": "The essay does not discuss history.",
+        "D": "It also explains the process and why maps matter."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Does the essay explain both how and why?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Decide yes or no, then check the reason."
+      },
+      "remember": "Both the verdict and the reason must be right.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-11",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000067",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000005",
+      "underline": 9,
+      "evidence": "On a Saturday morning in June, Ellison set the hands to the correct time",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "began to tick",
+        "C": "began to tick, ticking",
+        "D": "began, to tick"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Began to tick\" says it all; the other versions repeat the idea or add a comma error.",
+      "distractor_explanations": {
+        "A": "\"And it was ticking\" repeats \"began to tick.\"",
+        "C": "\"Ticking\" repeats \"tick.\"",
+        "D": "A comma should not separate a verb from its infinitive."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": null
+      },
+      "hints": [
+        "Does the extra phrase add any new information?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Pick the shortest correct version that keeps the meaning."
+      },
+      "remember": "Cut words that repeat the same idea.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "E006-12",
+      "created_at": "2026-10-26T19:33:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: correct answer is the shortest choice",
+          "minor: in passage CLD-P-ACT-E-000005, Ellison appears with no introduction ('Ellison found the mechanism...'). This is fine if another item inserts an intro sentence; otherwise it is a coherence gap"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-006.review.json",
+        "computation": "checks/act_english/batch_006.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

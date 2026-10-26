@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T19:31:09+00:00",
+  "updated_at": "2026-10-26T19:33:20+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 208,
-    "act_english": 55,
+    "act_english": 67,
     "act_reading": 55,
     "sat_reading_writing": 67
   },
@@ -29,11 +29,11 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 55,
+      "PASS": 67,
       "REVISE": 3,
       "REJECT": 0,
-      "candidates": 58,
-      "passed_after_revision": 2
+      "candidates": 70,
+      "passed_after_revision": 3
     },
     "act_reading": {
       "PASS": 55,
@@ -296,11 +296,11 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 55,
+      "accepted": 67,
       "by_skill": {
-        "Conventions of Standard English": 26,
-        "Knowledge of Language": 8,
-        "Production of Writing": 21
+        "Conventions of Standard English": 30,
+        "Knowledge of Language": 11,
+        "Production of Writing": 26
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
@@ -313,6 +313,7 @@
         "Commas around a nonessential element": 1,
         "Commas around a nonessential phrase": 1,
         "Commas in a series": 1,
+        "Commas with a nonessential clause": 1,
         "Concision": 1,
         "Concision and redundancy": 3,
         "Concluding sentence that links to earlier content": 1,
@@ -321,9 +322,12 @@
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 2,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 2,
+        "Evaluating whether an essay meets a goal": 3,
         "Evaluating whether an essay meets a stated goal": 1,
+        "Function of a sentence (what would be lost)": 1,
         "Idiom (phrasal verb)": 1,
+        "Idiom (preposition)": 1,
+        "It's / its": 1,
         "Its / it's": 1,
         "Its versus it's": 1,
         "Keeping or deleting a sentence": 2,
@@ -334,45 +338,50 @@
         "Plural possessive": 1,
         "Precise word choice": 1,
         "Precise, register-appropriate wording": 1,
+        "Pronoun case (who/whom)": 1,
         "Punctuating conjunctive adverbs": 1,
+        "Redundancy": 2,
         "Redundancy (deleting a sentence)": 1,
         "Relevance": 1,
+        "Relevance (supporting a point)": 1,
         "Relevance of an added sentence": 1,
         "Relevance to a stated purpose": 1,
         "Semicolons joining independent clauses": 1,
         "Sentence boundaries": 1,
         "Sentence fragment (finite verb)": 1,
+        "Sentence placement": 1,
+        "Subject-verb agreement (\"each of\")": 1,
         "Subject-verb agreement in a relative clause": 1,
         "Subject-verb agreement with a gerund subject": 1,
         "Supporting a claim with detail": 1,
         "Their / there / they're": 1,
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
-        "Transitions (contrast)": 1,
+        "Transitions (contrast)": 2,
         "Transitions: contrast": 1,
         "Verb forms and agreement": 1
       },
       "by_difficulty_author": {
-        "easy": 19,
-        "hard": 5,
-        "medium": 31
+        "easy": 25,
+        "hard": 6,
+        "medium": 36
       },
       "by_difficulty_calibrated": {
-        "easy": 31,
-        "medium": 24
+        "easy": 38,
+        "medium": 29
       },
       "calibrated_share": {
-        "easy": 0.564,
-        "medium": 0.436
+        "easy": 0.567,
+        "medium": 0.433
       },
       "answer_key_balance": {
-        "A": 17,
-        "B": 13,
-        "C": 13,
-        "D": 12
+        "A": 20,
+        "B": 16,
+        "C": 16,
+        "D": 15
       },
       "modeling_items": 0,
-      "passages": 5
+      "passages": 6
     },
     "act_reading": {
       "accepted": 55,
@@ -536,7 +545,7 @@
   },
   "last_completed_batch": {
     "act_math": 21,
-    "act_english": 5,
+    "act_english": 6,
     "act_reading": 6,
     "sat_reading_writing": 7
   },
@@ -583,11 +592,11 @@
       }
     },
     "act_english": {
-      "next_batch": 6,
+      "next_batch": 7,
       "skill_gap_for_next_10": {
-        "Production of Writing": 5.3,
-        "Knowledge of Language": 5.3,
-        "Conventions of Standard English": 0.3
+        "Production of Writing": 5.2,
+        "Knowledge of Language": 4.8,
+        "Conventions of Standard English": 1.2
       }
     },
     "act_reading": {
@@ -607,8 +616,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 55,
-      "share_of_target": 0.079
+      "accepted": 67,
+      "share_of_target": 0.096
     },
     "act_reading": {
       "target": 600,
@@ -622,9 +631,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 385,
+  "total_accepted": 397,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -828,7 +837,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 5,
+      "bank_version": 6,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -865,12 +874,23 @@
       "date": "2026-10-26",
       "bank": "act_math",
       "summary": "Calibration now uses tools/calibrate.py: the median of every independent rating (per-batch blind solver plus three rater files). At 208 items: 52 easy / 120 medium / 36 hard."
+    },
+    {
+      "date": "2026-10-26",
+      "topic": "verbal hard share",
+      "finding": "After 177 accepted verbal items (English 55, Reading 55, SAT 67), the first blind rater has rated none hard; author labels had 18 hard. Calibrated verbal mix is about 55% easy / 45% medium / 0% hard, far from the 25/50/25 target. SAT batch 7 was a deliberate hard-item experiment (dissolved vs resolved, base rates, subordinate-clause boundaries, only-when interaction data); both raters put every item at 45-72% est. correct (medium/easy).",
+      "interpretation": "Partly real (short passages of about 250-400 words versus about 700-900 on real ACT Reading [likely]; few dense or archaic texts) and partly a rater ceiling (AI raters rarely estimate below 45% correct for any verbal item that has a single defensible key). Without human response data this cannot be separated.",
+      "actions": [
+        "Next verbal batches: longer, denser ACT Reading passages, literary and older-style prose, more paired-text synthesis, and fewer items whose distractors are plainly out of scope.",
+        "Hard labels on verbal items are now assigned only to items with a specific trap that the author expects to catch most students; the hard gate keeps them honest.",
+        "At each 100-item verbal audit, add a second whole-bank rater so calibration is a median rather than one opinion."
+      ]
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T19:31:09+00:00",
+    "heartbeat_at": "2026-10-26T19:33:20+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
