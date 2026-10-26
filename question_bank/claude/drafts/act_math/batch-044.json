@@ -1,0 +1,462 @@
+{
+ "bank": "act_math",
+ "batch": 44,
+ "plan": "Ten new items with stems checked against the bank. 3 hard (cone of revolution, quadratic in form, train and platform) / 3 medium / 4 easy.",
+ "candidates": [
+  {
+   "cand": "B044-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Factoring a trinomial with a leading coefficient",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "Which of the following is a factor of 2x² + 7x + 3 ?",
+   "choices": {
+    "A": "2x + 1",
+    "B": "x + 1",
+    "C": "2x + 3",
+    "D": "x - 3"
+   },
+   "answer": "A",
+   "explanation": "2x² + 7x + 3 = (2x + 1)(x + 3), so 2x + 1 is a factor.",
+   "distractors": {
+    "B": {
+     "rationale": "x + 1 would make -1 a zero, but 2(1) - 7 + 3 = -2, not 0.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2x + 3 pairs 2x with 3, but (2x + 3)(x + 1) = 2x² + 5x + 3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x - 3 has the wrong sign; x = 3 gives 18 + 21 + 3 = 42, not 0.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Find two numbers that multiply to 2 × 3 = 6 and add to 7."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Multiply each choice by the factor it would need, or test its zero."
+   },
+   "remember": "Split the middle term using two numbers whose product is ac.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Horizontal asymptote of an exponential function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = 5(0.8)ˣ + 2. As x increases without bound, the values of f(x) approach which number?",
+   "choices": {
+    "A": "0",
+    "B": "0.8",
+    "C": "2",
+    "D": "7"
+   },
+   "answer": "C",
+   "explanation": "As x grows, (0.8)ˣ approaches 0, so 5(0.8)ˣ approaches 0 and f(x) approaches 0 + 2 = 2.",
+   "distractors": {
+    "A": {
+     "rationale": "0 is the limit of 5(0.8)ˣ alone, ignoring the + 2.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "0.8 is the decay factor, not a limiting value.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "7 is f(0), the starting value.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What happens to (0.8)ˣ when x is very large?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 50."
+   },
+   "remember": "y = a·bˣ + k with 0 < b < 1 approaches k as x grows.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Experimental probability",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "A coin is flipped 50 times and lands heads up 30 times. Based on these results, what is the experimental probability of the coin landing heads up?",
+   "choices": {
+    "A": "3/5",
+    "B": "1/2",
+    "C": "2/5",
+    "D": "3/2"
+   },
+   "answer": "A",
+   "explanation": "Experimental probability = observed successes ÷ trials = 30/50 = 3/5.",
+   "distractors": {
+    "C": {
+     "rationale": "2/5 is the experimental probability of tails.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "1/2 is the theoretical probability for a fair coin, not the observed result.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3/2 compares heads to tails (30 to 20), which is not a probability.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Experimental probability uses what actually happened."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "30 ÷ 50."
+   },
+   "remember": "Experimental probability = observed outcomes ÷ total trials.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Even and odd number properties",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "If m is an odd integer and n is an even integer, which of the following must be odd?",
+   "choices": {
+    "A": "mn",
+    "B": "2m",
+    "C": "n²",
+    "D": "m + n"
+   },
+   "answer": "D",
+   "explanation": "Odd + even = odd, so m + n is odd. The others are even: mn has an even factor, 2m is a multiple of 2, and n² = n · n with n even.",
+   "distractors": {
+    "A": {
+     "rationale": "mn has the even factor n, so it is even.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2m is a multiple of 2, so it is even.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "n² is the square of an even number, so it is even.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Try m = 3 and n = 2."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "m = 3, n = 2."
+   },
+   "remember": "Odd + even = odd; any product with an even factor is even.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-05",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Central angle from a percent (circle graph)",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "In a circle graph of a family's monthly budget, the section for rent represents 35% of the budget. What is the measure of the central angle of the rent section?",
+   "choices": {
+    "A": "35°",
+    "B": "63°",
+    "C": "126°",
+    "D": "135°"
+   },
+   "answer": "C",
+   "explanation": "The whole circle is 360°, and 35% of 360° = 126°.",
+   "distractors": {
+    "A": {
+     "rationale": "35° uses the percent as the number of degrees.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "63° is 35% of 180°, half the circle.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "135° adds 100 to 35 without computing a percent of 360.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many degrees are in a full circle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "0.35 × 360."
+   },
+   "remember": "Circle graph: section angle = percent × 360°.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Diagonal of a square from its area",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A square has an area of 50 square inches. What is the length of a diagonal of the square, in inches?",
+   "choices": {
+    "A": "5√2",
+    "B": "10",
+    "C": "25",
+    "D": "50√2"
+   },
+   "answer": "B",
+   "explanation": "The side is √50 = 5√2, and the diagonal is side × √2 = 5√2 × √2 = 10.",
+   "distractors": {
+    "A": {
+     "rationale": "5√2 is the side length, not the diagonal.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "25 is half the area.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "50√2 multiplies the area, not the side, by √2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find the side length first."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Diagonal = side × √2."
+   },
+   "remember": "Square: diagonal = side·√2, and side = √area.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Solid of revolution (cone)",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A right triangle has legs of length 6 and 8 units. The triangle is rotated completely around its leg of length 6 to form a solid. What is the volume of the solid, in cubic units?",
+   "choices": {
+    "A": "96π",
+    "B": "128π",
+    "C": "200π",
+    "D": "384π"
+   },
+   "answer": "B",
+   "explanation": "Rotating around the 6-unit leg makes a cone with height 6 and radius 8: V = (1/3)π(8²)(6) = 128π.",
+   "distractors": {
+    "A": {
+     "rationale": "96π uses the 6-unit leg as the radius and the 8-unit leg as the height.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "200π uses the hypotenuse, 10, in place of a leg.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "384π forgets the 1/3 in the cone formula, giving a cylinder's volume.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What solid does a right triangle sweep out when rotated around a leg?",
+    "Which leg becomes the radius?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the rotation: the other leg sweeps out the base."
+   },
+   "remember": "Rotating a right triangle about a leg makes a cone: that leg is the height.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires visualizing the solid and assigning height and radius correctly; swapping them (96π) and forgetting 1/3 (384π) are strong traps."
+   }
+  },
+  {
+   "cand": "B044-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Equations quadratic in form",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "What is the sum of the positive solutions of x⁴ - 5x² + 4 = 0 ?",
+   "choices": {
+    "A": "0",
+    "B": "2",
+    "C": "5/2",
+    "D": "3"
+   },
+   "answer": "D",
+   "explanation": "Let u = x²: u² - 5u + 4 = 0, so u = 1 or u = 4. Then x = ±1 or x = ±2. The positive solutions are 1 and 2, with sum 3.",
+   "distractors": {
+    "A": {
+     "rationale": "0 is the sum of all four solutions, positive and negative.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2 is only the largest positive solution.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "5/2 is half of the sum of the values of u, 1 + 4.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Substitute u = x².",
+    "Each positive value of u gives how many values of x?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "u² - 5u + 4 = (u - 1)(u - 4)."
+   },
+   "remember": "Quadratic in form: substitute, solve, then undo the substitution.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires recognizing the quadratic-in-form structure and undoing the substitution; the sum of the u-values (5) and the sum of all roots (0) are traps."
+   }
+  },
+  {
+   "cand": "B044-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Repeated composition",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = 2x + 1. What is the value of f(f(f(1))) ?",
+   "choices": {
+    "A": "7",
+    "B": "9",
+    "C": "15",
+    "D": "27"
+   },
+   "answer": "C",
+   "explanation": "f(1) = 3, f(3) = 7, and f(7) = 15.",
+   "distractors": {
+    "A": {
+     "rationale": "7 is f(f(1)), one application short.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "9 is 3 × 3, as if f triples its input each time.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "27 = 3³ treats each application as multiplying by 3.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Work from the inside out."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Evaluate f three times in a row."
+   },
+   "remember": "Evaluate nested functions from the innermost outward.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B044-10",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Length of a moving object passing a platform",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "A train moving at a constant speed takes 10 seconds to pass a signal pole and 25 seconds to pass completely through a 300-meter-long platform. What is the length of the train, in meters?",
+   "choices": {
+    "A": "120",
+    "B": "200",
+    "C": "300",
+    "D": "500"
+   },
+   "answer": "B",
+   "explanation": "Passing the pole, the train covers its own length L in 10 seconds. Passing the platform, it covers L + 300 in 25 seconds. With speed v: L = 10v and L + 300 = 25v, so 15v = 300, v = 20, and L = 200.",
+   "distractors": {
+    "A": {
+     "rationale": "120 = 300 × 10/25 ignores the train's own length in the platform crossing.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "300 is the platform's length.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "500 = L + 300, the total distance covered while passing the platform.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How far does the train travel while passing the pole? While passing the platform?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "L = 10v and L + 300 = 25v."
+   },
+   "remember": "Passing a stationary object of length d means traveling your own length plus d.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires seeing that passing a pole covers the train's length and passing a platform covers length plus platform; most solvers ignore the train's length."
+   }
+  }
+ ]
+}
