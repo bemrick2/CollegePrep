@@ -21,7 +21,7 @@ progress check unmeasured, and a push-triggered run must never apply it early. A
 supabase/migrations/, start with the generator's marker, and needs 20261023010000 live or in the same run.
 """
 from __future__ import annotations
-import argparse, os, re, secrets, subprocess, sys, tempfile
+import argparse, hashlib, os, re, secrets, subprocess, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -29,7 +29,7 @@ import check_migration_history as h
 from live_write_guard import require_live_writes
 
 
-TRANSACTION_CONTROL = re.compile(r'^\s*(begin|commit|rollback|start\s+transaction|end)\s*;', re.I | re.M)
+TRANSACTION_CONTROL = re.compile(r'^\s*(begin|commit|rollback|abort|start\s+transaction|end)(\s+(work|transaction))?\s*;', re.I | re.M)
 
 
 def migration_block(path: Path, version: str, name: str) -> str:
@@ -56,25 +56,27 @@ RESERVE_NEEDS = '20261023010000'
 
 
 def check_reserve(path: Path) -> list[str]:
-    """Errors for a --reserve script: outside supabase/migrations/, generated (marker), no own transaction control."""
-    from make_reserve_migration import MARKER, inside_migrations
+    """Errors for a --reserve script: outside supabase/migrations/, and byte-for-byte what make_reserve_migration.py
+    generates from the version key and items embedded in it (so nothing was added, such as transaction control)."""
+    from make_reserve_migration import MARKER, inside_migrations, verify_script
     if inside_migrations(path, h.MIGRATIONS):
         return [f'--reserve {path}: a reserve script must not live under supabase/migrations/']
     try:
-        text = path.read_text(encoding='utf-8').replace('\r', '')
+        raw = path.read_bytes()
     except OSError as e:
         return [f'--reserve {path}: {e}']
-    if not text.startswith(MARKER):
+    if not raw.startswith(MARKER.encode()):
         return [f'--reserve {path}: not a reserve script from scripts/make_reserve_migration.py']
-    if TRANSACTION_CONTROL.search(text):
-        return [f'--reserve {path}: controls its own transaction']
-    return []
+    return [f'--reserve {path}: {e}' for e in verify_script(raw)]
 
 
-def combined_transaction_sql(blocks: list[tuple[Path, str, str]], reserve: Path) -> str:
-    """The selected migrations and the reserve script in one transaction: all commit, or none does."""
+def combined_transaction_sql(blocks: list[tuple[Path, str, str]], reserve: Path, rehearsal: bool = False) -> str:
+    """The selected migrations and the reserve script in one transaction: all commit, or none does. A rehearsal runs
+    the same statements and rolls back, so the reserve's eligibility checks run against the live data."""
+    sha = hashlib.sha256(reserve.read_bytes()).hexdigest()
     return ('begin;\n' + ''.join(migration_block(p, v, n) for p, v, n in blocks)
-            + f"\\i '{reserve.resolve().as_posix()}'\ncommit;\n")
+            + f"select set_config('collegeprep.reserve_file_sha256', '{sha}', true);\n"
+            + f"\\i '{reserve.resolve().as_posix()}'\n" + ('rollback;\n' if rehearsal else 'commit;\n'))
 
 
 VERSION = re.compile(r'^\d{14}$')
@@ -110,8 +112,8 @@ def main(argv: list[str] | None = None) -> int:
     pre = check_until(a.until, local) + (check_reserve(a.reserve) if a.reserve else [])
     if pre:
         print('\n'.join(pre)); return 1
-    if not a.dry_run:
-        require_live_writes()
+    if not a.dry_run or a.reserve:
+        require_live_writes()  # a reserve dry run is a rollback-only rehearsal on the live database
     url = os.environ.get('DATABASE_URL') or sys.exit('DATABASE_URL is required')
     errors += h.offline_errors(local)
     if not errors:
@@ -141,12 +143,17 @@ def main(argv: list[str] | None = None) -> int:
         for f in pending_files:
             print('pending', f, '(same transaction as the reserve)' if a.dry_run else '')
         print('reserve', a.reserve, '(one transaction with the migrations above)')
-        if not a.dry_run:
-            sql = combined_transaction_sql([(h.MIGRATIONS / f, *by_file[f]) for f in pending_files], a.reserve)
-            with tempfile.NamedTemporaryFile('w', suffix='.sql', delete=False) as tmp:
-                tmp.write(sql)
-            if subprocess.run(['psql', url, '-X', '-q', '-v', 'ON_ERROR_STOP=1', '-f', tmp.name]).returncode:
-                print('The transaction failed and was rolled back: no migration was applied and nothing was marked'); return 1
+        sql = combined_transaction_sql([(h.MIGRATIONS / f, *by_file[f]) for f in pending_files], a.reserve, rehearsal=a.dry_run)
+        with tempfile.NamedTemporaryFile('w', suffix='.sql', delete=False) as tmp:
+            tmp.write(sql)
+        failed = subprocess.run(['psql', url, '-X', '-q', '-v', 'ON_ERROR_STOP=1', '-f', tmp.name]).returncode
+        if a.dry_run:
+            print('Rehearsal ' + ('FAILED' if failed else 'passed') + ' (rolled back: nothing was applied or marked)')
+            if failed:
+                return 1
+        elif failed:
+            print('The transaction failed and was rolled back: no migration was applied and nothing was marked'); return 1
+        else:
             for f in pending_files:
                 print('applied', f)
             print('applied reserve', a.reserve)

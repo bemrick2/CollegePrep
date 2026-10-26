@@ -36,8 +36,22 @@
        section, is published, passes the rights gate, has a current approved review naming a human reviewer, has never
        been attempted, planned into a practice session or assigned to a check, and has a passage no other question uses.
        Otherwise everything rolls back: no migration is recorded and nothing is marked. Fix the list, regenerate the
-       script and dispatch again. Run it with `--dry-run` first. Don't deploy the client until it has applied and the
-       hosted acceptance steps (`docs/product/LAUNCH_CHECKLIST.md` §H) pass.
+       script and dispatch again. Run it with `--dry-run` first: with `--reserve`, a dry run is a rehearsal that runs
+       the whole transaction against the live data and rolls back, so every eligibility check runs. Because it touches
+       the live database, the rehearsal also needs the hold lifted. The applier accepts only a reserve script that is
+       byte for byte what the generator writes for the items listed in it, so an edited script (an added `commit`, a
+       psql `\` command, a changed id) is refused before anything runs. Each applied reserve is recorded in
+       `practice_reserve_releases` (digest, exam version, items, file sha256, time), and the same script refuses to run
+       twice. Don't deploy the client until it has applied and the hosted acceptance steps
+       (`docs/product/LAUNCH_CHECKLIST.md` §H) pass.
+    - **Check rules once live (server-enforced, #263).** A student has one live check per exam version, resumed after a
+      reload or retry. `initial` opens only when the student has never started a check for that exam version.
+      Abandoning one (letting it expire) still counts. A repeat (`mini`) opens 28 days after the last check started,
+      completed or not, so a student who abandons their initial check gets a mini 28 days later. `full` stays
+      unavailable. The app reads `benchmark_allowed_kinds(student, exam_version)` for what a start would do.
+    - **Passages.** A reserved item must be the only question on its passage. A multi-question passage set can't be
+      reserved; whether to allow that is a content-lead and owner decision. A trigger refuses attaching any question to
+      a reserved item's passage.
 - **Feature branches** go to https://prep-and-price-preview.netlify.app. Share the per-deploy permanent URL
   (`https://<deploy-id>--prep-and-price-preview.netlify.app`), not the site address, because other branches upload
   there too.

@@ -16,7 +16,7 @@ from scripts.make_reserve_migration import reserve_sql
 Q = lambda n: f'30000000-0000-0000-0000-00000000000{n}'
 X = lambda n: f'3b000000-0000-0000-0000-0000000000{n}'  # extra fixture items created below
 SAT = 'sat_digital_2024'
-OK = [(Q(1), 'math'), (Q(2), 'math'), (Q(8), 'math')]
+OK = [(Q(1), 'math'), (Q(2), 'math'), (Q(8), 'math'), (X('b1'), 'math')]  # b1 has a passage of its own
 BAD = [  # (label, exam version, items, expected message)
     ('not human-reviewed', SAT, OK + [(Q(3), 'reading')], '%' + Q(3) + ' was not approved by a named human reviewer%'),
     ('practice-seen', SAT, OK + [(Q(4), 'math')], '%' + Q(4) + ' has been attempted by a student%'),
@@ -33,7 +33,6 @@ BAD = [  # (label, exam version, items, expected message)
     ('passage shared with a practice item', SAT, OK + [(X('a4'), 'math')], '%' + X('a4') + ' shares its passage with a practice item%'),
     ('passage siblings listed together', SAT, OK + [(X('a6'), 'math'), (X('a7'), 'math')],
      '%' + X('a6') + ' shares its passage with another reserved or listed item; ' + X('a7') + ' shares its passage with another reserved or listed item%'),
-    ('passage shared with a reserved item', SAT, OK + [(X('a8'), 'math')], '%' + X('a8') + ' shares its passage with another reserved or listed item%'),
 ]
 
 
@@ -65,11 +64,12 @@ begin
   insert into public.practice_session_items(session_id, position, question_id, reason)
   values ('3a000000-0000-0000-0000-000000000001', 1, '30000000-0000-0000-0000-000000000007', 'review');
   -- Extra items: a1 approved 'human:' (no reviewer named), a2 'HUMAN: Lead' (uppercase), a3 in an unplanned section;
-  -- a4 shares passage P1 with a5 (a practice draft); a6 and a7 share passage P2; a8 shares P3 with a9 (already reserved).
+  -- a4 shares passage P1 with a5 (a practice draft); a6 and a7 share passage P2; a8 and a9 share P3; b1 alone on P4.
   insert into public.practice_passages(id, exam_version_id, body) values
     ('3c000000-0000-0000-0000-000000000001', '40000000-0000-0000-0000-000000000001', 'Passage one'),
     ('3c000000-0000-0000-0000-000000000002', '40000000-0000-0000-0000-000000000001', 'Passage two'),
-    ('3c000000-0000-0000-0000-000000000003', '40000000-0000-0000-0000-000000000001', 'Passage three');
+    ('3c000000-0000-0000-0000-000000000003', '40000000-0000-0000-0000-000000000001', 'Passage three'),
+    ('3c000000-0000-0000-0000-000000000004', '40000000-0000-0000-0000-000000000001', 'Passage four');
   insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers,
     expected_time_seconds, status, license, origin, passage_id)
   select ('3b000000-0000-0000-0000-0000000000' || n)::uuid, '40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000001',
@@ -77,27 +77,44 @@ begin
   from (values ('a1', 'math', 'published', null), ('a2', 'math', 'published', null), ('a3', 'writing', 'published', null),
     ('a4', 'math', 'published', '3c000000-0000-0000-0000-000000000001'), ('a5', 'math', 'draft', '3c000000-0000-0000-0000-000000000001'),
     ('a6', 'math', 'published', '3c000000-0000-0000-0000-000000000002'), ('a7', 'math', 'published', '3c000000-0000-0000-0000-000000000002'),
-    ('a8', 'math', 'published', '3c000000-0000-0000-0000-000000000003'), ('a9', 'math', 'published', '3c000000-0000-0000-0000-000000000003')
+    ('a8', 'math', 'published', '3c000000-0000-0000-0000-000000000003'), ('a9', 'math', 'published', '3c000000-0000-0000-0000-000000000003'),
+    ('b1', 'math', 'published', '3c000000-0000-0000-0000-000000000004')
   ) v(n, sec, stat, pas);
   perform public.approve_practice_question('3b000000-0000-0000-0000-0000000000a1', 'human:');
   perform public.approve_practice_question('3b000000-0000-0000-0000-0000000000a2', 'HUMAN: Lead');
   perform public.approve_practice_question(('3b000000-0000-0000-0000-0000000000' || n)::uuid, 'human: content lead (fixture)')
-  from unnest(array['a3','a4','a6','a7','a8','a9']) n;
-  update public.practice_questions set pool = 'assessment' where id = '3b000000-0000-0000-0000-0000000000a9';
-  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 1::bigint, 'only the fixture a9 reserved before the script');
+  from unnest(array['a3','a4','a6','a7','a8','a9','b1']) n;
+  -- The passage trigger: an item on a shared passage can't be reserved by any route (here, a direct update).
+  perform hp_test.expect_error($q$update public.practice_questions set pool = 'assessment' where id = '3b000000-0000-0000-0000-0000000000a9'$q$,
+    '23514', '%only question on its passage%');
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 0::bigint, 'no reserve before the script');
 end $$;''']
     for label, exam, items, like in BAD:
         out.append(f'''do $$ begin
   perform hp_test.expect_error({dq(reserve_sql(exam, items))}, '23514', {dq(like, 'like')});
-  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 1::bigint, {dq('rolled back: ' + label, 'msg')});
+  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), 0::bigint, {dq('rolled back: ' + label, 'msg')});
+  perform hp_test.eq((select count(*) from public.practice_reserve_releases), 0::bigint, {dq('nothing recorded: ' + label, 'msg2')});
 end $$;''')
     out.append(reserve_sql(SAT, OK))
     ids = ', '.join(f"'{q}'" for q, _ in OK)
     out.append(f'''do $$ begin
-  perform hp_test.eq((select string_agg(id::text, ',' order by id) from public.practice_questions where pool = 'assessment' and id::text like '30%'),
-    {dq(','.join(q for q, _ in OK), 'want')}, 'a qualifying list marks exactly its items');
-  perform hp_test.eq((select count(*) from public.practice_questions where pool = 'assessment'), {len(OK) + 1}::bigint, 'and nothing else');
+  perform hp_test.eq((select string_agg(id::text, ',' order by id) from public.practice_questions where pool = 'assessment'),
+    {dq(','.join(sorted(q for q, _ in OK)), 'want')}, 'a qualifying list marks exactly its items');
   perform hp_test.check((select bool_and(pool = 'assessment') from public.practice_questions where id in ({ids})), 'all listed items marked');
+  -- The release is recorded once (digest, exam version, items), and the same script refuses to run again.
+  perform hp_test.check((select count(*) = 1 and bool_and(exam_version_key = 'sat_digital_2024' and jsonb_array_length(items) = {len(OK)})
+    from public.practice_reserve_releases), 'release recorded');
+  perform hp_test.expect_error({dq(reserve_sql(SAT, OK))}, '23514', '%already applied%');
+  perform hp_test.eq((select count(*) from public.practice_reserve_releases), 1::bigint, 'a re-run records nothing');
+  -- After release, no practice item can be put on a reserved item's passage.
+  perform hp_test.expect_error($q$insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices,
+    answer_format, accepted_answers, expected_time_seconds, status, license, origin, passage_id) values ('3b000000-0000-0000-0000-0000000000b2',
+    '40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000001', 'math', 'Sibling', '["A","B"]', 'choice', '["A"]', 60,
+    'draft', 'original-owned', 'authored', '3c000000-0000-0000-0000-000000000004')$q$, '23514', '%only question on its passage%');
+  perform hp_test.expect_error($q$update public.practice_questions set passage_id = '3c000000-0000-0000-0000-000000000004'
+    where id = '3b000000-0000-0000-0000-0000000000a5'$q$, '23514', '%only question on its passage%');
+  -- A practice item off any reserved passage can still change passage.
+  update public.practice_questions set passage_id = '3c000000-0000-0000-0000-000000000003' where id = '3b000000-0000-0000-0000-0000000000a5';
 end $$;''')
     out += ['rollback;', r'\o', r'\echo reserve migration tests passed']
     return '\n'.join(out) + '\n'

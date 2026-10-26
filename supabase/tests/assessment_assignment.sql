@@ -2,16 +2,30 @@
 -- accepts attempts only on those, and assignment counts as exposure. Rolled back. Run with psql -v ON_ERROR_STOP=1.
 -- Probes P0, P1, P3 and P4 are #263's, on its fixture: every published SAT math item reserved (5), a mini check plans 4.
 -- Also the owner's check contract (2026-10-26): resume the live check, one live check per exam version, server-side
--- kind rules (initial first, a repeat 28+ days after a completed check, no full form) and sizes from the server plan.
+-- kind rules (initial first, a repeat 28+ days after the last check started, completed or not; no full form), sizes from
+-- the server plan, and benchmark_allowed_kinds (the same rules, read-only).
 \set QUIET on
 \o /dev/null
 begin;
 \ir support/test_helpers.sql
--- Moves a student's completed checks a month back (a repeat check opens 28 days after the last completed one).
-create function hp_test.age_completed(p_student uuid) returns void language sql as $f$
+-- Moves all of a student's checks a month back (a repeat check opens 28 days after the last check started). A live
+-- check moved back expires.
+create function hp_test.age_checks(p_student uuid) returns void language sql as $f$
   update public.practice_benchmarks set started_at = started_at - interval '29 days', completed_at = completed_at - interval '29 days'
-  where student_id = p_student and completed_at is not null
+  where student_id = p_student
 $f$;
+-- For each kind start_benchmark would refuse per benchmark_allowed_kinds, it does refuse (22023): the two agree.
+create function hp_test.kinds_agree(p_student uuid, p_version uuid) returns void language plpgsql as $f$
+declare k text; v_allowed text[];
+begin
+  select allowed_kinds into v_allowed from public.benchmark_allowed_kinds(p_student, p_version);
+  foreach k in array array['initial', 'mini', 'full'] loop
+    if not k = any(v_allowed) then
+      perform hp_test.expect_error(format('select public.start_benchmark(%L, %L, %L)', p_student, k, p_version), '22023');
+    end if;
+  end loop;
+end $f$;
+grant execute on function hp_test.kinds_agree(uuid, uuid) to authenticated;
 
 -- Guardian a1 with student 51 (linked); guardian b1 with student 52 (another household); outsider 99.
 do $$
@@ -52,7 +66,7 @@ begin
   perform hp_test.eq((select count(*) from public.practice_benchmark_plan where not (exam_family = 'sat' and section = 'reading')), 12::bigint, 'seeded plan rows (fixture reading rows aside)');
   perform hp_test.eq((select count(*) from public.practice_benchmark_plan where kind = 'full'), 0::bigint, 'no full plan: the full form is not ready');
   -- The kind rules live in one table.
-  perform hp_test.eq((select string_agg(kind || ':' || available || ':' || needs_completed || ':' || needs_no_completed || ':' || min_days_after_completed, ',' order by kind)
+  perform hp_test.eq((select string_agg(kind || ':' || available || ':' || needs_prior || ':' || needs_no_prior || ':' || min_days_after_prior, ',' order by kind)
     from public.practice_benchmark_kinds), 'full:false:true:false:28,initial:true:false:true:0,mini:true:true:false:28', 'kind rules');
   -- Student 51 completed an initial SAT check a month ago (on an earlier reserve: no items), so a mini check may open.
   insert into public.practice_benchmarks(student_id, kind, exam_version_id, started_at, completed_at)
@@ -131,16 +145,16 @@ begin
   -- Once the check is completed: no initial (a check was completed), no repeat inside the 28-day gap.
   perform public.complete_benchmark(b);
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial', '40000000-0000-0000-0000-000000000001')$q$, st),
-    '22023', '%initial progress check is only for a student with no completed check%');
+    '22023', '%initial progress check is only for a student who has not started one%');
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st),
-    '22023', '%opens 28 days after the last completed one%');
+    '22023', '%opens 28 days after the last one started%');
   perform hp_test.as_owner();
   update public.practice_benchmarks set started_at = started_at - interval '27 days', completed_at = completed_at - interval '27 days' where id = b;
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st),
     '22023', '%opens 28 days%');  -- 27 days later: still inside the gap
   perform hp_test.as_owner();
-  perform hp_test.age_completed(st);
+  perform hp_test.age_checks(st);
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   -- A month on, a repeat check opens, assigned anew.
   a := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
@@ -250,6 +264,13 @@ begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-000000000008'), 0::bigint,
     'an expired check unlocks nothing, not even its own unattempted items');
+  -- Drain repro: letting a mini expire doesn't reset the rules; the next repeat still waits 28 days from its start.
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st),
+    '22023', '%opens 28 days%');
+  perform hp_test.kinds_agree(st, '40000000-0000-0000-0000-000000000001');
+  perform hp_test.as_owner();
+  perform hp_test.age_checks(st);
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   -- P4: the next check marks nothing unseen: q8 was only ever assigned to the expired check.
   c := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
   perform hp_test.check(c <> b, 'an expired check is not resumed');
@@ -282,13 +303,33 @@ do $$
 declare st2 uuid := current_setting('t.st2')::uuid; i uuid; m uuid; ms uuid; act uuid; act2 uuid; got text; r jsonb; t timestamptz;
 begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
-  -- No completed check: a repeat is refused, the full form is refused, an initial check opens.
+  -- benchmark_allowed_kinds: for the student and viewing guardians only; a fresh student may open an initial check.
+  select string_agg(coalesce(live_benchmark::text, '-') || '|' || allowed_kinds::text || '|' || coalesce(next_mini_at::text, '-'), ';') into got
+    from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001');
+  perform hp_test.eq(got, '-|{initial}|-', 'fresh: no live check, initial allowed, no mini date');
+  perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000b1');
+  perform hp_test.eq((select allowed_kinds from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001')), '{initial}'::text[], 'a viewing guardian reads it');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.expect_error(format('select * from public.benchmark_allowed_kinds(%L, %L)', st2, '40000000-0000-0000-0000-000000000001'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform hp_test.expect_error(format('select * from public.benchmark_allowed_kinds(%L, %L)', st2, '40000000-0000-0000-0000-000000000001'), '42501');
+  perform hp_test.as_anon();
+  perform hp_test.expect_error(format('select * from public.benchmark_allowed_kinds(%L, %L)', st2, '40000000-0000-0000-0000-000000000001'), '42501');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
+  perform hp_test.expect_error(format('select * from public.benchmark_allowed_kinds(%L, null)', st2), '22023');
+  -- No prior check: a repeat is refused, the full form is refused, an initial check opens.
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st2),
-    '22023', '%comes after a completed check%');
+    '22023', '%comes after a first check%');
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'full', '40000000-0000-0000-0000-000000000001')$q$, st2),
     '22023', '%not available%');
   i := public.start_benchmark(st2, 'initial', '40000000-0000-0000-0000-000000000001');
   perform hp_test.eq((select count(*) from public.benchmark_questions(i) where section = 'math'), 5::bigint, 'initial plans 9: the whole math reserve');
+  perform hp_test.check((select live_benchmark = i and live_kind = 'initial' and allowed_kinds = '{initial}'
+      and live_expires_at = b.started_at + interval '4 hours' and next_mini_at = b.started_at + interval '28 days'
+    from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001'), public.practice_benchmarks b where b.id = i),
+    'live: the check, its expiry, only its kind (resume), and the next mini 28 days after it started');
+  perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');
   perform hp_test.eq((select count(*) from public.practice_benchmark_items where student_id = st2 and benchmark_id = i and seen_before), 0::bigint,
     'another student''s exposure does not count');
   -- Reload with nothing answered, then with one answer: the same check and items, no new exposure.
@@ -301,12 +342,31 @@ begin
   perform hp_test.eq((select count(*) from public.benchmark_questions(i)), 5::bigint, 'the remaining unanswered items');
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st2),
     '22023', '%initial progress check is already open%');
-  -- The partly answered check expires: it is not resumed; with no completed check, the next start is a new initial
-  -- check, and everything the expired one was assigned is seen.
+  -- The partly answered check expires: it is not resumed. It still counts as the student's first check: a second
+  -- initial is refused (drain repro: abandoning and restarting never draws fresh initial sets), and a repeat opens 28
+  -- days after the expired check started.
   perform hp_test.as_owner();
   update public.practice_benchmarks set started_at = now() - interval '4 hours 1 minute' where id = i;
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
-  m := public.start_benchmark(st2, 'initial', '40000000-0000-0000-0000-000000000001');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial', '40000000-0000-0000-0000-000000000001')$q$, st2),
+    '22023', '%initial progress check is only for a student who has not started one%');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial', '40000000-0000-0000-0000-000000000001')$q$, st2),
+    '22023', '%initial progress check is only%');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st2),
+    '22023', '%opens 28 days after the last one started%');
+  perform hp_test.eq((select count(distinct question_id) from public.practice_benchmark_items where student_id = st2), 6::bigint,
+    'drain repro: restarts expose nothing new');
+  perform hp_test.check((select live_benchmark is null and allowed_kinds = '{}' and next_mini_at = b.started_at + interval '28 days'
+    from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001'), public.practice_benchmarks b where b.id = i),
+    'after expiry: nothing allowed until the mini date');
+  perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');
+  perform hp_test.as_owner();
+  perform hp_test.age_checks(st2);
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
+  perform hp_test.eq((select allowed_kinds from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001')), '{mini}'::text[],
+    'a month on, only a mini');
+  perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');
+  m := public.start_benchmark(st2, 'mini', '40000000-0000-0000-0000-000000000001');
   perform hp_test.check(m <> i, 'an expired, partly answered check is not resumed');
   perform hp_test.eq((select count(*) from public.benchmark_questions(m) where not seen_before), 0::bigint,
     'the expired check''s assignment counts as seen');
@@ -316,7 +376,7 @@ begin
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000001')$q$, st2),
     '22023', '%opens 28 days%');
   perform hp_test.as_owner();
-  perform hp_test.age_completed(st2);
+  perform hp_test.age_checks(st2);
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
   -- Cross-exam: a live SAT check neither blocks nor resumes an ACT start, and the ACT check neither blocks nor resumes SAT.
   ms := public.start_benchmark(st2, 'mini', '40000000-0000-0000-0000-000000000001');
@@ -343,7 +403,7 @@ begin
   values ('30000000-0000-0000-0000-00000000000c', '40000000-0000-0000-0000-000000000002', '41000000-0000-0000-0000-000000000009', 'math',
     'ACT item c', '["A","B"]', 'choice', '["A"]', 60, 'published', 'original-owned', 'authored', 'assessment');
   perform public.approve_practice_question('30000000-0000-0000-0000-00000000000c', 'test fixture');
-  perform hp_test.age_completed(st2);
+  perform hp_test.age_checks(st2);
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
   act2 := public.start_benchmark(st2, 'mini', '40000000-0000-0000-0000-000000000002');
   select string_agg(right(question_id::text, 1) || ':' || seen_before, ',') into got from public.benchmark_questions(act2);
@@ -356,7 +416,7 @@ begin
   perform hp_test.eq((r->>'comparable')::boolean, true, 'and is comparable');
   -- A check opened before assignment existed lists and takes nothing, and is never resumed.
   perform hp_test.as_owner();
-  perform hp_test.age_completed(st2);
+  perform hp_test.age_checks(st2);
   insert into public.practice_benchmarks(student_id, kind, exam_version_id) values (st2, 'mini', '40000000-0000-0000-0000-000000000002') returning id into i;
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
   perform hp_test.eq((select count(*) from public.benchmark_questions(i)), 0::bigint, 'an unassigned (legacy) check lists nothing');

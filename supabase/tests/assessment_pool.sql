@@ -224,8 +224,16 @@ begin
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '22023', '%expired%');
   perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
     '30000000-0000-0000-0000-000000000009', b), '22023', '%expired%');
-  -- No ACT check was completed, so the next start is again an initial one.
-  a := public.start_benchmark(st, 'initial', '40000000-0000-0000-0000-000000000002');
+  -- #263: the expired check counts as the student's first ACT check: no second initial, and a repeat opens 28 days
+  -- after it started.
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial', '40000000-0000-0000-0000-000000000002')$q$, st),
+    '22023', '%initial progress check is only%');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000002')$q$, st),
+    '22023', '%opens 28 days%');
+  perform hp_test.as_owner();
+  update public.practice_benchmarks set started_at = started_at - interval '29 days' where id = b;
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  a := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002');
   perform hp_test.check(a <> b, 'an expired check is not resumed');
   perform hp_test.check((public.complete_benchmark(b)->>'definition') = 'v2', 'an expired check can still be completed (scores what was answered)');
   perform hp_test.as_owner();

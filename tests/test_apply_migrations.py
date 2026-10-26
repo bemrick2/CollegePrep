@@ -147,6 +147,8 @@ class UntilTests(unittest.TestCase):
         self.assertEqual(sql.count('begin;\n'), 1); self.assertTrue(sql.endswith(f"\\i '{res.resolve().as_posix()}'\ncommit;\n"))
         self.assertLess(sql.index('20261022050000'), sql.index('20261023010000'))
         self.assertEqual(sql.count('insert into supabase_migrations.schema_migrations'), 2)
+        import hashlib
+        self.assertIn(f"set_config('collegeprep.reserve_file_sha256', '{hashlib.sha256(res.read_bytes()).hexdigest()}', true)", sql)
 
     def test_failed_reserve_transaction_reports_nothing_applied(self):
         res = self.reserve_file()
@@ -155,18 +157,33 @@ class UntilTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn('rolled back: no migration was applied and nothing was marked', out)
 
-    def test_dry_run_with_reserve_lists_and_applies_nothing(self):
+    def test_dry_run_with_reserve_is_a_rollback_rehearsal(self):
         res = self.reserve_file()
-        code, out, calls, guard, _ = self.run_main(['--dry-run', '--until', '20261023010000', '--reserve', str(res)],
-                                                   {'20261022050000', '20261023010000'})
+        seen = []
+        real = a.combined_transaction_sql
+        with mock.patch.object(a, 'combined_transaction_sql', side_effect=lambda *x, **k: seen.append(real(*x, **k)) or seen[-1]):
+            code, out, calls, guard, _ = self.run_main(['--dry-run', '--until', '20261023010000', '--reserve', str(res)],
+                                                       {'20261022050000', '20261023010000'})
         self.assertEqual(code, 0, out)
-        self.assertIn('reserve ' + str(res), out)
-        self.assertEqual(calls, []); guard.assert_not_called()
+        self.assertIn('Rehearsal passed (rolled back', out)
+        self.assertTrue(seen[0].endswith('rollback;\n')); self.assertNotIn('commit;', seen[0])
+        self.assertEqual(len(calls), 1); guard.assert_called_once()  # it touches the live database, so the hold applies
+        self.fail_psql = True
+        code, out, _, _, _ = self.run_main(['--dry-run', '--reserve', str(res)], {'20261022050000', '20261023010000'})
+        self.assertEqual(code, 1); self.assertIn('Rehearsal FAILED', out)
 
     def test_bad_reserve_scripts_are_refused_before_database_work(self):
         inside = a.h.MIGRATIONS / '20991231000000_not_written.sql'
+        good = self.reserve_file().read_text()
+        marker_line = good.split('\n', 1)[0] + '\n'
         for path, msg in ((self.reserve_file('select 1;\n'), 'not a reserve script'),
-                          (self.reserve_file(self.reserve_file().read_text() + 'commit;\n'), 'controls its own transaction'),
+                          (self.reserve_file(good + 'commit;\n'), 'transaction control'),
+                          # the review repro: COMMIT WORK right after the marker would leave the pool applied
+                          (self.reserve_file(marker_line + 'commit work;\n' + good.split('\n', 1)[1]), 'transaction control'),
+                          (self.reserve_file(good.replace('do $reserve$', 'END TRANSACTION;\ndo $reserve$')), 'transaction control'),
+                          (self.reserve_file(good.replace('do $reserve$', "\\! echo hi\ndo $reserve$")), 'meta-command'),
+                          (self.reserve_file(good.replace("set pool = 'assessment'", "set pool = 'assessment', status = 'draft'")), 'differs from what the generator writes'),
+                          (self.reserve_file(good.replace('-000000000001', '-000000000002', 1)), 'differs from what the generator writes'),
                           (inside, 'must not live under supabase/migrations'),
                           (Path(tempfile.mkdtemp()) / 'missing.sql', 'No such file')):
             code, out, calls, guard, rows = self.run_main(['--reserve', str(path)], {'20261022050000', '20261023010000'})

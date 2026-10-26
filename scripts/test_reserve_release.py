@@ -12,7 +12,7 @@ Uses the PG* environment (CI's database job, or a local socket) and creates/drop
 
   python scripts/test_reserve_release.py
 """
-import os, subprocess, sys, tempfile
+import hashlib, os, subprocess, sys, tempfile
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -66,12 +66,14 @@ def fresh(db):
     psql(db, '-c', FIXTURE)
 
 
-def release(db, items):
+def release(db, items, rehearsal=False, blocks=SCHEMA):
     d = Path(tempfile.mkdtemp())
     reserve = d / 'reserve.sql'; reserve.write_text(reserve_sql('sat_digital_2024', items))
     assert a.check_reserve(reserve) == []
-    tx = d / 'tx.sql'; tx.write_text(a.combined_transaction_sql(SCHEMA, reserve))
-    return psql(db, '-f', str(tx), check=False)
+    tx = d / 'tx.sql'; tx.write_text(a.combined_transaction_sql(blocks, reserve, rehearsal=rehearsal))
+    r = psql(db, '-f', str(tx), check=False)
+    r.sha = hashlib.sha256(reserve.read_bytes()).hexdigest()
+    return r
 
 
 def expect(ok, msg):
@@ -84,12 +86,22 @@ def main():
     good, bad = f'{PREFIX}_ok', f'{PREFIX}_bad'
     try:
         fresh(good)
+        # The dry-run rehearsal runs everything and rolls back: eligibility is checked, nothing is kept.
+        r = release(good, [(Q(1), 'math'), (Q(2), 'math'), (Q(3), 'math')], rehearsal=True)
+        expect(r.returncode == 0, f'the rehearsal passes {r.stderr.strip()}')
+        expect(scalar(good, 'select count(*) from supabase_migrations.schema_migrations') == '0'
+               and scalar(good, "select to_regclass('public.practice_benchmark_items') is null") == 't', 'the rehearsal kept nothing')
+        r = release(good, [(Q(1), 'math'), (Q(4), 'math')], rehearsal=True)
+        expect(r.returncode != 0 and 'Reserve refused' in r.stderr, 'a rehearsal with an unqualified item fails')
         r = release(good, [(Q(1), 'math'), (Q(2), 'math'), (Q(3), 'math')])
         expect(r.returncode == 0, f'qualifying reserve and both schema migrations apply in one transaction {r.stderr.strip()}')
         expect(scalar(good, 'select string_agg(version, \',\' order by version) from supabase_migrations.schema_migrations')
                == '20261022050000,20261023010000', 'both migrations recorded')
         expect(scalar(good, "select string_agg(right(id::text, 1), ',' order by id) from public.practice_questions where pool = 'assessment'")
                == '1,2,3', 'exactly the listed items marked')
+        expect(scalar(good, 'select script_sha256 from public.practice_reserve_releases') == r.sha, 'the release is recorded with the file sha256')
+        r = release(good, [(Q(1), 'math'), (Q(2), 'math'), (Q(3), 'math')], blocks=[])  # the reserve alone, schema now live
+        expect(r.returncode != 0 and 'already applied' in r.stderr, 'the same reserve is refused a second time')
         fresh(bad)
         r = release(bad, [(Q(1), 'math'), (Q(4), 'math')])
         expect(r.returncode != 0 and 'Reserve refused' in r.stderr and Q(4) in r.stderr, 'an unqualified item fails the transaction')

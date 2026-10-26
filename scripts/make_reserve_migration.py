@@ -84,16 +84,23 @@ def reserve_sql(exam_version_key: str, items: list[tuple[str, str]]) -> str:
 -- Raises, so the whole transaction rolls back and nothing is marked, unless every listed item exists in that exam
 -- version and in a planned section, is published and passes the rights gate, has a current approved review whose
 -- method names a human reviewer ('human: <name>'), has never been shown to a student (no attempt, practice-session
--- item or progress-check assignment), and is the only question using its passage.
+-- item or progress-check assignment), and is the only question using its passage. Records itself in
+-- practice_reserve_releases and refuses to run again once recorded.
 -- Items:
 {listing}
 do $reserve$
 declare
   v_expected constant text := '{exam_version_key}';
   v_items constant jsonb := '{payload}';
+  v_digest constant text := encode(sha256(convert_to(v_expected || ':' || v_items::text, 'UTF8')), 'hex');
   v_bad text;
   v_n integer;
+  v_when timestamptz;
 begin
+  select r.applied_at into v_when from public.practice_reserve_releases r where r.digest = v_digest;
+  if found then
+    raise exception 'Reserve refused: this reserve was already applied at %', v_when using errcode = '23514';
+  end if;
   if not exists (select 1 from public.exam_versions e where e.version_key = v_expected) then
     raise exception 'Reserve refused: unknown exam version %', v_expected using errcode = '23514';
   end if;
@@ -137,8 +144,38 @@ begin
   if v_n <> jsonb_array_length(v_items) then
     raise exception 'Reserve refused: marked % of % items', v_n, jsonb_array_length(v_items) using errcode = '23514';
   end if;
+  insert into public.practice_reserve_releases(digest, exam_version_key, items, script_sha256)
+  values (v_digest, v_expected, v_items, nullif(current_setting('collegeprep.reserve_file_sha256', true), ''));
 end $reserve$;
 """
+
+
+EXPECTED = re.compile(r"^  v_expected constant text := '([a-z0-9_]+)';$", re.M)
+ITEMS = re.compile(r"^  v_items constant jsonb := '(\[[^'\n]*\])';$", re.M)
+# Transaction control or psql meta-commands in any form (the generated script has none; the applier owns the transaction).
+FORBIDDEN = re.compile(r"(^\s*\\)|\b(commit|rollback|abort|savepoint|release\s+savepoint|prepare\s+transaction|start\s+transaction"
+                       r"|begin\s+(work|transaction|isolation)|end\s+(work|transaction))\b|^\s*(begin|end)\s*;", re.I | re.M)
+
+
+def verify_script(raw: bytes) -> list[str]:
+    """Errors unless `raw` is exactly what reserve_sql() generates from the version key and items embedded in it."""
+    try:
+        text = raw.decode('utf-8')
+    except UnicodeDecodeError:
+        return ['not UTF-8']
+    if FORBIDDEN.search(text):
+        return ['contains transaction control or a psql meta-command']
+    e, i = EXPECTED.findall(text), ITEMS.findall(text)
+    if len(e) != 1 or len(i) != 1:
+        return ['not a reserve script from scripts/make_reserve_migration.py']
+    try:
+        items = [(x['id'], x['section']) for x in json.loads(i[0])]
+        expected = reserve_sql(e[0], items).encode('utf-8')
+    except (ValueError, KeyError, TypeError, ReserveError) as err:
+        return [f'its embedded items are invalid ({err})']
+    if raw != expected:
+        return ['differs from what the generator writes for its own items (edited after generation?)']
+    return []
 
 
 def main(argv: list[str] | None = None) -> int:

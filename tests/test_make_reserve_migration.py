@@ -49,6 +49,21 @@ class ReserveGeneratorTests(unittest.TestCase):
                      "using errcode = '23514'"):
             self.assertIn(rule, sql)
 
+    def test_script_records_itself_and_refuses_a_rerun(self):
+        sql = r.reserve_sql('sat_digital_2024', [(A, 'math')])
+        self.assertIn('insert into public.practice_reserve_releases', sql)
+        self.assertIn('this reserve was already applied', sql)
+        self.assertIn("current_setting('collegeprep.reserve_file_sha256', true)", sql)
+
+    def test_verify_script_requires_an_exact_regeneration(self):
+        raw = r.reserve_sql('sat_digital_2024', [(A, 'math'), (B, 'math')]).encode()
+        self.assertEqual(r.verify_script(raw), [])
+        self.assertTrue(r.verify_script(raw + b'\n'))                               # any extra byte
+        self.assertTrue(r.verify_script(raw.replace(b'math', b'reading', 1)))         # the listing no longer matches
+        self.assertTrue(r.verify_script(raw.replace(b'do $reserve$', b'Commit Work;\ndo $reserve$')))
+        self.assertTrue(r.verify_script(raw.replace(b'do $reserve$', b'\\i other.sql\ndo $reserve$')))
+        self.assertTrue(r.verify_script(b'select 1;'))
+
     def test_script_passes_the_appliers_reserve_checks(self):
         d = Path(tempfile.mkdtemp()); p = d / 'reserve.sql'
         p.write_text(r.reserve_sql('sat_digital_2024', [(A, 'math')]))

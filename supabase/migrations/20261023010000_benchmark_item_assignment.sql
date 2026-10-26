@@ -10,10 +10,13 @@
 --   isn't ready (the app's FULL_FORM_READY is false; its 99-per-section placeholder would drain the whole reserve), and
 --   start_benchmark refuses a kind with no plan rows for the exam family. Readable by any signed-in user (it is not
 --   secret); written only by migrations. A section without a row is not measured. No caller can supply a size.
--- * practice_benchmark_kinds(kind, available, needs_completed, needs_no_completed, min_days_after_completed): which
---   kinds may open, per the owner's decision of 2026-10-26: 'initial' only with no completed check for the exam
---   version; 'mini' only after a completed check and at least 28 days after the last one; 'full' unavailable. The rule
---   values live only in this table. start_benchmark enforces them for every caller, including direct RPC calls.
+-- * practice_benchmark_kinds(kind, available, needs_prior, needs_no_prior, min_days_after_prior): which kinds may open,
+--   per the owner's decision of 2026-10-26. A "prior check" is any earlier check of the student for the exam version
+--   that was assigned items (completed, abandoned or expired) or was completed. 'initial' opens only with no prior
+--   check; 'mini' only after one, and at least 28 days after the last prior check's start; 'full' is unavailable. So
+--   abandoning a check (letting it expire) never resets the rules: a student who abandons their initial check gets a
+--   mini 28 days later. The rule values live only in this table; benchmark_rules_internal applies them, for both
+--   start_benchmark (every caller, including direct RPC calls) and the read-only benchmark_allowed_kinds.
 -- * practice_benchmark_items(benchmark_id, question_id, ...): the items start_benchmark assigned to a check, per
 --   section in the order the check uses them: unseen first (mid difficulty first), then repeats (least recently seen
 --   first). Each row records seen_before / last_seen as they were at assignment. Viewers of the student can read the
@@ -31,7 +34,12 @@
 --   draws a fresh set; a start of another kind while it is live is refused (22023, "already open ... resume it"). This
 --   replaces 20261022050000's "a half-taken check expires instead of being resumed". Expiry is unchanged: 4 hours after
 --   its start a check is no longer live, and the next start follows the kind rules. A live check of one exam version
---   neither blocks nor resumes a start for another.
+--   neither blocks nor resumes a start for another. A check with only minutes left is still resumed (refusing would
+--   strand the student until it expires); benchmark_allowed_kinds returns live_expires_at so the app can warn. There is
+--   no unique index for "one live check": liveness depends on the clock (expired checks stay completed_at null), so the
+--   per-student lock in start_benchmark enforces it instead.
+-- * benchmark_allowed_kinds(student, exam_version), read-only, for anyone who may view the student: the live check
+--   (id, kind, expiry), the kinds start_benchmark would accept now, and when the next mini opens (a timestamp).
 -- * can_read_reserved_question admits a reserved item only when it is assigned to a live check of the caller's own
 --   (linked) student login, or, as before, to anyone who may view a student who attempted it (review of results).
 -- * benchmark_questions lists only the check's assigned items it hasn't used yet.
@@ -40,8 +48,12 @@
 --   item row of another version impossible to store.
 -- Checks opened before this migration have no assignment (items_assigned_at is null): they unlock nothing, take no
 -- attempts, and are never resumed; they expire as before and can still be completed.
--- Passages: the reserve tooling (scripts/make_reserve_migration.py) refuses an item whose passage any other question
--- uses, so a reserved item's passage is never readable through a practice item or a sibling.
+-- Passages: a reserved (assessment) item must be the only question on its passage. The reserve script refuses an item
+-- whose passage another question uses, and a trigger on practice_questions refuses any write that would put a
+-- reserved item and another question on the same passage (attaching a practice item to a reserved passage, or
+-- reserving an item whose passage is shared).
+-- practice_reserve_releases records each applied reserve script (digest, exam version, items, file sha256, time); the
+-- script refuses to run twice.
 -- Objects are altered or replaced in place. Nothing here marks any question as reserved.
 
 -- The server-owned check length per exam family, kind and section.
@@ -65,17 +77,18 @@ grant select on public.practice_benchmark_plan to authenticated;
 grant select, insert, update, delete on public.practice_benchmark_plan to service_role;
 create policy benchmark_plan_read on public.practice_benchmark_plan for select to authenticated using (true);
 
--- Which kinds of check may open (owner decision 2026-10-26; rule values live only here, for Design to adjust):
---   initial  only while the student has no completed check for the exam version;
---   mini     (repeat) only after a completed check, and at least min_days_after_completed days after the last one;
+-- Which kinds of check may open (owner decision 2026-10-26; rule values live only here, for Design to adjust). A prior
+-- check is an earlier check of the student for the exam version that was assigned items or completed.
+--   initial  only while the student has no prior check for the exam version;
+--   mini     (repeat) only after a prior check, and at least min_days_after_prior days after the last one's start;
 --   full     not available until a full-length form exists (and it has no plan rows).
 create table public.practice_benchmark_kinds (
   kind text primary key check (kind in ('initial','mini','full')),
   available boolean not null,
-  needs_completed boolean not null,
-  needs_no_completed boolean not null,
-  min_days_after_completed integer not null check (min_days_after_completed between 0 and 365),
-  check (not (needs_completed and needs_no_completed))
+  needs_prior boolean not null,
+  needs_no_prior boolean not null,
+  min_days_after_prior integer not null check (min_days_after_prior between 0 and 365),
+  check (not (needs_prior and needs_no_prior))
 );
 comment on table public.practice_benchmark_kinds is
   '#263: which progress-check kinds may open, enforced by start_benchmark for every caller. The app schedules a mini every ~35 days.';
@@ -161,12 +174,65 @@ begin
 end $$;
 revoke all on function public.assign_benchmark_items_internal(uuid) from public, anon, authenticated;
 
+-- The one place the check rules are applied (start_benchmark and benchmark_allowed_kinds both call it).
+create function public.benchmark_rules_internal(p_student uuid, p_exam_version uuid)
+returns table (live_benchmark uuid, live_kind text, live_expires_at timestamptz, last_prior_start timestamptz,
+  allowed_kinds text[], next_mini_at timestamptz)
+language plpgsql stable set search_path = '' as $$
+declare v_family text; v_mini integer;
+begin
+  select e.exam_family into v_family from public.exam_versions e where e.id = p_exam_version;
+  select b.id, b.kind, b.started_at + interval '4 hours' into live_benchmark, live_kind, live_expires_at
+  from public.practice_benchmarks b
+  where b.student_id = p_student and b.exam_version_id = p_exam_version
+    and public.benchmark_is_live(b.started_at, b.completed_at) and b.items_assigned_at is not null
+  order by b.started_at desc limit 1;
+  select max(b.started_at) into last_prior_start from public.practice_benchmarks b
+  where b.student_id = p_student and b.exam_version_id = p_exam_version
+    and (b.items_assigned_at is not null or b.completed_at is not null)
+    and b.id is distinct from live_benchmark;
+  if live_benchmark is not null then
+    allowed_kinds := array[live_kind];  -- the live check is resumed; nothing else opens
+  else
+    select coalesce(array_agg(k.kind order by k.kind), '{}') into allowed_kinds
+    from public.practice_benchmark_kinds k
+    where k.available
+      and exists (select 1 from public.practice_benchmark_plan p where p.exam_family = v_family and p.kind = k.kind)
+      and not (k.needs_no_prior and last_prior_start is not null)
+      and not (k.needs_prior and last_prior_start is null)
+      and (last_prior_start is null or last_prior_start <= now() - make_interval(days => k.min_days_after_prior));
+  end if;
+  select k.min_days_after_prior into v_mini from public.practice_benchmark_kinds k where k.kind = 'mini' and k.available;
+  -- When the next mini may open: min_days_after_prior days after the last check started, counting a live check too.
+  next_mini_at := greatest(last_prior_start, live_expires_at - interval '4 hours') + make_interval(days => v_mini);
+  return next;
+end $$;
+revoke all on function public.benchmark_rules_internal(uuid, uuid) from public, anon, authenticated;
+
+-- Read-only: what a start would do now, for anyone who may view the student (the app reads this instead of guessing).
+create function public.benchmark_allowed_kinds(p_student uuid, p_exam_version uuid)
+returns table (live_benchmark uuid, live_kind text, live_expires_at timestamptz, allowed_kinds text[], next_mini_at timestamptz)
+language plpgsql stable security definer set search_path = '' as $$
+begin
+  if not public.can_view_student(p_student) then
+    raise exception 'Not allowed to view this student' using errcode = '42501';
+  end if;
+  if p_exam_version is null or not exists (select 1 from public.exam_versions e where e.id = p_exam_version) then
+    raise exception 'Unknown exam version' using errcode = '22023';
+  end if;
+  return query select r.live_benchmark, r.live_kind, r.live_expires_at, r.allowed_kinds, r.next_mini_at
+    from public.benchmark_rules_internal(p_student, p_exam_version) r;
+end $$;
+revoke all on function public.benchmark_allowed_kinds(uuid, uuid) from public, anon;
+grant execute on function public.benchmark_allowed_kinds(uuid, uuid) to authenticated, service_role;
+comment on function public.benchmark_allowed_kinds(uuid, uuid) is
+  '#263: the live check (resumed by start_benchmark), the kinds a start would accept now, and when the next mini opens.';
+
 -- From 20261022050000; owner contract (2026-10-26): one live check per student and exam version, resumed answered in
--- or not with its assignment; which kinds may open is decided here from practice_benchmark_kinds; sizes come from
--- practice_benchmark_plan only.
+-- or not with its assignment; which kinds may open comes from benchmark_rules_internal; sizes from the plan only.
 create or replace function public.start_benchmark(p_student uuid, p_kind text, p_exam_version uuid default null) returns uuid
 language plpgsql security definer set search_path = '' as $$
-declare v_id uuid; v_kind text; v_rule public.practice_benchmark_kinds; v_last timestamptz;
+declare v_id uuid; r record; v_rule public.practice_benchmark_kinds;
 begin
   perform public.require_linked_student(p_student);
   if p_kind is null or p_kind not in ('initial','mini','full') then
@@ -186,28 +252,24 @@ begin
   -- Serialise starts per student: the student row lock, and an advisory lock tests can observe in pg_locks.
   perform 1 from public.students s where s.id = p_student for update;
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('practice_benchmark_start:' || p_student::text, 0));
+  select * into r from public.benchmark_rules_internal(p_student, p_exam_version);
   -- Resume: the live check for this exam version, answered in or not, with its assignment.
-  select b.id, b.kind into v_id, v_kind from public.practice_benchmarks b
-  where b.student_id = p_student and b.exam_version_id = p_exam_version
-    and public.benchmark_is_live(b.started_at, b.completed_at)
-    and b.items_assigned_at is not null
-  order by b.started_at desc limit 1;
-  if v_id is not null and v_kind = p_kind then return v_id; end if;
-  if v_id is not null then
-    raise exception 'A % progress check is already open for this exam; resume it', v_kind using errcode = '22023';
+  if r.live_benchmark is not null and r.live_kind = p_kind then return r.live_benchmark; end if;
+  if r.live_benchmark is not null then
+    raise exception 'A % progress check is already open for this exam; resume it', r.live_kind using errcode = '22023';
   end if;
-  -- Which kinds may open, from the student's completed checks of this exam version.
-  select max(b.completed_at) into v_last from public.practice_benchmarks b
-  where b.student_id = p_student and b.exam_version_id = p_exam_version and b.completed_at is not null;
-  if v_rule.needs_no_completed and v_last is not null then
-    raise exception 'An initial progress check is only for a student with no completed check for this exam' using errcode = '22023';
-  end if;
-  if v_rule.needs_completed and v_last is null then
-    raise exception 'A repeat progress check comes after a completed check for this exam' using errcode = '22023';
-  end if;
-  if v_last is not null and v_last > now() - make_interval(days => v_rule.min_days_after_completed) then
-    raise exception 'The next progress check opens % days after the last completed one (on %)', v_rule.min_days_after_completed,
-      (v_last + make_interval(days => v_rule.min_days_after_completed))::date using errcode = '22023';
+  if not p_kind = any(r.allowed_kinds) then
+    if v_rule.needs_no_prior and r.last_prior_start is not null then
+      raise exception 'An initial progress check is only for a student who has not started one for this exam' using errcode = '22023';
+    elsif v_rule.needs_prior and r.last_prior_start is null then
+      raise exception 'A repeat progress check comes after a first check for this exam' using errcode = '22023';
+    else
+      raise exception 'The next progress check opens % days after the last one started (on % in the student''s time zone)',
+        v_rule.min_days_after_prior,
+        to_char((r.last_prior_start + make_interval(days => v_rule.min_days_after_prior)) at time zone public.student_time_zone(p_student),
+          'YYYY-MM-DD HH24:MI')
+        using errcode = '22023';
+    end if;
   end if;
   insert into public.practice_benchmarks(student_id, kind, exam_version_id) values (p_student, p_kind, p_exam_version)
   returning id into v_id;
@@ -340,3 +402,34 @@ begin
     where q.pool = 'assessment' and q.status = 'published' and q.review_current and q.exam_version_id = p_exam_version
     group by q.section order by q.section;
 end $$;
+
+-- A reserved item is the only question on its passage: refuse any write that would share a passage between a reserved
+-- item and another question (attaching a practice item to a reserved passage, or reserving an item on a shared one).
+create function public.practice_question_passage_guard() returns trigger
+language plpgsql security definer set search_path = '' as $$
+begin
+  if new.passage_id is not null and exists (select 1 from public.practice_questions o
+      where o.passage_id = new.passage_id and o.id <> new.id and (o.pool = 'assessment' or new.pool = 'assessment')) then
+    raise exception 'A reserved progress-check question must be the only question on its passage' using errcode = '23514';
+  end if;
+  return new;
+end $$;
+revoke all on function public.practice_question_passage_guard() from public, anon, authenticated;
+create trigger practice_question_passage_guard before insert or update of passage_id, pool on public.practice_questions
+  for each row execute function public.practice_question_passage_guard();
+
+-- Each applied reserve script (scripts/make_reserve_migration.py): what it marked, when, and from which file. A script
+-- refuses to run when its digest is already recorded.
+create table public.practice_reserve_releases (
+  digest text primary key check (digest ~ '^[0-9a-f]{64}$'),
+  exam_version_key text not null,
+  items jsonb not null check (jsonb_typeof(items) = 'array' and jsonb_array_length(items) > 0),
+  script_sha256 text check (script_sha256 is null or script_sha256 ~ '^[0-9a-f]{64}$'),
+  applied_at timestamptz not null default now(),
+  applied_by text not null default current_user
+);
+comment on table public.practice_reserve_releases is
+  'CR-23: one row per applied reserve script (content digest, exam version, items, file sha256). Written only by the script.';
+alter table public.practice_reserve_releases enable row level security;
+revoke all on public.practice_reserve_releases from anon, authenticated;
+grant select on public.practice_reserve_releases to service_role;
