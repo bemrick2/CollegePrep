@@ -1,0 +1,462 @@
+{
+ "bank": "act_math",
+ "batch": 41,
+ "plan": "Ten new items with stems checked against the bank. 2 hard (octagon area, sector to cone) / 5 medium / 3 easy. Crosses 400 live items, so the Math audit runs next.",
+ "candidates": [
+  {
+   "cand": "B041-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Circle equation by completing the square",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x,y) coordinate plane, the graph of x² + y² - 6x + 4y = 12 is a circle. What are the center and the radius of the circle?",
+   "choices": {
+    "A": "Center (-3, 2), radius 5",
+    "B": "Center (3, -2), radius √12",
+    "C": "Center (3, -2), radius 25",
+    "D": "Center (3, -2), radius 5"
+   },
+   "answer": "D",
+   "explanation": "Completing the square: (x² - 6x + 9) + (y² + 4y + 4) = 12 + 9 + 4, so (x - 3)² + (y + 2)² = 25. The center is (3, -2) and the radius is 5.",
+   "distractors": {
+    "A": {
+     "rationale": "This takes the signs of the coefficients -6 and +4 at face value, reversing the center's coordinates.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "√12 uses the original right side without adding the completed-square constants.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "25 is the square of the radius.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Complete the square for x and for y separately.",
+    "Whatever you add on the left, add on the right."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite as (x - h)² + (y - k)² = r²."
+   },
+   "remember": "Complete the square in both variables; r is the square root of the right side.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Cofunction identity",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "For an acute angle θ, sin θ = 0.6. What is the value of cos(90° - θ) ?",
+   "choices": {
+    "A": "0.36",
+    "B": "0.4",
+    "C": "0.6",
+    "D": "0.8"
+   },
+   "answer": "C",
+   "explanation": "In a right triangle, the side opposite θ is adjacent to the other acute angle, 90° - θ. So cos(90° - θ) = sin θ = 0.6.",
+   "distractors": {
+    "A": {
+     "rationale": "0.36 squares the sine.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "0.4 = 1 - 0.6 treats sine and cosine as adding to 1.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "0.8 is cos θ, not cos(90° - θ).",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "In a right triangle, how are the two acute angles related?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label a right triangle with angles θ and 90° - θ."
+   },
+   "remember": "Cofunctions: cos(90° - θ) = sin θ.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of a cylinder from its diameter",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A cylindrical tank has a diameter of 10 feet and a height of 6 feet. What is the volume of the tank, in cubic feet?",
+   "choices": {
+    "A": "60π",
+    "B": "150π",
+    "C": "300π",
+    "D": "600π"
+   },
+   "answer": "B",
+   "explanation": "The radius is 5, so V = π(5²)(6) = 150π.",
+   "distractors": {
+    "A": {
+     "rationale": "60π is the lateral surface area, 2π(5)(6).",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "300π doubles the volume, as if 2 × πr²h.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "600π uses the diameter, 10, as the radius.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the radius?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "V = πr²h with r = 5."
+   },
+   "remember": "Halve the diameter before using V = πr²h.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Percent increase",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "The price of a book increased from $40 to $50. By what percent did the price increase?",
+   "choices": {
+    "A": "20%",
+    "B": "25%",
+    "C": "80%",
+    "D": "125%"
+   },
+   "answer": "B",
+   "explanation": "The increase is $10, and 10/40 = 0.25 = 25%.",
+   "distractors": {
+    "A": {
+     "rationale": "20% = 10/50 divides by the new price instead of the original.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "80% = 40/50 is the old price as a percent of the new one.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "125% is the new price as a percent of the old price.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Percent change is measured relative to which price?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(new - old)/old."
+   },
+   "remember": "Percent change = change ÷ original.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Addition rule for mutually exclusive events",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A spinner lands on red with probability 0.25 and on blue with probability 0.35. It cannot land on both colors on the same spin. What is the probability that it lands on red or blue on one spin?",
+   "choices": {
+    "A": "0.0875",
+    "B": "0.40",
+    "C": "0.5125",
+    "D": "0.60"
+   },
+   "answer": "D",
+   "explanation": "The events cannot happen together (they are mutually exclusive), so P(red or blue) = 0.25 + 0.35 = 0.60.",
+   "distractors": {
+    "A": {
+     "rationale": "0.0875 multiplies the probabilities, as if both had to happen.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "0.40 is the probability of landing on neither color.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "0.5125 subtracts 0.25 × 0.35, which applies only to independent events that can happen together.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Can the spinner land on red and blue at the same time?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Mutually exclusive: just add."
+   },
+   "remember": "Mutually exclusive events: P(A or B) = P(A) + P(B).",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Annualizing an hourly wage",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A worker earns $18 per hour and works 40 hours per week for 50 weeks a year. What are the worker's yearly earnings?",
+   "choices": {
+    "A": "$720",
+    "B": "$3,600",
+    "C": "$36,000",
+    "D": "$37,440"
+   },
+   "answer": "C",
+   "explanation": "Weekly pay is 18 × 40 = $720, and 720 × 50 = $36,000.",
+   "distractors": {
+    "A": {
+     "rationale": "$720 is one week's pay.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "$3,600 drops a zero when multiplying by 50.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$37,440 uses 52 weeks instead of 50.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find one week's pay first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "18 × 40 × 50."
+   },
+   "remember": "Chain rates: dollars/hour × hours/week × weeks/year.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a regular octagon (cut corners)",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A regular octagon has sides of length 2. What is the area of the octagon?",
+   "choices": {
+    "A": "8√2",
+    "B": "8 + 8√2",
+    "C": "12 + 8√2",
+    "D": "16"
+   },
+   "answer": "B",
+   "explanation": "Extend four sides to form a square around the octagon. Each corner cut off is an isosceles right triangle with hypotenuse 2 and legs √2, so the square's side is 2 + 2√2. Square area: (2 + 2√2)² = 12 + 8√2. Subtract 4 triangles of area (1/2)(√2)² = 1 each: 12 + 8√2 - 4 = 8 + 8√2.",
+   "distractors": {
+    "A": {
+     "rationale": "8√2 omits the 8 that remains after removing the corners.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "12 + 8√2 is the area of the surrounding square, before the corners are removed.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "16 uses a 4-by-4 square, treating each cut corner as having legs of 1.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Picture the octagon as a square with its four corners cut off.",
+    "What are the legs of each cut-off right triangle if its hypotenuse is 2?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the surrounding square."
+   },
+   "remember": "Regular octagon = square minus four isosceles right triangles.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires the cut-corner construction and 45°-45°-90° side ratios; the surrounding square's area is a tempting stopping point."
+   }
+  },
+  {
+   "cand": "B041-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Cone formed from a sector",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A sector with radius 6 inches and central angle 120° is cut from a circle of paper. The two straight edges are joined, without overlapping, to form a cone. What is the radius of the base of the cone, in inches?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "6"
+   },
+   "answer": "A",
+   "explanation": "The sector's arc becomes the base's circumference: (120/360)(2π × 6) = 4π. So 2πr = 4π and r = 2.",
+   "distractors": {
+    "B": {
+     "rationale": "3 halves the sector's radius.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4 is the arc length divided by π, which is the base's diameter.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "6 is the sector's radius, which becomes the cone's slant height.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What part of the sector becomes the edge of the cone's base?",
+    "What does the sector's radius become?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Roll the sector up in your mind: the arc wraps around the base."
+   },
+   "remember": "Sector to cone: arc length = base circumference; sector radius = slant height.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires visualizing how the sector's parts map onto the cone; the slant height (6) and diameter (4) are natural traps."
+   }
+  },
+  {
+   "cand": "B041-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Difference quotient",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "For the function f(x) = x², which of the following is equal to [f(1 + h) - f(1)]/h for h ≠ 0 ?",
+   "choices": {
+    "A": "h",
+    "B": "2",
+    "C": "2 + h",
+    "D": "2h + h²"
+   },
+   "answer": "C",
+   "explanation": "f(1 + h) - f(1) = (1 + 2h + h²) - 1 = 2h + h². Dividing by h gives 2 + h.",
+   "distractors": {
+    "A": {
+     "rationale": "h comes from expanding (1 + h)² as 1 + h².",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2 drops the h² term before dividing.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "2h + h² is the numerator before dividing by h.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Expand (1 + h)² carefully."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let h = 1: [f(2) - f(1)]/1 = 3. Which choice equals 3?"
+   },
+   "remember": "Expand, subtract, then divide every term by h.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B041-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Counting outcomes for a target sum",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "Two digits are chosen at random, one at a time and with replacement, from the digits 0 through 9. What is the probability that the sum of the two digits is 9 ?",
+   "choices": {
+    "A": "1/10",
+    "B": "1/9",
+    "C": "19/100",
+    "D": "1/5"
+   },
+   "answer": "A",
+   "explanation": "There are 10 × 10 = 100 equally likely ordered outcomes. The pairs that sum to 9 are (0, 9), (1, 8), ..., (9, 0): 10 pairs. Probability = 10/100 = 1/10.",
+   "distractors": {
+    "B": {
+     "rationale": "1/9 treats the 10 favorable pairs as out of 90, as if digits could not repeat.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "19/100 counts each pair twice except one, double-counting the ordered pairs.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1/5 counts each unordered pair twice: 20/100.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "List the ordered pairs: first digit 0 through 9."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "For each first digit there is exactly one second digit that works."
+   },
+   "remember": "Ordered outcomes: count each ordered pair exactly once.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 13,
-  "updated_at": "2026-10-26T21:17:07+00:00",
+  "version": 14,
+  "updated_at": "2026-10-26T21:34:35+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -146,6 +146,17 @@
       "word_count": 280,
       "text": "For ninety years, a ferry has crossed the harbor between Port Ellery and Gull Island every night at eleven. The boat itself {{1|had changed}} several times; the current one, the blue-hulled {{2|Marguerite,}} entered service in 1998. Its schedule, however, has not. Riders say the night ferry is as dependable as the tide. On a calm night the crossing takes twenty-two minutes, and the lights of Gull Island grow from a faint smudge into a row of windows along the pier.\n\nMost of the late-night passengers are workers. {{3|Among them is}} nurses finishing hospital shifts, cooks from the restaurants along the waterfront, and a baker {{4|on who}} the island depends for its morning bread. The captain, Lou Petrakis, knows most of them by name. He keeps a thermos of coffee in the wheelhouse for regulars and a box of spare gloves for anyone who forgets a pair in winter.\n\nRunning a ferry at night is harder than {{5|daytime}}. Fog rolls in without warning, and the harbor's buoys, {{6|which are only dimly lit at night when it is dark}}, can be hard to see. {{7|For this reason,}} Petrakis has memorized the channel so thoroughly that he says he could steer it with his eyes closed, though he has never tried.\n\nLast spring the city proposed ending the night run to save money. More than two thousand residents signed a petition against the plan, and the nurses' union {{8|argued, that}} cutting the route would leave hospital workers with no way home after late shifts. At a public hearing, the baker brought a loaf of bread for every member of the council. In June the city {{9|reversed course}}. {{10|The ferry still leaves at eleven.}}",
       "batch": 13,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000014",
+      "title": "The Piano Doctor",
+      "genre": "informational essay",
+      "word_count": 292,
+      "text": "Ines Ortega's workshop sits above a laundromat on Delancey Street, and on most days the hum of the dryers below {{1|mixes}} with the sound of a single note being struck over and over. Ortega restores old pianos{{2|; a}} trade she learned from her uncle in Guadalajara. Most of the instruments that reach her have spent decades in church basements or in the living rooms of families who no longer play them.\n\nRestoring a piano is slow work. Each of the eighty-eight keys must be removed and cleaned and must have {{3|their}} felt replaced, and the hammers that strike the strings often need to be reshaped by hand. {{4|Working with a small file, the felt on each hammer is shaved}} until it strikes the string at exactly the right angle. A full restoration can take Ortega three months, and she tunes each instrument several times before it leaves the shop, since new felt and freshly cleaned keys take weeks to settle.\n\nNot every piano is worth saving. Some have cracked soundboards or warped frames, and repairing them would cost more than the instrument is worth. {{5|Nevertheless,}} Ortega rarely turns a piano away. She salvages {{6|certain useful items}} from the ones she cannot fix and uses them to repair others.\n\nHumidity has a strong {{7|affect}} on a piano's wooden parts, so Ortega {{8|keeps her workshop at a steady temperature and runs a dehumidifier, and she checks}} the moisture level twice a day.\n\nLast spring a church that had sold its piano decades earlier asked Ortega to find one like it. She found the original instead{{9|. In pieces,}} in her own storeroom. It took her four months to restore, and when the choir heard it again, several members said it sounded exactly as they remembered.",
+      "batch": 14,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -9930,6 +9941,569 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-013.review.json",
         "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000139",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement across a prepositional phrase",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 1,
+      "evidence": "the hum of the dryers below",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "mix",
+        "C": "are mixing",
+        "D": "mixing"
+      },
+      "correct_answer": "A",
+      "explanation": "Strip the phrase \"of the dryers below\": \"the hum ... mixes.\" The singular verb is correct.",
+      "distractor_explanations": {
+        "B": "The subject is \"hum,\" which is singular; \"dryers\" is part of a prepositional phrase.",
+        "C": "\"Are\" is plural and does not agree with \"hum.\"",
+        "D": "\"Mixing\" leaves the clause without a main verb."
+      },
+      "distractor_traps": {
+        "B": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": null
+      },
+      "hints": [
+        "What is the simple subject of the clause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove the prepositional phrase."
+      },
+      "remember": "The verb agrees with the subject, not with a nearby noun in a phrase.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-01",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000140",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Punctuation before an appositive phrase",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 2,
+      "evidence": "trade she learned from her uncle in Guadalajara",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": ", a",
+        "C": ". A",
+        "D": " a"
+      },
+      "correct_answer": "B",
+      "explanation": "\"A trade she learned from her uncle\" renames \"restores old pianos\" and is set off with a comma.",
+      "distractor_explanations": {
+        "A": "A semicolon must join two independent clauses, but \"a trade she learned ...\" is a phrase.",
+        "C": "This turns the phrase into a sentence fragment.",
+        "D": "Without punctuation, the appositive runs into the clause it renames."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"a trade she learned ...\" a complete sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether the second part can stand alone."
+      },
+      "remember": "Semicolons join complete sentences; phrases take commas.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-02",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000141",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun-antecedent agreement with \"each\"",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 3,
+      "evidence": "Each of the eighty-eight keys must be removed and cleaned",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "it's",
+        "C": "its",
+        "D": "they're"
+      },
+      "correct_answer": "C",
+      "explanation": "The subject \"Each\" is singular, so the possessive pronoun referring to it is \"its.\"",
+      "distractor_explanations": {
+        "A": "\"Their\" is plural, but its antecedent is \"Each of the eighty-eight keys,\" which is singular.",
+        "B": "\"It's\" means \"it is,\" which does not fit before \"felt.\"",
+        "D": "\"They're\" means \"they are\" and is plural."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does the pronoun refer to: \"each\" or \"keys\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the antecedent."
+      },
+      "remember": "\"Each\" is singular, even when followed by a plural noun.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-03",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000142",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 4,
+      "evidence": "Restoring a piano is slow work",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Working with a small file, Ortega shaves the felt on each hammer",
+        "C": "The felt on each hammer, working with a small file, is shaved",
+        "D": "Working with a small file, each hammer's felt is shaved by Ortega"
+      },
+      "correct_answer": "B",
+      "explanation": "The person working with the file must be the subject right after the opening phrase: \"Working with a small file, Ortega shaves ...\"",
+      "distractor_explanations": {
+        "A": "The opening phrase says the felt is \"working with a small file,\" which is illogical.",
+        "C": "This still makes the felt the one working with the file.",
+        "D": "The phrase still modifies \"each hammer's felt,\" not Ortega."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "C": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "Who is working with the file?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The noun right after the comma must be doing the action."
+      },
+      "remember": "An opening modifier describes the subject that immediately follows it.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-04",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000143",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (contrast)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 5,
+      "evidence": "Not every piano is worth saving",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Therefore,",
+        "C": "For example,",
+        "D": "Similarly,"
+      },
+      "correct_answer": "A",
+      "explanation": "Even though some pianos are not worth repairing, Ortega rarely refuses one: a contrast, so \"Nevertheless.\"",
+      "distractor_explanations": {
+        "B": "That some pianos are not worth saving does not lead to her accepting them.",
+        "C": "Ortega's taking pianos is not an example of pianos not being worth saving.",
+        "D": "The two ideas contrast; they are not similar."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "How does Ortega's behavior relate to the fact that some pianos are not worth saving?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"even so.\""
+      },
+      "remember": "Name the relationship before choosing the transition.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-05",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000144",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise, specific wording",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 6,
+      "evidence": "from the ones she cannot fix and uses them to repair others",
+      "figure": null,
+      "stem": "Which choice provides the most specific description of the parts Ortega salvages?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "things of various kinds",
+        "C": "parts and pieces of every possible sort and kind",
+        "D": "ivory keys, brass pedals, and tuning pins"
+      },
+      "correct_answer": "D",
+      "explanation": "Only D names the actual parts.",
+      "distractor_explanations": {
+        "A": "\"Certain useful items\" does not say what the parts are.",
+        "B": "This is vaguer than the original.",
+        "C": "This is wordy and still not specific."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice names actual objects?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The question asks for the most specific choice."
+      },
+      "remember": "\"Most specific\" means naming concrete things.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-06",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: stem says 'parts' while the underlined text says 'items'; harmless but slightly inconsistent",
+          "minor: D is the only concrete option, so the stem itself gives the answer away; B and C are obvious vague/redundant decoys"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000145",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Affect versus effect",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": 7,
+      "evidence": "Humidity has a strong",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "affection",
+        "C": "effect",
+        "D": "effecting"
+      },
+      "correct_answer": "C",
+      "explanation": "After the article and adjective \"a strong,\" the noun \"effect\" is needed.",
+      "distractor_explanations": {
+        "A": "\"Affect\" is usually a verb; after \"a strong\" a noun is needed.",
+        "B": "\"Affection\" means fondness, which makes no sense here.",
+        "D": "\"Effecting\" is a verb form and cannot follow \"a strong.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the blank need a noun or a verb?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the part of speech."
+      },
+      "remember": "Effect is usually the noun; affect is usually the verb.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-07",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000146",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000014",
+      "underline": null,
+      "evidence": "Restoring a piano is slow work",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to explain each step of restoring a single piano from start to finish. Would this essay accomplish that purpose?",
+      "choices": {
+        "A": "Yes, because it describes removing and cleaning the keys, replacing their felt, and reshaping each of the hammers by hand.",
+        "B": "Yes, because it follows the church's piano all the way from the time it was sold until the day the choir heard it again.",
+        "C": "No, because it never describes any of the specific tasks that are involved in restoring an old piano to working order.",
+        "D": "No, because it describes several restoration tasks but follows no single piano through every stage of the work."
+      },
+      "correct_answer": "D",
+      "explanation": "The essay profiles Ortega's work in general. It mentions tasks, but no single piano is followed step by step.",
+      "distractor_explanations": {
+        "A": "Naming some tasks is not the same as following one piano through every step.",
+        "B": "The church's piano is a brief anecdote; its restoration steps are not described.",
+        "C": "The essay does describe specific tasks, such as cleaning keys and shaving hammer felt."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does the essay follow one piano from start to finish?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the stated purpose with the essay's actual focus."
+      },
+      "remember": "Goal questions: check the essay against the exact purpose stated.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "E014-10",
+      "created_at": "2026-10-26T21:34:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-014.review.json",
+        "computation": "checks/act_english/batch_014.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
