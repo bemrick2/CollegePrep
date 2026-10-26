@@ -88,6 +88,30 @@ A candidate labelled hard that the blind solver rates easy is sent to REVISE aut
   - Verbal batches must still pass the blind solve and the import validator, and must use skill keys from the app taxonomy (`act_punctuation`, `act_main_idea`, …).
 - **Tell the user before the first verbal batch** if the passage-ID scheme has not been agreed with the ChatGPT workstream.
 
+### Verbal batch format (tooling is in place)
+
+**Draft file:** `drafts/<bank>/batch-NNN.json` has a `passages` list and a `candidates` list.
+
+- **Each passage:** `{"passage_id": "CLD-P-ACT-E-000001", "title", "genre", "word_count", "text"}`.
+  - ACT English text marks every editable span as `{{n|text}}`, the app's fixture convention.
+  - The app shows only the current item's span, in [brackets].
+- **Each candidate:** adds `passage_id`, `evidence` (a verbatim quote from the passage that supports the key) and, for ACT English, `underline` (the span number). Skill and `repo_skill_key` come from `VERBAL_BLUEPRINT` and `VERBAL_REPO_SKILLS` in `qb.py`.
+
+**Checks and review:**
+
+- Verbal items have no `checks/` file. The screen instead verifies that the evidence is quoted verbatim, that the underline exists, and that the passage is not a near-duplicate of a fixture or bank passage.
+- **Two independent blind solves are required**: `reviews/<bank>/batch-NNN.blind.json` and `…blind2.json`. Use two separate agents with the same prompt, adapted to say "ACT English / ACT Reading / digital SAT Reading and Writing" and to read the passage in each packet item.
+- An item passes only if both solves match the key.
+- A passage enters the bank's `passages` list only when at least one of its questions passes.
+
+**Formats:**
+
+| Exam | Format |
+|---|---|
+| ACT English | Passages of about 300–350 words, roughly 10 items each |
+| ACT Reading | Passages of about 500–750 words, roughly 8–9 items each |
+| SAT Reading & Writing | 25–150-word texts, one question each |
+
 ## 5. Stopping
 
 - Release the lease with `qb.py lock release <HOLDER>` when you stop on purpose: budget nearly exhausted, an unresolved blocker, or the user says stop.

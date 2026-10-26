@@ -63,6 +63,38 @@ ACT_MATH_BLUEPRINT = {
 REPO_SKILLS = {'act_algebra_linear', 'act_functions', 'act_geometry', 'act_statistics_probability', 'act_number_quantity'}
 STRATEGY_KEYS = {'backsolve', 'plug_in_numbers', 'process_of_elimination', 'find_the_trend', 'translate_to_algebra', 'draw_it_out'}
 TRAP_KEYS = {'partial_answer', 'wrong_quantity', 'sign_error', 'misread_graph', 'overextend_trend', None}
+VERBAL = {'act_english', 'act_reading', 'sat_reading_writing'}
+# Reporting-category weights (midpoints). ACT: enhanced-ACT FAQ figures as summarised by search (act.org itself was
+# unreachable); SAT: digital SAT Reading and Writing domain shares. Verify against the official pages before relying on them.
+VERBAL_BLUEPRINT = {
+    'act_english': {'Production of Writing': 0.405, 'Knowledge of Language': 0.205, 'Conventions of Standard English': 0.405},
+    'act_reading': {'Key Ideas and Details': 0.48, 'Craft and Structure': 0.295, 'Integration of Knowledge and Ideas': 0.225},
+    'sat_reading_writing': {'Craft and Structure': 0.28, 'Information and Ideas': 0.26, 'Standard English Conventions': 0.26,
+                            'Expression of Ideas': 0.20},
+}
+VERBAL_REPO_SKILLS = {
+    'act_english': {'act_punctuation', 'act_sentence_structure', 'act_usage', 'act_rhetorical_skills'},
+    'act_reading': {'act_main_idea', 'act_inference', 'act_vocabulary_in_context', 'act_author_purpose'},
+    'sat_reading_writing': {'sat_craft_structure', 'sat_information_ideas', 'sat_standard_english', 'sat_expression_of_ideas'},
+}
+VERBAL_STRATEGY_KEYS = {'predict_then_match', 'process_of_elimination', 'read_question_first', 'concise_is_correct', 'locate_evidence'}
+VERBAL_TRAP_KEYS = {'extreme_language', 'true_but_irrelevant', 'out_of_scope', 'wordy_redundant', 'comma_splice', 'wrong_transition',
+                    'misplaced_modifier', 'nearest_noun_agreement', 'familiar_meaning', 'partial_answer', 'wrong_quantity', None}
+UNDERLINE = re.compile(r'\{\{(\d+)\|([^}]*)\}\}')
+
+
+def plain(template: str) -> str:
+    """Passage text with underline markup removed."""
+    return UNDERLINE.sub(lambda m: m.group(2), template)
+
+
+def render(template: str, n: int | None) -> str:
+    """The app's convention (fixtures.ts underline()): only underline n is shown, in brackets."""
+    return UNDERLINE.sub(lambda m: f'[{m.group(2)}]' if n is not None and int(m.group(1)) == n else m.group(2), template)
+
+
+def norm_ws(t: str) -> str:
+    return re.sub(r'\s+', ' ', t.replace('’', "'").replace('“', '"').replace('”', '"')).strip()
 LETTERS = ['A', 'B', 'C', 'D']
 
 
@@ -182,8 +214,9 @@ def near_duplicates(q: dict, others: list[tuple[str, str]]) -> list[dict]:
 # Review
 # ---------------------------------------------------------------------------------------------------------------
 
-def structural_problems(c: dict) -> list[str]:
+def structural_problems(c: dict, bank: str = 'act_math', passages: dict | None = None) -> list[str]:
     out = []
+    verbal = bank in VERBAL
     for f in ['cand', 'skill', 'subskill', 'reporting_category', 'difficulty', 'stem', 'choices', 'answer', 'explanation',
               'distractors', 'hints', 'strategy', 'expected_time_seconds', 'repo_skill_key', 'remember']:
         if f not in c or c[f] in (None, '', [], {}):
@@ -200,19 +233,32 @@ def structural_problems(c: dict) -> list[str]:
     wrong = [k for k in LETTERS if k != c['answer']]
     if sorted(c['distractors'].keys()) != wrong:
         out.append(f'distractor rationales must cover exactly {wrong}')
+    traps = VERBAL_TRAP_KEYS if verbal else TRAP_KEYS
     for k, d in c['distractors'].items():
         if not d.get('rationale'):
             out.append(f'no rationale for {k}')
-        if d.get('trap') not in TRAP_KEYS:
+        if d.get('trap') not in traps:
             out.append(f'unknown trap {d.get("trap")} for {k}')
     if c['difficulty'] not in DIFFICULTY_NUM:
         out.append('difficulty must be easy/medium/hard')
-    if c['skill'] not in ACT_MATH_BLUEPRINT:
+    skills = VERBAL_BLUEPRINT[bank] if verbal else ACT_MATH_BLUEPRINT
+    if c['skill'] not in skills:
         out.append(f'unknown skill {c["skill"]}')
-    if c['repo_skill_key'] not in REPO_SKILLS:
+    if c['repo_skill_key'] not in (VERBAL_REPO_SKILLS[bank] if verbal else REPO_SKILLS):
         out.append(f'unknown repo skill key {c["repo_skill_key"]}')
-    if c['strategy'].get('key') not in STRATEGY_KEYS or not c['strategy'].get('explanation'):
+    if c['strategy'].get('key') not in (VERBAL_STRATEGY_KEYS if verbal else STRATEGY_KEYS) or not c['strategy'].get('explanation'):
         out.append('strategy needs a known key and an explanation')
+    if verbal:
+        pas = (passages or {}).get(c.get('passage_id'))
+        if not pas:
+            out.append('verbal item needs a passage_id defined in the draft passages')
+        else:
+            if not c.get('evidence') or norm_ws(c['evidence']) not in norm_ws(plain(pas['text'])):
+                out.append('evidence must be a verbatim quote from the passage')
+            if bank == 'act_english':
+                nums = {int(m.group(1)) for m in UNDERLINE.finditer(pas['text'])}
+                if c.get('underline') not in nums:
+                    out.append('ACT English item needs an underline number that exists in its passage')
     if not (10 <= int(c['expected_time_seconds']) <= 600):
         out.append('expected_time_seconds out of 10-600')
     if len(c['remember'].split()) > 16:
@@ -243,23 +289,40 @@ def review(bank: str, n: int) -> None:
         sys.exit(f'need {draft_p} and {blind_p}')
     if read_json(review_p) and read_json(review_p).get('appended_ids'):
         sys.exit(f'batch {n} already appended to the bank; refusing to append twice')
-    checks = load_checks(bank, n)
+    verbal = bank in VERBAL
+    checks = {} if verbal else load_checks(bank, n)
+    passages = {x['passage_id']: x for x in draft.get('passages', [])}
+    blind2 = read_json(ROOT / 'reviews' / bank / f'batch-{n:03d}.blind2.json') if verbal else None
+    if verbal and blind2 is None:
+        sys.exit('verbal batches need a second independent blind solve: reviews/<bank>/batch-NNN.blind2.json')
     data, h = load_bank(bank)
     if any(q.get('batch') == n for q in data['questions']):
         sys.exit(f'bank already holds records from batch {n}; refusing to append twice (rebuild the review file by hand if it is missing)')
     accepted_before = len(data['questions'])
     previous = json.loads(json.dumps(data))
-    refs = reference_stems()
-    bank_refs = [(q['id'], q['stem']) for q in data['questions']]
+    refs = [] if verbal else reference_stems()
+    bank_refs = [(q['id'], qtext(q, bank)) for q in data['questions']]
+    passage_dups = {}
+    if verbal:
+        others = [(x['passage_id'], plain(x['text'])) for x in data.get('passages', [])] + reference_passages()
+        for pid, x in passages.items():
+            mine = tokens(plain(x['text']))
+            hits = [{'with': oid, 'similarity': round(jaccard(mine, tokens(t)), 2)} for oid, t in others
+                    if oid != pid and jaccard(mine, tokens(t)) >= 0.5]
+            if hits:
+                passage_dups[pid] = hits
     next_num = 1 + max([int(q['id'][len(meta['prefix']):]) for q in data['questions']] or [0])
 
     results, batch_refs = [], []
     for c in draft['candidates']:
         cand = c['cand']
         rec = {'cand': cand, 'revision': c.get('revision', 1), 'revision_history': c.get('revision_history', [])}
-        probs = structural_problems(c)
+        probs = structural_problems(c, bank, passages)
         computed = None
-        if cand in checks:
+        if verbal:
+            # No arithmetic to recompute: the 'computed' slot records that the cited evidence is verbatim in the passage.
+            computed = c['answer'] if not probs else None
+        elif cand in checks:
             try:
                 computed = checks[cand](c['choices'])
             except Exception as e:  # noqa: BLE001
@@ -268,7 +331,10 @@ def review(bank: str, n: int) -> None:
             probs.append('no computation check')
         b = (blind.get('answers') or {}).get(cand) or {}
         blind_ans = b.get('answer')
-        dups = near_duplicates(c, bank_refs + refs + batch_refs)
+        b2 = ((blind2 or {}).get('answers') or {}).get(cand) or {}
+        dups = near_duplicates({'stem': qtext(c, bank)}, bank_refs + refs + batch_refs)
+        if verbal and c.get('passage_id') in passage_dups:
+            dups = dups + [{'passage': c['passage_id'], 'matches': passage_dups[c['passage_id']]}]
         rec.update({
             'key': c.get('answer'),
             'computed_answer': computed,
@@ -278,11 +344,14 @@ def review(bank: str, n: int) -> None:
             'blind_est_pct_correct': b.get('est_pct_correct'),
             'blind_flags': b.get('flags', []),
             'blind_notes': b.get('notes', ''),
+            **({'blind2_answer': b2.get('answer'), 'blind2_flags': b2.get('flags', []),
+                'blind2_difficulty_opinion': b2.get('difficulty_opinion')} if verbal else {}),
             'author_checklist': c.get('author_checklist', {}),
             'structural_problems': probs,
             'near_duplicates': dups,
         })
-        blocking_flags = [f for f in b.get('flags', []) if f and not str(f).lower().startswith('minor')]
+        blocking_flags = [f for f in b.get('flags', []) + (b2.get('flags', []) if verbal else [])
+                          if f and not str(f).lower().startswith('minor')]
         if c.get('author_status') == 'REJECT':
             status, reason = 'REJECT', c.get('author_reason', 'rejected by author review')
         elif dups and not c.get('dup_cleared'):
@@ -293,6 +362,8 @@ def review(bank: str, n: int) -> None:
             status, reason = 'REVISE', f'computed answer {computed} disagrees with key {c["answer"]}'
         elif blind_ans != c['answer']:
             status, reason = 'REVISE', f'blind solver chose {blind_ans}, key is {c["answer"]}'
+        elif verbal and b2.get('answer') != c['answer']:
+            status, reason = 'REVISE', f'second blind solver chose {b2.get("answer")}, key is {c["answer"]}'
         elif blocking_flags:
             status, reason = 'REVISE', 'blind solver flagged: ' + '; '.join(map(str, blocking_flags))
         elif c['difficulty'] == 'hard' and b.get('difficulty_opinion') == 'easy':
@@ -300,12 +371,16 @@ def review(bank: str, n: int) -> None:
         else:
             status, reason = 'PASS', 'key, independent computation and blind solve agree; no blocking flags'
         rec['status'], rec['reason'] = status, reason
-        batch_refs.append((cand, c['stem']))
+        batch_refs.append((cand, qtext(c, bank)))
         if status == 'PASS':
             qid = f'{meta["prefix"]}{next_num:06d}'
             next_num += 1
             rec['id'] = qid
             data['questions'].append(to_record(c, qid, bank, n, rec, blind))
+            pid = c.get('passage_id')
+            if pid and pid not in {x['passage_id'] for x in data['passages']}:
+                data['passages'].append({**passages[pid], 'batch': n, 'origin': 'ai_generated', 'author': AUTHOR,
+                                         'license': 'original-owned'})
         results.append(rec)
 
     appended = [r['id'] for r in results if r['status'] == 'PASS']
@@ -345,6 +420,8 @@ def to_record(c: dict, qid: str, bank: str, n: int, rec: dict, blind: dict) -> d
         'modeling': bool(c.get('modeling', False)),
         'repo_skill_key': c['repo_skill_key'],
         'passage_id': c.get('passage_id'),
+        'underline': c.get('underline'),
+        'evidence': c.get('evidence'),
         'figure': c.get('figure'),
         'stem': c['stem'],
         'choices': c['choices'],
@@ -403,9 +480,39 @@ def calibrated(q: dict, bank: str) -> str:
     return q.get('difficulty_calibrated') or q['difficulty']
 
 
+def qtext(q: dict, bank: str) -> str:
+    """Text compared for duplicates: math stems alone; verbal stems share wording, so add choices and the span."""
+    if bank not in VERBAL:
+        return q['stem']
+    return ' '.join([q['stem'], *q['choices'].values(), str(q.get('evidence') or '')])
+
+
+def reference_passages() -> list[tuple[str, str]]:
+    fx = REPO / 'web' / 'src' / 'lib' / 'data' / 'demo' / 'fixtures.ts'
+    if not fx.exists():
+        return []
+    out = []
+    for m in re.finditer(r'const ((?:EN|RD)_\w+) =\s*\n?\s*"((?:[^"\\]|\\.)*)"', fx.read_text(encoding='utf-8')):
+        out.append((f'fixture:{m.group(1)}', plain(m.group(2))))
+    return out
+
+
+_PASSAGES: dict = {}
+
+
+def passage_text(q: dict, bank: str) -> str | None:
+    if not q.get('passage_id'):
+        return None
+    if bank not in _PASSAGES:
+        _PASSAGES[bank] = {x['passage_id']: x for x in load_bank(bank)[0].get('passages', [])}
+    t = _PASSAGES[bank][q['passage_id']]['text']
+    return render(t, q.get('underline')) if bank == 'act_english' else plain(t)
+
+
 def to_import(q: dict, bank: str) -> dict:
     """question_import/v1 line (docs/product/QUESTION_IMPORT_CONTRACT.md). Always a draft."""
     meta = BANKS[bank]
+    q = {**q, 'passage': passage_text(q, bank)}
     return {
         'contract': 'question_import/v1',
         'import_id': q['id'].lower(),
@@ -447,6 +554,7 @@ def export() -> None:
         qs = data['questions']
         student = [{'id': q['id'], 'exam': q['exam'], 'section': q['section'], 'skill': q['skill'],
                     'subskill': q['subskill'], 'difficulty': q['difficulty'], 'passage_id': q.get('passage_id'),
+                    'underline': q.get('underline'),
                     'figure': q.get('figure'), 'stem': q['stem'], 'choices': q['choices']} for q in qs]
         answers = [{'id': q['id'], 'correct_answer': q['correct_answer'], 'explanation': q['explanation'],
                     'distractor_explanations': q['distractor_explanations'], 'hints': q['hints'],
@@ -530,6 +638,9 @@ def write_progress(files: dict) -> None:
                 'answer_key_gap_for_next_10': key_gap,
             },
         },
+        'verbal_guidance': {b: {'next_batch': batches[b] + 1,
+                                'skill_gap_for_next_10': {k: round(v * (sections[b]['accepted'] + 10) - sections[b]['by_skill'].get(k, 0), 1)
+                                                          for k, v in VERBAL_BLUEPRINT[b].items()}} for b in VERBAL},
         'section_targets': {b: {'target': TARGETS[b], 'accepted': sections[b]['accepted'],
                                 'share_of_target': round(sections[b]['accepted'] / TARGETS[b], 3)} for b in BANKS},
         'total_target': sum(TARGETS.values()),
@@ -551,18 +662,29 @@ def write_progress(files: dict) -> None:
 def screen(bank: str, n: int) -> None:
     """Pre-review screen of a draft batch: structure, scripted check and near-duplicates. Writes nothing."""
     draft = read_json(ROOT / 'drafts' / bank / f'batch-{n:03d}.json')
-    checks = load_checks(bank, n)
+    verbal = bank in VERBAL
+    checks = {} if verbal else load_checks(bank, n)
+    passages = {x['passage_id']: x for x in draft.get('passages', [])}
     data, _ = load_bank(bank)
-    others = [(q['id'], q['stem']) for q in data['questions']] + reference_stems()
+    others = [(q['id'], qtext(q, bank)) for q in data['questions']] + ([] if verbal else reference_stems())
+    if verbal:
+        po = [(x['passage_id'], plain(x['text'])) for x in data.get('passages', [])] + reference_passages()
+        for pid, x in passages.items():
+            hits = [(oid, round(jaccard(tokens(plain(x['text'])), tokens(t)), 2)) for oid, t in po
+                    if oid != pid and jaccard(tokens(plain(x['text'])), tokens(t)) >= 0.5]
+            print(f'passage {pid}: {len(plain(x["text"]).split())} words, near-duplicates {hits}')
     seen = []
     for c in draft['candidates']:
-        probs = structural_problems(c)
-        try:
-            got = checks[c['cand']](c['choices'])
-        except Exception as e:  # noqa: BLE001
-            got = f'error {e!r}'
-        dups = near_duplicates(c, others + seen)
-        seen.append((c['cand'], c['stem']))
+        probs = structural_problems(c, bank, passages)
+        if verbal:
+            got = c['answer'] if not probs else 'evidence/structure problem'
+        else:
+            try:
+                got = checks[c['cand']](c['choices'])
+            except Exception as e:  # noqa: BLE001
+                got = f'error {e!r}'
+        dups = near_duplicates({'stem': qtext(c, bank)}, others + seen)
+        seen.append((c['cand'], qtext(c, bank)))
         ok = not probs and got == c['answer'] and not dups
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
 
