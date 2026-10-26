@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 47,
+  "bank_version": 48,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -8162,6 +8162,177 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Try x = 20: 1.2 × 0.8 = 0.96."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000470",
+      "correct_answer": "D",
+      "explanation": "The length is 2w + 3, so the perimeter is 2(w + 2w + 3) = 2(3w + 3) = 6w + 6.",
+      "distractor_explanations": {
+        "A": "3w + 3 adds one length and one width without doubling.",
+        "B": "4w + 6 doubles the length but forgets the two widths.",
+        "C": "6w + 3 doubles the w-terms but not the 3."
+      },
+      "hints": [
+        "Write the length in terms of w first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let w = 1: length 5, perimeter 12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000471",
+      "correct_answer": "B",
+      "explanation": "f⁻¹(7) is the input whose output is 7. Since f(3) = 7, f⁻¹(7) = 3.",
+      "distractor_explanations": {
+        "A": "1/7 treats the inverse as a reciprocal.",
+        "C": "5 is f⁻¹(2).",
+        "D": "9 is f(7), which reads the table in the wrong direction."
+      },
+      "hints": [
+        "Find 7 in the f(x) row."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for the output 7."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000472",
+      "correct_answer": "A",
+      "explanation": "The radii are 3 and 5, so the circumferences are 6π and 10π, a ratio of 3 : 5.",
+      "distractor_explanations": {
+        "B": "9 : 25 is the ratio of the areas, not the circumferences.",
+        "C": "6 : 10π mixes a circumference without π with one that includes π.",
+        "D": "81 : 625 squares the area ratio instead of taking its square root."
+      },
+      "hints": [
+        "Find each radius from its area."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area ratio 9:25 → radius ratio 3:5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000473",
+      "correct_answer": "A",
+      "explanation": "0.375 = 375/1000 = 3/8.",
+      "distractor_explanations": {
+        "B": "3/75 = 0.04 misreads the decimal.",
+        "C": "37/100 = 0.37 drops the final digit.",
+        "D": "375/100 = 3.75 misplaces the decimal point."
+      },
+      "hints": [
+        "0.375 has three decimal places. Over what power of 10 do you write it?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "375/1000, then simplify."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000474",
+      "correct_answer": "B",
+      "explanation": "With six values in order, the median is the mean of the 3rd and 4th values: (8 + 10)/2 = 9.",
+      "distractor_explanations": {
+        "A": "8 is the mode.",
+        "C": "10 is the 4th value only.",
+        "D": "56/6 is the mean, not the median."
+      },
+      "hints": [
+        "With an even number of values, which two are in the middle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Average the 3rd and 4th values."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000475",
+      "correct_answer": "C",
+      "explanation": "400 ÷ 12.50 = 32, so 32 hours earns exactly $400.",
+      "distractor_explanations": {
+        "A": "25 = 400 ÷ 16 uses the wrong hourly rate.",
+        "B": "31 hours earns only $387.50.",
+        "D": "33 hours is more than needed."
+      },
+      "hints": [
+        "Divide the goal by the hourly rate."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 32 × 12.50."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000476",
+      "correct_answer": "B",
+      "explanation": "The chord and two radii form an equilateral triangle (all sides 10), so the central angle is 60°. The minor arc is (60/360)(2π · 10) = 10π/3.",
+      "distractor_explanations": {
+        "A": "10 is the chord length; the arc is longer than the chord.",
+        "C": "5π uses a central angle of 90°.",
+        "D": "20π/3 uses a central angle of 120°."
+      },
+      "hints": [
+        "Draw the two radii to the chord's endpoints. What kind of triangle is formed?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle formed by the chord and radii."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000477",
+      "correct_answer": "A",
+      "explanation": "Normally 3 shirts cost 3p; on sale they cost 2.5p. The discount is 0.5p/3p = 1/6 ≈ 17%.",
+      "distractor_explanations": {
+        "B": "25% divides the savings by 2p, the full-price shirts only.",
+        "C": "33% treats the deal as one free shirt out of three.",
+        "D": "50% is the discount on the third shirt alone."
+      },
+      "hints": [
+        "Compare the sale cost of three shirts with their full price."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let each shirt cost $10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000478",
+      "correct_answer": "C",
+      "explanation": "Subtracting the second equation from the first gives 2x = 8, so x = 4 and y = 2. The product is 8.",
+      "distractor_explanations": {
+        "A": "4 is the value of x, not the product.",
+        "B": "6 is x + y.",
+        "D": "16 is x², squaring x instead of multiplying by y."
+      },
+      "hints": [
+        "Subtract one equation from the other to eliminate y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2x = 8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000479",
+      "correct_answer": "C",
+      "explanation": "f has its minimum at x = 1, where f(1) = (3)(-3) = -9. Shifting up 3 gives a minimum of -6, which is still below 0, so g crosses the x-axis twice.",
+      "distractor_explanations": {
+        "A": "0 assumes the upward shift lifts the graph entirely above the x-axis.",
+        "B": "1 assumes the shift makes the vertex touch the x-axis.",
+        "D": "4 adds the zeros of f to new zeros, but a vertical shift does not add zeros."
+      },
+      "hints": [
+        "What is the minimum value of f?",
+        "After shifting up 3, is the minimum still negative?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola and shift it up."
       }
     }
   ]

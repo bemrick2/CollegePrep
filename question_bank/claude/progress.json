@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T22:04:25+00:00",
+  "updated_at": "2026-10-26T22:06:06+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 463,
+    "act_math": 473,
     "act_english": 166,
     "act_reading": 142,
     "sat_reading_writing": 159
   },
   "review_totals": {
     "act_math": {
-      "PASS": 469,
+      "PASS": 479,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 474,
+      "candidates": 484,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 463,
+      "accepted": 473,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 80,
-        "Functions": 75,
-        "Geometry": 107,
-        "Integrating Essential Skills": 76,
-        "Number & Quantity": 54,
-        "Statistics & Probability": 71
+        "Algebra": 82,
+        "Functions": 77,
+        "Geometry": 109,
+        "Integrating Essential Skills": 78,
+        "Number & Quantity": 55,
+        "Statistics & Probability": 72
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -83,6 +83,7 @@
         "Annualizing an hourly wage": 1,
         "Annulus area from a tangent chord": 1,
         "Arc length and sector area": 1,
+        "Arc length from a chord": 1,
         "Arc length from an inscribed angle": 1,
         "Area bounded by an absolute value graph and a line": 1,
         "Area modeling with a quadratic": 1,
@@ -124,6 +125,7 @@
         "Circle equation by completing the square": 1,
         "Circles tangent to both axes": 1,
         "Circular arrangements with two people adjacent": 1,
+        "Circumference ratio from areas": 1,
         "Circumscribed circle of a right triangle": 1,
         "Coefficient in a polynomial product": 1,
         "Cofunction identity": 1,
@@ -208,6 +210,7 @@
         "Effect of added values on summary statistics": 1,
         "Effect of an added value on standard deviation": 1,
         "Effect of correcting a data value on mean and median": 1,
+        "Effective discount of a promotion": 1,
         "Effective tax rate with brackets": 1,
         "Elapsed time across time zones": 1,
         "Empirical rule for normal distributions": 1,
@@ -261,6 +264,7 @@
         "Horizontal asymptote of an exponential function": 1,
         "Horizontal asymptotes of rational functions": 1,
         "Horizontal compression of a function": 1,
+        "Hours needed to reach an earnings goal": 1,
         "Identifying a conic from its equation": 1,
         "Identifying a function from ordered pairs": 1,
         "Identifying a function type from a table": 1,
@@ -291,6 +295,7 @@
         "Inverse functions and excluded values": 1,
         "Inverse of a linear function": 1,
         "Inverse of a rational function": 1,
+        "Inverse values from a table": 1,
         "Inverse variation with a square": 1,
         "Isosceles right triangle from its area": 1,
         "Lateral area of a cone": 1,
@@ -327,6 +332,7 @@
         "Mean, median and mode constraints": 1,
         "Measurements in mixed units": 1,
         "Median from a frequency table": 1,
+        "Median of an even-sized list": 1,
         "Medication dose with unit conversion": 1,
         "Midpoint of two fractions on a number line": 1,
         "Midpoint: finding an endpoint": 1,
@@ -460,6 +466,7 @@
         "Solving a formula for a variable": 1,
         "Solving a reciprocal formula for a variable": 1,
         "Solving a system by elimination": 1,
+        "Solving a system, then evaluating an expression": 1,
         "Solving equations with a composition": 1,
         "Solving f(x) = k for a linear function": 1,
         "Solving for an inner function in a composition": 1,
@@ -483,6 +490,7 @@
         "Tangent line to a circle with a parameter": 1,
         "Tangent lines and chords": 1,
         "Tax and tip on the same base": 1,
+        "Terminating decimal to a fraction": 1,
         "Three-set overlap counting": 1,
         "Three-variable system by adding equations": 1,
         "Total distance of a bouncing ball (infinite geometric series)": 1,
@@ -522,33 +530,35 @@
         "Work problems with a mid-job change": 1,
         "Working backward through fractions of a remainder": 1,
         "Writing a cost expression": 1,
+        "Writing a perimeter expression": 1,
         "Writing an exponential decay model": 1,
         "Zero and negative integer exponents": 1,
+        "Zeros after a vertical shift": 1,
         "Zeros of a product of functions": 1,
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 109,
-        "hard": 157,
-        "medium": 197
+        "easy": 114,
+        "hard": 160,
+        "medium": 199
       },
       "by_difficulty_calibrated": {
-        "easy": 120,
+        "easy": 125,
         "hard": 67,
-        "medium": 276
+        "medium": 281
       },
       "calibrated_share": {
-        "easy": 0.259,
-        "hard": 0.145,
-        "medium": 0.596
+        "easy": 0.264,
+        "hard": 0.142,
+        "medium": 0.594
       },
       "answer_key_balance": {
-        "A": 106,
-        "B": 129,
-        "C": 127,
-        "D": 101
+        "A": 109,
+        "B": 132,
+        "C": 130,
+        "D": 102
       },
-      "modeling_items": 106,
+      "modeling_items": 108,
       "passages": 0
     },
     "act_english": {
@@ -959,41 +969,49 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 47,
+    "act_math": 48,
     "act_english": 16,
     "act_reading": 17,
     "sat_reading_writing": 17
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 48,
+      "next_batch": 49,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -2.0,
-        "Algebra": 7.5,
-        "Functions": 12.5,
-        "Geometry": -19.5,
-        "Statistics & Probability": -7.1,
+        "Number & Quantity": -1.9,
+        "Algebra": 7.4,
+        "Functions": 12.4,
+        "Geometry": -19.6,
+        "Statistics & Probability": -6.8,
         "Integrating Essential Skills": 18.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -1.8,
+        "easy": -4.2,
         "medium": -39.5,
-        "hard": 51.2
+        "hard": 53.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 12.2,
-        "B": -10.8,
-        "C": -8.8,
-        "D": 17.2
+        "A": 11.8,
+        "B": -11.2,
+        "C": -9.2,
+        "D": 18.8
       }
     }
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 18,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 17.0,
+        "Craft and Structure": -2.2,
+        "Integration of Knowledge and Ideas": -4.8
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 18,
       "skill_gap_for_next_10": {
@@ -1010,21 +1028,13 @@
         "Knowledge of Language": 13.1,
         "Conventions of Standard English": -14.7
       }
-    },
-    "act_reading": {
-      "next_batch": 18,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 17.0,
-        "Craft and Structure": -2.2,
-        "Integration of Knowledge and Ideas": -4.8
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 463,
-      "share_of_target": 0.232
+      "accepted": 473,
+      "share_of_target": 0.236
     },
     "act_english": {
       "target": 700,
@@ -1043,7 +1053,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 930,
+  "total_accepted": 940,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -10118,7 +10128,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 47,
+      "bank_version": 48,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -10233,7 +10243,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T22:04:25+00:00",
+    "heartbeat_at": "2026-10-26T22:06:06+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
