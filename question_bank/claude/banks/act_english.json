@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 12,
-  "updated_at": "2026-10-26T21:03:52+00:00",
+  "version": 13,
+  "updated_at": "2026-10-26T21:17:07+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -135,6 +135,17 @@
       "word_count": 302,
       "text": "When the Hollins Branch Library began lending seeds in 2019, {{1|it's}} staff expected only a few gardeners to take an interest. Instead, the first {{2|three hundred packets—tomatoes, beans, and squash, were}} gone within a week. Borrowers take seeds in the spring, grow the plants over the summer, and return a portion of the new seeds in the fall, so the collection renews itself. The program costs almost nothing to run: donated envelopes, a card catalog rescued from the basement, and a few hours of volunteer time each week.\n\nThe idea is not new. Farmers have saved and traded seeds for thousands of years, and the program's founder, {{3|librarian, Dana Whitfield,}} learned the practice from her grandmother. {{4|Her grandmother also kept bees and sold the honey at a roadside stand.}} What has changed is the scale. Today the collection holds more than two hundred varieties, many of them adapted over generations to the region's short summers and heavy clay soil. Tomatoes grown from the library's seeds often ripen two weeks earlier than {{5|commercial packets}}.\n\nIn theory, every borrower returns seeds each fall. {{6|In practice,}} about a third never do, and others return seeds from squash that cross-pollinated with a neighbor's plants, producing gourds no one can eat. The staff responded with a simple {{7|rule, seeds}} from squash must now come back labeled with the address of the garden where they grew. If every borrower {{8|will return}} seeds, Whitfield says, the collection would double each year.\n\nEven so, the variety of beans that borrowers have brought back over the years {{9|have}} surprised her. Some of those beans, a speckled variety from a farm that closed decades ago, exist nowhere else. Whitfield keeps a jar of them on her desk, and she lends them only to gardeners who promise to bring twice as many back.",
       "batch": 12,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000013",
+      "title": "The Night Ferry",
+      "genre": "informational essay",
+      "word_count": 280,
+      "text": "For ninety years, a ferry has crossed the harbor between Port Ellery and Gull Island every night at eleven. The boat itself {{1|had changed}} several times; the current one, the blue-hulled {{2|Marguerite,}} entered service in 1998. Its schedule, however, has not. Riders say the night ferry is as dependable as the tide. On a calm night the crossing takes twenty-two minutes, and the lights of Gull Island grow from a faint smudge into a row of windows along the pier.\n\nMost of the late-night passengers are workers. {{3|Among them is}} nurses finishing hospital shifts, cooks from the restaurants along the waterfront, and a baker {{4|on who}} the island depends for its morning bread. The captain, Lou Petrakis, knows most of them by name. He keeps a thermos of coffee in the wheelhouse for regulars and a box of spare gloves for anyone who forgets a pair in winter.\n\nRunning a ferry at night is harder than {{5|daytime}}. Fog rolls in without warning, and the harbor's buoys, {{6|which are only dimly lit at night when it is dark}}, can be hard to see. {{7|For this reason,}} Petrakis has memorized the channel so thoroughly that he says he could steer it with his eyes closed, though he has never tried.\n\nLast spring the city proposed ending the night run to save money. More than two thousand residents signed a petition against the plan, and the nurses' union {{8|argued, that}} cutting the route would leave hospital workers with no way home after late shifts. At a public hearing, the baker brought a loaf of bread for every member of the council. In June the city {{9|reversed course}}. {{10|The ferry still leaves at eleven.}}",
+      "batch": 13,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -9212,6 +9223,713 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-012.review.json",
         "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000129",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency (present perfect)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 1,
+      "evidence": "Its schedule, however, has not",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "changing",
+        "C": "has changed",
+        "D": "will have changed"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Has not\" in the next sentence contrasts with the boat's changes, so the parallel present perfect \"has changed\" is needed.",
+      "distractor_explanations": {
+        "A": "The past perfect needs a later past event to precede; here the change continues to the present, as \"has not\" shows.",
+        "B": "\"Changing\" leaves the clause without a main verb.",
+        "D": "The changes have already happened; the future perfect does not fit."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What verb form does the contrasting sentence use?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the tense of \"has not.\""
+      },
+      "remember": "Keep parallel contrasts in the same tense.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-01",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000130",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonrestrictive appositive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 2,
+      "evidence": "the current one, the blue-hulled",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Marguerite",
+        "C": "Marguerite;",
+        "D": "Marguerite—"
+      },
+      "correct_answer": "A",
+      "explanation": "\"The blue-hulled Marguerite\" renames \"the current one,\" so it is set off by a matching pair of commas.",
+      "distractor_explanations": {
+        "B": "The appositive opened by the comma after \"one\" must also be closed by a comma.",
+        "C": "A semicolon would split the subject \"the current one\" from its verb \"entered.\"",
+        "D": "A dash cannot close an appositive that was opened with a comma."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Read the sentence without the appositive."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check that the punctuation on both sides matches."
+      },
+      "remember": "Appositives take matching punctuation on both sides.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-02",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: ship name 'Marguerite' would normally be italicized in a published passage; harmless here"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000131",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement in an inverted sentence",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 3,
+      "evidence": "nurses finishing hospital shifts, cooks from the restaurants along the waterfront, and a baker",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Among them are",
+        "C": "Among them, there is",
+        "D": "Among them being"
+      },
+      "correct_answer": "B",
+      "explanation": "In an inverted sentence the subject comes after the verb. Here it is a compound, plural subject, so the verb is \"are.\"",
+      "distractor_explanations": {
+        "A": "The subject follows the verb and is plural: \"nurses ..., cooks ..., and a baker.\"",
+        "C": "\"There is\" is singular and still disagrees with the plural subject.",
+        "D": "\"Being\" leaves the sentence without a main verb."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where is the subject of this sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Flip the sentence: \"Nurses, cooks, and a baker ___ among them.\""
+      },
+      "remember": "Inverted order: find the subject after the verb.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-03",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000132",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Whom after a preposition",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 4,
+      "evidence": "the island depends for its morning bread",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "on which",
+        "C": "whom",
+        "D": "on whom"
+      },
+      "correct_answer": "D",
+      "explanation": "The island depends on the baker: the pronoun is the object of \"on,\" so \"whom\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Who\" is a subject form; after the preposition \"on\" the object form is needed.",
+        "B": "\"Which\" refers to things, but the baker is a person.",
+        "C": "Dropping \"on\" leaves \"depends for its morning bread\" without the preposition it needs."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Rephrase: the island depends on ___. Him or he?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use the him/he test."
+      },
+      "remember": "Object of a preposition: whom.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-04",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000133",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Faulty comparison",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 5,
+      "evidence": "Running a ferry at night is harder than",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "the ferry that crosses during the day",
+        "C": "the day's",
+        "D": "running one during the day"
+      },
+      "correct_answer": "D",
+      "explanation": "The sentence compares two activities: running a ferry at night and running one by day.",
+      "distractor_explanations": {
+        "A": "This compares running a ferry with \"daytime,\" a time, not an activity.",
+        "B": "This compares an activity with a boat.",
+        "C": "\"The day's\" is a possessive with nothing to possess."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What two things are being compared?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compare like with like."
+      },
+      "remember": "Compare an activity with an activity.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-05",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000134",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 6,
+      "evidence": "Running a ferry at night is harder than",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "which are only dimly lit",
+        "C": "which, at night when it is dark, are dimly lit",
+        "D": "dimly lit at night in the darkness"
+      },
+      "correct_answer": "B",
+      "explanation": "The paragraph is about running the ferry at night, so \"at night when it is dark\" adds nothing.",
+      "distractor_explanations": {
+        "A": "\"At night\" and \"when it is dark\" repeat each other, and the paragraph already sets the scene at night.",
+        "C": "This keeps both repeated phrases.",
+        "D": "This still repeats the idea of night."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Does the reader already know it is night?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      },
+      "remember": "Cut words the context already supplies.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-06",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000135",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (cause and effect)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 7,
+      "evidence": "can be hard to see",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "In contrast,",
+        "C": "Similarly,",
+        "D": "Nevertheless,"
+      },
+      "correct_answer": "A",
+      "explanation": "Because fog and dim buoys make navigation hard, Petrakis memorized the channel: a cause-and-effect relationship.",
+      "distractor_explanations": {
+        "B": "Memorizing the channel responds to the poor visibility; it does not contrast with it.",
+        "C": "Memorizing the channel is not similar to fog and dim buoys; it is a response to them.",
+        "D": "\"Nevertheless\" implies he acts despite the difficulty, but the difficulty is his reason."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Why did Petrakis memorize the channel?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"so\" or \"therefore.\""
+      },
+      "remember": "Name the relationship before choosing the transition.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-07",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000136",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary comma before a that-clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 8,
+      "evidence": "cutting the route would leave hospital workers with no way home",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "argued: that",
+        "C": "argued that",
+        "D": "argued; that"
+      },
+      "correct_answer": "C",
+      "explanation": "The that-clause is the object of \"argued,\" so no punctuation separates them.",
+      "distractor_explanations": {
+        "A": "A comma should not separate \"argued\" from the clause that is its object.",
+        "B": "A colon cannot come between a verb and its object.",
+        "D": "A semicolon must join two independent clauses; \"that cutting the route ...\" is not one."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"that cutting the route ...\" a separate sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove punctuation between a verb and its object."
+      },
+      "remember": "No punctuation between a verb and the clause it introduces.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-08",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000137",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise, idiomatic wording",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 9,
+      "evidence": "the city proposed ending the night run",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "turned around",
+        "C": "went backward",
+        "D": "changed its directions"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Reversed course\" is the standard idiom for abandoning a plan, which is what the city did.",
+      "distractor_explanations": {
+        "B": "\"Turned around\" suggests physically facing the other way and is too informal here.",
+        "C": "\"Went backward\" suggests regressing, not changing a decision.",
+        "D": "\"Changed its directions\" is not idiomatic for reversing a decision."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which phrase means \"changed its decision\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each phrase in the sentence."
+      },
+      "remember": "Choose the idiom that fits the meaning and the register.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-09",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: D 'changed its directions' is unidiomatic as well as wrong, so it's an easy elimination"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000138",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that echoes the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000013",
+      "underline": 10,
+      "evidence": "Riders say the night ferry is as dependable as the tide",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by connecting the ferry's survival to the idea introduced in the first paragraph?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "This fall, as it has for ninety years, the ferry will leave at eleven, as dependable as the tide.",
+        "C": "The city's transportation office is now studying whether a second, larger boat should be added to the route.",
+        "D": "Petrakis, who has captained the night run for nineteen years, plans to retire within the next two years."
+      },
+      "correct_answer": "B",
+      "explanation": "The first paragraph stresses ninety years of a dependable schedule. B returns to both the ninety years and the tide comparison.",
+      "distractor_explanations": {
+        "A": "This states the fact but does not connect it to the dependability described at the start.",
+        "C": "A study of a second boat introduces a new topic instead of returning to the opening idea.",
+        "D": "Petrakis's retirement does not return to the ferry's dependability."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "true_but_irrelevant",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "What idea does the first paragraph emphasize?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the first paragraph before choosing."
+      },
+      "remember": "An echoing conclusion reuses the opening's key idea.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 13,
+      "draft_candidate": "E013-10",
+      "created_at": "2026-10-26T21:17:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: A also echoes paragraph 1 (the 'eleven' departure), but only B picks up the ninety-year history and the 'dependable as the tide' idea, so B is clearly best",
+          "minor: B is the longest choice and repeats the key phrase word for word, which is a test-wise tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-013.review.json",
+        "computation": "checks/act_english/batch_013.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

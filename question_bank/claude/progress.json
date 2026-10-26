@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:16:59+00:00",
+  "updated_at": "2026-10-26T21:17:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 373,
-    "act_english": 128,
+    "act_english": 138,
     "act_reading": 114,
     "sat_reading_writing": 131
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 128,
+      "PASS": 138,
       "REVISE": 6,
       "REJECT": 0,
-      "candidates": 134,
+      "candidates": 144,
       "passed_after_revision": 5
     },
     "act_reading": {
@@ -462,12 +462,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 128,
+      "accepted": 138,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 64,
-        "Knowledge of Language": 16,
-        "Production of Writing": 48
+        "Conventions of Standard English": 70,
+        "Knowledge of Language": 18,
+        "Production of Writing": 50
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
@@ -484,13 +484,14 @@
         "Commas around a nonessential clause": 1,
         "Commas around a nonessential element": 1,
         "Commas around a nonessential phrase": 1,
+        "Commas around a nonrestrictive appositive": 1,
         "Commas in a series": 1,
         "Commas with a nonessential clause": 1,
         "Concision": 2,
         "Concision and redundancy": 3,
         "Concluding sentence that links to earlier content": 1,
         "Conclusion emphasizing a point": 1,
-        "Conclusion that echoes the opening": 1,
+        "Conclusion that echoes the opening": 2,
         "Conclusion that links to the essay's focus": 1,
         "Conclusion that returns to the opening": 2,
         "Conclusion tied to the essay's opening purpose": 1,
@@ -502,7 +503,7 @@
         "Effective conclusions": 1,
         "Evaluating whether an essay meets a goal": 7,
         "Evaluating whether an essay meets a stated goal": 1,
-        "Faulty comparison": 2,
+        "Faulty comparison": 3,
         "Function of a sentence (what would be lost)": 1,
         "Idiom (phrasal verb)": 1,
         "Idiom (preposition)": 2,
@@ -521,10 +522,11 @@
         "Past perfect tense": 1,
         "Plural possessive": 2,
         "Precise word choice": 2,
+        "Precise, idiomatic wording": 1,
         "Precise, register-appropriate wording": 1,
         "Pronoun case (who/whom)": 1,
         "Punctuating conjunctive adverbs": 1,
-        "Redundancy": 4,
+        "Redundancy": 5,
         "Redundancy (deleting a sentence)": 1,
         "Relative pronoun to avoid a comma splice": 1,
         "Relevance": 1,
@@ -542,6 +544,7 @@
         "Subject-verb agreement": 2,
         "Subject-verb agreement (\"each of\")": 1,
         "Subject-verb agreement in a relative clause": 1,
+        "Subject-verb agreement in an inverted sentence": 1,
         "Subject-verb agreement with a gerund subject": 1,
         "Subject-verb agreement with a long subject": 1,
         "Subjunctive mood": 1,
@@ -550,45 +553,49 @@
         "Their / there / they're": 1,
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
+        "Transitions (cause and effect)": 1,
         "Transitions (concession)": 2,
         "Transitions (contrast of theory and practice)": 1,
         "Transitions (contrast)": 3,
         "Transitions (example)": 1,
         "Transitions: contrast": 1,
         "Unnecessary comma": 1,
+        "Unnecessary comma before a that-clause": 1,
         "Unnecessary comma between noun and clause": 1,
         "Unnecessary comma in a clause": 1,
         "Unnecessary comma in a relative clause": 1,
         "Verb forms and agreement": 1,
+        "Verb tense consistency (present perfect)": 1,
         "Verb tense in a hypothetical conditional": 1,
         "What a sentence contributes": 1,
         "Whoever as a clause subject": 1,
         "Whoever versus whomever": 1,
+        "Whom after a preposition": 1,
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 42,
-        "hard": 19,
-        "medium": 67
+        "easy": 44,
+        "hard": 21,
+        "medium": 73
       },
       "by_difficulty_calibrated": {
-        "easy": 79,
+        "easy": 85,
         "hard": 1,
-        "medium": 48
+        "medium": 52
       },
       "calibrated_share": {
-        "easy": 0.617,
-        "hard": 0.008,
-        "medium": 0.375
+        "easy": 0.616,
+        "hard": 0.007,
+        "medium": 0.377
       },
       "answer_key_balance": {
-        "A": 36,
-        "B": 30,
-        "C": 32,
-        "D": 30
+        "A": 39,
+        "B": 33,
+        "C": 34,
+        "D": 32
       },
       "modeling_items": 0,
-      "passages": 12
+      "passages": 13
     },
     "act_reading": {
       "accepted": 114,
@@ -819,7 +826,7 @@
   },
   "last_completed_batch": {
     "act_math": 38,
-    "act_english": 12,
+    "act_english": 13,
     "act_reading": 13,
     "sat_reading_writing": 14
   },
@@ -863,20 +870,20 @@
         "Expression of Ideas": -0.8
       }
     },
-    "act_english": {
-      "next_batch": 13,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 7.9,
-        "Knowledge of Language": 12.3,
-        "Conventions of Standard English": -8.1
-      }
-    },
     "act_reading": {
       "next_batch": 14,
       "skill_gap_for_next_10": {
         "Key Ideas and Details": 10.5,
         "Craft and Structure": -1.4,
         "Integration of Knowledge and Ideas": 0.9
+      }
+    },
+    "act_english": {
+      "next_batch": 14,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 9.9,
+        "Knowledge of Language": 12.3,
+        "Conventions of Standard English": -10.1
       }
     }
   },
@@ -888,8 +895,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 128,
-      "share_of_target": 0.183
+      "accepted": 138,
+      "share_of_target": 0.197
     },
     "act_reading": {
       "target": 600,
@@ -903,9 +910,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 746,
+  "total_accepted": 756,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -9762,7 +9769,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 12,
+      "bank_version": 13,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -9862,7 +9869,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:16:58+00:00",
+    "heartbeat_at": "2026-10-26T21:17:09+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
