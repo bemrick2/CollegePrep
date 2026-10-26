@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 65,
+  "bank_version": 66,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -10991,6 +10991,176 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Count same-parity pairs out of all pairs."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000647",
+      "correct_answer": "A",
+      "explanation": "Both points have x-coordinate 3, so the line is vertical: x = 3.",
+      "distractor_explanations": {
+        "B": "y = 3 is a horizontal line; the points have different y-values.",
+        "C": "y = x + 3 passes through (3, 6), not through either point.",
+        "D": "x = −2 uses a y-coordinate as the x-value."
+      },
+      "hints": [
+        "What do the two points have in common?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot both points."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000648",
+      "correct_answer": "C",
+      "explanation": "60 miles per hour is 60 × 5,280 = 316,800 feet per 3,600 seconds, which is 88 feet per second.",
+      "distractor_explanations": {
+        "A": "1 is the speed in miles per minute.",
+        "B": "44 is half the correct speed.",
+        "D": "5,280 is the number of feet in a mile, which is the speed in feet per minute."
+      },
+      "hints": [
+        "How many seconds are in an hour?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by 5,280, divide by 3,600."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000649",
+      "correct_answer": "B",
+      "explanation": "By the quadratic formula, x = [4 ± √(16 + 4)]/2 = (4 ± √20)/2 = (4 ± 2√5)/2 = 2 ± √5.",
+      "distractor_explanations": {
+        "A": "−2 ± √5 uses the wrong sign for −b/(2a).",
+        "C": "4 ± √20 forgets to divide the whole numerator by 2.",
+        "D": "2 ± √3 subtracts 4 instead of adding it under the radical: √(16 − 4) = √12."
+      },
+      "hints": [
+        "Identify a, b and c, then apply the formula."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x = [−b ± √(b² − 4ac)]/(2a)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000650",
+      "correct_answer": "A",
+      "explanation": "Area = (1/2)ab sin C = (1/2)(8)(10)(1/2) = 20.",
+      "distractor_explanations": {
+        "B": "20√3 uses cos 30° instead of sin 30°.",
+        "C": "40 forgets one of the factors of 1/2.",
+        "D": "80 multiplies the two sides and ignores the angle."
+      },
+      "hints": [
+        "The height to the side of length 10 is 8 sin 30°."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the height from the angle's far vertex."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000651",
+      "correct_answer": "C",
+      "explanation": "Each square centimeter on the map represents 5 × 5 = 25 square kilometers, so 4 square centimeters represent 4 × 25 = 100 square kilometers.",
+      "distractor_explanations": {
+        "A": "0.8 divides 4 by 5 instead of multiplying.",
+        "B": "20 multiplies by the linear scale 5 instead of the area scale 25.",
+        "D": "500 multiplies by 125, the scale for volume."
+      },
+      "hints": [
+        "How many square kilometers does 1 square centimeter represent?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a 1 cm by 1 cm square and label each side 5 km."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000652",
+      "correct_answer": "D",
+      "explanation": "The difference between L and 50 is |L − 50|, and \"at most 0.4\" means ≤ 0.4.",
+      "distractor_explanations": {
+        "A": "|L + 50| measures the distance from −50, not from 50.",
+        "B": "This swaps the target length and the tolerance.",
+        "C": "≥ 0.4 describes the lengths that are too far from 50."
+      },
+      "hints": [
+        "What expression gives the distance between L and 50?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Distance from 50 is |L − 50|."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000653",
+      "correct_answer": "D",
+      "explanation": "The median (5th of 9 values) is 78, the mode is 78, and the mean is 670 ÷ 9 ≈ 74.4. So the median and mode are equal and greater than the mean.",
+      "distractor_explanations": {
+        "A": "The mean (about 74.4) is less than the median (78).",
+        "B": "The mode (78) is greater than the mean.",
+        "C": "The mean differs from the median and mode."
+      },
+      "hints": [
+        "Find all three measures."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compute each, then test the statements."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000654",
+      "correct_answer": "B",
+      "explanation": "Let the square's side be s. Its diagonal is s√2, so the triangle's side is s√2 and its area is (√3/4)(2s²) = (√3/2)s². The ratio to the square's area s² is √3/2.",
+      "distractor_explanations": {
+        "A": "1/2 drops the √3 from the triangle's area formula.",
+        "C": "√2 is the ratio of the triangle's side to the square's side, not of the areas.",
+        "D": "√3 forgets the 1/4 in the area formula and uses only half of the 2."
+      },
+      "hints": [
+        "Express everything in terms of the square's side s."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the square's side be 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000655",
+      "correct_answer": "C",
+      "explanation": "3^(2a − b) = (3^a)² ÷ 3^b = 5² ÷ 2 = 25/2.",
+      "distractor_explanations": {
+        "A": "8 = 2(5) − 2 substitutes the values of the powers as if they were the exponents.",
+        "B": "10 multiplies the two given values.",
+        "D": "23 = 5² − 2 subtracts instead of dividing."
+      },
+      "hints": [
+        "Rewrite 3^(2a − b) using powers of 3^a and 3^b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use (3^a)² ÷ 3^b."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000656",
+      "correct_answer": "B",
+      "explanation": "The larger number is at most 4 in 4 × 4 = 16 outcomes and at most 3 in 3 × 3 = 9 outcomes, so it is exactly 4 in 16 − 9 = 7 outcomes: 7/36.",
+      "distractor_explanations": {
+        "A": "1/6 = 6/36 misses the outcome (4, 4) or another case.",
+        "C": "1/4 = 9/36 counts the outcomes where the larger number is at most 3.",
+        "D": "4/9 = 16/36 counts the outcomes where the larger number is at most 4."
+      },
+      "hints": [
+        "How many outcomes have both numbers at most 4 ? At most 3 ?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Shade the 4 × 4 corner of the 6 × 6 grid, then remove the 3 × 3 corner."
       }
     }
   ]

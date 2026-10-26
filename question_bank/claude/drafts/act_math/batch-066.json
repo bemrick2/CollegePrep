@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 66,
+ "plan": "3 hard (triangle-square area ratio, exponent rewrite, larger of two dice) / 5 medium / 2 easy; every concept searched in the bank first.",
+ "candidates": [
+  {
+   "cand": "B066-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Equation of a vertical line",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "The points (3, −2) and (3, 5) both lie on a certain line. What is an equation of that line?",
+   "choices": {
+    "A": "x = 3",
+    "B": "y = 3",
+    "C": "y = x + 3",
+    "D": "x = −2"
+   },
+   "answer": "A",
+   "explanation": "Both points have x-coordinate 3, so the line is vertical: x = 3.",
+   "distractors": {
+    "B": {
+     "rationale": "y = 3 is a horizontal line; the points have different y-values.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "y = x + 3 passes through (3, 6), not through either point.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x = −2 uses a y-coordinate as the x-value.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What do the two points have in common?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot both points."
+   },
+   "remember": "Points with the same x-coordinate lie on a vertical line x = a.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-02",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Converting miles per hour to feet per second",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A car travels at 60 miles per hour. What is this speed in feet per second? (1 mile = 5,280 feet)",
+   "choices": {
+    "A": "1",
+    "B": "44",
+    "C": "88",
+    "D": "5,280"
+   },
+   "answer": "C",
+   "explanation": "60 miles per hour is 60 × 5,280 = 316,800 feet per 3,600 seconds, which is 88 feet per second.",
+   "distractors": {
+    "A": {
+     "rationale": "1 is the speed in miles per minute.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "44 is half the correct speed.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "5,280 is the number of feet in a mile, which is the speed in feet per minute.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many seconds are in an hour?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply by 5,280, divide by 3,600."
+   },
+   "remember": "Convert units step by step, canceling as you go.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Quadratic formula with irrational roots",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "What are the solutions of x² − 4x − 1 = 0 ?",
+   "choices": {
+    "A": "−2 ± √5",
+    "B": "2 ± √5",
+    "C": "4 ± √20",
+    "D": "2 ± √3"
+   },
+   "answer": "B",
+   "explanation": "By the quadratic formula, x = [4 ± √(16 + 4)]/2 = (4 ± √20)/2 = (4 ± 2√5)/2 = 2 ± √5.",
+   "distractors": {
+    "A": {
+     "rationale": "−2 ± √5 uses the wrong sign for −b/(2a).",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "4 ± √20 forgets to divide the whole numerator by 2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "2 ± √3 subtracts 4 instead of adding it under the radical: √(16 − 4) = √12.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Identify a, b and c, then apply the formula."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "x = [−b ± √(b² − 4ac)]/(2a)."
+   },
+   "remember": "Divide every term of the numerator by 2a.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Triangle area from two sides and the included angle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Two sides of a triangle have lengths 8 and 10, and the angle between them measures 30°. What is the area of the triangle? (sin 30° = 1/2, cos 30° = √3/2)",
+   "choices": {
+    "A": "20",
+    "B": "20√3",
+    "C": "40",
+    "D": "80"
+   },
+   "answer": "A",
+   "explanation": "Area = (1/2)ab sin C = (1/2)(8)(10)(1/2) = 20.",
+   "distractors": {
+    "B": {
+     "rationale": "20√3 uses cos 30° instead of sin 30°.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "40 forgets one of the factors of 1/2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "80 multiplies the two sides and ignores the angle.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "The height to the side of length 10 is 8 sin 30°."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the height from the angle's far vertex."
+   },
+   "remember": "Area = (1/2)ab sin C for two sides and the angle between them.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-05",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Area on a scale map",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "On a map, 1 centimeter represents 5 kilometers. A park appears on the map as a region with an area of 4 square centimeters. What is the actual area of the park, in square kilometers?",
+   "choices": {
+    "A": "0.8",
+    "B": "20",
+    "C": "100",
+    "D": "500"
+   },
+   "answer": "C",
+   "explanation": "Each square centimeter on the map represents 5 × 5 = 25 square kilometers, so 4 square centimeters represent 4 × 25 = 100 square kilometers.",
+   "distractors": {
+    "A": {
+     "rationale": "0.8 divides 4 by 5 instead of multiplying.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "20 multiplies by the linear scale 5 instead of the area scale 25.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "500 multiplies by 125, the scale for volume.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many square kilometers does 1 square centimeter represent?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw a 1 cm by 1 cm square and label each side 5 km."
+   },
+   "remember": "Areas scale by the square of the length scale.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Absolute value inequality for a tolerance",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "A machine cuts bolts that are supposed to be 50 millimeters long. A bolt is acceptable if its length L, in millimeters, differs from 50 by at most 0.4. Which inequality describes the acceptable lengths?",
+   "choices": {
+    "A": "|L + 50| ≤ 0.4",
+    "B": "|L − 0.4| ≤ 50",
+    "C": "|L − 50| ≥ 0.4",
+    "D": "|L − 50| ≤ 0.4"
+   },
+   "answer": "D",
+   "explanation": "The difference between L and 50 is |L − 50|, and \"at most 0.4\" means ≤ 0.4.",
+   "distractors": {
+    "A": {
+     "rationale": "|L + 50| measures the distance from −50, not from 50.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "This swaps the target length and the tolerance.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "≥ 0.4 describes the lengths that are too far from 50.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What expression gives the distance between L and 50?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Distance from 50 is |L − 50|."
+   },
+   "remember": "|x − a| ≤ b means x is within b of a.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Comparing mean, median and mode",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "The scores on a quiz were 62, 65, 65, 71, 78, 78, 78, 83 and 90. Which of the following statements about the mean, median and mode of the scores is true?",
+   "choices": {
+    "A": "The mean is greater than the median.",
+    "B": "The mode is less than the mean.",
+    "C": "The mean, median and mode are all equal.",
+    "D": "The median and the mode are equal and greater than the mean."
+   },
+   "answer": "D",
+   "explanation": "The median (5th of 9 values) is 78, the mode is 78, and the mean is 670 ÷ 9 ≈ 74.4. So the median and mode are equal and greater than the mean.",
+   "distractors": {
+    "A": {
+     "rationale": "The mean (about 74.4) is less than the median (78).",
+     "trap": null
+    },
+    "B": {
+     "rationale": "The mode (78) is greater than the mean.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The mean differs from the median and mode.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find all three measures."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Compute each, then test the statements."
+   },
+   "remember": "A few low values pull the mean below the median.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B066-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Comparing areas of a square and an equilateral triangle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "The side length of an equilateral triangle equals the length of a diagonal of a square. What is the ratio of the area of the triangle to the area of the square?",
+   "choices": {
+    "A": "1/2",
+    "B": "√3/2",
+    "C": "√2",
+    "D": "√3"
+   },
+   "answer": "B",
+   "explanation": "Let the square's side be s. Its diagonal is s√2, so the triangle's side is s√2 and its area is (√3/4)(2s²) = (√3/2)s². The ratio to the square's area s² is √3/2.",
+   "distractors": {
+    "A": {
+     "rationale": "1/2 drops the √3 from the triangle's area formula.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "√2 is the ratio of the triangle's side to the square's side, not of the areas.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "√3 forgets the 1/4 in the area formula and uses only half of the 2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Express everything in terms of the square's side s."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let the square's side be 1."
+   },
+   "remember": "Pick a convenient size and compute both areas.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must chain the square's diagonal into the equilateral-triangle area formula and simplify a ratio with radicals."
+   }
+  },
+  {
+   "cand": "B066-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Exponents with a given value of a power",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "If 3^a = 5 and 3^b = 2, what is the value of 3^(2a − b) ?",
+   "choices": {
+    "A": "8",
+    "B": "10",
+    "C": "25/2",
+    "D": "23"
+   },
+   "answer": "C",
+   "explanation": "3^(2a − b) = (3^a)² ÷ 3^b = 5² ÷ 2 = 25/2.",
+   "distractors": {
+    "A": {
+     "rationale": "8 = 2(5) − 2 substitutes the values of the powers as if they were the exponents.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "10 multiplies the two given values.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "23 = 5² − 2 subtracts instead of dividing.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Rewrite 3^(2a − b) using powers of 3^a and 3^b."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use (3^a)² ÷ 3^b."
+   },
+   "remember": "A difference in exponents means division; a coefficient means a power.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must rewrite the expression with exponent rules rather than solving for a and b; substituting the values into the exponent (8) is a strong trap."
+   }
+  },
+  {
+   "cand": "B066-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability for the larger of two dice",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "Two fair six-sided dice are rolled. What is the probability that the larger of the two numbers rolled is exactly 4? (If both dice show the same number, that number is the larger.)",
+   "choices": {
+    "A": "1/6",
+    "B": "7/36",
+    "C": "1/4",
+    "D": "4/9"
+   },
+   "answer": "B",
+   "explanation": "The larger number is at most 4 in 4 × 4 = 16 outcomes and at most 3 in 3 × 3 = 9 outcomes, so it is exactly 4 in 16 − 9 = 7 outcomes: 7/36.",
+   "distractors": {
+    "A": {
+     "rationale": "1/6 = 6/36 misses the outcome (4, 4) or another case.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1/4 = 9/36 counts the outcomes where the larger number is at most 3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4/9 = 16/36 counts the outcomes where the larger number is at most 4.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How many outcomes have both numbers at most 4 ? At most 3 ?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Shade the 4 × 4 corner of the 6 × 6 grid, then remove the 3 × 3 corner."
+   },
+   "remember": "\"Exactly k\" = \"at most k\" − \"at most k − 1.\"",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Counting 'the larger is exactly 4' requires subtracting cumulative counts or careful listing; most students miss a case."
+   }
+  }
+ ]
+}
