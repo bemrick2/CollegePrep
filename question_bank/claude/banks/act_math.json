@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 11,
-  "updated_at": "2026-10-26T18:22:02+00:00",
+  "version": 12,
+  "updated_at": "2026-10-26T18:24:35+00:00",
   "passages": [],
   "questions": [
     {
@@ -7334,6 +7334,702 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-011.review.json",
         "computation": "checks/act_math/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000109",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Arithmetic sequences",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "In an arithmetic sequence, the 5th term is 17 and the 12th term is 45. What is the 20th term?",
+      "choices": {
+        "A": "77",
+        "B": "80",
+        "C": "81",
+        "D": "93"
+      },
+      "correct_answer": "A",
+      "explanation": "From the 5th term to the 12th term is 7 steps, and the terms increase by 45 − 17 = 28, so the common difference is 4. From the 12th term to the 20th term is 8 more steps: 45 + 8(4) = 77.",
+      "distractor_explanations": {
+        "B": "This multiplies 20 by the common difference, 4, ignoring the starting value.",
+        "C": "This uses 5 as the first term instead of 17 as the fifth: 5 + 19(4) = 81.",
+        "D": "This counts 12 steps from the 12th term to the 20th instead of 8: 45 + 12(4) = 93."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "misread_graph",
+        "D": null
+      },
+      "hints": [
+        "How many steps are there from the 5th term to the 12th term?",
+        "Use the common difference to step from the 12th term to the 20th."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "d = 28 ÷ 7 = 4; a₂₀ = a₁₂ + 8d = 45 + 32."
+      },
+      "remember": "Between term m and term n there are n − m steps.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-01",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000110",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Rational equations from work rates",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Working alone, pipe A takes 3 hours longer than pipe B to fill a tank. Working together, the two pipes fill the tank in 2 hours. How many hours does pipe B take to fill the tank alone?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "Let B take b hours, so A takes b + 3 hours. Their rates add: 1/b + 1/(b + 3) = 1/2. Multiply by 2b(b + 3): 2(b + 3) + 2b = b(b + 3), so b² − b − 6 = 0 and (b − 3)(b + 2) = 0. Since time is positive, b = 3. Check: 1/3 + 1/6 = 1/2.",
+      "distractor_explanations": {
+        "A": "2 hours is the time for both pipes together, not pipe B alone.",
+        "C": "This splits the 2 hours as if each pipe did half: 2 × 2 = 4, ignoring the 3-hour difference.",
+        "D": "6 hours is pipe A's time alone (b + 3), not pipe B's."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write each pipe's rate as a fraction of the tank per hour.",
+        "Rates add when the pipes work together."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try b = 3: A takes 6; 1/3 + 1/6 = 1/2, so together they take 2 hours. It works."
+      },
+      "remember": "Together: add rates (1/time), never times.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-02",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: answer is checkable by plugging choices (1/3+1/6=1/2), which lowers effective difficulty"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000111",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear inequalities with a negative coefficient",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Which of the following values of x satisfies the inequality 2x − 5 > 3x + 1 ?",
+      "choices": {
+        "A": "−8",
+        "B": "−6",
+        "C": "0",
+        "D": "7"
+      },
+      "correct_answer": "A",
+      "explanation": "Subtract 3x from both sides: −x − 5 > 1, so −x > 6. Multiplying by −1 reverses the inequality: x < −6. Of the choices, only −8 is less than −6. (Check: 2(−8) − 5 = −21 and 3(−8) + 1 = −23, and −21 > −23.)",
+      "distractor_explanations": {
+        "B": "x = −6 makes the two sides equal (−17 = −17); the inequality is strict.",
+        "C": "0 gives −5 > 1, which is false.",
+        "D": "This forgets to reverse the inequality when dividing by −1, getting x > −6."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Collect the x-terms on one side.",
+        "What happens to an inequality when you multiply or divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Plug in each choice; only −8 makes the left side larger."
+      },
+      "remember": "Multiplying or dividing by a negative flips the inequality.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-03",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000112",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Piecewise functions",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² for x < 2 and f(x) = 3x − 2 for x ≥ 2. How many real numbers x satisfy f(x) = 4 ?",
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answer": "C",
+      "explanation": "For x < 2: x² = 4 gives x = 2 or x = −2, but only x = −2 satisfies x < 2. For x ≥ 2: 3x − 2 = 4 gives x = 2, which satisfies x ≥ 2. So the solutions are x = −2 and x = 2: two numbers.",
+      "distractor_explanations": {
+        "A": "Both pieces produce a valid solution; checking the domain removes only x = 2 from the first piece.",
+        "B": "This uses only one piece of the function, typically the linear piece, and misses x = −2.",
+        "D": "This counts x = 2 from the first piece as well, but that piece applies only for x < 2 (and x = 2 is counted once anyway)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Solve f(x) = 4 separately on each piece.",
+        "Keep a solution only if it lies in the domain of the piece that produced it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both pieces and the line y = 4: it meets the parabola piece at x = −2 and the linear piece at x = 2."
+      },
+      "remember": "Piecewise: solve each piece, then check its domain.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-04",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000113",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential decay models",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The value, in dollars, of a car t years after purchase is modeled by V(t) = 24,000(0.85)^t. To the nearest dollar, what is the car's value 3 years after purchase, according to the model?",
+      "choices": {
+        "A": "$13,200",
+        "B": "$14,739",
+        "C": "$20,400",
+        "D": "$36,501"
+      },
+      "correct_answer": "B",
+      "explanation": "V(3) = 24,000(0.85)³ = 24,000(0.614125) = 14,739. The car loses 15% of its value each year, compounded.",
+      "distractor_explanations": {
+        "A": "This subtracts 15% of the original value three times (45% in all), which is linear, not exponential, decay.",
+        "C": "$20,400 is the value after 1 year, V(1).",
+        "D": "This uses a growth factor of 1.15 instead of 0.85."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Substitute t = 3 into the model.",
+        "Raise 0.85 to the third power before multiplying."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute 0.85³ = 0.614125, then multiply by 24,000."
+      },
+      "remember": "Exponential decay: multiply by the same factor each period.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-05",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [
+          "minor: stem says 'to the nearest dollar' but choice A ($13,200) is not to-the-dollar precision; harmless"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000114",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Chords and distance from the center",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": {
+        "description": "Circle radius 10 with two parallel chords on opposite sides of the center, lengths 16 and 12. Optional for production."
+      },
+      "stem": "A circle has a radius of 10 centimeters. Two parallel chords of the circle have lengths 16 centimeters and 12 centimeters, and the center of the circle lies between the two chords. What is the distance, in centimeters, between the two chords?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "14",
+        "D": "28"
+      },
+      "correct_answer": "C",
+      "explanation": "The perpendicular from the center bisects each chord. For the 16 cm chord, half is 8, so its distance from the center is √(10² − 8²) = 6. For the 12 cm chord, half is 6, so its distance is √(10² − 6²) = 8. The center lies between the chords, so the distance between them is 6 + 8 = 14 cm.",
+      "distractor_explanations": {
+        "A": "8 − 6 = 2 would be the distance if both chords were on the same side of the center.",
+        "B": "This subtracts the chord lengths, 16 − 12, which does not measure the distance between them.",
+        "D": "This doubles 14, as if each distance from the center were counted twice."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "The perpendicular from the center to a chord cuts the chord in half.",
+        "Find each chord's distance from the center, then decide whether to add or subtract."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both chords on opposite sides of the center; each forms a right triangle with the radius: 6-8-10 and 8-6-10."
+      },
+      "remember": "Distance to a chord: √(r² − (half chord)²).",
+      "expected_time_seconds": 95,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-06",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000115",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Midpoint: finding an endpoint",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, segment AB has midpoint M(3, −1). Point A is at (−2, 4). What are the coordinates of point B ?",
+      "choices": {
+        "A": "(0.5, 1.5)",
+        "B": "(8, −6)",
+        "C": "(5, −5)",
+        "D": "(−7, 9)"
+      },
+      "correct_answer": "B",
+      "explanation": "From A to M, x increases by 5 and y decreases by 5. B is the same distance beyond M: (3 + 5, −1 − 5) = (8, −6). Check: the midpoint of (−2, 4) and (8, −6) is (3, −1).",
+      "distractor_explanations": {
+        "A": "(0.5, 1.5) is the midpoint of A and M, not the other endpoint.",
+        "C": "(5, −5) is the change from A to M, not a point on the segment.",
+        "D": "This steps from A away from M instead of from M away from A."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "How do you get from A to M?",
+        "Make the same move again, starting from M."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Step from A to M is (+5, −5); repeat it from M to reach (8, −6)."
+      },
+      "remember": "Endpoint = 2 × midpoint − other endpoint.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-07",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000116",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Complement probability without replacement",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Two different numbers are selected at random from the integers 1 through 10. What is the probability that the product of the two numbers is even?",
+      "choices": {
+        "A": "1/2",
+        "B": "2/9",
+        "C": "3/4",
+        "D": "7/9"
+      },
+      "correct_answer": "D",
+      "explanation": "A product is odd only if both numbers are odd. There are 5 odd numbers, so P(both odd) = (5/10)(4/9) = 2/9. Therefore P(product even) = 1 − 2/9 = 7/9.",
+      "distractor_explanations": {
+        "A": "This assumes the product is even exactly when one particular number is even; a product is even if either number is even.",
+        "B": "2/9 is the probability that the product is odd, the complement.",
+        "C": "This computes 1 − (1/2)², as if the second number could repeat the first (with replacement)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "When is a product of two integers odd?",
+        "Find the probability of the opposite event and subtract from 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(even) = 1 − P(both odd) = 1 − (5/10)(4/9)."
+      },
+      "remember": "A product is odd only when every factor is odd.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-08",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000117",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percent targets across parts",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A test has 40 questions. Maya answered 75% of the first 20 questions correctly. How many of the last 20 questions must she answer correctly to answer 85% of all 40 questions correctly?",
+      "choices": {
+        "A": "17",
+        "B": "18",
+        "C": "19",
+        "D": "20"
+      },
+      "correct_answer": "C",
+      "explanation": "85% of 40 is 34 correct answers in all. She got 75% of 20 = 15 correct on the first part, so she needs 34 − 15 = 19 correct on the last 20.",
+      "distractor_explanations": {
+        "A": "17 is 85% of 20; it ignores the shortfall from the first part.",
+        "B": "This averages percents: it assumes 90% on the second half (18 of 20) balances 75% to reach 85%, but (75% + 90%)/2 is 82.5%.",
+        "D": "20 would give 35 correct (87.5%), more than needed; the question asks for the minimum."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many questions out of 40 is 85%?",
+        "How many has she already answered correctly?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Need 34 total; have 15; need 19 more."
+      },
+      "remember": "Convert percent goals into counts.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-09",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000118",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Chained unit conversions (currency)",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Suppose 1 U.S. dollar can be exchanged for 0.92 euro, and 1 euro can be exchanged for 160 yen. A souvenir costs 4,416 yen. Using these rates, what is its cost in U.S. dollars?",
+      "choices": {
+        "A": "$25.39",
+        "B": "$27.60",
+        "C": "$30.00",
+        "D": "$4,062.72"
+      },
+      "correct_answer": "C",
+      "explanation": "4,416 yen ÷ 160 yen per euro = 27.60 euros. 27.60 euros ÷ 0.92 euro per dollar = 30.00 dollars.",
+      "distractor_explanations": {
+        "A": "This multiplies 27.60 euros by 0.92 instead of dividing; a dollar buys less than a euro, so the dollar price must be larger.",
+        "B": "27.60 is the cost in euros; it still must be converted to dollars.",
+        "D": "This multiplies the yen price by 0.92 and skips the yen-to-euro step entirely."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Convert yen to euros first.",
+        "Since 1 dollar buys less than 1 euro, should the dollar amount be larger or smaller than the euro amount?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "4,416 ÷ 160 ÷ 0.92 = 30."
+      },
+      "remember": "Chain conversions so the units cancel.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "B012-10",
+      "created_at": "2026-10-26T18:24:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-012.review.json",
+        "computation": "checks/act_math/batch_012.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

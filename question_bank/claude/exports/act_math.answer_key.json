@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 11,
+  "bank_version": 12,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -1944,6 +1944,186 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "18 × 60 ÷ 12 = 90."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000109",
+      "correct_answer": "A",
+      "explanation": "From the 5th term to the 12th term is 7 steps, and the terms increase by 45 − 17 = 28, so the common difference is 4. From the 12th term to the 20th term is 8 more steps: 45 + 8(4) = 77.",
+      "distractor_explanations": {
+        "B": "This multiplies 20 by the common difference, 4, ignoring the starting value.",
+        "C": "This uses 5 as the first term instead of 17 as the fifth: 5 + 19(4) = 81.",
+        "D": "This counts 12 steps from the 12th term to the 20th instead of 8: 45 + 12(4) = 93."
+      },
+      "hints": [
+        "How many steps are there from the 5th term to the 12th term?",
+        "Use the common difference to step from the 12th term to the 20th."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "d = 28 ÷ 7 = 4; a₂₀ = a₁₂ + 8d = 45 + 32."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000110",
+      "correct_answer": "B",
+      "explanation": "Let B take b hours, so A takes b + 3 hours. Their rates add: 1/b + 1/(b + 3) = 1/2. Multiply by 2b(b + 3): 2(b + 3) + 2b = b(b + 3), so b² − b − 6 = 0 and (b − 3)(b + 2) = 0. Since time is positive, b = 3. Check: 1/3 + 1/6 = 1/2.",
+      "distractor_explanations": {
+        "A": "2 hours is the time for both pipes together, not pipe B alone.",
+        "C": "This splits the 2 hours as if each pipe did half: 2 × 2 = 4, ignoring the 3-hour difference.",
+        "D": "6 hours is pipe A's time alone (b + 3), not pipe B's."
+      },
+      "hints": [
+        "Write each pipe's rate as a fraction of the tank per hour.",
+        "Rates add when the pipes work together."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try b = 3: A takes 6; 1/3 + 1/6 = 1/2, so together they take 2 hours. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000111",
+      "correct_answer": "A",
+      "explanation": "Subtract 3x from both sides: −x − 5 > 1, so −x > 6. Multiplying by −1 reverses the inequality: x < −6. Of the choices, only −8 is less than −6. (Check: 2(−8) − 5 = −21 and 3(−8) + 1 = −23, and −21 > −23.)",
+      "distractor_explanations": {
+        "B": "x = −6 makes the two sides equal (−17 = −17); the inequality is strict.",
+        "C": "0 gives −5 > 1, which is false.",
+        "D": "This forgets to reverse the inequality when dividing by −1, getting x > −6."
+      },
+      "hints": [
+        "Collect the x-terms on one side.",
+        "What happens to an inequality when you multiply or divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Plug in each choice; only −8 makes the left side larger."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000112",
+      "correct_answer": "C",
+      "explanation": "For x < 2: x² = 4 gives x = 2 or x = −2, but only x = −2 satisfies x < 2. For x ≥ 2: 3x − 2 = 4 gives x = 2, which satisfies x ≥ 2. So the solutions are x = −2 and x = 2: two numbers.",
+      "distractor_explanations": {
+        "A": "Both pieces produce a valid solution; checking the domain removes only x = 2 from the first piece.",
+        "B": "This uses only one piece of the function, typically the linear piece, and misses x = −2.",
+        "D": "This counts x = 2 from the first piece as well, but that piece applies only for x < 2 (and x = 2 is counted once anyway)."
+      },
+      "hints": [
+        "Solve f(x) = 4 separately on each piece.",
+        "Keep a solution only if it lies in the domain of the piece that produced it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both pieces and the line y = 4: it meets the parabola piece at x = −2 and the linear piece at x = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000113",
+      "correct_answer": "B",
+      "explanation": "V(3) = 24,000(0.85)³ = 24,000(0.614125) = 14,739. The car loses 15% of its value each year, compounded.",
+      "distractor_explanations": {
+        "A": "This subtracts 15% of the original value three times (45% in all), which is linear, not exponential, decay.",
+        "C": "$20,400 is the value after 1 year, V(1).",
+        "D": "This uses a growth factor of 1.15 instead of 0.85."
+      },
+      "hints": [
+        "Substitute t = 3 into the model.",
+        "Raise 0.85 to the third power before multiplying."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute 0.85³ = 0.614125, then multiply by 24,000."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000114",
+      "correct_answer": "C",
+      "explanation": "The perpendicular from the center bisects each chord. For the 16 cm chord, half is 8, so its distance from the center is √(10² − 8²) = 6. For the 12 cm chord, half is 6, so its distance is √(10² − 6²) = 8. The center lies between the chords, so the distance between them is 6 + 8 = 14 cm.",
+      "distractor_explanations": {
+        "A": "8 − 6 = 2 would be the distance if both chords were on the same side of the center.",
+        "B": "This subtracts the chord lengths, 16 − 12, which does not measure the distance between them.",
+        "D": "This doubles 14, as if each distance from the center were counted twice."
+      },
+      "hints": [
+        "The perpendicular from the center to a chord cuts the chord in half.",
+        "Find each chord's distance from the center, then decide whether to add or subtract."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both chords on opposite sides of the center; each forms a right triangle with the radius: 6-8-10 and 8-6-10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000115",
+      "correct_answer": "B",
+      "explanation": "From A to M, x increases by 5 and y decreases by 5. B is the same distance beyond M: (3 + 5, −1 − 5) = (8, −6). Check: the midpoint of (−2, 4) and (8, −6) is (3, −1).",
+      "distractor_explanations": {
+        "A": "(0.5, 1.5) is the midpoint of A and M, not the other endpoint.",
+        "C": "(5, −5) is the change from A to M, not a point on the segment.",
+        "D": "This steps from A away from M instead of from M away from A."
+      },
+      "hints": [
+        "How do you get from A to M?",
+        "Make the same move again, starting from M."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Step from A to M is (+5, −5); repeat it from M to reach (8, −6)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000116",
+      "correct_answer": "D",
+      "explanation": "A product is odd only if both numbers are odd. There are 5 odd numbers, so P(both odd) = (5/10)(4/9) = 2/9. Therefore P(product even) = 1 − 2/9 = 7/9.",
+      "distractor_explanations": {
+        "A": "This assumes the product is even exactly when one particular number is even; a product is even if either number is even.",
+        "B": "2/9 is the probability that the product is odd, the complement.",
+        "C": "This computes 1 − (1/2)², as if the second number could repeat the first (with replacement)."
+      },
+      "hints": [
+        "When is a product of two integers odd?",
+        "Find the probability of the opposite event and subtract from 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(even) = 1 − P(both odd) = 1 − (5/10)(4/9)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000117",
+      "correct_answer": "C",
+      "explanation": "85% of 40 is 34 correct answers in all. She got 75% of 20 = 15 correct on the first part, so she needs 34 − 15 = 19 correct on the last 20.",
+      "distractor_explanations": {
+        "A": "17 is 85% of 20; it ignores the shortfall from the first part.",
+        "B": "This averages percents: it assumes 90% on the second half (18 of 20) balances 75% to reach 85%, but (75% + 90%)/2 is 82.5%.",
+        "D": "20 would give 35 correct (87.5%), more than needed; the question asks for the minimum."
+      },
+      "hints": [
+        "How many questions out of 40 is 85%?",
+        "How many has she already answered correctly?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Need 34 total; have 15; need 19 more."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000118",
+      "correct_answer": "C",
+      "explanation": "4,416 yen ÷ 160 yen per euro = 27.60 euros. 27.60 euros ÷ 0.92 euro per dollar = 30.00 dollars.",
+      "distractor_explanations": {
+        "A": "This multiplies 27.60 euros by 0.92 instead of dividing; a dollar buys less than a euro, so the dollar price must be larger.",
+        "B": "27.60 is the cost in euros; it still must be converted to dollars.",
+        "D": "This multiplies the yen price by 0.92 and skips the yen-to-euro step entirely."
+      },
+      "hints": [
+        "Convert yen to euros first.",
+        "Since 1 dollar buys less than 1 euro, should the dollar amount be larger or smaller than the euro amount?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "4,416 ÷ 160 ÷ 0.92 = 30."
       }
     }
   ]
