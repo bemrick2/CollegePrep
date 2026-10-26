@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:26:59+00:00",
+  "updated_at": "2026-10-26T21:27:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -17,7 +17,7 @@
   "accepted_by_section": {
     "act_math": 383,
     "act_english": 138,
-    "act_reading": 114,
+    "act_reading": 122,
     "sat_reading_writing": 140
   },
   "review_totals": {
@@ -36,10 +36,10 @@
       "passed_after_revision": 5
     },
     "act_reading": {
-      "PASS": 115,
+      "PASS": 123,
       "REVISE": 14,
       "REJECT": 0,
-      "candidates": 129,
+      "candidates": 137,
       "passed_after_revision": 12
     },
     "sat_reading_writing": {
@@ -608,12 +608,12 @@
       "passages": 13
     },
     "act_reading": {
-      "accepted": 114,
+      "accepted": 122,
       "retired_after_audit": 1,
       "by_skill": {
-        "Craft and Structure": 38,
-        "Integration of Knowledge and Ideas": 27,
-        "Key Ideas and Details": 49
+        "Craft and Structure": 41,
+        "Integration of Knowledge and Ideas": 29,
+        "Key Ideas and Details": 52
       },
       "by_subskill": {
         "Applying a character's standard": 1,
@@ -652,6 +652,7 @@
         "Function of a phrase": 2,
         "Function of a short paragraph": 1,
         "Function of a statement": 1,
+        "Function of an early detail": 1,
         "Function of evidence": 2,
         "Function of examples": 2,
         "How one author would respond to the other": 1,
@@ -668,22 +669,26 @@
         "Inference from stated effects": 1,
         "Inferring a character's attitude": 1,
         "Inferring a character's intent": 1,
+        "Inferring a character's motive": 1,
+        "Inferring a character's values": 1,
         "Inferring a character's view": 1,
+        "Inferring a narrator's realization": 1,
         "Inferring an author's view": 1,
         "Interpreting a central statement": 1,
         "Interpreting a closing action": 1,
         "Interpreting a figurative statement": 1,
-        "Locating a stated detail": 1,
+        "Locating a stated detail": 2,
         "Locating a stated reason": 3,
         "Locating supporting details": 1,
         "Main claim of one passage": 1,
         "Main focus of a passage": 1,
         "Main idea of a narrative": 2,
         "Main purpose of a passage": 3,
-        "Meaning of a phrase in context": 2,
+        "Meaning of a phrase in context": 3,
         "Meaning of a word in context": 10,
         "Narrator's attitude": 1,
         "Overall structure of an argument": 1,
+        "Point of view": 1,
         "Points of agreement across paired passages": 1,
         "Points of agreement across passages": 1,
         "Predicting one author's response to the other": 1,
@@ -692,29 +697,30 @@
         "Relationship of the conclusion to the passage": 1,
         "Sequence of a described process": 1,
         "Summary of a narrative": 1,
+        "Synthesizing details about a character": 1,
         "Synthesizing the passage": 1
       },
       "by_difficulty_author": {
-        "easy": 29,
-        "hard": 17,
-        "medium": 68
+        "easy": 31,
+        "hard": 19,
+        "medium": 72
       },
       "by_difficulty_calibrated": {
-        "easy": 76,
-        "medium": 38
+        "easy": 79,
+        "medium": 43
       },
       "calibrated_share": {
-        "easy": 0.667,
-        "medium": 0.333
+        "easy": 0.648,
+        "medium": 0.352
       },
       "answer_key_balance": {
-        "A": 37,
-        "B": 25,
-        "C": 29,
-        "D": 23
+        "A": 39,
+        "B": 27,
+        "C": 31,
+        "D": 25
       },
       "modeling_items": 0,
-      "passages": 13
+      "passages": 14
     },
     "sat_reading_writing": {
       "accepted": 140,
@@ -844,7 +850,7 @@
   "last_completed_batch": {
     "act_math": 39,
     "act_english": 13,
-    "act_reading": 13,
+    "act_reading": 14,
     "sat_reading_writing": 15
   },
   "next_batch_guidance": {
@@ -877,12 +883,12 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 14,
+    "act_reading": {
+      "next_batch": 15,
       "skill_gap_for_next_10": {
-        "Production of Writing": 9.9,
-        "Knowledge of Language": 12.3,
-        "Conventions of Standard English": -10.1
+        "Key Ideas and Details": 11.4,
+        "Craft and Structure": -2.1,
+        "Integration of Knowledge and Ideas": 0.7
       }
     },
     "sat_reading_writing": {
@@ -894,12 +900,12 @@
         "Expression of Ideas": -1.0
       }
     },
-    "act_reading": {
+    "act_english": {
       "next_batch": 14,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 10.5,
-        "Craft and Structure": -1.4,
-        "Integration of Knowledge and Ideas": 0.9
+        "Production of Writing": 9.9,
+        "Knowledge of Language": 12.3,
+        "Conventions of Standard English": -10.1
       }
     }
   },
@@ -916,8 +922,8 @@
     },
     "act_reading": {
       "target": 600,
-      "accepted": 114,
-      "share_of_target": 0.19
+      "accepted": 122,
+      "share_of_target": 0.203
     },
     "sat_reading_writing": {
       "target": 700,
@@ -926,9 +932,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 775,
+  "total_accepted": 783,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_reading",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -9792,7 +9798,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 13,
+      "bank_version": 14,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -9885,7 +9891,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:26:59+00:00",
+    "heartbeat_at": "2026-10-26T21:27:10+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 13,
-  "updated_at": "2026-10-26T21:11:47+00:00",
+  "version": 14,
+  "updated_at": "2026-10-26T21:27:08+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -146,6 +146,17 @@
       "word_count": 549,
       "text": "In some autumns the ground beneath a stand of oaks is nearly bare. In others, acorns lie so thick that walking on them feels like walking on marbles. Ecologists call these sudden, synchronized bumper crops \"mast years,\" and for most of the twentieth century they treated them largely as a matter of weather: a warm spring and a wet summer produced a large crop, and a late frost or a drought produced a small one.\n\nThe weather explanation has an obvious appeal, and it is not wrong so much as incomplete. Weather does affect seed production. But if weather were the whole story, the size of a crop should track the quality of the growing season fairly closely, and it does not. Researchers who compared decades of seed counts with climate records found mast years following ordinary summers and poor crops following excellent ones. More puzzling still, trees of the same species hundreds of kilometers apart, growing under different local conditions, often mast in the same year. Whatever coordinates them, it seems to be more than the weather each tree happens to experience.\n\nOne alternative begins not with the trees but with the animals that eat their seeds. A squirrel or a weevil that depends on acorns can multiply only as fast as its food supply allows. If oaks produced a steady, moderate crop every year, seed eaters would settle at a population large enough to consume most of it. By producing almost nothing for several years and then a flood of seeds all at once, the trees starve their predators down and then overwhelm them: in a mast year there are simply too few mouths to eat everything, and many seeds survive to sprout. This idea, known as predator satiation, predicts that masting should be most pronounced in species whose seeds are eaten by specialists, animals that depend heavily on that one food, a pattern that several studies have reported.\n\nA second explanation concerns pollination. Oaks, like many masting trees, are pollinated by wind, an inefficient method in which most pollen never reaches a flower. When many trees flower heavily in the same year, the air is thick with pollen and a larger share of flowers are fertilized. A tree that flowered heavily on its own, out of step with its neighbors, would waste much of the effort.\n\nNeither explanation tells us how trees spread across a region manage to act together. Here weather may return, though in a different role. A tree that has spent several years storing resources may need only a cue, such as an unusually warm early summer, to commit those resources to flowers. Because a single weather pattern can cover a large region, it can serve as a signal that many trees respond to at once, even if it is not, by itself, the reason they produce so many seeds.\n\nThe emerging picture, then, is not a choice between weather and strategy but a division of labor between them. Stored resources determine whether a tree is able to mast; weather often determines when; and the benefits of satiating predators and improving pollination help explain why trees that mast together have prospered. It is an arrangement that no single tree designed, but one that the forest, over many generations, has come to depend on.",
       "batch": 13,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000014",
+      "title": "Others",
+      "genre": "literary narrative",
+      "word_count": 540,
+      "text": "The sign had been in the window for three weeks before my grandfather admitted that it meant what it said. CLOSING AT THE END OF THE MONTH, it read, in my mother's neat capitals, and every morning he walked past it to unlock the door as though it were a notice for someone else's shop. Customers came in to say they were sorry. He thanked them, took their watches, and wrote out repair tickets with dates two and three weeks away, some of them later than the last day of the month.\n\nMy mother had asked me to spend my Saturdays there, helping him decide what would be sold and what would be thrown out. I was fifteen and had my own ideas about how Saturdays should be spent, but I went. The shop was narrow and smelled of oil and brass. Along the back wall stood a cabinet of shallow drawers, each one labeled in his small, slanting hand: mainsprings, crowns, crystals, and one drawer, near the bottom, labeled simply \"Others.\"\n\n\"What goes in Others?\" I asked on the first Saturday.\n\"Things that don't fit,\" he said, and went back to his bench.\n\nWe did not sort much that day, or the next. He would hand me a box of parts and tell me to separate the good from the bad, and when I held up a gear and asked which it was, he would take it from me, turn it under the lamp, and begin explaining how it had been cut, by whom, and in what year, until the afternoon was gone and the box was still full. I began to suspect that the sorting was not really the point, though I could not have said what the point was.\n\nIn the third week a woman came in with a pocket watch that had belonged to her father. My grandfather opened the case, held it to his ear, and told her it needed only a cleaning. He did the work while she waited, and when she tried to pay, he waved the money away. After she left, he stood at the window for a long time with his back to me, and I pretended to be busy with the box of gears.\n\nOn the last Saturday of the month, the shop was quieter than I had ever heard it. The repair tickets had been called in, the watches returned, and the cabinet stood half empty. My grandfather sat at his bench with nothing on it. I opened the drawer labeled \"Others\" at last. Inside were not parts but tickets, dozens of them, yellowed, for watches that had never been collected. Each had a name and a date, some forty years old, and on each, in the same slanting hand, he had marked the repair as finished.\n\"Why did you keep these?\" I asked.\nHe looked at the drawer for a while before he answered. \"Somebody might come back,\" he said.\n\nI did not tell my mother about the drawer. When we carried the cabinet out to her car that evening, I made sure the bottom drawer stayed shut, and when she asked whether there was anything in it worth keeping, I said I would go through it myself.",
+      "batch": 14,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -8369,6 +8380,579 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-013.review.json",
         "computation": "checks/act_reading/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000116",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Synthesizing details about a character",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "some of them later than the last day of the month",
+      "figure": null,
+      "stem": "Taken together, the repair tickets the grandfather writes in the first paragraph and his answer \"Somebody might come back\" in the sixth paragraph suggest that he:",
+      "choices": {
+        "A": "still expects the shop to be rescued before the end of the month.",
+        "B": "is careless about dates and the details of his customers' orders.",
+        "C": "struggles to accept that the shop and its work are coming to an end.",
+        "D": "wants customers to pay in advance for repairs he will not finish."
+      },
+      "correct_answer": "C",
+      "explanation": "He books repairs past the closing date and keeps decades-old tickets in case owners return. Both show a reluctance to let the work end, even after admitting the shop will close.",
+      "distractor_explanations": {
+        "A": "The first sentence says he finally \"admitted that it meant what it said.\"",
+        "B": "He labels drawers neatly and keeps tickets for forty years; carelessness does not fit.",
+        "D": "Nothing suggests he takes payment, and he marks repairs as finished."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What do both details have in common?",
+        "Does the passage say he denies the closing, or only that he has trouble with it?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find what links the two details."
+      },
+      "remember": "Synthesis questions: name what two distant details share.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-01",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: A (expects shop to be rescued) is the main trap; the tickets dated past closing could be misread as hope of rescue, but nothing in the passage mentions a rescue, so C is still clearly best"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000117",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inferring a narrator's realization",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "though I could not have said what the point was",
+      "figure": null,
+      "stem": "The narrator's statement \"I began to suspect that the sorting was not really the point\" (paragraph 4) most nearly means that the narrator sensed:",
+      "choices": {
+        "A": "the Saturdays mattered to the grandfather for some reason other than clearing the shop.",
+        "B": "the grandfather secretly hoped to train the narrator to take over the shop as a watchmaker someday.",
+        "C": "the narrator's mother had invented the whole task mainly to keep the narrator busy on weekends.",
+        "D": "the grandfather could no longer tell good parts from worn ones."
+      },
+      "correct_answer": "A",
+      "explanation": "Little sorting gets done because the grandfather turns each part into a story; the narrator senses the time serves him in some other way the narrator cannot name.",
+      "distractor_explanations": {
+        "B": "The narrator \"could not have said what the point was\"; becoming a watchmaker is never suggested.",
+        "C": "Nothing suggests the mother's motive was to keep the narrator busy.",
+        "D": "He explains each part in detail, showing expert knowledge."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the narrator know what the real point is?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that claim more than the narrator knows."
+      },
+      "remember": "When a narrator \"could not have said,\" avoid choices that name a specific motive.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-02",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: B is noticeably the longest choice, and its 'train to take over' idea is the only tempting distractor; a test-wise student might rule it out because of the length alone"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000118",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of an early detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "I opened the drawer labeled \"Others\" at last",
+      "figure": null,
+      "stem": "The description of the drawer labeled \"Others\" in paragraphs 2 and 3 mainly serves to:",
+      "choices": {
+        "A": "show how carefully the grandfather organized the parts he used for repairs.",
+        "B": "set up a small mystery that the narrator resolves near the end of the passage.",
+        "C": "hint that the narrator will someday inherit and reopen the shop.",
+        "D": "explain why the shop was no longer able to stay in business."
+      },
+      "correct_answer": "B",
+      "explanation": "The odd label and the grandfather's vague answer raise a question that is answered in paragraph 6, when the narrator finally opens the drawer.",
+      "distractor_explanations": {
+        "A": "The labeled drawers show care, but the \"Others\" drawer matters because of what it turns out to hold.",
+        "C": "Nothing suggests the shop will reopen.",
+        "D": "The drawer has nothing to do with why the shop closed."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "When is the drawer opened, and what is inside?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Trace the drawer through the passage."
+      },
+      "remember": "Early unexplained details often pay off later.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-03",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000119",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inferring a character's motive",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "I made sure the bottom drawer stayed shut",
+      "figure": null,
+      "stem": "The narrator's actions in the final paragraph most strongly suggest that the narrator:",
+      "choices": {
+        "A": "plans to sell the old tickets to collectors as valuable antiques.",
+        "B": "fears the mother will be angry that the drawer was not emptied.",
+        "C": "intends to track down the owners named on the tickets and return their watches to them.",
+        "D": "wants to keep the grandfather's private attachment from being treated as clutter."
+      },
+      "correct_answer": "D",
+      "explanation": "After learning what the drawer meant to the grandfather, the narrator keeps it shut and hidden from the mother, who was deciding what was \"worth keeping.\"",
+      "distractor_explanations": {
+        "A": "Nothing suggests the tickets have monetary value or that the narrator plans to sell them.",
+        "B": "No sign of the mother's anger appears; the narrator offers to deal with the drawer personally.",
+        "C": "The passage never says the uncollected watches are still in the shop."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What did the narrator learn about the drawer just before this?",
+        "Why might the narrator not want the mother to judge its contents?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Connect paragraph 7 to paragraph 6."
+      },
+      "remember": "Motive questions: connect an action to what the character has just learned.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-04",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: C is a real trap because 'go through it myself' might suggest follow-up action, but the passage never says the uncollected watches still exist or that the narrator plans outreach, so C is unsupported",
+          "minor: 'treated as clutter' is a reasonable inference from the mother's 'anything in it worth keeping' and the earlier sold/thrown-out framing, but it is one step removed from the text"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000120",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "in my mother's neat capitals",
+      "figure": null,
+      "stem": "According to the passage, who wrote the sign in the shop window?",
+      "choices": {
+        "A": "The narrator's grandfather",
+        "B": "The narrator",
+        "C": "The narrator's mother",
+        "D": "A longtime customer"
+      },
+      "correct_answer": "C",
+      "explanation": "The sign was written \"in my mother's neat capitals.\"",
+      "distractor_explanations": {
+        "A": "The drawer labels are in his hand; the sign is in the mother's \"neat capitals.\"",
+        "B": "The narrator never claims to have written the sign.",
+        "D": "No customer is described writing anything."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Reread the second sentence."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Scan paragraph 1."
+      },
+      "remember": "Detail questions: the answer is stated in the passage.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-05",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000121",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a phrase in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "the watches returned",
+      "figure": null,
+      "stem": "As it is used in paragraph 6, the phrase \"called in\" most nearly means:",
+      "choices": {
+        "A": "claimed by their owners.",
+        "B": "telephoned ahead.",
+        "C": "summoned for questioning.",
+        "D": "canceled by the shop."
+      },
+      "correct_answer": "A",
+      "explanation": "The tickets had been \"called in\" and \"the watches returned\": owners had come to claim their repairs.",
+      "distractor_explanations": {
+        "B": "This is the familiar meaning; the tickets were redeemed, not phoned.",
+        "C": "Tickets cannot be summoned for questioning.",
+        "D": "The watches were returned, which shows the tickets were claimed, not canceled."
+      },
+      "distractor_traps": {
+        "B": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What happened to the watches at the same time?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Substitute each choice in the sentence."
+      },
+      "remember": "Use the next phrase in the sentence to fix the meaning.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-06",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: the phrase 'called in' is slightly ambiguous. It can mean the shop asked customers to collect (as in calling in a loan), so B ('telephoned ahead') has some surface appeal. Context ('the watches returned') makes A best, but a choice like 'collected/redeemed' would make A airtight"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000122",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inferring a character's values",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "begin explaining how it had been cut, by whom, and in what year",
+      "figure": null,
+      "stem": "The grandfather's habit of explaining how each gear \"had been cut, by whom, and in what year\" (paragraph 4) suggests that he:",
+      "choices": {
+        "A": "dislikes being interrupted while he is working at his bench.",
+        "B": "values the history and craft behind the parts he has handled.",
+        "C": "considers the narrator too young to be trusted with the parts.",
+        "D": "is preparing to write a history of watchmaking in the region."
+      },
+      "correct_answer": "B",
+      "explanation": "Turning each gear into a story about its making shows how much the craft and its history mean to him.",
+      "distractor_explanations": {
+        "A": "He interrupts the sorting himself to explain the parts; nothing suggests he minds interruptions.",
+        "C": "He hands the narrator the box himself; he takes parts back to explain them, not to keep them from the narrator.",
+        "D": "No such plan is mentioned."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does he do instead of simply sorting?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices the passage contradicts."
+      },
+      "remember": "Characterization: infer values from what a character chooses to do.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-07",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000123",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Point of view",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000014",
+      "underline": null,
+      "evidence": "I was fifteen",
+      "figure": null,
+      "stem": "The passage is narrated from the point of view of:",
+      "choices": {
+        "A": "the grandfather, looking back on the end of his career.",
+        "B": "the narrator's mother, describing her father's shop.",
+        "C": "an outside observer who knows every character's thoughts.",
+        "D": "a grandchild recalling a time when the narrator was fifteen."
+      },
+      "correct_answer": "D",
+      "explanation": "A first-person narrator speaks of \"my grandfather\" and \"my mother\" and says \"I was fifteen,\" looking back.",
+      "distractor_explanations": {
+        "A": "The narrator refers to \"my grandfather.\"",
+        "B": "The narrator refers to \"my mother.\"",
+        "C": "The narrator uses \"I\" and does not know the grandfather's thoughts."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Who is \"I\" in the passage?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Check the pronouns."
+      },
+      "remember": "Point of view: check who says \"I\" and when.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "R014-08",
+      "created_at": "2026-10-26T21:27:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: D's wording 'a grandchild recalling a time when the narrator was fifteen' is awkward (it mixes 'grandchild' and 'the narrator'); 'a grandchild recalling a time when he or she was fifteen' would read better"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-014.review.json",
+        "computation": "checks/act_reading/batch_014.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
