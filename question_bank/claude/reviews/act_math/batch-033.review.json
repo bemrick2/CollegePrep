@@ -1,0 +1,280 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 33,
+  "reviewed_at": "2026-10-26T20:48:27+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 33
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000318",
+    "CLD-ACT-M-000319",
+    "CLD-ACT-M-000320",
+    "CLD-ACT-M-000321",
+    "CLD-ACT-M-000322",
+    "CLD-ACT-M-000323",
+    "CLD-ACT-M-000324",
+    "CLD-ACT-M-000325",
+    "CLD-ACT-M-000326",
+    "CLD-ACT-M-000327",
+    "CLD-ACT-M-000328"
+  ],
+  "results": [
+    {
+      "cand": "B033-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Opposite angles of cyclic quad supplementary: 5x+30=180, x=30, A=100. Distractor 30 = x, 80 = C.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000318"
+    },
+    {
+      "cand": "B033-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "2*pi*r*h = 2*pi*3*10 = 60pi. 78pi = total SA.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000319"
+    },
+    {
+      "cand": "B033-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "(6x+3)/3=9 -> 6x=24 -> x=4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000320"
+    },
+    {
+      "cand": "B033-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: positivity of b implicitly requires a > c; 'a != c' is weaker than needed but does not affect the answer"
+      ],
+      "blind_notes": "1/b = 1/c - 1/a = (a-c)/(ac), b = ac/(a-c). B is sign-error trap, C is unreciprocated.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "fractions with variables; the 1/b-versus-b trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000321"
+    },
+    {
+      "cand": "B033-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "T(n)=3n+1=100 -> n=33. 34 is off-by-one trap (100/3 rounded).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000322"
+    },
+    {
+      "cand": "B033-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Glue Ana-Ben as block: 5 units around circle (5-1)!=24, times 2 internal orders = 48. Circular permutations are unfamiliar to most ACT takers; 24 and 240 are strong traps.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Combines two ideas: the (n - 1)! rule for circular arrangements and the block method for adjacency, with a factor of 2 for the order inside the block."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000323"
+    },
+    {
+      "cand": "B033-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "HHT,HTH,THH,HHH = 4/8 = 1/2. 3/8 is 'exactly 2' trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000324"
+    },
+    {
+      "cand": "B033-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "53, 59, 61, 67 -> 4. Endpoints 50,70 not prime so inclusive/exclusive ambiguity is moot.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000325"
+    },
+    {
+      "cand": "B033-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "44/2.2=20 kg; 20*15=300 mg. 'about 2.2' yields exact 300, fine.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000326"
+    },
+    {
+      "cand": "B033-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "0.10*10000 + 0.20*15000 = 1000+3000 = 4000; 4000/25000 = 16%. 15% = average-of-rates trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "marginal-versus-effective trap; most average or apply 20%"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000327"
+    },
+    {
+      "cand": "B033-11",
+      "revision": 2,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: equal times make the simple average correct, so the 48 (harmonic-mean) distractor only catches over-thinkers; item is essentially one step"
+      ],
+      "blind_notes": "Distance 80+120=200 over 4 h = 50 mph.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000328"
+    }
+  ]
+}
