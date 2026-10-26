@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 6,
-  "updated_at": "2026-10-26T19:33:18+00:00",
+  "version": 7,
+  "updated_at": "2026-10-26T19:38:32+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -69,6 +69,17 @@
       "word_count": 239,
       "text": "When most people imagine cave exploration, they picture squeezing through tight passages in search {{1|for}} undiscovered chambers. The work that occupies most cavers, however, is slower and less glamorous: making maps. {{2|Without a map, a cave that has been explored is, for practical purposes, a cave that has been lost.}}\n\nA survey team usually has three members. The first sets a station—a small numbered marker—at a point the others can see. {{3|The second, who holds a laser rangefinder, measures}} the distance to the station, while the third reads the compass bearing and the slope. {{4|Each of these numbers are recorded}} in a waterproof notebook, along with a sketch of the passage's walls.\n\n[1] Back on the surface, the numbers become a map. [2] A single misread digit can send that path through solid rock. [3] Software converts each set of measurements into a line segment, and the segments, joined end to end, trace the cave's path. [4] For this reason, many teams measure every leg twice, once in each direction.\n\nThe work is slow. A team might survey only a few hundred meters in a long day, {{5|and the rangefinders run on rechargeable batteries}}. {{6|Yet}} cavers keep at it, {{7|year after year, decade after decade, for many years}}, because a good map is the one discovery that lasts: {{8|its useful}} to every caver, scientist, and rescue team that enters the cave afterward. {{9|Whom}} else would bother to do it?",
       "batch": 6,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000007",
+      "title": "Mapping the Dark",
+      "genre": "informational essay",
+      "word_count": 252,
+      "text": "Every morning at seven for fifty-one years, Harold Tibbs walked to the white wooden box in his backyard, {{1|opened its louvered door, and he read}} the two thermometers inside. He wrote the readings on a paper form, measured the rain in a narrow brass gauge, and mailed the forms to the National Weather Service at the end of each month. He was one of thousands of volunteer observers whose records form the backbone of the {{2|country's}} climate history.\n\n{{3|Admittedly,}} Tibbs's records were not glamorous. They were, however, {{4|consistent, in}} fifty-one years he missed only nine mornings, each time arranging for a neighbor to take the readings. Scientists {{5|put up with}} this kind of consistency, because a climate record is only as useful as its longest unbroken stretch.\n\n[1] When Tibbs began observing in 1952, his town had fewer than two thousand residents. [2] Today it has nearly twenty thousand, and the fields that once surrounded his yard have become parking lots and subdivisions. [3] Researchers studying how growing towns trap heat have used his records to measure the change. [4] {{6|They found that the town's summer nights warmed faster than the nearby countryside's, a pattern consistent with the spread of pavement.}}\n\nTibbs stopped observing in 2003, when his eyesight {{7|began failing him and getting worse}}. The box still {{8|stand}} in the yard, its paint peeling and its door no longer opened. {{9|But somewhere in a government archive, more than eighteen thousand of his mornings are kept, each one written down in pencil.}}",
+      "batch": 7,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -4830,6 +4841,785 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-006.review.json",
         "computation": "checks/act_english/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000068",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel structure",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 1,
+      "evidence": "Harold Tibbs walked to the white wooden box in his backyard",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "opening its louvered door, and read",
+        "C": "had opened its louvered door, and read",
+        "D": "opened its louvered door, and read"
+      },
+      "correct_answer": "D",
+      "explanation": "The series is \"walked ..., opened ..., and read ...\": three past-tense verbs sharing the subject \"Harold Tibbs.\"",
+      "distractor_explanations": {
+        "A": "Adding \"he\" breaks the series of verbs that share the subject \"Harold Tibbs.\"",
+        "B": "\"Opening\" breaks the series of past-tense verbs (walked, opened, read).",
+        "C": "\"Had opened\" shifts tense inside a series of simple past verbs."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What form is the first verb in the series?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match every item in the series to the first."
+      },
+      "remember": "Verbs in a series share one form and one subject.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-01",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000069",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 2,
+      "evidence": "form the backbone of the country's climate history",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "countries'",
+        "C": "countrys",
+        "D": "countries"
+      },
+      "correct_answer": "A",
+      "explanation": "The history belongs to one country, so the singular possessive \"country's\" is correct.",
+      "distractor_explanations": {
+        "B": "This is a plural possessive, but there is one country.",
+        "C": "This misspells the possessive.",
+        "D": "This is a plural, not a possessive."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many countries are meant?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide singular or plural, then possessive or not."
+      },
+      "remember": "Singular possessive: add apostrophe + s.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-02",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000070",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (concession)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 3,
+      "evidence": "They were, however, consistent",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "As a result,",
+        "C": "For instance,",
+        "D": "Similarly,"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Admittedly\" concedes a weakness (not glamorous) that the next sentence answers with \"however\" (consistent).",
+      "distractor_explanations": {
+        "B": "The records' plainness is not a result of the first paragraph.",
+        "C": "\"Not glamorous\" is not an example of anything before it.",
+        "D": "Nothing similar has just been said."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "What does \"however\" in the next sentence answer?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "A concession is followed by a \"however.\""
+      },
+      "remember": "\"Admittedly ... however\" frames a concession.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-03",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000071",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon introducing an explanation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 4,
+      "evidence": "in fifty-one years he missed only nine mornings",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "consistent in",
+        "C": "consistent: in",
+        "D": "consistent, and, in"
+      },
+      "correct_answer": "C",
+      "explanation": "The second clause explains \"consistent\"; a colon correctly introduces that explanation and separates the two independent clauses.",
+      "distractor_explanations": {
+        "A": "A comma alone joins two independent clauses, creating a comma splice.",
+        "B": "Without punctuation, \"consistent in fifty-one years\" misreads and runs the clauses together.",
+        "D": "The comma after \"and\" is incorrect, and \"and\" weakens the explanation."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "Is \"in fifty-one years he missed only nine mornings\" a complete sentence?",
+        "Does it explain the word before it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate splices, then pick the mark that introduces an explanation."
+      },
+      "remember": "A colon can introduce a clause that explains the first.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-04",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: D fails mainly because 'and, in fifty-one years he missed' has an unpaired comma (none after 'years'). It is a subtle reason, but defensible as wrong; it also weakens the explanatory link a colon gives."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000072",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise word choice",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 5,
+      "evidence": "because a climate record is only as useful as its longest unbroken stretch",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "overlook",
+        "C": "doubt",
+        "D": "prize"
+      },
+      "correct_answer": "D",
+      "explanation": "The reason given (a record is only as useful as its longest unbroken stretch) shows that scientists highly value consistency: they \"prize\" it.",
+      "distractor_explanations": {
+        "A": "\"Put up with\" suggests reluctant tolerance, but the sentence explains why consistency is valuable.",
+        "B": "\"Overlook\" means ignore, contradicting the reason given.",
+        "C": "\"Doubt\" contradicts the claim that consistency makes records useful."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does the because-clause show valuing or tolerating?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"value highly,\" then match."
+      },
+      "remember": "Read the reason clause to choose the precise verb.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-05",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000073",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deciding whether to keep a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 6,
+      "evidence": "Researchers studying how growing towns trap heat have used his records to measure the change.",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it explains why Tibbs first began observing the weather in 1952.",
+        "B": "Kept, because it reports what researchers learned by using Tibbs's records.",
+        "C": "Deleted, because it shifts the focus from Tibbs to the town's population growth.",
+        "D": "Deleted, because it repeats the information already given in Sentence 2."
+      },
+      "correct_answer": "B",
+      "explanation": "Sentence 3 says researchers used the records; without Sentence 4 the reader never learns what they found, which is the payoff of the paragraph.",
+      "distractor_explanations": {
+        "A": "The sentence says nothing about why Tibbs began.",
+        "C": "It links the town's growth back to Tibbs's records.",
+        "D": "Sentence 2 describes development, not the warming the researchers found."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What would the paragraph be missing without this sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what job the sentence does."
+      },
+      "remember": "Keep a sentence that completes a point the paragraph sets up.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-06",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000074",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 7,
+      "evidence": "Tibbs stopped observing in 2003",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "began failing him",
+        "C": "began failing and worsening him",
+        "D": "began failing him, declining"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Began failing him\" already means his eyesight was getting worse; the additions repeat it.",
+      "distractor_explanations": {
+        "A": "\"Getting worse\" repeats \"failing.\"",
+        "C": "This is redundant and ungrammatical (\"worsening him\").",
+        "D": "\"Declining\" repeats \"failing.\""
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do the extra words add new information?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Pick the shortest version that keeps the meaning."
+      },
+      "remember": "Cut words that repeat an idea.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-07",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: the correct answer is the shortest choice, which is a common length cue for redundancy items"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000075",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 8,
+      "evidence": "The box still",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "standing",
+        "C": "stands",
+        "D": "have stood"
+      },
+      "correct_answer": "C",
+      "explanation": "\"The box\" is singular and the sentence describes the present, so \"stands.\"",
+      "distractor_explanations": {
+        "A": "\"Stand\" is plural, but \"The box\" is singular.",
+        "B": "\"Standing\" leaves the sentence without a main verb.",
+        "D": "\"Have\" is plural."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": null,
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the subject?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the verb to its subject."
+      },
+      "remember": "Singular subjects take singular verbs.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-08",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000076",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion emphasizing a point",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": 9,
+      "evidence": "Researchers studying how growing towns trap heat have used his records",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by emphasizing the lasting value of Tibbs's work?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Tibbs died in 2009 at the age of ninety-one, six years after his last reading.",
+        "C": "His neighbor's grandson now owns a digital weather station that reports online.",
+        "D": "The National Weather Service has since replaced most of its paper forms."
+      },
+      "correct_answer": "A",
+      "explanation": "The current sentence stresses that his thousands of mornings survive in an archive, contrasting with the abandoned box and emphasizing the record's lasting value.",
+      "distractor_explanations": {
+        "B": "This gives a biographical fact, not the lasting value of the work.",
+        "C": "This shifts focus to someone else's equipment.",
+        "D": "This says nothing about the value of Tibbs's records."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "out_of_scope",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "Which choice is about the records surviving?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the goal: lasting value."
+      },
+      "remember": "Match the conclusion to the goal in the stem.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-09",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000077",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Sentence placement (adding a sentence)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": null,
+      "evidence": "a pattern consistent with the spread of pavement",
+      "figure": null,
+      "stem": "The writer wants to add the following sentence to the third paragraph:\n\"Pavement absorbs sunlight during the day and releases that heat slowly after dark.\"\nThe sentence would most logically be placed:",
+      "choices": {
+        "A": "after Sentence 1.",
+        "B": "after Sentence 2.",
+        "C": "after Sentence 3.",
+        "D": "after Sentence 4."
+      },
+      "correct_answer": "D",
+      "explanation": "Sentence 4 reports warmer nights \"consistent with the spread of pavement\"; the new sentence explains why pavement warms nights, so it belongs right after Sentence 4.",
+      "distractor_explanations": {
+        "A": "Pavement has not yet been mentioned, and the sentence would interrupt the population comparison.",
+        "B": "Parking lots are mentioned, but the sentence explains warming nights, which are not reported until Sentence 4.",
+        "C": "The sentence explains a finding that has not yet been stated."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Which sentence mentions both nights and pavement?",
+        "What does the new sentence explain?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Place an explanation right after the claim it explains."
+      },
+      "remember": "Put an explanation directly after the point it explains.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-10",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: after Sentence 2 (parking lots) is a plausible distractor, but putting the sentence there would disrupt 'the change' in Sentence 3, so D is the only defensible answer"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000078",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000007",
+      "underline": null,
+      "evidence": "Researchers studying how growing towns trap heat have used his records to measure the change.",
+      "figure": null,
+      "stem": "Suppose the writer's goal had been to show how one volunteer's ordinary routine produced something of scientific value. Would this essay accomplish that goal?",
+      "choices": {
+        "A": "Yes, because it shows researchers using Tibbs's daily readings to study a warming town.",
+        "B": "Yes, because it explains in detail how thermometers and rain gauges are built.",
+        "C": "No, because it focuses mainly on the growth of the town and its subdivisions.",
+        "D": "No, because it never suggests that Tibbs's readings were used by anyone else."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay shows an ordinary daily routine (readings at seven every morning) and its scientific use (researchers measuring warming).",
+      "distractor_explanations": {
+        "B": "The essay does not explain how the instruments are built.",
+        "C": "Growth is discussed only as the change Tibbs's records measured.",
+        "D": "Researchers used his records."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Was the routine ordinary?",
+        "Did it produce something scientists used?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Decide yes or no first, then check the reason."
+      },
+      "remember": "Both the verdict and the reason must be right.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "E007-11",
+      "created_at": "2026-10-26T19:38:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-007.review.json",
+        "computation": "checks/act_english/batch_007.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

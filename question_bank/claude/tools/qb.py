@@ -692,6 +692,13 @@ def screen(bank: str, n: int) -> None:
         seen.append((c['cand'], qtext(c, bank)))
         ok = not probs and got == c['answer'] and not dups
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
+        # Advisory: the text screen misses concept-level repeats (same idea, new wording), so flag a subskill that is
+        # already in the bank or overlaps an existing one heavily; check that item by hand before review.
+        sub = tokens(c.get('subskill', ''))
+        twins = sorted({q['subskill'] for q in data['questions']
+                        if q.get('subskill') and sub and jaccard(sub, tokens(q['subskill'])) >= 0.6})
+        if twins:
+            print(f"  warn: subskill overlaps existing bank subskills {twins[:3]} (check for a concept repeat)")
         # Advisory only: blind solvers repeatedly flag a key that is clearly the longest choice as a test-wise tell.
         lens = {k: len(v) for k, v in c['choices'].items() if v not in ('NO CHANGE', 'DELETE the underlined portion.')}
         if verbal and c['answer'] in lens and len(lens) > 2:
