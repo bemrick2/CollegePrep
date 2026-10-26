@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 17,
-  "updated_at": "2026-10-26T22:04:07+00:00",
+  "version": 18,
+  "updated_at": "2026-10-26T22:16:22+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -190,6 +190,17 @@
       "word_count": 501,
       "text": "For my first three months at the Brass Lantern, Chef Albescu said exactly four words to me that were not instructions. They were \"Your knives are dull,\" and she said them on my first morning, in front of the entire kitchen, after watching me struggle through a crate of onions.\n\nI sharpened the knives that night and every night after. I learned to dice an onion in the time it took the dishwasher to fill a sink. I learned that a sauce should coat the back of a spoon and hold a clean line when you drew a finger through it, and that Albescu could tell from across the room whether it would. She never said whether mine did. She would taste, set the spoon down, and move on, and I would spend the rest of the shift trying to read her silence.\n\nSome nights I resented her for it. I would walk home past the bakery on Ninth Street, already dark, and rehearse speeches I would never give: that I had been cooking since I was twelve, that my grandmother had taught me to braise, that no one could be expected to improve without being told what was wrong. By morning the speeches seemed foolish, and I would be back at my station before anyone else, sharpening.\n\nThe other cooks had a theory about her. Albescu, they said, had trained in a kitchen in Lyon where praise was considered a kind of laziness, a way of telling a cook to stop improving. Whether that was true, no one knew. She never talked about Lyon, or about anything else that had happened before she bought the restaurant.\n\nIn my fourth month, a critic from the city paper came in unannounced. We knew who he was only because the host recognized him and came back to the kitchen white-faced. Two of the line cooks stopped working altogether, and someone dropped a pan. Albescu didn't look up. She finished plating the dish in front of her and then, without a word, slid the critic's ticket down the line to my station. It was the braised lamb, my dish, the one I had made every night for six weeks.\n\nI don't remember cooking it. I remember the plate leaving the kitchen and the hum of the dining room and Albescu's back, which did not move. The review ran on Sunday, and I read it standing up in the tiny kitchen of my apartment. It praised the lamb in a single sentence and spent three paragraphs on the dessert, which I had not made.\n\nOn Monday I came in early, as I always did, and found a new knife at my station, a heavy carbon-steel blade wrapped in a clean dish towel. There was no note. When Albescu came in an hour later, she glanced at the knife, then at me. \"Keep it sharp,\" she said, and went to check the walk-in cooler. I used that knife for eleven years, and I have it still.",
       "batch": 17,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000018",
+      "title": "The Price of a Gift",
+      "genre": "humanities",
+      "word_count": 506,
+      "text": "Between 1883 and 1919, the industrialist Andrew Carnegie paid for the construction of more than 1,600 public library buildings in the United States. Many still stand, recognizable by their wide front steps, tall windows, and the word LIBRARY carved above the door. In some small towns the Carnegie library was the first public building made of stone, and for decades it was also the place where clubs met, lectures were held, and newcomers learned to read English. It is tempting to see them simply as gifts, the generosity of a wealthy man spread across the map. But Carnegie's arrangement with the towns that received them was more demanding, and more interesting, than a gift.\n\nCarnegie would pay for a building only if a town supplied the land and promised to spend, every year, an amount equal to a tenth of his grant on books, staff, and upkeep. A town that accepted $10,000 for a building was committing itself to $1,000 a year, indefinitely. Carnegie believed that people valued what they paid for, and that a library supported by local taxes would be treated as a public responsibility rather than as a rich man's charity.\n\nNot every town agreed, and the reasons for refusing varied as much as the towns themselves. Some refused because they could not afford the yearly cost. Others refused on principle. Labor organizers in several cities, remembering a bitter strike at one of Carnegie's steel mills, argued that money earned by cutting workers' wages should not be accepted as a favor. A few towns that had accepted the money later failed to keep their promise, and their libraries closed or were absorbed by other institutions.\n\nThe buildings themselves changed how libraries worked. In many older libraries, books were kept in closed stacks; a patron asked a clerk for a title, and the clerk retrieved it, often after a wait. Readers could see only the titles listed in a printed catalog, and many had no way of knowing what else the collection held. Many Carnegie libraries were designed instead with open shelves that readers could browse on their own, arranged around a central desk from which a single librarian could see the whole room. The design saved money on staff, but it also changed the experience of reading: a visitor who came for one book might leave with another, found by chance on a nearby shelf.\n\nHistorians still disagree about how to judge the program, and the disagreement has lasted for more than a century. To some, it was a model of partnership between private wealth and public institutions; to others, it was a way for a man with a damaged reputation to purchase gratitude. Both views may be partly right. What is harder to dispute is that the requirement Carnegie attached to his money did as much to shape American libraries as the money itself. By making towns pay to keep the doors open, he made the library a line in the local budget, and lines in a budget are hard to erase.",
+      "batch": 18,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -10407,6 +10418,579 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-017.review.json",
         "computation": "checks/act_reading/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000144",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Synthesizing the central claim",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "he made the library a line in the local budget",
+      "figure": null,
+      "stem": "Based on the passage as a whole, the author suggests that the most lasting effect of Carnegie's program came from:",
+      "choices": {
+        "A": "the very large sums Carnegie spent on constructing the buildings.",
+        "B": "the open-shelf design that let readers browse on their own.",
+        "C": "the protests of labor organizers who refused Carnegie's money.",
+        "D": "the condition that towns pay to support their libraries every year."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 2 sets out the yearly funding requirement, and the final paragraph says that requirement made libraries a lasting budget line.",
+      "distractor_explanations": {
+        "A": "The author says the requirement did \"as much ... as the money itself\" and ends by stressing the budget line.",
+        "B": "The design changed reading, but the conclusion credits the funding requirement.",
+        "C": "The protests are described, but not as the program's lasting effect."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "What does the final paragraph say shaped libraries as much as the money?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect paragraph 2 with the last two sentences."
+      },
+      "remember": "Central claims often appear in the conclusion, supported by earlier detail.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-01",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: passage says the requirement did 'as much' to shape libraries 'as the money itself', not more; 'most lasting' leans on the final sentence ('lines in a budget are hard to erase') rather than an explicit comparison. Defensible but slightly stronger than the text.",
+          "minor: R018-08 (budget lines hard to erase) and R018-07 (annual 10% spending) both spotlight the annual-requirement idea, cueing D here."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000145",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of an opening statement",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "But Carnegie's arrangement with the towns that received them was more demanding",
+      "figure": null,
+      "stem": "The statement that \"it is tempting to see them simply as gifts\" (paragraph 1) mainly serves to:",
+      "choices": {
+        "A": "introduce a common view that the rest of the passage complicates.",
+        "B": "state the author's own conclusion about Carnegie's motives.",
+        "C": "explain why so many of the library buildings are still standing.",
+        "D": "criticize historians who praised Carnegie's generosity."
+      },
+      "correct_answer": "A",
+      "explanation": "\"It is tempting\" introduces a simple view, and \"But\" immediately signals that the passage will complicate it.",
+      "distractor_explanations": {
+        "B": "The author immediately says the arrangement was \"more demanding\" than a gift.",
+        "C": "The statement concerns how the libraries are viewed, not their survival.",
+        "D": "Historians' judgments come in the last paragraph, and this statement criticizes no one."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the sentence beginning \"But\" do to the \"tempting\" view?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the next sentence."
+      },
+      "remember": "\"It is tempting to...\" usually sets up a view the author will qualify.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-02",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000146",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated reason",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "money earned by cutting workers' wages should not be accepted as a favor",
+      "figure": null,
+      "stem": "According to the passage, labor organizers in several cities objected to accepting Carnegie's money because they believed:",
+      "choices": {
+        "A": "their towns could not afford to keep a library open.",
+        "B": "Carnegie would control which books the libraries held.",
+        "C": "it had been earned at the expense of workers' pay.",
+        "D": "the buildings were too small for their cities' needs."
+      },
+      "correct_answer": "C",
+      "explanation": "The organizers argued the money came from \"cutting workers' wages.\"",
+      "distractor_explanations": {
+        "A": "Some towns refused for this reason, but not the labor organizers.",
+        "B": "The passage never mentions control over books.",
+        "D": "Building size is not mentioned as an objection."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Reread the sentence about labor organizers."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Scan paragraph 3."
+      },
+      "remember": "Detail questions: match the reason to the right group.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-03",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: key is a close paraphrase of 'money earned by cutting workers' wages'; A is the other towns' reason, a decent distractor."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000147",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "The design saved money on staff, but it also changed the experience of reading",
+      "figure": null,
+      "stem": "The detail that a visitor \"who came for one book might leave with another\" (paragraph 4) mainly serves to:",
+      "choices": {
+        "A": "show that the design was chosen chiefly to reduce the number of staff.",
+        "B": "show a benefit of the open-shelf design beyond the money it saved.",
+        "C": "suggest that visitors often had trouble finding the books they wanted.",
+        "D": "explain why older libraries kept their books in closed stacks."
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence first notes the savings, then (\"but it also\") a further effect: browsing let readers discover books by chance.",
+      "distractor_explanations": {
+        "A": "\"But it also\" signals a benefit beyond the savings.",
+        "C": "Finding an unexpected book is presented as a benefit, not a problem.",
+        "D": "The detail concerns open shelves, not why stacks were closed."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"but it also\" signal?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the whole sentence the detail ends."
+      },
+      "remember": "Track how a sentence's \"but also\" adds a second point.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-04",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000148",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's attitude toward competing views",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "Both views may be partly right",
+      "figure": null,
+      "stem": "The author's attitude toward the two judgments of the program described in paragraph 5 is best described as:",
+      "choices": {
+        "A": "convinced that the program was entirely self-serving.",
+        "B": "dismissive of both judgments as unsupported by evidence.",
+        "C": "certain that the partnership view is the only correct one.",
+        "D": "willing to grant that each contains some truth."
+      },
+      "correct_answer": "D",
+      "explanation": "The author explicitly says \"Both views may be partly right,\" then turns to what is harder to dispute.",
+      "distractor_explanations": {
+        "A": "The author says \"Both views may be partly right.\"",
+        "B": "The author grants both partial credit rather than dismissing them.",
+        "C": "The author does not choose one view over the other."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "C": "extreme_language"
+      },
+      "hints": [
+        "What does the author say about the two views?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the author's comment right after the two views."
+      },
+      "remember": "Attitude: look for the author's own evaluative sentence.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-05",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [
+          "minor: key paraphrases 'Both views may be partly right' almost word for word; distractors A-C are extreme ('entirely', 'only correct', 'dismissive of both') and easy to eliminate."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000149",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "their libraries closed or were absorbed by other institutions",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word \"absorbed\" most nearly means:",
+      "choices": {
+        "A": "taken over.",
+        "B": "soaked up.",
+        "C": "fascinated.",
+        "D": "understood."
+      },
+      "correct_answer": "A",
+      "explanation": "Libraries that failed were closed or \"taken over\" by other institutions.",
+      "distractor_explanations": {
+        "B": "This is the literal sense, used for liquids.",
+        "C": "\"Absorbed\" can mean deeply interested, but libraries were not fascinated.",
+        "D": "Libraries were not understood by institutions."
+      },
+      "distractor_traps": {
+        "B": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What could happen to a library that a town stopped funding?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Substitute each choice into the sentence."
+      },
+      "remember": "Choose the sense that fits institutions, not liquids or people.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-06",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000150",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Applying a stated rule",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000018",
+      "underline": null,
+      "evidence": "an amount equal to a tenth of his grant",
+      "figure": null,
+      "stem": "Based on paragraph 2, a town that accepted $25,000 from Carnegie for a building would have promised to spend how much each year?",
+      "choices": {
+        "A": "$1,000",
+        "B": "$10,000",
+        "C": "$2,500",
+        "D": "$25,000"
+      },
+      "correct_answer": "C",
+      "explanation": "A tenth of $25,000 is $2,500.",
+      "distractor_explanations": {
+        "A": "$1,000 is the yearly amount for a $10,000 grant.",
+        "B": "$10,000 is the example grant, not a yearly amount.",
+        "D": "$25,000 is the grant itself; the yearly promise was a tenth of it."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What fraction of the grant did towns promise each year?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the rule, then divide 25,000 by 10."
+      },
+      "remember": "Apply the stated rule, not the example's numbers.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-07",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: numerical choices are not in ascending order (1,000; 10,000; 2,500; 25,000); ACT convention orders numbers ascending or descending.",
+          "minor: one-step arithmetic (a tenth of $25,000) with the rule stated explicitly; low-value item for Reading."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000151",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Characterization",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000017",
+      "underline": null,
+      "evidence": "Albescu didn't look up",
+      "figure": null,
+      "stem": "Albescu's behavior when the critic arrives (paragraph 5) most strongly suggests that she is:",
+      "choices": {
+        "A": "indifferent to whether the restaurant receives a good review.",
+        "B": "nervous and too distracted to cook the critic's dish herself.",
+        "C": "eager to impress the critic by greeting him personally.",
+        "D": "calm and focused even under pressure."
+      },
+      "correct_answer": "D",
+      "explanation": "While the host panics, Albescu keeps working and makes a deliberate choice about the ticket: composure under pressure.",
+      "distractor_explanations": {
+        "A": "She hands the order to a trusted cook; staying calm is not the same as not caring.",
+        "B": "She \"didn't look up\" and finished her plate; nothing suggests nerves.",
+        "C": "She stays in the kitchen and does not greet him."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How does her reaction contrast with the host's?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Separate calm from not caring."
+      },
+      "remember": "Distinguish composure from indifference.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 18,
+      "draft_candidate": "R018-09",
+      "created_at": "2026-10-26T22:16:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: single item from passage CLD-P-ACT-R-000017 in this batch; fine but note the packet mixes passages.",
+          "minor: A ('indifferent') is a reasonable trap from 'didn't look up', but her deliberate routing of the ticket to the narrator rules it out; D is somewhat generic and could be strengthened (e.g., 'confident in the narrator's ability')."
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-018.review.json",
+        "computation": "checks/act_reading/batch_018.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

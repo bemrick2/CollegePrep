@@ -1,0 +1,326 @@
+{
+ "bank": "act_math",
+ "batch": 51,
+ "plan": "Final seven items to reach the user's stop point of 500 live ACT Math items, with stems checked against the bank. 2 hard (consecutive even squares, repeated-letter arrangements) / 2 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B051-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Two-step equations with a negative coefficient",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies -2x + 5 = 17 ?",
+   "choices": {
+    "A": "-11",
+    "B": "-6",
+    "C": "6",
+    "D": "11"
+   },
+   "answer": "B",
+   "explanation": "Subtract 5: -2x = 12. Divide by -2: x = -6.",
+   "distractors": {
+    "A": {
+     "rationale": "-11 divides 22 by -2, adding 5 instead of subtracting it.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "6 forgets the negative sign when dividing by -2.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "11 adds 5 and divides by 2, making two errors.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Undo the + 5 first, then the × (-2)."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check -2(-6) + 5."
+   },
+   "remember": "Dividing by a negative number changes the sign.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B051-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Cone and cylinder with the same base and height",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A cone and a cylinder have the same base radius and the same height. The volume of the cylinder is 90 cubic inches. What is the volume of the cone, in cubic inches?",
+   "choices": {
+    "A": "30",
+    "B": "45",
+    "C": "180",
+    "D": "270"
+   },
+   "answer": "A",
+   "explanation": "A cone's volume is one-third of the volume of a cylinder with the same base and height: 90/3 = 30.",
+   "distractors": {
+    "B": {
+     "rationale": "45 uses one-half instead of one-third.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "180 doubles the cylinder's volume.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "270 triples the cylinder's volume instead of dividing by 3.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How do the formulas for a cone and a cylinder differ?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "V(cone) = (1/3)πr²h."
+   },
+   "remember": "Same base and height: cone = one-third of the cylinder.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B051-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Vertical shift and the y-intercept",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "The graph of y = f(x) crosses the y-axis at (0, 5). The function g is defined by g(x) = f(x) - 2. At what point does the graph of y = g(x) cross the y-axis?",
+   "choices": {
+    "A": "(-2, 5)",
+    "B": "(0, 3)",
+    "C": "(0, 7)",
+    "D": "(2, 5)"
+   },
+   "answer": "B",
+   "explanation": "g(0) = f(0) - 2 = 5 - 2 = 3, so the graph of g crosses the y-axis at (0, 3).",
+   "distractors": {
+    "A": {
+     "rationale": "(-2, 5) shifts the graph left instead of down.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "(0, 7) shifts up instead of down.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "(2, 5) shifts the graph right instead of down.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Subtracting 2 from f(x) moves the graph which way?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute g(0)."
+   },
+   "remember": "f(x) + k shifts the graph vertically by k.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B051-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Conditional probability from overlapping groups",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "In a club of 50 students, 20 play chess, 15 play the piano, and 6 do both. If a student who plays the piano is chosen at random, what is the probability that the student also plays chess?",
+   "choices": {
+    "A": "3/25",
+    "B": "3/10",
+    "C": "2/5",
+    "D": "29/50"
+   },
+   "answer": "C",
+   "explanation": "Restricting to the 15 piano players, 6 also play chess: 6/15 = 2/5.",
+   "distractors": {
+    "A": {
+     "rationale": "3/25 = 6/50 uses all 50 students instead of only the piano players.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3/10 = 6/20 divides by the chess players instead of the piano players.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "29/50 is the probability that a student plays chess or piano.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Which group is the student chosen from?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Both ÷ piano players."
+   },
+   "remember": "Conditional probability: count within the given group only.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B051-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a 30°-60°-90° triangle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A 30°-60°-90° triangle has a hypotenuse of length 12. What is the area of the triangle?",
+   "choices": {
+    "A": "18",
+    "B": "18√3",
+    "C": "36√3",
+    "D": "72"
+   },
+   "answer": "B",
+   "explanation": "The legs are 6 (opposite 30°) and 6√3 (opposite 60°). Area = (1/2)(6)(6√3) = 18√3.",
+   "distractors": {
+    "A": {
+     "rationale": "18 drops the √3 from the longer leg.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "36√3 forgets the factor of 1/2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "72 = (1/2)(12)(12) uses the hypotenuse as both legs.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What are the legs of a 30°-60°-90° triangle with hypotenuse 12?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label the sides 6, 6√3, 12."
+   },
+   "remember": "30°-60°-90° sides are in the ratio 1 : √3 : 2.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B051-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Consecutive even integers with a quadratic condition",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "The sum of the squares of two consecutive positive even integers is 340. What is the larger of the two integers?",
+   "choices": {
+    "A": "12",
+    "B": "13",
+    "C": "14",
+    "D": "18"
+   },
+   "answer": "C",
+   "explanation": "Let the integers be n and n + 2. Then n² + (n + 2)² = 340, so 2n² + 4n + 4 = 340, n² + 2n - 168 = 0, and (n + 14)(n - 12) = 0. With n positive, n = 12, so the larger integer is 14.",
+   "distractors": {
+    "A": {
+     "rationale": "12 is the smaller of the two integers.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "13 is odd; it comes from treating 340/2 = 170 as close to 13².",
+     "trap": null
+    },
+    "D": {
+     "rationale": "18 ≈ √340 treats the sum of squares as a single square.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write the integers as n and n + 2.",
+    "Factor the quadratic you get."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check 12² + 14²."
+   },
+   "remember": "Consecutive even integers: n and n + 2.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires setting up and factoring a quadratic from a verbal description; the smaller integer (12) is a common slip."
+   }
+  },
+  {
+   "cand": "B051-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability with arrangements of repeated letters",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "The letters A, A, B, and B are arranged in a row in a random order, with every distinct arrangement equally likely. What is the probability that the first two letters are the same?",
+   "choices": {
+    "A": "1/6",
+    "B": "1/4",
+    "C": "1/3",
+    "D": "1/2"
+   },
+   "answer": "C",
+   "explanation": "There are 4!/(2!2!) = 6 distinct arrangements: AABB, ABAB, ABBA, BAAB, BABA, BBAA. Two of them (AABB and BBAA) start with matching letters: 2/6 = 1/3.",
+   "distractors": {
+    "A": {
+     "rationale": "1/6 counts only one of the two favorable arrangements.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/4 treats the first two letters as independent, (1/2)(1/2).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1/2 assumes the second letter matches the first half the time; after one A is used, only 1 of the 3 remaining letters matches.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "List all the distinct arrangements.",
+    "Or: after the first letter, how many of the remaining letters match it?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "List the 6 arrangements."
+   },
+   "remember": "Without replacement, the second draw's chances depend on the first.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The intuitive 1/2 ignores that one matching letter has been used; requires listing arrangements or conditioning correctly."
+   }
+  }
+ ]
+}
