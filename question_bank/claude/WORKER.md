@@ -22,9 +22,11 @@ python3 -I question_bank/claude/tools/qb.py lock acquire <HOLDER>
 - If any `lock checkpoint` exits **4**, you have lost the lease. Stop writing at once.
 - For the import validator, run `cd web && npm ci --no-audit --no-fund --ignore-scripts` once if `web/node_modules` is missing. Nothing is deployed; it only reads files.
 
-## Current stop point (set by the user, 2026-10-26)
+## Current stop point (set by the user, 2026-10-26; raised the same day)
 
-Stop producing when **ACT Math reaches 500 live items** and **ACT English + ACT Reading + SAT Reading & Writing reach 500 live items combined**. Until then, alternate Math and verbal batches; among verbal banks, pick the one furthest behind its target share. Once both limits are met, run the Math 400-item audit if it has not been done, checkpoint, release the lock, and do not start new batches. The scheduled check-in is disabled at that point.
+The first stop point (Math 500, verbal 500) was reached on 2026-10-26. The user then asked for another 500 each. Stop producing when **ACT Math reaches 1,000 live items** and **ACT English + ACT Reading + SAT Reading & Writing reach 1,000 live items combined**. Until then, alternate Math and verbal batches; among verbal banks, pick the one furthest behind its target share. Run the 100-item audits as each bank crosses them. Once both limits are met, checkpoint, release the lock, do not start new batches, and disable the scheduled check-in.
+
+Verbal "hard" labels: blind solvers have repeatedly rated verbal items labelled hard as easy. Label a verbal item hard only when it has a trap that most quick readers fall for (a literally true but wrong choice, a partial disagreement, a percent-versus-raw comparison buried in a long table); otherwise label it medium.
 
 ## 1. Pick up where the last run stopped
 
