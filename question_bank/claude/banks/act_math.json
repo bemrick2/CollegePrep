@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 56,
-  "updated_at": "2026-10-26T23:08:57+00:00",
+  "version": 57,
+  "updated_at": "2026-10-26T23:13:02+00:00",
   "passages": [],
   "questions": [
     {
@@ -38884,6 +38884,706 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-056.review.json",
         "computation": "checks/act_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000557",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Comparing fractions",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following fractions has the greatest value?",
+      "choices": {
+        "A": "3/5",
+        "B": "5/8",
+        "C": "7/12",
+        "D": "2/3"
+      },
+      "correct_answer": "D",
+      "explanation": "As decimals: 3/5 = 0.6, 5/8 = 0.625, 7/12 ≈ 0.583, 2/3 ≈ 0.667. The greatest is 2/3.",
+      "distractor_explanations": {
+        "A": "3/5 = 0.6 is less than 2/3.",
+        "B": "5/8 = 0.625 has the largest numerator and denominator after 7/12, but its value is less than 2/3.",
+        "C": "7/12 has the largest numerator and denominator but the smallest value."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Convert each fraction to a decimal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide numerator by denominator for each choice."
+      },
+      "remember": "Compare fractions by value, not by the size of their parts.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-01",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000558",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Angles of a triangle in a given ratio",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The measures of the three angles of a triangle are in the ratio 2 : 3 : 4. What is the measure of the largest angle?",
+      "choices": {
+        "A": "40°",
+        "B": "60°",
+        "C": "80°",
+        "D": "90°"
+      },
+      "correct_answer": "C",
+      "explanation": "The ratio has 2 + 3 + 4 = 9 parts, and the angles sum to 180°, so each part is 20°. The largest angle is 4 × 20° = 80°.",
+      "distractor_explanations": {
+        "A": "40° is the smallest angle.",
+        "B": "60° is the middle angle.",
+        "D": "90° assumes the triangle is a right triangle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What do the angles of a triangle add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2k + 3k + 4k = 180."
+      },
+      "remember": "Add the ratio's parts, then divide the total by that sum.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-02",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000559",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Checking a point on a line",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following points lies on the line y = −2x + 7 ?",
+      "choices": {
+        "A": "(0, −7)",
+        "B": "(3, 1)",
+        "C": "(4, −15)",
+        "D": "(7, 0)"
+      },
+      "correct_answer": "B",
+      "explanation": "For x = 3: y = −2(3) + 7 = 1, so (3, 1) is on the line.",
+      "distractor_explanations": {
+        "A": "At x = 0, y = 7, not −7; this changes the sign of the intercept.",
+        "C": "At x = 4, y = −1, not −15.",
+        "D": "At x = 7, y = −7, not 0; 7 is the y-intercept, not the x-intercept."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Substitute each x-value into the equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each point."
+      },
+      "remember": "A point is on a line if its coordinates satisfy the equation.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-03",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000560",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Conditional probability from survey groups",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a survey of 200 people, 120 prefer summer and 80 prefer winter. Of those who prefer summer, 45 are under 18; of those who prefer winter, 30 are under 18. If one of the people under 18 is chosen at random, what is the probability that the person prefers winter?",
+      "choices": {
+        "A": "3/20",
+        "B": "3/8",
+        "C": "2/5",
+        "D": "3/5"
+      },
+      "correct_answer": "C",
+      "explanation": "There are 45 + 30 = 75 people under 18, and 30 of them prefer winter: 30/75 = 2/5.",
+      "distractor_explanations": {
+        "A": "3/20 = 30/200 divides by everyone surveyed.",
+        "B": "3/8 = 30/80 divides by the winter group instead of the under-18 group.",
+        "D": "3/5 = 45/75 is the probability of preferring summer."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which group is the person chosen from?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a two-way table of season by age."
+      },
+      "remember": "The 'given' group is the denominator.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-04",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000561",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear equation with two fractional terms",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies x/3 + x/4 = 14 ?",
+      "choices": {
+        "A": "24",
+        "B": "42",
+        "C": "49",
+        "D": "98"
+      },
+      "correct_answer": "A",
+      "explanation": "Multiply both sides by 12: 4x + 3x = 168, so 7x = 168 and x = 24.",
+      "distractor_explanations": {
+        "B": "42 = 14 × 3 uses only the first fraction.",
+        "C": "49 = 14 × 7/2 adds the fractions as 2/7.",
+        "D": "98 = 14 × 7 multiplies by the sum of the numerators of 4x + 3x without dividing by 12."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Multiply every term by the least common denominator."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 24/3 + 24/4."
+      },
+      "remember": "Clear fractions by multiplying by the LCD.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-05",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000562",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Diagonal of a rhombus from its side",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rhombus has sides of length 10, and one of its diagonals has length 12. What is the length of the other diagonal?",
+      "choices": {
+        "A": "8",
+        "B": "10",
+        "C": "12",
+        "D": "16"
+      },
+      "correct_answer": "D",
+      "explanation": "The diagonals of a rhombus bisect each other at right angles. Half of the known diagonal is 6, so half of the other is √(10² − 6²) = 8, and the full diagonal is 16.",
+      "distractor_explanations": {
+        "A": "8 is half of the other diagonal.",
+        "B": "10 is the side length.",
+        "C": "12 assumes the diagonals of a rhombus are equal, which holds only for a square."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How do the diagonals of a rhombus meet?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with legs 6 and ? and hypotenuse 10."
+      },
+      "remember": "A rhombus's diagonals are perpendicular bisectors of each other.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-06",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000563",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Converting a repeating decimal to a fraction",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following fractions is equal to the repeating decimal 0.272727… ?",
+      "choices": {
+        "A": "27/100",
+        "B": "3/11",
+        "C": "2/7",
+        "D": "3/10"
+      },
+      "correct_answer": "B",
+      "explanation": "Let x = 0.2727…. Then 100x = 27.2727…, so 99x = 27 and x = 27/99 = 3/11.",
+      "distractor_explanations": {
+        "A": "27/100 = 0.27 exactly; it does not repeat.",
+        "C": "2/7 = 0.285714…, which is a different repeating decimal.",
+        "D": "3/10 = 0.3 rounds the decimal."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What happens when you multiply the decimal by 100?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Divide each choice on a calculator."
+      },
+      "remember": "A two-digit repeating block over 99 gives the fraction.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-07",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000564",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Composition of a rotation and a reflection",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The point (6, 8) is rotated 90° clockwise about the origin, and the resulting point is then reflected across the x-axis. What are the coordinates of the final point?",
+      "choices": {
+        "A": "(8, 6)",
+        "B": "(−8, 6)",
+        "C": "(8, −6)",
+        "D": "(6, −8)"
+      },
+      "correct_answer": "A",
+      "explanation": "A 90° clockwise rotation sends (x, y) to (y, −x), so (6, 8) becomes (8, −6). Reflecting across the x-axis changes the sign of y, giving (8, 6).",
+      "distractor_explanations": {
+        "B": "(−8, 6) uses a counterclockwise rotation, (x, y) → (−y, x), and then skips the reflection.",
+        "C": "(8, −6) is the point after the rotation only.",
+        "D": "(6, −8) reflects the original point across the x-axis and skips the rotation."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Do the transformations one at a time, in order."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot each step on a coordinate grid."
+      },
+      "remember": "Clockwise 90°: (x, y) → (y, −x). Reflection in the x-axis: (x, y) → (x, −y).",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-08",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000565",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Counting values that keep a median fixed",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The list 3, 8, 12, 15, x contains 5 numbers, and x is a positive integer. For how many values of x is the median of the list equal to 8 ?",
+      "choices": {
+        "A": "1",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "D",
+      "explanation": "Sorted, the median is the third value. If x ≤ 8, the third value is 8. If 8 < x < 12, the median is x, and if x ≥ 12, it is 12. So x can be any of 1, 2, …, 8: 8 values.",
+      "distractor_explanations": {
+        "A": "1 counts only x = 8.",
+        "B": "6 counts only 3 through 8, assuming x cannot be less than the smallest listed value.",
+        "C": "7 counts 1 through 7, leaving out x = 8 itself."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where can x go in the sorted list without changing the middle value?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 1, x = 8, x = 9 and x = 13."
+      },
+      "remember": "A median depends only on position, so values far below it do not change it.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-09",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000566",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Rewriting a power with a known exponential value",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 2^a = 3, what is the value of 8^a ?",
+      "choices": {
+        "A": "9",
+        "B": "24",
+        "C": "27",
+        "D": "81"
+      },
+      "correct_answer": "C",
+      "explanation": "8^a = (2³)^a = (2^a)³ = 3³ = 27.",
+      "distractor_explanations": {
+        "A": "9 = 3² treats 8 as 2² instead of 2³.",
+        "B": "24 = 8 × 3 multiplies the bases instead of using exponents.",
+        "D": "81 = 3⁴ treats 8 as 2⁴."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write 8 as a power of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8^a = (2^a)^3."
+      },
+      "remember": "Rewrite bases as powers of a common base.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "B057-10",
+      "created_at": "2026-10-26T23:13:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-057.review.json",
+        "computation": "checks/act_math/batch_057.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

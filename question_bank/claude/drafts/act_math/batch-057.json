@@ -414,46 +414,46 @@
    "cand": "B057-10",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Algebra",
-   "subskill": "Squaring a sum of reciprocals",
+   "subskill": "Rewriting a power with a known exponential value",
    "repo_skill_key": "act_algebra_linear",
    "difficulty": "hard",
-   "stem": "If x + 1/x = 5, what is the value of x² + 1/x² ?",
+   "stem": "If 2^a = 3, what is the value of 8^a ?",
    "choices": {
-    "A": "10",
-    "B": "23",
-    "C": "25",
-    "D": "27"
+    "A": "9",
+    "B": "24",
+    "C": "27",
+    "D": "81"
    },
-   "answer": "B",
-   "explanation": "Square both sides: (x + 1/x)² = x² + 2 + 1/x² = 25. So x² + 1/x² = 25 − 2 = 23.",
+   "answer": "C",
+   "explanation": "8^a = (2³)^a = (2^a)³ = 3³ = 27.",
    "distractors": {
     "A": {
-     "rationale": "10 doubles 5 instead of squaring.",
+     "rationale": "9 = 3² treats 8 as 2² instead of 2³.",
      "trap": null
     },
-    "C": {
-     "rationale": "25 squares 5 but forgets the middle term 2 · x · (1/x) = 2.",
+    "B": {
+     "rationale": "24 = 8 × 3 multiplies the bases instead of using exponents.",
      "trap": null
     },
     "D": {
-     "rationale": "27 adds the middle term instead of subtracting it.",
-     "trap": "sign_error"
+     "rationale": "81 = 3⁴ treats 8 as 2⁴.",
+     "trap": null
     }
    },
    "hints": [
-    "What is (x + 1/x)² when expanded?"
+    "Write 8 as a power of 2."
    ],
    "strategy": {
     "key": "translate_to_algebra",
-    "explanation": "Expand the square and isolate x² + 1/x²."
+    "explanation": "8^a = (2^a)^3."
    },
-   "remember": "(a + b)² = a² + 2ab + b²; here ab = 1.",
-   "expected_time_seconds": 60,
+   "remember": "Rewrite bases as powers of a common base.",
+   "expected_time_seconds": 55,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "hardness": "Students must see that squaring the given equation produces the target expression plus a constant; solving for x directly is messy and the 25 trap is strong."
+    "hardness": "Students must rewrite 8 as 2³ and apply the power-of-a-power rule to an unknown exponent; multiplying 8 by 3 (24) is the common shortcut."
    }
   }
  ]

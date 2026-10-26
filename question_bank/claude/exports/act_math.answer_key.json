@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 56,
+  "bank_version": 57,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -9648,6 +9648,176 @@
       "strategy": {
         "key": "find_the_trend",
         "explanation": "Compute f(1), f(2), f(3) and look for the pattern."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000557",
+      "correct_answer": "D",
+      "explanation": "As decimals: 3/5 = 0.6, 5/8 = 0.625, 7/12 ≈ 0.583, 2/3 ≈ 0.667. The greatest is 2/3.",
+      "distractor_explanations": {
+        "A": "3/5 = 0.6 is less than 2/3.",
+        "B": "5/8 = 0.625 has the largest numerator and denominator after 7/12, but its value is less than 2/3.",
+        "C": "7/12 has the largest numerator and denominator but the smallest value."
+      },
+      "hints": [
+        "Convert each fraction to a decimal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide numerator by denominator for each choice."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000558",
+      "correct_answer": "C",
+      "explanation": "The ratio has 2 + 3 + 4 = 9 parts, and the angles sum to 180°, so each part is 20°. The largest angle is 4 × 20° = 80°.",
+      "distractor_explanations": {
+        "A": "40° is the smallest angle.",
+        "B": "60° is the middle angle.",
+        "D": "90° assumes the triangle is a right triangle."
+      },
+      "hints": [
+        "What do the angles of a triangle add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2k + 3k + 4k = 180."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000559",
+      "correct_answer": "B",
+      "explanation": "For x = 3: y = −2(3) + 7 = 1, so (3, 1) is on the line.",
+      "distractor_explanations": {
+        "A": "At x = 0, y = 7, not −7; this changes the sign of the intercept.",
+        "C": "At x = 4, y = −1, not −15.",
+        "D": "At x = 7, y = −7, not 0; 7 is the y-intercept, not the x-intercept."
+      },
+      "hints": [
+        "Substitute each x-value into the equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each point."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000560",
+      "correct_answer": "C",
+      "explanation": "There are 45 + 30 = 75 people under 18, and 30 of them prefer winter: 30/75 = 2/5.",
+      "distractor_explanations": {
+        "A": "3/20 = 30/200 divides by everyone surveyed.",
+        "B": "3/8 = 30/80 divides by the winter group instead of the under-18 group.",
+        "D": "3/5 = 45/75 is the probability of preferring summer."
+      },
+      "hints": [
+        "Which group is the person chosen from?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a two-way table of season by age."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000561",
+      "correct_answer": "A",
+      "explanation": "Multiply both sides by 12: 4x + 3x = 168, so 7x = 168 and x = 24.",
+      "distractor_explanations": {
+        "B": "42 = 14 × 3 uses only the first fraction.",
+        "C": "49 = 14 × 7/2 adds the fractions as 2/7.",
+        "D": "98 = 14 × 7 multiplies by the sum of the numerators of 4x + 3x without dividing by 12."
+      },
+      "hints": [
+        "Multiply every term by the least common denominator."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 24/3 + 24/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000562",
+      "correct_answer": "D",
+      "explanation": "The diagonals of a rhombus bisect each other at right angles. Half of the known diagonal is 6, so half of the other is √(10² − 6²) = 8, and the full diagonal is 16.",
+      "distractor_explanations": {
+        "A": "8 is half of the other diagonal.",
+        "B": "10 is the side length.",
+        "C": "12 assumes the diagonals of a rhombus are equal, which holds only for a square."
+      },
+      "hints": [
+        "How do the diagonals of a rhombus meet?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with legs 6 and ? and hypotenuse 10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000563",
+      "correct_answer": "B",
+      "explanation": "Let x = 0.2727…. Then 100x = 27.2727…, so 99x = 27 and x = 27/99 = 3/11.",
+      "distractor_explanations": {
+        "A": "27/100 = 0.27 exactly; it does not repeat.",
+        "C": "2/7 = 0.285714…, which is a different repeating decimal.",
+        "D": "3/10 = 0.3 rounds the decimal."
+      },
+      "hints": [
+        "What happens when you multiply the decimal by 100?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Divide each choice on a calculator."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000564",
+      "correct_answer": "A",
+      "explanation": "A 90° clockwise rotation sends (x, y) to (y, −x), so (6, 8) becomes (8, −6). Reflecting across the x-axis changes the sign of y, giving (8, 6).",
+      "distractor_explanations": {
+        "B": "(−8, 6) uses a counterclockwise rotation, (x, y) → (−y, x), and then skips the reflection.",
+        "C": "(8, −6) is the point after the rotation only.",
+        "D": "(6, −8) reflects the original point across the x-axis and skips the rotation."
+      },
+      "hints": [
+        "Do the transformations one at a time, in order."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot each step on a coordinate grid."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000565",
+      "correct_answer": "D",
+      "explanation": "Sorted, the median is the third value. If x ≤ 8, the third value is 8. If 8 < x < 12, the median is x, and if x ≥ 12, it is 12. So x can be any of 1, 2, …, 8: 8 values.",
+      "distractor_explanations": {
+        "A": "1 counts only x = 8.",
+        "B": "6 counts only 3 through 8, assuming x cannot be less than the smallest listed value.",
+        "C": "7 counts 1 through 7, leaving out x = 8 itself."
+      },
+      "hints": [
+        "Where can x go in the sorted list without changing the middle value?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 1, x = 8, x = 9 and x = 13."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000566",
+      "correct_answer": "C",
+      "explanation": "8^a = (2³)^a = (2^a)³ = 3³ = 27.",
+      "distractor_explanations": {
+        "A": "9 = 3² treats 8 as 2² instead of 2³.",
+        "B": "24 = 8 × 3 multiplies the bases instead of using exponents.",
+        "D": "81 = 3⁴ treats 8 as 2⁴."
+      },
+      "hints": [
+        "Write 8 as a power of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8^a = (2^a)^3."
       }
     }
   ]

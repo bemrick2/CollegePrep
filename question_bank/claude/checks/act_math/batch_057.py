@@ -65,8 +65,8 @@ def c09(ch):
 
 
 def c10(ch):
-    x = (5 + math.sqrt(21)) / 2
-    return pick(ch, x * x + 1 / (x * x), tol=1e-9)
+    a = math.log2(3)
+    return pick(ch, 8 ** a, tol=1e-9)
 
 
 CHECKS = {f'B057-{i:02d}': f for i, f in enumerate([c01, c02, c03, c04, c05, c06, c07, c08, c09, c10], 1)}
