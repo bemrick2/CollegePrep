@@ -12,8 +12,11 @@ Changes to these files decide who may review and what counts as approved:
 |---|---|
 | `web/src/lib/data/demo/reviewers.json` | reviewer appointments (`reviewerRegistry.ts`) |
 | `web/src/lib/data/demo/editorialLedger.json` | sign-offs and approvals |
-| `web/src/lib/data/demo/identities.json` | author identities (import contract v2), once it lands |
+| `web/src/lib/data/demo/identities.json` | author identities (import contract v2, #290) |
 | `.github/CODEOWNERS` | the list itself |
+| `.github/workflows/` | the required checks; a PR that edits a workflow could otherwise weaken a check it must pass |
+
+This PR adds the last three to `.github/CODEOWNERS`; before it, only `reviewers.json` and `editorialLedger.json` were listed.
 
 ## The blocking limitation: one GitHub identity
 
@@ -34,7 +37,7 @@ Whichever is chosen, `bemrick2` stays the only admin and the only code owner, an
 - [Certain] The repository is **public** and owned by a **user**, not an organization.
 - [Likely] For public repositories, GitHub provides branch protection, repository rulesets, required pull-request reviews, required code-owner review and required status checks on every plan, Free included.
 - [Guessing] This session can't read the account's plan (`GET /user` returns `plan: null`, and `/users/*` is blocked here). If the repository is ever made **private**, these features need **GitHub Pro** on a personal account.
-- **Not available for user-owned repositories:** push rulesets that restrict changes by file path. Those need an organization. So a rule can't say "only these files need review". The rule below applies to every PR into `main`, and code-owner review adds the owner's approval only for the files above.
+- **Not available here: path-scoped review requirements.** [Likely] A ruleset's pull-request rule can require specific reviewers for specific paths (`required_reviewers`) only with teams, and teams exist only in organizations. So a rule can't say "only these files need an approval". Code-owner review is the path-scoped part that does work: it adds the owner's approval only for files in `CODEOWNERS`. (Push rulesets, which restrict who may push changes to given paths, are a separate feature, offered for private and internal repositories on the Team plan; they wouldn't help here either.)
 
 ## Exact settings: one repository ruleset on `main`
 
@@ -46,7 +49,9 @@ Create it under **Settings → Rules → Rulesets → New branch ruleset**, or a
   "target": "branch",
   "enforcement": "active",
   "conditions": { "ref_name": { "include": ["~DEFAULT_BRANCH"], "exclude": [] } },
-  "bypass_actors": [],
+  "bypass_actors": [
+    { "actor_type": "RepositoryRole", "actor_id": 5, "bypass_mode": "pull_request" }
+  ],
   "rules": [
     { "type": "deletion" },
     { "type": "non_fast_forward" },
@@ -60,9 +65,11 @@ Create it under **Settings → Rules → Rulesets → New branch ruleset**, or a
     { "type": "required_status_checks", "parameters": {
         "strict_required_status_checks_policy": false,
         "required_status_checks": [
-          { "context": "validate" }, { "context": "database" },
-          { "context": "mutation (1)" }, { "context": "mutation (2)" }, { "context": "mutation (3)" }, { "context": "mutation (4)" },
-          { "context": "mutation (5)" }, { "context": "mutation (6)" }, { "context": "mutation (7)" }, { "context": "mutation (8)" }
+          { "context": "validate", "integration_id": 15368 }, { "context": "database", "integration_id": 15368 },
+          { "context": "mutation (1)", "integration_id": 15368 }, { "context": "mutation (2)", "integration_id": 15368 },
+          { "context": "mutation (3)", "integration_id": 15368 }, { "context": "mutation (4)", "integration_id": 15368 },
+          { "context": "mutation (5)", "integration_id": 15368 }, { "context": "mutation (6)", "integration_id": 15368 },
+          { "context": "mutation (7)", "integration_id": 15368 }, { "context": "mutation (8)", "integration_id": 15368 }
         ]
     } }
   ]
@@ -70,13 +77,18 @@ Create it under **Settings → Rules → Rulesets → New branch ruleset**, or a
 ```
 
 What each setting does:
-- **`bypass_actors: []`.** Nobody bypasses, admins included. The owner merges through the same rules as everyone else.
+- **The owner's own PRs would deadlock without a bypass.** GitHub never lets a PR's author approve it, and `bemrick2` is the only code owner. So a PR that `bemrick2` opens (or last pushes to) and that touches a code-owned file can never get a code-owner approval.
+  - **`bypass_actors`** therefore lists the repository **admin** role in `pull_request` mode. An admin may merge such a PR through the pull-request page, but can't push straight to `main`.
+  - [Likely] `actor_id: 5` is the admin repository role; confirm it in the ruleset form (Bypass list → Add bypass → Repository admin) or from the ruleset GET after creating it.
+  - This is safe only because of the prerequisite: `bemrick2` stays the only admin, and no session token is an admin. A session can't bypass; the owner can, and every bypass shows in the ruleset's insights.
 - **`require_code_owner_review`.** A PR touching any file in `CODEOWNERS` needs `bemrick2`'s approval.
-- **`dismiss_stale_reviews_on_push` and `require_last_push_approval`.** A change pushed after approval needs a new approval, from someone other than the person who pushed it.
-- **`required_approving_review_count: 1`.** This applies to **every** PR into `main`, not only editorial ones, because user-owned repositories can't scope reviews by path. That means Research's and Deep Dive's data PRs need one approval too.
-  - If that's too much, set it to `0` and keep `require_code_owner_review: true`. [Guessing] GitHub then still requires the code owner on owned files. **Test this before relying on it:** open one PR that touches only a doc and one that touches `reviewers.json`, and check that only the second asks for `bemrick2`.
-- **Required checks.** These are the jobs that run on *every* PR into `main` (`validate-data.yml` has no path filter). `web` and `local-backend` (`web.yml`) are left out on purpose: they have path filters, so a required `web` check would leave PRs that don't touch `web/**` waiting forever.
-  - To require them as well, first remove the `paths:` filter from `web.yml`'s `pull_request` trigger.
+- **`dismiss_stale_reviews_on_push` and `require_last_push_approval`.** A change pushed after approval needs a new approval, from someone other than the person who pushed it. If the owner pushes the last commit to a session's PR, only the owner's bypass can merge it.
+- **`required_approving_review_count: 1`.** This applies to **every** PR into `main`, not only editorial ones (see "path-scoped review requirements" above). With `bemrick2` as the only other person, **count 1 means the owner approves every PR**, including Research's and Deep Dive's data PRs.
+  - The alternative is `0` with `require_code_owner_review: true`. [Likely] GitHub then still requires the code owner's approval on code-owned files, and nothing else. **Offer this only once `CODEOWNERS` covers `.github/CODEOWNERS` and `.github/workflows/` (this PR adds them):** otherwise a PR could weaken the list or a check with no approval at all.
+  - **Test it before relying on it:** open one PR that touches only a doc and one that touches `reviewers.json`, and check that only the second asks for `bemrick2`.
+- **Required checks.** These are the jobs that run on *every* PR into `main` (`validate-data.yml` has no path filter). `integration_id: 15368` is the GitHub Actions app (read from this PR's check runs), so only Actions can satisfy them, not a status posted by any other token with the same name.
+  - `web` and `local-backend` (`web.yml`) are left out on purpose. They have path filters, so a required `web` check would leave PRs that don't touch `web/**` waiting forever.
+  - To require them as well, either remove the `paths:` filter from `web.yml`'s `pull_request` trigger (then every PR waits for them, a few minutes each), or keep the trigger unfiltered and skip the jobs' work with a job-level `if:` on the changed paths. A skipped job reports success, so the required check doesn't hang.
 - **`non_fast_forward` and `deletion`.** No force pushes or deletion of `main`.
 
 ## Classic branch protection, if rulesets aren't used
@@ -86,8 +98,8 @@ Under **Settings → Branches → Add rule for `main`**:
 - Dismiss stale approvals.
 - Require review from Code Owners.
 - Require approval of the most recent push.
-- Require status checks: the same ten contexts.
-- **Do not allow bypassing the above settings**, which in the API is `enforce_admins: true`.
+- Require status checks: the same ten contexts, from the GitHub Actions app.
+- **Bypass:** classic protection has no per-mode bypass. With `enforce_admins: true` ("Do not allow bypassing the above settings"), the owner's own PRs to code-owned files deadlock (see above). With it off, the admin can merge anything, including by direct push. That's why the ruleset is the recommended form.
 - Restrict force pushes and deletions.
 
 ## What stays outside GitHub's protection

@@ -41,8 +41,9 @@ Reviewers are entries in the **reviewer registry**, `web/src/lib/data/demo/revie
   asked to change their name. **A registry with any problem (a loop, an unknown appointer, a shared name) is not used:
   no sign-off counts.**
 - **What code can't check.** The code catches honest duplicates only. Whether an entry is a real, separate person,
-  whether `distinct_from` is true, and who added an entry (the owner or a lead) are enforced by **repository review**:
-  `.github/CODEOWNERS` asks for the owner's review of `reviewers.json` and `editorialLedger.json`. **That is not
+  whether `distinct_from` is true, and who added an entry (the owner or a lead) would be enforced by **repository
+  review**: `.github/CODEOWNERS` asks for the owner's review of `reviewers.json`, `editorialLedger.json`,
+  `identities.json`, the CODEOWNERS file itself and the workflows. **That is not
   enforced today:** `main` has no protection, and every PR is opened and merged as the owner's own account, so owner
   review can't be enforced until sessions use a separate identity (`REVIEW_ENFORCEMENT.md`). A lead could otherwise add
   a second id for themselves under another name.
