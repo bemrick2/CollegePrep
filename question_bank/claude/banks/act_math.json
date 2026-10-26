@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 41,
-  "updated_at": "2026-10-26T21:36:09+00:00",
+  "version": 42,
+  "updated_at": "2026-10-26T21:41:29+00:00",
   "passages": [],
   "questions": [
     {
@@ -28547,6 +28547,711 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-041.review.json",
         "computation": "checks/act_math/batch_041.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000410",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Matrix addition and scalar multiplication",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Let A and B be 2 × 2 matrices. The entries of A are 1 and 4 in its first row and -2 and 3 in its second row; the entries of B are 0 and 2 in its first row and 5 and -1 in its second row. What is the sum of all four entries of 2A + B ?",
+      "choices": {
+        "A": "12",
+        "B": "18",
+        "C": "24",
+        "D": "30"
+      },
+      "correct_answer": "B",
+      "explanation": "The entries of A sum to 1 + 4 - 2 + 3 = 6, so the entries of 2A sum to 12. The entries of B sum to 0 + 2 + 5 - 1 = 6. Together: 12 + 6 = 18.",
+      "distractor_explanations": {
+        "A": "12 is the sum of the entries of A + B, forgetting to double A.",
+        "C": "24 doubles both matrices.",
+        "D": "30 triples A instead of doubling it."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Scalar multiplication and addition work entry by entry."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2(sum of A's entries) + (sum of B's entries)."
+      },
+      "remember": "Matrix sums and scalar multiples act on matching entries.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-01",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: matrices given in words only; a displayed matrix would be more ACT-like"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000411",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Reference angles on the unit circle",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the exact value of sin 150° ?",
+      "choices": {
+        "A": "-√3/2",
+        "B": "-1/2",
+        "C": "1/2",
+        "D": "√3/2"
+      },
+      "correct_answer": "C",
+      "explanation": "150° is in the second quadrant with reference angle 30°. Sine is positive there, so sin 150° = sin 30° = 1/2.",
+      "distractor_explanations": {
+        "A": "-√3/2 is cos 150°, the cosine instead of the sine.",
+        "B": "-1/2 uses the right reference angle but treats sine as negative in the second quadrant.",
+        "D": "√3/2 uses the reference angle 60° instead of 30°."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "What is the reference angle for 150°?",
+        "Is sine positive or negative in the second quadrant?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the angle on the unit circle."
+      },
+      "remember": "Reference angle + quadrant sign gives exact trig values.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-02",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000412",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Identifying a conic from its equation",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, which of the following best describes the graph of 4x² + 9y² = 36 ?",
+      "choices": {
+        "A": "A circle",
+        "B": "A parabola",
+        "C": "A hyperbola",
+        "D": "An ellipse"
+      },
+      "correct_answer": "D",
+      "explanation": "Dividing by 36 gives x²/9 + y²/4 = 1: both squared terms are positive with different denominators, which is an ellipse.",
+      "distractor_explanations": {
+        "A": "A circle would need equal coefficients on x² and y².",
+        "B": "A parabola has only one squared variable.",
+        "C": "A hyperbola has squared terms with opposite signs."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Are both variables squared? Do their terms have the same sign and the same coefficient?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the signs and coefficients of x² and y²."
+      },
+      "remember": "Both squared, same sign, different coefficients: ellipse.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-03",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000413",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Checking a point against a system of inequalities",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following points (x, y) satisfies both y > 2x - 1 and x + y < 5 ?",
+      "choices": {
+        "A": "(1, 0)",
+        "B": "(3, 4)",
+        "C": "(1, 3)",
+        "D": "(2, 4)"
+      },
+      "correct_answer": "C",
+      "explanation": "Check (1, 3): 3 > 2(1) - 1 = 1 is true, and 1 + 3 = 4 < 5 is true. The other points fail at least one inequality.",
+      "distractor_explanations": {
+        "A": "(1, 0): 0 > 1 is false.",
+        "B": "(3, 4): 4 > 5 is false, and 3 + 4 = 7 is not less than 5.",
+        "D": "(2, 4): 4 > 3 is true, but 2 + 4 = 6 is not less than 5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Substitute each point into both inequalities."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice in both inequalities."
+      },
+      "remember": "A solution to a system must satisfy every inequality.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-04",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000414",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Zero and negative integer exponents",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equal to 2⁻³ + 4⁰ ?",
+      "choices": {
+        "A": "-7",
+        "B": "-5",
+        "C": "1/8",
+        "D": "9/8"
+      },
+      "correct_answer": "D",
+      "explanation": "2⁻³ = 1/8 and 4⁰ = 1, so the sum is 9/8.",
+      "distractor_explanations": {
+        "A": "-7 treats 2⁻³ as -8 and adds 1.",
+        "B": "-5 treats 2⁻³ as -6 and 4⁰ as 1.",
+        "C": "1/8 treats 4⁰ as 0."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "What does a negative exponent mean? What is any nonzero number to the zero power?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1/2³ + 1."
+      },
+      "remember": "a⁻ⁿ = 1/aⁿ and a⁰ = 1 for a ≠ 0.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-05",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000415",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Adding rational expressions",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x ≠ 0 and x ≠ -1, which of the following is equivalent to 1/x + 1/(x + 1) ?",
+      "choices": {
+        "A": "2/(2x + 1)",
+        "B": "2/(x(x + 1))",
+        "C": "(2x + 1)/(x(x + 1))",
+        "D": "(x + 2)/(x(x + 1))"
+      },
+      "correct_answer": "C",
+      "explanation": "The common denominator is x(x + 1): (x + 1)/(x(x + 1)) + x/(x(x + 1)) = (2x + 1)/(x(x + 1)).",
+      "distractor_explanations": {
+        "A": "2/(2x + 1) adds the numerators and the denominators separately.",
+        "B": "2/(x(x + 1)) uses the common denominator but adds the original numerators, 1 + 1.",
+        "D": "(x + 2)/(x(x + 1)) multiplies only one numerator by the missing factor."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the least common denominator?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: 1 + 1/2 = 3/2. Which choice gives 3/2?"
+      },
+      "remember": "Rewrite each fraction over the common denominator before adding numerators.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-06",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000416",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area bounded by an absolute value graph and a line",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what is the area of the region bounded by the graph of y = |x| and the line y = 4 ?",
+      "choices": {
+        "A": "8",
+        "B": "16",
+        "C": "32",
+        "D": "64"
+      },
+      "correct_answer": "B",
+      "explanation": "The graphs meet at (-4, 4) and (4, 4). The region is a triangle with base 8 (from x = -4 to x = 4) and height 4 (from the vertex (0, 0) up to y = 4). Area = (1/2)(8)(4) = 16.",
+      "distractor_explanations": {
+        "A": "8 uses half of the base.",
+        "C": "32 forgets the factor of 1/2.",
+        "D": "64 squares the base, treating the region as a square."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does y = 4 meet y = |x|?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the V shape and the horizontal line."
+      },
+      "remember": "Find intersection points first, then use the shape's area formula.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-07",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000417",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Incircle of a rhombus",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rhombus has diagonals of lengths 12 and 16. What is the radius of the circle inscribed in the rhombus?",
+      "choices": {
+        "A": "4",
+        "B": "4.8",
+        "C": "6",
+        "D": "9.6"
+      },
+      "correct_answer": "B",
+      "explanation": "The diagonals bisect each other at right angles, so each side is √(6² + 8²) = 10. The area is (1/2)(12)(16) = 96. The inscribed circle touches all four sides, so the area also equals (side × height) = 10 × 2r. Then 20r = 96 and r = 4.8.",
+      "distractor_explanations": {
+        "A": "4 is half of the longer half-diagonal, 8, not the distance from the center to a side.",
+        "C": "6 is half of the shorter diagonal, the distance from the center to a vertex, not to a side.",
+        "D": "9.6 is the height of the rhombus, the diameter of the circle."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the side length of the rhombus?",
+        "The rhombus's height equals the circle's diameter."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Use area = base × height with the height = 2r."
+      },
+      "remember": "A rhombus's inscribed circle has diameter equal to the rhombus's height.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-08",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000418",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Simplifying radicals with variables",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x > 0, which of the following is equivalent to √(50x³) ?",
+      "choices": {
+        "A": "5x√(2x)",
+        "B": "5x²√(2x)",
+        "C": "25x√(2x)",
+        "D": "10x√x"
+      },
+      "correct_answer": "A",
+      "explanation": "50x³ = 25 · 2 · x² · x, so √(50x³) = 5x√(2x).",
+      "distractor_explanations": {
+        "B": "5x²√(2x) takes x² out of the radical whole instead of its square root, x.",
+        "C": "25x√(2x) takes 25 out without its square root.",
+        "D": "10x√x treats 50 as 100/2 and takes √100 = 10 out, dropping the 2."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the largest perfect-square factors of 50 and of x³."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 2: √400 = 20. Which choice gives 20?"
+      },
+      "remember": "Pull out perfect-square factors of both the number and the variable.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-09",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000419",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Relative speed on a moving walkway",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Standing still on a moving walkway, a traveler is carried its full length in 60 seconds. Walking at a steady pace along the moving walkway, the traveler covers the same length in 20 seconds. At that same walking pace, how many seconds would it take the traveler to walk the same length on the ground beside the walkway?",
+      "choices": {
+        "A": "30",
+        "B": "40",
+        "C": "60",
+        "D": "80"
+      },
+      "correct_answer": "A",
+      "explanation": "Let the length be L. The walkway's speed is L/60 and the combined speed is L/20, so the walking speed is L/20 - L/60 = L/30. Walking alone takes 30 seconds.",
+      "distractor_explanations": {
+        "B": "40 = 60 - 20 subtracts the times instead of the speeds.",
+        "C": "60 is the walkway's time alone.",
+        "D": "80 = 60 + 20 adds the times."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Write each situation as a speed: length ÷ time.",
+        "The combined speed is the walkway's speed plus the walking speed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1/20 - 1/60 = 1/30."
+      },
+      "remember": "Add or subtract rates, not times.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "B042-10",
+      "created_at": "2026-10-26T21:41:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-042.review.json",
+        "computation": "checks/act_math/batch_042.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

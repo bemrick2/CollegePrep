@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:39:44+00:00",
+  "updated_at": "2026-10-26T21:41:32+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 403,
+    "act_math": 413,
     "act_english": 146,
     "act_reading": 122,
     "sat_reading_writing": 149
   },
   "review_totals": {
     "act_math": {
-      "PASS": 409,
+      "PASS": 419,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 414,
+      "candidates": 424,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,14 +52,14 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 403,
+      "accepted": 413,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 68,
-        "Functions": 67,
-        "Geometry": 92,
-        "Integrating Essential Skills": 69,
-        "Number & Quantity": 45,
+        "Algebra": 70,
+        "Functions": 68,
+        "Geometry": 95,
+        "Integrating Essential Skills": 70,
+        "Number & Quantity": 48,
         "Statistics & Probability": 62
       },
       "by_subskill": {
@@ -70,6 +70,7 @@
         "Absolute-value inequality for a tolerance": 1,
         "Adding fractions with unlike denominators": 1,
         "Adding radicals": 1,
+        "Adding rational expressions": 1,
         "Addition rule for mutually exclusive events": 1,
         "Age problems with a system": 1,
         "Algebraic identities (square of a sum)": 1,
@@ -82,6 +83,7 @@
         "Annulus area from a tangent chord": 1,
         "Arc length and sector area": 1,
         "Arc length from an inscribed angle": 1,
+        "Area bounded by an absolute value graph and a line": 1,
         "Area modeling with a quadratic": 1,
         "Area of a kite from its diagonals": 1,
         "Area of a regular hexagon": 1,
@@ -112,6 +114,7 @@
         "Chained ratios": 1,
         "Chained ratios (gears)": 1,
         "Chained unit conversions (currency)": 1,
+        "Checking a point against a system of inequalities": 1,
         "Chords and distance from the center": 1,
         "Circle circumference and area": 1,
         "Circle equation by completing the square": 1,
@@ -234,6 +237,8 @@
         "Greatest common factor of monomials": 1,
         "Horizontal asymptotes of rational functions": 1,
         "Horizontal compression of a function": 1,
+        "Identifying a conic from its equation": 1,
+        "Incircle of a rhombus": 1,
         "Incircle of a right triangle": 1,
         "Inclusion–exclusion with divisibility": 1,
         "Independent draws with replacement": 1,
@@ -281,6 +286,7 @@
         "Linear transformations of data": 1,
         "Logarithm properties": 1,
         "Logarithmic equations": 1,
+        "Matrix addition and scalar multiplication": 1,
         "Matrix multiplication": 1,
         "Mean and total": 1,
         "Mean equals median with an unknown": 1,
@@ -374,10 +380,12 @@
         "Rectangle from perimeter and area": 1,
         "Rectangle inscribed in a circle": 1,
         "Recursively defined functions": 1,
+        "Reference angles on the unit circle": 1,
         "Reflection across a line not through the origin": 1,
         "Reflection across y = x and distance": 1,
         "Reflections to minimize a path": 1,
         "Relative speed on a circular track": 1,
+        "Relative speed on a moving walkway": 1,
         "Repeated dilution": 1,
         "Repeating decimals as fractions": 1,
         "Residuals from a line of fit": 1,
@@ -400,6 +408,7 @@
         "Simplifying a complex fraction": 1,
         "Simplifying expressions with rational exponents": 1,
         "Simplifying products and quotients of radicals": 1,
+        "Simplifying radicals with variables": 1,
         "Simplifying rational expressions": 1,
         "Sinusoidal models: time above a threshold": 1,
         "Slope with an unknown coordinate": 1,
@@ -464,31 +473,32 @@
         "Working backward through fractions of a remainder": 1,
         "Writing a cost expression": 1,
         "Writing an exponential decay model": 1,
+        "Zero and negative integer exponents": 1,
         "Zeros of a product of functions": 1,
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 86,
-        "hard": 143,
-        "medium": 174
+        "easy": 89,
+        "hard": 145,
+        "medium": 179
       },
       "by_difficulty_calibrated": {
-        "easy": 101,
-        "hard": 58,
-        "medium": 244
+        "easy": 97,
+        "hard": 63,
+        "medium": 253
       },
       "calibrated_share": {
-        "easy": 0.251,
-        "hard": 0.144,
-        "medium": 0.605
+        "easy": 0.235,
+        "hard": 0.153,
+        "medium": 0.613
       },
       "answer_key_balance": {
-        "A": 93,
-        "B": 112,
-        "C": 109,
-        "D": 89
+        "A": 95,
+        "B": 115,
+        "C": 112,
+        "D": 91
       },
-      "modeling_items": 97,
+      "modeling_items": 98,
       "passages": 0
     },
     "act_english": {
@@ -876,47 +886,47 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 41,
+    "act_math": 42,
     "act_english": 14,
     "act_reading": 14,
     "sat_reading_writing": 16
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 42,
+      "next_batch": 43,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 0.4,
-        "Algebra": 8.4,
-        "Functions": 9.4,
-        "Geometry": -15.6,
-        "Statistics & Probability": -6.2,
-        "Integrating Essential Skills": 13.6
+        "Number & Quantity": -1.5,
+        "Algebra": 8.3,
+        "Functions": 10.3,
+        "Geometry": -16.7,
+        "Statistics & Probability": -4.9,
+        "Integrating Essential Skills": 14.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 2.2,
-        "medium": -37.5,
-        "hard": 45.2
+        "easy": 8.8,
+        "medium": -41.5,
+        "hard": 42.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 10.2,
-        "B": -8.8,
-        "C": -5.8,
-        "D": 14.2
+        "A": 10.8,
+        "B": -9.2,
+        "C": -6.2,
+        "D": 14.8
       }
     }
   },
   "verbal_guidance": {
-    "act_reading": {
+    "act_english": {
       "next_batch": 15,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 11.4,
-        "Craft and Structure": -2.1,
-        "Integration of Knowledge and Ideas": 0.7
+        "Production of Writing": 11.2,
+        "Knowledge of Language": 13.0,
+        "Conventions of Standard English": -11.8
       }
     },
     "sat_reading_writing": {
@@ -928,20 +938,20 @@
         "Expression of Ideas": 0.8
       }
     },
-    "act_english": {
+    "act_reading": {
       "next_batch": 15,
       "skill_gap_for_next_10": {
-        "Production of Writing": 11.2,
-        "Knowledge of Language": 13.0,
-        "Conventions of Standard English": -11.8
+        "Key Ideas and Details": 11.4,
+        "Craft and Structure": -2.1,
+        "Integration of Knowledge and Ideas": 0.7
       }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 403,
-      "share_of_target": 0.202
+      "accepted": 413,
+      "share_of_target": 0.206
     },
     "act_english": {
       "target": 700,
@@ -960,9 +970,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 820,
+  "total_accepted": 830,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_math",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -10035,7 +10045,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 41,
+      "bank_version": 42,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -10137,12 +10147,20 @@
       "event": "First batch under the audit mitigation (batch 13, 549-word passage)",
       "finding": "Both blind solvers again rated nothing hard (2 medium, 6-7 easy). The real discriminators were a LEAST reversal, a familiar-meaning vocabulary trap and a reversed-roles pair. Both solvers noted that several keys paraphrase passage sentences closely and that items sharing the passage's central contrast cue one another.",
       "next": "Keys must not paraphrase a single passage sentence; test the central contrast in one item only; build two-step inferences whose evidence sits in different paragraphs; make wrong choices exact reversals or same-idea-different-words more often."
+    },
+    {
+      "date": "2026-10-26",
+      "bank": "act_math",
+      "event": "400-item audit (403 live at rating time)",
+      "finding": "Whole-bank re-rating (calibration/act_math_rater_2026-10-26e.json): 82 easy / 245 medium / 76 hard (19% hard). Rebuilt calibration (median of all ratings, lower middle on ties) over 409 records incl. 6 retired: 96 easy / 250 medium / 63 hard, about 15% hard, up from 13% at the 300 audit. No new answer mismatches; the one listed (000130, rater 'c') is an old rater error and this rater agrees with the key.",
+      "checked": "CLD-ACT-M-000237: rater asked whether the key was wrong. Verified: key D ($192, all muffins) is correct; the 'at least 30 muffins' constraint is a deliberate non-binding trap. No change.",
+      "note": "Math batches 33-42 consistently produced 2-4 items the blind solver rated hard; the hardest items per the rater are reflection paths, the bouncing-ball series, the cylinder stripe, identical objects into boxes, the octagon and the tangent-line intercept."
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:39:44+00:00",
+    "heartbeat_at": "2026-10-26T21:41:32+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

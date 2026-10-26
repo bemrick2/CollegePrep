@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 41,
+  "bank_version": 42,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -7130,6 +7130,179 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "For each first digit there is exactly one second digit that works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000410",
+      "correct_answer": "B",
+      "explanation": "The entries of A sum to 1 + 4 - 2 + 3 = 6, so the entries of 2A sum to 12. The entries of B sum to 0 + 2 + 5 - 1 = 6. Together: 12 + 6 = 18.",
+      "distractor_explanations": {
+        "A": "12 is the sum of the entries of A + B, forgetting to double A.",
+        "C": "24 doubles both matrices.",
+        "D": "30 triples A instead of doubling it."
+      },
+      "hints": [
+        "Scalar multiplication and addition work entry by entry."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2(sum of A's entries) + (sum of B's entries)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000411",
+      "correct_answer": "C",
+      "explanation": "150° is in the second quadrant with reference angle 30°. Sine is positive there, so sin 150° = sin 30° = 1/2.",
+      "distractor_explanations": {
+        "A": "-√3/2 is cos 150°, the cosine instead of the sine.",
+        "B": "-1/2 uses the right reference angle but treats sine as negative in the second quadrant.",
+        "D": "√3/2 uses the reference angle 60° instead of 30°."
+      },
+      "hints": [
+        "What is the reference angle for 150°?",
+        "Is sine positive or negative in the second quadrant?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the angle on the unit circle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000412",
+      "correct_answer": "D",
+      "explanation": "Dividing by 36 gives x²/9 + y²/4 = 1: both squared terms are positive with different denominators, which is an ellipse.",
+      "distractor_explanations": {
+        "A": "A circle would need equal coefficients on x² and y².",
+        "B": "A parabola has only one squared variable.",
+        "C": "A hyperbola has squared terms with opposite signs."
+      },
+      "hints": [
+        "Are both variables squared? Do their terms have the same sign and the same coefficient?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the signs and coefficients of x² and y²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000413",
+      "correct_answer": "C",
+      "explanation": "Check (1, 3): 3 > 2(1) - 1 = 1 is true, and 1 + 3 = 4 < 5 is true. The other points fail at least one inequality.",
+      "distractor_explanations": {
+        "A": "(1, 0): 0 > 1 is false.",
+        "B": "(3, 4): 4 > 5 is false, and 3 + 4 = 7 is not less than 5.",
+        "D": "(2, 4): 4 > 3 is true, but 2 + 4 = 6 is not less than 5."
+      },
+      "hints": [
+        "Substitute each point into both inequalities."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice in both inequalities."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000414",
+      "correct_answer": "D",
+      "explanation": "2⁻³ = 1/8 and 4⁰ = 1, so the sum is 9/8.",
+      "distractor_explanations": {
+        "A": "-7 treats 2⁻³ as -8 and adds 1.",
+        "B": "-5 treats 2⁻³ as -6 and 4⁰ as 1.",
+        "C": "1/8 treats 4⁰ as 0."
+      },
+      "hints": [
+        "What does a negative exponent mean? What is any nonzero number to the zero power?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1/2³ + 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000415",
+      "correct_answer": "C",
+      "explanation": "The common denominator is x(x + 1): (x + 1)/(x(x + 1)) + x/(x(x + 1)) = (2x + 1)/(x(x + 1)).",
+      "distractor_explanations": {
+        "A": "2/(2x + 1) adds the numerators and the denominators separately.",
+        "B": "2/(x(x + 1)) uses the common denominator but adds the original numerators, 1 + 1.",
+        "D": "(x + 2)/(x(x + 1)) multiplies only one numerator by the missing factor."
+      },
+      "hints": [
+        "What is the least common denominator?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: 1 + 1/2 = 3/2. Which choice gives 3/2?"
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000416",
+      "correct_answer": "B",
+      "explanation": "The graphs meet at (-4, 4) and (4, 4). The region is a triangle with base 8 (from x = -4 to x = 4) and height 4 (from the vertex (0, 0) up to y = 4). Area = (1/2)(8)(4) = 16.",
+      "distractor_explanations": {
+        "A": "8 uses half of the base.",
+        "C": "32 forgets the factor of 1/2.",
+        "D": "64 squares the base, treating the region as a square."
+      },
+      "hints": [
+        "Where does y = 4 meet y = |x|?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the V shape and the horizontal line."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000417",
+      "correct_answer": "B",
+      "explanation": "The diagonals bisect each other at right angles, so each side is √(6² + 8²) = 10. The area is (1/2)(12)(16) = 96. The inscribed circle touches all four sides, so the area also equals (side × height) = 10 × 2r. Then 20r = 96 and r = 4.8.",
+      "distractor_explanations": {
+        "A": "4 is half of the longer half-diagonal, 8, not the distance from the center to a side.",
+        "C": "6 is half of the shorter diagonal, the distance from the center to a vertex, not to a side.",
+        "D": "9.6 is the height of the rhombus, the diameter of the circle."
+      },
+      "hints": [
+        "What is the side length of the rhombus?",
+        "The rhombus's height equals the circle's diameter."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Use area = base × height with the height = 2r."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000418",
+      "correct_answer": "A",
+      "explanation": "50x³ = 25 · 2 · x² · x, so √(50x³) = 5x√(2x).",
+      "distractor_explanations": {
+        "B": "5x²√(2x) takes x² out of the radical whole instead of its square root, x.",
+        "C": "25x√(2x) takes 25 out without its square root.",
+        "D": "10x√x treats 50 as 100/2 and takes √100 = 10 out, dropping the 2."
+      },
+      "hints": [
+        "Find the largest perfect-square factors of 50 and of x³."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 2: √400 = 20. Which choice gives 20?"
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000419",
+      "correct_answer": "A",
+      "explanation": "Let the length be L. The walkway's speed is L/60 and the combined speed is L/20, so the walking speed is L/20 - L/60 = L/30. Walking alone takes 30 seconds.",
+      "distractor_explanations": {
+        "B": "40 = 60 - 20 subtracts the times instead of the speeds.",
+        "C": "60 is the walkway's time alone.",
+        "D": "80 = 60 + 20 adds the times."
+      },
+      "hints": [
+        "Write each situation as a speed: length ÷ time.",
+        "The combined speed is the walkway's speed plus the walking speed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1/20 - 1/60 = 1/30."
       }
     }
   ]
