@@ -52,6 +52,26 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(done.metrics.traps_fallen).toEqual([{ trap: 'sign_error', count: 2 }])
   })
 
+  it('#279: benchmark_options and benchmark_progress are called as the proposed contract says; a resumed completion uses only server metrics', async () => {
+    const { sb, calls } = fakeClient({
+      exam_versions: [{ id: 'ev1', effective_from: '2026-01-01', effective_to: null }],
+      benchmark_options: [{ initial_allowed: false, mini_allowed: false, mini_opens_at: '2026-11-02T17:00:00Z', full_allowed: false, open_id: 'bm1', open_kind: 'initial', open_started_at: '2026-10-26T12:00:00Z' }],
+      benchmark_progress: [{ section: 'math', assigned: 8, used: '3' }],
+      complete_benchmark: { submitted: 10, accuracy: 0.5, skips: 1, by_section: { math: { submitted: 10, correct: 5, accuracy: 0.5, pacing_ratio: 1 } } },
+    })
+    const src = new LiveSource(sb)
+    expect(await src.benchmarkOptions('s1', 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensAt: '2026-11-02T17:00:00Z', fullAllowed: false, open: { id: 'bm1', kind: 'initial', startedAt: '2026-10-26T12:00:00Z' } })
+    expect(calls.find((c) => c.name === 'benchmark_options')!.args).toEqual({ p_student: 's1', p_exam_version: 'ev1' })
+    expect(await src.benchmarkProgress('bm1', 's1')).toEqual([{ section: 'math', assigned: 8, used: 3 }])
+    expect(calls.find((c) => c.name === 'benchmark_progress')!.args).toEqual({ p_benchmark: 'bm1' })
+    const client = { id: 'x', kind: 'initial', exam_family: 'act', started_at: 'a', completed_at: 'b', attempt_ids: [], metrics: { sections: [{ section: 'math', ceiling_difficulty: 4, skipped: 2 }], strategy_use: [{ strategy_key: 's', count: 1 }], skip_events: 7, median_elapsed_ms: 1 } } as never
+    const resumed = await src.completeBenchmark('s1', 'bm1', client, { resumed: true })
+    expect(resumed.metrics).toMatchObject({ skip_events: 1, median_elapsed_ms: null, strategy_use: [] })
+    expect(resumed.metrics.sections[0]).toMatchObject({ section: 'math', skipped: 0, ceiling_difficulty: null })
+    const whole = await src.completeBenchmark('s1', 'bm1', client)
+    expect(whole.metrics).toMatchObject({ skip_events: 7 })
+  })
+
   it('CR-1: planning preferences read from and written to student_planning_preferences', async () => {
     const { sb, calls } = fakeClient({ 'student_planning_preferences:single': { exam_family: 'sat', target_score: 1300, goals: ['merit'], daily_minutes: 12 }, student_planning_preferences: [{ student_id: 's1' }] })
     const src = new LiveSource(sb)

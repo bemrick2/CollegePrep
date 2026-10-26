@@ -608,23 +608,23 @@ export class LiveSource implements DataSource {
   /** #279 (contract proposed on #279, comment 6421822021): what the server will open now, and the live check if any. */
   async benchmarkOptions(studentId: string, examFamily: ExamFamily): Promise<CheckOptions> {
     const version = await this.currentExamVersion(examFamily)
-    const rows = await rpc<{ initial_allowed: boolean; mini_allowed: boolean; mini_opens_on: string | null; full_allowed: boolean; open_id: string | null; open_kind: 'initial' | 'mini' | 'full' | null; open_started_at?: string | null }[]>(
+    const rows = await rpc<{ initial_allowed: boolean; mini_allowed: boolean; mini_opens_at: string | null; full_allowed: boolean; open_id: string | null; open_kind: 'initial' | 'mini' | 'full' | null; open_started_at: string | null }[]>(
       this.sb,
       'benchmark_options',
       { p_student: studentId, p_exam_version: version },
     )
     const r = (Array.isArray(rows) ? rows[0] : rows) ?? null
-    if (!r) return { initialAllowed: false, miniAllowed: false, miniOpensOn: null, fullAllowed: false, open: null }
+    if (!r) return { initialAllowed: false, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null }
     return {
       initialAllowed: !!r.initial_allowed,
       miniAllowed: !!r.mini_allowed,
-      miniOpensOn: r.mini_opens_on ?? null,
+      miniOpensAt: r.mini_opens_at ?? null,
       fullAllowed: !!r.full_allowed,
       open: r.open_id && r.open_kind ? { id: r.open_id, kind: r.open_kind, startedAt: r.open_started_at ?? '' } : null,
     }
   }
 
-  async benchmarkProgress(benchmarkId: string): Promise<CheckProgress[]> {
+  async benchmarkProgress(benchmarkId: string, _studentId?: string): Promise<CheckProgress[]> {
     const rows = await rpc<{ section: string; assigned: number; used: number }[]>(this.sb, 'benchmark_progress', { p_benchmark: benchmarkId })
     return (rows ?? []).map((r) => ({ section: r.section, assigned: Number(r.assigned), used: Number(r.used) }))
   }
@@ -747,9 +747,10 @@ export class LiveSource implements DataSource {
     return rpc<string>(this.sb, 'start_benchmark', { p_student: studentId, p_kind: kind, p_exam_version: version })
   }
 
-  async completeBenchmark(_studentId: string, benchmarkId: string, client: BenchmarkSummary): Promise<BenchmarkSummary> {
+  async completeBenchmark(_studentId: string, benchmarkId: string, client: BenchmarkSummary, opts: { resumed?: boolean } = {}): Promise<BenchmarkSummary> {
     const m = await rpc<ServerMetrics>(this.sb, 'complete_benchmark', { p_benchmark: benchmarkId })
-    return { ...client, id: benchmarkId, metrics: fromServerMetrics(m, client.metrics) }
+    // A resumed check: this screen saw only part of it, so every metric is the server's (none from this run's record).
+    return { ...client, id: benchmarkId, metrics: fromServerMetrics(m, opts.resumed ? undefined : client.metrics) }
   }
 
   async savedSchools(householdId: string) {

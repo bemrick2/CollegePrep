@@ -111,8 +111,11 @@ export interface DataSource {
   listBenchmarks(studentId: string): Promise<BenchmarkSummary[]>
   /** Opens a benchmark that groups the attempts that follow (start_benchmark). */
   startBenchmark(studentId: string, kind: BenchmarkSummary['kind'], examFamily: ExamFamily): Promise<string>
-  /** Closes it. Live stores the server's metrics; `client` carries the staircase details the server doesn't compute. */
-  completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary): Promise<BenchmarkSummary>
+  /**
+   * Closes it. Live stores the server's metrics; `client` carries the staircase details the server doesn't compute.
+   * `resumed`: the client's record covers only the part of the check after a reload, so none of it is used for metrics.
+   */
+  completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary, opts?: { resumed?: boolean }): Promise<BenchmarkSummary>
 
   // CR-23 reserved assessment pool. Reserved content is readable only inside an open check, so sizes come as counts.
   /** Per section: reserved items and how many this student hasn't seen. null when the source can't say. */
@@ -298,8 +301,8 @@ export interface PoolStatus {
 export interface CheckOptions {
   initialAllowed: boolean
   miniAllowed: boolean
-  /** First date (yyyy-mm-dd) a mini check opens, when it isn't open yet; null otherwise. */
-  miniOpensOn: string | null
+  /** When the next mini check opens (an ISO timestamp, shown in the student's own time zone), if it isn't open yet. */
+  miniOpensAt: string | null
   fullAllowed: boolean
   /** The student's live check of this exam, if any. */
   open: { id: string; kind: 'initial' | 'mini' | 'full'; startedAt: string } | null

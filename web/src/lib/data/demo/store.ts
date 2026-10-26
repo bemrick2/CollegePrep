@@ -43,6 +43,8 @@ export interface DemoAttempt extends EngineAttempt {
   selected_answer: string | null
   attempt_number: number
   last_answer: string | null
+  /** The progress check this attempt belongs to, if any (as practice_attempts.benchmark_id). */
+  benchmark_id?: string | null
 }
 
 export interface DemoEvent extends EngineEvent {

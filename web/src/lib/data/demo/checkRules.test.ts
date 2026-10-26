@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { DemoSource, DEMO_STUDENT } from './demoSource'
+import { DemoSource, DEMO_PARENT, DEMO_STUDENT } from './demoSource'
+import { sampleFamily } from './seed'
 import { emptyStore, type DemoStore } from './store'
 import { QUESTIONS } from './fixtures'
 
@@ -21,7 +22,7 @@ afterEach(() => vi.useRealTimers())
 describe('demo check rules (#279 proposed contract)', () => {
   it('first: only the starting check; full and mini are refused', async () => {
     const { src, sid } = await student()
-    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: true, miniAllowed: false, miniOpensOn: null, fullAllowed: false, open: null })
+    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: true, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null })
     await expect(src.startBenchmark(sid, 'full', 'act')).rejects.toThrow("A full progress check isn't available yet")
     await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('Take the starting check first')
   })
@@ -50,7 +51,7 @@ describe('demo check rules (#279 proposed contract)', () => {
     const { src, sid } = await student()
     await src.startBenchmark(sid, 'initial', 'act') // never answered
     vi.setSystemTime(new Date('2026-10-26T17:00:00Z')) // expired
-    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensOn: '2026-11-02', fullAllowed: false, open: null })
+    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensAt: '2026-11-02T12:00:00.000Z', fullAllowed: false, open: null })
     await expect(src.startBenchmark(sid, 'initial', 'act')).rejects.toThrow('The starting check has already been taken')
     await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('The next progress check opens on 2026-11-02')
     vi.setSystemTime(new Date('2026-11-02T12:00:00Z'))
@@ -62,5 +63,41 @@ describe('demo check rules (#279 proposed contract)', () => {
     const { src, sid } = await student()
     await src.startBenchmark(sid, 'initial', 'act')
     expect(await src.benchmarkOptions(sid, 'sat')).toMatchObject({ initialAllowed: true, open: null })
+  })
+
+  it('(#291 review) checks completed before checks were kept count: the sample student has had the starting check', async () => {
+    const src = new DemoSource(sampleFamily('student'))
+    expect(await src.benchmarkOptions('st-sample-maya', 'act')).toMatchObject({ initialAllowed: false, open: null })
+  })
+
+  it('(#291 review) only the linked student reads options and progress, or completes a check; a closed or expired check can’t be completed', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    vi.setSystemTime(new Date('2026-10-26T12:00:00Z'))
+    const { src, sid } = await student()
+    const bm = await src.startBenchmark(sid, 'initial', 'act')
+    const other = new DemoSource(JSON.parse(JSON.stringify((src as unknown as { s: DemoStore }).s)))
+    other.switchPersona(DEMO_PARENT, 'Jordan')
+    await expect(other.benchmarkOptions(sid, 'act')).rejects.toThrow()
+    await expect(other.benchmarkProgress(bm, sid)).rejects.toThrow()
+    const summary = { id: 'x', kind: 'initial', exam_family: 'act', started_at: '', completed_at: '', attempt_ids: [], metrics: {} } as never
+    await expect(other.completeBenchmark(sid, bm, summary)).rejects.toThrow()
+    await src.completeBenchmark(sid, bm, summary)
+    await expect(src.completeBenchmark(sid, bm, summary)).rejects.toThrow(/not an open benchmark/) // once
+    vi.setSystemTime(new Date('2026-11-03T12:00:00Z'))
+    const late = await src.startBenchmark(sid, 'mini', 'act')
+    vi.setSystemTime(new Date('2026-11-03T16:30:00Z'))
+    await expect(src.completeBenchmark(sid, late, summary)).rejects.toThrow(/expired/)
+  })
+
+  it('(#291 review) a resumed check is completed with metrics from every attempt in it, not only those after the reload', async () => {
+    const { src, sid } = await student()
+    const bm = await src.startBenchmark(sid, 'initial', 'act')
+    const items = await src.benchmarkQuestions(bm, sid)
+    for (const it of items.slice(0, 3)) await answer(src, sid, bm, it.question.id)
+    const empty = { id: 'x', kind: 'initial', exam_family: 'act', started_at: '', completed_at: '', attempt_ids: [], metrics: { answered: 0, sections: [] } } as never
+    const saved = await src.completeBenchmark(sid, bm, empty, { resumed: true })
+    expect(saved.attempt_ids).toHaveLength(3)
+    expect(saved.metrics).toMatchObject({ answered: 3, correct: 3 })
+    // Without `resumed`, the client's record is kept as it is (it saw the whole check).
   })
 })

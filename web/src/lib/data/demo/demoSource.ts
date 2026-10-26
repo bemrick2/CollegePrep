@@ -1,5 +1,5 @@
 import { poolStatusOf, practiceExclusions } from '../../engine/freshness'
-import { MIN_DAYS_BETWEEN_CHECKS, PER_SECTION } from '../../engine/benchmark'
+import { computeMetrics, MIN_DAYS_BETWEEN_CHECKS, PER_SECTION, type BenchmarkRecord } from '../../engine/benchmark'
 import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
@@ -595,6 +595,7 @@ export class DemoSource implements DataSource {
       if (c.used.includes(questionId)) throw new DataError('A question is used once per progress check', 'invalid')
       c.used.push(questionId)
     }
+    const check = benchmarkId ?? null
     const id = uid('pa-')
     const now = new Date().toISOString()
     const a: DemoAttempt = {
@@ -619,6 +620,7 @@ export class DemoSource implements DataSource {
       selected_answer: null,
       attempt_number: this.attemptsOf(studentId).filter((x) => x.question_id === questionId).length + 1,
       last_answer: null,
+      benchmark_id: check,
     }
     this.s.attempts.push(a)
     this.s.events.push({ attempt_id: id, student_id: studentId, kind: 'presented', occurred_at: now })
@@ -741,15 +743,20 @@ export class DemoSource implements DataSource {
    * earlier check and MIN_DAYS_BETWEEN_CHECKS since the last one started.
    */
   private checkRules(studentId: string, exam: ExamFamily): CheckOptions {
-    const mine = Object.values(this.checks).filter((c) => c.studentId === studentId && c.exam === exam)
+    // Every check this student has had of this exam: the started ones, and completed ones saved before checks were
+    // kept (the sample family's seeded starting check, or an older saved demo).
+    const started = Object.entries(this.checks).filter(([, c]) => c.studentId === studentId && c.exam === exam)
+    const ids = new Set(started.map(([id]) => id))
+    const earlier = (this.s.benchmarks[studentId] ?? []).filter((b) => b.exam_family === exam && !ids.has(b.id))
+    const mine = [...started.map(([, c]) => c.startedAt), ...earlier.map((b) => b.started_at)]
     const live = this.liveOf(studentId, exam)
-    const last = mine.map((c) => c.startedAt).sort().pop() ?? null
+    const last = [...mine].sort().pop() ?? null
     const opens = last ? new Date(Date.parse(last) + MIN_DAYS_BETWEEN_CHECKS * 86_400_000) : null
     const early = !!opens && opens.getTime() > Date.now()
     return {
       initialAllowed: !live && mine.length === 0,
       miniAllowed: !live && mine.length > 0 && !early,
-      miniOpensOn: !live && mine.length > 0 && early ? opens!.toISOString().slice(0, 10) : null,
+      miniOpensAt: !live && mine.length > 0 && early ? opens!.toISOString() : null,
       fullAllowed: false,
       open: live ? { id: live[0], kind: live[1].kind, startedAt: live[1].startedAt } : null,
     }
@@ -809,7 +816,7 @@ export class DemoSource implements DataSource {
     const rules = this.checkRules(studentId, exam)
     if (kind === 'full' && !rules.fullAllowed) throw new DataError("A full progress check isn't available yet", 'invalid')
     if (kind === 'initial' && !rules.initialAllowed) throw new DataError('The starting check has already been taken', 'invalid')
-    if (kind === 'mini' && !rules.miniAllowed) throw new DataError(rules.miniOpensOn ? `The next progress check opens on ${rules.miniOpensOn}` : 'Take the starting check first', 'invalid')
+    if (kind === 'mini' && !rules.miniAllowed) throw new DataError(rules.miniOpensAt ? `The next progress check opens on ${rules.miniOpensAt.slice(0, 10)}` : 'Take the starting check first', 'invalid')
     // Mirrors start_benchmark (#263): the items are assigned once, here, per section: the plan size (PER_SECTION, as
     // practice_benchmark_plan) or the section's reserve if smaller; unseen first (mid difficulty), then repeats
     // (least recently seen first). Assignment counts as exposure at once.
@@ -852,13 +859,46 @@ export class DemoSource implements DataSource {
     return delay(c.assigned.filter((a) => !c.used.includes(a.id)).map((a) => ({ question: toPublic(F.byId.get(a.id)!), seen_before: a.seen })))
   }
 
-  async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary) {
-    const summary = { ...client, id: benchmarkId }
-    const c = this.checks[benchmarkId]
-    if (c) c.completed = true // closed, like complete_benchmark (the row and its assignment stay)
+  async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary, opts: { resumed?: boolean } = {}) {
+    this.requireLinked(studentId)
+    // Like complete_benchmark: only the student's own live check closes, once.
+    const c = this.liveCheck(benchmarkId, studentId)
+    // The server computes metrics from every attempt in the check; a resumed client saw only part of them.
+    const summary = opts.resumed ? { ...client, id: benchmarkId, ...(await this.checkMetrics(benchmarkId, studentId)) } : { ...client, id: benchmarkId }
+    c.completed = true // closed (the row and its assignment stay)
     ;(this.s.benchmarks[studentId] ??= []).push(summary)
     this.commit()
     return delay(summary)
+  }
+
+  /** Metrics from every attempt of a check, as complete_benchmark computes them on the server. */
+  private async checkMetrics(benchmarkId: string, studentId: string): Promise<Pick<BenchmarkSummary, 'attempt_ids' | 'metrics'>> {
+    const F = await loadFixtures()
+    const mine = this.attemptsOf(studentId).filter((a) => a.benchmark_id === benchmarkId)
+    const events = (id: string, kind: string) => this.s.events.filter((e) => e.attempt_id === id && e.kind === kind).length
+    const records: BenchmarkRecord[] = mine.map((a) => {
+      const q = F.byId.get(a.question_id)
+      return {
+        question_id: a.question_id,
+        attempt_id: a.id,
+        section: a.section,
+        difficulty: q?.difficulty ?? null,
+        skill_key: a.skill_key,
+        expected_time_seconds: a.expected_time_seconds,
+        answer: a.selected_answer,
+        is_correct: a.is_correct,
+        skipped: a.skipped || !a.submitted_at,
+        elapsed_ms: a.elapsed_ms ?? 0,
+        active_ms: a.active_ms ?? 0,
+        confidence: (a.confidence as BenchmarkRecord['confidence']) ?? null,
+        strategy_key: a.strategy_key,
+        skip_events: events(a.id, 'skipped'),
+        returns: events(a.id, 'returned'),
+        answer_changes: events(a.id, 'changed_answer'),
+        trap: a.is_correct === false ? (q?.distractors.find((d) => d.choice === a.selected_answer)?.trap ?? null) : null,
+      }
+    })
+    return { attempt_ids: mine.map((a) => a.id), metrics: computeMetrics(records) }
   }
 
   // Saved schools live in this browser for the demo (one household per browser).

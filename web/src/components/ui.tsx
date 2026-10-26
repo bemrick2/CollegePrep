@@ -172,10 +172,10 @@ export function PageLoading() {
   )
 }
 
-export function Notice({ tone = 'info', title, children, className }: { tone?: 'info' | 'warn' | 'bad' | 'gold' | 'neutral'; title?: ReactNode; children?: ReactNode; className?: string }) {
+export function Notice({ tone = 'info', title, children, className, id }: { tone?: 'info' | 'warn' | 'bad' | 'gold' | 'neutral'; title?: ReactNode; children?: ReactNode; className?: string; id?: string }) {
   const t = { info: 'bg-info-soft border-info/20', warn: 'bg-warn-soft border-warn/20', bad: 'bg-bad-soft border-bad/20', gold: 'bg-gold-soft border-gold/30', neutral: 'bg-surface-2 border-line' }[tone]
   return (
-    <div className={cx('rounded-xl border px-4 py-3 text-sm text-ink-2', t, className)} role={tone === 'bad' ? 'alert' : undefined}>
+    <div id={id} className={cx('rounded-xl border px-4 py-3 text-sm text-ink-2', t, className)} role={tone === 'bad' ? 'alert' : undefined}>
       {title && <div className="font-semibold text-ink">{title}</div>}
       {children && <div className={title ? 'mt-1' : ''}>{children}</div>}
     </div>
