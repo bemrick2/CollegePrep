@@ -4,8 +4,9 @@ This is how a person reviews questions before any can be published. It covers th
 any batch imported under `QUESTION_IMPORT_CONTRACT.md`. Nothing here generates questions. Claude's review is not human
 approval.
 
-**Launch blocker:** no content lead has been named. Until the owner names one, no question can pass stage 8, and
-nothing in the bank is human-approved (0 of 58 today). The work below runs without one up to stage 7.
+**Launch blocker:** no reviewer has been appointed and no content lead named. The reviewer registry
+(`web/src/lib/data/demo/reviewers.json`) is empty, so no sign-off counts at any stage and nothing is human-approved
+(0 of 58 today). Nothing in the repository appoints anyone; only the owner adds the first entries.
 
 ## The rule
 
@@ -14,64 +15,107 @@ that item's current content:
 - every editorial stage, 3 to 8, has passed on exactly that content (sign-offs are pinned to the content hash);
 - the content lead has confirmed its track (practice, or reserved for checks);
 - it isn't retired;
-- its answer key was matched by two blind solves of that content, by people who never wrote any version of it.
+- its answer key was matched by two blind solves of that content, by two different authorized solvers who never
+  wrote any version of it;
+- for an imported item, its rights check signed the item's exact current rights version.
 
-The ledger (`editorialLedger.ts`) and the candidate registry (`questionCandidates.ts`) enforce each condition above in
-code, each with a test. Eligibility is worked out from the registry's append-only history, so editing a summary field
+The ledger (`editorialLedger.ts`), the reviewer registry (`reviewerRegistry.ts`) and the candidate registry
+(`questionCandidates.ts`) enforce each condition above in code; the tests cover each rule listed in this document. Eligibility is worked out from the registry's append-only history, so editing a summary field
 (a status, a confirmer) doesn't make an item eligible.
 
 **Sampling is a process audit, not approval.** The content lead may re-check a random sample of passed items to test
 the reviewers. A clean sample says the process works. It never makes an unsampled item eligible. Process rule (the content lead
 applies it; it isn't automated): a failed sample reopens every item that reviewer signed off.
 
-## Roles
+## Reviewers and roles
 
-Each sign-off names a person.
-- **Name matching.** Names are compared ignoring case, spacing, punctuation, invisible characters, bracketed asides and
-  word order. "Jo Writer", "Jo-Writer." and "Writer, Jo" are one person.
-- **Refused names.** Names that mix Latin, Cyrillic or Greek letters are refused, and so are obvious non-people (AI
-  tools, roles, teams, placeholders).
-- **Not proof of identity.** This is a screen. Initials ("J. Writer") and other aliases still need the content lead to
-  check every name against the people actually reviewing.
+Reviewers are entries in the **reviewer registry**, `web/src/lib/data/demo/reviewers.json` (`reviewerRegistry.ts`).
+- **Identity is the reviewer id.** Each person has a stable id (`rv-…`, never reused), the roles they may sign and who
+  appointed them: the owner, or an active content lead. A sign-off counts only when its `reviewer_id` is an active entry
+  authorized for that stage, whose appointment chain reaches the owner through active content leads with no loop. A
+  revoked reviewer's sign-offs stop counting, and so do those of everyone appointed below them (until re-appointed);
+  everyone else carries on. A revoked person can be re-appointed under a new id.
+- **One person, one id.** Two entries sharing a recorded name (ignoring case, accents and punctuation, but not word
+  order: "Li Wang" and "Wang Li" are two people) make the registry unusable until fixed, so one person can't be two
+  solvers. Two different people with the same name are recorded with each other's id in `distinct_from`; nobody is
+  asked to change their name. **A registry with any problem (a loop, an unknown appointer, a shared name) is not used:
+  no sign-off counts.**
+- **What code can't check.** The code catches honest duplicates only. Whether an entry is a real, separate person,
+  whether `distinct_from` is true, and who added an entry (the owner or a lead) are enforced by **repository review**:
+  `.github/CODEOWNERS` asks for the owner's review of `reviewers.json` and `editorialLedger.json`, which takes effect
+  once branch protection requires code-owner review (an owner setting). A lead could otherwise add a second id for
+  themselves under another name.
+- **Names are display only.** A sign-off's `by` and a reviewer's `display_name` are shown, never used to decide who
+  someone is. Nobody is refused, or let through, for what their name looks like: a reviewer named "Claude Debussy" is
+  entered like anyone else. Recorded `aliases` list the other names a person has used.
+- **Authors can't review their own items.** Authors are names in the import (`author`) or the ledger, so a reviewer
+  whose display name or any alias matches an author name, ignoring case, accents, spacing, punctuation and word order,
+  counts as that author. This can only block a sign-off. Every author ever recorded stays excluded (authorship is
+  append-only). **Limitation:** this rests on names. An author recorded as "Jordan Smith" who is registered as "Jordy
+  Smith" with no alias is not caught; the content lead records each author's names as aliases of their registry entry.
+  Tying authors to reviewer ids would need a new import contract version (an owner decision).
+- **The sheet is not a signature.** `reviewer_id` is whatever the sheet says; whoever fills it in can type any id. The
+  content lead checks each sheet against the people who signed it. The registry only decides what a given id may sign.
+- **Dates** are a record; no rule depends on their order. A pass counts only with a real YYYY-MM-DD date no later than
+  tomorrow. A **fail always blocks**, whatever its date.
 
-Dates must be written YYYY-MM-DD.
-
-| Role | Stages | Can't be |
+| Role (registry) | Stages | Can't be |
 |---|---|---|
-| Rights checker | 3 | — |
-| Two blind solvers | 4 | the author of any version; each other |
-| Content auditor | 5 | — |
-| Fairness reviewer | 6 | an author |
-| Copy and accessibility editor | 7 | — |
-| Content lead (approver; confirms tracks) | 8 | an author |
+| `rights` | 3 | — |
+| `solver` ×2 | 4 | the author of any version; the same reviewer id twice |
+| `auditor` | 5 | — |
+| `fairness` | 6 | an author |
+| `copyedit` | 7 | — |
+| `approver` | 8 | an author |
+| `content_lead` | confirms tracks, retires items, appoints reviewers | an author (for that item's track) |
 
-One person may hold several roles, except that the two solvers must be different people. Process rule (not enforced
-in code): a solver who has seen the review copy, with the key, can't solve that item.
+One person may hold several roles, except that the two solvers must be different reviewer ids. Process rule (not
+enforced in code): a solver who has seen the review copy, with the key, can't solve that item.
 
 ## Steps for one batch
 
 1. **Issue packets.** From `web/`:
-   `npx vite-node scripts/local/editorialPackets.ts <out-dir> --ids <comma-separated ids>`
-   This writes:
+   `npx vite-node scripts/local/editorialPackets.ts <out-dir> --ids <comma-separated ids> [--registry <candidates.json>] [--ledger <path>] [--reviewers <path>]`
+   Without `--registry` the items come from the app's bank; with it, from an imported batch (the latest version of
+   every candidate that isn't retired). This writes:
    - `blind-*.html` for solvers: no key, hints or explanations;
    - `review-*.html` with the key, for stages 3 and 5–7 (never give these to solvers);
-   - `solves-template.csv`, two rows per item;
-   - `status.csv`, which includes each item's track.
+   - `solves-template.csv`, two rows per item, and `signoffs-template.csv` for stages 3 and 5–8;
+   - `status.csv`, with each item's source, batch, track, hashes and stage.
 
-   Every row carries the content hash of the text printed.
+   Every row carries the content hash of the text printed, and for imported items the stage-3 row carries the
+   `rights_hash` of the rights version printed. Each signer fills in their `reviewer_id`.
 2. **Stage 3, rights.** Record the license basis ("original", "public domain: …", "CC BY 4.0: …"). An item without
    evidence fails.
 3. **Stage 4, blind solves.** Two solvers work alone, without the key, and record their answer and time.
 4. **Stages 5–7.** The auditor checks for one defensible answer, plausible distractors, the explanations, a hint that
    doesn't give the answer away, and the difficulty band. Then the fairness review, then the copy edit and accessibility
    check.
-5. **Record.** `npx vite-node scripts/local/recordEditorial.ts <filled.csv>`. A row whose hash isn't the current
-   content is refused, so a sign-off can't attach to text nobody saw.
-6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 4.
+5. **Record.** `npx vite-node scripts/local/recordEditorial.ts <filled.csv> [--registry <candidates.json>]`. A row is
+   refused, never guessed at, when:
+   - a **pass** comes from a reviewer id that isn't active and authorized for the stage, or from an author at stage 4,
+     6 or 8, or is a blind solve with no answer;
+   - its hash isn't the current content, or a stage-3 row's `rights_hash` isn't the current rights version;
+   - its result isn't exactly `pass` or `fail`, its date isn't YYYY-MM-DD (or is in the future), or `seconds` isn't a
+     whole number;
+   - it is partly filled in (only a completely blank template row is skipped);
+   - the reviewer registry has problems.
+
+   **One refused row and nothing is written**: fix the sheet and run again. A **fail** is recorded from anyone who is
+   named on the row, since it can only block. There is no recorded way yet to withdraw a mistaken fail (for example,
+   one entered on the wrong item); until there is, the content lead revises the item or makes a reviewed ledger edit. A newer row from the same reviewer replaces only their earlier **pass**
+   for that stage and content; a recorded fail is never removed or replaced: it stands until the item is revised.
+   For the app's bank, a stage-2 row adds an author (name in `note`). It needs an active content lead who isn't an
+   author, and the current hash; authors are only ever added.
+6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 3.
    This includes a key change: an earlier key, solve or approval never carries over to revised content.
    - A revision may not return to an earlier version's content; it is refused, so an old review can't revive.
-   - A change to the author, origin, license or source keeps the content hash, but voids the rights check: stage 3
-     must be signed again, dated the next day or later.
+   - Every new version of an imported item has a new **rights version** (`rights_hash`: the version number, content,
+     author, origin, license and source). A rights check counts only for the exact version it signed, so an earlier
+     check never counts again, even if a revision returns to earlier rights claims; a check of the new version counts as
+     soon as it is recorded, the same day or any day. A stage-3 fail with no rights version recorded blocks, and a
+     stage-3 fail keeps blocking every later version that makes the same claims (same content, author, origin, license
+     and source): a resubmission that changes nothing about the rights never clears it.
 7. **Stage 8 and track.** The content lead approves each item individually, and confirms or changes its track:
    - a reserved item may move to practice;
    - a practice item never moves to reserved;
@@ -93,8 +137,11 @@ in code): a solver who has seen the review copy, with the key, can't solve that 
   - an `import_id` that is already a bank question's id is refused.
 - **Dry run by default.** Without `--write`, no file changes.
 
-**Gap:** `editorialPackets.ts` and `recordEditorial.ts` read only the app's fixture bank. They must read the candidate
-registry before an imported batch can be reviewed. That change is next once a batch arrives (#254).
+Packets and sign-off recording take the same `--registry` file (steps 1 and 5).
+
+**Real banks:** the original, B and C banks have **not** been delivered (#254). The tests use a stand-in batch labelled
+TEST ONLY (`web/src/lib/__fixtures__/TEST_ONLY_importBatch.ts`), made of the app's own fixture items in the import
+format. Passing those tests validates the tooling, never the real banks.
 
 ## Proposed first batch (10 items, ACT)
 

@@ -150,6 +150,8 @@ def check_candidate(c, text, other=None):
                 probs.append(f"title of {i.get('code')} not verbatim")
         for fn in rd.get('footnotes', []) or []:  # printed footnotes of a plan grid, verbatim
             if squash(fn.get('text', '')) not in squashed: probs.append(f"footnote {fn.get('marker')} not verbatim")
+        for pn in rd.get('plan_notes', []) or []:  # unmarked notes printed after the plan grid, verbatim
+            if not all(squash(part) in squashed for part in pn.get('text', '').split(' / ')): probs.append('plan note not verbatim')
         if r.get('minimum_credits') is not None and not re.search(rf'\b{int(r["minimum_credits"])}\b', text): probs.append('minimum_credits not printed')
         if c.get('extractor') == 'courseleaf_plantext/v1':  # each term header is printed as one line ('15 creditsYear 1: Fall')
             lines = {re.sub(r'\s+', ' ', l).strip() for l in text.splitlines()}

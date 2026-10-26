@@ -41,6 +41,15 @@ const STATUS: Record<Roadmap['status'], { tone: 'go' | 'warn' | 'bad'; label: st
   partial: { tone: 'warn', label: 'Partly on file', text: 'The degree plan is verified; some of what follows isn’t on file yet, and says so.' },
   blocked: { tone: 'bad', label: 'No degree plan on file', text: 'Without a verified term-by-term plan for this major, credit can be shown as accepted, but not where it counts.' },
 }
+/** Blocked, but a plan IS on file: it just isn't verified. Never tell a family there is no plan when there is one. */
+const UNVERIFIED_PLAN = {
+  tone: 'bad' as const,
+  label: 'Degree plan not yet verified',
+  text: 'This school’s plan for this major is on file, but it isn’t verified yet, so it isn’t shown. Credit can be shown as accepted, but not where it counts.',
+}
+/** A plan record exists (any status other than verified) but isn't shown. */
+const planOnFileUnverified = (r: Roadmap) => r.plan.value === null && r.plan.evidence.verificationStatus != null && r.plan.evidence.verificationStatus !== 'verified'
+const statusOf = (r: Roadmap) => (r.status === 'blocked' && planOnFileUnverified(r) ? UNVERIFIED_PLAN : STATUS[r.status])
 
 export function CollegePlan() {
   const { activeStudent } = useApp()
@@ -161,7 +170,7 @@ function RoadmapView({
   onArrangement: (a: LivingArrangement) => void
   priceFor: string
 }) {
-  const st = STATUS[r.status]
+  const st = statusOf(r)
   const plan = r.plan.value
   const costs = r.cost.value ?? []
   const chosen = costs.find((c) => c.arrangement === arrangement) ?? null
@@ -207,7 +216,17 @@ function RoadmapView({
             </p>
           </>
         ) : (
-          <Missing e={r.plan.evidence} />
+          <>
+            <Missing e={r.plan.evidence} />
+            {planOnFileUnverified(r) && (
+              <p className="mt-1 text-sm text-ink-2">
+                {r.plan.evidence.notesCapture === 'incomplete'
+                  ? 'A note printed with the plan, which can change the courses it requires, hasn’t been captured and checked yet. The plan is shown once it is. '
+                  : 'It is shown once it is verified. '}
+                <SourceNote e={r.plan.evidence} />
+              </p>
+            )}
+          </>
         )}
       </Section>
 
@@ -417,11 +436,12 @@ function Missing({ e }: { e: Evidence }) {
   return <p className="text-sm text-ink-2">{e.missing ?? 'Not on file.'}</p>
 }
 
-function SourceNote({ e }: { e: Evidence }) {
+/** `verified` false: the record isn't verified, so its last_verified_at date is not shown as "verified". */
+function SourceNote({ e, verified = e.state === 'verified' }: { e: Evidence; verified?: boolean }) {
   if (!e.sourceUrl) return null
   return (
     <a href={e.sourceUrl} target="_blank" rel="noreferrer" className="font-semibold text-ink-3 hover:text-ink hover:underline">
-      Source{e.lastVerifiedAt ? `, verified ${formatShortDate(e.lastVerifiedAt)}` : ''}
+      Source{verified && e.lastVerifiedAt ? `, verified ${formatShortDate(e.lastVerifiedAt)}` : ''}
     </a>
   )
 }
