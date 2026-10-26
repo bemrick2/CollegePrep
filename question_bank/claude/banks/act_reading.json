@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 19,
-  "updated_at": "2026-10-26T23:00:25+00:00",
+  "version": 20,
+  "updated_at": "2026-10-26T23:11:19+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -212,6 +212,17 @@
       "word_count": 455,
       "text": "Almost every park or campus has one: a strip of bare dirt cutting diagonally across a lawn, worn down by thousands of shoes. Planners call it a desire path. It appears wherever the route a designer laid out is longer, or less direct, than the route people want to take. A sidewalk that turns two neat right angles around a lawn will, sooner or later, acquire a desire path along the lawn's diagonal.\n\nThe obvious explanation is that people are saving time, but the savings are often tiny. Observers have noticed walkers cutting a corner that spares them only a few steps, and doing so even when they are in no hurry at all. A desire path, it seems, is less about minutes than about a feeling: the satisfaction of walking straight toward the place one means to go. The path records not a calculation but an impulse, repeated by enough people that the grass gives up.\n\nPlanners have responded in roughly three ways. The first is resistance: a fence, a hedge, or a sign asking people to keep off the grass. Resistance rarely works for long; walkers step over low fences, and hedges develop gaps. The second is surrender, in which the path is simply paved. The third is patience. A story often told about a university campus describes builders who planted grass between the new buildings, waited a year, and then paved the paths the students had worn. The story may be improved in the retelling, but its appeal is easy to understand. It imagines a design process in which the people who use a place are allowed to help draw it.\n\nStill, not every desire path deserves to be paved. Some cross ground too fragile to bear constant traffic, such as a stream bank or a bed of young trees. Others are made by a small number of people whose shortcut costs everyone else something, as when a path through a community garden tramples the plants. A desire path is evidence of what people want; it is not, by itself, a verdict on what they should get. The planner's task is to weigh that evidence, not simply to obey it.\n\nIn recent years, some planners and advocates have begun to treat these traces as data. After a snowfall, the tracks of cars and feet show which parts of a wide intersection are never used, and photographs of the untouched snow have been used to argue for wider sidewalks and shorter crossings. Researchers have also studied satellite images of worn grass to see where official paths fail. Read this way, the strip of bare dirt is a kind of vote, cast slowly, one step at a time, by people who were never asked.",
       "batch": 19,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000020",
+      "title": "Water That Rises at Night",
+      "genre": "natural science",
+      "word_count": 455,
+      "text": "On dry summer nights in some forests and scrublands, instruments buried a few inches underground record something that seems impossible. The soil near the surface, parched by the day's heat, slowly grows wetter. No rain has fallen, no dew has formed, and no one has watered anything. By the next afternoon the moisture is gone again, and the following night it returns.\n\nThe water is coming from below, carried by the plants themselves. During the day, a tree draws water up through its roots and releases it through tiny pores in its leaves. At night those pores close, and the upward pull weakens. But a deep-rooted tree may have some roots in moist soil far underground and others in the dry soil near the surface. With the pull from the leaves gone, water moves through the root system from where the soil is wet toward where it is dry, and some of it leaks out of the shallow roots into the surrounding earth. Scientists call this hydraulic lift. It requires no effort from the tree; the water simply follows the difference in moisture, much as heat flows from a warm object to a cool one.\n\nResearchers first noticed the nightly pattern while measuring soil moisture around desert shrubs, and for years it was treated as a curiosity. Later studies went further. Water from deep soil often carries a slightly different chemical signature than water from shallow soil, and by measuring that signature in nearby plants, researchers found that some shallow-rooted neighbors of deep-rooted trees were drinking water that had come up through the trees' roots.\n\nIt is tempting to describe this as generosity, a tree sharing its water with the plants around it. The evidence does not require that interpretation. Hydraulic lift may benefit the tree first: moist surface soil keeps its shallow roots alive through dry spells, and many of the nutrients a tree needs are concentrated near the surface, where they can be absorbed only when the soil is damp. The neighbors that drink the lifted water may simply be taking advantage of a process that exists for the tree's own sake, and some of those neighbors are its competitors.\n\nWhatever its purpose, hydraulic lift has drawn the attention of agricultural researchers, who wonder whether planting deep-rooted crops beside shallow-rooted ones might help both survive droughts. The idea is promising but unproven. The amounts of water moved are often small, they vary widely from one species and one soil to another, and no one yet knows how much they matter in a field rather than a forest. The wet soil at midnight is a real phenomenon. How far it can be put to use is a question still waiting for its own measurements.",
+      "batch": 20,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -11577,6 +11588,502 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-019.review.json",
         "computation": "checks/act_reading/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000160",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of an opening paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "record something that seems impossible",
+      "figure": null,
+      "stem": "The main function of the first paragraph is to:",
+      "choices": {
+        "A": "present a puzzling observation that the rest of the passage explains.",
+        "B": "argue that soil instruments are often unreliable at night.",
+        "C": "describe the effects of a drought on forests and scrublands.",
+        "D": "explain why dew forms on dry summer nights."
+      },
+      "correct_answer": "A",
+      "explanation": "The first paragraph describes soil growing wetter with no rain or dew, \"something that seems impossible.\" Paragraph 2 then explains it.",
+      "distractor_explanations": {
+        "B": "The author treats the measurements as real; the passage goes on to explain them.",
+        "C": "The paragraph describes nightly moistening, not drought damage.",
+        "D": "The paragraph says no dew has formed."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does paragraph 2 do with the observation in paragraph 1?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read paragraph 2's first sentence to see how it answers paragraph 1."
+      },
+      "remember": "Openings often set up a puzzle that the passage resolves.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-01",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: 'the rest of the passage explains' slightly overstates, since paragraphs 4-5 move on to purpose and agriculture, but A is still clearly best"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000161",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated reason",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "At night those pores close, and the upward pull weakens.",
+      "figure": null,
+      "stem": "According to the passage, hydraulic lift happens mainly at night because:",
+      "choices": {
+        "A": "the surface soil is warmer at night than during the day.",
+        "B": "the leaf pores close, so the upward pull on the water weakens.",
+        "C": "the tree's deep roots absorb more water after dark.",
+        "D": "dew collects on the leaves and runs down to the roots."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage explains that at night the leaf pores close, so water is no longer pulled upward and can move from wet to dry soil instead.",
+      "distractor_explanations": {
+        "A": "The passage does not say the soil is warmer at night.",
+        "C": "The passage does not say deep roots absorb more at night.",
+        "D": "The passage says no dew has formed."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What changes in the leaves at night?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence that begins \"At night.\""
+      },
+      "remember": "\"According to the passage\" means the reason is stated.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-02",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000162",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a comparison",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "It requires no effort from the tree; the water simply follows the difference in moisture",
+      "figure": null,
+      "stem": "The comparison of hydraulic lift to heat flowing \"from a warm object to a cool one\" (paragraph 2) mainly serves to emphasize that the process:",
+      "choices": {
+        "A": "releases heat that warms the surface soil at night.",
+        "B": "works faster in warm weather than in cool weather.",
+        "C": "was discovered by scientists who study heat.",
+        "D": "happens on its own, without any effort by the tree."
+      },
+      "correct_answer": "D",
+      "explanation": "The comparison follows the statement that the process \"requires no effort\": like heat, water moves passively from where there is more to where there is less.",
+      "distractor_explanations": {
+        "A": "The comparison is about the direction of flow, not about heat being released.",
+        "B": "The passage does not discuss the speed of the process.",
+        "C": "The passage does not say who discovered it or what they studied."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does the sentence just before the comparison say?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence that contains the comparison."
+      },
+      "remember": "A comparison usually illustrates the claim right next to it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-03",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: the answer is paraphrased from the sentence immediately before the quoted analogy ('It requires no effort from the tree'), so this function question is close to a detail lookup"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000163",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (paraphrased)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "by measuring that signature in nearby plants",
+      "figure": null,
+      "stem": "According to paragraph 3, researchers determined that neighboring plants were using water lifted by trees by:",
+      "choices": {
+        "A": "measuring the soil moisture around desert shrubs each night.",
+        "B": "watering the trees with dyed water and watching where it appeared.",
+        "C": "matching a chemical signature in the plants' water to water from deep soil.",
+        "D": "cutting the shallow roots of trees and measuring the effect on neighbors."
+      },
+      "correct_answer": "C",
+      "explanation": "Deep and shallow soil water have different chemical signatures; finding the deep-water signature in shallow-rooted neighbors showed they drank lifted water.",
+      "distractor_explanations": {
+        "A": "This is how the nightly pattern was first noticed, not how the neighbors' water was traced.",
+        "B": "No dye is mentioned in the passage.",
+        "D": "No such experiment is described."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What distinguishes deep soil water from shallow soil water?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the last sentence of paragraph 3."
+      },
+      "remember": "Distinguish how something was first noticed from how it was later proven.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-04",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000164",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's view of an interpretation",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "The evidence does not require that interpretation.",
+      "figure": null,
+      "stem": "In paragraph 4, the author suggests that describing hydraulic lift as \"generosity\" is:",
+      "choices": {
+        "A": "unsupported, because the process may exist mainly for the tree's own benefit.",
+        "B": "accurate, because the tree deliberately shares water with its neighbors.",
+        "C": "misleading, because neighboring plants never use the lifted water.",
+        "D": "reasonable, because most of the neighbors are related to the tree."
+      },
+      "correct_answer": "A",
+      "explanation": "The author says the generosity reading is \"tempting\" but not required, and offers the alternative that lift benefits the tree first.",
+      "distractor_explanations": {
+        "B": "The author says the evidence \"does not require that interpretation.\"",
+        "C": "Paragraph 3 says some neighbors do drink the lifted water.",
+        "D": "The passage says some neighbors are competitors, not relatives."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What alternative does the author offer?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that contradict paragraph 3 or 4."
+      },
+      "remember": "Watch for an author who calls an idea tempting and then qualifies it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-05",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: 'unsupported' is slightly stronger than the passage's 'The evidence does not require that interpretation' (the passage says the interpretation is not required, not that it is refuted); acceptable since no other choice works"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000165",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "many of the nutrients a tree needs are concentrated near the surface",
+      "figure": null,
+      "stem": "As it is used in paragraph 4, the word \"concentrated\" most nearly means:",
+      "choices": {
+        "A": "focused.",
+        "B": "strengthened.",
+        "C": "thickened.",
+        "D": "gathered."
+      },
+      "correct_answer": "D",
+      "explanation": "Nutrients \"concentrated near the surface\" are gathered there in large amounts.",
+      "distractor_explanations": {
+        "A": "\"Focused\" fits attention, not nutrients in soil.",
+        "B": "The sentence is about where nutrients are located, not their strength.",
+        "C": "Nothing suggests the nutrients become thicker."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where are the nutrients?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the word with \"collected\" and match."
+      },
+      "remember": "Choose the meaning that fits the sentence, not the most familiar one.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-06",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000166",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's attitude toward an application",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000020",
+      "underline": null,
+      "evidence": "The idea is promising but unproven.",
+      "figure": null,
+      "stem": "The author's attitude toward the idea of using hydraulic lift in agriculture is best described as:",
+      "choices": {
+        "A": "enthusiastic, since the method has already improved drought survival in many farms.",
+        "B": "interested but cautious, since the benefits have not yet been demonstrated in fields.",
+        "C": "dismissive, since the amounts of water moved are too small to matter.",
+        "D": "indifferent, since the passage is concerned only with forests."
+      },
+      "correct_answer": "B",
+      "explanation": "The author calls the idea \"promising but unproven\" and lists unanswered questions: interest tempered by caution.",
+      "distractor_explanations": {
+        "A": "The author says the idea is \"unproven.\"",
+        "C": "The author says no one knows yet how much they matter, which is not the same as saying they do not.",
+        "D": "The final paragraph discusses agriculture directly."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What two words does the author use to describe the idea?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the author's evaluation in paragraph 5."
+      },
+      "remember": "Mixed attitudes need a mixed answer.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "R020-07",
+      "created_at": "2026-10-26T23:11:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-020.review.json",
+        "computation": "checks/act_reading/batch_020.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

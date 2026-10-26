@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 57,
+ "plan": "3 hard (rotation then reflection, median-fixing count, x + 1/x squared) / 4 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B057-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Comparing fractions",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "Which of the following fractions has the greatest value?",
+   "choices": {
+    "A": "3/5",
+    "B": "5/8",
+    "C": "7/12",
+    "D": "2/3"
+   },
+   "answer": "D",
+   "explanation": "As decimals: 3/5 = 0.6, 5/8 = 0.625, 7/12 ≈ 0.583, 2/3 ≈ 0.667. The greatest is 2/3.",
+   "distractors": {
+    "A": {
+     "rationale": "3/5 = 0.6 is less than 2/3.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "5/8 = 0.625 has the largest numerator and denominator after 7/12, but its value is less than 2/3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "7/12 has the largest numerator and denominator but the smallest value.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Convert each fraction to a decimal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide numerator by denominator for each choice."
+   },
+   "remember": "Compare fractions by value, not by the size of their parts.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Angles of a triangle in a given ratio",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "The measures of the three angles of a triangle are in the ratio 2 : 3 : 4. What is the measure of the largest angle?",
+   "choices": {
+    "A": "40°",
+    "B": "60°",
+    "C": "80°",
+    "D": "90°"
+   },
+   "answer": "C",
+   "explanation": "The ratio has 2 + 3 + 4 = 9 parts, and the angles sum to 180°, so each part is 20°. The largest angle is 4 × 20° = 80°.",
+   "distractors": {
+    "A": {
+     "rationale": "40° is the smallest angle.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "60° is the middle angle.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "90° assumes the triangle is a right triangle.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What do the angles of a triangle add up to?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "2k + 3k + 4k = 180."
+   },
+   "remember": "Add the ratio's parts, then divide the total by that sum.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Checking a point on a line",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "Which of the following points lies on the line y = −2x + 7 ?",
+   "choices": {
+    "A": "(0, −7)",
+    "B": "(3, 1)",
+    "C": "(4, −15)",
+    "D": "(7, 0)"
+   },
+   "answer": "B",
+   "explanation": "For x = 3: y = −2(3) + 7 = 1, so (3, 1) is on the line.",
+   "distractors": {
+    "A": {
+     "rationale": "At x = 0, y = 7, not −7; this changes the sign of the intercept.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "At x = 4, y = −1, not −15.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "At x = 7, y = −7, not 0; 7 is the y-intercept, not the x-intercept.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Substitute each x-value into the equation."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each point."
+   },
+   "remember": "A point is on a line if its coordinates satisfy the equation.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Conditional probability from survey groups",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "In a survey of 200 people, 120 prefer summer and 80 prefer winter. Of those who prefer summer, 45 are under 18; of those who prefer winter, 30 are under 18. If one of the people under 18 is chosen at random, what is the probability that the person prefers winter?",
+   "choices": {
+    "A": "3/20",
+    "B": "3/8",
+    "C": "2/5",
+    "D": "3/5"
+   },
+   "answer": "C",
+   "explanation": "There are 45 + 30 = 75 people under 18, and 30 of them prefer winter: 30/75 = 2/5.",
+   "distractors": {
+    "A": {
+     "rationale": "3/20 = 30/200 divides by everyone surveyed.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3/8 = 30/80 divides by the winter group instead of the under-18 group.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3/5 = 45/75 is the probability of preferring summer.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Which group is the person chosen from?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Make a two-way table of season by age."
+   },
+   "remember": "The 'given' group is the denominator.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Linear equation with two fractional terms",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "What value of x satisfies x/3 + x/4 = 14 ?",
+   "choices": {
+    "A": "24",
+    "B": "42",
+    "C": "49",
+    "D": "98"
+   },
+   "answer": "A",
+   "explanation": "Multiply both sides by 12: 4x + 3x = 168, so 7x = 168 and x = 24.",
+   "distractors": {
+    "B": {
+     "rationale": "42 = 14 × 3 uses only the first fraction.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "49 = 14 × 7/2 adds the fractions as 2/7.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "98 = 14 × 7 multiplies by the sum of the numerators of 4x + 3x without dividing by 12.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Multiply every term by the least common denominator."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check 24/3 + 24/4."
+   },
+   "remember": "Clear fractions by multiplying by the LCD.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Diagonal of a rhombus from its side",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A rhombus has sides of length 10, and one of its diagonals has length 12. What is the length of the other diagonal?",
+   "choices": {
+    "A": "8",
+    "B": "10",
+    "C": "12",
+    "D": "16"
+   },
+   "answer": "D",
+   "explanation": "The diagonals of a rhombus bisect each other at right angles. Half of the known diagonal is 6, so half of the other is √(10² − 6²) = 8, and the full diagonal is 16.",
+   "distractors": {
+    "A": {
+     "rationale": "8 is half of the other diagonal.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "10 is the side length.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "12 assumes the diagonals of a rhombus are equal, which holds only for a square.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How do the diagonals of a rhombus meet?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the right triangle with legs 6 and ? and hypotenuse 10."
+   },
+   "remember": "A rhombus's diagonals are perpendicular bisectors of each other.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Converting a repeating decimal to a fraction",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Which of the following fractions is equal to the repeating decimal 0.272727… ?",
+   "choices": {
+    "A": "27/100",
+    "B": "3/11",
+    "C": "2/7",
+    "D": "3/10"
+   },
+   "answer": "B",
+   "explanation": "Let x = 0.2727…. Then 100x = 27.2727…, so 99x = 27 and x = 27/99 = 3/11.",
+   "distractors": {
+    "A": {
+     "rationale": "27/100 = 0.27 exactly; it does not repeat.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2/7 = 0.285714…, which is a different repeating decimal.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3/10 = 0.3 rounds the decimal.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What happens when you multiply the decimal by 100?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Divide each choice on a calculator."
+   },
+   "remember": "A two-digit repeating block over 99 gives the fraction.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B057-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Composition of a rotation and a reflection",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "The point (6, 8) is rotated 90° clockwise about the origin, and the resulting point is then reflected across the x-axis. What are the coordinates of the final point?",
+   "choices": {
+    "A": "(8, 6)",
+    "B": "(−8, 6)",
+    "C": "(8, −6)",
+    "D": "(6, −8)"
+   },
+   "answer": "A",
+   "explanation": "A 90° clockwise rotation sends (x, y) to (y, −x), so (6, 8) becomes (8, −6). Reflecting across the x-axis changes the sign of y, giving (8, 6).",
+   "distractors": {
+    "B": {
+     "rationale": "(−8, 6) uses a counterclockwise rotation, (x, y) → (−y, x), and then skips the reflection.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "(8, −6) is the point after the rotation only.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "(6, −8) reflects the original point across the x-axis and skips the rotation.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Do the transformations one at a time, in order."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot each step on a coordinate grid."
+   },
+   "remember": "Clockwise 90°: (x, y) → (y, −x). Reflection in the x-axis: (x, y) → (x, −y).",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Two transformations must be applied in order with the correct rotation rule; each distractor is the result of one step or the wrong direction."
+   }
+  },
+  {
+   "cand": "B057-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Counting values that keep a median fixed",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "The list 3, 8, 12, 15, x contains 5 numbers, and x is a positive integer. For how many values of x is the median of the list equal to 8 ?",
+   "choices": {
+    "A": "1",
+    "B": "6",
+    "C": "7",
+    "D": "8"
+   },
+   "answer": "D",
+   "explanation": "Sorted, the median is the third value. If x ≤ 8, the third value is 8. If 8 < x < 12, the median is x, and if x ≥ 12, it is 12. So x can be any of 1, 2, …, 8: 8 values.",
+   "distractors": {
+    "A": {
+     "rationale": "1 counts only x = 8.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "6 counts only 3 through 8, assuming x cannot be less than the smallest listed value.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "7 counts 1 through 7, leaving out x = 8 itself.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where can x go in the sorted list without changing the middle value?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 1, x = 8, x = 9 and x = 13."
+   },
+   "remember": "A median depends only on position, so values far below it do not change it.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must reason about positions in the sorted list for every x; most count only values near 8 or forget x = 8."
+   }
+  },
+  {
+   "cand": "B057-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Squaring a sum of reciprocals",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "If x + 1/x = 5, what is the value of x² + 1/x² ?",
+   "choices": {
+    "A": "10",
+    "B": "23",
+    "C": "25",
+    "D": "27"
+   },
+   "answer": "B",
+   "explanation": "Square both sides: (x + 1/x)² = x² + 2 + 1/x² = 25. So x² + 1/x² = 25 − 2 = 23.",
+   "distractors": {
+    "A": {
+     "rationale": "10 doubles 5 instead of squaring.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "25 squares 5 but forgets the middle term 2 · x · (1/x) = 2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "27 adds the middle term instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "What is (x + 1/x)² when expanded?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Expand the square and isolate x² + 1/x²."
+   },
+   "remember": "(a + b)² = a² + 2ab + b²; here ab = 1.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that squaring the given equation produces the target expression plus a constant; solving for x directly is messy and the 25 trap is strong."
+   }
+  }
+ ]
+}

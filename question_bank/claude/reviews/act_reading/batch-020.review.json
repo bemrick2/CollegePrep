@@ -1,0 +1,250 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 20,
+  "reviewed_at": "2026-10-26T23:11:19+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 20
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000160",
+    "CLD-ACT-R-000161",
+    "CLD-ACT-R-000162",
+    "CLD-ACT-R-000163",
+    "CLD-ACT-R-000164",
+    "CLD-ACT-R-000165",
+    "CLD-ACT-R-000166"
+  ],
+  "results": [
+    {
+      "cand": "R020-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: 'the rest of the passage explains' slightly overstates, since paragraphs 4-5 move on to purpose and agriculture, but A is still clearly best"
+      ],
+      "blind_notes": "P1 presents soil that 'seems impossible' to get wetter; P2 opens 'The water is coming from below,' explaining it. B, C, D unsupported (dew explicitly ruled out).",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: D is weak as a distractor because paragraph 1 explicitly says no dew has formed"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000160"
+    },
+    {
+      "cand": "R020-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Directly stated: 'At night those pores close, and the upward pull weakens... With the pull from the leaves gone.' D contradicts 'no dew has formed.'",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000161"
+    },
+    {
+      "cand": "R020-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: the answer is paraphrased from the sentence immediately before the quoted analogy ('It requires no effort from the tree'), so this function question is close to a detail lookup"
+      ],
+      "blind_notes": "Analogy follows 'requires no effort... water simply follows the difference in moisture.' A is a literal-heat trap.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: the clause right before the comparison ('It requires no effort from the tree') nearly paraphrases D, so this is closer to locating a detail than to analyzing a comparison; A (literal 'heat') is the only real trap"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000162"
+    },
+    {
+      "cand": "R020-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P3: measuring the deep-water chemical signature in nearby plants. A describes the original discovery, not the later study; B and D are not mentioned.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000163"
+    },
+    {
+      "cand": "R020-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: 'unsupported' is slightly stronger than the passage's 'The evidence does not require that interpretation' (the passage says the interpretation is not required, not that it is refuted); acceptable since no other choice works"
+      ],
+      "blind_notes": "The author says the lift 'may benefit the tree first' and exists 'for the tree's own sake.' C contradicts P3, where neighbors do drink the water; D contradicts the point that some neighbors are competitors.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000164"
+    },
+    {
+      "cand": "R020-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "Nutrients are 'concentrated near the surface,' meaning gathered or clustered there. 'Focused' (A) is the familiar-meaning trap, and 'thickened' (C) is the chemistry sense.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000165"
+    },
+    {
+      "cand": "R020-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "'Promising but unproven'; nobody knows yet how much it matters in a field. A, C and D each contradict the text.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000166"
+    },
+    {
+      "cand": "R020-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: overlaps with R020-05 (purpose uncertain) and R020-07 (practical value unproven); C is the synthesis of those two answers, so a student who got 05 and 07 right gets 08 almost for free",
+        "minor: the set is skewed easy, with 7 of 8 items easy and no hard item"
+      ],
+      "blind_notes": "'A real phenomenon' (well documented) + 'whatever its purpose' + 'promising but unproven.' A contradicts P4; B contradicts the passage's later studies; D overstates.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: overlaps with R020-05 (purpose/generosity) and R020-07 (practical value uncertain); C combines both answers, so a student who got 05 and 07 right is led straight to C. A repeats the 'cooperation' error from 05 and D repeats the overclaim from 07"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Choice A combines two true details (tracing, neighbors using water) into a conclusion paragraph 4 rejects; spotting this requires holding paragraphs 3 and 4 together."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    }
+  ]
+}
