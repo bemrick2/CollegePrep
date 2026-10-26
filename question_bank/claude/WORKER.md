@@ -102,6 +102,7 @@ A candidate labelled hard that the blind solver rates easy is sent to REVISE aut
 - Verbal items have no `checks/` file. The screen instead verifies that the evidence is quoted verbatim, that the underline exists, and that the passage is not a near-duplicate of a fixture or bank passage.
 - **Two independent blind solves are required**: `reviews/<bank>/batch-NNN.blind.json` and `…blind2.json`. Use two separate agents with the same prompt, adapted to say "ACT English / ACT Reading / digital SAT Reading and Writing" and to read the passage in each packet item.
 - An item passes only if both solves match the key.
+- **Passage-level flaws found in review:** passages are append-only once any item from them is accepted, so a flaw in the passage itself (an internal contradiction, a factual error) must be fixed *before* ingesting. Move the round-1 files to `batch-NNN.round1.blind.json` / `.round1.blind2.json`, fix the draft, record the change in the draft's `revision_log`, and re-solve the whole batch blind. Never edit a passage after its items have been solved without re-solving.
 - A passage enters the bank's `passages` list only when at least one of its questions passes.
 
 **Formats:**
