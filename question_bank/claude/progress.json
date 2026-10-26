@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:11:49+00:00",
+  "updated_at": "2026-10-26T21:12:07+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -844,12 +844,12 @@
     }
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 14,
+    "act_english": {
+      "next_batch": 13,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 10.5,
-        "Craft and Structure": -1.4,
-        "Integration of Knowledge and Ideas": 0.9
+        "Production of Writing": 7.9,
+        "Knowledge of Language": 12.3,
+        "Conventions of Standard English": -8.1
       }
     },
     "sat_reading_writing": {
@@ -861,12 +861,12 @@
         "Expression of Ideas": -0.8
       }
     },
-    "act_english": {
-      "next_batch": 13,
+    "act_reading": {
+      "next_batch": 14,
       "skill_gap_for_next_10": {
-        "Production of Writing": 7.9,
-        "Knowledge of Language": 12.3,
-        "Conventions of Standard English": -8.1
+        "Key Ideas and Details": 10.5,
+        "Craft and Structure": -1.4,
+        "Integration of Knowledge and Ideas": 0.9
       }
     }
   },
@@ -9840,12 +9840,19 @@
       "finding": "Whole-bank re-rating (calibration/act_reading_rater_2026-10-26.json): 55 easy / 52 medium / 0 hard; no answer mismatches, no flawed items. Calibrated median: 73 easy / 35 medium / 0 hard (108 records incl. 1 retired). Authors had labelled 15 hard. No Reading item has been rated hard by any AI rater; the lowest estimate is 44% correct.",
       "diagnosis": "[Likely] Passages run 350-490 words, shorter than the ACT's 500-750, and most distractors are plainly contradicted or extreme, so few traps work. [Guessing] Part of the gap may be rater bias, which cannot be separated without data from real students.",
       "mitigation": "Next Reading batches: passages of 550-700 words; at least 3 items per passage that need connecting distant paragraphs; distractors that restate passage wording but answer a different question (rater-identified near-misses: R-000103 B, R-000036 B, R-000015); fewer stand-alone detail and vocabulary items. Labels stay 'medium' unless the blind solver rates hard."
+    },
+    {
+      "date": "2026-10-26",
+      "bank": "act_reading",
+      "event": "First batch under the audit mitigation (batch 13, 549-word passage)",
+      "finding": "Both blind solvers again rated nothing hard (2 medium, 6-7 easy). The real discriminators were a LEAST reversal, a familiar-meaning vocabulary trap and a reversed-roles pair. Both solvers noted that several keys paraphrase passage sentences closely and that items sharing the passage's central contrast cue one another.",
+      "next": "Keys must not paraphrase a single passage sentence; test the central contrast in one item only; build two-step inferences whose evidence sits in different paragraphs; make wrong choices exact reversals or same-idea-different-words more often."
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:11:49+00:00",
+    "heartbeat_at": "2026-10-26T21:12:07+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
