@@ -692,6 +692,12 @@ def screen(bank: str, n: int) -> None:
         seen.append((c['cand'], qtext(c, bank)))
         ok = not probs and got == c['answer'] and not dups
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
+        # Advisory only: blind solvers repeatedly flag a key that is clearly the longest choice as a test-wise tell.
+        lens = {k: len(v) for k, v in c['choices'].items() if v not in ('NO CHANGE', 'DELETE the underlined portion.')}
+        if verbal and c['answer'] in lens and len(lens) > 2:
+            rest = max(v for k, v in lens.items() if k != c['answer'])
+            if lens[c['answer']] > 1.15 * rest:
+                print(f"  warn: key is the longest choice by {lens[c['answer']] - rest} characters (length cue)")
 
 
 def next_bank(accepted: dict) -> str:
