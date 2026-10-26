@@ -74,6 +74,8 @@ Blind solvers rate most verbal items easy because they can be answered by test-t
 - **Length cue.** If the key is the longest choice or the only two-part choice, the screen's length warning flags it. Even out the lengths, or give a distractor two parts as well.
 - **Throwaway distractors.** Replace any distractor that nobody would pick (vocabulary items with "anniversary", "dressed") with one that fits the sentence's surface meaning.
 - **Overlapping items.** Make sure no two items on the same passage test the same inference.
+- **Unstated character traits.** Never give an unnamed narrator or character a gender, age or background the passage does not state; write "the narrator" (Reading batch 14 round 1 called a first-person narrator "she" and "granddaughter").
+- **Keys that paraphrase one sentence.** A key that restates a single passage sentence makes the item a lookup; build inferences whose support is spread across paragraphs.
 
 ### Avoiding concept repeats
 
