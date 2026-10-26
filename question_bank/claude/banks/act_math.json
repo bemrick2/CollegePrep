@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 35,
-  "updated_at": "2026-10-26T20:59:04+00:00",
+  "version": 36,
+  "updated_at": "2026-10-26T21:04:38+00:00",
   "passages": [],
   "questions": [
     {
@@ -24317,6 +24317,712 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-035.review.json",
         "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000350",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Perpendicular slope from standard form",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what is the slope of a line perpendicular to the line 3x - 4y = 12 ?",
+      "choices": {
+        "A": "-4/3",
+        "B": "-3/4",
+        "C": "3/4",
+        "D": "4/3"
+      },
+      "correct_answer": "A",
+      "explanation": "Solving for y gives y = (3/4)x - 3, so the given slope is 3/4. A perpendicular slope is the negative reciprocal, -4/3.",
+      "distractor_explanations": {
+        "B": "-3/4 negates the slope but does not take the reciprocal.",
+        "C": "3/4 is the slope of the given line itself.",
+        "D": "4/3 takes the reciprocal but keeps the sign."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Rewrite the equation as y = mx + b first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for y, then take the negative reciprocal."
+      },
+      "remember": "Perpendicular slopes are negative reciprocals.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-01",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000351",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential pattern from a table",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table below shows values of an exponential function f.\nx | 0 | 1 | 2\nf(x) | 5 | 15 | 45\nWhat is the value of f(4) ?",
+      "choices": {
+        "A": "105",
+        "B": "135",
+        "C": "225",
+        "D": "405"
+      },
+      "correct_answer": "D",
+      "explanation": "Each step multiplies by 3, so f(x) = 5 · 3ˣ and f(4) = 5 · 81 = 405.",
+      "distractor_explanations": {
+        "A": "105 adds 30 per step after x = 2, treating the function as linear.",
+        "B": "135 is f(3).",
+        "C": "225 multiplies f(2) by 5, the starting value, instead of by the growth factor."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "What do you multiply by to go from one output to the next?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Extend the pattern: 45, 135, 405."
+      },
+      "remember": "Exponential: equal steps in x multiply y by the same factor.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-02",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000352",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Equilateral triangle inscribed in a circle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An equilateral triangle is inscribed in a circle with radius 6 centimeters. What is the length of one side of the triangle, in centimeters?",
+      "choices": {
+        "A": "3√3",
+        "B": "6",
+        "C": "6√2",
+        "D": "6√3"
+      },
+      "correct_answer": "D",
+      "explanation": "The center of the circle is the triangle's centroid, which lies 2/3 of the way along each median, so the median (height) is 9. For an equilateral triangle, height = (√3/2) × side, so side = 9 × 2/√3 = 6√3. (Equivalently, side = r√3.)",
+      "distractor_explanations": {
+        "A": "3√3 is half the side length.",
+        "B": "6 assumes the side equals the radius, which is true for a regular hexagon, not a triangle.",
+        "C": "6√2 is the side of a square inscribed in the same circle."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where is the circle's center relative to the triangle's height?",
+        "The centroid is 2/3 of the way down each median."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radius to a vertex and the height."
+      },
+      "remember": "Equilateral triangle in a circle: side = radius × √3.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-03",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000353",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Percents less than 1 percent",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is 0.5% of 240 ?",
+      "choices": {
+        "A": "1.2",
+        "B": "12",
+        "C": "120",
+        "D": "1,200"
+      },
+      "correct_answer": "A",
+      "explanation": "0.5% = 0.005, and 0.005 × 240 = 1.2.",
+      "distractor_explanations": {
+        "B": "12 is 5% of 240.",
+        "C": "120 is 50% of 240, treating 0.5% as 0.5.",
+        "D": "1,200 multiplies 240 by 5 without converting the percent."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write 0.5% as a decimal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Move the decimal point two places left: 0.005."
+      },
+      "remember": "Percent to decimal: divide by 100, even when the percent is less than 1.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-04",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000354",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of the second draw without replacement",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn at random, one after the other, without replacement. What is the probability that the second marble drawn is red?",
+      "choices": {
+        "A": "5/14",
+        "B": "4/7",
+        "C": "5/8",
+        "D": "5/7"
+      },
+      "correct_answer": "C",
+      "explanation": "Consider both cases for the first draw: (5/8)(4/7) + (3/8)(5/7) = 20/56 + 15/56 = 35/56 = 5/8. By symmetry, the second marble is as likely to be red as the first.",
+      "distractor_explanations": {
+        "A": "5/14 = (5/8)(4/7) is the probability that both marbles are red.",
+        "B": "4/7 assumes the first marble was red.",
+        "D": "5/7 assumes the first marble was blue."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "The first marble could be red or blue. Consider both cases.",
+        "Does not knowing the first draw change the odds for the second?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a two-stage tree diagram."
+      },
+      "remember": "Without information about earlier draws, each draw has the original probability.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-05",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000355",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Measurements in mixed units",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A board is 12 feet long. A carpenter needs pieces that are each 1 foot 8 inches long. What is the greatest number of such pieces that can be cut from the board? (Ignore the width of the saw cuts.)",
+      "choices": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "20"
+      },
+      "correct_answer": "B",
+      "explanation": "12 feet = 144 inches and 1 foot 8 inches = 20 inches. 144 ÷ 20 = 7.2, so 7 full pieces can be cut.",
+      "distractor_explanations": {
+        "A": "6 treats 1 foot 8 inches as 1.8 feet: 12 ÷ 1.8 ≈ 6.7.",
+        "C": "8 rounds 7.2 up, but the eighth piece would be too short.",
+        "D": "20 is the length of one piece in inches."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Convert both lengths to inches."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "144 ÷ 20."
+      },
+      "remember": "Convert mixed units to a single unit before dividing.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-06",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000356",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Evaluating an inverse function at a value",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x³ + 2x + 1, and f has an inverse function f⁻¹. What is the value of f⁻¹(13) ?",
+      "choices": {
+        "A": "1/2199",
+        "B": "1/13",
+        "C": "2",
+        "D": "2199"
+      },
+      "correct_answer": "C",
+      "explanation": "f⁻¹(13) is the input x for which f(x) = 13. Since f(2) = 8 + 4 + 1 = 13, f⁻¹(13) = 2.",
+      "distractor_explanations": {
+        "A": "1/2199 is 1/f(13), treating the inverse as a reciprocal of the output.",
+        "B": "1/13 treats f⁻¹ as \"1 over\" the input.",
+        "D": "2199 is f(13), which evaluates f instead of its inverse."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "f⁻¹(13) asks: which input gives an output of 13?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test the choices in f."
+      },
+      "remember": "f⁻¹(b) = a exactly when f(a) = b.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-07",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: distractors A and D (1/2199, 2199=f(13)) and B (1/13) are weak; only C is a plausible small integer, so guessable"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000357",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of a triangle from its three sides",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A triangle has sides of lengths 13, 14, and 15 units. What is the area of the triangle, in square units?",
+      "choices": {
+        "A": "42",
+        "B": "78",
+        "C": "84",
+        "D": "91"
+      },
+      "correct_answer": "C",
+      "explanation": "Drop the altitude to the side of length 14, splitting it into x and 14 - x. Then 13² - x² = 15² - (14 - x)², so x = 5 and the altitude is √(169 - 25) = 12. Area = (1/2)(14)(12) = 84.",
+      "distractor_explanations": {
+        "A": "42 uses half of 14 as the base, (1/2)(7)(12).",
+        "B": "78 = (1/2)(13)(12) puts the altitude of 12 on the wrong side.",
+        "D": "91 = (1/2)(13)(14) treats two sides as perpendicular."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "No right angle is given. How can you find a height?",
+        "Let the altitude split the base of 14 into x and 14 - x."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude to the side of length 14."
+      },
+      "remember": "No height given? Split the base with an altitude and use the Pythagorean theorem twice.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-08",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000358",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a triangular prism",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right prism has bases that are right triangles with legs of 3 inches and 4 inches. The prism is 10 inches long. What is the volume of the prism, in cubic inches?",
+      "choices": {
+        "A": "60",
+        "B": "100",
+        "C": "120",
+        "D": "132"
+      },
+      "correct_answer": "A",
+      "explanation": "The base area is (1/2)(3)(4) = 6 square inches, so the volume is 6 × 10 = 60 cubic inches.",
+      "distractor_explanations": {
+        "B": "100 uses the hypotenuse, 5, in place of a leg: (1/2)(5)(4)(10).",
+        "C": "120 forgets the 1/2 in the triangle's area.",
+        "D": "132 is the prism's total surface area, not its volume."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the area of one triangular base?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Base area × length."
+      },
+      "remember": "Prism volume = base area × length.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-09",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000359",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Rates with a fast clock",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A clock runs fast: for every 60 minutes of actual time, the clock advances 66 minutes. The clock is set to the correct time at 12:00 noon. What is the actual time when the clock first shows 11:00 p.m. that day?",
+      "choices": {
+        "A": "9:54 p.m.",
+        "B": "10:00 p.m.",
+        "C": "10:06 p.m.",
+        "D": "12:06 a.m."
+      },
+      "correct_answer": "B",
+      "explanation": "From noon the clock must advance 11 hours = 660 minutes. At 66 clock minutes per actual hour, that takes 660/66 = 10 actual hours, so the actual time is 10:00 p.m.",
+      "distractor_explanations": {
+        "A": "9:54 p.m. subtracts 66 minutes from 11:00 p.m., treating the gain as 6 minutes for each clock hour plus a stray hour.",
+        "C": "10:06 p.m. subtracts only the 6-minute gain from one hour instead of rescaling the whole interval.",
+        "D": "12:06 a.m. adds the clock's gain instead of removing it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "How many clock minutes pass for each actual hour?",
+        "How many clock minutes must pass between noon and 11:00 p.m.?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Actual hours = clock minutes ÷ 66."
+      },
+      "remember": "Convert with the rate: actual time = clock time ÷ (clock rate per actual hour).",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "B036-10",
+      "created_at": "2026-10-26T21:04:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-036.review.json",
+        "computation": "checks/act_math/batch_036.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

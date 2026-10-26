@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 35,
+  "bank_version": 36,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -6088,6 +6088,180 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Unroll the cylinder into a rectangle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000350",
+      "correct_answer": "A",
+      "explanation": "Solving for y gives y = (3/4)x - 3, so the given slope is 3/4. A perpendicular slope is the negative reciprocal, -4/3.",
+      "distractor_explanations": {
+        "B": "-3/4 negates the slope but does not take the reciprocal.",
+        "C": "3/4 is the slope of the given line itself.",
+        "D": "4/3 takes the reciprocal but keeps the sign."
+      },
+      "hints": [
+        "Rewrite the equation as y = mx + b first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for y, then take the negative reciprocal."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000351",
+      "correct_answer": "D",
+      "explanation": "Each step multiplies by 3, so f(x) = 5 · 3ˣ and f(4) = 5 · 81 = 405.",
+      "distractor_explanations": {
+        "A": "105 adds 30 per step after x = 2, treating the function as linear.",
+        "B": "135 is f(3).",
+        "C": "225 multiplies f(2) by 5, the starting value, instead of by the growth factor."
+      },
+      "hints": [
+        "What do you multiply by to go from one output to the next?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Extend the pattern: 45, 135, 405."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000352",
+      "correct_answer": "D",
+      "explanation": "The center of the circle is the triangle's centroid, which lies 2/3 of the way along each median, so the median (height) is 9. For an equilateral triangle, height = (√3/2) × side, so side = 9 × 2/√3 = 6√3. (Equivalently, side = r√3.)",
+      "distractor_explanations": {
+        "A": "3√3 is half the side length.",
+        "B": "6 assumes the side equals the radius, which is true for a regular hexagon, not a triangle.",
+        "C": "6√2 is the side of a square inscribed in the same circle."
+      },
+      "hints": [
+        "Where is the circle's center relative to the triangle's height?",
+        "The centroid is 2/3 of the way down each median."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radius to a vertex and the height."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000353",
+      "correct_answer": "A",
+      "explanation": "0.5% = 0.005, and 0.005 × 240 = 1.2.",
+      "distractor_explanations": {
+        "B": "12 is 5% of 240.",
+        "C": "120 is 50% of 240, treating 0.5% as 0.5.",
+        "D": "1,200 multiplies 240 by 5 without converting the percent."
+      },
+      "hints": [
+        "Write 0.5% as a decimal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Move the decimal point two places left: 0.005."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000354",
+      "correct_answer": "C",
+      "explanation": "Consider both cases for the first draw: (5/8)(4/7) + (3/8)(5/7) = 20/56 + 15/56 = 35/56 = 5/8. By symmetry, the second marble is as likely to be red as the first.",
+      "distractor_explanations": {
+        "A": "5/14 = (5/8)(4/7) is the probability that both marbles are red.",
+        "B": "4/7 assumes the first marble was red.",
+        "D": "5/7 assumes the first marble was blue."
+      },
+      "hints": [
+        "The first marble could be red or blue. Consider both cases.",
+        "Does not knowing the first draw change the odds for the second?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a two-stage tree diagram."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000355",
+      "correct_answer": "B",
+      "explanation": "12 feet = 144 inches and 1 foot 8 inches = 20 inches. 144 ÷ 20 = 7.2, so 7 full pieces can be cut.",
+      "distractor_explanations": {
+        "A": "6 treats 1 foot 8 inches as 1.8 feet: 12 ÷ 1.8 ≈ 6.7.",
+        "C": "8 rounds 7.2 up, but the eighth piece would be too short.",
+        "D": "20 is the length of one piece in inches."
+      },
+      "hints": [
+        "Convert both lengths to inches."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "144 ÷ 20."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000356",
+      "correct_answer": "C",
+      "explanation": "f⁻¹(13) is the input x for which f(x) = 13. Since f(2) = 8 + 4 + 1 = 13, f⁻¹(13) = 2.",
+      "distractor_explanations": {
+        "A": "1/2199 is 1/f(13), treating the inverse as a reciprocal of the output.",
+        "B": "1/13 treats f⁻¹ as \"1 over\" the input.",
+        "D": "2199 is f(13), which evaluates f instead of its inverse."
+      },
+      "hints": [
+        "f⁻¹(13) asks: which input gives an output of 13?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test the choices in f."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000357",
+      "correct_answer": "C",
+      "explanation": "Drop the altitude to the side of length 14, splitting it into x and 14 - x. Then 13² - x² = 15² - (14 - x)², so x = 5 and the altitude is √(169 - 25) = 12. Area = (1/2)(14)(12) = 84.",
+      "distractor_explanations": {
+        "A": "42 uses half of 14 as the base, (1/2)(7)(12).",
+        "B": "78 = (1/2)(13)(12) puts the altitude of 12 on the wrong side.",
+        "D": "91 = (1/2)(13)(14) treats two sides as perpendicular."
+      },
+      "hints": [
+        "No right angle is given. How can you find a height?",
+        "Let the altitude split the base of 14 into x and 14 - x."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude to the side of length 14."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000358",
+      "correct_answer": "A",
+      "explanation": "The base area is (1/2)(3)(4) = 6 square inches, so the volume is 6 × 10 = 60 cubic inches.",
+      "distractor_explanations": {
+        "B": "100 uses the hypotenuse, 5, in place of a leg: (1/2)(5)(4)(10).",
+        "C": "120 forgets the 1/2 in the triangle's area.",
+        "D": "132 is the prism's total surface area, not its volume."
+      },
+      "hints": [
+        "What is the area of one triangular base?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Base area × length."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000359",
+      "correct_answer": "B",
+      "explanation": "From noon the clock must advance 11 hours = 660 minutes. At 66 clock minutes per actual hour, that takes 660/66 = 10 actual hours, so the actual time is 10:00 p.m.",
+      "distractor_explanations": {
+        "A": "9:54 p.m. subtracts 66 minutes from 11:00 p.m., treating the gain as 6 minutes for each clock hour plus a stray hour.",
+        "C": "10:06 p.m. subtracts only the 6-minute gain from one hour instead of rescaling the whole interval.",
+        "D": "12:06 a.m. adds the clock's gain instead of removing it."
+      },
+      "hints": [
+        "How many clock minutes pass for each actual hour?",
+        "How many clock minutes must pass between noon and 11:00 p.m.?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Actual hours = clock minutes ÷ 66."
       }
     }
   ]
