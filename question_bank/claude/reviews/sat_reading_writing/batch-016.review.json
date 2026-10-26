@@ -1,0 +1,299 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 16,
+  "reviewed_at": "2026-10-26T21:37:49+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 16
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000141",
+    "CLD-SAT-RW-000142",
+    "CLD-SAT-RW-000143",
+    "CLD-SAT-RW-000144",
+    "CLD-SAT-RW-000145",
+    "CLD-SAT-RW-000146",
+    "CLD-SAT-RW-000147",
+    "CLD-SAT-RW-000148",
+    "CLD-SAT-RW-000149"
+  ],
+  "results": [
+    {
+      "cand": "S016-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: B closely echoes the passage's own wording ('rarely drink water', 'obtain', 'reabsorbed'), making it easy to match; distractors A/C/D are clearly out of scope"
+      ],
+      "blind_notes": "Text describes how the rats obtain water from seeds and metabolism and conserve it via nasal cooling; no argument, comparison, or food-choice rationale.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: distractors A and C introduce content (habitat protection, other animals) absent from the passage, so they are easy to eliminate"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000141"
+    },
+    {
+      "cand": "S016-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: A and D are identical except the final word ('original' vs 'alternative'), which signals that one of the pair is the key; a careful reader settles it in one step"
+      ],
+      "blind_notes": "Assumption (small star) -> alternative (dust) -> infrared evidence supports dust (the alternative).",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: A and D are identical except for the last word, which signals that the answer is one of these two"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000142"
+    },
+    {
+      "cand": "S016-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: a photograph could also show clothing/hair, so A isolates face vs. voice/smell but not strictly face vs. clothing; stating 'photographs of faces only' would make the support airtight"
+      ],
+      "blind_notes": "A removes sound and scent yet sheep still recognize the handler from an image. B supports clothing, C voice, D general habituation.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: a photograph could show clothing as well as the face; specifying face-only photographs would isolate the face cue more cleanly",
+        "minor: the hypothesis is 'mainly by faces rather than other cues', and A rules out sound and scent but does not compare against faces"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "S016-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Introductory participial phrase 'Having studied...' must modify the hydrologist, who must be the subject immediately after the comma. A, B, D create dangling modifiers.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000143"
+    },
+    {
+      "cand": "S016-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "Supplementary element opened with an em dash must close with an em dash before the main verb 'is displayed'.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000144"
+    },
+    {
+      "cand": "S016-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "No punctuation between subject ('The two researchers who ... in 2019') and verb 'named', nor between verb and object 'it'.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000145"
+    },
+    {
+      "cand": "S016-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "'By the time ... reached' (past) requires past perfect progressive for the earlier ongoing action.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000146"
+    },
+    {
+      "cand": "S016-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 76,
+      "blind_flags": [
+        "minor: B is the only hedged choice ('may not hold') and the longest; A and C are extreme and easily eliminated"
+      ],
+      "blind_notes": "Text 2 critiques the sample (widely spoken languages, single speakers) and finds exceptions among less-studied languages, so the order may not hold for underrepresented languages. D misstates the critique (it was about which languages, not too many).",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: A and C are extreme absolutes and easy to eliminate"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000147"
+    },
+    {
+      "cand": "S016-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "She deliberately sets notes face down after memorizing the speech and 'instead' talks about her grandmother: an in-the-moment choice to be personal. A contradicts memorization; B contradicts 'looked out'; D contradicts 'instead'.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: 'chose in the moment' is slightly stronger than the text supports. She could have planned the switch beforehand, though 'instead' after three weeks of practice makes a spontaneous change the most reasonable reading"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000148"
+    },
+    {
+      "cand": "S016-10",
+      "revision": 2,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: passage_id CLD-P-SAT-RW-000137 is out of sequence with the rest of the batch (000146-000154); confirm it is not a reused/duplicate passage"
+      ],
+      "blind_notes": "Seven volumes recording nearly every letter, rehearsal, illness = exhaustive. Laconic and perfunctory are opposites; tendentious (biased) is unsupported. Distractor vocabulary is hard but the key is a familiar word.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000149"
+    }
+  ]
+}

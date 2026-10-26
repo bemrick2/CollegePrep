@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:37:39+00:00",
+  "updated_at": "2026-10-26T21:37:51+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
     "act_math": 403,
     "act_english": 146,
     "act_reading": 122,
-    "sat_reading_writing": 140
+    "sat_reading_writing": 149
   },
   "review_totals": {
     "act_math": {
@@ -43,11 +43,11 @@
       "passed_after_revision": 12
     },
     "sat_reading_writing": {
-      "PASS": 140,
-      "REVISE": 13,
+      "PASS": 149,
+      "REVISE": 14,
       "REJECT": 0,
-      "candidates": 153,
-      "passed_after_revision": 10
+      "candidates": 163,
+      "passed_after_revision": 11
     }
   },
   "sections": {
@@ -748,13 +748,13 @@
       "passages": 14
     },
     "sat_reading_writing": {
-      "accepted": 140,
+      "accepted": 149,
       "retired_after_audit": 0,
       "by_skill": {
-        "Craft and Structure": 39,
+        "Craft and Structure": 43,
         "Expression of Ideas": 31,
-        "Information and Ideas": 36,
-        "Standard English Conventions": 34
+        "Information and Ideas": 37,
+        "Standard English Conventions": 38
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -778,7 +778,7 @@
         "Command of evidence: textual (weaken)": 1,
         "Commas around a nonessential participial phrase": 1,
         "Compound predicate (no comma)": 1,
-        "Cross-text connections": 5,
+        "Cross-text connections": 6,
         "Cross-text connections (alternative explanation)": 1,
         "Cross-text connections (evaluating evidence)": 1,
         "Finite verb in a main clause": 1,
@@ -788,15 +788,17 @@
         "Inferences": 10,
         "Inferences (alternative explanation)": 2,
         "Inferences (base rates)": 1,
+        "Inferences (literary)": 1,
         "Inferences (prediction from a hypothesis)": 1,
         "Inferring a character's reaction": 1,
         "Irregular plural possessive": 1,
-        "Main purpose": 1,
+        "Main purpose": 2,
         "Main purpose (literary)": 1,
-        "Modifier placement": 2,
+        "Modifier placement": 3,
+        "No comma between a subject and its verb": 1,
         "No punctuation between a verb and its that-clause": 1,
-        "Overall text structure": 4,
-        "Paired dashes": 1,
+        "Overall text structure": 5,
+        "Paired dashes": 2,
         "Plural possessive": 1,
         "Plural possessives": 1,
         "Pronoun-antecedent agreement": 1,
@@ -842,41 +844,42 @@
         "Transitions (similarity)": 1,
         "Transitions (specification)": 1,
         "Transitions (time sequence)": 1,
+        "Verb tense (past perfect progressive)": 1,
         "Verb tense (past perfect)": 1,
         "Who versus whom": 1,
-        "Words in context": 17,
+        "Words in context": 18,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 13,
-        "hard": 24,
-        "medium": 103
+        "easy": 15,
+        "hard": 25,
+        "medium": 109
       },
       "by_difficulty_calibrated": {
-        "easy": 66,
+        "easy": 72,
         "hard": 1,
-        "medium": 73
+        "medium": 76
       },
       "calibrated_share": {
-        "easy": 0.471,
+        "easy": 0.483,
         "hard": 0.007,
-        "medium": 0.521
+        "medium": 0.51
       },
       "answer_key_balance": {
-        "A": 34,
-        "B": 35,
-        "C": 35,
-        "D": 36
+        "A": 35,
+        "B": 39,
+        "C": 37,
+        "D": 38
       },
       "modeling_items": 0,
-      "passages": 140
+      "passages": 149
     }
   },
   "last_completed_batch": {
     "act_math": 41,
     "act_english": 14,
     "act_reading": 14,
-    "sat_reading_writing": 15
+    "sat_reading_writing": 16
   },
   "next_batch_guidance": {
     "act_math": {
@@ -908,14 +911,6 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 15,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 11.2,
-        "Knowledge of Language": 13.0,
-        "Conventions of Standard English": -11.8
-      }
-    },
     "act_reading": {
       "next_batch": 15,
       "skill_gap_for_next_10": {
@@ -924,13 +919,21 @@
         "Integration of Knowledge and Ideas": 0.7
       }
     },
-    "sat_reading_writing": {
-      "next_batch": 16,
+    "act_english": {
+      "next_batch": 15,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 3.0,
-        "Information and Ideas": 3.0,
-        "Standard English Conventions": 5.0,
-        "Expression of Ideas": -1.0
+        "Production of Writing": 11.2,
+        "Knowledge of Language": 13.0,
+        "Conventions of Standard English": -11.8
+      }
+    },
+    "sat_reading_writing": {
+      "next_batch": 17,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 1.5,
+        "Information and Ideas": 4.3,
+        "Standard English Conventions": 3.3,
+        "Expression of Ideas": 0.8
       }
     }
   },
@@ -952,14 +955,14 @@
     },
     "sat_reading_writing": {
       "target": 700,
-      "accepted": 140,
-      "share_of_target": 0.2
+      "accepted": 149,
+      "share_of_target": 0.213
     }
   },
   "total_target": 4000,
-  "total_accepted": 811,
+  "total_accepted": 820,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "sat_reading_writing",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -10053,7 +10056,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 15,
+      "bank_version": 16,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -10139,7 +10142,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:37:39+00:00",
+    "heartbeat_at": "2026-10-26T21:37:51+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
