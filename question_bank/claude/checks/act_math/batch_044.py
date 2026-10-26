@@ -40,8 +40,8 @@ def c03(ch):
 
 def c04(ch):
     tests = [(m, n) for m in (1, 3, 5, -7) for n in (0, 2, 4, -6)]
-    exprs = {'A': lambda m, n: m * n, 'B': lambda m, n: m + n, 'C': lambda m, n: 2 * m, 'D': lambda m, n: n * n}
-    hits = [k for k, f in exprs.items() if all(f(m, n) % 2 == 1 for m, n in tests)]
+    by_text = {'mn': lambda m, n: m * n, 'm + n': lambda m, n: m + n, '2m': lambda m, n: 2 * m, 'n²': lambda m, n: n * n}
+    hits = [k for k, v in ch.items() if all(by_text[v](m, n) % 2 == 1 for m, n in tests)]
     assert len(hits) == 1
     return hits[0]
 
