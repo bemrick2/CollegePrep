@@ -1,25 +1,31 @@
 {
   "bank": "act_math",
-  "updated_at": "2026-10-26T18:24:35+00:00",
-  "method": "calibrated = median of all independent AI ratings for the item (the per-batch blind solver, the 2026-10-26 rubric rater on the first 48, and the 2026-10-26b whole-bank single-sitting rater); with an even number of ratings the lower (easier) middle value is used. The author label is never used. Accepted records are unchanged.",
-  "why_median": "Rater instances disagree substantially (e.g. one rated 9/48 hard, another 37/108 hard on overlapping items); a median across raters damps any one rater's scale.",
+  "updated_at": "2026-10-26T18:51:44+00:00",
+  "method": "calibrated = median of all independent AI ratings (per-batch blind solver plus every whole-bank or partial rater file); even count uses the lower middle value; author label never used; accepted records unchanged.",
   "caveat": "AI estimates of student performance, not data from real students.",
-  "sources": [
-    "calibration/act_math_rater_2026-10-26.json",
-    "calibration/act_math_rater_2026-10-26b.json",
-    "reviews/act_math/batch-*.blind.json"
+  "raters": [
+    "2026-10-26",
+    "2026-10-26b",
+    "2026-10-26c"
   ],
-  "rater_answer_mismatches": [],
+  "rater_answer_mismatches": [
+    {
+      "id": "CLD-ACT-M-000130",
+      "rater": "2026-10-26c",
+      "answer": "C",
+      "key": "A"
+    }
+  ],
   "items": {
     "CLD-ACT-M-000001": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": false
     },
     "CLD-ACT-M-000002": {
@@ -27,10 +33,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 78,
       "changed_from_author": false
     },
     "CLD-ACT-M-000003": {
@@ -38,10 +44,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000004": {
@@ -49,10 +55,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 82,
       "changed_from_author": true
     },
     "CLD-ACT-M-000005": {
@@ -60,10 +66,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": true
     },
     "CLD-ACT-M-000006": {
@@ -71,10 +77,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 65,
       "changed_from_author": true
     },
     "CLD-ACT-M-000007": {
@@ -82,21 +88,21 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 60,
-      "changed_from_author": false
+      "calibrated": "easy",
+      "changed_from_author": true
     },
     "CLD-ACT-M-000008": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": true
     },
     "CLD-ACT-M-000009": {
@@ -104,21 +110,21 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 65,
-      "changed_from_author": false
+      "calibrated": "easy",
+      "changed_from_author": true
     },
     "CLD-ACT-M-000010": {
       "author": "medium",
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 58,
       "changed_from_author": false
     },
     "CLD-ACT-M-000011": {
@@ -126,10 +132,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 35,
       "changed_from_author": false
     },
     "CLD-ACT-M-000012": {
@@ -137,10 +143,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 85,
       "changed_from_author": false
     },
     "CLD-ACT-M-000013": {
@@ -148,10 +154,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": true
     },
     "CLD-ACT-M-000014": {
@@ -159,10 +165,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 55,
       "changed_from_author": false
     },
     "CLD-ACT-M-000015": {
@@ -170,10 +176,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 35,
       "changed_from_author": false
     },
     "CLD-ACT-M-000016": {
@@ -181,10 +187,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 35,
       "changed_from_author": true
     },
     "CLD-ACT-M-000017": {
@@ -192,10 +198,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 65,
       "changed_from_author": true
     },
     "CLD-ACT-M-000018": {
@@ -203,10 +209,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000019": {
@@ -214,10 +220,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": false
     },
     "CLD-ACT-M-000020": {
@@ -225,10 +231,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 60,
       "changed_from_author": false
     },
     "CLD-ACT-M-000021": {
@@ -236,10 +242,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 35,
       "changed_from_author": true
     },
     "CLD-ACT-M-000022": {
@@ -247,21 +253,21 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
-      "calibrated": "hard",
-      "est_pct_correct_rater_b": 38,
-      "changed_from_author": false
+      "calibrated": "medium",
+      "changed_from_author": true
     },
     "CLD-ACT-M-000023": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 70,
       "changed_from_author": false
     },
     "CLD-ACT-M-000024": {
@@ -269,10 +275,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 65,
       "changed_from_author": false
     },
     "CLD-ACT-M-000025": {
@@ -280,10 +286,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000026": {
@@ -291,10 +297,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 70,
       "changed_from_author": false
     },
     "CLD-ACT-M-000027": {
@@ -302,10 +308,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 60,
       "changed_from_author": false
     },
     "CLD-ACT-M-000028": {
@@ -313,10 +319,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": true
     },
     "CLD-ACT-M-000029": {
@@ -324,10 +330,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 62,
       "changed_from_author": false
     },
     "CLD-ACT-M-000030": {
@@ -335,10 +341,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 78,
       "changed_from_author": false
     },
     "CLD-ACT-M-000031": {
@@ -346,21 +352,21 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
-      "calibrated": "hard",
-      "est_pct_correct_rater_b": 38,
-      "changed_from_author": false
+      "calibrated": "medium",
+      "changed_from_author": true
     },
     "CLD-ACT-M-000032": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 72,
       "changed_from_author": false
     },
     "CLD-ACT-M-000033": {
@@ -368,10 +374,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000034": {
@@ -379,10 +385,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": false
     },
     "CLD-ACT-M-000035": {
@@ -390,10 +396,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000036": {
@@ -401,10 +407,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 42,
       "changed_from_author": true
     },
     "CLD-ACT-M-000037": {
@@ -412,10 +418,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": false
     },
     "CLD-ACT-M-000038": {
@@ -423,10 +429,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": true
     },
     "CLD-ACT-M-000039": {
@@ -434,10 +440,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 72,
       "changed_from_author": false
     },
     "CLD-ACT-M-000040": {
@@ -445,10 +451,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": true
     },
     "CLD-ACT-M-000041": {
@@ -456,10 +462,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 55,
       "changed_from_author": false
     },
     "CLD-ACT-M-000042": {
@@ -467,10 +473,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 58,
       "changed_from_author": false
     },
     "CLD-ACT-M-000043": {
@@ -478,10 +484,10 @@
       "ratings": {
         "blind_batch": "hard",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 35,
       "changed_from_author": false
     },
     "CLD-ACT-M-000044": {
@@ -489,10 +495,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000045": {
@@ -500,10 +506,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 30,
       "changed_from_author": false
     },
     "CLD-ACT-M-000046": {
@@ -511,10 +517,10 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": false
     },
     "CLD-ACT-M-000047": {
@@ -522,10 +528,10 @@
       "ratings": {
         "blind_batch": "easy",
         "rater_2026-10-26": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": false
     },
     "CLD-ACT-M-000048": {
@@ -533,611 +539,1511 @@
       "ratings": {
         "blind_batch": "medium",
         "rater_2026-10-26": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 62,
       "changed_from_author": false
     },
     "CLD-ACT-M-000049": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": true
     },
     "CLD-ACT-M-000050": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 48,
       "changed_from_author": true
     },
     "CLD-ACT-M-000051": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 58,
       "changed_from_author": false
     },
     "CLD-ACT-M-000052": {
       "author": "medium",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
-      "calibrated": "easy",
-      "est_pct_correct_rater_b": 65,
-      "changed_from_author": true
+      "calibrated": "medium",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000053": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": true
     },
     "CLD-ACT-M-000054": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 22,
       "changed_from_author": false
     },
     "CLD-ACT-M-000055": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 58,
       "changed_from_author": false
     },
     "CLD-ACT-M-000056": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000057": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 32,
       "changed_from_author": false
     },
     "CLD-ACT-M-000058": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000059": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 30,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000060": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
-      "calibrated": "easy",
-      "est_pct_correct_rater_b": 60,
-      "changed_from_author": false
+      "calibrated": "medium",
+      "changed_from_author": true
     },
     "CLD-ACT-M-000061": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 18,
       "changed_from_author": false
     },
     "CLD-ACT-M-000062": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000063": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 25,
       "changed_from_author": false
     },
     "CLD-ACT-M-000064": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000065": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": false
     },
     "CLD-ACT-M-000066": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 20,
       "changed_from_author": false
     },
     "CLD-ACT-M-000067": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000068": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 35,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000069": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 35,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000070": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 35,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000071": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 35,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000072": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 42,
       "changed_from_author": false
     },
     "CLD-ACT-M-000073": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 25,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000074": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000075": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000076": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": false
     },
     "CLD-ACT-M-000077": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": false
     },
     "CLD-ACT-M-000078": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": false
     },
     "CLD-ACT-M-000079": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 88,
       "changed_from_author": false
     },
     "CLD-ACT-M-000080": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 88,
       "changed_from_author": false
     },
     "CLD-ACT-M-000081": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 30,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000082": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 58,
       "changed_from_author": true
     },
     "CLD-ACT-M-000083": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 33,
       "changed_from_author": true
     },
     "CLD-ACT-M-000084": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": false
     },
     "CLD-ACT-M-000085": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000086": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": true
     },
     "CLD-ACT-M-000087": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 80,
       "changed_from_author": false
     },
     "CLD-ACT-M-000088": {
       "author": "medium",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 65,
       "changed_from_author": true
     },
     "CLD-ACT-M-000089": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 55,
       "changed_from_author": false
     },
     "CLD-ACT-M-000090": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": false
     },
     "CLD-ACT-M-000091": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 50,
       "changed_from_author": true
     },
     "CLD-ACT-M-000092": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 32,
       "changed_from_author": false
     },
     "CLD-ACT-M-000093": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 80,
       "changed_from_author": false
     },
     "CLD-ACT-M-000094": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 20,
       "changed_from_author": false
     },
     "CLD-ACT-M-000095": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 75,
       "changed_from_author": false
     },
     "CLD-ACT-M-000096": {
       "author": "medium",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
-      "calibrated": "easy",
-      "est_pct_correct_rater_b": 62,
-      "changed_from_author": true
+      "calibrated": "medium",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000097": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 40,
       "changed_from_author": true
     },
     "CLD-ACT-M-000098": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "easy"
+        "rater_2026-10-26b": "easy",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 80,
       "changed_from_author": false
     },
     "CLD-ACT-M-000099": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 40,
       "changed_from_author": true
     },
     "CLD-ACT-M-000100": {
       "author": "medium",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 68,
       "changed_from_author": true
     },
     "CLD-ACT-M-000101": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 25,
       "changed_from_author": false
     },
     "CLD-ACT-M-000102": {
       "author": "easy",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 62,
       "changed_from_author": true
     },
     "CLD-ACT-M-000103": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 33,
       "changed_from_author": true
     },
     "CLD-ACT-M-000104": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 45,
       "changed_from_author": false
     },
     "CLD-ACT-M-000105": {
       "author": "hard",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
-      "calibrated": "medium",
-      "est_pct_correct_rater_b": 32,
-      "changed_from_author": true
+      "calibrated": "hard",
+      "changed_from_author": false
     },
     "CLD-ACT-M-000106": {
       "author": "medium",
       "ratings": {
         "blind_batch": "medium",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "medium"
       },
       "calibrated": "medium",
-      "est_pct_correct_rater_b": 38,
       "changed_from_author": false
     },
     "CLD-ACT-M-000107": {
       "author": "hard",
       "ratings": {
         "blind_batch": "hard",
-        "rater_2026-10-26b": "hard"
+        "rater_2026-10-26b": "hard",
+        "rater_2026-10-26c": "hard"
       },
       "calibrated": "hard",
-      "est_pct_correct_rater_b": 25,
       "changed_from_author": false
     },
     "CLD-ACT-M-000108": {
       "author": "easy",
       "ratings": {
         "blind_batch": "easy",
-        "rater_2026-10-26b": "medium"
+        "rater_2026-10-26b": "medium",
+        "rater_2026-10-26c": "easy"
       },
       "calibrated": "easy",
-      "est_pct_correct_rater_b": 62,
       "changed_from_author": false
+    },
+    "CLD-ACT-M-000109": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000110": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000111": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000112": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000113": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000114": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000115": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000116": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000117": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000118": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000119": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000120": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000121": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000122": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000123": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000124": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000125": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000126": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000127": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000128": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000129": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000130": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000131": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000132": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000133": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000134": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000135": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000136": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000137": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000138": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000139": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000140": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000141": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000142": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000143": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000144": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000145": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000146": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000147": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000148": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000149": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000150": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000151": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000152": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000153": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000154": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000155": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000156": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000157": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000158": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000159": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000160": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000161": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000162": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000163": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000164": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000165": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000166": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000167": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000168": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000169": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000170": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000171": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000172": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000173": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000174": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000175": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000176": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000177": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000178": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000179": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000180": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000181": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000182": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000183": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000184": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000185": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000186": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000187": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000188": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000189": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000190": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000191": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000192": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000193": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "hard",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "hard",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000194": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000195": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000196": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000197": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000198": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000199": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000200": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000201": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000202": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "hard"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000203": {
+      "author": "easy",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000204": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": false
+    },
+    "CLD-ACT-M-000205": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000206": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000207": {
+      "author": "medium",
+      "ratings": {
+        "blind_batch": "easy",
+        "rater_2026-10-26c": "easy"
+      },
+      "calibrated": "easy",
+      "changed_from_author": true
+    },
+    "CLD-ACT-M-000208": {
+      "author": "hard",
+      "ratings": {
+        "blind_batch": "medium",
+        "rater_2026-10-26c": "medium"
+      },
+      "calibrated": "medium",
+      "changed_from_author": true
     }
   }
 }

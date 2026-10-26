@@ -4,8 +4,735 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 0,
-  "updated_at": null,
-  "passages": [],
-  "questions": []
+  "version": 1,
+  "updated_at": "2026-10-26T18:51:28+00:00",
+  "passages": [
+    {
+      "passage_id": "CLD-P-ACT-E-000001",
+      "title": "The Weather in the Margins",
+      "genre": "informational (history of science)",
+      "word_count": 259,
+      "text": "For more than a century, the keepers of a lighthouse on the north shore of Lake Superior wrote down the weather every few hours. {{1|Their logbooks, now stored in a state archive,}} record wind direction, wave height, and the color of the sky at dawn. To the keepers, these notes were routine. {{2|Similarly,}} to climate scientists today they are treasures.\n\nHistorians first noticed the logbooks' value in the 1990s, when a graduate student {{3|digitizing}} old shipping records found that the keepers' entries matched storm reports from passing freighters. {{4|Unlike a freighter,}} the logs offered something the ships could not: an unbroken record from a single place. A ship passes through a storm in a few hours, but a lighthouse {{5|stays where it is, and it does not move,}} season after season.\n\nTurning handwritten notes into usable data {{6|has proven}} slow work. Each keeper had a personal shorthand. One wrote \"NW fr\" for a fresh northwest wind; another simply drew an arrow. Volunteers now transcribe the pages online, and each page {{7|is checked by at least two different people before its numbers are added to the database.}}\n\nThe effort is already paying off. Comparing the keepers' records with modern measurements, researchers {{8|have figured out}} that the lake now freezes, on average, about two weeks later than it did a century ago. {{9|The keepers, who never imagined their notes would be read this way, simply wanted to keep the light burning and the ships safe.}} {{10|Their careful habits have given scientists a rare gift: a long view of a changing lake.}}",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    }
+  ],
+  "questions": [
+    {
+      "id": "CLD-ACT-E-000001",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonessential phrase",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 1,
+      "evidence": "Their logbooks, now stored in a state archive, record wind direction, wave height, and the color of the sky at dawn.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Their logbooks now stored in a state archive,",
+        "C": "Their logbooks, now stored in a state archive",
+        "D": "Their logbooks; now stored in a state archive,"
+      },
+      "correct_answer": "A",
+      "explanation": "The phrase \"now stored in a state archive\" adds extra information about the logbooks and could be removed without changing the sentence's core meaning (\"Their logbooks record wind direction…\"). Nonessential phrases are set off by a pair of commas, one before and one after, which is what the original does.",
+      "distractor_explanations": {
+        "B": "Removing the first comma leaves only one comma, so the phrase is not properly set off and the comma splits the subject from its verb.",
+        "C": "Removing the closing comma leaves the nonessential phrase open, running it into the verb \"record.\"",
+        "D": "A semicolon must join two complete sentences; \"Their logbooks\" is not a complete sentence."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Could the phrase between the commas be removed without breaking the sentence?",
+        "Nonessential information needs punctuation on both sides."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the sentence without the middle phrase; it still works, so the phrase needs a comma on each side."
+      },
+      "remember": "Nonessential phrases take a pair of commas.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-01",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000002",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions: contrast",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 2,
+      "evidence": "To the keepers, these notes were routine.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "However,",
+        "C": "For example,",
+        "D": "Therefore,"
+      },
+      "correct_answer": "B",
+      "explanation": "The previous sentence says the notes were routine to the keepers; this sentence says they are treasures to scientists. These ideas contrast, so \"However\" is the logical transition.",
+      "distractor_explanations": {
+        "A": "\"Similarly\" signals that the second idea matches the first, but \"routine\" and \"treasures\" are opposites.",
+        "C": "\"For example\" introduces an instance of the previous idea, but scientists valuing the notes is not an example of the notes being routine.",
+        "D": "\"Therefore\" signals a result, but the notes being routine does not cause scientists to value them."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "How does \"routine\" compare with \"treasures\"?",
+        "Pick the transition that matches that relationship."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a contrast word (\"but,\" \"however\") before reading the choices."
+      },
+      "remember": "Name the relationship first, then choose the transition.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-02",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000003",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Participial phrases and sentence boundaries",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 3,
+      "evidence": "when a graduate student digitizing old shipping records found that the keepers' entries matched storm reports from passing freighters",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "digitized",
+        "C": "was digitizing",
+        "D": "who digitizing"
+      },
+      "correct_answer": "A",
+      "explanation": "The clause's subject is \"a graduate student\" and its verb is \"found.\" The phrase \"digitizing old shipping records\" describes the student, so the participle \"digitizing\" is correct.",
+      "distractor_explanations": {
+        "B": "\"digitized\" turns the phrase into a second main verb (\"a student digitized… found…\") with no conjunction joining the two verbs.",
+        "C": "\"was digitizing\" also creates a second verb for the same subject, leaving \"found\" without a connection.",
+        "D": "\"who digitizing\" is ungrammatical; a relative clause needs a full verb (\"who was digitizing\")."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the subject and main verb of the clause beginning with \"when.\"",
+        "The underlined word should describe the student, not act as a second main verb."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Each alternative adds a verb that collides with \"found\"; the participle keeps one main verb."
+      },
+      "remember": "One clause, one main verb; modifiers use -ing or -ed forms.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-03",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000004",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Logical comparison",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 4,
+      "evidence": "the logs offered something the ships could not: an unbroken record from a single place",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Unlike the freighters' reports,",
+        "C": "Unlike freighters,",
+        "D": "Like the freighters' reports,"
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence compares the logs with something else. Logs must be compared with other records, the freighters' reports, not with the ships themselves. And because the logs offered something the ships' reports could not, the comparison is a contrast (\"Unlike\").",
+      "distractor_explanations": {
+        "A": "This compares the logs with a ship, which is an illogical comparison of a record to a vessel.",
+        "C": "This still compares logs with ships rather than with the ships' reports.",
+        "D": "This compares the right things but says they are alike, contradicting the claim that the logs offered something the ships' reports could not."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "What exactly are the logs being compared with?",
+        "Should the comparison show a similarity or a difference?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out choices that compare logs with ships; then choose contrast over similarity."
+      },
+      "remember": "Compare like with like: records with records.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-04",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: with B, the sentence compares logs to 'freighters' reports' but then says 'something the ships could not' -- slight referent shift (reports vs. ships), though acceptable."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000005",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision and redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 5,
+      "evidence": "A ship passes through a storm in a few hours, but a lighthouse",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "stays put",
+        "C": "stays where it is and remains stationary",
+        "D": "stays where it is, never moving or changing its location,"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Stays where it is\" and \"does not move\" say the same thing. \"Stays put\" expresses the idea once, clearly and concisely.",
+      "distractor_explanations": {
+        "A": "\"Stays where it is, and it does not move\" repeats the same idea twice.",
+        "C": "\"Remains stationary\" again repeats \"stays where it is.\"",
+        "D": "This repeats the idea three times."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any parts of the underlined portion mean the same thing?",
+        "Choose the version that says the idea once."
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "All choices are grammatical; the shortest one that keeps the meaning is best."
+      },
+      "remember": "Say it once.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-05",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: 'stays put' is colloquial; a cleaner key like 'stays where it is' would avoid any register objection, and it sits oddly beside item 09, which (presumably) penalizes the informal 'figured out'."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000006",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement with a gerund subject",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 6,
+      "evidence": "Turning handwritten notes into usable data has proven slow work.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "have proven",
+        "C": "proving",
+        "D": "were proving"
+      },
+      "correct_answer": "A",
+      "explanation": "The subject is the gerund phrase \"Turning handwritten notes into usable data,\" which names one activity and is singular. The singular verb \"has proven\" agrees with it.",
+      "distractor_explanations": {
+        "B": "\"have proven\" agrees with the nearby plural noun \"notes,\" but \"notes\" is part of the subject phrase, not the subject itself.",
+        "C": "\"proving\" is not a complete verb, so the sentence becomes a fragment.",
+        "D": "\"were proving\" is plural and also shifts to an awkward past progressive."
+      },
+      "distractor_traps": {
+        "B": "nearest_noun_agreement",
+        "C": null,
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the subject: the notes, or the activity of turning them into data?",
+        "Is an activity singular or plural?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Strip the phrase to \"Turning … has proven\"; an -ing activity is singular."
+      },
+      "remember": "A gerund phrase subject is singular.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-06",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000007",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Relevance to a stated purpose",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 7,
+      "evidence": "is checked by at least two different people before its numbers are added to the database.",
+      "figure": null,
+      "stem": "Which choice most effectively explains how the project protects the accuracy of the transcribed data?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "is uploaded to the website as a photograph.",
+        "C": "can be viewed by anyone with an internet connection.",
+        "D": "takes a volunteer about fifteen minutes to transcribe."
+      },
+      "correct_answer": "A",
+      "explanation": "The question asks how accuracy is protected. Having each page checked by two different people before the numbers are used is a quality check. The other choices describe access, format or time, not accuracy.",
+      "distractor_explanations": {
+        "B": "Uploading a photograph describes how pages are shared, not how errors are caught.",
+        "C": "Public viewing is about access, not about checking the numbers.",
+        "D": "Transcription time does not explain how accuracy is protected."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "true_but_irrelevant",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "Read the question's goal carefully: accuracy.",
+        "Which choice describes a way to catch mistakes?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the purpose; only one choice serves it."
+      },
+      "remember": "Match the choice to the stated purpose.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-07",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000008",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence: relevance and focus",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 7,
+      "evidence": "Turning handwritten notes into usable data has proven slow work.",
+      "figure": null,
+      "stem": "At the end of the third paragraph (after the underlined portion), the writer is considering adding the following sentence:\nThe lighthouse was built after a powerful storm wrecked more than two dozen ships nearby.\nShould the writer make this addition there?",
+      "choices": {
+        "A": "Yes, because it explains why the lighthouse's records are valuable to scientists.",
+        "B": "Yes, because it tells when the keepers' logbooks begin.",
+        "C": "No, because it interrupts the paragraph's focus on how the handwritten logs are turned into data.",
+        "D": "No, because it contradicts the claim that the logs cover more than a century."
+      },
+      "correct_answer": "C",
+      "explanation": "The third paragraph explains the work of converting the keepers' shorthand into data. A sentence about why the lighthouse was built is off topic there, so it should not be added.",
+      "distractor_explanations": {
+        "A": "The sentence explains why the lighthouse was built, not why its records matter to scientists.",
+        "B": "The sentence gives no date for the logbooks.",
+        "D": "Nothing in the sentence contradicts the century-long record; the problem is focus, not accuracy."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What is the third paragraph mainly about?",
+        "Does the new sentence support that topic?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the paragraph's first sentence to identify its focus, then test the new sentence against it."
+      },
+      "remember": "Add a sentence only if it supports the paragraph's focus.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-08",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000009",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Keeping or deleting a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 9,
+      "evidence": "The keepers, who never imagined their notes would be read this way, simply wanted to keep the light burning and the ships safe.",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it contrasts the keepers' practical purpose with the scientific value their notes later gained.",
+        "B": "Kept, because it explains how researchers measured when the lake froze.",
+        "C": "Deleted, because it repeats information given in the first paragraph.",
+        "D": "Deleted, because it shifts the focus from the lake to the design of the lighthouse."
+      },
+      "correct_answer": "A",
+      "explanation": "The sentence stresses that the keepers had a modest, practical goal. That sets up the final sentence's point that their careful habits became a gift to science, so the sentence should be kept.",
+      "distractor_explanations": {
+        "B": "The sentence says nothing about how freezing dates were measured.",
+        "C": "The first paragraph says the notes were routine but does not describe the keepers' goals of keeping the light burning and ships safe.",
+        "D": "The sentence is about the keepers' purpose, not the lighthouse's design."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does the sentence add that the paragraph would lose without it?",
+        "How does it connect to the sentence that follows?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence with the final sentence; the contrast between purpose and later value is the key."
+      },
+      "remember": "Keep sentences that set up or support the conclusion.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-10",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000010",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Effective conclusions",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 10,
+      "evidence": "Their careful habits have given scientists a rare gift: a long view of a changing lake.",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by returning to its main idea?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Lake Superior is the largest of the Great Lakes by surface area.",
+        "C": "Today, the lighthouse is a popular stop for tourists.",
+        "D": "Some keepers lived at the lighthouse with their families."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay's main idea is that routine weather notes became valuable long-term climate data. The original sentence states exactly that. The other choices add unrelated facts about the lake, tourism or the keepers' families.",
+      "distractor_explanations": {
+        "B": "A fact about the lake's size does not connect to the logs' scientific value.",
+        "C": "Tourism is unrelated to the essay's focus on the weather records.",
+        "D": "The keepers' family life is not the essay's subject."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "out_of_scope",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "State the essay's main idea in a sentence.",
+        "Which choice echoes that idea?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a closing line about the value of the long record, then match."
+      },
+      "remember": "A strong conclusion returns to the main idea.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "E001-11",
+      "created_at": "2026-10-26T18:51:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-001.review.json",
+        "computation": "checks/act_english/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    }
+  ]
 }

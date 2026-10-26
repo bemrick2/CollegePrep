@@ -1,0 +1,236 @@
+{
+  "bank": "act_english",
+  "batch": 2,
+  "plan": "Second ACT English passage: a personal narrative of about 330 words with 11 items. NO CHANGE is the key for only 2 items (batch 1 over-used it), and keys are spread across letters. Adds harder Conventions items (inverted subject with lie/lay, dangling modifier).",
+  "passages": [
+    {
+      "passage_id": "CLD-P-ACT-E-000002",
+      "title": "Learning the River's Language",
+      "genre": "personal narrative",
+      "word_count": 0,
+      "text": "The first time I paddled the Clearwater River with my aunt Rosa, I spent most of the trip staring at the bow of my kayak. Rosa, {{1|who has guided rafting trips for twenty years}} kept telling me to look up. \"The river is talking,\" she said. \"You just have to learn {{2|it's}} language.\"\n\nOver the next summer, I began to understand what she meant. Between two submerged rocks {{3|lies}} the safest channel, marked by a smooth V pointing downstream. A V pointing upstream warns of a hidden boulder. Waves that curl back on themselves, called holes, can trap a {{4|boat, even}} a skilled paddler avoids them. Reading these signs {{5|quick}} became a habit; by August I was calling out hazards before Rosa did.\n\n{{6|Kayaks can be made of plastic, fiberglass, or wood.}} Rosa taught me to check the gauge reports each morning, because a river that rises a foot overnight {{7|can, in a very short amount of time, transform}} a gentle stretch into a dangerous one. She kept a notebook of water levels going back a decade, and she could predict, almost to the hour, when the spring melt would peak.\n\nOn my last trip of the season, Rosa let me lead. I chose our line through every rapid, and twice I steered us around holes {{8|that were near the left bank.}} {{9|Watching me pick a line through the last rapid, a grin spread across Rosa's face.}} At the take-out, she handed me her notebook. \"You'll need this more than I will,\" she said. {{10|I still have it.}} {{11|Its pages are filled with numbers, and in every one I can hear the river talking.}}"
+    }
+  ],
+  "candidates": [
+    {
+      "cand": "E002-01", "passage_id": "CLD-P-ACT-E-000002", "underline": 1,
+      "reporting_category": "Conventions of Standard English", "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonessential clause", "repo_skill_key": "act_punctuation", "difficulty": "easy",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "who, has guided rafting trips for twenty years", "C": "who has guided, rafting trips for twenty years,", "D": "who has guided rafting trips for twenty years,"},
+      "answer": "D",
+      "evidence": "Rosa, who has guided rafting trips for twenty years kept telling me to look up.",
+      "explanation": "The clause \"who has guided rafting trips for twenty years\" adds nonessential information about Rosa. It opens with a comma after \"Rosa,\" so it must close with a comma before the verb \"kept.\"",
+      "distractors": {
+        "A": {"rationale": "Without the closing comma, the nonessential clause runs into the main verb \"kept.\"", "trap": null},
+        "B": {"rationale": "A comma between \"who\" and its verb splits the clause apart.", "trap": null},
+        "C": {"rationale": "A comma between the verb \"has guided\" and its object \"rafting trips\" is incorrect.", "trap": null}
+      },
+      "hints": ["The clause about Rosa begins with a comma. What does it need at its end?", "Nonessential clauses are set off on both sides."],
+      "strategy": {"key": "process_of_elimination", "explanation": "Match the opening comma with a closing one; reject commas that split a verb from its subject or object."},
+      "remember": "Open a nonessential clause with a comma, close it with one too.",
+      "expected_time_seconds": 30, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-02", "passage_id": "CLD-P-ACT-E-000002", "underline": 2,
+      "reporting_category": "Conventions of Standard English", "skill": "Conventions of Standard English",
+      "subskill": "Its versus it's", "repo_skill_key": "act_usage", "difficulty": "easy",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "its'", "C": "its", "D": "their"},
+      "answer": "C",
+      "evidence": "You just have to learn it's language.",
+      "explanation": "The sentence needs the possessive pronoun for the river's language, which is \"its\" with no apostrophe. \"It's\" means \"it is.\"",
+      "distractors": {
+        "A": {"rationale": "\"It's\" is the contraction of \"it is\": \"learn it is language\" makes no sense.", "trap": null},
+        "B": {"rationale": "\"Its'\" is not a word in standard English.", "trap": null},
+        "D": {"rationale": "\"Their\" is plural, but it refers to the singular \"river.\"", "trap": null}
+      },
+      "hints": ["Try reading the underlined word as \"it is.\"", "Possessive pronouns never use apostrophes."],
+      "strategy": {"key": "process_of_elimination", "explanation": "Expand \"it's\" to \"it is\"; if that fails, use the possessive \"its.\""},
+      "remember": "It's = it is; its = belonging to it.",
+      "expected_time_seconds": 20, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-03", "passage_id": "CLD-P-ACT-E-000002", "underline": 3,
+      "reporting_category": "Conventions of Standard English", "skill": "Conventions of Standard English",
+      "subskill": "Agreement in an inverted sentence (lie/lay)", "repo_skill_key": "act_usage", "difficulty": "hard",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "lie", "C": "lay", "D": "are lying"},
+      "answer": "A",
+      "evidence": "Between two submerged rocks lies the safest channel, marked by a smooth V pointing downstream.",
+      "explanation": "The sentence is inverted: its subject comes after the verb. The subject is \"the safest channel,\" which is singular, so the verb is \"lies\" (present tense of \"to lie,\" meaning to be located). \"Rocks\" is in the introductory prepositional phrase and is not the subject.",
+      "distractors": {
+        "B": {"rationale": "\"Lie\" agrees with \"rocks,\" but \"rocks\" is inside the phrase \"Between two submerged rocks\"; the subject is \"channel.\"", "trap": "nearest_noun_agreement"},
+        "C": {"rationale": "\"Lay\" is the past tense of \"lie\" (or the present of \"to lay,\" which needs an object); the paragraph describes how the river works in the present.", "trap": null},
+        "D": {"rationale": "\"Are lying\" is plural and does not agree with the singular subject \"channel.\"", "trap": "nearest_noun_agreement"}
+      },
+      "hints": ["Find the subject: what lies between the rocks?", "Is the subject singular or plural?"],
+      "strategy": {"key": "process_of_elimination", "explanation": "Flip the sentence: \"The safest channel lies between two submerged rocks.\" The singular present verb fits."},
+      "remember": "In inverted sentences, find the subject after the verb.",
+      "expected_time_seconds": 40, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-04", "passage_id": "CLD-P-ACT-E-000002", "underline": 4,
+      "reporting_category": "Conventions of Standard English", "skill": "Conventions of Standard English",
+      "subskill": "Comma splices", "repo_skill_key": "act_sentence_structure", "difficulty": "medium",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "boat, so even", "C": "boat even", "D": "boat, and, even"},
+      "answer": "B",
+      "evidence": "can trap a boat, even a skilled paddler avoids them",
+      "explanation": "\"Waves … can trap a boat\" and \"even a skilled paddler avoids them\" are both complete sentences. Joining them needs a comma plus a coordinating conjunction. \"So\" also shows the logical relationship: because holes can trap a boat, paddlers avoid them.",
+      "distractors": {
+        "A": {"rationale": "A comma alone between two complete sentences creates a comma splice.", "trap": "comma_splice"},
+        "C": {"rationale": "With no punctuation or conjunction, the two sentences run together.", "trap": "comma_splice"},
+        "D": {"rationale": "A comma after \"and\" incorrectly separates the conjunction from the clause it introduces.", "trap": null}
+      },
+      "hints": ["Are the parts before and after the comma each complete sentences?", "What connects two complete sentences with a comma?"],
+      "strategy": {"key": "process_of_elimination", "explanation": "Two independent clauses need a comma + FANBOYS (or a semicolon); only B provides it correctly."},
+      "remember": "Comma + conjunction joins two complete sentences.",
+      "expected_time_seconds": 35, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true, "note": "no semicolon option offered, so exactly one correct choice"}
+    },
+    {
+      "cand": "E002-05", "passage_id": "CLD-P-ACT-E-000002", "underline": 5,
+      "reporting_category": "Conventions of Standard English", "skill": "Conventions of Standard English",
+      "subskill": "Adjectives versus adverbs", "repo_skill_key": "act_usage", "difficulty": "easy",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "quicker", "C": "more quick", "D": "quickly"},
+      "answer": "D",
+      "evidence": "Reading these signs quick became a habit",
+      "explanation": "The word describes how the narrator read the signs (the verb \"reading\"), so it must be the adverb \"quickly.\"",
+      "distractors": {
+        "A": {"rationale": "\"Quick\" is an adjective; it cannot modify the verb \"reading.\"", "trap": null},
+        "B": {"rationale": "\"Quicker\" is a comparative adjective, and nothing is being compared.", "trap": null},
+        "C": {"rationale": "\"More quick\" is a nonstandard comparative and still an adjective.", "trap": null}
+      },
+      "hints": ["What does the underlined word describe: a thing or an action?", "Words that describe actions usually end in -ly."],
+      "strategy": {"key": "process_of_elimination", "explanation": "The word modifies a verb, so it must be an adverb."},
+      "remember": "Adverbs modify verbs.",
+      "expected_time_seconds": 20, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-06", "passage_id": "CLD-P-ACT-E-000002", "underline": 6,
+      "reporting_category": "Production of Writing", "skill": "Production of Writing",
+      "subskill": "Transitional sentences between paragraphs", "repo_skill_key": "act_rhetorical_skills", "difficulty": "medium",
+      "stem": "Which choice provides the most effective transition from the preceding paragraph to this one?",
+      "choices": {"A": "NO CHANGE", "B": "The Clearwater River flows for about 120 miles.", "C": "Not every lesson came from the water itself, though.", "D": "Rosa also taught me how to cook over a campfire."},
+      "answer": "C",
+      "evidence": "Rosa taught me to check the gauge reports each morning",
+      "explanation": "The preceding paragraph describes reading signs on the water; this paragraph describes lessons from gauge reports and Rosa's notebook. \"Not every lesson came from the water itself, though\" links the two by marking the shift from on-river signs to off-river information.",
+      "distractors": {
+        "A": {"rationale": "A fact about kayak materials connects to neither paragraph's focus.", "trap": "true_but_irrelevant"},
+        "B": {"rationale": "The river's length is unrelated to the shift from reading the water to checking reports.", "trap": "true_but_irrelevant"},
+        "D": {"rationale": "This introduces another lesson, but cooking has nothing to do with the gauge reports and notebook that the paragraph discusses.", "trap": "out_of_scope"}
+      },
+      "hints": ["What is each paragraph about?", "Which sentence bridges those two topics?"],
+      "strategy": {"key": "predict_then_match", "explanation": "Predict a bridge such as \"Other lessons came from data, not the water,\" then match."},
+      "remember": "A transition sentence links the old topic to the new one.",
+      "expected_time_seconds": 40, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-07", "passage_id": "CLD-P-ACT-E-000002", "underline": 7,
+      "reporting_category": "Knowledge of Language", "skill": "Knowledge of Language",
+      "subskill": "Concision and redundancy", "repo_skill_key": "act_rhetorical_skills", "difficulty": "easy",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "can, very quickly and in a short time, transform", "C": "can transform, in a short amount of time,", "D": "can transform"},
+      "answer": "D",
+      "evidence": "a river that rises a foot overnight",
+      "explanation": "The sentence already says the river rises \"overnight,\" so phrases about a short amount of time are redundant. \"Can transform\" is clear and concise.",
+      "distractors": {
+        "A": {"rationale": "\"In a very short amount of time\" repeats the idea already given by \"overnight.\"", "trap": "wordy_redundant"},
+        "B": {"rationale": "\"Very quickly and in a short time\" repeats the same idea twice, on top of \"overnight.\"", "trap": "wordy_redundant"},
+        "C": {"rationale": "This still repeats the time idea and separates the verb from its object.", "trap": "wordy_redundant"}
+      },
+      "hints": ["Does the sentence already tell how fast the change happens?", "Choose the version without repeated ideas."],
+      "strategy": {"key": "concise_is_correct", "explanation": "All choices are grammatical; the shortest keeps the meaning without repetition."},
+      "remember": "Cut words that repeat what the sentence already says.",
+      "expected_time_seconds": 25, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-08", "passage_id": "CLD-P-ACT-E-000002", "underline": 8,
+      "reporting_category": "Production of Writing", "skill": "Production of Writing",
+      "subskill": "Supporting a claim with detail", "repo_skill_key": "act_rhetorical_skills", "difficulty": "medium",
+      "stem": "Which choice best supports the idea that the narrator had learned to read the river well?",
+      "choices": {"A": "NO CHANGE", "B": "that looked dangerous.", "C": "that she later admitted she hadn't seen.", "D": "while she paddled behind me."},
+      "answer": "C",
+      "evidence": "twice I steered us around holes",
+      "explanation": "Saying that Rosa, an expert guide, had not seen holes that the narrator spotted shows the narrator's skill in reading the river. The other choices give location or general description without showing that skill.",
+      "distractors": {
+        "A": {"rationale": "The holes' location tells where they were, not how well the narrator read the water.", "trap": "true_but_irrelevant"},
+        "B": {"rationale": "\"Looked dangerous\" suggests anyone could see them, which undercuts the point about skill.", "trap": null},
+        "D": {"rationale": "Rosa's position in the boat shows the narrator was leading, but not how well the narrator read the river.", "trap": "true_but_irrelevant"}
+      },
+      "hints": ["What would show that the narrator was good at reading the river?", "Which detail compares the narrator with the expert?"],
+      "strategy": {"key": "read_question_first", "explanation": "The question names the claim; pick the detail that proves skill."},
+      "remember": "Pick the detail that proves the stated claim.",
+      "expected_time_seconds": 35, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-09", "passage_id": "CLD-P-ACT-E-000002", "underline": 9,
+      "reporting_category": "Conventions of Standard English", "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifiers", "repo_skill_key": "act_sentence_structure", "difficulty": "hard",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {"A": "NO CHANGE", "B": "Watching me pick a line through the last rapid, Rosa grinned.", "C": "Rosa's face, watching me pick a line through the last rapid, grinned.", "D": "Watching me pick a line through the last rapid, a grin was on Rosa's face."},
+      "answer": "B",
+      "evidence": "Watching me pick a line through the last rapid, a grin spread across Rosa's face.",
+      "explanation": "The opening phrase \"Watching me pick a line through the last rapid\" must describe the person doing the watching, Rosa. Only B places \"Rosa\" right after the phrase. In the original, the phrase seems to describe \"a grin.\"",
+      "distractors": {
+        "A": {"rationale": "The modifier dangles: it says a grin was watching the narrator.", "trap": "misplaced_modifier"},
+        "C": {"rationale": "This says Rosa's face was watching and grinning, which is illogical.", "trap": "misplaced_modifier"},
+        "D": {"rationale": "The phrase still modifies \"a grin,\" not Rosa.", "trap": "misplaced_modifier"}
+      },
+      "hints": ["Who was watching the narrator?", "That person should come right after the opening phrase."],
+      "strategy": {"key": "process_of_elimination", "explanation": "Check the noun right after the comma in each choice; only \"Rosa\" can be watching."},
+      "remember": "An opening modifier describes the noun right after the comma.",
+      "expected_time_seconds": 35, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-10", "passage_id": "CLD-P-ACT-E-000002", "underline": 10,
+      "reporting_category": "Production of Writing", "skill": "Production of Writing",
+      "subskill": "Keeping or deleting a sentence", "repo_skill_key": "act_rhetorical_skills", "difficulty": "medium",
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {"A": "Kept, because it explains why Rosa decided to give away her notebook.", "B": "Kept, because it links the gift to the present and prepares for the final sentence about the notebook's pages.", "C": "Deleted, because it repeats the information in the previous sentence.", "D": "Deleted, because it shifts the focus away from the narrator's relationship with the river."},
+      "answer": "B",
+      "evidence": "I still have it.",
+      "explanation": "\"I still have it\" brings the story from the past into the present and sets up the final sentence, which describes the notebook's pages now. Without it, the shift to the present tense in the last sentence would be abrupt.",
+      "distractors": {
+        "A": {"rationale": "The sentence says nothing about Rosa's reasons for giving the notebook away.", "trap": "out_of_scope"},
+        "C": {"rationale": "The previous sentence is Rosa's quotation; \"I still have it\" adds new information.", "trap": null},
+        "D": {"rationale": "The notebook is part of the narrator's connection to the river, so the sentence keeps that focus.", "trap": null}
+      },
+      "hints": ["What would the reader lose if this sentence were removed?", "How does it connect to the sentence that follows?"],
+      "strategy": {"key": "locate_evidence", "explanation": "Read the paragraph without the sentence; the jump to the notebook's present-day pages becomes abrupt."},
+      "remember": "Keep sentences that bridge to what follows.",
+      "expected_time_seconds": 40, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    },
+    {
+      "cand": "E002-11", "passage_id": "CLD-P-ACT-E-000002", "underline": 11,
+      "reporting_category": "Production of Writing", "skill": "Production of Writing",
+      "subskill": "Conclusions that echo the opening", "repo_skill_key": "act_rhetorical_skills", "difficulty": "medium",
+      "stem": "Which choice most effectively concludes the essay by connecting to its opening paragraph?",
+      "choices": {"A": "NO CHANGE", "B": "The notebook's cover is made of faded green canvas.", "C": "Rosa retired from guiding two years later.", "D": "Many rivers in the region are popular with kayakers."},
+      "answer": "A",
+      "evidence": "\"The river is talking,\" she said.",
+      "explanation": "The essay opens with Rosa saying \"The river is talking.\" The original final sentence echoes that line: the narrator can now hear the river in the notebook's numbers. That closes the essay's arc of learning the river's language.",
+      "distractors": {
+        "B": {"rationale": "A physical description of the notebook does not connect to the opening idea.", "trap": "true_but_irrelevant"},
+        "C": {"rationale": "Rosa's retirement is new information that does not echo the opening.", "trap": "out_of_scope"},
+        "D": {"rationale": "A general fact about the region is unrelated to the essay's personal arc.", "trap": "out_of_scope"}
+      },
+      "hints": ["Reread the first paragraph. What memorable line does Rosa say?", "Which choice echoes it?"],
+      "strategy": {"key": "locate_evidence", "explanation": "Find the opening's key phrase, then pick the choice that returns to it."},
+      "remember": "Strong endings often echo the opening.",
+      "expected_time_seconds": 30, "modeling": false,
+      "author_checklist": {"solved_independently": true, "single_correct": true}
+    }
+  ]
+}

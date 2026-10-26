@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:49:17+00:00",
+  "updated_at": "2026-10-26T18:52:12+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 208,
-    "act_english": 0,
+    "act_english": 10,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 0,
-      "REVISE": 0,
+      "PASS": 10,
+      "REVISE": 1,
       "REJECT": 0,
-      "candidates": 0,
+      "candidates": 11,
       "passed_after_revision": 0
     },
     "act_reading": {
@@ -278,13 +278,13 @@
       },
       "by_difficulty_calibrated": {
         "easy": 52,
-        "hard": 27,
-        "medium": 129
+        "hard": 36,
+        "medium": 120
       },
       "calibrated_share": {
         "easy": 0.25,
-        "hard": 0.13,
-        "medium": 0.62
+        "hard": 0.173,
+        "medium": 0.577
       },
       "answer_key_balance": {
         "A": 53,
@@ -296,15 +296,44 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 0,
-      "by_skill": {},
-      "by_subskill": {},
-      "by_difficulty_author": {},
-      "by_difficulty_calibrated": {},
-      "calibrated_share": {},
-      "answer_key_balance": {},
+      "accepted": 10,
+      "by_skill": {
+        "Conventions of Standard English": 4,
+        "Knowledge of Language": 1,
+        "Production of Writing": 5
+      },
+      "by_subskill": {
+        "Adding a sentence: relevance and focus": 1,
+        "Commas around a nonessential phrase": 1,
+        "Concision and redundancy": 1,
+        "Effective conclusions": 1,
+        "Keeping or deleting a sentence": 1,
+        "Logical comparison": 1,
+        "Participial phrases and sentence boundaries": 1,
+        "Relevance to a stated purpose": 1,
+        "Subject-verb agreement with a gerund subject": 1,
+        "Transitions: contrast": 1
+      },
+      "by_difficulty_author": {
+        "easy": 4,
+        "hard": 1,
+        "medium": 5
+      },
+      "by_difficulty_calibrated": {
+        "easy": 7,
+        "medium": 3
+      },
+      "calibrated_share": {
+        "easy": 0.7,
+        "medium": 0.3
+      },
+      "answer_key_balance": {
+        "A": 6,
+        "B": 3,
+        "C": 1
+      },
       "modeling_items": 0,
-      "passages": 0
+      "passages": 1
     },
     "act_reading": {
       "accepted": 0,
@@ -331,7 +360,7 @@
   },
   "last_completed_batch": {
     "act_math": 21,
-    "act_english": 0,
+    "act_english": 1,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
@@ -356,8 +385,8 @@
       },
       "calibrated_difficulty_gap_for_next_10": {
         "easy": 2.5,
-        "medium": -20.0,
-        "hard": 27.5
+        "medium": -11.0,
+        "hard": 18.5
       },
       "answer_key_gap_for_next_10": {
         "A": 1.5,
@@ -368,6 +397,14 @@
     }
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 2,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 3.1,
+        "Knowledge of Language": 3.1,
+        "Conventions of Standard English": 4.1
+      }
+    },
     "act_reading": {
       "next_batch": 1,
       "skill_gap_for_next_10": {
@@ -384,14 +421,6 @@
         "Standard English Conventions": 2.6,
         "Expression of Ideas": 2.0
       }
-    },
-    "act_english": {
-      "next_batch": 1,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.1,
-        "Knowledge of Language": 2.0,
-        "Conventions of Standard English": 4.1
-      }
     }
   },
   "section_targets": {
@@ -402,8 +431,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 0,
-      "share_of_target": 0.0
+      "accepted": 10,
+      "share_of_target": 0.014
     },
     "act_reading": {
       "target": 600,
@@ -417,9 +446,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 208,
+  "total_accepted": 218,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -598,6 +627,19 @@
       ],
       "subskills_used_more_than_twice": {},
       "scope": "automatic audit at 208 accepted"
+    },
+    {
+      "scope": "200-item audit summary (written review of the automatic audit at 208, act_math)",
+      "date": "2026-10-26",
+      "findings": [
+        "Duplicates: no pair at or above 0.6. The highest pairs (0.57: 000021/000122 transformations; 0.53: 000031/000181 \"set of all real solutions\") share phrasing and topic, but the operations differ (single shift vs compression+reflection; radical vs absolute value). Logged in each draft dup_note; no action.",
+        "Answer keys at 208: A 53, B 53, C 55, D 47. Balanced to within 4 of an even split.",
+        "Explanations: 18 items under the length threshold. Spot-checked; all are one-step items with complete explanations, so this is a threshold artifact.",
+        "Difficulty: a third whole-bank rater (2026-10-26c, 208 items) gave 42 easy / 113 medium / 53 hard. Using the median of all independent ratings, calibrated difficulty is 52 easy / 120 medium / 36 hard (17.3% hard; 13.6% at the 100 audit). Author labels said 92 hard, so the author still overrates hardness about 2.5x. Hard items rated hard by most raters: tangent-chord, root location, reflection path, tangent circles, common tangents, divisor pairing, parity constraints, |x−a|+|x−b|, trig thresholds, 3^x = 2^(x+1), multi-constraint lists.",
+        "Answer agreement: rater 2026-10-26c recorded C for CLD-ACT-M-000130 (key A, −40°). Its own stated method (\"set F = C and solve\") gives −40, as do the scripted check and the batch blind solver, so this is a transcription slip by the rater. Key confirmed.",
+        "Process: 2 items passed after revision (B013-03 relabelled; B020-07 rewritten after a blind solver showed a naive method also reached the key). 2 rejected (fixture duplicates in batch 1).",
+        "Section policy: ACT Math reached 200, so per next_bank the verbal banks now get batches until their share of target catches up (about 10% each)."
+      ]
     }
   ],
   "files": {
@@ -610,7 +652,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 0,
+      "bank_version": 1,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -642,12 +684,17 @@
       "date": "2026-10-26",
       "bank": "act_math",
       "summary": "All 48 accepted items were re-rated by an independent rubric rater (answer-free). Author labels: 12 easy / 24 medium / 12 hard. Calibrated: 14 / 25 / 9. Changes: 5 hard to medium, 3 medium to easy, 2 medium to hard, 1 easy to medium. The rater also solved every item, and all 48 answers match the keys. Accepted records are unchanged; calibrated labels are in calibration/act_math.json and drive targeting and the import export difficulty. From batch 6 on, the blind solver applies the same rubric (v2), and a hard-labelled item rated easy goes to REVISE."
+    },
+    {
+      "date": "2026-10-26",
+      "bank": "act_math",
+      "summary": "Calibration now uses tools/calibrate.py: the median of every independent rating (per-batch blind solver plus three rater files). At 208 items: 52 easy / 120 medium / 36 hard."
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:49:17+00:00",
+    "heartbeat_at": "2026-10-26T18:52:12+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
