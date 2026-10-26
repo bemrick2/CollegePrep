@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T23:46:12+00:00",
+  "updated_at": "2026-10-26T23:47:13+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 611,
+    "act_math": 621,
     "act_english": 213,
     "act_reading": 178,
     "sat_reading_writing": 207
   },
   "review_totals": {
     "act_math": {
-      "PASS": 626,
+      "PASS": 636,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 631,
+      "candidates": 641,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,20 +52,21 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 611,
+      "accepted": 621,
       "retired_after_audit": 15,
       "by_skill": {
-        "Algebra": 113,
-        "Functions": 97,
-        "Geometry": 141,
+        "Algebra": 115,
+        "Functions": 99,
+        "Geometry": 143,
         "Integrating Essential Skills": 87,
-        "Number & Quantity": 74,
-        "Statistics & Probability": 99
+        "Number & Quantity": 76,
+        "Statistics & Probability": 101
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
         "Absolute value as distance": 1,
         "Absolute value equations with an extraneous branch": 1,
+        "Absolute value graph from symmetric points": 1,
         "Absolute value inequality as an interval": 1,
         "Absolute value of numerical expressions": 1,
         "Absolute-value inequality for a tolerance": 1,
@@ -197,6 +198,7 @@
         "Converting odds to a probability": 1,
         "Converting square units": 1,
         "Counting codes with a restricted first digit": 1,
+        "Counting codes with and without repetition": 1,
         "Counting committees with at least one from each group": 1,
         "Counting diagonals of a polygon": 1,
         "Counting divisors (perfect squares)": 1,
@@ -317,10 +319,12 @@
         "Geometric probability with concentric circles": 1,
         "Geometric sequences in context": 1,
         "Greatest common divisor in context": 1,
+        "Greatest common factor from prime factorizations": 1,
         "Greatest common factor of monomials": 1,
         "Greatest least value under mean, median and mode constraints": 1,
         "Greatest possible value with mean and median constraints": 1,
         "Group size from a combined mean": 1,
+        "Height from two angles of elevation": 1,
         "Horizontal asymptote of an exponential function": 1,
         "Horizontal asymptotes of rational functions": 1,
         "Horizontal compression of a function": 1,
@@ -395,6 +399,7 @@
         "Matrix addition and scalar multiplication": 1,
         "Matrix multiplication": 1,
         "Maximum height of a projectile model": 1,
+        "Maximum value of a sinusoidal function": 1,
         "Mean after adding position numbers": 1,
         "Mean after dropping the lowest score": 1,
         "Mean and total": 1,
@@ -467,6 +472,7 @@
         "Point on a circle from its equation": 1,
         "Point one-third of the way along a number line": 1,
         "Polynomial remainder theorem": 1,
+        "Power function through a point": 1,
         "Powers of i": 1,
         "Prime factorization and perfect powers": 1,
         "Probability from a frequency table": 1,
@@ -481,6 +487,7 @@
         "Probability of at least one of two independent events": 1,
         "Probability of at least two heads": 1,
         "Probability of distinct digits": 1,
+        "Probability of drawing a vowel from letter tiles": 1,
         "Probability of exactly k successes without replacement": 1,
         "Probability of first success on a given trial": 1,
         "Probability of selecting a matched pair": 1,
@@ -490,6 +497,7 @@
         "Probability that a specific person is chosen": 1,
         "Probability that a sum of two dice is prime": 1,
         "Probability that at least two share a category": 1,
+        "Probability that the first success comes after a given trial": 1,
         "Probability that three rolls are all different": 1,
         "Probability with arrangements of repeated letters": 1,
         "Product of solutions of a simple system": 1,
@@ -573,6 +581,7 @@
         "Solid of revolution (cone)": 1,
         "Solving a formula for a variable": 1,
         "Solving a monthly bill for usage": 1,
+        "Solving a proportion": 1,
         "Solving a proportion between two variables": 1,
         "Solving a reciprocal formula for a variable": 1,
         "Solving a system by elimination": 1,
@@ -656,6 +665,7 @@
         "Volume of a sphere": 1,
         "Volume of a sphere from its surface area": 1,
         "Volume of a triangular prism": 1,
+        "Volume of an open box from cut corners": 1,
         "Volume scaling in cones (frustum)": 1,
         "Volumes of similar solids": 1,
         "Weighted grade-point average": 1,
@@ -675,27 +685,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 160,
-        "hard": 191,
-        "medium": 260
+        "easy": 163,
+        "hard": 193,
+        "medium": 265
       },
       "by_difficulty_calibrated": {
-        "easy": 204,
+        "easy": 208,
         "hard": 78,
-        "medium": 329
+        "medium": 335
       },
       "calibrated_share": {
-        "easy": 0.334,
-        "hard": 0.128,
-        "medium": 0.538
+        "easy": 0.335,
+        "hard": 0.126,
+        "medium": 0.539
       },
       "answer_key_balance": {
-        "A": 139,
-        "B": 172,
-        "C": 169,
-        "D": 131
+        "A": 141,
+        "B": 174,
+        "C": 172,
+        "D": 134
       },
-      "modeling_items": 129,
+      "modeling_items": 130,
       "passages": 0
     },
     "act_english": {
@@ -1169,41 +1179,49 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 63,
+    "act_math": 64,
     "act_english": 21,
     "act_reading": 22,
     "sat_reading_writing": 23
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 64,
+      "next_batch": 65,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -5.7,
-        "Algebra": 1.9,
-        "Functions": 17.9,
-        "Geometry": -26.1,
-        "Statistics & Probability": -15.2,
-        "Integrating Essential Skills": 37.2
+        "Number & Quantity": -6.6,
+        "Algebra": 1.7,
+        "Functions": 17.7,
+        "Geometry": -26.3,
+        "Statistics & Probability": -15.8,
+        "Integrating Essential Skills": 39.2
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -48.8,
-        "medium": -18.5,
-        "hard": 77.2
+        "easy": -50.2,
+        "medium": -19.5,
+        "hard": 79.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 16.2,
-        "B": -16.8,
-        "C": -13.8,
-        "D": 24.2
+        "A": 16.8,
+        "B": -16.2,
+        "C": -14.2,
+        "D": 23.8
       }
     }
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 22,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 21.3,
+        "Knowledge of Language": 15.7,
+        "Conventions of Standard English": -23.7
+      }
+    },
     "act_reading": {
       "next_batch": 23,
       "skill_gap_for_next_10": {
@@ -1220,21 +1238,13 @@
         "Standard English Conventions": 5.4,
         "Expression of Ideas": -1.6
       }
-    },
-    "act_english": {
-      "next_batch": 22,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 21.3,
-        "Knowledge of Language": 15.7,
-        "Conventions of Standard English": -23.7
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 611,
-      "share_of_target": 0.305
+      "accepted": 621,
+      "share_of_target": 0.31
     },
     "act_english": {
       "target": 700,
@@ -1253,7 +1263,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1209,
+  "total_accepted": 1219,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -47450,7 +47460,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 63,
+      "bank_version": 64,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -47587,7 +47597,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-26T23:46:12+00:00",
+    "heartbeat_at": "2026-10-26T23:47:13+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

@@ -38,9 +38,8 @@ def c06(ch):
 
 
 def c07(ch):
-    hits = [k for k, v in ch.items() if v.startswith('Selecting 100 students at random')]
-    assert len(hits) == 1
-    return hits[0]
+    word = 'MATHEMATICS'
+    return pick(ch, F(sum(1 for c in word if c in 'AEIOU'), len(word)))
 
 
 def c08(ch):

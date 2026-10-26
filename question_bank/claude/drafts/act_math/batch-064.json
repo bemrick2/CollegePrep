@@ -277,40 +277,40 @@
    "cand": "B064-07",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Statistics & Probability",
-   "subskill": "Choosing a representative sampling method",
+   "subskill": "Probability of drawing a vowel from letter tiles",
    "repo_skill_key": "act_statistics_probability",
    "difficulty": "medium",
-   "stem": "A school wants to estimate the average number of hours its 1,200 students sleep on school nights. Which of the following sampling methods is most likely to produce a representative sample?",
+   "stem": "Each letter of the word MATHEMATICS is written on a separate tile, and the 11 tiles are placed in a bag. If one tile is drawn at random, what is the probability that it shows a vowel (A, E, I, O or U)?",
    "choices": {
-    "A": "Selecting 100 students at random from a list of all students",
-    "B": "Surveying the first 100 students who arrive at school one morning",
-    "C": "Surveying 100 members of the school's sports teams",
-    "D": "Asking for 100 volunteers through an online post"
+    "A": "3/11",
+    "B": "4/11",
+    "C": "4/7",
+    "D": "7/11"
    },
-   "answer": "A",
-   "explanation": "Random selection from the whole population gives every student the same chance of being chosen, which avoids systematic bias.",
+   "answer": "B",
+   "explanation": "The vowels among the 11 tiles are A, E, A and I: 4 tiles. The probability is 4/11.",
    "distractors": {
-    "B": {
-     "rationale": "Students who arrive first may sleep differently from others, so the sample is biased.",
+    "A": {
+     "rationale": "3/11 counts the distinct vowels (A, E, I) instead of the tiles, missing the second A.",
      "trap": null
     },
     "C": {
-     "rationale": "Athletes are a subgroup whose sleep habits may differ from the whole school.",
+     "rationale": "4/7 divides the 4 vowel tiles by the 7 consonant tiles instead of all 11.",
      "trap": null
     },
     "D": {
-     "rationale": "Volunteers choose themselves, which tends to bias the sample.",
-     "trap": null
+     "rationale": "7/11 is the probability of drawing a consonant.",
+     "trap": "wrong_quantity"
     }
    },
    "hints": [
-    "Does every student have an equal chance of being chosen?"
+    "Count every vowel tile, including repeated letters."
    ],
    "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Eliminate methods that favor a subgroup."
+    "key": "draw_it_out",
+    "explanation": "Write out M-A-T-H-E-M-A-T-I-C-S and circle the vowels."
    },
-   "remember": "A random sample from the whole population avoids bias.",
+   "remember": "Count outcomes, not distinct letters, when letters repeat.",
    "expected_time_seconds": 35,
    "modeling": false,
    "author_checklist": {

@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 63,
+  "bank_version": 64,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -10685,6 +10685,176 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Count committees with 2 women and with 3 women."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000627",
+      "correct_answer": "C",
+      "explanation": "sin x is at most 1, so y is at most 3(1) + 2 = 5.",
+      "distractor_explanations": {
+        "A": "2 is the midline value, where sin x = 0.",
+        "B": "3 is the amplitude, not the maximum.",
+        "D": "6 multiplies the amplitude by 2 instead of adding 2."
+      },
+      "hints": [
+        "What is the largest value of sin x ?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute sin x = 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000628",
+      "correct_answer": "D",
+      "explanation": "Each letter position has 26 choices (repeats allowed): 26³. The digits must differ: 10 · 9 · 8. Multiply the counts for independent positions.",
+      "distractor_explanations": {
+        "A": "26³ · 10³ allows the digits to repeat.",
+        "B": "26 · 25 · 24 forbids repeated letters, which are allowed.",
+        "C": "Adding the counts instead of multiplying undercounts the combinations."
+      },
+      "hints": [
+        "Which positions allow repeats?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw six slots and fill in the number of choices for each."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000629",
+      "correct_answer": "A",
+      "explanation": "Cross-multiply: 12x = 60, so x = 5.",
+      "distractor_explanations": {
+        "B": "9 = 12 − 3 subtracts instead of setting up a proportion.",
+        "C": "36 = 3 × 12 multiplies the numerators.",
+        "D": "80 = 12 × 20/3 inverts the proportion."
+      },
+      "hints": [
+        "Cross-multiply."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 3/5 = 0.6 and 12/20 = 0.6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000630",
+      "correct_answer": "A",
+      "explanation": "Cutting 3 inches from each end of each side leaves a base of (20 − 6) by (12 − 6) = 14 by 6, and the height is 3. Volume = 14 × 6 × 3 = 252.",
+      "distractor_explanations": {
+        "B": "378 = 14 × 9 × 3 subtracts 3 only once from the 12-inch side.",
+        "C": "459 = 17 × 9 × 3 subtracts 3 only once from each side.",
+        "D": "720 = 20 × 12 × 3 uses the original sheet as the base."
+      },
+      "hints": [
+        "How much does each side of the base shrink?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the sheet with the four squares removed."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000631",
+      "correct_answer": "C",
+      "explanation": "Take the lower power of each shared prime: 2² · 3² = 4 · 9 = 36. (5 and 7 are not shared.)",
+      "distractor_explanations": {
+        "A": "6 = 2 · 3 uses only the first power of each shared prime.",
+        "B": "12 = 2² · 3 takes the lower power of 2 but only one factor of 3.",
+        "D": "108 = 2² · 3³ takes the higher power of 3."
+      },
+      "hints": [
+        "Which primes appear in both numbers, and to what powers?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the smaller exponent of each common prime."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000632",
+      "correct_answer": "B",
+      "explanation": "More than 3 flips are needed exactly when the first 3 flips are all tails: (1/2)³ = 1/8.",
+      "distractor_explanations": {
+        "A": "1/16 is the probability that the first 4 flips are tails.",
+        "C": "1/2 is the probability of tails on a single flip.",
+        "D": "7/8 is the probability that 3 or fewer flips are needed."
+      },
+      "hints": [
+        "What must happen on the first 3 flips?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(T, T, T)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000633",
+      "correct_answer": "B",
+      "explanation": "The vowels among the 11 tiles are A, E, A and I: 4 tiles. The probability is 4/11.",
+      "distractor_explanations": {
+        "A": "3/11 counts the distinct vowels (A, E, I) instead of the tiles, missing the second A.",
+        "C": "4/7 divides the 4 vowel tiles by the 7 consonant tiles instead of all 11.",
+        "D": "7/11 is the probability of drawing a consonant."
+      },
+      "hints": [
+        "Count every vowel tile, including repeated letters."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write out M-A-T-H-E-M-A-T-I-C-S and circle the vowels."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000634",
+      "correct_answer": "C",
+      "explanation": "The triangle formed by A, B and the top of the tower has angles 30° at A and 120° at B, so its third angle is 30° and it is isosceles: the distance from B to the top is 40. Then the height is 40 sin 60° = 20√3.",
+      "distractor_explanations": {
+        "A": "10√3 is half the correct height.",
+        "B": "20 = 40 sin 30° uses the wrong angle.",
+        "D": "40 is the distance from B to the top of the tower, not the height."
+      },
+      "hints": [
+        "What kind of triangle do A, B and the top of the tower form?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both lines of sight and label the angles."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000635",
+      "correct_answer": "D",
+      "explanation": "The graph is symmetric about its vertex x = a, so a is the midpoint of 1 and 7: a = 4. The minimum value is b = 2. Check: |1 − 4| + 2 = 5. So a + b = 6.",
+      "distractor_explanations": {
+        "A": "2 is b alone.",
+        "B": "4 is a alone.",
+        "C": "5 is the y-value of the given points."
+      },
+      "hints": [
+        "Where is the axis of symmetry of an absolute value graph?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the two points and the vertex halfway between them."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000636",
+      "correct_answer": "D",
+      "explanation": "12 = a(2)², so a = 3. Then f(−3) = 3(−3)² = 27.",
+      "distractor_explanations": {
+        "A": "−27 treats (−3)² as −9.",
+        "B": "9 is (−3)², forgetting the coefficient a.",
+        "C": "18 = 6 × 3 uses a = 6 (12 ÷ 2) and multiplies by 3."
+      },
+      "hints": [
+        "Find a first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute (2, 12) to find a."
       }
     }
   ]
