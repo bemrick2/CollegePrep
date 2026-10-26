@@ -353,6 +353,26 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expire(r1)
   })
 
+  it('T12 (#291 client) LiveSource reads the live check, its progress and the allowed kinds from the real server', async () => {
+    const bm = await student2.startBenchmark(sid2, 'mini', 'sat')
+    const opts = await student2.benchmarkOptions(sid2, 'sat')
+    expect(opts).toMatchObject({ open: { id: bm, kind: 'mini' }, initialAllowed: false, miniAllowed: false, fullAllowed: false, reserveAvailable: true })
+    // startedAt is the server's start (expiry minus 4 hours), to the millisecond.
+    expect(Date.parse(opts.open!.startedAt)).toBe(Date.parse(sql(`select to_char(started_at at time zone 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') from public.practice_benchmarks where id = '${bm}'`)))
+    const items = await student2.benchmarkQuestions(bm)
+    const a = await student2.startAttempt(sid2, items[0]!.question.id, null, bm)
+    await pause()
+    await student2.submitAttempt(a, { answer: 'A', activeMs: 5 })
+    const prog = await student2.benchmarkProgress(bm, sid2)
+    expect(prog.map((p) => p.section).sort()).toEqual(['math', 'reading_writing'])
+    expect(prog.reduce((n, p) => n + p.assigned, 0)).toBe(2 * PER)
+    expect(prog.reduce((n, p) => n + p.used, 0)).toBe(1)
+    // A guardian who may view progress reads the same options; one who may not is refused.
+    expect((await new LiveSource(c.VIEWER).benchmarkOptions(sid2, 'sat')).open?.id).toBe(bm)
+    await expect(new LiveSource(c.NOVIEW).benchmarkOptions(sid2, 'sat')).rejects.toThrow()
+    expire(bm)
+  })
+
   it('T11 kind rules on the server, for direct calls too: initial once, mini after a first check and 28 days, full refused; the client reads the same rules', async () => {
     realMiniRules()
     try {
