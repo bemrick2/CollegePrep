@@ -50,7 +50,7 @@ def c05(ch):
 
 
 def c06(ch):
-    return pick(ch, F(120, 360) * 18, conv=lambda t: F(t.rstrip('π') or 1))
+    return pick(ch, 48 * F(6, 4) ** 3)
 
 
 def c07(ch):

@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 60,
+  "bank_version": 61,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -10328,6 +10328,176 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Write a, b, 7, 8, 8 and use the sum."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000597",
+      "correct_answer": "A",
+      "explanation": "x − 3 = 5 gives x = 8, and x − 3 = −5 gives x = −2.",
+      "distractor_explanations": {
+        "B": "8 only ignores the case x − 3 = −5.",
+        "C": "2 and 8 makes a sign error in the negative case.",
+        "D": "−8 and 2 solves |x + 3| = 5 instead."
+      },
+      "hints": [
+        "An absolute value of 5 means the inside is 5 or −5."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check each value in |x − 3|."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000598",
+      "correct_answer": "C",
+      "explanation": "3/8 of 80 is 30, so 80 − 30 = 50 students did not choose math.",
+      "distractor_explanations": {
+        "A": "30 is the number who did choose math.",
+        "B": "45 has no basis in the survey; it may come from 80 − 35.",
+        "D": "75 subtracts only 5 from 80."
+      },
+      "hints": [
+        "What fraction did NOT choose math?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5/8 of 80."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000599",
+      "correct_answer": "D",
+      "explanation": "An angle inscribed in a semicircle is a right angle: it intercepts an arc of 180°, and an inscribed angle is half its arc.",
+      "distractor_explanations": {
+        "A": "30° has no basis; the position of C does not change the angle.",
+        "B": "45° holds only for the two acute angles when C is at the top, not for angle C.",
+        "C": "60° assumes the triangle is equilateral."
+      },
+      "hints": [
+        "What arc does angle ACB intercept?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the diameter and a point on the circle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000600",
+      "correct_answer": "A",
+      "explanation": "The slope is (0 − 4)/(6 − 0) = −2/3, so y = −(2/3)x + 4. Multiplying by 3: 3y = −2x + 12, or 2x + 3y = 12.",
+      "distractor_explanations": {
+        "B": "3x + 2y = 12 has intercepts (4, 0) and (0, 6), swapping x and y.",
+        "C": "2x − 3y = 12 has a positive slope.",
+        "D": "3x + 2y = 6 has intercepts (2, 0) and (0, 3)."
+      },
+      "hints": [
+        "Check which equation both points satisfy."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Substitute (0, 4) and (6, 0) into each choice."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000601",
+      "correct_answer": "C",
+      "explanation": "Each year the value is multiplied by 0.85: 24,000 × 0.85² = 24,000 × 0.7225 = $17,340.",
+      "distractor_explanations": {
+        "A": "$14,400 = 24,000 × 0.60 subtracts 40% in total.",
+        "B": "$16,800 subtracts 30% of the original value, treating the loss as linear.",
+        "D": "$20,400 is the value after only 1 year."
+      },
+      "hints": [
+        "Is 15% taken from the original value each year, or from the current value?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by 0.85 twice."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000602",
+      "correct_answer": "C",
+      "explanation": "The scale factor is 6/4 = 3/2, so volumes scale by (3/2)³ = 27/8. 48 × 27/8 = 162.",
+      "distractor_explanations": {
+        "A": "72 scales the volume by 3/2, the ratio of lengths.",
+        "B": "108 scales the volume by (3/2)² = 9/4, the ratio of areas.",
+        "D": "216 scales by 9/2 instead of 27/8."
+      },
+      "hints": [
+        "How do volumes of similar solids compare?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Volume ratio = (length ratio)³."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000603",
+      "correct_answer": "D",
+      "explanation": "72 = 2³ × 3², so the number of divisors is (3 + 1)(2 + 1) = 12: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72.",
+      "distractor_explanations": {
+        "A": "6 lists only divisors up to 8, or adds the exponents (3 + 2 + 1).",
+        "B": "8 misses several divisors, such as 9 and 18.",
+        "C": "10 misses two divisors, often 1 and 72."
+      },
+      "hints": [
+        "Write 72 as a product of primes."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List divisors in pairs: 1 × 72, 2 × 36, …"
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000604",
+      "correct_answer": "B",
+      "explanation": "Triangle ABC has a right angle at B, legs 6 and 8, and hypotenuse AC = 10. Its area is (1/2)(6)(8) = 24, which also equals (1/2)(10)(h). So h = 4.8.",
+      "distractor_explanations": {
+        "A": "4 has no basis in the figure; it may come from halving 8.",
+        "C": "5 is half of AC, the distance from B to the midpoint of AC, not the shortest distance.",
+        "D": "6 is the length of AB."
+      },
+      "hints": [
+        "The shortest distance is along a perpendicular. How can area help?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the area two ways."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000605",
+      "correct_answer": "B",
+      "explanation": "Let the width be w. Then (w + 2)(w + 6) − w(w + 4) = 40, so 4w + 12 = 40 and w = 7.",
+      "distractor_explanations": {
+        "A": "5 gives an increase of 32 square inches.",
+        "C": "9 gives an increase of 48 square inches.",
+        "D": "11 is the original length, not the width."
+      },
+      "hints": [
+        "Write the new and old areas in terms of w."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try each width and compare areas."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000606",
+      "correct_answer": "C",
+      "explanation": "Of the 36 outcomes, 11 have at least one 6 (6 with the first die a 6, 6 with the second, minus the 1 counted twice). Only (6, 6) has both, so the probability is 1/11.",
+      "distractor_explanations": {
+        "A": "1/36 is the probability of double sixes without the given condition.",
+        "B": "1/12 counts 12 outcomes with a 6, counting (6, 6) twice.",
+        "D": "1/6 assumes the other die is independent of the condition."
+      },
+      "hints": [
+        "How many of the 36 outcomes have at least one 6?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the 6 × 6 grid and shade the row and column for 6."
       }
     }
   ]

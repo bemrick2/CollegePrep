@@ -232,41 +232,41 @@
    "cand": "B061-06",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Geometry",
-   "subskill": "Arc length from a central angle",
+   "subskill": "Volumes of similar solids",
    "repo_skill_key": "act_geometry",
    "difficulty": "medium",
-   "stem": "In a circle with radius 9, a central angle measures 120°. What is the length of the arc that the angle intercepts?",
+   "stem": "Two similar cylinders have heights of 4 centimeters and 6 centimeters. The volume of the smaller cylinder is 48 cubic centimeters. What is the volume of the larger cylinder, in cubic centimeters?",
    "choices": {
-    "A": "3π",
-    "B": "6π",
-    "C": "9π",
-    "D": "27π"
+    "A": "72",
+    "B": "108",
+    "C": "162",
+    "D": "216"
    },
-   "answer": "B",
-   "explanation": "The arc is 120/360 = 1/3 of the circumference 18π: 6π.",
+   "answer": "C",
+   "explanation": "The scale factor is 6/4 = 3/2, so volumes scale by (3/2)³ = 27/8. 48 × 27/8 = 162.",
    "distractors": {
     "A": {
-     "rationale": "3π takes 1/3 of 9π, using the radius instead of the diameter in the circumference.",
+     "rationale": "72 scales the volume by 3/2, the ratio of lengths.",
      "trap": null
     },
-    "C": {
-     "rationale": "9π is half the circumference.",
+    "B": {
+     "rationale": "108 scales the volume by (3/2)² = 9/4, the ratio of areas.",
      "trap": null
     },
     "D": {
-     "rationale": "27π is 1/3 of the area 81π, not of the circumference.",
-     "trap": "wrong_quantity"
+     "rationale": "216 scales by 9/2 instead of 27/8.",
+     "trap": null
     }
    },
    "hints": [
-    "What fraction of the circle is 120°?"
+    "How do volumes of similar solids compare?"
    ],
    "strategy": {
     "key": "translate_to_algebra",
-    "explanation": "(120/360) × 2π(9)."
+    "explanation": "Volume ratio = (length ratio)³."
    },
-   "remember": "Arc length = (angle/360) × circumference.",
-   "expected_time_seconds": 40,
+   "remember": "Similar solids: lengths × k, areas × k², volumes × k³.",
+   "expected_time_seconds": 50,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
