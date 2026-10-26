@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 58,
+ "plan": "2 hard (sum of squares from sum and product, circle minus inscribed square) / 5 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B058-01",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Fuel efficiency from odometer readings",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "At the start of a trip, a car's odometer read 23,480 miles. At the end, it read 23,915 miles. The car used 15 gallons of gasoline on the trip. What was the car's average fuel efficiency, in miles per gallon?",
+   "choices": {
+    "A": "27",
+    "B": "29",
+    "C": "31",
+    "D": "435"
+   },
+   "answer": "B",
+   "explanation": "The trip was 23,915 − 23,480 = 435 miles. 435 ÷ 15 = 29 miles per gallon.",
+   "distractors": {
+    "A": {
+     "rationale": "27 results from subtracting the readings incorrectly (405 miles).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "31 results from a subtraction error of 30 miles in the other direction (465 miles).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "435 is the distance driven, not miles per gallon.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How far was the trip?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Distance ÷ gallons."
+   },
+   "remember": "Miles per gallon = miles driven ÷ gallons used.",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Diagonal of a square from its perimeter",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A square has a perimeter of 36 centimeters. What is the length of a diagonal of the square, in centimeters?",
+   "choices": {
+    "A": "6√2",
+    "B": "9",
+    "C": "9√2",
+    "D": "18"
+   },
+   "answer": "C",
+   "explanation": "Each side is 36 ÷ 4 = 9, so the diagonal is 9√2.",
+   "distractors": {
+    "A": {
+     "rationale": "6√2 uses a side of 6, dividing the perimeter by 6.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "9 is the side length, not the diagonal.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "18 doubles the side instead of multiplying by √2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the side length?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "The diagonal splits the square into two 45°-45°-90° triangles."
+   },
+   "remember": "A square's diagonal is its side times √2.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Linear equation with variables on both sides",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies 2x − 7 = 3x + 4 ?",
+   "choices": {
+    "A": "−11",
+    "B": "−3",
+    "C": "3",
+    "D": "11"
+   },
+   "answer": "A",
+   "explanation": "Subtract 2x from both sides: −7 = x + 4. Subtract 4: x = −11.",
+   "distractors": {
+    "B": {
+     "rationale": "−3 adds 4 to −7 instead of subtracting.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "3 has the wrong sign and adds the constants incorrectly.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "11 has the right size but the wrong sign.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Collect the x-terms on one side."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check 2(−11) − 7 = 3(−11) + 4."
+   },
+   "remember": "Move variables to one side and constants to the other.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Composition with an exponential function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "If f(x) = 2^x and g(x) = x + 3, what is the value of f(g(−1)) ?",
+   "choices": {
+    "A": "2",
+    "B": "7/2",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "C",
+   "explanation": "g(−1) = −1 + 3 = 2, and f(2) = 2² = 4.",
+   "distractors": {
+    "A": {
+     "rationale": "2 is g(−1), the inside value, not f(g(−1)).",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "7/2 is g(f(−1)) = 1/2 + 3, the composition in the wrong order.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "8 = 2³ uses 3 as the exponent instead of g(−1).",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Evaluate the inside function first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute g(−1), then plug the result into f."
+   },
+   "remember": "In f(g(x)), apply g first.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability that three rolls are all different",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A fair six-sided die is rolled 3 times. What is the probability that all three numbers rolled are different?",
+   "choices": {
+    "A": "1/36",
+    "B": "1/6",
+    "C": "5/18",
+    "D": "5/9"
+   },
+   "answer": "D",
+   "explanation": "There are 6³ = 216 outcomes. The number with all different values is 6 × 5 × 4 = 120. 120/216 = 5/9.",
+   "distractors": {
+    "A": {
+     "rationale": "1/36 is the probability that all three numbers are the same.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "1/6 is the probability of one particular number on one roll.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5/18 = 60/216 multiplies 5 × 4 × 3, starting with 5 instead of 6 choices.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many choices does each roll have if it must differ from earlier rolls?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply 6/6 × 5/6 × 4/6."
+   },
+   "remember": "Multiply the probabilities of each step, adjusting for what has already happened.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Distance from a midpoint to an endpoint",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Point A is at (1, 2) and point B is at (7, 10) in the standard (x, y) coordinate plane. What is the distance from the midpoint of segment AB to point A ?",
+   "choices": {
+    "A": "5",
+    "B": "2√13",
+    "C": "10",
+    "D": "25"
+   },
+   "answer": "A",
+   "explanation": "The length of AB is √(6² + 8²) = 10, so the distance from the midpoint to A is half of that: 5. (The midpoint is (4, 6).)",
+   "distractors": {
+    "B": {
+     "rationale": "2√13 is the distance from the origin to the midpoint (4, 6).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10 is the whole length of AB.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "25 is the square of the correct distance.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How does the distance from the midpoint to A compare with AB?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Find AB, then halve it."
+   },
+   "remember": "A midpoint is halfway: half the segment's length from each end.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Products of complex conjugates",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the value of (2 + i)(2 − i) + i², where i = √−1 ?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "B",
+   "explanation": "(2 + i)(2 − i) = 4 − i² = 4 + 1 = 5. Then 5 + i² = 5 − 1 = 4.",
+   "distractors": {
+    "A": {
+     "rationale": "2 computes (2 + i)(2 − i) as 4 − 1 = 3 and then adds i² = −1.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "5 is only the product and ignores the + i².",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "6 treats i² as +1 in the final step.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "What is i²?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply conjugates: a² + b²."
+   },
+   "remember": "i² = −1, so (a + bi)(a − bi) = a² + b².",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B058-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Sum of squares from a sum and a product",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "Two numbers have a sum of 20 and a product of 91. What is the sum of their squares?",
+   "choices": {
+    "A": "182",
+    "B": "218",
+    "C": "309",
+    "D": "400"
+   },
+   "answer": "B",
+   "explanation": "(a + b)² = a² + 2ab + b², so a² + b² = 20² − 2(91) = 400 − 182 = 218. (The numbers are 7 and 13: 49 + 169 = 218.)",
+   "distractors": {
+    "A": {
+     "rationale": "182 is 2ab, the term to be subtracted.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "309 = 400 − 91 subtracts the product once instead of twice.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "400 squares the sum and forgets the 2ab term.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How does (a + b)² relate to a² + b²?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Expand (a + b)²."
+   },
+   "remember": "a² + b² = (a + b)² − 2ab.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use the identity rather than solve for each number; 400 and 309 trap those who misapply the expansion."
+   }
+  },
+  {
+   "cand": "B058-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area between a circle and an inscribed square",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A square is inscribed in a circle with radius 6 centimeters. What is the area, in square centimeters, of the region inside the circle but outside the square?",
+   "choices": {
+    "A": "36π − 144",
+    "B": "144 − 36π",
+    "C": "36π − 36",
+    "D": "36π − 72"
+   },
+   "answer": "D",
+   "explanation": "The square's diagonal is the circle's diameter, 12, so the square's side is 12/√2 = 6√2 and its area is 72. The region's area is 36π − 72.",
+   "distractors": {
+    "A": {
+     "rationale": "36π − 144 uses the diameter, 12, as the square's side; the result is negative.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "144 − 36π is the area inside a square of side 12 but outside a circle inscribed in it, the reverse figure.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "36π − 36 uses the radius, 6, as the square's side.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which length of the square equals the circle's diameter?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the square's diagonal through the center."
+   },
+   "remember": "An inscribed square's diagonal equals the circle's diameter.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognize the diagonal, not the side, matches the diameter; using a side of 12 or 6 is the common error."
+   }
+  },
+  {
+   "cand": "B058-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Standard deviations above the mean",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "Scores on a test have a mean of 70 and a standard deviation of 8. A score of 86 is how many standard deviations above the mean?",
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "8",
+    "D": "16"
+   },
+   "answer": "B",
+   "explanation": "86 − 70 = 16 points above the mean, and 16 ÷ 8 = 2 standard deviations.",
+   "distractors": {
+    "A": {
+     "rationale": "1 would be a score of 78.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 is the size of one standard deviation, not the number of them.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "16 is the number of points above the mean, not standard deviations.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How many points above the mean is 86?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(86 − 70) ÷ 8."
+   },
+   "remember": "Standard deviations above the mean = (value − mean) ÷ SD.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

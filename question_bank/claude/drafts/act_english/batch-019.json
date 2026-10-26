@@ -123,7 +123,7 @@
    "choices": {
     "A": "NO CHANGE",
     "B": "Stargazing has been a popular hobby in many countries for centuries.",
-    "C": "The reason was simple: for the first time in decades, the Milky Way could be seen from Main Street.",
+    "C": "Suddenly, the Milky Way could be seen from Main Street.",
     "D": "Streetlights were first installed in many cities during the 1800s."
    },
    "answer": "C",
@@ -202,55 +202,6 @@
    },
    "remember": "A semicolon can join two closely related complete sentences.",
    "expected_time_seconds": 35,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced"
-   }
-  },
-  {
-   "cand": "E019-05",
-   "passage_id": "CLD-P-ACT-E-000019",
-   "underline": 5,
-   "reporting_category": "Conventions of Standard English",
-   "skill": "Conventions of Standard English",
-   "subskill": "Subject-verb agreement with a collective noun",
-   "repo_skill_key": "act_usage",
-   "difficulty": "medium",
-   "stem": "Which choice is best for the underlined portion?",
-   "choices": {
-    "A": "NO CHANGE",
-    "B": "was",
-    "C": "have been",
-    "D": "are"
-   },
-   "answer": "B",
-   "evidence": "A group of shop owners",
-   "explanation": "The simple subject is \"group,\" a singular noun acting as a unit, and the paragraph is in the past tense: \"was.\"",
-   "distractors": {
-    "A": {
-     "rationale": "The subject is \"group,\" which is singular; \"shop owners\" is in a prepositional phrase.",
-     "trap": "nearest_noun_agreement"
-    },
-    "C": {
-     "rationale": "\"Have\" is plural and does not agree with \"group.\"",
-     "trap": "nearest_noun_agreement"
-    },
-    "D": {
-     "rationale": "\"Are\" is plural and present tense; the passage is in the past tense.",
-     "trap": "nearest_noun_agreement"
-    }
-   },
-   "hints": [
-    "What is the simple subject: \"group\" or \"owners\"?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Cross out \"of shop owners.\""
-   },
-   "remember": "Find the subject before the prepositional phrase.",
-   "expected_time_seconds": 40,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -468,7 +419,7 @@
     "A": "NO CHANGE",
     "B": "Saturn's rings are easiest to see through a telescope on a late-summer night.",
     "C": "Several nearby towns have since passed similar rules about outdoor lighting.",
-    "D": "A change made only to save electricity had given the town something no one planned for: its stars."
+    "D": "Lights chosen to save electricity have given the town its stars."
    },
    "answer": "D",
    "evidence": "were chosen mainly to save electricity",
@@ -503,6 +454,67 @@
     "choice_lengths": "balanced"
    },
    "essay_level": true
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "E019-05",
+   "reason": "Both blind solvers (round 1) answered B with medium confidence and noted that 'a group of shop owners were' is accepted by some usage guides (notional agreement). As with S014-05, an item testing disputed usage is withdrawn rather than resubmitted.",
+   "item": {
+    "cand": "E019-05",
+    "passage_id": "CLD-P-ACT-E-000019",
+    "underline": 5,
+    "reporting_category": "Conventions of Standard English",
+    "skill": "Conventions of Standard English",
+    "subskill": "Subject-verb agreement with a collective noun",
+    "repo_skill_key": "act_usage",
+    "difficulty": "medium",
+    "stem": "Which choice is best for the underlined portion?",
+    "choices": {
+     "A": "NO CHANGE",
+     "B": "was",
+     "C": "have been",
+     "D": "are"
+    },
+    "answer": "B",
+    "evidence": "A group of shop owners",
+    "explanation": "The simple subject is \"group,\" a singular noun acting as a unit, and the paragraph is in the past tense: \"was.\"",
+    "distractors": {
+     "A": {
+      "rationale": "The subject is \"group,\" which is singular; \"shop owners\" is in a prepositional phrase.",
+      "trap": "nearest_noun_agreement"
+     },
+     "C": {
+      "rationale": "\"Have\" is plural and does not agree with \"group.\"",
+      "trap": "nearest_noun_agreement"
+     },
+     "D": {
+      "rationale": "\"Are\" is plural and present tense; the passage is in the past tense.",
+      "trap": "nearest_noun_agreement"
+     }
+    },
+    "hints": [
+     "What is the simple subject: \"group\" or \"owners\"?"
+    ],
+    "strategy": {
+     "key": "process_of_elimination",
+     "explanation": "Cross out \"of shop owners.\""
+    },
+    "remember": "Find the subject before the prepositional phrase.",
+    "expected_time_seconds": 40,
+    "modeling": false,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "choice_lengths": "balanced"
+    }
+   }
+  }
+ ],
+ "revision_log": [
+  {
+   "round": 1,
+   "change": "E019-10 choice D (the key) changed from 'had given' to 'have given' to match the present tense of the final paragraph, after both round-1 solvers noted the tense clash. E019-05 withdrawn. The batch is re-solved blind (round 2)."
   }
  ]
 }
