@@ -1,0 +1,288 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 16,
+  "reviewed_at": "2026-10-26T21:52:05+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 16
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000129",
+    "CLD-ACT-R-000130",
+    "CLD-ACT-R-000131",
+    "CLD-ACT-R-000132",
+    "CLD-ACT-R-000133",
+    "CLD-ACT-R-000134",
+    "CLD-ACT-R-000135",
+    "CLD-ACT-R-000136",
+    "CLD-ACT-R-000137"
+  ],
+  "results": [
+    {
+      "cand": "R016-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "P2: only one kind of light-sensitive cell; P4: blur differences let it infer color 'through optics what its retina cannot detect'. B is the trap (contradicts P2); C overreaches; D mixes in the skin proposal.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: B is a plausible trap for students who miss that para 2 states octopus eyes have only one cell type; it is the intended distractor, which is fine"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Requires linking paragraph 2's requirement (several cell types) to how paragraph 4 bypasses it; B and D blend details from different paragraphs."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000129"
+    },
+    {
+      "cand": "R016-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: distractors A-C are weak/unsupported, so the key stands out easily"
+      ],
+      "blind_notes": "Camera fringes illustrate chromatic blur that the octopus's odd pupil exaggerates and could exploit.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: R016-01 and R016-02 both test the pupil/chromatic-blur idea in para 4; mild overlap but neither gives away the other's key"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000130"
+    },
+    {
+      "cand": "R016-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Skin proposal's stated weakness is single protein type, so several types tuned to different wavelengths would let skin sense color. A (speed) is tempting but doesn't address color; C is pupil; D is texture.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: key reuses para 2 wording 'each tuned to a different range of wavelengths', a lift test-wise students can match to the stated weakness of the skin proposal"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Requires combining the weakness in paragraph 3 with the requirement in paragraph 2; choice A shows light sensing but not color sensing."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000131"
+    },
+    {
+      "cand": "R016-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: key wording 'the puzzle may matter less for survival' is slightly awkward; the passage's point is that exact color matching may be unnecessary, not that the puzzle matters less; still clearly the best choice",
+        "minor: distractors A, B, D are easy to eliminate"
+      ],
+      "blind_notes": "Predators see color poorly, so matching brightness/texture may suffice; color mismatches would go unnoticed.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: 'the puzzle may matter less for survival' is a somewhat abstract paraphrase; the passage's point is that exact color matching may not be needed, which C captures only loosely, though no rival choice is defensible"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000132"
+    },
+    {
+      "cand": "R016-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "P2: 'perform no better than chance' = no better than guessing.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: key is a direct paraphrase of 'no better than chance'; pure detail retrieval"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000133"
+    },
+    {
+      "cand": "R016-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Pupil does the opposite of limiting blurring -> increases it. 'Opposite of limits' makes it very easy.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000134"
+    },
+    {
+      "cand": "R016-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Puzzle (colorblind but color-matching) plus several proposals, none confirmed. A contradicted by P5.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: distractors are easy to eliminate (A contradicts 'neither proposal has been confirmed'; C and D are off topic)"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000135"
+    },
+    {
+      "cand": "R016-08",
+      "revision": 2,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "Time matters (half true) but Maister shows feel matters too: uncertainty, fairness, etc. B overstates fairness; A contradicts 'valuable'.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: B is extreme ('more than any other feature'), so it is easy to eliminate"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000136"
+    },
+    {
+      "cand": "R016-09",
+      "revision": 2,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: key echoes passage framing (how a wait feels vs how long it lasts) closely"
+      ],
+      "blind_notes": "Total time stayed the same; critics say such tactics manage perceptions without shortening waits. B contradicts 'stayed about the same'.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: key closely echoes the critics' own wording ('more bearable without making it any shorter')"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000137"
+    }
+  ]
+}
