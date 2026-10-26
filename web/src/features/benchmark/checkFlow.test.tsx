@@ -2,7 +2,7 @@
 // error path: after an answer is saved, a failure to move on never resubmits it, and an expired check says to start
 // a new one.
 import { describe, expect, it, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { AppProvider } from '../../lib/app'
@@ -159,4 +159,75 @@ describe('check error path', () => {
     expect(screen.queryByText(/already submitted/)).not.toBeInTheDocument()
     expect(src.submits).toBe(2)
   }, 30_000)
+
+  it('a reload mid-check resumes the same check (#279): no fresh questions, and the next one is from its assignment', async () => {
+    const user = userEvent.setup()
+    const store = emptyStore()
+    const src = new DemoSource(store)
+    await openCheck(src)
+    await user.click(await screen.findByRole('button', { name: /^Start / }, { timeout: 8000 }))
+    await user.click((await screen.findAllByRole('radio', {}, { timeout: 8000 }))[0]!)
+    await user.click(screen.getByRole('button', { name: 'Fairly sure' }))
+    // The answer is saved and the next question is shown (not the old radios, still on screen for a moment).
+    await waitFor(() => expect(Object.values(store.checks ?? {})[0]?.used).toHaveLength(2), { timeout: 8000 })
+    await screen.findAllByRole('radio', {}, { timeout: 8000 })
+    const sid = Object.values(store.checks ?? {})[0]!.studentId
+    const [id, before] = Object.entries(store.checks ?? {})[0]!
+    const usedBefore = [...before.used]
+    cleanup()
+    // Reload: a new source over the saved store, the same student signed in.
+    const reloaded = new DemoSource(JSON.parse(JSON.stringify(store)))
+    reloaded.switchPersona(DEMO_STUDENT, 'Riley')
+    render(
+      <MemoryRouter initialEntries={['/student/benchmark']}>
+        <AppProvider source={reloaded}>
+          <App />
+        </AppProvider>
+      </MemoryRouter>,
+    )
+    expect(await screen.findByText('Your progress check is still open', {}, { timeout: 8000 })).toBeInTheDocument()
+    // Wait until the screen has settled (its progress loaded), so the click lands on the button that stays.
+    await screen.findByText(/questions? (is|are) left/, {}, { timeout: 8000 })
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Resume the check' })).toBeEnabled(), { timeout: 8000 })
+    expect(screen.queryByRole('button', { name: /^Start / })).not.toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Resume the check' }))
+    await screen.findAllByRole('radio', {}, { timeout: 8000 })
+    // The counter includes the two questions used before the reload (one answered, one shown).
+    expect(screen.getByText(/3 \/ 3/)).toBeInTheDocument()
+    // Still the one check, its assignment unchanged; the question now shown is an assigned one not used before.
+    const after = (reloaded as unknown as { s: typeof store }).s.checks!
+    expect(Object.keys(after)).toEqual([id])
+    expect(after[id]!.assigned).toEqual(before.assigned)
+    const nowUsed = after[id]!.used.filter((q) => !usedBefore.includes(q))
+    expect(nowUsed).toHaveLength(1)
+    expect(before.assigned.map((a) => a.id)).toContain(nowUsed[0])
+    expect(sid).toBeTruthy()
+  }, 30_000)
+
+  it('when no check may start yet, the page says when the next one opens and offers no Start', async () => {
+    vi.useFakeTimers({ toFake: ['Date'], shouldAdvanceTime: true })
+    vi.setSystemTime(new Date('2026-10-26T12:00:00Z'))
+    const store = emptyStore()
+    const src = new DemoSource(store)
+    src.switchPersona(DEMO_PARENT, 'Jordan')
+    const hh = await src.createHousehold('Home', 'America/Chicago')
+    const sid = await src.addStudent(hh, 'Riley', 2028, 11)
+    await src.savePlan(sid, { exam_family: 'act', target_score: null, goals: [], daily_minutes: 10 })
+    const inv = await src.createStudentInvitation(hh, sid)
+    src.switchPersona(DEMO_STUDENT, 'Riley')
+    await src.acceptInvitation(inv.inviteCode)
+    await src.startBenchmark(sid, 'initial', 'act') // started, never answered
+    vi.setSystemTime(new Date('2026-10-26T17:00:00Z')) // expired
+    render(
+      <MemoryRouter initialEntries={['/student/benchmark']}>
+        <AppProvider source={src}>
+          <App />
+        </AppProvider>
+      </MemoryRouter>,
+    )
+    expect(await screen.findByText(/Your next progress check opens on/, {}, { timeout: 8000 })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^Start / })).toBeDisabled()
+    vi.useRealTimers()
+  }, 30_000)
 })
+

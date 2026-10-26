@@ -119,6 +119,10 @@ export interface DataSource {
   assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null>
   /** The reserved items an open check may still use, unseen first, then repeats (each flagged). */
   benchmarkQuestions(benchmarkId: string, studentId: string, examFamily: ExamFamily): Promise<CheckItem[]>
+  /** Which checks the server will open now (#279): the student's live check, if any, and the kinds allowed. */
+  benchmarkOptions(studentId: string, examFamily: ExamFamily): Promise<CheckOptions>
+  /** Per section of an open check: items assigned to it and items already used (answered or skipped). */
+  benchmarkProgress(benchmarkId: string, studentId: string): Promise<CheckProgress[]>
 
   // Saved schools (CR-9) and verified-school listing (CR-7)
   savedSchools(householdId: string): Promise<string[]>
@@ -288,6 +292,24 @@ export interface PoolStatus {
   section: string
   reserved: number
   unseen: number
+}
+
+/** #279: what the server will start now. A live check is resumed, never replaced by fresh questions. */
+export interface CheckOptions {
+  initialAllowed: boolean
+  miniAllowed: boolean
+  /** First date (yyyy-mm-dd) a mini check opens, when it isn't open yet; null otherwise. */
+  miniOpensOn: string | null
+  fullAllowed: boolean
+  /** The student's live check of this exam, if any. */
+  open: { id: string; kind: 'initial' | 'mini' | 'full'; startedAt: string } | null
+}
+
+/** #279: per section of an open check, items assigned and items already used (answered or skipped). */
+export interface CheckProgress {
+  section: string
+  assigned: number
+  used: number
 }
 
 /** CR-23: a reserved item an open check may use. */
