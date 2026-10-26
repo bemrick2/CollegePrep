@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 38,
+  "bank_version": 39,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -6611,6 +6611,178 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Time = 300 ÷ (30 + 45)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000380",
+      "correct_answer": "D",
+      "explanation": "3(-2)² - (-2) = 3(4) + 2 = 14.",
+      "distractor_explanations": {
+        "A": "-14 negates the correct value, treating the whole expression as negative because x is negative.",
+        "B": "-10 squares -2 as -4: 3(-4) + 2 = -10.",
+        "C": "10 subtracts 2 instead of subtracting -2: 12 - 2."
+      },
+      "hints": [
+        "Use parentheses when substituting a negative number."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute (-2) in parentheses."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000381",
+      "correct_answer": "B",
+      "explanation": "(f + g)(2) = f(2) + g(2) = 7 + 5 = 12.",
+      "distractor_explanations": {
+        "A": "9 is g(1), read from the wrong column.",
+        "C": "14 doubles f(2) instead of adding g(2).",
+        "D": "35 multiplies f(2) and g(2) instead of adding them."
+      },
+      "hints": [
+        "(f + g)(2) means f(2) + g(2)."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read both values in the x = 2 column."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000382",
+      "correct_answer": "C",
+      "explanation": "The base angles Q and R are equal and sum to 180° - 40° = 140°, so each is 70°.",
+      "distractor_explanations": {
+        "A": "40° assumes angle Q equals angle P.",
+        "B": "50° subtracts 40° from 90°, as if the triangle had a right angle.",
+        "D": "140° is the sum of the two base angles."
+      },
+      "hints": [
+        "Which angles are equal when PQ = PR?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the equal sides and the angles opposite them."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000383",
+      "correct_answer": "B",
+      "explanation": "Days of the week repeat every 7 days. 100 = 7 × 14 + 2, so 100 days from Tuesday is 2 days after Tuesday: Thursday.",
+      "distractor_explanations": {
+        "A": "Wednesday counts only 1 extra day, as if 100 = 7 × 14 + 1.",
+        "C": "Friday counts 3 extra days, miscounting the remainder.",
+        "D": "Saturday counts 4 extra days, as if a week had 6 days: 100 = 6 × 16 + 4."
+      },
+      "hints": [
+        "What is the remainder when 100 is divided by 7?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Every 7 days it is Tuesday again."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000384",
+      "correct_answer": "C",
+      "explanation": "Students with a job or a sport: 45 + 50 - 20 = 75. Those with neither: 120 - 75 = 45.",
+      "distractor_explanations": {
+        "A": "25 is the number who have a job but do not play a sport.",
+        "B": "35 = 120 - 45 - 50 + 10 subtracts both groups and adds back only half the overlap.",
+        "D": "75 is the number who have a job, play a sport, or both."
+      },
+      "hints": [
+        "Fill in a 2 × 2 table, starting with the 20 in the overlap cell."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Build the two-way table."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000385",
+      "correct_answer": "D",
+      "explanation": "After the first pound, 4.3 pounds remain. Any fraction counts as a full pound, so that is 5 additional pounds: $4.00 + 5 × $1.50 = $11.50.",
+      "distractor_explanations": {
+        "A": "$7.95 = $1.50 × 5.3 applies the additional-pound rate to the whole weight.",
+        "B": "$10.00 rounds 4.3 additional pounds down to 4.",
+        "C": "$10.45 charges for exactly 4.3 additional pounds."
+      },
+      "hints": [
+        "How many additional pounds are charged, counting any fraction as a whole pound?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "4 + 1.5 × (number of additional pounds, rounded up)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000386",
+      "correct_answer": "B",
+      "explanation": "Let the side be s. The square is centered on the diameter, so a top vertex is s/2 from the center horizontally and s up. Then (s/2)² + s² = 5², so (5/4)s² = 25 and s² = 20.",
+      "distractor_explanations": {
+        "A": "12.5 = 25/2 halves the area of a square whose side is the radius.",
+        "C": "25 assumes the side of the square equals the radius.",
+        "D": "50 is the area of a square inscribed in the full circle."
+      },
+      "hints": [
+        "Draw a radius from the center to an upper vertex of the square.",
+        "The center of the semicircle is the midpoint of the square's bottom side."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Use a right triangle with legs s/2 and s."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000387",
+      "correct_answer": "A",
+      "explanation": "Let B = 100, so A = 125. B is 25 less than A, and 25/125 = 20%.",
+      "distractor_explanations": {
+        "B": "25% assumes the percent difference is the same in both directions.",
+        "C": "75% = 100% - 25% treats B as 75% of A.",
+        "D": "80% is B as a percent of A, not how much less B is."
+      },
+      "hints": [
+        "Pick a price for Model B, such as 100."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "B = 100, A = 125."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000388",
+      "correct_answer": "A",
+      "explanation": "The image P' is such that the line y = x + 1 is the perpendicular bisector of PP'. The segment PP' has slope -1: from (4, 1) the image is (4 - t, 1 + t). Its midpoint (4 - t/2, 1 + t/2) lies on y = x + 1: 1 + t/2 = (4 - t/2) + 1, so t = 4 and P' = (0, 5). Check: the midpoint (2, 3) is on the line.",
+      "distractor_explanations": {
+        "B": "(1, 4) reflects across y = x, ignoring the + 1.",
+        "C": "(2, 3) is the midpoint of P and its image, the point on the line.",
+        "D": "(-4, -1) reflects through the origin."
+      },
+      "hints": [
+        "The mirror line is the perpendicular bisector of the segment from P to its image.",
+        "Move along slope -1 from P until you reach the line, then go the same distance again."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the line and P, then move perpendicular to the line."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000389",
+      "correct_answer": "C",
+      "explanation": "There are C(8, 2) = 28 equally likely pairs, and 4 of them are married couples: 4/28 = 1/7. (Equivalently, once the first person is chosen, 1 of the remaining 7 is that person's spouse.)",
+      "distractor_explanations": {
+        "A": "1/28 is the probability of choosing one particular couple.",
+        "B": "1/8 uses 8 people instead of the 7 remaining after the first choice.",
+        "D": "1/4 treats the 4 couples as the only possible outcomes."
+      },
+      "hints": [
+        "After the first person is chosen, how many people remain, and how many of them are that person's spouse?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Fix the first person, then find the chance the second is the spouse."
       }
     }
   ]
