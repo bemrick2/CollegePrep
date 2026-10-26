@@ -21,12 +21,15 @@ atomic replace, and every previously accepted record must survive byte-for-byte.
 """
 from __future__ import annotations
 
+import contextlib
 import datetime as dt
+import fcntl
 import hashlib
 import importlib.util
 import json
 import os
 import re
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -42,8 +45,13 @@ BANKS = {
     'act_reading': {'exam': 'ACT', 'section': 'Reading', 'prefix': 'CLD-ACT-R-', 'family': 'act', 'repo_section': 'reading'},
     'sat_reading_writing': {'exam': 'SAT', 'section': 'Reading and Writing', 'prefix': 'CLD-SAT-RW-', 'family': 'sat', 'repo_section': 'reading_writing'},
 }
-# Long-term targets from the assignment brief.
-TARGETS = {'act_math': 2000, 'verbal_total': 2000}
+# Long-term targets: 4,000 accepted items, 2,000 ACT Math and 2,000 verbal split across the three verbal banks.
+TARGETS = {'act_math': 2000, 'act_english': 700, 'act_reading': 600, 'sat_reading_writing': 700}
+# ACT Math is worked first until this many are accepted; after that the bank furthest behind its target goes next.
+MATH_FIRST_UNTIL = 200
+WORKSTREAM_BRANCH = 'ccr-78c91309-anlh8e'
+LOCK_FILE = 'LOCK.json'
+LOCK_TTL_MINUTES = 120
 DIFFICULTY_NUM = {'easy': 2, 'medium': 3, 'hard': 4}
 DIFFICULTY_TARGET = {'easy': 0.25, 'medium': 0.50, 'hard': 0.25}
 # Enhanced ACT (2025) math blueprint, midpoints of ACT's published ranges as summarised in search results
@@ -237,6 +245,9 @@ def review(bank: str, n: int) -> None:
         sys.exit(f'batch {n} already appended to the bank; refusing to append twice')
     checks = load_checks(bank, n)
     data, h = load_bank(bank)
+    if any(q.get('batch') == n for q in data['questions']):
+        sys.exit(f'bank already holds records from batch {n}; refusing to append twice (rebuild the review file by hand if it is missing)')
+    accepted_before = len(data['questions'])
     previous = json.loads(json.dumps(data))
     refs = reference_stems()
     bank_refs = [(q['id'], q['stem']) for q in data['questions']]
@@ -283,6 +294,8 @@ def review(bank: str, n: int) -> None:
             status, reason = 'REVISE', f'blind solver chose {blind_ans}, key is {c["answer"]}'
         elif blocking_flags:
             status, reason = 'REVISE', 'blind solver flagged: ' + '; '.join(map(str, blocking_flags))
+        elif c['difficulty'] == 'hard' and b.get('difficulty_opinion') == 'easy':
+            status, reason = 'REVISE', 'labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel'
         else:
             status, reason = 'PASS', 'key, independent computation and blind solve agree; no blocking flags'
         rec['status'], rec['reason'] = status, reason
@@ -306,6 +319,8 @@ def review(bank: str, n: int) -> None:
     if appended:
         save_bank(bank, data, h, previous)
     atomic_write(review_p, dumps(review_doc))
+    if len(data['questions']) // 100 > accepted_before // 100:
+        record_audit(bank, audit(bank, quiet=True))
     print(json.dumps(review_doc['counts']), 'appended:', ', '.join(appended) or 'none')
     for r in results:
         if r['status'] != 'PASS':
@@ -344,6 +359,8 @@ def to_record(c: dict, qid: str, bank: str, n: int, rec: dict, blind: dict) -> d
         'difficulty': c['difficulty'],
         'difficulty_numeric': DIFFICULTY_NUM[c['difficulty']],
         'difficulty_basis': 'provisional editorial estimate; not statistically calibrated',
+        'difficulty_calibrated': rec['blind_difficulty_opinion'] or c['difficulty'],
+        'difficulty_calibration_basis': 'rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data',
         'origin': 'ai_generated',
         'author': AUTHOR,
         'license': 'original-owned',
@@ -371,6 +388,19 @@ def to_record(c: dict, qid: str, bank: str, n: int, rec: dict, blind: dict) -> d
 # Exports and progress
 # ---------------------------------------------------------------------------------------------------------------
 
+_CAL: dict = {}
+
+
+def calibrated(q: dict, bank: str) -> str:
+    """Calibrated difficulty: a recorded re-assessment (calibration/<bank>.json) wins, then the rating stored at
+    acceptance, then the author's label. The accepted record itself is never edited."""
+    if bank not in _CAL:
+        _CAL[bank] = (read_json(ROOT / 'calibration' / f'{bank}.json', {}) or {}).get('items', {})
+    if q['id'] in _CAL[bank]:
+        return _CAL[bank][q['id']]['calibrated']
+    return q.get('difficulty_calibrated') or q['difficulty']
+
+
 def to_import(q: dict, bank: str) -> dict:
     """question_import/v1 line (docs/product/QUESTION_IMPORT_CONTRACT.md). Always a draft."""
     meta = BANKS[bank]
@@ -379,7 +409,7 @@ def to_import(q: dict, bank: str) -> dict:
         'import_id': q['id'].lower(),
         'exam_family': meta['family'],
         'section': meta['repo_section'],
-        'difficulty': q['difficulty_numeric'],
+        'difficulty': DIFFICULTY_NUM[calibrated(q, bank)],
         'stem': q['stem'],
         **({'passage': q['passage']} if q.get('passage') else {}),
         'choices': [{'key': k, 'text': v} for k, v in q['choices'].items()],
@@ -463,8 +493,10 @@ def write_progress(files: dict) -> None:
             'accepted': n,
             'by_skill': dist(qs, 'skill'),
             'by_subskill': dist(qs, 'subskill'),
-            'by_difficulty': dist(qs, 'difficulty'),
-            'difficulty_share': {k: round(v / n, 3) for k, v in dist(qs, 'difficulty').items()} if n else {},
+            'by_difficulty_author': dist(qs, 'difficulty'),
+            'by_difficulty_calibrated': dist([{'d': calibrated(q, bank)} for q in qs], 'd'),
+            'calibrated_share': {k: round(v / n, 3) for k, v in dist([{'d': calibrated(q, bank)} for q in qs], 'd').items()} if n else {},
+            'answer_key_balance': dist([{'k': q['correct_answer']} for q in qs], 'k'),
             'modeling_items': sum(1 for q in qs if q.get('modeling')),
             'passages': len(data.get('passages', [])),
         }
@@ -474,7 +506,9 @@ def write_progress(files: dict) -> None:
         for skill, share in ACT_MATH_BLUEPRINT.items():
             gaps[skill] = round(share * (m['accepted'] + 10) - m['by_skill'].get(skill, 0), 1)
     under = sorted([k for k, v in gaps.items() if v > 0.5], key=lambda k: -gaps[k])
-    diff_gap = {k: round(t * (m['accepted'] + 10) - m['by_difficulty'].get(k, 0), 1) for k, t in DIFFICULTY_TARGET.items()}
+    diff_gap = {k: round(t * (m['accepted'] + 10) - m['by_difficulty_calibrated'].get(k, 0), 1) for k, t in DIFFICULTY_TARGET.items()}
+    keys = m['answer_key_balance']
+    key_gap = {k: round((m['accepted'] + 10) / 4 - keys.get(k, 0), 1) for k in LETTERS}
     progress = {
         'schema_version': SCHEMA_VERSION,
         'updated_at': now(),
@@ -490,12 +524,21 @@ def write_progress(files: dict) -> None:
                 'next_batch': batches['act_math'] + 1,
                 'underrepresented_skills_vs_blueprint': under,
                 'skill_gap_for_next_10': gaps,
-                'difficulty_gap_for_next_10': diff_gap,
+                'calibrated_difficulty_gap_for_next_10': diff_gap,
+                'answer_key_gap_for_next_10': key_gap,
             },
         },
+        'section_targets': {b: {'target': TARGETS[b], 'accepted': sections[b]['accepted'],
+                                'share_of_target': round(sections[b]['accepted'] / TARGETS[b], 3)} for b in BANKS},
+        'total_target': sum(TARGETS.values()),
+        'total_accepted': sum(sections[b]['accepted'] for b in BANKS),
+        'next_bank_policy': f'ACT Math until {MATH_FIRST_UNTIL} accepted; then the bank with the lowest share of its target',
+        'next_bank': next_bank({b: sections[b]['accepted'] for b in BANKS}),
         'audits': prev.get('audits', []),
         'files': files,
         'next_recommended_work': prev.get('next_recommended_work', []),
+        'calibration_notes': prev.get('calibration_notes', []),
+        'lock': read_json(ROOT / LOCK_FILE, None),
         'execution_log': prev.get('execution_log', []),
         'human_review_status': 'none of the accepted items has had human editorial review',
     }
@@ -522,7 +565,19 @@ def screen(bank: str, n: int) -> None:
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
 
 
-def audit(bank: str) -> None:
+def next_bank(accepted: dict) -> str:
+    if accepted['act_math'] < MATH_FIRST_UNTIL:
+        return 'act_math'
+    return min(BANKS, key=lambda b: (accepted[b] / TARGETS[b], b != 'act_math'))
+
+
+def record_audit(bank: str, report: dict) -> None:
+    p = read_json(ROOT / 'progress.json', {}) or {}
+    p.setdefault('audits', []).append(report)
+    atomic_write(ROOT / 'progress.json', dumps(p))
+
+
+def audit(bank: str, quiet: bool = False) -> dict:
     data, _ = load_bank(bank)
     qs = data['questions']
     pairs = []
@@ -532,21 +587,132 @@ def audit(bank: str) -> None:
             if s >= 0.45:
                 pairs.append({'a': qs[i]['id'], 'b': qs[j]['id'], 'similarity': round(s, 2)})
     keys = dist([{'k': q['correct_answer']} for q in qs], 'k')
+    thin = [q['id'] for q in qs if len(q['explanation']) < 80
+            or any(len(r) < 25 for r in q['distractor_explanations'].values()) or not q.get('hints')]
     report = {'bank': bank, 'audited_at': now(), 'accepted': len(qs), 'similar_pairs_ge_0_45': pairs,
-              'answer_key_balance': keys, 'by_skill': dist(qs, 'skill'), 'by_difficulty': dist(qs, 'difficulty'),
-              'subskills_used_more_than_twice': {k: v for k, v in dist(qs, 'subskill').items() if v > 2}}
-    print(dumps(report))
+              'answer_key_balance': keys, 'by_skill': dist(qs, 'skill'),
+              'by_difficulty_author': dist(qs, 'difficulty'),
+              'by_difficulty_calibrated': dist([{'d': calibrated(q, bank)} for q in qs], 'd'),
+              'thin_explanations': thin,
+              'subskills_used_more_than_twice': {k: v for k, v in dist(qs, 'subskill').items() if v > 2},
+              'scope': f'automatic audit at {len(qs)} accepted'}
+    if not quiet:
+        print(dumps(report))
+    return report
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Single-writer lock. The lease lives in LOCK.json on the workstream branch, so it holds across containers and
+# sessions: taking it is a commit that must fast-forward the remote branch, so of two racing workers only one push
+# wins. A local flock stops two processes in one container from writing at once.
+# ---------------------------------------------------------------------------------------------------------------
+
+def git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
+    return subprocess.run(['git', '-C', str(REPO), *args], capture_output=True, text=True, check=check)
+
+
+def push_with_retry() -> bool:
+    import time
+    for wait in (0, 2, 4, 8, 16):
+        time.sleep(wait)
+        r = git('push', 'origin', f'HEAD:{WORKSTREAM_BRANCH}', check=False)
+        if r.returncode == 0:
+            return True
+        if 'rejected' in r.stderr or 'non-fast-forward' in r.stderr or 'fetch first' in r.stderr:
+            return False  # someone else moved the branch: never retry over them
+    return False
+
+
+def sync_branch() -> None:
+    if git('rev-parse', '--abbrev-ref', 'HEAD').stdout.strip() != WORKSTREAM_BRANCH:
+        sys.exit(f'not on {WORKSTREAM_BRANCH}')
+    git('fetch', 'origin', WORKSTREAM_BRANCH)
+    r = git('merge', '--ff-only', f'origin/{WORKSTREAM_BRANCH}', check=False)
+    if r.returncode != 0:
+        sys.exit('local branch has diverged from the remote; resolve by hand before writing (lock not taken)')
+
+
+def lease_live(lock: dict | None) -> bool:
+    if not lock or not lock.get('holder'):
+        return False
+    hb = dt.datetime.fromisoformat(lock['heartbeat_at'])
+    return dt.datetime.now(dt.timezone.utc) - hb < dt.timedelta(minutes=lock.get('ttl_minutes', LOCK_TTL_MINUTES))
+
+
+def commit_and_push(message: str, paths=('question_bank/claude',)) -> bool:
+    git('add', *paths)
+    if git('diff', '--cached', '--quiet', check=False).returncode == 0:
+        return True
+    trailer = 'Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'
+    git('commit', '-q', '-m', message if trailer in message else message + '\n\n' + trailer)
+    return push_with_retry()
+
+
+def lock_cmd(action: str, holder: str, message: str = '') -> None:
+    lp = ROOT / LOCK_FILE
+    if action == 'status':
+        lock = read_json(lp, None)
+        print(dumps({'lock': lock, 'live': lease_live(lock)}))
+        return
+    sync_branch()
+    lock = read_json(lp, None)
+    mine = bool(lock) and lock.get('holder') == holder
+    if action == 'acquire':
+        if lease_live(lock) and not mine:
+            print(f'LOCKED by {lock["holder"]} (heartbeat {lock["heartbeat_at"]}); exiting without writing')
+            sys.exit(3)
+        t = now()
+        atomic_write(lp, dumps({'holder': holder, 'acquired_at': lock['acquired_at'] if mine else t,
+                                'heartbeat_at': t, 'ttl_minutes': LOCK_TTL_MINUTES,
+                                'previous_holder': None if mine else (lock or {}).get('holder')}))
+        if not commit_and_push(f'question bank: lock acquired by {holder}'):
+            git('reset', '-q', '--hard', f'origin/{WORKSTREAM_BRANCH}')
+            print('lost the race for the lock; exiting without writing')
+            sys.exit(3)
+        print(f'lock held by {holder}')
+    elif action in ('checkpoint', 'release'):
+        if not mine:
+            print(f'lock is not held by {holder} (holder: {(lock or {}).get("holder")}); stop writing')
+            sys.exit(4)
+        lock['heartbeat_at'] = now()
+        if action == 'release':
+            lock.update({'holder': None, 'released_at': now(), 'released_by': holder})
+        atomic_write(lp, dumps(lock))
+        export()
+        msg = message or (f'question bank: checkpoint by {holder}' if action == 'checkpoint' else f'question bank: lock released by {holder}')
+        if not commit_and_push(msg):
+            print('push rejected: the branch moved under us; stop writing and re-run lock acquire')
+            sys.exit(4)
+        print(f'{action} pushed')
+
+
+@contextlib.contextmanager
+def local_lock():
+    ROOT.mkdir(parents=True, exist_ok=True)
+    with open(ROOT / '.qb.lock', 'w') as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            sys.exit('another qb.py process in this container is writing; try again shortly')
+        yield
 
 
 if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else ''
     if cmd == 'review':
-        review(sys.argv[2], int(sys.argv[3]))
-        export()
+        with local_lock():
+            review(sys.argv[2], int(sys.argv[3]))
+            export()
+    elif cmd == 'lock':
+        # qb.py lock acquire|checkpoint|release|status <holder> [message]
+        lock_cmd(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else '', sys.argv[4] if len(sys.argv) > 4 else '')
+    elif cmd == 'next':
+        print(json.dumps((read_json(ROOT / 'progress.json', {}) or {}).get('next_bank'), ensure_ascii=False))
     elif cmd == 'screen':
         screen(sys.argv[2], int(sys.argv[3]))
     elif cmd == 'export':
-        export()
+        with local_lock():
+            export()
     elif cmd == 'audit':
         audit(sys.argv[2])
     else:

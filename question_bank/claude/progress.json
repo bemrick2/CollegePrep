@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T17:49:23+00:00",
+  "updated_at": "2026-10-26T18:02:23+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -10,7 +10,9 @@
   },
   "targets": {
     "act_math": 2000,
-    "verbal_total": 2000
+    "act_english": 700,
+    "act_reading": 600,
+    "sat_reading_writing": 700
   },
   "accepted_by_section": {
     "act_math": 48,
@@ -109,15 +111,26 @@
         "Volume and rates with unit conversion": 1,
         "Volume of a composite solid": 1
       },
-      "by_difficulty": {
+      "by_difficulty_author": {
         "easy": 12,
         "hard": 12,
         "medium": 24
       },
-      "difficulty_share": {
+      "by_difficulty_calibrated": {
+        "easy": 12,
+        "hard": 12,
+        "medium": 24
+      },
+      "calibrated_share": {
         "easy": 0.25,
         "hard": 0.25,
         "medium": 0.5
+      },
+      "answer_key_balance": {
+        "A": 11,
+        "B": 17,
+        "C": 13,
+        "D": 7
       },
       "modeling_items": 16,
       "passages": 0
@@ -126,8 +139,10 @@
       "accepted": 0,
       "by_skill": {},
       "by_subskill": {},
-      "by_difficulty": {},
-      "difficulty_share": {},
+      "by_difficulty_author": {},
+      "by_difficulty_calibrated": {},
+      "calibrated_share": {},
+      "answer_key_balance": {},
       "modeling_items": 0,
       "passages": 0
     },
@@ -135,8 +150,10 @@
       "accepted": 0,
       "by_skill": {},
       "by_subskill": {},
-      "by_difficulty": {},
-      "difficulty_share": {},
+      "by_difficulty_author": {},
+      "by_difficulty_calibrated": {},
+      "calibrated_share": {},
+      "answer_key_balance": {},
       "modeling_items": 0,
       "passages": 0
     },
@@ -144,8 +161,10 @@
       "accepted": 0,
       "by_skill": {},
       "by_subskill": {},
-      "by_difficulty": {},
-      "difficulty_share": {},
+      "by_difficulty_author": {},
+      "by_difficulty_calibrated": {},
+      "calibrated_share": {},
+      "answer_key_balance": {},
       "modeling_items": 0,
       "passages": 0
     }
@@ -174,13 +193,45 @@
         "Statistics & Probability": 0.8,
         "Integrating Essential Skills": 2.6
       },
-      "difficulty_gap_for_next_10": {
+      "calibrated_difficulty_gap_for_next_10": {
         "easy": 2.5,
         "medium": 5.0,
         "hard": 2.5
+      },
+      "answer_key_gap_for_next_10": {
+        "A": 3.5,
+        "B": -2.5,
+        "C": 1.5,
+        "D": 7.5
       }
     }
   },
+  "section_targets": {
+    "act_math": {
+      "target": 2000,
+      "accepted": 48,
+      "share_of_target": 0.024
+    },
+    "act_english": {
+      "target": 700,
+      "accepted": 0,
+      "share_of_target": 0.0
+    },
+    "act_reading": {
+      "target": 600,
+      "accepted": 0,
+      "share_of_target": 0.0
+    },
+    "sat_reading_writing": {
+      "target": 700,
+      "accepted": 0,
+      "share_of_target": 0.0
+    }
+  },
+  "total_target": 4000,
+  "total_accepted": 48,
+  "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -256,6 +307,8 @@
     "Before starting ACT English, ACT Reading or SAT Reading & Writing, agree on passage-ID conventions with the ChatGPT workstream so the banks can merge.",
     "Content lead: run the human stages 3-8 (QUESTION_REVIEW_WORKFLOW.md) on exports/import/act_math.jsonl before any intake."
   ],
+  "calibration_notes": [],
+  "lock": null,
   "execution_log": [
     {
       "execution": 1,

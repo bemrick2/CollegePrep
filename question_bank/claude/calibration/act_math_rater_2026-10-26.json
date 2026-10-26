@@ -1,0 +1,441 @@
+{
+ "rater": {
+  "kind": "independent AI difficulty rater with explicit rubric, answer-free packet",
+  "date": "2026-10-26",
+  "rubric": "easy: one routine step or one familiar fact/formula applied directly; roughly 70%+ of test-takers correct; fits the first third of an ACT Math section. | medium: two or three routine steps, or a standard concept with a small twist; roughly 40-70% correct; middle third. | hard: needs a non-obvious insight or setup, combines two or more concepts, involves an unfamiliar application, or has a trap that catches most students who work quickly; roughly under 40% correct; last third. Length or arithmetic volume alone does NOT make an item hard."
+ },
+ "ratings": {
+  "CLD-ACT-M-000001": {
+   "answer": "B",
+   "est_pct_correct": 80,
+   "rating": "easy",
+   "reasoning_steps": 1,
+   "key_insight": "Power of a power multiplies exponents, then add exponents",
+   "tempting_wrong_path": "Adding 3/2+4 to get x^(11/2)-type errors or forgetting the x^-1 (x^6)",
+   "why": "One familiar exponent-rule application."
+  },
+  "CLD-ACT-M-000002": {
+   "answer": "A",
+   "est_pct_correct": 75,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Solve 35+12m<=150 and round down",
+   "tempting_wrong_path": "Rounding 9.58 up to 10 or ignoring the fee (12)",
+   "why": "Routine one-inequality setup with a floor."
+  },
+  "CLD-ACT-M-000003": {
+   "answer": "A",
+   "est_pct_correct": 45,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Infinite solutions means the second equation is a scalar multiple (factor 1.5)",
+   "tempting_wrong_path": "Matching coefficients without the sign or using ratio 6/4 on wrong term (-4 or 9)",
+   "why": "Standard concept but students must recall the proportional-coefficients condition."
+  },
+  "CLD-ACT-M-000004": {
+   "answer": "B",
+   "est_pct_correct": 82,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Evaluate inner function first",
+   "tempting_wrong_path": "Computing f(g(3)) or multiplying (C/D)",
+   "why": "Direct composition evaluation."
+  },
+  "CLD-ACT-M-000005": {
+   "answer": "D",
+   "est_pct_correct": 42,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Sector area = (1/2)\u00b7r\u00b7arc length, or set up two equations in r and theta",
+   "tempting_wrong_path": "Treating 4pi as circumference or confusing arc and area formulas (2 or 2\u221a6)",
+   "why": "Two linked sector formulas; small twist of solving for r."
+  },
+  "CLD-ACT-M-000006": {
+   "answer": "C",
+   "est_pct_correct": 72,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Sum before minus sum after",
+   "tempting_wrong_path": "Subtracting the means (2)",
+   "why": "Familiar mean-to-sum step."
+  },
+  "CLD-ACT-M-000007": {
+   "answer": "B",
+   "est_pct_correct": 60,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Multiply factors 1.20 x 0.75",
+   "tempting_wrong_path": "Net change +20-25 = -5 giving 95%",
+   "why": "Classic successive-percent trap, but well known."
+  },
+  "CLD-ACT-M-000008": {
+   "answer": "B",
+   "est_pct_correct": 48,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Target depth is 1.2-0.3=0.9 m so rise is 0.5 m; convert to liters",
+   "tempting_wrong_path": "Using rise of 0.8 m (to 0.3 below top misread) giving 67, or filling to top",
+   "why": "Multi-step volume/rate with a reading trap."
+  },
+  "CLD-ACT-M-000009": {
+   "answer": "B",
+   "est_pct_correct": 62,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "FOIL and i^2 = -1",
+   "tempting_wrong_path": "Treating -8i^2 as -8 giving -5+10i",
+   "why": "Routine complex multiplication with a sign trap."
+  },
+  "CLD-ACT-M-000010": {
+   "answer": "C",
+   "est_pct_correct": 62,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Sum of roots = -b/a, or factor (2x+3)(x-5)",
+   "tempting_wrong_path": "Sign error giving -7/2",
+   "why": "Standard quadratic with factoring of leading coefficient 2."
+  },
+  "CLD-ACT-M-000011": {
+   "answer": "D",
+   "est_pct_correct": 35,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Clearing denominators gives x=2, which is excluded",
+   "tempting_wrong_path": "Choosing {2} without checking the restriction",
+   "why": "Extraneous-solution trap catches most fast workers."
+  },
+  "CLD-ACT-M-000012": {
+   "answer": "A",
+   "est_pct_correct": 82,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Slope 3 from table, intercept from f(1)",
+   "tempting_wrong_path": "Using f(1)=7 as the intercept (3x+7)",
+   "why": "Read slope and intercept from a table."
+  },
+  "CLD-ACT-M-000013": {
+   "answer": "C",
+   "est_pct_correct": 45,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Solve 2^(t/5)=50 using logs or backsolve with calculator",
+   "tempting_wrong_path": "Forgetting to multiply by 5 (5.6) or dividing linearly (250)",
+   "why": "Exponential model; logs hard but backsolving choices makes it accessible."
+  },
+  "CLD-ACT-M-000014": {
+   "answer": "C",
+   "est_pct_correct": 55,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Midpoint is center; radius is half the diameter length",
+   "tempting_wrong_path": "Using the diameter (100) or not squaring radius (5)",
+   "why": "Two standard formulas combined."
+  },
+  "CLD-ACT-M-000015": {
+   "answer": "C",
+   "est_pct_correct": 30,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Area ratio 9/4 \u2192 length ratio 3/2 \u2192 volume ratio 27/8",
+   "tempting_wrong_path": "Scaling volume by 9/4 (360) or 3/2 (240)",
+   "why": "Similarity scaling across dimensions is a non-obvious, frequently missed insight."
+  },
+  "CLD-ACT-M-000016": {
+   "answer": "D",
+   "est_pct_correct": 30,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Complement: 1 \u2212 C(7,3)/C(12,3)",
+   "tempting_wrong_path": "Computing only the complement 7/44 or a single-pick probability 5/12",
+   "why": "Combinations plus complement reasoning, two concepts."
+  },
+  "CLD-ACT-M-000017": {
+   "answer": "B",
+   "est_pct_correct": 60,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Median is the 8th value in the cumulative frequency",
+   "tempting_wrong_path": "Taking median of the frequency row or the book values themselves (3) or mean (1.8)",
+   "why": "Frequency table median with a mild trap."
+  },
+  "CLD-ACT-M-000018": {
+   "answer": "A",
+   "est_pct_correct": 50,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Add rates (0.4+0.3 pages/s), divide, convert seconds to minutes",
+   "tempting_wrong_path": "Unit conversion errors or averaging rates",
+   "why": "Combined-rate problem with unit conversion."
+  },
+  "CLD-ACT-M-000019": {
+   "answer": "A",
+   "est_pct_correct": 72,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Multiply/divide coefficients and add/subtract exponents",
+   "tempting_wrong_path": "Exponent bookkeeping errors (10^3)",
+   "why": "Calculator-friendly scientific notation."
+  },
+  "CLD-ACT-M-000020": {
+   "answer": "C",
+   "est_pct_correct": 62,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Set up and solve a 2x2 linear system",
+   "tempting_wrong_path": "Solving for student tickets (150) instead",
+   "why": "Standard ticket system; answer-for-wrong-variable trap."
+  },
+  "CLD-ACT-M-000021": {
+   "answer": "A",
+   "est_pct_correct": 35,
+   "rating": "hard",
+   "reasoning_steps": 2,
+   "key_insight": "g(1)=f(3)\u22125, so shift left 2 and down 5",
+   "tempting_wrong_path": "Shifting right 2 (5,2) or adding 5",
+   "why": "Horizontal-shift direction trap catches most students."
+  },
+  "CLD-ACT-M-000022": {
+   "answer": "B",
+   "est_pct_correct": 38,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Symmetry puts vertex at x=2, so f=a(x\u22122)^2+9; solve a=\u22121",
+   "tempting_wrong_path": "Assuming a=1 or not using symmetry",
+   "why": "Requires vertex-from-symmetry insight plus vertex form."
+  },
+  "CLD-ACT-M-000023": {
+   "answer": "C",
+   "est_pct_correct": 72,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Angle sum 180 with P=Q+20",
+   "tempting_wrong_path": "Reporting Q (60)",
+   "why": "Simple angle-sum equation."
+  },
+  "CLD-ACT-M-000024": {
+   "answer": "B",
+   "est_pct_correct": 58,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Side 12; area (\u221a3/4)s^2 or 30-60-90 height",
+   "tempting_wrong_path": "Using base\u00b7height with height 12 (72\u221a3) or s^2/4",
+   "why": "Recall of equilateral area formula."
+  },
+  "CLD-ACT-M-000025": {
+   "answer": "C",
+   "est_pct_correct": 50,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Conditional: denominator is all online students (114)",
+   "tempting_wrong_path": "Using 200 or 100 as denominator (33/100, 33/50)",
+   "why": "Two-way table conditional probability with denominator trap."
+  },
+  "CLD-ACT-M-000026": {
+   "answer": "A",
+   "est_pct_correct": 72,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Unit prices 20 and 18 cents",
+   "tempting_wrong_path": "Price difference in dollars (96) or a single unit price (18, 20)",
+   "why": "Calculator unit-rate comparison."
+  },
+  "CLD-ACT-M-000027": {
+   "answer": "C",
+   "est_pct_correct": 55,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "Original = 68/0.85",
+   "tempting_wrong_path": "Adding 15% of 68 (78.20)",
+   "why": "Reverse-percent trap is classic."
+  },
+  "CLD-ACT-M-000028": {
+   "answer": "B",
+   "est_pct_correct": 45,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Acid amounts: 0.6+0.4x = 0.2(6+x)",
+   "tempting_wrong_path": "Setting up concentrations without total volume",
+   "why": "Standard mixture setup many students find awkward."
+  },
+  "CLD-ACT-M-000029": {
+   "answer": "B",
+   "est_pct_correct": 55,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Compute 2u\u2212v = <7,\u221210>, then magnitude",
+   "tempting_wrong_path": "Sign error subtracting v (\u221a61) or subtracting magnitudes",
+   "why": "Vector arithmetic plus magnitude; less-practiced topic."
+  },
+  "CLD-ACT-M-000030": {
+   "answer": "D",
+   "est_pct_correct": 75,
+   "rating": "easy",
+   "reasoning_steps": 2,
+   "key_insight": "Cross-multiply",
+   "tempting_wrong_path": "Distribution errors",
+   "why": "Routine linear equation, also easily backsolved."
+  },
+  "CLD-ACT-M-000031": {
+   "answer": "A",
+   "est_pct_correct": 38,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Square, solve quadratic, then check for extraneous root",
+   "tempting_wrong_path": "Keeping both roots {\u22123, 1}",
+   "why": "Extraneous-root check is skipped by most quick solvers."
+  },
+  "CLD-ACT-M-000032": {
+   "answer": "A",
+   "est_pct_correct": 72,
+   "rating": "easy",
+   "reasoning_steps": 1,
+   "key_insight": "Radicand must be \u2265 0, so x \u2265 3",
+   "tempting_wrong_path": "Thinking 3 is excluded",
+   "why": "Direct domain check."
+  },
+  "CLD-ACT-M-000033": {
+   "answer": "B",
+   "est_pct_correct": 50,
+   "rating": "medium",
+   "reasoning_steps": 1,
+   "key_insight": "Period = 2\u03c0/|b|",
+   "tempting_wrong_path": "Using amplitude or 2\u03c0\u00b74 (8\u03c0), or \u03c0/4",
+   "why": "One formula, but trig is less familiar to many."
+  },
+  "CLD-ACT-M-000034": {
+   "answer": "D",
+   "est_pct_correct": 48,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Slope 3/4 \u2192 perpendicular \u22124/3, then point-slope to intercept",
+   "tempting_wrong_path": "Using 3/4 or \u22123/4, sign errors",
+   "why": "Several routine steps with sign traps."
+  },
+  "CLD-ACT-M-000035": {
+   "answer": "C",
+   "est_pct_correct": 48,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Square's diagonal = diameter 12, area = d^2/2 = 72",
+   "tempting_wrong_path": "Using 12 as the side (144)",
+   "why": "Inscribed-square relation is a small twist."
+  },
+  "CLD-ACT-M-000036": {
+   "answer": "B",
+   "est_pct_correct": 30,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Fill restricted first and last positions (5\u00b75), then middle 8\u00b77",
+   "tempting_wrong_path": "Ignoring no-repeat interaction or overcounting (1,600; 5,040)",
+   "why": "Constrained counting principle with ordering insight."
+  },
+  "CLD-ACT-M-000037": {
+   "answer": "B",
+   "est_pct_correct": 78,
+   "rating": "easy",
+   "reasoning_steps": 1,
+   "key_insight": "Set up proportion",
+   "tempting_wrong_path": "Inverting proportion (7.1)",
+   "why": "Single proportion."
+  },
+  "CLD-ACT-M-000038": {
+   "answer": "D",
+   "est_pct_correct": 45,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "SA = 2\u03c0r^2+2\u03c0rh = 104\u03c0 \u2248 326.7; 8.17 rounds up to 9",
+   "tempting_wrong_path": "Rounding to 8 or omitting top/bottom",
+   "why": "Formula plus round-up context trap."
+  },
+  "CLD-ACT-M-000039": {
+   "answer": "B",
+   "est_pct_correct": 78,
+   "rating": "easy",
+   "reasoning_steps": 1,
+   "key_insight": "Convert to decimals 0.375\u20130.4167",
+   "tempting_wrong_path": "Picking 3/7 (0.4286) by mistake",
+   "why": "Calculator decimal comparison."
+  },
+  "CLD-ACT-M-000040": {
+   "answer": "C",
+   "est_pct_correct": 75,
+   "rating": "easy",
+   "reasoning_steps": 1,
+   "key_insight": "LCM of 12 and 18 is 36",
+   "tempting_wrong_path": "Using GCF (7:06) or product",
+   "why": "Familiar LCM application."
+  },
+  "CLD-ACT-M-000041": {
+   "answer": "D",
+   "est_pct_correct": 52,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Rewrite as base 2: 2(x+1)=3(x\u22121)",
+   "tempting_wrong_path": "Not distributing or wrong base conversion",
+   "why": "Common base technique, also backsolvable."
+  },
+  "CLD-ACT-M-000042": {
+   "answer": "B",
+   "est_pct_correct": 55,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "(f(5)\u2212f(1))/(5\u22121)",
+   "tempting_wrong_path": "Computing derivative-like value or difference without dividing (12)",
+   "why": "Formula application with arithmetic."
+  },
+  "CLD-ACT-M-000043": {
+   "answer": "A",
+   "est_pct_correct": 35,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "18/b = 2\u00b73^2/b so log = p+2q\u22121 via product, power, and log_b b=1",
+   "tempting_wrong_path": "Treating log_b 9 as q^2 or subtracting b",
+   "why": "Multiple log properties; logs are weak for most students."
+  },
+  "CLD-ACT-M-000044": {
+   "answer": "B",
+   "est_pct_correct": 48,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Cylinder plus half of the sphere volume",
+   "tempting_wrong_path": "Using the full sphere (1400\u03c0/3)",
+   "why": "Composite solid with a half-volume trap."
+  },
+  "CLD-ACT-M-000045": {
+   "answer": "C",
+   "est_pct_correct": 35,
+   "rating": "hard",
+   "reasoning_steps": 3,
+   "key_insight": "Similar triangles ratio 6:10 \u2192 area ratio 9:25, ABC=150, subtract",
+   "tempting_wrong_path": "Using 6:4 ratio or linear scaling, or answering ABC (150)",
+   "why": "Similarity area-ratio plus subtraction with multiple traps."
+  },
+  "CLD-ACT-M-000046": {
+   "answer": "A",
+   "est_pct_correct": 45,
+   "rating": "medium",
+   "reasoning_steps": 2,
+   "key_insight": "EV of prizes 1.80 minus cost 2",
+   "tempting_wrong_path": "Forgetting the cost ($1.80)",
+   "why": "Expected value with net-gain trap."
+  },
+  "CLD-ACT-M-000047": {
+   "answer": "C",
+   "est_pct_correct": 78,
+   "rating": "easy",
+   "reasoning_steps": 1,
+   "key_insight": "Most spread from mean = largest SD",
+   "tempting_wrong_path": "Overthinking computation",
+   "why": "Visual spread comparison."
+  },
+  "CLD-ACT-M-000048": {
+   "answer": "B",
+   "est_pct_correct": 60,
+   "rating": "medium",
+   "reasoning_steps": 3,
+   "key_insight": "Gallons per leg (10 + 6), then cost",
+   "tempting_wrong_path": "Using a single average mpg or 420/30",
+   "why": "Multi-step but routine rate arithmetic."
+  }
+ }
+}
