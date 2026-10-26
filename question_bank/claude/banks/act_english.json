@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 19,
-  "updated_at": "2026-10-26T23:16:31+00:00",
+  "version": 20,
+  "updated_at": "2026-10-26T23:25:31+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -212,6 +212,17 @@
       "word_count": 236,
       "text": "When the town of Alder Falls replaced its old streetlights in 2015, few residents {{1|expected, that}} the change would make news. The new fixtures, {{2|which pointed}} their light downward instead of outward, were chosen mainly to save electricity. Within a year, however, the town had become a destination for stargazers.\n\n{{3|The town also hosts a popular summer fair each July.}} Under the old lights, which scattered their glow in every direction, only the brightest stars had been visible. Now, on clear nights, visitors spread blankets across the town park and watched meteors until dawn. The local diner began staying open past midnight, and two motels that had nearly closed were suddenly full on {{4|weekends; their}} owners credited the darkness.\n\nNot everyone was pleased at first. A group of shop owners {{5|were}} worried that customers would feel unsafe on darker sidewalks. {{6|For example,}} the town council studied police records and found that reported crimes had not increased since the change. The council voted {{7|unanimously}} to keep the new lights and later passed a rule requiring that any new outdoor lights in town be shielded {{8|so that their light falls only downward toward the ground below them.}}\n\nToday, Alder Falls holds a star party every August. Astronomers set up telescopes on the {{9|librarys'}} lawn, and children line up to see the rings of Saturn. {{10|The darkness that once worried shop owners is now part of the town's routine.}}",
       "batch": 19,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000020",
+      "title": "Moving the Lighthouse",
+      "genre": "informational essay",
+      "word_count": 241,
+      "text": "When it was completed in 1870, the brick lighthouse on the barrier island stood about 1,500 feet from the ocean. Over the next century, storms and the slow westward drift of the island {{1|carried the shoreline so close, that waves}} sometimes washed against the tower's base. By the 1990s, engineers warned that a single severe hurricane {{2|could of toppled}} it.\n\nOfficials considered several ways to protect the lighthouse. A stronger seawall could shield the tower {{3|for a time, but it}} would also speed the erosion of nearby beaches. {{4|Similarly, the National Park Service chose a bolder plan:}} lifting the brick tower off its foundation and rolling it inland.\n\nThe move was {{5|slow with design}}. Workers cut the tower free from its foundation, slid steel beams beneath it, and raised it with hydraulic jacks. Then, a few feet at a time, they pushed it along a track of steel rails while engineers {{6|monitor}} sensors that would warn them if it began to lean. After twenty-three days, the lighthouse {{7|arrived to}} its new site, about half a mile from the sea.\n\nNot everyone had supported the move. Some critics predicted that the old bricks would crack apart; others argued that a lighthouse belongs beside the water and {{8|it would lose its meaning}} anywhere else. {{9|The tower survived the trip without a single crack.}} Today, visitors who climb to the top can look out over the ocean{{10|, which}} is now a comfortable distance away.",
+      "batch": 20,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -14015,6 +14026,638 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-019.review.json",
         "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000196",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "No comma in a \"so ... that\" construction",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 1,
+      "evidence": "sometimes washed against the tower's base",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "carried the shoreline so close; that waves",
+        "C": "carried the shoreline so close that waves",
+        "D": "carried the shoreline, so close that waves"
+      },
+      "correct_answer": "C",
+      "explanation": "\"So close that waves …\" is one construction; the \"that\" clause completes \"so close\" and takes no comma.",
+      "distractor_explanations": {
+        "A": "No comma belongs between \"so close\" and the \"that\" clause that completes it.",
+        "B": "A semicolon cannot introduce a dependent \"that\" clause.",
+        "D": "The comma separates the verb's object from the phrase describing it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does \"so close\" need the \"that\" clause to finish its meaning?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove punctuation that splits \"so … that.\""
+      },
+      "remember": "\"So … that\" constructions take no comma before \"that.\"",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-01",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000197",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Modal verb form (\"could of\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 2,
+      "evidence": "engineers warned that a single severe hurricane",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "could topple",
+        "C": "could have toppling",
+        "D": "can toppled"
+      },
+      "correct_answer": "B",
+      "explanation": "The warning concerns a possible future event, so the modal plus base form \"could topple\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Could of\" is a nonstandard spelling of \"could have,\" and the warning is about the future.",
+        "C": "\"Have toppling\" is not a standard verb form.",
+        "D": "\"Can\" must be followed by the base form \"topple.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the warning about the past or the future?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate nonstandard verb forms."
+      },
+      "remember": "Modals (can, could, will) take the base form of the verb.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-02",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000198",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma with a coordinating conjunction",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 3,
+      "evidence": "it would also speed the erosion of nearby beaches",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "for a time, however, it",
+        "C": "for a time however it",
+        "D": "for a time, and, it"
+      },
+      "correct_answer": "A",
+      "explanation": "Two independent clauses are correctly joined by a comma and the coordinating conjunction \"but.\"",
+      "distractor_explanations": {
+        "B": "\"However\" is not a coordinating conjunction; joining the clauses with commas creates a comma splice.",
+        "C": "With no punctuation, the clauses run together.",
+        "D": "No comma belongs after \"and\" here."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the word after the comma a coordinating conjunction?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each choice for a comma splice."
+      },
+      "remember": "Comma + FANBOYS joins two complete sentences; comma + \"however\" does not.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-03",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000199",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (alternative)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 4,
+      "evidence": "it would also speed the erosion of nearby beaches",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "For example, the National Park Service chose a bolder plan:",
+        "C": "In addition, the National Park Service chose a bolder plan:",
+        "D": "Instead, the National Park Service chose a bolder plan:"
+      },
+      "correct_answer": "D",
+      "explanation": "The seawall had a drawback, so the park service chose a different plan: \"Instead\" signals an alternative.",
+      "distractor_explanations": {
+        "A": "The park service's plan is not similar to the seawall; it is a different choice.",
+        "B": "The moving plan is not an example of the seawall option.",
+        "C": "The moving plan replaced the seawall rather than being added to it."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "C": "wrong_transition"
+      },
+      "hints": [
+        "Was the moving plan added to the seawall, or chosen in place of it?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"rather than that.\""
+      },
+      "remember": "Use \"instead\" when one option replaces another.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-04",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000200",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Idiom (\"by design\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 5,
+      "evidence": "a few feet at a time",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "slow by design",
+        "C": "slow for design",
+        "D": "slow on design"
+      },
+      "correct_answer": "B",
+      "explanation": "\"By design\" means intentionally: the move was deliberately slow.",
+      "distractor_explanations": {
+        "A": "The standard idiom is \"by design,\" meaning on purpose.",
+        "C": "\"Slow for design\" is not a standard expression.",
+        "D": "\"Slow on design\" is not a standard expression."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which phrase means \"on purpose\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read each idiom aloud in the sentence."
+      },
+      "remember": "Some prepositions are fixed by idiom: \"by design,\" \"by accident.\"",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-05",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000201",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 6,
+      "evidence": "they pushed it along a track of steel rails",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "will monitor",
+        "C": "monitored",
+        "D": "are monitoring"
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph narrates past events (\"cut,\" \"slid,\" \"pushed\"), so the verb should be past tense: \"monitored.\"",
+      "distractor_explanations": {
+        "A": "The present tense \"monitor\" does not match the past-tense narrative (\"cut,\" \"slid,\" \"pushed\").",
+        "B": "The future tense does not fit events that already happened.",
+        "D": "The present progressive does not match the past-tense narrative."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What tense are the other verbs in the paragraph?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the tense of nearby verbs."
+      },
+      "remember": "Keep verb tenses consistent within a narrative.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-06",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000202",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Idiom (\"arrive at\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 7,
+      "evidence": "its new site, about half a mile from the sea",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "arrived at",
+        "C": "arrived in to",
+        "D": "arrived toward"
+      },
+      "correct_answer": "B",
+      "explanation": "One arrives \"at\" a specific place such as a site.",
+      "distractor_explanations": {
+        "A": "\"Arrive to\" is not standard; we arrive at a place.",
+        "C": "\"Arrived in to\" is not a standard expression.",
+        "D": "\"Toward\" suggests motion in a direction, not reaching a destination."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which preposition follows \"arrive\" for a specific place?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read each choice aloud."
+      },
+      "remember": "Arrive at a place; arrive in a city or country.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-07",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000203",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Keeping or deleting a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 9,
+      "evidence": "Some critics predicted that the old bricks would crack apart",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it shows that one of the critics' predictions proved wrong.",
+        "B": "Kept, because it explains how the engineers kept the bricks from cracking.",
+        "C": "Deleted, because it repeats information given earlier in the essay.",
+        "D": "Deleted, because it shifts the focus away from the move."
+      },
+      "correct_answer": "A",
+      "explanation": "The critics predicted the bricks would crack; the sentence reports that the tower arrived without a crack, answering that prediction.",
+      "distractor_explanations": {
+        "B": "The sentence reports the result, not the method.",
+        "C": "The essay has not said earlier that the tower survived intact.",
+        "D": "The sentence is about the outcome of the move."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What did the critics predict just before this sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Judge the sentence by its link to the sentence before it."
+      },
+      "remember": "Keep a sentence that answers or completes a nearby point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-09",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000204",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma before a nonessential \"which\" clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000020",
+      "underline": 10,
+      "evidence": "can look out over the ocean",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": ", that",
+        "C": "; which",
+        "D": " which,"
+      },
+      "correct_answer": "A",
+      "explanation": "The clause adds information about the ocean and is correctly set off by a comma followed by \"which.\"",
+      "distractor_explanations": {
+        "B": "\"That\" is not used after a comma to begin a nonessential clause.",
+        "C": "A semicolon cannot introduce a dependent clause.",
+        "D": "The comma belongs before \"which,\" not after it."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the clause essential to identifying the ocean?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate misplaced punctuation."
+      },
+      "remember": "Use \", which\" for extra information.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "E020-10",
+      "created_at": "2026-10-26T23:25:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: choice D renders as ' which,' with a leading space; this is a formatting artifact of the underline span"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-020.review.json",
+        "computation": "checks/act_english/batch_020.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
