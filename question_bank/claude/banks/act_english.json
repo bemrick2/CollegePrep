@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 8,
-  "updated_at": "2026-10-26T20:11:30+00:00",
+  "version": 9,
+  "updated_at": "2026-10-26T20:23:34+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -91,6 +91,17 @@
       "word_count": 241,
       "text": "The letters arrived in a shoebox the summer after my grandmother died: forty-three of them, written in Portuguese to her sister in the Azores and returned to our family after the {{1|sisters'}} deaths. I had studied Portuguese for two years in high school, and I assumed that would be enough. It was not.\n\nMy grandmother wrote the way she talked, in long sentences full of village nicknames and expressions I could not find in any dictionary. {{2|For example,}} she called the town's priest \"the Rooster,\" and she described a hard winter as \"a winter with teeth.\" Some pages took me an entire evening. On one, she had copied a few lines by the Portuguese {{3|poet, Fernando Pessoa,}} into the margin, and next to them she had written a single word {{4|that, I eventually translated as}} \"exactly.\"\n\nI began keeping a notebook of the phrases I could not translate, and by the end of the summer it held more than two hundred entries. At first, the notebook felt like a list of failures. Gradually it became something else: a record of {{5|the way, my grandmother saw}} the world, one stubborn phrase at a time. {{6|The notebook had cost three dollars at a drugstore.}}\n\nI still cannot read Portuguese {{7|fluently. I can}}, however, recognize my grandmother's voice in it, {{8|which took me most of a long summer}}. Last month I {{9|lended}} the notebook to my cousin, who is starting on the letters herself.",
       "batch": 8,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000009",
+      "title": "Mapping the Dark",
+      "genre": "informational essay",
+      "word_count": 205,
+      "text": "On the roof of a downtown hotel in Riverton, between the air-conditioning units and a row of potted herbs, sit four white wooden boxes. They hold roughly two hundred thousand honeybees, which the hotel's chef inspects every Tuesday morning. Urban hives often produce {{1|less}} honey than rural ones, but the chef is not trying to compete with farms. If the chef {{2|was}} to skip an inspection during the spring swarming season, half of a colony might leave for a nearby tree.\n\nWhen the chef meets with the hotel's manager about the hives, {{3|he}} usually brings a jar of honey to the meeting. The hotel must also comply {{4|to}} the city's rules for beekeeping: hives must be registered, and inspectors visit twice a year. {{5|Even so,}} the number of rooftop hives in Riverton has tripled since 2015, and the city now counts dozens of beekeepers {{6|who's}} hives sit on roofs and balconies.\n\n{{7|At the present time}}, the hotel sells its honey in the lobby. Guests often say that rooftop honey tastes different from {{8|the countryside}}, and they are right: city bees forage on linden trees, window boxes, and weedy lots, so each season's honey carries a slightly different flavor. {{9|The jars sell for twelve dollars each.}}",
+      "batch": 9,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -6338,6 +6349,714 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-008.review.json",
         "computation": "checks/act_english/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000089",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Less versus fewer",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 1,
+      "evidence": "honey than rural ones",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "fewer",
+        "C": "lesser",
+        "D": "least"
+      },
+      "correct_answer": "A",
+      "explanation": "Honey is a mass noun, so \"less honey\" is correct; \"fewer\" is used with countable nouns.",
+      "distractor_explanations": {
+        "B": "\"Fewer\" is for countable nouns; honey is not counted.",
+        "C": "\"Lesser\" means lower in importance, not smaller in amount.",
+        "D": "\"Least\" is a superlative, but only two things are compared."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can you count honey one by one?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Countable nouns take fewer; mass nouns take less."
+      },
+      "remember": "Fewer for things you count; less for amounts.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-01",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: tests a 'less vs fewer' item where NO CHANGE is right; the fewer trap is well placed for a mass noun (honey)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000090",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subjunctive mood",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 2,
+      "evidence": "half of a colony might leave for a nearby tree",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "is",
+        "C": "were",
+        "D": "had been"
+      },
+      "correct_answer": "C",
+      "explanation": "\"If the chef were to skip ... a colony might leave\" describes a hypothetical situation, which calls for the subjunctive \"were.\"",
+      "distractor_explanations": {
+        "A": "A hypothetical \"if\" clause about an unreal situation takes \"were,\" not \"was.\"",
+        "B": "\"Is\" does not fit the hypothetical \"might\" in the main clause.",
+        "D": "\"Had been to skip\" is not a standard verb form."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is the \"if\" clause describing something real or hypothetical?",
+        "What verb form does \"might\" pair with?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Hypothetical \"if ... were to\" pairs with \"might.\""
+      },
+      "remember": "Hypothetical if-clauses use \"were.\"",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-02",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: 'was to' is common in informal English, so some test-takers may see A as acceptable; the ACT standard is the subjunctive 'were' for hypotheticals"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000091",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Idiom (preposition)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 4,
+      "evidence": "the city's rules for beekeeping",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "by",
+        "C": "on",
+        "D": "with"
+      },
+      "correct_answer": "D",
+      "explanation": "Standard usage is \"comply with\" rules.",
+      "distractor_explanations": {
+        "A": "The idiom is \"comply with,\" not \"comply to.\"",
+        "B": "\"Comply by\" is not idiomatic.",
+        "C": "\"Comply on\" is not idiomatic."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which preposition normally follows \"comply\"?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Supply the idiom yourself."
+      },
+      "remember": "Comply with; agree with; conform to.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-04",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000092",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (concession)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 5,
+      "evidence": "hives must be registered, and inspectors visit twice a year",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Therefore,",
+        "C": "In other words,",
+        "D": "For instance,"
+      },
+      "correct_answer": "A",
+      "explanation": "The rules might discourage beekeeping, yet the number of hives tripled: \"Even so\" marks a result that holds despite the rules.",
+      "distractor_explanations": {
+        "B": "Tripling is not a result of registration and inspection rules.",
+        "C": "The sentence does not restate the rules.",
+        "D": "Growth in hives is not an example of the rules."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Would rules and inspections encourage or discourage new hives?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"despite this.\""
+      },
+      "remember": "Use a concession when a result happens despite an obstacle.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-05",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000093",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Whose versus who's",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 6,
+      "evidence": "the city now counts dozens of beekeepers",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "whose",
+        "C": "whom",
+        "D": "who"
+      },
+      "correct_answer": "B",
+      "explanation": "The hives belong to the beekeepers, so the possessive \"whose\" is needed.",
+      "distractor_explanations": {
+        "A": "\"Who's\" means \"who is,\" which does not fit.",
+        "C": "\"Whom\" does not show possession.",
+        "D": "\"Who\" does not show possession."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Try reading \"who's\" as \"who is.\""
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Expand contractions to test them."
+      },
+      "remember": "Whose = belonging to whom; who's = who is.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-06",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000094",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 7,
+      "evidence": "the hotel sells its honey in the lobby",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "At this present moment in time",
+        "C": "Currently, at present",
+        "D": "Now"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Now\" conveys the meaning in one word.",
+      "distractor_explanations": {
+        "A": "\"At the present time\" says \"now\" in four words.",
+        "B": "This is even wordier and repeats itself.",
+        "C": "\"Currently\" and \"at present\" mean the same thing."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice says the same thing most briefly?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      },
+      "remember": "Prefer one word to a phrase that means the same.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-07",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: the shortest choice is the answer, typical of ACT redundancy items but a test-wise tell",
+          "minor: A is wordy rather than strictly ungrammatical, but D is clearly best under the ACT's concision standard"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000095",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Faulty comparison",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 8,
+      "evidence": "rooftop honey tastes different from",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "the countryside does",
+        "C": "honey from the countryside",
+        "D": "in the countryside"
+      },
+      "correct_answer": "C",
+      "explanation": "A comparison must set like against like: rooftop honey against honey from the countryside.",
+      "distractor_explanations": {
+        "A": "This compares honey with a place, not with other honey.",
+        "B": "This compares honey with what the countryside does, which is illogical.",
+        "D": "\"Different from in the countryside\" lacks a noun to compare with the honey."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is rooftop honey being compared with?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Make sure both sides of the comparison are the same kind of thing."
+      },
+      "remember": "Compare like with like.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-08",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000096",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that links to the essay's focus",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": 9,
+      "evidence": "city bees forage on linden trees, window boxes, and weedy lots",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by connecting the honey to the city around it?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Each jar, the chef likes to say, is a map of the neighborhood's flowers.",
+        "C": "Some guests buy several jars to take home as gifts for their families.",
+        "D": "Honeybees have been kept by people for thousands of years."
+      },
+      "correct_answer": "B",
+      "explanation": "The paragraph explains that the honey's flavor comes from the city's plants; calling each jar a map of the neighborhood's flowers ties the honey to the city.",
+      "distractor_explanations": {
+        "A": "A price does not connect the honey to the city.",
+        "C": "This is about guests, not the city's influence on the honey.",
+        "D": "This general history does not connect the honey to Riverton."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "C": "true_but_irrelevant",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What gives the honey its flavor, according to the paragraph?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the goal: connect honey to city."
+      },
+      "remember": "Match the conclusion to the goal in the stem.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-09",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000097",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Relevance of an added sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": null,
+      "evidence": "the city now counts dozens of beekeepers",
+      "figure": null,
+      "stem": "The writer is considering adding the following sentence at the end of the second paragraph:\n\"Honeybees tell one another where flowers are by performing a movement called the waggle dance.\"\nShould the writer make this addition there?",
+      "choices": {
+        "A": "Yes, because it explains why the number of rooftop hives in Riverton has tripled since 2015.",
+        "B": "Yes, because it shows that the city's inspectors understand how honeybees behave.",
+        "C": "No, because bee communication is unrelated to the paragraph's focus on rules and beekeepers.",
+        "D": "No, because it contradicts the claim that city bees forage on many kinds of plants."
+      },
+      "correct_answer": "C",
+      "explanation": "The second paragraph is about regulations and the growing number of beekeepers; bee communication is interesting but off topic there.",
+      "distractor_explanations": {
+        "A": "The dance does not explain why more people keep bees.",
+        "B": "Nothing links the dance to the inspectors.",
+        "D": "Communicating about flowers does not contradict foraging widely."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What is the second paragraph about?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check whether the sentence serves the paragraph's focus."
+      },
+      "remember": "Interesting is not the same as relevant.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-10",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000098",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000009",
+      "underline": null,
+      "evidence": "which the hotel's chef inspects every Tuesday morning",
+      "figure": null,
+      "stem": "Suppose the writer's goal had been to explain, step by step, how to start a beehive. Would this essay accomplish that goal?",
+      "choices": {
+        "A": "Yes, because it describes the inspections and rules that new beekeepers must follow.",
+        "B": "Yes, because it explains how city bees forage on many different kinds of plants.",
+        "C": "No, because it argues that keeping bees in cities is too dangerous to recommend.",
+        "D": "No, because it profiles one hotel's rooftop hives rather than giving instructions."
+      },
+      "correct_answer": "D",
+      "explanation": "The essay describes one hotel's hives and the city's beekeeping scene; it gives no steps for starting a hive.",
+      "distractor_explanations": {
+        "A": "Mentioning rules is not step-by-step instruction.",
+        "B": "Foraging is not a step in starting a hive.",
+        "C": "The essay does not argue that beekeeping is dangerous."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "true_but_irrelevant",
+        "C": null
+      },
+      "hints": [
+        "Does the essay give instructions?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Decide yes or no, then check the reason."
+      },
+      "remember": "Both the verdict and the reason must be right.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "E009-11",
+      "created_at": "2026-10-26T20:23:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-009.review.json",
+        "computation": "checks/act_english/batch_009.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

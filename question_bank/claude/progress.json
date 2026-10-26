@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:21:32+00:00",
+  "updated_at": "2026-10-26T20:23:37+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 252,
-    "act_english": 88,
+    "act_english": 98,
     "act_reading": 81,
     "sat_reading_writing": 95
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 88,
-      "REVISE": 3,
+      "PASS": 98,
+      "REVISE": 4,
       "REJECT": 0,
-      "candidates": 91,
+      "candidates": 102,
       "passed_after_revision": 3
     },
     "act_reading": {
@@ -341,12 +341,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 88,
+      "accepted": 98,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 40,
-        "Knowledge of Language": 13,
-        "Production of Writing": 35
+        "Conventions of Standard English": 44,
+        "Knowledge of Language": 15,
+        "Production of Writing": 39
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
@@ -362,25 +362,28 @@
         "Commas around a nonessential phrase": 1,
         "Commas in a series": 1,
         "Commas with a nonessential clause": 1,
-        "Concision": 1,
+        "Concision": 2,
         "Concision and redundancy": 3,
         "Concluding sentence that links to earlier content": 1,
         "Conclusion emphasizing a point": 1,
+        "Conclusion that links to the essay's focus": 1,
         "Conclusion that returns to the opening": 2,
         "Conclusions that echo the opening": 1,
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 4,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 5,
+        "Evaluating whether an essay meets a goal": 6,
         "Evaluating whether an essay meets a stated goal": 1,
+        "Faulty comparison": 1,
         "Function of a sentence (what would be lost)": 1,
         "Idiom (phrasal verb)": 1,
-        "Idiom (preposition)": 1,
+        "Idiom (preposition)": 2,
         "Irregular past tense": 1,
         "It's / its": 1,
         "Its / it's": 1,
         "Its versus it's": 1,
         "Keeping or deleting a sentence": 2,
+        "Less versus fewer": 1,
         "Logical comparison": 1,
         "Parallel structure": 3,
         "Participial phrases and sentence boundaries": 1,
@@ -394,7 +397,7 @@
         "Redundancy (deleting a sentence)": 1,
         "Relevance": 1,
         "Relevance (supporting a point)": 1,
-        "Relevance of an added sentence": 1,
+        "Relevance of an added sentence": 2,
         "Relevance to a stated purpose": 1,
         "Restrictive appositive (no commas)": 1,
         "Semicolons joining independent clauses": 1,
@@ -407,39 +410,41 @@
         "Subject-verb agreement (\"each of\")": 1,
         "Subject-verb agreement in a relative clause": 1,
         "Subject-verb agreement with a gerund subject": 1,
+        "Subjunctive mood": 1,
         "Supporting a claim with detail": 1,
         "Their / there / they're": 1,
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
-        "Transitions (concession)": 1,
+        "Transitions (concession)": 2,
         "Transitions (contrast)": 2,
         "Transitions (example)": 1,
         "Transitions: contrast": 1,
         "Unnecessary comma between noun and clause": 1,
         "Unnecessary comma in a relative clause": 1,
-        "Verb forms and agreement": 1
+        "Verb forms and agreement": 1,
+        "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 32,
-        "hard": 9,
-        "medium": 47
+        "easy": 34,
+        "hard": 11,
+        "medium": 53
       },
       "by_difficulty_calibrated": {
-        "easy": 51,
-        "medium": 37
+        "easy": 58,
+        "medium": 40
       },
       "calibrated_share": {
-        "easy": 0.58,
-        "medium": 0.42
+        "easy": 0.592,
+        "medium": 0.408
       },
       "answer_key_balance": {
-        "A": 28,
-        "B": 20,
-        "C": 21,
-        "D": 19
+        "A": 30,
+        "B": 22,
+        "C": 24,
+        "D": 22
       },
       "modeling_items": 0,
-      "passages": 8
+      "passages": 9
     },
     "act_reading": {
       "accepted": 81,
@@ -635,7 +640,7 @@
   },
   "last_completed_batch": {
     "act_math": 26,
-    "act_english": 8,
+    "act_english": 9,
     "act_reading": 9,
     "sat_reading_writing": 10
   },
@@ -670,14 +675,6 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 9,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.7,
-        "Knowledge of Language": 7.1,
-        "Conventions of Standard English": -0.3
-      }
-    },
     "act_reading": {
       "next_batch": 10,
       "skill_gap_for_next_10": {
@@ -694,6 +691,14 @@
         "Standard English Conventions": 2.3,
         "Expression of Ideas": 0.0
       }
+    },
+    "act_english": {
+      "next_batch": 10,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 4.7,
+        "Knowledge of Language": 7.1,
+        "Conventions of Standard English": -0.3
+      }
     }
   },
   "section_targets": {
@@ -704,8 +709,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 88,
-      "share_of_target": 0.126
+      "accepted": 98,
+      "share_of_target": 0.14
     },
     "act_reading": {
       "target": 600,
@@ -719,9 +724,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 516,
+  "total_accepted": 526,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -925,7 +930,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 8,
+      "bank_version": 9,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -978,7 +983,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:21:32+00:00",
+    "heartbeat_at": "2026-10-26T20:23:36+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
