@@ -26,21 +26,21 @@ afterEach(() => vi.useRealTimers())
 describe('demo progress checks mirror #263: items are assigned once, at start', () => {
   it('assigns the plan size per section from the reserve, unseen first, and lists nothing else', async () => {
     const { src, sid } = await student()
-    const bm = await src.startBenchmark(sid, 'mini', 'act')
+    const bm = await src.startBenchmark(sid, 'initial', 'act')
     const items = await src.benchmarkQuestions(bm, sid)
-    for (const [section, n] of Object.entries(PER_SECTION.act.mini)) {
+    for (const [section, n] of Object.entries(PER_SECTION.act.initial)) {
       const inReserve = QUESTIONS.filter((q) => RESERVED_ACT.has(q.id) && q.section === section).length
       expect(items.filter((i) => i.question.section === section)).toHaveLength(Math.min(n, inReserve))
     }
     expect(items.every((i) => RESERVED_ACT.has(i.question.id) && !i.seen_before)).toBe(true)
     // Resuming returns the same check and the same items.
-    expect(await src.startBenchmark(sid, 'mini', 'act')).toBe(bm)
+    expect(await src.startBenchmark(sid, 'initial', 'act')).toBe(bm)
     expect((await src.benchmarkQuestions(bm, sid)).map((i) => i.question.id)).toEqual(items.map((i) => i.question.id))
   })
 
   it('refuses an item that isn’t assigned to the check, and a used one', async () => {
     const { src, sid } = await student()
-    const bm = await src.startBenchmark(sid, 'mini', 'sat')
+    const bm = await src.startBenchmark(sid, 'initial', 'sat')
     const assigned = new Set((await src.benchmarkQuestions(bm, sid)).map((i) => i.question.id))
     // (The demo reserve is exactly one mini check, so every reserved item is assigned here; refusing unassigned items
     // is covered by checkAssignment.smallPlan.test.ts.)
@@ -56,11 +56,11 @@ describe('demo progress checks mirror #263: items are assigned once, at start', 
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-10-23T12:00:00Z'))
     const { src, sid } = await student()
-    const bm1 = await src.startBenchmark(sid, 'mini', 'act')
+    const bm1 = await src.startBenchmark(sid, 'initial', 'act')
     const first = await src.benchmarkQuestions(bm1, sid)
     const before = await src.assessmentPoolStatus(sid, 'act')
     // Nothing answered; the check expires.
-    vi.setSystemTime(new Date('2026-10-23T17:00:00Z'))
+    vi.setSystemTime(new Date('2026-11-20T12:00:00Z')) // 28 days later: the next check opens
     const bm2 = await src.startBenchmark(sid, 'mini', 'act')
     expect(bm2).not.toBe(bm1)
     const second = await src.benchmarkQuestions(bm2, sid)
@@ -77,8 +77,8 @@ describe('demo progress checks mirror #263: items are assigned once, at start', 
     const src = new DemoSource(store)
     src.switchPersona(DEMO_STUDENT, 'Ava')
     const sid = await src.createSelfStudentProfile({ displayName: 'Ava', graduationYear: null, gradeLevel: 10, independent: false, timeZone: 'UTC' })
-    await src.startBenchmark(sid, 'mini', 'act') // assigned, never answered
-    vi.setSystemTime(new Date('2026-10-23T17:00:00Z'))
+    await src.startBenchmark(sid, 'initial', 'act') // assigned, never answered
+    vi.setSystemTime(new Date('2026-11-20T12:00:00Z'))
     const reloaded = new DemoSource(JSON.parse(JSON.stringify(store)))
     reloaded.switchPersona(DEMO_STUDENT, 'Ava')
     expect((await reloaded.assessmentPoolStatus(sid, 'act'))!.every((s) => s.unseen === 0)).toBe(true)

@@ -1,5 +1,5 @@
 import { Link, Navigate } from 'react-router-dom'
-import { useApp } from '../../lib/app'
+import { useApp, useAsync } from '../../lib/app'
 import { ButtonLink, Notice, PageLoading, Pill, ProgressBar, cx } from '../../components/ui'
 import { Figure, Row, RowList, Section } from '../../components/layout'
 import { Flame, Trophy } from '../../components/icons'
@@ -7,7 +7,7 @@ import { useInterests } from '../majors/useInterests'
 import { useSavedComparison, COMPARE_YEAR } from '../colleges/useSavedComparison'
 import { useMeritReference } from '../colleges/useMeritReference'
 import { meritAwards } from '../../lib/engine/merit'
-import { addDays, localDate } from '../../lib/engine/dates'
+import { addDays, formatShortDate, localDate } from '../../lib/engine/dates'
 import { benchmarkAttemptIds, benchmarkSchedule, SECTION_LABEL } from '../../lib/engine/benchmark'
 import { showRecap, weekRecap, weeklyPlan } from '../../lib/engine/weeklyPlan'
 import { ReminderNudge } from '../reminders/Reminders'
@@ -58,14 +58,46 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
   const fresh = o.benchmarks.length === 0 && o.history.length === 0
   const schedule = benchmarkSchedule(o.benchmarks)
   const week = weeklyPlan({ today: o.today, weekStart: o.weekStart, tz: o.tz, plan: o.plan, week: o.week, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates })
-  const checkDue = o.benchmarks.length > 0 && schedule.inDays === 0
+  // #279: the server says which check may start now, and whether one is still open (resumed, never replaced). Without
+  // its answer (an error), the schedule decides, and the check page still enforces the server's rules.
+  const checkOpts = useAsync(() => source.benchmarkOptions(studentId, exam), [source, studentId, exam])
+  const co = checkOpts.data ?? null
+  const openCheck = co?.open ?? null
+  const checkDue = o.benchmarks.length > 0 && schedule.inDays === 0 && (co ? co.miniAllowed || co.fullAllowed : true)
+  const startingBlocked = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.miniAllowed && !co.fullAllowed && !co.open
+  // No completed check, but the server offers a mini (an abandoned starting check, 28 days later).
+  const miniInstead = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.open && (co.miniAllowed || co.fullAllowed)
   const lastWeekStart = addDays(o.weekStart, -7)
   const recap = o.lastWeek && showRecap(o.today, o.weekStart) ? weekRecap({ weekStart: lastWeekStart, tz: o.tz, plan: o.plan, week: o.lastWeek, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates }) : null
   const hour = new Date().getHours()
   const hello = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
 
   const next =
-    checkDue
+    openCheck
+      ? {
+          title: 'Your progress check is still open',
+          length: 'Pick up where you left off',
+          cta: 'Resume the check',
+          to: '/student/benchmark',
+          detail: 'Questions you were already shown stay used, and no new ones are added. Checks close 4 hours after they start.',
+        }
+      : miniInstead
+      ? {
+          title: 'Mini benchmark',
+          length: 'About 15 minutes',
+          cta: 'Start progress check',
+          to: '/student/benchmark?kind=mini',
+          detail: 'Your starting check closed before it was finished, so the next one is a mini check. It finds your strengths and gaps for the plan.',
+        }
+      : startingBlocked
+      ? {
+          title: !co!.reserveAvailable ? `No ${EXAM_NAME[exam]} progress-check questions yet` : co!.miniOpensAt ? `Your next progress check opens on ${formatShortDate(localDate(co!.miniOpensAt, o.tz))}` : 'No progress check can be started right now',
+          length: !co!.reserveAvailable ? 'Progress checks use their own questions, kept out of practice, and none are available for this test yet' : 'Checks are spaced out so each one measures fresh questions',
+          cta: 'Practice',
+          to: '/student/practice',
+          detail: null,
+        }
+      : checkDue
       ? {
           title: schedule.kind === 'full' ? 'Full benchmark' : 'Mini benchmark',
           length: schedule.kind === 'full' ? 'About an hour' : 'About 15 minutes',
@@ -163,7 +195,8 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
               </div>
             </div>
           )}
-          {o.benchmarks.length === 0 ? (
+          {/* An open or blocked starting check uses the next-step card below; otherwise the first steps. */}
+          {o.benchmarks.length === 0 && !openCheck && !startingBlocked && !miniInstead ? (
             <div className={cx(!fresh && 'pt-5 md:pt-6')}>
               <h2 id="next-title" className="mb-3 text-sm font-semibold text-ink-3">
                 {practicedToday ? 'Today' : 'Next up'}

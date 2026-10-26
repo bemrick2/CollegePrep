@@ -2,7 +2,7 @@ import { MAX_INTERESTS, type InterestProfile, type MajorCertainty, type SavedInt
 import { INVITE_TTL_HOURS } from '../../invites'
 import { displayName, examKey, type PlannedExam } from '../../engine/examCredit'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { CheckItem, PoolStatus, AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
+import type { CheckItem, CheckOptions, CheckProgress, PoolStatus, AlertPreference, DevicePermission, DevicePlatform, DeviceStatus, EmailDelivery, DataSource, ReminderChange, ReminderDelivery, ReminderSettings, InactiveStudent, InvitationSummary, InviteSendResult, StudentInvitation } from '../source'
 import type { NextWeekSuggestion } from '../../engine/weeklyPlan'
 import { DataError } from '../source'
 import { DEFAULT_REMINDERS } from '../../../../../supabase/functions/_shared/reminders.ts'
@@ -39,6 +39,9 @@ interface PgError {
   code?: string
   message: string
 }
+
+/** A progress check is live for 4 hours from its start (benchmark_is_live). */
+const CHECK_LIVE_MS = 4 * 60 * 60 * 1000
 
 function fail(err: PgError): never {
   const code = err.code === '42501' ? 'forbidden' : err.code === '22023' ? 'invalid' : 'unknown'
@@ -605,6 +608,57 @@ export class LiveSource implements DataSource {
     return (rows ?? []).filter((r) => byId.has(r.question_id)).map((r) => ({ question: byId.get(r.question_id)!, seen_before: !!r.seen_before }))
   }
 
+  /**
+   * #279 (Research's final contract, 20261023010000): benchmark_allowed_kinds is what a start would do now, from the same
+   * rule function start_benchmark uses. A live check is resumed; nothing else opens while it is live.
+   */
+  async benchmarkOptions(studentId: string, examFamily: ExamFamily): Promise<CheckOptions> {
+    const version = await this.currentExamVersion(examFamily)
+    const rows = await rpc<{ live_benchmark: string | null; live_kind: 'initial' | 'mini' | 'full' | null; live_expires_at: string | null; allowed_kinds: string[] | null; next_mini_at: string | null; reserve_available: boolean }[]>(
+      this.sb,
+      'benchmark_allowed_kinds',
+      { p_student: studentId, p_exam_version: version },
+    )
+    const r = (Array.isArray(rows) ? rows[0] : rows) ?? null
+    if (!r) throw new DataError("The server didn't say which progress checks can start", 'unknown')
+    const live = r.live_benchmark && r.live_kind ? r.live_benchmark : null
+    const allowed = new Set(live ? [] : (r.allowed_kinds ?? []))
+    return {
+      initialAllowed: allowed.has('initial'),
+      miniAllowed: allowed.has('mini'),
+      // Only when a mini is the next check and isn't open yet.
+      miniOpensAt: !live && r.reserve_available && !allowed.has('initial') && !allowed.has('mini') ? (r.next_mini_at ?? null) : null,
+      fullAllowed: allowed.has('full'),
+      // A check is live for 4 hours from its start (benchmark_is_live).
+      open: live ? { id: live, kind: r.live_kind!, startedAt: r.live_expires_at ? new Date(Date.parse(r.live_expires_at) - CHECK_LIVE_MS).toISOString() : '' } : null,
+      reserveAvailable: !!r.reserve_available,
+    }
+  }
+
+  /** Per section: the check's assigned items (practice_benchmark_items) and how many have an attempt in it. */
+  async benchmarkProgress(benchmarkId: string, studentId?: string): Promise<CheckProgress[]> {
+    let itemsQ = this.sb.from('practice_benchmark_items').select('section, question_id').eq('benchmark_id', benchmarkId)
+    if (studentId) itemsQ = itemsQ.eq('student_id', studentId)
+    const [items, used] = await Promise.all([
+      itemsQ,
+      this.sb.from('practice_attempts').select('question_id').eq('benchmark_id', benchmarkId),
+    ])
+    if (items.error) fail(items.error)
+    if (used.error) fail(used.error)
+    // The server never keeps a check without items (it rolls the start back), so no rows means this caller can't see
+    // the check (row security) or it isn't this student's: refuse, rather than report an empty, "finished" check.
+    if (!(items.data ?? []).length) throw new DataError("This progress check isn't one you can see", 'forbidden')
+    const done = new Set(((used.data ?? []) as { question_id: string }[]).map((a) => a.question_id))
+    const by = new Map<string, CheckProgress>()
+    for (const i of (items.data ?? []) as { section: string; question_id: string }[]) {
+      const x = by.get(i.section) ?? { section: i.section, assigned: 0, used: 0 }
+      x.assigned++
+      if (done.has(i.question_id)) x.used++
+      by.set(i.section, x)
+    }
+    return [...by.values()].sort((a, b) => a.section.localeCompare(b.section))
+  }
+
   async endSession(sessionId: string) {
     await rpc<void>(this.sb, 'end_practice_session', { p_session: sessionId })
   }
@@ -723,9 +777,10 @@ export class LiveSource implements DataSource {
     return rpc<string>(this.sb, 'start_benchmark', { p_student: studentId, p_kind: kind, p_exam_version: version })
   }
 
-  async completeBenchmark(_studentId: string, benchmarkId: string, client: BenchmarkSummary): Promise<BenchmarkSummary> {
+  async completeBenchmark(_studentId: string, benchmarkId: string, client: BenchmarkSummary, opts: { resumed?: boolean } = {}): Promise<BenchmarkSummary> {
     const m = await rpc<ServerMetrics>(this.sb, 'complete_benchmark', { p_benchmark: benchmarkId })
-    return { ...client, id: benchmarkId, metrics: fromServerMetrics(m, client.metrics) }
+    // A resumed check: this screen saw only part of it, so every metric is the server's (none from this run's record).
+    return { ...client, id: benchmarkId, metrics: fromServerMetrics(m, opts.resumed ? undefined : client.metrics) }
   }
 
   async savedSchools(householdId: string) {

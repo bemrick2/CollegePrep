@@ -111,14 +111,21 @@ export interface DataSource {
   listBenchmarks(studentId: string): Promise<BenchmarkSummary[]>
   /** Opens a benchmark that groups the attempts that follow (start_benchmark). */
   startBenchmark(studentId: string, kind: BenchmarkSummary['kind'], examFamily: ExamFamily): Promise<string>
-  /** Closes it. Live stores the server's metrics; `client` carries the staircase details the server doesn't compute. */
-  completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary): Promise<BenchmarkSummary>
+  /**
+   * Closes it. Live stores the server's metrics; `client` carries the staircase details the server doesn't compute.
+   * `resumed`: the client's record covers only the part of the check after a reload, so none of it is used for metrics.
+   */
+  completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary, opts?: { resumed?: boolean }): Promise<BenchmarkSummary>
 
   // CR-23 reserved assessment pool. Reserved content is readable only inside an open check, so sizes come as counts.
   /** Per section: reserved items and how many this student hasn't seen. null when the source can't say. */
   assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null>
   /** The reserved items an open check may still use, unseen first, then repeats (each flagged). */
   benchmarkQuestions(benchmarkId: string, studentId: string, examFamily: ExamFamily): Promise<CheckItem[]>
+  /** Which checks the server will open now (#279): the student's live check, if any, and the kinds allowed. */
+  benchmarkOptions(studentId: string, examFamily: ExamFamily): Promise<CheckOptions>
+  /** Per section of an open check: items assigned to it and items already used (answered or skipped). */
+  benchmarkProgress(benchmarkId: string, studentId: string): Promise<CheckProgress[]>
 
   // Saved schools (CR-9) and verified-school listing (CR-7)
   savedSchools(householdId: string): Promise<string[]>
@@ -288,6 +295,26 @@ export interface PoolStatus {
   section: string
   reserved: number
   unseen: number
+}
+
+/** #279: what the server will start now. A live check is resumed, never replaced by fresh questions. */
+export interface CheckOptions {
+  initialAllowed: boolean
+  miniAllowed: boolean
+  /** When the next mini check opens (an ISO timestamp, shown in the student's own time zone), if it isn't open yet. */
+  miniOpensAt: string | null
+  fullAllowed: boolean
+  /** The student's live check of this exam, if any. */
+  open: { id: string; kind: 'initial' | 'mini' | 'full'; startedAt: string } | null
+  /** False when the exam has no reserved questions in any planned section: nothing can be measured or started. */
+  reserveAvailable: boolean
+}
+
+/** #279: per section of an open check, items assigned and items already used (answered or skipped). */
+export interface CheckProgress {
+  section: string
+  assigned: number
+  used: number
 }
 
 /** CR-23: a reserved item an open check may use. */
