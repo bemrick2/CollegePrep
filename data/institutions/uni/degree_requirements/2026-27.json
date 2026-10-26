@@ -4170,6 +4170,16 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "*",
+            "text": "* Must have a 'C' or higher in all major coursework."
+          },
+          {
+            "marker": "**",
+            "text": "** 2.5 major GPA requirement."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -4344,7 +4354,7 @@
       },
       "source_url": "https://catalog.uni.edu/coe/rectourismnonprofitba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IA/2026-10-06-cat2#c70b0c62e391cf7d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#ed4966796e8870fc."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Learning Outcomes\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#ed4966796e8870fc) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#ed4966796e8870fc."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7838,9 +7848,20 @@
           {
             "credit_hours": "15",
             "items": [
-              "UNIFI/General Education or University Electives | 6",
-              "ART 1011 | Drawing I | 3",
-              "ART 1222 | Two-Dimensional Concepts | 3",
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "code": "ART 1011",
+                "credits": 3,
+                "title": "Drawing I"
+              },
+              {
+                "code": "ART 1222",
+                "credits": 3,
+                "title": "Two-Dimensional Concepts"
+              },
               "ARTHIST 1111 | Survey of Art History I | 3"
             ],
             "label": "Fall",
@@ -7849,11 +7870,25 @@
           {
             "credit_hours": "15",
             "items": [
-              "ART 1022 | Drawing II | 3",
-              "ART 1333 | Three-Dimensional Concepts | 3",
+              {
+                "code": "ART 1022",
+                "credits": 3,
+                "title": "Drawing II"
+              },
+              {
+                "code": "ART 1333",
+                "credits": 3,
+                "title": "Three-Dimensional Concepts"
+              },
               "ARTHIST 1222 | Survey of Art History II | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Educator Essentials Course | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -7866,10 +7901,22 @@
           {
             "credit_hours": "15",
             "items": [
-              "Studio Distribution Group 1 | 3",
-              "Studio Distribution Group 2 | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 5",
+              {
+                "credits": 3,
+                "text": "Studio Distribution Group 1"
+              },
+              {
+                "credits": 3,
+                "text": "Studio Distribution Group 2"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 5,
+                "text": "UNIFI/General Education or University Electives"
+              },
               "TEACHING 2020 | Introduction to Teaching: Exploring Options | 1"
             ],
             "label": "Fall",
@@ -7878,10 +7925,22 @@
           {
             "credit_hours": "15",
             "items": [
-              "Educator Essentials Course | 3",
-              "Studio Distribution Group 1 | 3",
-              "Studio Distribution Group 2 | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "Studio Distribution Group 1"
+              },
+              {
+                "credits": 3,
+                "text": "Studio Distribution Group 2"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -7894,11 +7953,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "EDUC 2314 | Teaching Methods l: Elementary Art | 3",
-              "EDUC 2414 | Teaching Internship l: Elementary Art | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Any 4000-Level ARTHIST Course | 3",
-              "Studio Concentration I | 3"
+              {
+                "code": "EDUC 2314",
+                "credits": 3,
+                "title": "Teaching Methods l: Elementary Art"
+              },
+              {
+                "code": "EDUC 2414",
+                "credits": 3,
+                "title": "Teaching Internship l: Elementary Art"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Any 4000-Level ARTHIST Course"
+              },
+              {
+                "credits": 3,
+                "text": "Studio Concentration I"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -7906,11 +7982,27 @@
           {
             "credit_hours": "18",
             "items": [
-              "ARTED 2600 | The Responsive Art Educator | 3",
-              "Studio Concentration II | 3",
-              "UNIFI/General Education or University Electives | 6",
-              "Any 4000-Level ARTHIST Course | 3",
-              "Educator Essentials Course | 3"
+              {
+                "code": "ARTED 2600",
+                "credits": 3,
+                "title": "The Responsive Art Educator"
+              },
+              {
+                "credits": 3,
+                "text": "Studio Concentration II"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Any 4000-Level ARTHIST Course"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -7925,9 +8017,19 @@
             "items": [
               "EDUC 3514/5514 | Teaching Methods ll: Secondary Art | 3",
               "EDUC 3614/5614 | Teaching Internship ll: Secondary Art | 3",
-              "ARTED 4500 | Contemporary Themes in Art Education | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "ARTED 4500",
+                "credits": 3,
+                "title": "Contemporary Themes in Art Education"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -7935,7 +8037,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4140 | Special Area Teaching: Art, ESL, Music, and Physical Education | 12"
+              {
+                "code": "EDUC 4140",
+                "credits": 12,
+                "title": "Special Area Teaching: Art, ESL, Music, and Physical Education"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -7944,7 +8050,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/arteducationba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 34 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#17eeb7fda3b295b1."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->9, credits+text:0->20, str:34->5; same cells; representation only; 5 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#17eeb7fda3b295b1) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#c8c2b9d3c363839c."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8183,8 +8289,15 @@
             "items": [
               "THEATRE 1010 | Foundations of Theatre | 3",
               "THEATRE 1011 | Foundations of Theatre Lab | 1",
-              "COMM 3455 | Creativity, Storytelling and Identity | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "COMM 3455",
+                "credits": 3,
+                "title": "Creativity, Storytelling and Identity"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8192,10 +8305,20 @@
           {
             "credit_hours": "16",
             "items": [
-              "CM CORE 1001 | Digital Toolbox (or CM CORE 1010 or COMM DM 1611 ) | 3",
+              {
+                "code": "CM CORE 1001",
+                "credits": 3,
+                "title": "Digital Toolbox (or CM CORE 1010 or COMM DM 1611 )"
+              },
               "THEATRE 1030 | Acting | 3",
-              "Educator Essentials Course | 6",
-              "UNIFI/General Education or University Electives | 4"
+              {
+                "credits": 6,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 4,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8208,11 +8331,29 @@
           {
             "credit_hours": "17",
             "items": [
-              "EDUC 2387 | Teaching Methods l: Methods of Teaching Communication | 3",
-              "EDUC 2487 | Teaching Internship l: Communication & Theatre | 2",
-              "COMM 2257 | Argumentation and Debate | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "EDUC 2387",
+                "credits": 3,
+                "title": "Teaching Methods l: Methods of Teaching Communication"
+              },
+              {
+                "code": "EDUC 2487",
+                "credits": 2,
+                "title": "Teaching Internship l: Communication & Theatre"
+              },
+              {
+                "code": "COMM 2257",
+                "credits": 3,
+                "title": "Argumentation and Debate"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8221,9 +8362,19 @@
             "credit_hours": "15",
             "items": [
               "THEATRE 1012 | Stagecraft: Scenery/Lights | 3",
-              "COMM 3155 | Professional and Public Communication | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "COMM 3155",
+                "credits": 3,
+                "title": "Professional and Public Communication"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8238,8 +8389,15 @@
             "items": [
               "EDUC 3587/5587 | Teaching Methods ll: Methods of Teaching Drama & Theatre | 3",
               "EDUC 3687/5687 | Teaching Internship ll: Communication & Theatre | 2",
-              "CM CORE 4124 | Communication and Media Theories | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "CM CORE 4124",
+                "credits": 3,
+                "title": "Communication and Media Theories"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8248,8 +8406,14 @@
             "credit_hours": "15",
             "items": [
               "THEATRE 3160 | Directing | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8263,7 +8427,10 @@
             "credit_hours": "15",
             "items": [
               "THEATRE 3060 | History of the Theatre I | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8271,7 +8438,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8280,7 +8451,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/commtheatreteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 27 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#4985089ab9f2590e."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->8, credits+text:0->11, str:27->8; same cells; representation only; 8 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#4985089ab9f2590e) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#86f5d26fe53aac1c."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8303,9 +8474,20 @@
           {
             "credit_hours": "14",
             "items": [
-              "BIOL 2051 | General Biology: Organismal Diversity | 4",
-              "CHEM 1110 | General Chemistry I | 4",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "BIOL 2051",
+                "credits": 4,
+                "title": "General Biology: Organismal Diversity"
+              },
+              {
+                "code": "CHEM 1110",
+                "credits": 4,
+                "title": "General Chemistry I"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8313,10 +8495,24 @@
           {
             "credit_hours": "14",
             "items": [
-              "BIOL 2052 | General Biology: Cell Structure and Function | 4",
-              "CHEM 1120 | General Chemistry II | 4",
-              "UNIFI/General Education or University Electives | 3",
-              "Educator Essentials Course | 3"
+              {
+                "code": "BIOL 2052",
+                "credits": 4,
+                "title": "General Biology: Cell Structure and Function"
+              },
+              {
+                "code": "CHEM 1120",
+                "credits": 4,
+                "title": "General Chemistry II"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8330,11 +8526,21 @@
             "credit_hours": "16",
             "items": [
               "PHYSICS 1511 | General Physics I | 4",
-              "BIOL 3100 | Evolution, Ecology and the Nature of Science | 3",
+              {
+                "code": "BIOL 3100",
+                "credits": 3,
+                "title": "Evolution, Ecology and the Nature of Science"
+              },
               "EARTHSCI 1200 | Elements of Weather | 3",
               "EARTHSCI 1210 | Elements of Weather Laboratory (or additional science content course) | 1",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 2"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 2,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8343,11 +8549,22 @@
             "credit_hours": "17",
             "items": [
               "PHYSICS 1512 | General Physics II | 4",
-              "EDUC 2385 | Teaching Methods l: Secondary Science | 3",
-              "EDUC 2485 | Teaching Internship l: Secondary Science | 3",
+              {
+                "code": "EDUC 2385",
+                "credits": 3,
+                "title": "Teaching Methods l: Secondary Science"
+              },
+              {
+                "code": "EDUC 2485",
+                "credits": 3,
+                "title": "Teaching Internship l: Secondary Science"
+              },
               "EARTHSCI 1100 | Astronomy | 3",
               "EARTHSCI 1110 | Astronomy Laboratory (or additional science content course) | 1",
-              "Educator Essentials Course | 3"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8360,11 +8577,24 @@
           {
             "credit_hours": "17",
             "items": [
-              "CHEM 2040 | Applied Organic and Biochemistry | 4",
+              {
+                "code": "CHEM 2040",
+                "credits": 4,
+                "title": "Applied Organic and Biochemistry"
+              },
               "EARTHSCI 1300 | Introduction to Geology | 4",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Physics Elective 3000-Level or Above (or additional science content course) | 3"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Physics Elective 3000-Level or Above (or additional science content course)"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8374,9 +8604,19 @@
             "items": [
               "PHYSICS 4080/5080 | Resources for Teaching Physics | 2",
               "EARTHSCI 1320 | Earth History (or additional science content course) | 4",
-              "BIOL 3140 | Genetics (or additional science content course) | 4",
-              "Physics Elective 3000-Level or Above (or additional science content course) | 2",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "BIOL 3140",
+                "credits": 4,
+                "title": "Genetics (or additional science content course)"
+              },
+              {
+                "credits": 2,
+                "text": "Physics Elective 3000-Level or Above (or additional science content course)"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8391,9 +8631,18 @@
             "items": [
               "EDUC 3585/5585 | Teaching Methods ll: Secondary Science | 3",
               "EDUC 3685/5685 | Teaching Internship ll: Secondary Science | 3",
-              "Chemistry Elective 2000-Level or Above (or additional science content course) | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "Chemistry Elective 2000-Level or Above (or additional science content course)"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8401,7 +8650,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8410,7 +8663,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/compsecsciencetchgba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 35 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#549a312b16adf6e8."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->10, credits+text:0->14, str:35->11; same cells; representation only; 11 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#549a312b16adf6e8) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#d159ebe917845f20."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8560,7 +8813,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "UNIFI/General Education or University Electives | 15"
+              {
+                "credits": 15,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8569,7 +8825,10 @@
             "credit_hours": "15",
             "items": [
               "ENGLISH 2120 | Critical Writing About Literature | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8584,8 +8843,14 @@
             "items": [
               "ENGLISH 2420 | Survey of American Literature | 3",
               "ENGLISH 2520 | Multicultural Literature | 3",
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8595,9 +8860,18 @@
             "items": [
               "ENGLISH 2320 | Survey of English Literature from Beginnings to Early Modernity | 3",
               "ENGLISH 3710/5710 | Craft of Creative Nonfiction (or alternate English writing course) | 3",
-              "TESOL Linguistics Course | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "TESOL Linguistics Course"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8611,11 +8885,28 @@
             "credit_hours": "18",
             "items": [
               "ENGLISH 2340 | Survey of Post-1800 English and World Literature | 3",
-              "EDUC 2320 | Teaching Methods l: The Teaching of Writing | 3",
-              "EDUC 2420 | Teaching Internship l: English Practicum | 3",
-              "TESOL Linguistics Course | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "EDUC 2320",
+                "credits": 3,
+                "title": "Teaching Methods l: The Teaching of Writing"
+              },
+              {
+                "code": "EDUC 2420",
+                "credits": 3,
+                "title": "Teaching Internship l: English Practicum"
+              },
+              {
+                "credits": 3,
+                "text": "TESOL Linguistics Course"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8625,8 +8916,14 @@
             "items": [
               "ENGLISH 3940/5940 | Literature for Young Adults | 3",
               "LITED 4117/5117 | Methods of Teaching Content Literacy at the Middle and Secondary Levels | 3",
-              "English Major Literature Eelctive - Group A (or Senior Seminar) | 3",
-              "Educator Essentials Courses | 6"
+              {
+                "credits": 3,
+                "text": "English Major Literature Eelctive - Group A (or Senior Seminar)"
+              },
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8641,9 +8938,18 @@
             "items": [
               "EDUC 3520/5520 | Teaching Methods ll: The Teaching of English | 3",
               "EDUC 3620/5620 | Teaching Internship ll: Advanced English Practicum | 3",
-              "English Major Literature Elective - Group B (or Senior Seminar) | 3",
-              "English Major Literature Elective - Group C (or Senior Seminar) | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "English Major Literature Elective - Group B (or Senior Seminar)"
+              },
+              {
+                "credits": 3,
+                "text": "English Major Literature Elective - Group C (or Senior Seminar)"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8651,7 +8957,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8660,7 +8970,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/englishtchgba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 28 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#5d396839955a50b9."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->3, credits+text:0->15, str:28->10; same cells; representation only; 10 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#5d396839955a50b9) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#9317a0cc2399fc5e."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8683,11 +8993,21 @@
           {
             "credit_hours": "15",
             "items": [
-              "MATH 1420 | Calculus I (satisfies UNIFI: Quantitative Reasoning) | 4",
+              {
+                "code": "MATH 1420",
+                "credits": 4,
+                "title": "Calculus I (satisfies UNIFI: Quantitative Reasoning)"
+              },
               "PHYSICS 1100 | First-Year Projects in Physics | 1",
               "PHYSICS 1701 | Physics I for Science and Engineering (satisfies UNIFI: Scientific Reasoning) | 4",
-              "UNIFI: Written Communication | 3",
-              "UNIFI: Human Condition (Global) | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI: Written Communication"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI: Human Condition (Global)"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8695,10 +9015,20 @@
           {
             "credit_hours": "17",
             "items": [
-              "MATH 1421 | Calculus II | 4",
+              {
+                "code": "MATH 1421",
+                "credits": 4,
+                "title": "Calculus II"
+              },
               "PHYSICS 1702 | Physics II for Science and Engineering | 4",
-              "UNIFI: Oral Communication | 3",
-              "University Electives | 6"
+              {
+                "credits": 3,
+                "text": "UNIFI: Oral Communication"
+              },
+              {
+                "credits": 6,
+                "text": "University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8711,10 +9041,19 @@
           {
             "credit_hours": "16",
             "items": [
-              "Educator Essentials Courses | 6",
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
               "PHYSICS 2300 | Physics III: Theory and Simulation | 3",
-              "UNIFI: Responsibility | 3",
-              "University Electives | 4"
+              {
+                "credits": 3,
+                "text": "UNIFI: Responsibility"
+              },
+              {
+                "credits": 4,
+                "text": "University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8722,10 +9061,16 @@
           {
             "credit_hours": "15",
             "items": [
-              "Educator Essentials Courses | 6",
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
               "PHYSICS 4100/5100 | Modern Physics | 4",
               "PHYSICS 4110/5110 | Modern Physics Laboratory | 2",
-              "UNIFI: Human Expression | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI: Human Expression"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8738,11 +9083,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "Educator Essentials Course | 3",
-              "EDUC 2385 | Teaching Methods l: Secondary Science | 3",
-              "EDUC 2485 | Teaching Internship l: Secondary Science | 3",
-              "UNIFI: Connect | 3",
-              "Physics Elective | 3"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "code": "EDUC 2385",
+                "credits": 3,
+                "title": "Teaching Methods l: Secondary Science"
+              },
+              {
+                "code": "EDUC 2485",
+                "credits": 3,
+                "title": "Teaching Internship l: Secondary Science"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI: Connect"
+              },
+              {
+                "credits": 3,
+                "text": "Physics Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8751,9 +9113,18 @@
             "credit_hours": "17",
             "items": [
               "PHYSICS 4080/5080 | Resources for Teaching Physics | 2",
-              "Physics Elective | 3",
-              "UNIFI: Connect | 3",
-              "University Electives | 9"
+              {
+                "credits": 3,
+                "text": "Physics Elective"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI: Connect"
+              },
+              {
+                "credits": 9,
+                "text": "University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8768,8 +9139,14 @@
             "items": [
               "EDUC 3585/5585 | Teaching Methods ll: Secondary Science | 3",
               "EDUC 3685/5685 | Teaching Internship ll: Secondary Science | 3",
-              "UNIFI: Connect | 3",
-              "Natural Science or Math Elective | 4"
+              {
+                "credits": 3,
+                "text": "UNIFI: Connect"
+              },
+              {
+                "credits": 4,
+                "text": "Natural Science or Math Elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8777,7 +9154,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8786,7 +9167,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/physicsteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 31 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#58ff94d7285079a3."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->5, credits+text:0->17, str:31->9; same cells; representation only; 9 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#58ff94d7285079a3) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#ab14d38661ec04e2."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8809,8 +9190,15 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 2002 | Intermediate Spanish II (if needed) | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "code": "SPAN 2002",
+                "credits": 3,
+                "title": "Intermediate Spanish II (if needed)"
+              },
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8818,9 +9206,19 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 3001 | Advanced Writing (or SPAN 3006 or SPAN 3050) | 3",
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "SPAN 3001",
+                "credits": 3,
+                "title": "Advanced Writing (or SPAN 3006 or SPAN 3050)"
+              },
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8833,9 +9231,19 @@
           {
             "credit_hours": "18",
             "items": [
-              "SPAN 3003 | Advanced Conversation and Reading | 3",
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "SPAN 3003",
+                "credits": 3,
+                "title": "Advanced Conversation and Reading"
+              },
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8843,11 +9251,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 3004 | Introduction to Hispanic Literature | 3",
-              "SPAN 3007 | Introduction to Translation (or SPAN 3016) | 3",
-              "EDUC 2334 | Teaching Methods l: Language Teaching Methods l | 3",
-              "EDUC 2434 | Teaching Internship l: Language Teaching Practicum | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "SPAN 3004",
+                "credits": 3,
+                "title": "Introduction to Hispanic Literature"
+              },
+              {
+                "code": "SPAN 3007",
+                "credits": 3,
+                "title": "Introduction to Translation (or SPAN 3016)"
+              },
+              {
+                "code": "EDUC 2334",
+                "credits": 3,
+                "title": "Teaching Methods l: Language Teaching Methods l"
+              },
+              {
+                "code": "EDUC 2434",
+                "credits": 3,
+                "title": "Teaching Internship l: Language Teaching Practicum"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8860,9 +9287,19 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 3008 | Introduction to Spanish Linguistics | 3",
-              "SPAN 302X - Group A Course | 3",
-              "UNIFI/General Education or University Electives OR Study Abroad (courses chosen in consulation with advisor) | 9"
+              {
+                "code": "SPAN 3008",
+                "credits": 3,
+                "title": "Introduction to Spanish Linguistics"
+              },
+              {
+                "credits": 3,
+                "text": "SPAN 302X - Group A Course"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives OR Study Abroad (courses chosen in consulation with advisor)"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8870,11 +9307,21 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 3012 | Survey of Spanish American Literature (or SPAN 3018) | 3",
+              {
+                "code": "SPAN 3012",
+                "credits": 3,
+                "title": "Survey of Spanish American Literature (or SPAN 3018)"
+              },
               "EDUC 3534/5534 | Teaching Methods ll: Language Assessment | 3",
               "EDUC 3634/5634 | Teaching Internship ll: Spanish Teaching Practicum | 3",
-              "SPAN 3XXX/4XXX Group A Class or Group B Class (if needed) | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "SPAN 3XXX/4XXX Group A Class or Group B Class (if needed)"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -8887,10 +9334,23 @@
           {
             "credit_hours": "15",
             "items": [
-              "LANG 4093 | Technology in Language Education | 3",
-              "SPAN 3XXX/4XXX Group A Class or Group B Class (if needed) | 3",
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "LANG 4093",
+                "credits": 3,
+                "title": "Technology in Language Education"
+              },
+              {
+                "credits": 3,
+                "text": "SPAN 3XXX/4XXX Group A Class or Group B Class (if needed)"
+              },
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -8898,7 +9358,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -8907,7 +9371,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/spanishteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 26 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#277efccaff31493a."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->11, credits+text:0->13, str:26->2; same cells; representation only; 2 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#277efccaff31493a) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#cbbdc3be81d346a9."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -8930,11 +9394,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "TECH 1008 | Basic Manufacturing Processes | 3",
-              "TECH 1055 | Graphic Communications Foundations | 3",
-              "TECH TEE 1000 | Introduction to Technology and Engineering Education | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Educator Essentials Course | 3"
+              {
+                "code": "TECH 1008",
+                "credits": 3,
+                "title": "Basic Manufacturing Processes"
+              },
+              {
+                "code": "TECH 1055",
+                "credits": 3,
+                "title": "Graphic Communications Foundations"
+              },
+              {
+                "code": "TECH TEE 1000",
+                "credits": 3,
+                "title": "Introduction to Technology and Engineering Education"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -8942,10 +9424,24 @@
           {
             "credit_hours": "16",
             "items": [
-              "MATH 1140 | Precalculus | 4",
-              "TECH 1010 | Fundamentals of Metal Removal | 3",
-              "UNIFI/General Education or University Electives | 6",
-              "Educator Essentials Course | 3"
+              {
+                "code": "MATH 1140",
+                "credits": 4,
+                "title": "Precalculus"
+              },
+              {
+                "code": "TECH 1010",
+                "credits": 3,
+                "title": "Fundamentals of Metal Removal"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -8960,10 +9456,20 @@
             "items": [
               "PHYSICS 1000 | Physics in Everyday Life | 3",
               "PHYSICS 1010 | Physics in Everyday Life Laboratory | 1",
-              "TECH 1024 | Engineering Design with CAD | 3",
+              {
+                "code": "TECH 1024",
+                "credits": 3,
+                "title": "Engineering Design with CAD"
+              },
               "CONSTR 1000 | Fundamentals of Construction Management Materials & Methods | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Educator Essentials Course | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -8971,10 +9477,24 @@
           {
             "credit_hours": "15",
             "items": [
-              "EDUC 2341 | Teaching Methods l: Industrial Technology Curriculum Planning | 3",
-              "EDUC 2441 | Teaching Internship l: Industrial Technology Instruction l | 3",
-              "UNIFI/General Education or University Electives | 6",
-              "Educator Essentials Course | 3"
+              {
+                "code": "EDUC 2341",
+                "credits": 3,
+                "title": "Teaching Methods l: Industrial Technology Curriculum Planning"
+              },
+              {
+                "code": "EDUC 2441",
+                "credits": 3,
+                "title": "Teaching Internship l: Industrial Technology Instruction l"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -8987,10 +9507,24 @@
           {
             "credit_hours": "16",
             "items": [
-              "CHEM 1020 | Chemical Technology | 4",
-              "TECH 2065 | Industrial Robotics | 3",
-              "UNIFI/General Education or University Electives | 6",
-              "Educator Essentials Course | 3"
+              {
+                "code": "CHEM 1020",
+                "credits": 4,
+                "title": "Chemical Technology"
+              },
+              {
+                "code": "TECH 2065",
+                "credits": 3,
+                "title": "Industrial Robotics"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -8998,9 +9532,20 @@
           {
             "credit_hours": "12",
             "items": [
-              "TECH 3164 | Programmable Logic Controllers (PLCs) | 3",
-              "TECH TEE 2020 | Transportation Technology | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "TECH 3164",
+                "credits": 3,
+                "title": "Programmable Logic Controllers (PLCs)"
+              },
+              {
+                "code": "TECH TEE 2020",
+                "credits": 3,
+                "title": "Transportation Technology"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9016,8 +9561,14 @@
               "SOCFOUND 2119 | Social & Cultural Foundations of Education | 3",
               "EDUC 3541/5541 | Teaching Methods ll: Industrial Technology Lab Management | 3",
               "EDUC 3641/5641 | Teaching Internship ll: Industrial Technology Instruction ll | 3",
-              "UNIFI/General Education or University Electives | 6",
-              "Educator Essentials Course | 3"
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9025,7 +9576,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9034,7 +9589,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/techengteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 32 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#25cc83fe0ad81f72."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->13, credits+text:0->13, str:32->6; same cells; representation only; 6 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#25cc83fe0ad81f72) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#d7e592e67b4a28e4."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9057,9 +9612,19 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 2002 | Intermediate Spanish II (or SPAN 3001 or SPAN 3006 or SPAN 3050) | 3",
-              "UNIFI/General Education or University Electives | 9",
-              "Educator Essentials Course | 3"
+              {
+                "code": "SPAN 2002",
+                "credits": 3,
+                "title": "Intermediate Spanish II (or SPAN 3001 or SPAN 3006 or SPAN 3050)"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -9067,8 +9632,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 3001 or SPAN 3006 or SPAN 3050 | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "credits": 3,
+                "text": "SPAN 3001 or SPAN 3006 or SPAN 3050"
+              },
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9081,10 +9652,23 @@
           {
             "credit_hours": "15",
             "items": [
-              "SPAN 3004 | Introduction to Hispanic Literature | 3",
-              "SPAN Core Course | 3",
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "SPAN 3004",
+                "credits": 3,
+                "title": "Introduction to Hispanic Literature"
+              },
+              {
+                "credits": 3,
+                "text": "SPAN Core Course"
+              },
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9092,12 +9676,27 @@
           {
             "credit_hours": "18",
             "items": [
-              "EDUC 2334 | Teaching Methods l: Language Teaching Methods l | 3",
-              "EDUC 2434 | Teaching Internship l: Language Teaching Practicum | 3",
+              {
+                "code": "EDUC 2334",
+                "credits": 3,
+                "title": "Teaching Methods l: Language Teaching Methods l"
+              },
+              {
+                "code": "EDUC 2434",
+                "credits": 3,
+                "title": "Teaching Internship l: Language Teaching Practicum"
+              },
               "TESOL 4120/5120 | Introduction to Linguistics (or TESOL 3110) | 3",
-              "SPAN 3007 | Introduction to Translation (or SPAN 3016) | 3",
+              {
+                "code": "SPAN 3007",
+                "credits": 3,
+                "title": "Introduction to Translation (or SPAN 3016)"
+              },
               "TESOL 4510/5510 | Language Development | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9113,7 +9712,11 @@
               "TESOL 4520/5520 | Cultural Aspects of Language and Language Teaching | 3",
               "EDUC 3504/5504 | Teaching Methods ll: Language Teaching Methods ll | 3",
               "EDUC 3604/5604 | Teaching Internship ll: TESOL Teaching Practicum | 3",
-              "SPAN 3008 | Introduction to Spanish Linguistics | 3",
+              {
+                "code": "SPAN 3008",
+                "credits": 3,
+                "title": "Introduction to Spanish Linguistics"
+              },
               "TESOL 4340/5340 | English Grammar: Form and Function | 3"
             ],
             "label": "Fall",
@@ -9126,7 +9729,10 @@
               "EDUC 3534/5534 | Teaching Methods ll: Language Assessment | 3",
               "EDUC 3634/5634 | Teaching Internship ll: Spanish Teaching Practicum | 3",
               "SPAN 4045/5045 | Translation (or SPAN 4046 or SPAN 4047) | 3",
-              "UNIFI/General Education or University Electives | 4"
+              {
+                "credits": 4,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9139,10 +9745,20 @@
           {
             "credit_hours": "15",
             "items": [
-              "LANG 4093 | Technology in Language Education | 3",
+              {
+                "code": "LANG 4093",
+                "credits": 3,
+                "title": "Technology in Language Education"
+              },
               "TESOL 4720/5720 | Bilingualism and Bilingual Education | 3",
-              "SPAN 3020 or SPAN 3023 or SPAN 3027 or SPAN 3052 or culture course | 3",
-              "Educator Essentials Courses | 6"
+              {
+                "credits": 3,
+                "text": "SPAN 3020 or SPAN 3023 or SPAN 3027 or SPAN 3052 or culture course"
+              },
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9150,8 +9766,16 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4140 | Special Area Teaching: Art, ESL, Music, and Physical Education | 6",
-              "EDUC 4138 | Secondary School Teaching | 6"
+              {
+                "code": "EDUC 4140",
+                "credits": 6,
+                "title": "Special Area Teaching: Art, ESL, Music, and Physical Education"
+              },
+              {
+                "code": "EDUC 4138",
+                "credits": 6,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9160,7 +9784,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/tesolmodernlangteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 31 items, every subtotal as credit_hours and rule_text 'Total Hours 121 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#93db6bd900a6ee3f."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->9, credits+text:0->11, str:31->11; same cells; representation only; 11 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#93db6bd900a6ee3f) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#c5905de05180bbb2."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9183,9 +9807,19 @@
           {
             "credit_hours": "15",
             "items": [
-              "TESOL 2015 | Language Today | 3",
-              "Language Study Course | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "TESOL 2015",
+                "credits": 3,
+                "title": "Language Today"
+              },
+              {
+                "credits": 3,
+                "text": "Language Study Course"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -9194,8 +9828,14 @@
             "credit_hours": "15",
             "items": [
               "ENGLISH 2120 | Critical Writing About Literature | 3",
-              "Language Study Course | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "credits": 3,
+                "text": "Language Study Course"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9209,8 +9849,14 @@
             "credit_hours": "15",
             "items": [
               "TESOL 4120/5120 | Introduction to Linguistics (or TESOL 3110) | 3",
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9218,8 +9864,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "Educator Essentials Courses | 6",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "credits": 6,
+                "text": "Educator Essentials Courses"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9232,11 +9884,25 @@
           {
             "credit_hours": "15",
             "items": [
-              "EDUC 2334 | Teaching Methods l: Language Teaching Methods l | 3",
-              "EDUC 2434 | Teaching Internship l: Language Teaching Practicum | 3",
+              {
+                "code": "EDUC 2334",
+                "credits": 3,
+                "title": "Teaching Methods l: Language Teaching Methods l"
+              },
+              {
+                "code": "EDUC 2434",
+                "credits": 3,
+                "title": "Teaching Internship l: Language Teaching Practicum"
+              },
               "TESOL 4510/5510 | Language Development | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -9244,12 +9910,19 @@
           {
             "credit_hours": "18",
             "items": [
-              "LANG 4093 | Technology in Language Education | 3",
+              {
+                "code": "LANG 4093",
+                "credits": 3,
+                "title": "Technology in Language Education"
+              },
               "TESOL 4350/5350 | Phonetics, Phonology, and Language Teaching | 3",
               "TESOL 4540/5540 | Sociolinguistics (or TESOL 4520) | 3",
               "TESOL 4720/5720 | Bilingualism and Bilingual Education | 3",
               "TESOL 4760/5760 | Language Teaching Methods ll | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9265,7 +9938,10 @@
               "EDUC 3504/5504 | Teaching Methods ll: Language Teaching Methods ll | 3",
               "EDUC 3604/5604 | Teaching Internship ll: TESOL Teaching Practicum | 3",
               "TESOL 4340/5340 | English Grammar: Form and Function | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9273,7 +9949,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4140 | Special Area Teaching: Art, ESL, Music, and Physical Education | 12"
+              {
+                "code": "EDUC 4140",
+                "credits": 12,
+                "title": "Special Area Teaching: Art, ESL, Music, and Physical Education"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9282,7 +9962,7 @@
       },
       "source_url": "https://catalog.uni.edu/chas/tesolteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 27 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#fcebbca982e620c9."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->5, credits+text:0->12, str:27->10; same cells; representation only; 10 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#fcebbca982e620c9) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#c1b3d847d695d210."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9305,10 +9985,21 @@
           {
             "credit_hours": "16",
             "items": [
-              "MATH 1204 | Mathematical Reasoning | 3",
-              "SCI ED 1200 | Inquiry into Life Science | 3",
+              {
+                "code": "MATH 1204",
+                "credits": 3,
+                "title": "Mathematical Reasoning"
+              },
+              {
+                "code": "SCI ED 1200",
+                "credits": 3,
+                "title": "Inquiry into Life Science"
+              },
               "TEACHING 2020 | Introduction to Teaching: Exploring Options | 1",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -9317,8 +10008,15 @@
             "credit_hours": "15",
             "items": [
               "EDPSYCH 2068 | Development and Learning in Sociocultural Contexts | 3",
-              "SCI ED 1300 | Inquiry into Physical Science | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "SCI ED 1300",
+                "credits": 3,
+                "title": "Inquiry into Physical Science"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9331,11 +10029,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "LITED 1044 | Children's Literature | 3",
-              "MATH 2204 | Mathematical Reasoning for Elementary Teachers II | 3",
-              "SCI ED 1100 | Inquiry into Earth and Space Science | 3",
-              "SPIE 3150 | Meeting the Needs of Diverse Learners in Classrooms | 3",
-              "Educator Essentials Course | 3"
+              {
+                "code": "LITED 1044",
+                "credits": 3,
+                "title": "Children's Literature"
+              },
+              {
+                "code": "MATH 2204",
+                "credits": 3,
+                "title": "Mathematical Reasoning for Elementary Teachers II"
+              },
+              {
+                "code": "SCI ED 1100",
+                "credits": 3,
+                "title": "Inquiry into Earth and Space Science"
+              },
+              {
+                "code": "SPIE 3150",
+                "credits": 3,
+                "title": "Meeting the Needs of Diverse Learners in Classrooms"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9344,10 +10061,25 @@
             "credit_hours": "15",
             "items": [
               "EDPSYCH 3109/5109 | Development and Assessment of Young Children | 3",
-              "LITED 3115 | Methods of Teaching Early Literacy | 3",
-              "EDUC 2301 | Teaching Methods l: Infant/Toddler Curriculum and Early Intervention | 3",
-              "EDUC 2401 | Teaching Internship l: Infants/Toddlers | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "LITED 3115",
+                "credits": 3,
+                "title": "Methods of Teaching Early Literacy"
+              },
+              {
+                "code": "EDUC 2301",
+                "credits": 3,
+                "title": "Teaching Methods l: Infant/Toddler Curriculum and Early Intervention"
+              },
+              {
+                "code": "EDUC 2401",
+                "credits": 3,
+                "title": "Teaching Internship l: Infants/Toddlers"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9360,10 +10092,22 @@
           {
             "credit_hours": "15",
             "items": [
-              "ECIE 3149 | Child, Family, School and Community Relationships | 3",
-              "ECIE 4151 | Early Childhood Curriculum Development and Organization | 3",
+              {
+                "code": "ECIE 3149",
+                "credits": 3,
+                "title": "Child, Family, School and Community Relationships"
+              },
+              {
+                "code": "ECIE 4151",
+                "credits": 3,
+                "title": "Early Childhood Curriculum Development and Organization"
+              },
               "ECIE 4162/5162 | Administration and Advocacy of Early Childhood Programs | 3",
-              "MATH 3204 | Mathematical Reasoning for Elementary Teachers III | 3",
+              {
+                "code": "MATH 3204",
+                "credits": 3,
+                "title": "Mathematical Reasoning for Elementary Teachers III"
+              },
               "SPIE 4148/5148 | Assessment of Young Children and Families with Exceptionalities | 3"
             ],
             "label": "Fall",
@@ -9376,7 +10120,10 @@
               "EDUC 3524/5524 | Teaching Methods ll: Teaching Elementary and Middle-Level Social Studies | 3",
               "EDUC 3602/5602 | Teaching Internship ll: Elementary Methods | 3",
               "LITED 3119/5119 | Language Development and Emergent Literacy | 3",
-              "UNIFI/General Education or University Electives | 4"
+              {
+                "credits": 4,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9391,9 +10138,19 @@
             "items": [
               "ECIE 4192/5192 | Field Experience and Seminar in Early Childhood | 2",
               "ECIE 4130/5130 | Guidance and Instruction in Early Childhood Education | 3",
-              "MATH 3203 | Teaching Mathematics in the Elementary School | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 5"
+              {
+                "code": "MATH 3203",
+                "credits": 3,
+                "title": "Teaching Mathematics in the Elementary School"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 5,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9401,7 +10158,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4132 | Early Childhood Teaching | 12"
+              {
+                "code": "EDUC 4132",
+                "credits": 12,
+                "title": "Early Childhood Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9410,7 +10171,7 @@
       },
       "source_url": "https://catalog.uni.edu/coe/earlychildhoodtchgba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 33 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#6fce4da9ea57b864."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->15, credits+text:0->7, str:33->11; same cells; representation only; 11 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#6fce4da9ea57b864) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#0107c70a5d47f09f."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9433,9 +10194,20 @@
           {
             "credit_hours": "15",
             "items": [
-              "MATH 1204 | Mathematical Reasoning | 3",
-              "SCI ED 1200 | Inquiry into Life Science | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "MATH 1204",
+                "credits": 3,
+                "title": "Mathematical Reasoning"
+              },
+              {
+                "code": "SCI ED 1200",
+                "credits": 3,
+                "title": "Inquiry into Life Science"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -9443,9 +10215,19 @@
           {
             "credit_hours": "17",
             "items": [
-              "SCI ED 1300 | Inquiry into Physical Science | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 11"
+              {
+                "code": "SCI ED 1300",
+                "credits": 3,
+                "title": "Inquiry into Physical Science"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 11,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9458,11 +10240,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "LITED 1044 | Children's Literature | 3",
-              "MATH 2204 | Mathematical Reasoning for Elementary Teachers II | 3",
-              "SCI ED 1100 | Inquiry into Earth and Space Science | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "LITED 1044",
+                "credits": 3,
+                "title": "Children's Literature"
+              },
+              {
+                "code": "MATH 2204",
+                "credits": 3,
+                "title": "Mathematical Reasoning for Elementary Teachers II"
+              },
+              {
+                "code": "SCI ED 1100",
+                "credits": 3,
+                "title": "Inquiry into Earth and Space Science"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9470,10 +10270,20 @@
           {
             "credit_hours": "13",
             "items": [
-              "MATH 3204 | Mathematical Reasoning for Elementary Teachers III | 3",
+              {
+                "code": "MATH 3204",
+                "credits": 3,
+                "title": "Mathematical Reasoning for Elementary Teachers III"
+              },
               "TEACHING 2020 | Introduction to Teaching: Exploring Options | 1",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9487,11 +10297,29 @@
             "credit_hours": "18",
             "items": [
               "ELEMECML 3120 | Classroom Management K-8 | 3",
-              "EDUC 2302 | Teaching Methods l: Elementary Curriculum | 3",
-              "EDUC 2402 | Teaching Internship l: Elementary Curriculum | 3",
-              "LITED 3115 | Methods of Teaching Early Literacy | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Educator Essentials Course | 3"
+              {
+                "code": "EDUC 2302",
+                "credits": 3,
+                "title": "Teaching Methods l: Elementary Curriculum"
+              },
+              {
+                "code": "EDUC 2402",
+                "credits": 3,
+                "title": "Teaching Internship l: Elementary Curriculum"
+              },
+              {
+                "code": "LITED 3115",
+                "credits": 3,
+                "title": "Methods of Teaching Early Literacy"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -9500,7 +10328,10 @@
             "credit_hours": "15",
             "items": [
               "ELEMECML 4125/5125 | Methods of Teaching Health, Fitness, Visual and Performing Arts Integration in Elementary Classroom | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9516,8 +10347,16 @@
               "EDUC 3523/5523 | Teaching Methods ll: Teaching Elementary Science | 3",
               "EDUC 3524/5524 | Teaching Methods ll: Teaching Elementary and Middle-Level Social Studies | 3",
               "EDUC 3602/5602 | Teaching Internship ll: Elementary Methods | 3",
-              "LITED 3116 | Methods of Teaching Content Literacy in the Intermediate Grades | 3",
-              "MATH 3203 | Teaching Mathematics in the Elementary School | 3"
+              {
+                "code": "LITED 3116",
+                "credits": 3,
+                "title": "Methods of Teaching Content Literacy in the Intermediate Grades"
+              },
+              {
+                "code": "MATH 3203",
+                "credits": 3,
+                "title": "Teaching Mathematics in the Elementary School"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9525,7 +10364,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4134 | Elementary Teaching | 12"
+              {
+                "code": "EDUC 4134",
+                "credits": 12,
+                "title": "Elementary Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9534,7 +10377,7 @@
       },
       "source_url": "https://catalog.uni.edu/coe/elementaryedba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 29 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#65a1cd26e4551eef."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->13, credits+text:0->10, str:29->6; same cells; representation only; 6 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#65a1cd26e4551eef) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#c8e4438e77060582."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9599,8 +10442,16 @@
             "credit_hours": "14",
             "items": [
               "ELSPED 4120 | Transitions: Education and Post K-12 | 2",
-              "EDUC 4134 | Elementary Teaching | 6",
-              "EDUC 4135 | Special Education Teaching | 6"
+              {
+                "code": "EDUC 4134",
+                "credits": 6,
+                "title": "Elementary Teaching"
+              },
+              {
+                "code": "EDUC 4135",
+                "credits": 6,
+                "title": "Special Education Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 7
@@ -9609,7 +10460,7 @@
       },
       "source_url": "https://catalog.uni.edu/coe/elementaryedpurplepathwayba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 7 terms (printed order, year rows as empty terms), 11 items, every subtotal as credit_hours and rule_text 'Total Hours 78 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#178d60d0466a67ea."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->2, str:11->9; same cells; representation only; 9 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#178d60d0466a67ea) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#71756d7d21db02ca."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9632,10 +10483,21 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIFI/General Education or University Electives | 6",
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              },
               "EDPSYCH 2068 | Development and Learning in Sociocultural Contexts | 3",
-              "MATH 1204 | Mathematical Reasoning | 3",
-              "SPIE 3150 | Meeting the Needs of Diverse Learners in Classrooms | 3",
+              {
+                "code": "MATH 1204",
+                "credits": 3,
+                "title": "Mathematical Reasoning"
+              },
+              {
+                "code": "SPIE 3150",
+                "credits": 3,
+                "title": "Meeting the Needs of Diverse Learners in Classrooms"
+              },
               "TEACHING 2020 | Introduction to Teaching: Exploring Options | 1"
             ],
             "label": "Fall",
@@ -9644,9 +10506,19 @@
           {
             "credit_hours": "16",
             "items": [
-              "LITED 1044 | Children's Literature | 3",
-              "UNIFI/General Education or University Electives | 10",
-              "Educator Essentials Course | 3"
+              {
+                "code": "LITED 1044",
+                "credits": 3,
+                "title": "Children's Literature"
+              },
+              {
+                "credits": 10,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9661,9 +10533,19 @@
             "items": [
               "SPIE 4150/5150 | Introduction to Special Education: Legal, Advocacy, and Assistive Technology Practices and Issues | 3",
               "SPIE 4151/5151 | Educational and Post-School Transition Programming for Individuals with Disabilities | 3",
-              "UNIFI/General Education or University Electives | 4",
-              "LITED 3115 | Methods of Teaching Early Literacy | 3",
-              "Educator Essentials Course | 3"
+              {
+                "credits": 4,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "code": "LITED 3115",
+                "credits": 3,
+                "title": "Methods of Teaching Early Literacy"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9674,8 +10556,14 @@
               "SPIE 4161/5161 | Constructions of Behavior and Humanistic Supports | 3",
               "SPIE 4162/5162 | Specialized Assessment and Instruction for Students with Disabilities | 3",
               "SPIE 4163/5163 | Field Experience in Specialized Assessment, Instruction and Management in Special Education (K-8) | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9691,8 +10579,15 @@
               "SPIE 4171/5171 | Creating and Sustaining Positive Inclusive Learning Environments (K-12) | 3",
               "SPIE 4172/5172 | Differentiated & Intensive Methods in Literacy & Mathematics: Elementary Mild/Mod Disabilities (K-8) | 3",
               "SPIE 4194/5194 | Experience in Special & Inclusive Educ: Prac 2, Instructional Strategist I K-8 | 3",
-              "MATH 3213 | Topics in Mathematics for Grades K-8 | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "code": "MATH 3213",
+                "credits": 3,
+                "title": "Topics in Mathematics for Grades K-8"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -9704,7 +10599,10 @@
               "SPIE 4173/5173 | Instructional Methods for Inclusive Learning (5-12) | 3",
               "SPIE 4195/5195 | Experience in Special & Inclusive Educ: Prac 2, Instructional Strategist I 5-12 | 3",
               "SPIE 4180/5180 | Interdisciplinary Study of Disability | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9717,7 +10615,10 @@
           {
             "credit_hours": "15",
             "items": [
-              "UNIFI/General Education or University Electives | 15"
+              {
+                "credits": 15,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9725,7 +10626,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4135 | Special Education Teaching | 12"
+              {
+                "code": "EDUC 4135",
+                "credits": 12,
+                "title": "Special Education Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9734,7 +10639,7 @@
       },
       "source_url": "https://catalog.uni.edu/coe/specialinclusiveedba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 30 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#bb8c5e5e4061e5ac."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->6, credits+text:0->10, str:30->14; same cells; representation only; 14 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#bb8c5e5e4061e5ac) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#cf38f0c2618906d4."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9757,9 +10662,20 @@
           {
             "credit_hours": "15",
             "items": [
-              "HIST 1110 | United States History to the Civil War and Emancipation | 3",
-              "HIST 1210 | Making the Modern World | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "HIST 1110",
+                "credits": 3,
+                "title": "United States History to the Civil War and Emancipation"
+              },
+              {
+                "code": "HIST 1210",
+                "credits": 3,
+                "title": "Making the Modern World"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -9767,10 +10683,24 @@
           {
             "credit_hours": "16",
             "items": [
-              "HIST 2011 | Engaging Sources: (Topic) | 3",
-              "HIST 1120 | United States History since the Civil War and Emancipation | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 7"
+              {
+                "code": "HIST 2011",
+                "credits": 3,
+                "title": "Engaging Sources: (Topic)"
+              },
+              {
+                "code": "HIST 1120",
+                "credits": 3,
+                "title": "United States History since the Civil War and Emancipation"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 7,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9783,12 +10713,33 @@
           {
             "credit_hours": "16",
             "items": [
-              "HIST 1010 | Introduction to Historical Skills | 3",
-              "HIST 1011 | Field Experience: Public History | 1",
-              "HIST 3110 | Conflict and Justice in History: (Topic) | 3",
-              "HIST 2000/3000 Course | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "Educator Essentials Course | 3"
+              {
+                "code": "HIST 1010",
+                "credits": 3,
+                "title": "Introduction to Historical Skills"
+              },
+              {
+                "code": "HIST 1011",
+                "credits": 1,
+                "title": "Field Experience: Public History"
+              },
+              {
+                "code": "HIST 3110",
+                "credits": 3,
+                "title": "Conflict and Justice in History: (Topic)"
+              },
+              {
+                "credits": 3,
+                "text": "HIST 2000/3000 Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9796,12 +10747,32 @@
           {
             "credit_hours": "17",
             "items": [
-              "EDUC 2486 | Teaching Internship l: Social Studies and History | 3",
-              "EDUC 2386 | Teaching Methods l: Introduction to Teaching Social Studies | 2",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3",
-              "HIST 2000/3000 Course | 3",
-              "History Electives | 3"
+              {
+                "code": "EDUC 2486",
+                "credits": 3,
+                "title": "Teaching Internship l: Social Studies and History"
+              },
+              {
+                "code": "EDUC 2386",
+                "credits": 2,
+                "title": "Teaching Methods l: Introduction to Teaching Social Studies"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              },
+              {
+                "credits": 3,
+                "text": "HIST 2000/3000 Course"
+              },
+              {
+                "credits": 3,
+                "text": "History Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9814,9 +10785,18 @@
           {
             "credit_hours": "15",
             "items": [
-              "Educator Essentials Course | 3",
-              "History Electives (include the \"to 1600\" requirement) | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "History Electives (include the \"to 1600\" requirement)"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -9824,8 +10804,14 @@
           {
             "credit_hours": "15",
             "items": [
-              "History Electives | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "credits": 3,
+                "text": "History Electives"
+              },
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9838,11 +10824,21 @@
           {
             "credit_hours": "14",
             "items": [
-              "HIST 4000 | Senior Seminar in Advanced Historical Skills | 3",
+              {
+                "code": "HIST 4000",
+                "credits": 3,
+                "title": "Senior Seminar in Advanced Historical Skills"
+              },
               "EDUC 3686/5686 | Teaching Internship ll: Social Studies and History | 2",
               "EDUC 3586/5586 | Teaching Methods ll: Methods of Teaching Social Studies | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9850,7 +10846,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9859,7 +10859,7 @@
       },
       "source_url": "https://catalog.uni.edu/csbs/historyteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 30 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#bbf2df4c164a8caa."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->11, credits+text:0->17, str:30->2; same cells; representation only; 2 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#bbf2df4c164a8caa) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#035e488a4d8718bc."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9869,6 +10869,16 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "*",
+            "text": "* Must receive a 'C' or higher in EDUC 2346 and EDUC 3546/5546."
+          },
+          {
+            "marker": "**",
+            "text": "** Must have a 2.5 cumulative GPA to student teach and graduate."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -9882,8 +10892,15 @@
           {
             "credit_hours": "15",
             "items": [
-              "KINES 2015 | Positive Learning Environment in Physical Activities | 3",
-              "UNIFI/General Education or University Electives | 12"
+              {
+                "code": "KINES 2015",
+                "credits": 3,
+                "title": "Positive Learning Environment in Physical Activities"
+              },
+              {
+                "credits": 12,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -9891,11 +10908,29 @@
           {
             "credit_hours": "16",
             "items": [
-              "KINES 2016 | Positive Learning Environment for Physical Fitness | 3",
-              "KINES 2053 | Physical Activity and Nutrition | 3",
-              "KINES 2050 | Anatomy and Physiology of Human Movement | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 4"
+              {
+                "code": "KINES 2016",
+                "credits": 3,
+                "title": "Positive Learning Environment for Physical Fitness"
+              },
+              {
+                "code": "KINES 2053",
+                "credits": 3,
+                "title": "Physical Activity and Nutrition"
+              },
+              {
+                "code": "KINES 2050",
+                "credits": 3,
+                "title": "Anatomy and Physiology of Human Movement"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 4,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -9908,9 +10943,19 @@
           {
             "credit_hours": "17",
             "items": [
-              "KINES 2019 | First Aid and CPR for Physical Educators | 1",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 13"
+              {
+                "code": "KINES 2019",
+                "credits": 1,
+                "title": "First Aid and CPR for Physical Educators"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 13,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -9918,10 +10963,25 @@
           {
             "credit_hours": "15",
             "items": [
-              "KINES 2056 | Motor Learning and Development | 3",
-              "KINES 3153 | Exercise Physiology | 3",
-              "KINES 4152 | Adapted Physical Education | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "KINES 2056",
+                "credits": 3,
+                "title": "Motor Learning and Development"
+              },
+              {
+                "code": "KINES 3153",
+                "credits": 3,
+                "title": "Exercise Physiology"
+              },
+              {
+                "code": "KINES 4152",
+                "credits": 3,
+                "title": "Adapted Physical Education"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -9934,9 +10994,20 @@
           {
             "credit_hours": "15",
             "items": [
-              "KINES 3151 | Biomechanics | 3",
-              "KINES 3174 | Assessment Processes in Physical Education | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "KINES 3151",
+                "credits": 3,
+                "title": "Biomechanics"
+              },
+              {
+                "code": "KINES 3174",
+                "credits": 3,
+                "title": "Assessment Processes in Physical Education"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -9944,9 +11015,20 @@
           {
             "credit_hours": "15",
             "items": [
-              "EDUC 2346 | Teaching Methods l: Elementary Methods and Movement Activities in Physical Education | 3",
-              "EDUC 2446 | Teaching Internship l: Elementary Physical Education | 3",
-              "UNIFI/General Education or University Electives | 9"
+              {
+                "code": "EDUC 2346",
+                "credits": 3,
+                "title": "Teaching Methods l: Elementary Methods and Movement Activities in Physical Education"
+              },
+              {
+                "code": "EDUC 2446",
+                "credits": 3,
+                "title": "Teaching Internship l: Elementary Physical Education"
+              },
+              {
+                "credits": 9,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -9961,8 +11043,14 @@
             "items": [
               "EDUC 3546/5546 | Teaching Methods ll: Secondary Methods and Curriculum in Physical Education | 3",
               "EDUC 3646/5646 | Teaching Internship ll: Secondary Physical Education | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -9970,7 +11058,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4140 | Special Area Teaching: Art, ESL, Music, and Physical Education | 12"
+              {
+                "code": "EDUC 4140",
+                "credits": 12,
+                "title": "Special Area Teaching: Art, ESL, Music, and Physical Education"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -9979,7 +11071,7 @@
       },
       "source_url": "https://catalog.uni.edu/csbs/physicaledteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 25 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#01ab789d0f8ca803."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 2 fn/0 pn verbatim, none missed; change vs old: footnotes added (2); item fields: code+credits+title:0->13, credits+text:0->10, str:25->2; same cells; representation only; 2 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#01ab789d0f8ca803) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#f55acb45624af7f3."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -10002,12 +11094,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "ECON 1041 | Principles of Macroeconomics | 3",
-              "STAT 1772 | Introduction to Statistical Methods | 3",
-              "FIN 1040 | Financial Skills for Smart Living | 3",
-              "Educator Essentials Course | 3",
+              {
+                "code": "ECON 1041",
+                "credits": 3,
+                "title": "Principles of Macroeconomics"
+              },
+              {
+                "code": "STAT 1772",
+                "credits": 3,
+                "title": "Introduction to Statistical Methods"
+              },
+              {
+                "code": "FIN 1040",
+                "credits": 3,
+                "title": "Financial Skills for Smart Living"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
               "BUSINESS 1000 | Introductory Seminar for Business Professionals | 0",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -10015,9 +11125,20 @@
           {
             "credit_hours": "16",
             "items": [
-              "ECON 1051 | Principles of Microeconomics | 3",
-              "ECON 1011 | Statistics for Business Analytics | 3",
-              "UNIFI/General Education or University Electives | 10"
+              {
+                "code": "ECON 1051",
+                "credits": 3,
+                "title": "Principles of Microeconomics"
+              },
+              {
+                "code": "ECON 1011",
+                "credits": 3,
+                "title": "Statistics for Business Analytics"
+              },
+              {
+                "credits": 10,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -10030,12 +11151,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2120 | Principles of Financial Accounting | 3",
-              "MGMT 2080 | Introduction to Information Systems | 3",
-              "MKTG 2110 | Principles of Marketing | 3",
-              "Educator Essentials Course | 3",
+              {
+                "code": "ACCT 2120",
+                "credits": 3,
+                "title": "Principles of Financial Accounting"
+              },
+              {
+                "code": "MGMT 2080",
+                "credits": 3,
+                "title": "Introduction to Information Systems"
+              },
+              {
+                "code": "MKTG 2110",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
               "BUSINESS 2000 | Business Professionals in Training | 0",
-              "UNIFI/General Education or University Electives | 3"
+              {
+                "credits": 3,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -10043,10 +11182,24 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2130 | Principles of Managerial Accounting | 3",
-              "ECON 2090 | Decision Analytics | 3",
-              "Educator Essentials Course | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "ACCT 2130",
+                "credits": 3,
+                "title": "Principles of Managerial Accounting"
+              },
+              {
+                "code": "ECON 2090",
+                "credits": 3,
+                "title": "Decision Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -10059,12 +11212,26 @@
           {
             "credit_hours": "16",
             "items": [
-              "EDUC 2371 | Teaching Methods l: Introduction to Business Teaching | 2",
-              "EDUC 2471 | Teaching Internship l: Business | 3",
-              "Educator Essentials Course | 3",
+              {
+                "code": "EDUC 2371",
+                "credits": 2,
+                "title": "Teaching Methods l: Introduction to Business Teaching"
+              },
+              {
+                "code": "EDUC 2471",
+                "credits": 3,
+                "title": "Teaching Internship l: Business"
+              },
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
               "MGMT 3965/5965 | Organizational Behavior | 3",
               "BUSINESS 3000 | Intermediate Professional Skills: (topic) | 0",
-              "UNIFI/General Education or University Electives | 5"
+              {
+                "credits": 5,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -10074,9 +11241,19 @@
             "items": [
               "EDUC 3571/5571 | Teaching Methods ll: Business Teaching | 2",
               "EDUC 3671/5671 | Teaching Internship ll: Business | 3",
-              "Educator Essentials Course | 3",
-              "MGMT 3100 | Legal and Social Environment of Business | 3",
-              "UNIFI/General Education or University Electives | 5"
+              {
+                "credits": 3,
+                "text": "Educator Essentials Course"
+              },
+              {
+                "code": "MGMT 3100",
+                "credits": 3,
+                "title": "Legal and Social Environment of Business"
+              },
+              {
+                "credits": 5,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -10089,10 +11266,21 @@
           {
             "credit_hours": "15",
             "items": [
-              "FIN 3130 | Corporate Finance | 3",
+              {
+                "code": "FIN 3130",
+                "credits": 3,
+                "title": "Corporate Finance"
+              },
               "ENTR 3583/5583 | Entrepreneurship | 3",
-              "MGMT 2113 | Business Communication | 3",
-              "UNIFI/General Education or University Electives | 6"
+              {
+                "code": "MGMT 2113",
+                "credits": 3,
+                "title": "Business Communication"
+              },
+              {
+                "credits": 6,
+                "text": "UNIFI/General Education or University Electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -10100,7 +11288,11 @@
           {
             "credit_hours": "12",
             "items": [
-              "EDUC 4138 | Secondary School Teaching | 12"
+              {
+                "code": "EDUC 4138",
+                "credits": 12,
+                "title": "Secondary School Teaching"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -10109,7 +11301,7 @@
       },
       "source_url": "https://catalog.uni.edu/wilson/businessteachingba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 35 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#cee1ed2873cbab71."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->16, credits+text:0->12, str:35->7; same cells; representation only; 7 single-line row(s) kept as verbatim pipe string (defect, no loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence IA/2026-10-06-cat2#cee1ed2873cbab71) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/IA/2026-10-06-cat2/evidence.json#cb4082cc615f5ff9."
     }
   ]
 }
