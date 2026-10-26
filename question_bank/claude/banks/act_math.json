@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 64,
-  "updated_at": "2026-10-26T23:47:11+00:00",
+  "version": 65,
+  "updated_at": "2026-10-26T23:51:51+00:00",
   "passages": [],
   "questions": [
     {
@@ -44492,6 +44492,706 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-064.review.json",
         "computation": "checks/act_math/batch_064.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000637",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Dilation about the origin",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x, y) coordinate plane, the point (2, −1) is dilated by a scale factor of 3 with the origin as the center of dilation. What are the coordinates of its image?",
+      "choices": {
+        "A": "(6, −3)",
+        "B": "(5, 2)",
+        "C": "(6, 3)",
+        "D": "(2/3, −1/3)"
+      },
+      "correct_answer": "A",
+      "explanation": "A dilation about the origin multiplies each coordinate by the scale factor: (3 · 2, 3 · (−1)) = (6, −3).",
+      "distractor_explanations": {
+        "B": "(5, 2) adds 3 to each coordinate, a translation rather than a dilation.",
+        "C": "(6, 3) drops the negative sign of the y-coordinate.",
+        "D": "(2/3, −1/3) divides by the scale factor instead of multiplying."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "What does a dilation do to each coordinate?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Multiply both coordinates by 3."
+      },
+      "remember": "Dilation about the origin by k: (x, y) → (kx, ky).",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-01",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000638",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Number & Quantity",
+      "subskill": "Converting cubic feet to cubic yards",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A garden bed needs 54 cubic feet of soil. Soil is sold by the cubic yard (1 yard = 3 feet). How many cubic yards of soil are needed?",
+      "choices": {
+        "A": "2",
+        "B": "6",
+        "C": "18",
+        "D": "162"
+      },
+      "correct_answer": "A",
+      "explanation": "One cubic yard is 3 × 3 × 3 = 27 cubic feet, so 54 ÷ 27 = 2 cubic yards.",
+      "distractor_explanations": {
+        "B": "6 divides by 9, the number of square feet in a square yard.",
+        "C": "18 divides by 3, converting as if the unit were linear.",
+        "D": "162 multiplies by 3 instead of dividing by 27."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many cubic feet are in one cubic yard?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Picture a cube 3 feet on each side."
+      },
+      "remember": "Cubic units convert by the cube of the linear factor.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-02",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000639",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "First term of a geometric sequence",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a geometric sequence, the 3rd term is 12 and the 6th term is 96. What is the 1st term?",
+      "choices": {
+        "A": "1.5",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "From the 3rd term to the 6th term the sequence multiplies by r³ = 96/12 = 8, so r = 2. The 1st term is 12 ÷ 2² = 3.",
+      "distractor_explanations": {
+        "A": "1.5 = 12 ÷ 8 divides by r³ instead of r².",
+        "C": "4 = 12 ÷ 3 assumes a common ratio of 3.",
+        "D": "6 is the 2nd term."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many times is the ratio applied between the 3rd and 6th terms?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "r³ = 96/12."
+      },
+      "remember": "In a geometric sequence, each step multiplies by r.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-03",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000640",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Dimensions of a matrix product",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Matrix A has 2 rows and 3 columns, and matrix B has 3 rows and 4 columns. What are the dimensions of the product AB ?",
+      "choices": {
+        "A": "3 × 3",
+        "B": "4 × 2",
+        "C": "2 × 4",
+        "D": "The product is not defined."
+      },
+      "correct_answer": "C",
+      "explanation": "AB is defined because A has as many columns (3) as B has rows (3). The product has A's number of rows and B's number of columns: 2 × 4.",
+      "distractor_explanations": {
+        "A": "3 × 3 uses the two matching inner dimensions.",
+        "B": "4 × 2 reverses the order of rows and columns.",
+        "D": "The inner dimensions (3 and 3) match, so the product is defined."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which dimensions must match for AB to exist?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write (2 × 3)(3 × 4) and cancel the inner 3s."
+      },
+      "remember": "(m × n)(n × p) gives an m × p product.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-04",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000641",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of a circular segment",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circle has radius 6. Two radii form a 90° angle, and a chord connects their endpoints. What is the area of the region between the chord and the 90° arc?",
+      "choices": {
+        "A": "9π − 36",
+        "B": "36π − 18",
+        "C": "36π − 36",
+        "D": "9π − 18"
+      },
+      "correct_answer": "D",
+      "explanation": "The 90° sector has area (1/4)(36π) = 9π. The right triangle formed by the two radii has area (1/2)(6)(6) = 18. The region is 9π − 18.",
+      "distractor_explanations": {
+        "A": "9π − 36 subtracts a 6-by-6 square instead of the triangle.",
+        "B": "36π − 18 uses the whole circle instead of a quarter.",
+        "C": "36π − 36 uses the whole circle and a square."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What shapes make up the region?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sector minus triangle."
+      },
+      "remember": "Segment area = sector area − triangle area.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-05",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000642",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Counting distinct real zeros of a factored polynomial",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many distinct real zeros does the function f(x) = (x − 1)²(x + 2)(x² + 1) have?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": "(x − 1)² gives the zero 1 (counted once as a distinct value), x + 2 gives −2, and x² + 1 = 0 has no real solutions. So there are 2 distinct real zeros.",
+      "distractor_explanations": {
+        "A": "1 overlooks one of the two real zeros.",
+        "C": "3 counts the repeated zero 1 twice.",
+        "D": "5 is the degree of the polynomial, which counts repeated and non-real zeros."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does x² + 1 = 0 have real solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set each factor equal to 0."
+      },
+      "remember": "Distinct real zeros: ignore repeats and non-real roots.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-06",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000643",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Recognizing independent events",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For events A and B, P(A) = 0.5, P(B) = 0.4 and P(A and B) = 0.2. Which of the following statements is true?",
+      "choices": {
+        "A": "A and B are mutually exclusive.",
+        "B": "P(A or B) = 0.9",
+        "C": "P(A given B) = 0.4",
+        "D": "A and B are independent."
+      },
+      "correct_answer": "D",
+      "explanation": "P(A)P(B) = 0.5 × 0.4 = 0.2 = P(A and B), so A and B are independent.",
+      "distractor_explanations": {
+        "A": "Mutually exclusive events have P(A and B) = 0, not 0.2.",
+        "B": "P(A or B) = 0.5 + 0.4 − 0.2 = 0.7, not 0.9.",
+        "C": "P(A given B) = 0.2/0.4 = 0.5, not 0.4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Compare P(A and B) with P(A) × P(B)."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each statement with the given values."
+      },
+      "remember": "Independent: P(A and B) = P(A)P(B). Mutually exclusive: P(A and B) = 0.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-07",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000644",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area swept by a clock hand",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The minute hand of a clock is 10 centimeters long. What is the area, in square centimeters, of the region the minute hand sweeps out in 20 minutes?",
+      "choices": {
+        "A": "10π/3",
+        "B": "20π/3",
+        "C": "100π/3",
+        "D": "200π/3"
+      },
+      "correct_answer": "C",
+      "explanation": "In 20 minutes the minute hand turns 20/60 = 1/3 of a full circle. The area is (1/3)(π · 10²) = 100π/3.",
+      "distractor_explanations": {
+        "A": "10π/3 = (1/3)(π · 10) uses r instead of r².",
+        "B": "20π/3 is the length of the arc the tip travels, not the area.",
+        "D": "200π/3 uses two-thirds of the circle."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What fraction of a full turn is 20 minutes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(20/60) × πr²."
+      },
+      "remember": "Sector area = (fraction of the circle) × πr².",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-08",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000645",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Counting positive integer solutions of a linear equation",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many ordered pairs (x, y) of positive integers satisfy 3x + 5y = 60 ?",
+      "choices": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "12"
+      },
+      "correct_answer": "A",
+      "explanation": "3x = 60 − 5y must be a positive multiple of 3, so y must be a multiple of 3 with 5y < 60: y = 3, 6 or 9, giving x = 15, 10 or 5. That is 3 pairs.",
+      "distractor_explanations": {
+        "B": "4 includes y = 0 or y = 12, which give a zero coordinate, not a positive one.",
+        "C": "5 includes both pairs with a zero coordinate.",
+        "D": "12 counts every y from 0 to 11 without checking divisibility."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Try values of y and check whether x comes out a positive integer."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try y = 1, 2, 3, … and check x."
+      },
+      "remember": "Positive means greater than 0; check the endpoints.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-09",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000646",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability that the sum of two draws is even",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bag holds 8 cards numbered 1 through 8. Two cards are drawn at random without replacement. What is the probability that the sum of the two numbers on the cards is even?",
+      "choices": {
+        "A": "3/14",
+        "B": "3/7",
+        "C": "1/2",
+        "D": "4/7"
+      },
+      "correct_answer": "B",
+      "explanation": "The sum is even when both cards are odd or both are even. There are C(4, 2) = 6 odd pairs and 6 even pairs, so 12 of the C(8, 2) = 28 pairs: 12/28 = 3/7.",
+      "distractor_explanations": {
+        "A": "3/14 = 6/28 counts only the pairs of even numbers.",
+        "C": "1/2 assumes even and odd sums are equally likely, which holds only if a card could be drawn twice.",
+        "D": "4/7 is the probability that the sum is odd."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "When is the sum of two integers even?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Count same-parity pairs out of all pairs."
+      },
+      "remember": "Without replacement, the second draw's chances change.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "B065-10",
+      "created_at": "2026-10-26T23:51:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-065.review.json",
+        "computation": "checks/act_math/batch_065.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 64,
+  "bank_version": 65,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -10855,6 +10855,176 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Substitute (2, 12) to find a."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000637",
+      "correct_answer": "A",
+      "explanation": "A dilation about the origin multiplies each coordinate by the scale factor: (3 · 2, 3 · (−1)) = (6, −3).",
+      "distractor_explanations": {
+        "B": "(5, 2) adds 3 to each coordinate, a translation rather than a dilation.",
+        "C": "(6, 3) drops the negative sign of the y-coordinate.",
+        "D": "(2/3, −1/3) divides by the scale factor instead of multiplying."
+      },
+      "hints": [
+        "What does a dilation do to each coordinate?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Multiply both coordinates by 3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000638",
+      "correct_answer": "A",
+      "explanation": "One cubic yard is 3 × 3 × 3 = 27 cubic feet, so 54 ÷ 27 = 2 cubic yards.",
+      "distractor_explanations": {
+        "B": "6 divides by 9, the number of square feet in a square yard.",
+        "C": "18 divides by 3, converting as if the unit were linear.",
+        "D": "162 multiplies by 3 instead of dividing by 27."
+      },
+      "hints": [
+        "How many cubic feet are in one cubic yard?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Picture a cube 3 feet on each side."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000639",
+      "correct_answer": "B",
+      "explanation": "From the 3rd term to the 6th term the sequence multiplies by r³ = 96/12 = 8, so r = 2. The 1st term is 12 ÷ 2² = 3.",
+      "distractor_explanations": {
+        "A": "1.5 = 12 ÷ 8 divides by r³ instead of r².",
+        "C": "4 = 12 ÷ 3 assumes a common ratio of 3.",
+        "D": "6 is the 2nd term."
+      },
+      "hints": [
+        "How many times is the ratio applied between the 3rd and 6th terms?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "r³ = 96/12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000640",
+      "correct_answer": "C",
+      "explanation": "AB is defined because A has as many columns (3) as B has rows (3). The product has A's number of rows and B's number of columns: 2 × 4.",
+      "distractor_explanations": {
+        "A": "3 × 3 uses the two matching inner dimensions.",
+        "B": "4 × 2 reverses the order of rows and columns.",
+        "D": "The inner dimensions (3 and 3) match, so the product is defined."
+      },
+      "hints": [
+        "Which dimensions must match for AB to exist?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write (2 × 3)(3 × 4) and cancel the inner 3s."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000641",
+      "correct_answer": "D",
+      "explanation": "The 90° sector has area (1/4)(36π) = 9π. The right triangle formed by the two radii has area (1/2)(6)(6) = 18. The region is 9π − 18.",
+      "distractor_explanations": {
+        "A": "9π − 36 subtracts a 6-by-6 square instead of the triangle.",
+        "B": "36π − 18 uses the whole circle instead of a quarter.",
+        "C": "36π − 36 uses the whole circle and a square."
+      },
+      "hints": [
+        "What shapes make up the region?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sector minus triangle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000642",
+      "correct_answer": "B",
+      "explanation": "(x − 1)² gives the zero 1 (counted once as a distinct value), x + 2 gives −2, and x² + 1 = 0 has no real solutions. So there are 2 distinct real zeros.",
+      "distractor_explanations": {
+        "A": "1 overlooks one of the two real zeros.",
+        "C": "3 counts the repeated zero 1 twice.",
+        "D": "5 is the degree of the polynomial, which counts repeated and non-real zeros."
+      },
+      "hints": [
+        "Does x² + 1 = 0 have real solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set each factor equal to 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000643",
+      "correct_answer": "D",
+      "explanation": "P(A)P(B) = 0.5 × 0.4 = 0.2 = P(A and B), so A and B are independent.",
+      "distractor_explanations": {
+        "A": "Mutually exclusive events have P(A and B) = 0, not 0.2.",
+        "B": "P(A or B) = 0.5 + 0.4 − 0.2 = 0.7, not 0.9.",
+        "C": "P(A given B) = 0.2/0.4 = 0.5, not 0.4."
+      },
+      "hints": [
+        "Compare P(A and B) with P(A) × P(B)."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each statement with the given values."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000644",
+      "correct_answer": "C",
+      "explanation": "In 20 minutes the minute hand turns 20/60 = 1/3 of a full circle. The area is (1/3)(π · 10²) = 100π/3.",
+      "distractor_explanations": {
+        "A": "10π/3 = (1/3)(π · 10) uses r instead of r².",
+        "B": "20π/3 is the length of the arc the tip travels, not the area.",
+        "D": "200π/3 uses two-thirds of the circle."
+      },
+      "hints": [
+        "What fraction of a full turn is 20 minutes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(20/60) × πr²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000645",
+      "correct_answer": "A",
+      "explanation": "3x = 60 − 5y must be a positive multiple of 3, so y must be a multiple of 3 with 5y < 60: y = 3, 6 or 9, giving x = 15, 10 or 5. That is 3 pairs.",
+      "distractor_explanations": {
+        "B": "4 includes y = 0 or y = 12, which give a zero coordinate, not a positive one.",
+        "C": "5 includes both pairs with a zero coordinate.",
+        "D": "12 counts every y from 0 to 11 without checking divisibility."
+      },
+      "hints": [
+        "Try values of y and check whether x comes out a positive integer."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try y = 1, 2, 3, … and check x."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000646",
+      "correct_answer": "B",
+      "explanation": "The sum is even when both cards are odd or both are even. There are C(4, 2) = 6 odd pairs and 6 even pairs, so 12 of the C(8, 2) = 28 pairs: 12/28 = 3/7.",
+      "distractor_explanations": {
+        "A": "3/14 = 6/28 counts only the pairs of even numbers.",
+        "C": "1/2 assumes even and odd sums are equally likely, which holds only if a card could be drawn twice.",
+        "D": "4/7 is the probability that the sum is odd."
+      },
+      "hints": [
+        "When is the sum of two integers even?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Count same-parity pairs out of all pairs."
       }
     }
   ]
