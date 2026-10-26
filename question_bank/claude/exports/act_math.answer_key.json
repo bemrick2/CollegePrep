@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 9,
+  "bank_version": 10,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -1584,6 +1584,186 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Venn diagram: overlap 20, Spanish only 40, French only 25, neither 15."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000089",
+      "correct_answer": "D",
+      "explanation": "√(9/4) = 3/2 is rational. A repeating decimal is rational (0.1212… = 12/99 = 4/33). √8 · √2 = √16 = 4 is rational. But √2 + √8 = √2 + 2√2 = 3√2, which is irrational because √2 is irrational.",
+      "distractor_explanations": {
+        "A": "√(9/4) = 3/2; a square root of a perfect-square fraction is rational.",
+        "B": "Every repeating decimal equals a fraction; 0.1212… = 4/33.",
+        "C": "The product √8 · √2 = √16 = 4 is rational, even though each factor is irrational."
+      },
+      "hints": [
+        "Simplify each expression before deciding.",
+        "Products of irrational square roots can be rational; sums of like radicals stay radical."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Simplify A, B and C to fractions or integers; the survivor, 3√2, is irrational."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000090",
+      "correct_answer": "B",
+      "explanation": "a/c = (a/b)(b/c) = (3/4)(2/5) = 6/20 = 3/10. Then (a + c)/c = a/c + 1 = 3/10 + 1 = 13/10.",
+      "distractor_explanations": {
+        "A": "3/10 is a/c; the question asks for (a + c)/c, which is 1 more.",
+        "C": "This divides the ratios instead of multiplying them: (3/4) ÷ (2/5) = 15/8.",
+        "D": "This divides the ratios to get 15/8 and then adds 1."
+      },
+      "hints": [
+        "How can you combine a/b and b/c to get a/c?",
+        "Split (a + c)/c into two fractions."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Pick b = 4: then a = 3 and c = 10, so (a + c)/c = 13/10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000091",
+      "correct_answer": "C",
+      "explanation": "Factor: x² − y² = (x + y)(x − y) = 7(x − y) = 21, so x − y = 3. Adding x + y = 7 and x − y = 3 gives 2x = 10, so x = 5 (and y = 2). Check: 25 − 4 = 21.",
+      "distractor_explanations": {
+        "A": "2 is the value of y, not x.",
+        "B": "3 is the value of x − y, an intermediate result.",
+        "D": "7 is x + y; it is not the value of x."
+      },
+      "hints": [
+        "Factor x² − y².",
+        "Once you know x − y, combine it with x + y = 7."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try x = 5: then y = 2, and 25 − 4 = 21. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000092",
+      "correct_answer": "C",
+      "explanation": "Let x be the length of each side perpendicular to the wall. The side parallel to the wall is 120 − 2x, so the area is A(x) = x(120 − 2x) = −2x² + 120x. This quadratic is greatest at its vertex, x = −120/(2(−2)) = 30, giving 30 × 60 = 1,800 square meters.",
+      "distractor_explanations": {
+        "A": "This fences all four sides of a square (30 m each), ignoring the wall.",
+        "B": "This makes all three fenced sides equal (40 m each), but equal sides do not give the maximum here.",
+        "D": "This uses 60 m for both dimensions, which would need 180 m of fencing."
+      },
+      "hints": [
+        "Let x be the length of a side perpendicular to the wall and write the other side in terms of x.",
+        "The area is a quadratic in x; where is its maximum?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "A = x(120 − 2x); the vertex is at x = 30, so the area is 30 · 60 = 1,800."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000093",
+      "correct_answer": "B",
+      "explanation": "Set 5 − 3a = 20. Then −3a = 15 and a = −5. Check: f(−5) = 5 + 15 = 20.",
+      "distractor_explanations": {
+        "A": "−55 is f(20), the output for input 20, not the input that gives 20.",
+        "C": "This loses the negative sign when dividing 15 by −3.",
+        "D": "This adds 5 to 20 instead of subtracting it: −3a = 25."
+      },
+      "hints": [
+        "Set the expression for f(a) equal to 20.",
+        "Watch the sign when you divide by −3."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "f(−5) = 5 − 3(−5) = 20."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000094",
+      "correct_answer": "D",
+      "explanation": "Reflect B across the x-axis to B′ = (7, −5). For any P on the x-axis, PB = PB′, so AP + PB = AP + PB′, which is smallest when P lies on segment AB′. The minimum is AB′ = √((7 − 1)² + (−5 − 3)²) = √(36 + 64) = 10.",
+      "distractor_explanations": {
+        "A": "2√10 = √40 is the straight distance AB, which does not touch the x-axis.",
+        "B": "This adds only the vertical distances to the axis, 3 + 5, ignoring horizontal travel.",
+        "C": "This reflects B across the y-axis to (−7, 5) instead of across the x-axis."
+      },
+      "hints": [
+        "The path must touch the x-axis. What happens to PB if you reflect B across the x-axis?",
+        "The shortest path between two points is a straight segment."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Reflect B to (7, −5), draw a straight segment from A, and measure it: 10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000095",
+      "correct_answer": "C",
+      "explanation": "Circumference 2πr = 10π, so r = 5. The area is πr² = 25π square centimeters.",
+      "distractor_explanations": {
+        "A": "10π is the circumference, not the area.",
+        "B": "This doubles the circumference instead of finding the radius.",
+        "D": "This uses the diameter, 10, as the radius: π(10)²."
+      },
+      "hints": [
+        "Use the circumference to find the radius.",
+        "Area uses the radius squared."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2πr = 10π gives r = 5; area = 25π."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000096",
+      "correct_answer": "A",
+      "explanation": "Total points: 20 × 80 = 1,600 and 30 × 70 = 2,100, for 3,700 in all. The combined mean is 3,700 ÷ 50 = 74.",
+      "distractor_explanations": {
+        "B": "75 averages the two class means equally, ignoring that the classes have different sizes.",
+        "C": "This swaps the weights, giving 30 students the mean 80 and 20 students the mean 70.",
+        "D": "80 is only the first class's mean."
+      },
+      "hints": [
+        "Turn each class mean into a total number of points.",
+        "Divide the combined total by the combined number of students."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The larger class has the lower mean, so the combined mean is below 75; only 74 fits."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000097",
+      "correct_answer": "C",
+      "explanation": "The job takes 6 × 10 = 60 painter-hours. In the first 4 hours, 6 painters complete 24 painter-hours, leaving 36. Then 9 painters finish the remaining 36 painter-hours in 4 hours. The total time is 4 + 4 = 8 hours.",
+      "distractor_explanations": {
+        "A": "4 hours is only the time after the extra painters join.",
+        "B": "6 2/3 hours = 60 ÷ 9 assumes all 9 painters worked from the start.",
+        "D": "10 hours ignores the extra painters entirely."
+      },
+      "hints": [
+        "Measure the whole job in painter-hours.",
+        "How much of the job is left after the first 4 hours?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "60 painter-hours total; 24 done; 36 ÷ 9 = 4 more hours; 4 + 4 = 8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000098",
+      "correct_answer": "D",
+      "explanation": "Write each as a decimal: 0.3, 0.32, 0.33 and 1/3 = 0.333…. The greatest is 1/3.",
+      "distractor_explanations": {
+        "A": "0.3 is the smallest of the four values.",
+        "B": "32% = 0.32, which is less than 0.33 and 1/3.",
+        "C": "0.33 is slightly less than 1/3 = 0.333…; the threes in 1/3 go on forever."
+      },
+      "hints": [
+        "Convert every value to a decimal.",
+        "Compare digit by digit."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "As decimals: 0.300, 0.320, 0.330, 0.333…; the last is greatest."
       }
     }
   ]

@@ -1,0 +1,255 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 10,
+  "reviewed_at": "2026-10-26T18:20:09+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 10
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000089",
+    "CLD-ACT-M-000090",
+    "CLD-ACT-M-000091",
+    "CLD-ACT-M-000092",
+    "CLD-ACT-M-000093",
+    "CLD-ACT-M-000094",
+    "CLD-ACT-M-000095",
+    "CLD-ACT-M-000096",
+    "CLD-ACT-M-000097",
+    "CLD-ACT-M-000098"
+  ],
+  "results": [
+    {
+      "cand": "B010-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "A=3/2, B repeating decimal rational, C=sqrt16=4, D=sqrt2+2sqrt2=3sqrt2 irrational. C vs D is the small twist.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000089"
+    },
+    {
+      "cand": "B010-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "a/c=(3/4)(2/5)=3/10; (a+c)/c=a/c+1=13/10. A is the stop-early trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000090"
+    },
+    {
+      "cand": "B010-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "x^2-y^2=(x+y)(x-y) gives x-y=3; with x+y=7, x=5, y=2. Check 25-4=21.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "factoring insight replaces solving a nonlinear system",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000091"
+    },
+    {
+      "cand": "B010-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Perpendicular sides x, parallel side 120-2x; A=x(120-2x) max at x=30 -> 30*60=1800. Traps: 900 (square with 4 sides), 1600 (three equal sides 40).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "model building plus vertex; the 'square is best' intuition is the trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000092"
+    },
+    {
+      "cand": "B010-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "5-3a=20 -> a=-5. Check f(-5)=20.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000093"
+    },
+    {
+      "cand": "B010-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [],
+      "blind_notes": "Reflect A to (1,-3); distance to B(7,5)=sqrt(36+64)=10. Minimizer P=(4.75,0). 2sqrt10 is AB distance trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "reflection insight is not routine; AB is the trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000094"
+    },
+    {
+      "cand": "B010-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "2pi r=10pi -> r=5, area 25pi. 100pi uses d as r.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000095"
+    },
+    {
+      "cand": "B010-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "(20*80+30*70)/50=3700/50=74. 75 is unweighted-average trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000096"
+    },
+    {
+      "cand": "B010-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Job=60 painter-hours; 24 done in 4h; 36 left at 9 painters = 4h; total 8h. 6 2/3 is 'time for 9 painters from start' trap; 4 is 'remaining time only' trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "two phases with a change in rate; three strong partial answers"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000097"
+    },
+    {
+      "cand": "B010-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "0.3 < 0.32 < 0.33 < 0.333... = 1/3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000098"
+    }
+  ]
+}

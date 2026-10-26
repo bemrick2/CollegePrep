@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:18:25+00:00",
+  "updated_at": "2026-10-26T18:20:23+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 88,
+    "act_math": 98,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 88,
+      "PASS": 98,
       "REVISE": 0,
       "REJECT": 2,
-      "candidates": 90,
+      "candidates": 100,
       "passed_after_revision": 0
     },
     "act_english": {
@@ -52,14 +52,14 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 88,
+      "accepted": 98,
       "by_skill": {
-        "Algebra": 16,
-        "Functions": 16,
-        "Geometry": 16,
-        "Integrating Essential Skills": 18,
-        "Number & Quantity": 10,
-        "Statistics & Probability": 12
+        "Algebra": 18,
+        "Functions": 18,
+        "Geometry": 18,
+        "Integrating Essential Skills": 20,
+        "Number & Quantity": 11,
+        "Statistics & Probability": 13
       },
       "by_subskill": {
         "Absolute value of numerical expressions": 1,
@@ -73,7 +73,10 @@
         "Average speed over unequal times": 1,
         "Binomial counting": 1,
         "Catch-up rate problems": 1,
+        "Chained ratios": 1,
+        "Circle circumference and area": 1,
         "Combined work rates": 1,
+        "Comparing numbers in different forms": 1,
         "Comparing rational numbers": 1,
         "Comparing spread (standard deviation)": 1,
         "Complex number arithmetic": 1,
@@ -83,6 +86,7 @@
         "Conditional probability with a reduced sample space": 1,
         "Conditions on quadratic roots": 1,
         "Counting with restrictions": 1,
+        "Difference of squares used structurally": 1,
         "Division with whole-unit rounding": 1,
         "Divisors and primes": 1,
         "Domain of a function": 1,
@@ -122,12 +126,15 @@
         "Quadratic equations: solutions": 1,
         "Quadratic functions from key features": 1,
         "Quadratic inequalities in context": 1,
+        "Quadratic optimization in context": 1,
         "Radical equations and extraneous solutions": 1,
         "Range on a restricted domain": 1,
+        "Rational and irrational numbers": 1,
         "Rational equations and extraneous solutions": 1,
         "Rational exponents": 1,
         "Ratios that change": 1,
         "Recursively defined functions": 1,
+        "Reflections to minimize a path": 1,
         "Reverse percent (finding the original)": 1,
         "Right-triangle trigonometry in context": 1,
         "Scale drawings and area cost": 1,
@@ -136,6 +143,7 @@
         "Similar solids: area and volume ratios": 1,
         "Similar triangles: area ratios": 1,
         "Simplifying rational expressions": 1,
+        "Solving f(x) = k for a linear function": 1,
         "Space diagonal of a cube": 1,
         "Successive percent change": 1,
         "Surface area with whole-unit purchase": 1,
@@ -149,30 +157,32 @@
         "Vector operations and magnitude": 1,
         "Vertical angles": 1,
         "Volume and rates with unit conversion": 1,
-        "Volume of a composite solid": 1
+        "Volume of a composite solid": 1,
+        "Weighted mean": 1,
+        "Work problems with a mid-job change": 1
       },
       "by_difficulty_author": {
-        "easy": 17,
-        "hard": 32,
-        "medium": 39
+        "easy": 20,
+        "hard": 36,
+        "medium": 42
       },
       "by_difficulty_calibrated": {
-        "easy": 21,
-        "hard": 13,
-        "medium": 54
+        "easy": 25,
+        "hard": 15,
+        "medium": 58
       },
       "calibrated_share": {
-        "easy": 0.239,
-        "hard": 0.148,
-        "medium": 0.614
+        "easy": 0.255,
+        "hard": 0.153,
+        "medium": 0.592
       },
       "answer_key_balance": {
-        "A": 20,
-        "B": 26,
-        "C": 24,
-        "D": 18
+        "A": 21,
+        "B": 28,
+        "C": 28,
+        "D": 21
       },
-      "modeling_items": 29,
+      "modeling_items": 31,
       "passages": 0
     },
     "act_english": {
@@ -210,48 +220,48 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 9,
+    "act_math": 10,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 10,
+      "next_batch": 11,
       "underrepresented_skills_vs_blueprint": [
         "Algebra",
         "Functions",
         "Geometry",
-        "Integrating Essential Skills",
         "Statistics & Probability",
+        "Integrating Essential Skills",
         "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 0.8,
-        "Algebra": 2.1,
-        "Functions": 2.1,
-        "Geometry": 2.1,
-        "Statistics & Probability": 1.2,
+        "Number & Quantity": 0.9,
+        "Algebra": 2.0,
+        "Functions": 2.0,
+        "Geometry": 2.0,
+        "Statistics & Probability": 1.6,
         "Integrating Essential Skills": 1.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 3.5,
-        "medium": -5.0,
-        "hard": 11.5
+        "easy": 2.0,
+        "medium": -4.0,
+        "hard": 12.0
       },
       "answer_key_gap_for_next_10": {
-        "A": 4.5,
-        "B": -1.5,
-        "C": 0.5,
-        "D": 6.5
+        "A": 6.0,
+        "B": -1.0,
+        "C": -1.0,
+        "D": 6.0
       }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 88,
-      "share_of_target": 0.044
+      "accepted": 98,
+      "share_of_target": 0.049
     },
     "act_english": {
       "target": 700,
@@ -270,7 +280,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 88,
+  "total_accepted": 98,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -313,7 +323,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 9,
+      "bank_version": 10,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -357,7 +367,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:18:25+00:00",
+    "heartbeat_at": "2026-10-26T18:20:23+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
