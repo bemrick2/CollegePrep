@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T22:16:34+00:00",
+  "updated_at": "2026-10-26T22:17:31+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 493,
+    "act_math": 500,
     "act_english": 175,
     "act_reading": 150,
     "sat_reading_writing": 167
   },
   "review_totals": {
     "act_math": {
-      "PASS": 499,
+      "PASS": 506,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 504,
+      "candidates": 511,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 493,
+      "accepted": 500,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 87,
-        "Functions": 80,
-        "Geometry": 113,
+        "Algebra": 89,
+        "Functions": 81,
+        "Geometry": 115,
         "Integrating Essential Skills": 81,
         "Number & Quantity": 57,
-        "Statistics & Probability": 75
+        "Statistics & Probability": 77
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -88,6 +88,7 @@
         "Arc length from an inscribed angle": 1,
         "Area bounded by an absolute value graph and a line": 1,
         "Area modeling with a quadratic": 1,
+        "Area of a 30°-60°-90° triangle": 1,
         "Area of a kite from its diagonals": 1,
         "Area of a regular hexagon": 1,
         "Area of a regular octagon (cut corners)": 1,
@@ -159,12 +160,15 @@
         "Compound versus simple interest": 1,
         "Concentration after evaporation": 1,
         "Conditional probability from a two-way table": 1,
+        "Conditional probability from overlapping groups": 1,
         "Conditional probability with a reduced sample space": 1,
         "Conditional probability with a screening test": 1,
         "Conditions on quadratic roots": 1,
+        "Cone and cylinder with the same base and height": 1,
         "Cone formed from a sector": 1,
         "Cone volume from slant height": 1,
         "Consecutive angles of a parallelogram": 1,
+        "Consecutive even integers with a quadratic condition": 1,
         "Consecutive integer word problems": 1,
         "Consecutive successes to reach a target rate": 1,
         "Continuous uniform probability": 1,
@@ -416,6 +420,7 @@
         "Probability that a specific person is chosen": 1,
         "Probability that a sum of two dice is prime": 1,
         "Probability that at least two share a category": 1,
+        "Probability with arrangements of repeated letters": 1,
         "Product of the GCF and LCM": 1,
         "Profit as a percent of selling price": 1,
         "Proportions with a variable on both sides": 1,
@@ -523,6 +528,7 @@
         "Triangle proportionality (parallel segment)": 1,
         "Trigonometric identities and quadrant signs": 1,
         "Two-stage (total) probability": 1,
+        "Two-step equations with a negative coefficient": 1,
         "Union of independent events": 1,
         "Unit price comparison": 1,
         "Unit price with unit conversion": 1,
@@ -534,6 +540,7 @@
         "Vertex of an absolute value graph": 1,
         "Vertical angles": 1,
         "Vertical asymptotes versus holes": 1,
+        "Vertical shift and the y-intercept": 1,
         "Volume and rates with unit conversion": 1,
         "Volume change when dimensions change unequally": 1,
         "Volume displacement": 1,
@@ -558,24 +565,24 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 122,
-        "hard": 165,
-        "medium": 206
+        "easy": 125,
+        "hard": 167,
+        "medium": 208
       },
       "by_difficulty_calibrated": {
-        "easy": 136,
+        "easy": 139,
         "hard": 67,
-        "medium": 290
+        "medium": 294
       },
       "calibrated_share": {
-        "easy": 0.276,
-        "hard": 0.136,
+        "easy": 0.278,
+        "hard": 0.134,
         "medium": 0.588
       },
       "answer_key_balance": {
-        "A": 114,
-        "B": 138,
-        "C": 135,
+        "A": 115,
+        "B": 141,
+        "C": 138,
         "D": 106
       },
       "modeling_items": 113,
@@ -998,50 +1005,41 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 50,
+    "act_math": 51,
     "act_english": 17,
     "act_reading": 18,
     "sat_reading_writing": 18
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 51,
+      "next_batch": 52,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -1.7,
-        "Algebra": 6.1,
-        "Functions": 13.1,
-        "Geometry": -19.9,
-        "Statistics & Probability": -7.1,
-        "Integrating Essential Skills": 19.6
+        "Number & Quantity": -0.9,
+        "Algebra": 5.3,
+        "Functions": 13.3,
+        "Geometry": -20.7,
+        "Statistics & Probability": -8.1,
+        "Integrating Essential Skills": 21.0
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -10.2,
-        "medium": -38.5,
-        "hard": 58.8
+        "easy": -11.5,
+        "medium": -39.0,
+        "hard": 60.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 11.8,
-        "B": -12.2,
-        "C": -9.2,
-        "D": 19.8
+        "A": 12.5,
+        "B": -13.5,
+        "C": -10.5,
+        "D": 21.5
       }
     }
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 19,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 2.6,
-        "Information and Ideas": 3.0,
-        "Standard English Conventions": 4.0,
-        "Expression of Ideas": 0.4
-      }
-    },
     "act_english": {
       "next_batch": 18,
       "skill_gap_for_next_10": {
@@ -1057,13 +1055,22 @@
         "Craft and Structure": -2.8,
         "Integration of Knowledge and Ideas": -5.0
       }
+    },
+    "sat_reading_writing": {
+      "next_batch": 19,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 2.6,
+        "Information and Ideas": 3.0,
+        "Standard English Conventions": 4.0,
+        "Expression of Ideas": 0.4
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 493,
-      "share_of_target": 0.246
+      "accepted": 500,
+      "share_of_target": 0.25
     },
     "act_english": {
       "target": 700,
@@ -1082,7 +1089,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 985,
+  "total_accepted": 992,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -10152,12 +10159,312 @@
       ],
       "subskills_used_more_than_twice": {},
       "scope": "automatic audit at 409 accepted"
+    },
+    {
+      "bank": "act_math",
+      "audited_at": "2026-10-26T22:17:29+00:00",
+      "accepted": 506,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-ACT-M-000021",
+          "b": "CLD-ACT-M-000122",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-ACT-M-000021",
+          "b": "CLD-ACT-M-000502",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000031",
+          "b": "CLD-ACT-M-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000031",
+          "b": "CLD-ACT-M-000181",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-ACT-M-000032",
+          "b": "CLD-ACT-M-000172",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-ACT-M-000032",
+          "b": "CLD-ACT-M-000281",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000039",
+          "b": "CLD-ACT-M-000463",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000041",
+          "b": "CLD-ACT-M-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000072",
+          "b": "CLD-ACT-M-000260",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000072",
+          "b": "CLD-ACT-M-000291",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000413",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000500",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000260",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000291",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000479",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-ACT-M-000115",
+          "b": "CLD-ACT-M-000222",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-ACT-M-000123",
+          "b": "CLD-ACT-M-000388",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000164",
+          "b": "CLD-ACT-M-000337",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-M-000248",
+          "b": "CLD-ACT-M-000288",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000253",
+          "b": "CLD-ACT-M-000388",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-M-000260",
+          "b": "CLD-ACT-M-000291",
+          "similarity": 0.63
+        },
+        {
+          "a": "CLD-ACT-M-000344",
+          "b": "CLD-ACT-M-000354",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000352",
+          "b": "CLD-ACT-M-000378",
+          "similarity": 0.53
+        }
+      ],
+      "answer_key_balance": {
+        "A": 117,
+        "B": 142,
+        "C": 139,
+        "D": 108
+      },
+      "by_skill": {
+        "Algebra": 90,
+        "Functions": 82,
+        "Geometry": 115,
+        "Integrating Essential Skills": 81,
+        "Number & Quantity": 59,
+        "Statistics & Probability": 79
+      },
+      "by_difficulty_author": {
+        "easy": 127,
+        "hard": 168,
+        "medium": 211
+      },
+      "by_difficulty_calibrated": {
+        "easy": 141,
+        "hard": 68,
+        "medium": 297
+      },
+      "thin_explanations": [
+        "CLD-ACT-M-000004",
+        "CLD-ACT-M-000064",
+        "CLD-ACT-M-000079",
+        "CLD-ACT-M-000093",
+        "CLD-ACT-M-000095",
+        "CLD-ACT-M-000098",
+        "CLD-ACT-M-000100",
+        "CLD-ACT-M-000120",
+        "CLD-ACT-M-000121",
+        "CLD-ACT-M-000124",
+        "CLD-ACT-M-000136",
+        "CLD-ACT-M-000146",
+        "CLD-ACT-M-000169",
+        "CLD-ACT-M-000172",
+        "CLD-ACT-M-000184",
+        "CLD-ACT-M-000192",
+        "CLD-ACT-M-000197",
+        "CLD-ACT-M-000199",
+        "CLD-ACT-M-000213",
+        "CLD-ACT-M-000214",
+        "CLD-ACT-M-000217",
+        "CLD-ACT-M-000225",
+        "CLD-ACT-M-000227",
+        "CLD-ACT-M-000231",
+        "CLD-ACT-M-000232",
+        "CLD-ACT-M-000236",
+        "CLD-ACT-M-000238",
+        "CLD-ACT-M-000239",
+        "CLD-ACT-M-000243",
+        "CLD-ACT-M-000247",
+        "CLD-ACT-M-000248",
+        "CLD-ACT-M-000250",
+        "CLD-ACT-M-000252",
+        "CLD-ACT-M-000254",
+        "CLD-ACT-M-000257",
+        "CLD-ACT-M-000258",
+        "CLD-ACT-M-000262",
+        "CLD-ACT-M-000264",
+        "CLD-ACT-M-000265",
+        "CLD-ACT-M-000267",
+        "CLD-ACT-M-000269",
+        "CLD-ACT-M-000272",
+        "CLD-ACT-M-000276",
+        "CLD-ACT-M-000277",
+        "CLD-ACT-M-000278",
+        "CLD-ACT-M-000279",
+        "CLD-ACT-M-000282",
+        "CLD-ACT-M-000286",
+        "CLD-ACT-M-000287",
+        "CLD-ACT-M-000290",
+        "CLD-ACT-M-000291",
+        "CLD-ACT-M-000292",
+        "CLD-ACT-M-000293",
+        "CLD-ACT-M-000294",
+        "CLD-ACT-M-000296",
+        "CLD-ACT-M-000298",
+        "CLD-ACT-M-000299",
+        "CLD-ACT-M-000301",
+        "CLD-ACT-M-000303",
+        "CLD-ACT-M-000305",
+        "CLD-ACT-M-000309",
+        "CLD-ACT-M-000312",
+        "CLD-ACT-M-000313",
+        "CLD-ACT-M-000315",
+        "CLD-ACT-M-000316",
+        "CLD-ACT-M-000318",
+        "CLD-ACT-M-000320",
+        "CLD-ACT-M-000321",
+        "CLD-ACT-M-000322",
+        "CLD-ACT-M-000324",
+        "CLD-ACT-M-000325",
+        "CLD-ACT-M-000327",
+        "CLD-ACT-M-000341",
+        "CLD-ACT-M-000342",
+        "CLD-ACT-M-000344",
+        "CLD-ACT-M-000345",
+        "CLD-ACT-M-000351",
+        "CLD-ACT-M-000353",
+        "CLD-ACT-M-000360",
+        "CLD-ACT-M-000368",
+        "CLD-ACT-M-000370",
+        "CLD-ACT-M-000372",
+        "CLD-ACT-M-000373",
+        "CLD-ACT-M-000378",
+        "CLD-ACT-M-000380",
+        "CLD-ACT-M-000381",
+        "CLD-ACT-M-000382",
+        "CLD-ACT-M-000387",
+        "CLD-ACT-M-000390",
+        "CLD-ACT-M-000392",
+        "CLD-ACT-M-000394",
+        "CLD-ACT-M-000397",
+        "CLD-ACT-M-000398",
+        "CLD-ACT-M-000401",
+        "CLD-ACT-M-000402",
+        "CLD-ACT-M-000403",
+        "CLD-ACT-M-000405",
+        "CLD-ACT-M-000408",
+        "CLD-ACT-M-000413",
+        "CLD-ACT-M-000414",
+        "CLD-ACT-M-000416",
+        "CLD-ACT-M-000418",
+        "CLD-ACT-M-000422",
+        "CLD-ACT-M-000423",
+        "CLD-ACT-M-000425",
+        "CLD-ACT-M-000426",
+        "CLD-ACT-M-000427",
+        "CLD-ACT-M-000430",
+        "CLD-ACT-M-000432",
+        "CLD-ACT-M-000434",
+        "CLD-ACT-M-000435",
+        "CLD-ACT-M-000438",
+        "CLD-ACT-M-000443",
+        "CLD-ACT-M-000444",
+        "CLD-ACT-M-000445",
+        "CLD-ACT-M-000447",
+        "CLD-ACT-M-000452",
+        "CLD-ACT-M-000453",
+        "CLD-ACT-M-000454",
+        "CLD-ACT-M-000455",
+        "CLD-ACT-M-000456",
+        "CLD-ACT-M-000461",
+        "CLD-ACT-M-000463",
+        "CLD-ACT-M-000464",
+        "CLD-ACT-M-000467",
+        "CLD-ACT-M-000468",
+        "CLD-ACT-M-000469",
+        "CLD-ACT-M-000470",
+        "CLD-ACT-M-000471",
+        "CLD-ACT-M-000472",
+        "CLD-ACT-M-000473",
+        "CLD-ACT-M-000474",
+        "CLD-ACT-M-000475",
+        "CLD-ACT-M-000478",
+        "CLD-ACT-M-000480",
+        "CLD-ACT-M-000481",
+        "CLD-ACT-M-000482",
+        "CLD-ACT-M-000483",
+        "CLD-ACT-M-000486",
+        "CLD-ACT-M-000488",
+        "CLD-ACT-M-000489",
+        "CLD-ACT-M-000490",
+        "CLD-ACT-M-000491",
+        "CLD-ACT-M-000493",
+        "CLD-ACT-M-000494",
+        "CLD-ACT-M-000495",
+        "CLD-ACT-M-000497",
+        "CLD-ACT-M-000500",
+        "CLD-ACT-M-000502",
+        "CLD-ACT-M-000503"
+      ],
+      "subskills_used_more_than_twice": {},
+      "scope": "automatic audit at 506 accepted"
     }
   ],
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 50,
+      "bank_version": 51,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -10272,7 +10579,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T22:16:34+00:00",
+    "heartbeat_at": "2026-10-26T22:17:31+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

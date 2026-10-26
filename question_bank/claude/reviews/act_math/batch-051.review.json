@@ -1,0 +1,185 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 51,
+  "reviewed_at": "2026-10-26T22:17:25+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 51
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000500",
+    "CLD-ACT-M-000501",
+    "CLD-ACT-M-000502",
+    "CLD-ACT-M-000503",
+    "CLD-ACT-M-000504",
+    "CLD-ACT-M-000505",
+    "CLD-ACT-M-000506"
+  ],
+  "results": [
+    {
+      "cand": "B051-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "-2x = 12, x = -6. Distractors cover sign/operation slips (6, -11, 11).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000500"
+    },
+    {
+      "cand": "B051-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "V_cone = (1/3)V_cyl = 30. One familiar fact.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000501"
+    },
+    {
+      "cand": "B051-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "g(0) = f(0) - 2 = 3, so (0,3). Distractors model horizontal-shift and wrong-direction confusion.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000502"
+    },
+    {
+      "cand": "B051-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Conditional: 6/15 = 2/5. Distractors 6/50 = 3/25, 6/20 = 3/10 (wrong denominator), 29/50 (union).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000503"
+    },
+    {
+      "cand": "B051-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "Legs 6 and 6√3; area = (1/2)(6)(6√3) = 18√3. Distractor 36√3 forgets the 1/2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000504"
+    },
+    {
+      "cand": "B051-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: 13 is odd and 18 is clearly too large (18^2 = 324 leaves 16, not consecutive), so back-solving from the choices takes only seconds; a typical student will get this as easily as an easy item"
+      ],
+      "blind_notes": "12^2 + 14^2 = 144 + 196 = 340, so the larger is 14. Choice A (12) catches students who give the smaller integer.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires setting up and factoring a quadratic from a verbal description; the smaller integer (12) is a common slip."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000505"
+    },
+    {
+      "cand": "B051-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "6 distinct arrangements: AABB, ABAB, ABBA, BAAB, BABA, BBAA; 2 begin with a pair (AABB, BBAA), so 1/3. Same result by drawing letters: the second letter matches the first with probability 1/3. Traps: 1/2 (treating each letter as independent) and 1/6 (counting only AABB).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The intuitive 1/2 ignores that one matching letter has been used; requires listing arrangements or conditioning correctly."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000506"
+    }
+  ]
+}
