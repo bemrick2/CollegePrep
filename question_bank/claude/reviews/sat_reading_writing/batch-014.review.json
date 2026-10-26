@@ -1,0 +1,290 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 14,
+  "reviewed_at": "2026-10-26T21:07:51+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 14
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000124",
+    "CLD-SAT-RW-000125",
+    "CLD-SAT-RW-000126",
+    "CLD-SAT-RW-000127",
+    "CLD-SAT-RW-000128",
+    "CLD-SAT-RW-000129",
+    "CLD-SAT-RW-000130",
+    "CLD-SAT-RW-000131"
+  ],
+  "results": [
+    {
+      "cand": "S014-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Laying out every explanation without taking a side = noncommittal. 'Ambivalent' (mixed feelings) is the attractive trap; 'indifferent' implies lack of care, contradicted by 'meticulously'; 'partisan' is the opposite.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000124"
+    },
+    {
+      "cand": "S014-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: key is the only unfamiliar/high-register word; test-takers can reach it by eliminating three clearly wrong familiar words"
+      ],
+      "blind_notes": "Dense allusions to obscure texts that few could follow = recondite (obscure). Derivative contradicts the contrast with imitated early work; accessible is the opposite; prolific is irrelevant.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: key word 'recondite' is high-difficulty vocabulary, but the three distractors are clearly eliminable (derivative/accessible contradict the context, prolific is irrelevant), so elimination rescues many students"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000125"
+    },
+    {
+      "cand": "S014-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Claim is about the size of B's advantage: rural 73-64=9 vs urban 75-72=3. Only A compares the gaps; arithmetic checks.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "S014-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Bees remembered and returned to caffeinated flowers, so caffeine encourages repeat visits that aid pollination. Other choices contradict the findings.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000126"
+    },
+    {
+      "cand": "S014-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [
+        "Tests the contested 'one of the few X who have/has' construction. Prescriptively the relative clause modifies the plural 'biologists', so 'have' is correct, but 'has' is very common in edited prose and is defended by some usage guides; the official SAT generally avoids testing this disputed point. Consider rewriting so the antecedent is unambiguous (e.g., 'Dr. Osei, unlike most marine biologists, ______ observed...')."
+      ],
+      "blind_notes": "Antecedent of 'who' is 'marine biologists' (plural), so 'have'. Most quick solvers will pick 'has' to agree with Dr. Osei. 'Having' and 'is having' create no finite verb / wrong aspect.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "Ambiguous key risk: in 'one of the few marine biologists who ___ observed', the antecedent of 'who' is the plural 'biologists' (she is one of the biologists who have observed...), so traditional/prescriptive grammar requires 'have' (A). If the key is 'has' (B), it is defensible only under informal notional agreement and is contestable; either way both A and B have supporters, so the item does not have exactly one uncontroversially correct answer. Recommend rewriting (e.g., 'Dr. Osei, a marine biologist, ___ observed' or remove 'one of the few')."
+      ],
+      "blind2_difficulty_opinion": "hard",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Tests the contested 'one of the few X who have/has' construction. Prescriptively the relative clause modifies the plural 'biologists', so 'have' is correct, but 'has' is very common in edited prose and is defended by some usage guides; the official SAT generally avoids testing this disputed point. Consider rewriting so the antecedent is unambiguous (e.g., 'Dr. Osei, unlike most marine biologists, ______ observed...').; Ambiguous key risk: in 'one of the few marine biologists who ___ observed', the antecedent of 'who' is the plural 'biologists' (she is one of the biologists who have observed...), so traditional/prescriptive grammar requires 'have' (A). If the key is 'has' (B), it is defensible only under informal notional agreement and is contestable; either way both A and B have supporters, so the item does not have exactly one uncontroversially correct answer. Recommend rewriting (e.g., 'Dr. Osei, a marine biologist, ___ observed' or remove 'one of the few')."
+    },
+    {
+      "cand": "S014-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "'that' introduces a noun clause object of 'argued'; no punctuation between verb and object clause or after 'that'.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000127"
+    },
+    {
+      "cand": "S014-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Infants learning language sounds in an early window parallels songbirds' sensitive period: 'Similarly'. Not a contrast, cause, or example of the songbird finding.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000128"
+    },
+    {
+      "cand": "S014-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: D is the only choice that mentions scientists or doubt, mirroring the goal's 'surprised scientists' wording directly"
+      ],
+      "blind_notes": "Surprise requires pairing the doubt about tiny birds' fat storage with the 6,000 km migration; only D combines both.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: correct choice is the only one combining the 'doubt' note with the migration fact and is also the longest choice - mild length tell"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000129"
+    },
+    {
+      "cand": "S014-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Last sentence: the note rang clearly (progress) and she feared the next might not (fear it won't last). A, C, D unsupported.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: the 'surprise' element is carried mostly by the preceding sentence ('startled'); last sentence itself shows clear tone plus fear it won't last - still B is the only defensible choice"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000130"
+    },
+    {
+      "cand": "S014-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Economist points to a simultaneous confounder (lower speed limits), so she'd say the drop may be partly due to that change. A and C contradict her; B ignores her point.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000131"
+    }
+  ]
+}
