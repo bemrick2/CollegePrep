@@ -66,7 +66,7 @@ const RESERVED_SAT = new Set([...practiceExclusions('sat', QUESTIONS)].map((id) 
 const RESERVED_ACT = new Set([...practiceExclusions('act', QUESTIONS)].map((id) => uid(`q:${id}`)))
 const PER = 2 // SAT mini plan per section, set below
 
-describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned items (T1–T10)', () => {
+describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned items (T1–T11)', () => {
   const c = {} as Record<'PARENT' | 'VIEWER' | 'NOVIEW' | 'STUDENT' | 'STUDENT2' | 'OTHER_PARENT' | 'OTHER_STUDENT' | 'OUTSIDER', SupabaseClient>
   let student: LiveSource
   let student2: LiveSource
@@ -74,6 +74,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
   let sid2 = ''
   let otherSid = ''
   let savedPlan = ''
+  let savedMini = ''
   const readable = async (cl: SupabaseClient) => {
     const r = await cl.from('practice_questions').select('id, stem').eq('pool', 'assessment')
     expect(r.error).toBeNull()
@@ -88,6 +89,12 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     if (sql(`select to_regclass('public.practice_benchmark_plan') is not null`) === 't') {
       savedPlan = sql(`select string_agg(section || '=' || items, ',' order by section) from public.practice_benchmark_plan where exam_family = 'sat' and kind = 'mini'`)
       sql(`update public.practice_benchmark_plan set items = ${PER} where exam_family = 'sat' and kind = 'mini'`)
+    }
+    // T1–T10 test assignment, so they open mini checks freely: for this file only, a mini needs no earlier check and no
+    // gap. T11 puts the real rules back for its own checks. Restored in afterAll.
+    if (sql(`select to_regclass('public.practice_benchmark_kinds') is not null`) === 't') {
+      savedMini = sql(`select needs_prior || ',' || min_days_after_prior from public.practice_benchmark_kinds where kind = 'mini'`)
+      sql(`update public.practice_benchmark_kinds set needs_prior = false, min_days_after_prior = 0 where kind = 'mini'`)
     }
     const subs = { PARENT, VIEWER, NOVIEW, STUDENT, STUDENT2, OTHER_PARENT, OTHER_STUDENT, OUTSIDER }
     for (const k of Object.keys(subs) as (keyof typeof c)[]) c[k] = await raw(subs[k])
@@ -107,7 +114,12 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expect(RESERVED_SAT.size).toBe(8) // 4 per section seeded; the plan above assigns 2 per section
   })
 
+  const realMiniRules = () => {
+    const [prior, days] = savedMini.split(',')
+    sql(`update public.practice_benchmark_kinds set needs_prior = ${prior === 'true'}, min_days_after_prior = ${Number(days)} where kind = 'mini'`)
+  }
   afterAll(() => {
+    if (savedMini) realMiniRules()
     if (!savedPlan) return
     for (const pair of savedPlan.split(',')) {
       const [section, items] = pair.split('=')
@@ -158,7 +170,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expect(again.error).toMatchObject({ code: '22023', message: 'A question is used once per progress check' })
   })
 
-  it('T5 retries and resume of an unanswered check: the same check and assignment; nothing new is exposed (a partly answered check is not resumed: open with Research on #279)', async () => {
+  it('T5 retries and resume of an unanswered check: the same check and assignment; nothing new is exposed', async () => {
     // A fresh, unanswered check is resumed as it is.
     const r1 = await student2.startBenchmark(sid2, 'mini', 'sat')
     const set1 = new Set((await student2.benchmarkQuestions(r1)).map((i) => i.question.id))
@@ -285,7 +297,7 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expire(live)
   })
 
-  it('T10 cap: a mini check accepts at most its assigned items (`full` is still limited only in the client: open with Research on #279)', async () => {
+  it('T10 cap: a mini check accepts at most its assigned items; a direct `full` start is refused', async () => {
     const fresh = await student2.startBenchmark(sid2, 'mini', 'sat')
     const items = await student2.benchmarkQuestions(fresh)
     let accepted = 0
@@ -302,5 +314,74 @@ describe.skipIf(!URL_)('#263: a progress check exposes only its server-assigned 
     expect(sql(`select count(distinct question_id) from public.practice_attempts where benchmark_id = '${fresh}'`)).toBe(String(2 * PER))
     expect(new Set(items.map((i) => sectionOf.get(i.question.id)))).toEqual(new Set(['reading_writing', 'math']))
     expire(fresh)
+    const full = await c.STUDENT2.rpc('start_benchmark', { p_student: sid2, p_kind: 'full', p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${fresh}'`) })
+    expect(full.error).toMatchObject({ code: '22023' })
+    expect(sql(`select count(*) from public.practice_benchmarks where student_id = '${sid2}' and kind = 'full'`)).toBe('0')
+  })
+
+  // After T10: T5b answers an item, and an answered item stays readable to the student, which T6–T8 would count.
+  it('T5b resume of a partly answered check: a reload or retry returns the same check; its used items stay used, no new item is assigned', async () => {
+    const r1 = await student2.startBenchmark(sid2, 'mini', 'sat')
+    const before = await student2.benchmarkQuestions(r1)
+    const first = before[0]!.question.id
+    const a = await student2.startAttempt(sid2, first, null, r1)
+    await pause()
+    await student2.submitAttempt(a, { answer: answerFor.get(first) ?? 'A', activeMs: 5 })
+    // Reload: a new client, the same student; and a retry of the start itself.
+    const reloadedClient = await raw(STUDENT2)
+    const reloaded = new LiveSource(reloadedClient)
+    const version = sql(`select exam_version_id from public.practice_benchmarks where id = '${r1}'`)
+    const allowed = await reloadedClient.rpc('benchmark_allowed_kinds', { p_student: sid2, p_exam_version: version })
+    expect(allowed.error).toBeNull()
+    expect((allowed.data as { live_benchmark: string; live_kind: string; allowed_kinds: string[] }[])[0]).toMatchObject({ live_benchmark: r1, live_kind: 'mini', allowed_kinds: ['mini'] })
+    expect(await reloaded.startBenchmark(sid2, 'mini', 'sat')).toBe(r1)
+    expect(await student2.startBenchmark(sid2, 'mini', 'sat')).toBe(r1)
+    const after = await reloaded.benchmarkQuestions(r1)
+    expect(after.map((i) => i.question.id)).toEqual(before.slice(1).map((i) => i.question.id))
+    expect(sql(`select count(*) from public.practice_benchmark_items where benchmark_id = '${r1}'`)).toBe(String(2 * PER))
+    expect(sql(`select count(*) from public.practice_benchmarks where student_id = '${sid2}' and completed_at is null and started_at > now() - interval '4 hours'`)).toBe('1')
+    // What a client reads for progress (#291): the student's own assignment rows and attempts in the check.
+    const rows = await reloadedClient.from('practice_benchmark_items').select('question_id').eq('benchmark_id', r1)
+    expect(rows.error).toBeNull()
+    expect(rows.data).toHaveLength(2 * PER)
+    const used = await reloadedClient.from('practice_attempts').select('question_id').eq('benchmark_id', r1)
+    expect(used.data?.map((x) => x.question_id)).toEqual([first])
+    // Another kind while it is live is refused, not opened beside it.
+    const other = await c.STUDENT2.rpc('start_benchmark', { p_student: sid2, p_kind: 'initial', p_exam_version: sql(`select exam_version_id from public.practice_benchmarks where id = '${r1}'`) })
+    expect(other.error).toMatchObject({ code: '22023' })
+    expect(other.error!.message).toMatch(/already open for this exam; resume it/)
+    expire(r1)
+  })
+
+  it('T11 kind rules on the server, for direct calls too: initial once, mini after a first check and 28 days, full refused; the client reads the same rules', async () => {
+    realMiniRules()
+    try {
+      const version = sql(`select id from public.exam_versions where exam_family = 'sat' order by effective_from desc limit 1`)
+      const start = (kind: string) => c.OTHER_STUDENT.rpc('start_benchmark', { p_student: otherSid, p_kind: kind, p_exam_version: version })
+      const rules = async () => {
+        const r = await c.OTHER_STUDENT.rpc('benchmark_allowed_kinds', { p_student: otherSid, p_exam_version: version })
+        expect(r.error).toBeNull()
+        return (r.data as { live_benchmark: string | null; allowed_kinds: string[]; next_mini_at: string | null; reserve_available: boolean }[])[0]!
+      }
+      expect(await rules()).toMatchObject({ live_benchmark: null, allowed_kinds: ['initial'], reserve_available: true })
+      expect((await start('mini')).error).toMatchObject({ code: '22023', message: 'A repeat progress check comes after a first check for this exam' })
+      expect((await start('full')).error).toMatchObject({ code: '22023' })
+      const first = (await start('initial')).data as string
+      expect(first).toBeTruthy()
+      expire(first) // abandoned unanswered: it still counts as the student's check
+      expect((await start('initial')).error).toMatchObject({ code: '22023' })
+      expect((await start('mini')).error?.message).toMatch(/opens 28 days after the last one started/)
+      const opts = await rules()
+      expect(opts).toMatchObject({ live_benchmark: null, allowed_kinds: [] })
+      expect(Date.parse(opts.next_mini_at!)).toBe(Date.parse(sql(`select to_char((started_at at time zone 'UTC') + interval '28 days', 'YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') from public.practice_benchmarks where id = '${first}'`)))
+      // 28 days later (backdated here) the mini opens.
+      sql(`update public.practice_benchmarks set started_at = now() - interval '29 days' where id = '${first}'`)
+      expect((await rules()).allowed_kinds).toEqual(['mini'])
+      const mini = (await start('mini')).data as string
+      expect(mini).toBeTruthy()
+      expire(mini)
+    } finally {
+      sql(`update public.practice_benchmark_kinds set needs_prior = false, min_days_after_prior = 0 where kind = 'mini'`)
+    }
   })
 })
