@@ -52,24 +52,37 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(done.metrics.traps_fallen).toEqual([{ trap: 'sign_error', count: 2 }])
   })
 
-  it('#279: benchmark_options and benchmark_progress are called as the proposed contract says; a resumed completion uses only server metrics', async () => {
+  it('#279: benchmark_allowed_kinds and the assignment tables are read as Research’s contract says; a resumed completion uses only server metrics', async () => {
     const { sb, calls } = fakeClient({
       exam_versions: [{ id: 'ev1', effective_from: '2026-01-01', effective_to: null }],
-      benchmark_options: [{ initial_allowed: false, mini_allowed: false, mini_opens_at: '2026-11-02T17:00:00Z', full_allowed: false, open_id: 'bm1', open_kind: 'initial', open_started_at: '2026-10-26T12:00:00Z' }],
-      benchmark_progress: [{ section: 'math', assigned: 8, used: '3' }],
+      benchmark_allowed_kinds: [{ live_benchmark: 'bm1', live_kind: 'initial', live_expires_at: '2026-10-26T16:00:00Z', allowed_kinds: ['initial'], next_mini_at: '2026-11-23T12:00:00Z', reserve_available: true }],
+      practice_benchmark_items: [{ section: 'math', question_id: 'q1' }, { section: 'math', question_id: 'q2' }, { section: 'english', question_id: 'q3' }],
+      practice_attempts: [{ question_id: 'q2' }],
       complete_benchmark: { submitted: 10, accuracy: 0.5, skips: 1, by_section: { math: { submitted: 10, correct: 5, accuracy: 0.5, pacing_ratio: 1 } } },
     })
     const src = new LiveSource(sb)
-    expect(await src.benchmarkOptions('s1', 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensAt: '2026-11-02T17:00:00Z', fullAllowed: false, open: { id: 'bm1', kind: 'initial', startedAt: '2026-10-26T12:00:00Z' } })
-    expect(calls.find((c) => c.name === 'benchmark_options')!.args).toEqual({ p_student: 's1', p_exam_version: 'ev1' })
-    expect(await src.benchmarkProgress('bm1', 's1')).toEqual([{ section: 'math', assigned: 8, used: 3 }])
-    expect(calls.find((c) => c.name === 'benchmark_progress')!.args).toEqual({ p_benchmark: 'bm1' })
+    // A live check: resumed, nothing else allowed; its start is 4 hours before it expires.
+    expect(await src.benchmarkOptions('s1', 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: { id: 'bm1', kind: 'initial', startedAt: '2026-10-26T12:00:00.000Z' }, reserveAvailable: true })
+    expect(calls.find((c) => c.name === 'benchmark_allowed_kinds')!.args).toEqual({ p_student: 's1', p_exam_version: 'ev1' })
+    expect(await src.benchmarkProgress('bm1', 's1')).toEqual([{ section: 'english', assigned: 1, used: 0 }, { section: 'math', assigned: 2, used: 1 }])
+    expect(calls.filter((c) => c.name === 'practice_benchmark_items' || c.name === 'practice_attempts').map((c) => c.ops.find(([op]) => op === 'eq'))).toEqual([['eq', ['benchmark_id', 'bm1']], ['eq', ['benchmark_id', 'bm1']]])
     const client = { id: 'x', kind: 'initial', exam_family: 'act', started_at: 'a', completed_at: 'b', attempt_ids: [], metrics: { sections: [{ section: 'math', ceiling_difficulty: 4, skipped: 2 }], strategy_use: [{ strategy_key: 's', count: 1 }], skip_events: 7, median_elapsed_ms: 1 } } as never
     const resumed = await src.completeBenchmark('s1', 'bm1', client, { resumed: true })
     expect(resumed.metrics).toMatchObject({ skip_events: 1, median_elapsed_ms: null, strategy_use: [] })
     expect(resumed.metrics.sections[0]).toMatchObject({ section: 'math', skipped: 0, ceiling_difficulty: null })
-    const whole = await src.completeBenchmark('s1', 'bm1', client)
-    expect(whole.metrics).toMatchObject({ skip_events: 7 })
+    expect((await src.completeBenchmark('s1', 'bm1', client)).metrics).toMatchObject({ skip_events: 7 })
+  })
+
+  it('#279: no live check — allowed kinds map through; the next mini date only when no check can start; no reserve, nothing', async () => {
+    const opts = async (row: Record<string, unknown>) => {
+      const { sb } = fakeClient({ exam_versions: [{ id: 'ev1', effective_from: '2026-01-01', effective_to: null }], benchmark_allowed_kinds: [row] })
+      return new LiveSource(sb).benchmarkOptions('s1', 'act')
+    }
+    const base = { live_benchmark: null, live_kind: null, live_expires_at: null, next_mini_at: '2026-11-23T12:00:00Z', reserve_available: true }
+    expect(await opts({ ...base, allowed_kinds: ['mini'] })).toMatchObject({ miniAllowed: true, initialAllowed: false, miniOpensAt: null, open: null })
+    expect(await opts({ ...base, allowed_kinds: [] })).toMatchObject({ miniAllowed: false, miniOpensAt: '2026-11-23T12:00:00Z' })
+    expect(await opts({ ...base, allowed_kinds: ['initial'], next_mini_at: null })).toMatchObject({ initialAllowed: true, miniOpensAt: null })
+    expect(await opts({ ...base, allowed_kinds: [], reserve_available: false })).toMatchObject({ reserveAvailable: false, miniOpensAt: null })
   })
 
   it('CR-1: planning preferences read from and written to student_planning_preferences', async () => {

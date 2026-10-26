@@ -472,8 +472,10 @@ export function Benchmark() {
             </Notice>
           ) : (
             !options.length && (
-              <Notice id="no-check-now" tone="warn" title={blockedUntil ? `Your next progress check opens on ${formatShortDate(localDate(blockedUntil, tz))}` : 'No progress check can be started right now'} className="mt-4">
-                Checks are spaced out so each one measures fresh questions. Keep practicing in the meantime.
+              <Notice id="no-check-now" tone="warn" title={o && !o.reserveAvailable ? `No ${EXAM_NAME[exam]} progress-check questions yet` : blockedUntil ? `Your next progress check opens on ${formatShortDate(localDate(blockedUntil, tz))}` : 'No progress check can be started right now'} className="mt-4">
+                {o && !o.reserveAvailable
+                  ? 'Progress checks use their own questions, kept out of practice. None are available for this test yet, so no check can be taken.'
+                  : 'Checks are spaced out so each one measures fresh questions. Keep practicing in the meantime.'}
               </Notice>
             )
           )}

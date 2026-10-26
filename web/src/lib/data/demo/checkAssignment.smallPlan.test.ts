@@ -43,7 +43,7 @@ describe('demo progress checks (#263) with a check smaller than the reserve', ()
     const pool = await src.assessmentPoolStatus(sid, 'sat')
     expect(pool!.reduce((n, s) => n + s.reserved - s.unseen, 0)).toBe(2)
     // After it expires unanswered, the next check takes items it hasn't assigned before.
-    vi.setSystemTime(new Date('2026-10-30T12:00:00Z')) // a week later
+    vi.setSystemTime(new Date('2026-11-20T12:00:00Z')) // 28 days later
     const next = await src.benchmarkQuestions(await src.startBenchmark(sid, 'mini', 'sat'), sid)
     expect(next).toHaveLength(2)
     expect(next.every((i) => !assigned.has(i.question.id) && !i.seen_before)).toBe(true)

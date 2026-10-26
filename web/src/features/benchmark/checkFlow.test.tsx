@@ -355,7 +355,8 @@ describe('check error path', () => {
 
   it('(#291 confirm) dates are the student’s own; a resumed check keeps the server’s start time; home follows the server for a mini after an abandoned start', async () => {
     vi.useFakeTimers({ toFake: ['Date'], shouldAdvanceTime: true })
-    // 8:30pm in Chicago on Oct 26 is Oct 27 in UTC; a week later the next check opens on Nov 2, Chicago time.
+    // 8:30pm in Chicago on Oct 26 is Oct 27 in UTC; 28 days later the next check opens on the evening of Nov 23 in
+    // Chicago (Nov 24 in UTC).
     vi.setSystemTime(new Date('2026-10-27T01:30:00Z'))
     const user = userEvent.setup()
     const { src, sid } = await riley()
@@ -368,10 +369,10 @@ describe('check error path', () => {
     // Expired, unanswered beyond one item: the next check opens a week after the start, shown in Chicago time.
     vi.setSystemTime(new Date('2026-10-27T06:00:00Z'))
     show(src)
-    expect(await screen.findByText(/Your next progress check opens on/, {}, { timeout: 8000 })).toHaveTextContent(/Nov 2\b/)
+    expect(await screen.findByText(/Your next progress check opens on/, {}, { timeout: 8000 })).toHaveTextContent(/Nov 23\b/)
     cleanup()
-    // A week later a mini is allowed: home offers it rather than "no check can start".
-    vi.setSystemTime(new Date('2026-11-03T12:00:00Z'))
+    // Once the gap has passed a mini is allowed: home offers it rather than "no check can start".
+    vi.setSystemTime(new Date('2026-11-25T12:00:00Z'))
     render(
       <MemoryRouter initialEntries={['/student']}>
         <AppProvider source={src}>

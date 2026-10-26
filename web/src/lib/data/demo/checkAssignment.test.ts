@@ -60,7 +60,7 @@ describe('demo progress checks mirror #263: items are assigned once, at start', 
     const first = await src.benchmarkQuestions(bm1, sid)
     const before = await src.assessmentPoolStatus(sid, 'act')
     // Nothing answered; the check expires.
-    vi.setSystemTime(new Date('2026-10-30T12:00:00Z')) // a week later: the next check opens
+    vi.setSystemTime(new Date('2026-11-20T12:00:00Z')) // 28 days later: the next check opens
     const bm2 = await src.startBenchmark(sid, 'mini', 'act')
     expect(bm2).not.toBe(bm1)
     const second = await src.benchmarkQuestions(bm2, sid)
@@ -78,7 +78,7 @@ describe('demo progress checks mirror #263: items are assigned once, at start', 
     src.switchPersona(DEMO_STUDENT, 'Ava')
     const sid = await src.createSelfStudentProfile({ displayName: 'Ava', graduationYear: null, gradeLevel: 10, independent: false, timeZone: 'UTC' })
     await src.startBenchmark(sid, 'initial', 'act') // assigned, never answered
-    vi.setSystemTime(new Date('2026-10-30T12:00:00Z'))
+    vi.setSystemTime(new Date('2026-11-20T12:00:00Z'))
     const reloaded = new DemoSource(JSON.parse(JSON.stringify(store)))
     reloaded.switchPersona(DEMO_STUDENT, 'Ava')
     expect((await reloaded.assessmentPoolStatus(sid, 'act'))!.every((s) => s.unseen === 0)).toBe(true)

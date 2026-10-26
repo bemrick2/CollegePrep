@@ -58,7 +58,7 @@ describe('reserved assessment pool (CR-23) on the demo source', () => {
     const { src, sid } = await family()
     const bm = await src.startBenchmark(sid, 'initial', 'act')
     expect(await src.startBenchmark(sid, 'initial', 'act')).toBe(bm)
-    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('A progress check is already open')
+    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow(/progress check is already open for this exam; resume it/)
     const items = await src.benchmarkQuestions(bm, sid)
     const sat = (await loadFixtures()).QUESTIONS.find((q) => q.exam_family === 'sat' && checkQuestions('sat', [q]).length)
     if (sat) await expect(src.startAttempt(sid, sat.id, null, bm)).rejects.toMatchObject({ code: 'invalid' })  // another exam's reserved item
@@ -66,7 +66,7 @@ describe('reserved assessment pool (CR-23) on the demo source', () => {
     await expect(src.benchmarkQuestions(bm, sid)).rejects.toMatchObject({ code: 'invalid' })
     await expect(src.startAttempt(sid, items[0]!.question.id, null, bm)).rejects.toMatchObject({ code: 'invalid' })
     // The next check isn't the closed one; it opens a week after this one started (#279).
-    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow(/The next progress check opens on \d{4}-\d{2}-\d{2}/)
+    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow(/The next progress check opens 28 days after the last one started \(on \d{4}-\d{2}-\d{2}\)/)
   })
 
   it('the starting check says it is shorter than usual when the reserve is smaller than the check', async () => {

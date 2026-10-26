@@ -40,6 +40,9 @@ interface PgError {
   message: string
 }
 
+/** A progress check is live for 4 hours from its start (benchmark_is_live). */
+const CHECK_LIVE_MS = 4 * 60 * 60 * 1000
+
 function fail(err: PgError): never {
   const code = err.code === '42501' ? 'forbidden' : err.code === '22023' ? 'invalid' : 'unknown'
   throw new DataError(err.message, code)
@@ -605,28 +608,50 @@ export class LiveSource implements DataSource {
     return (rows ?? []).filter((r) => byId.has(r.question_id)).map((r) => ({ question: byId.get(r.question_id)!, seen_before: !!r.seen_before }))
   }
 
-  /** #279 (contract proposed on #279, comment 6421822021): what the server will open now, and the live check if any. */
+  /**
+   * #279 (Research's final contract, 20261023010000): benchmark_allowed_kinds is what a start would do now, from the same
+   * rule function start_benchmark uses. A live check is resumed; nothing else opens while it is live.
+   */
   async benchmarkOptions(studentId: string, examFamily: ExamFamily): Promise<CheckOptions> {
     const version = await this.currentExamVersion(examFamily)
-    const rows = await rpc<{ initial_allowed: boolean; mini_allowed: boolean; mini_opens_at: string | null; full_allowed: boolean; open_id: string | null; open_kind: 'initial' | 'mini' | 'full' | null; open_started_at: string | null }[]>(
+    const rows = await rpc<{ live_benchmark: string | null; live_kind: 'initial' | 'mini' | 'full' | null; live_expires_at: string | null; allowed_kinds: string[] | null; next_mini_at: string | null; reserve_available: boolean }[]>(
       this.sb,
-      'benchmark_options',
+      'benchmark_allowed_kinds',
       { p_student: studentId, p_exam_version: version },
     )
     const r = (Array.isArray(rows) ? rows[0] : rows) ?? null
-    if (!r) return { initialAllowed: false, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null }
+    if (!r) return { initialAllowed: false, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null, reserveAvailable: false }
+    const live = r.live_benchmark && r.live_kind ? r.live_benchmark : null
+    const allowed = new Set(live ? [] : (r.allowed_kinds ?? []))
     return {
-      initialAllowed: !!r.initial_allowed,
-      miniAllowed: !!r.mini_allowed,
-      miniOpensAt: r.mini_opens_at ?? null,
-      fullAllowed: !!r.full_allowed,
-      open: r.open_id && r.open_kind ? { id: r.open_id, kind: r.open_kind, startedAt: r.open_started_at ?? '' } : null,
+      initialAllowed: allowed.has('initial'),
+      miniAllowed: allowed.has('mini'),
+      // Only when a mini is the next check and isn't open yet.
+      miniOpensAt: !live && r.reserve_available && !allowed.has('initial') && !allowed.has('mini') ? (r.next_mini_at ?? null) : null,
+      fullAllowed: allowed.has('full'),
+      // A check is live for 4 hours from its start (benchmark_is_live).
+      open: live ? { id: live, kind: r.live_kind!, startedAt: r.live_expires_at ? new Date(Date.parse(r.live_expires_at) - CHECK_LIVE_MS).toISOString() : '' } : null,
+      reserveAvailable: !!r.reserve_available,
     }
   }
 
+  /** Per section: the check's assigned items (practice_benchmark_items) and how many have an attempt in it. */
   async benchmarkProgress(benchmarkId: string, _studentId?: string): Promise<CheckProgress[]> {
-    const rows = await rpc<{ section: string; assigned: number; used: number }[]>(this.sb, 'benchmark_progress', { p_benchmark: benchmarkId })
-    return (rows ?? []).map((r) => ({ section: r.section, assigned: Number(r.assigned), used: Number(r.used) }))
+    const [items, used] = await Promise.all([
+      this.sb.from('practice_benchmark_items').select('section, question_id').eq('benchmark_id', benchmarkId),
+      this.sb.from('practice_attempts').select('question_id').eq('benchmark_id', benchmarkId),
+    ])
+    if (items.error) fail(items.error)
+    if (used.error) fail(used.error)
+    const done = new Set(((used.data ?? []) as { question_id: string }[]).map((a) => a.question_id))
+    const by = new Map<string, CheckProgress>()
+    for (const i of (items.data ?? []) as { section: string; question_id: string }[]) {
+      const x = by.get(i.section) ?? { section: i.section, assigned: 0, used: 0 }
+      x.assigned++
+      if (done.has(i.question_id)) x.used++
+      by.set(i.section, x)
+    }
+    return [...by.values()].sort((a, b) => a.section.localeCompare(b.section))
   }
 
   async endSession(sessionId: string) {

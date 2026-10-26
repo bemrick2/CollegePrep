@@ -306,6 +306,8 @@ export interface CheckOptions {
   fullAllowed: boolean
   /** The student's live check of this exam, if any. */
   open: { id: string; kind: 'initial' | 'mini' | 'full'; startedAt: string } | null
+  /** False when the exam has no reserved questions in any planned section: nothing can be measured or started. */
+  reserveAvailable: boolean
 }
 
 /** #279: per section of an open check, items assigned and items already used (answered or skipped). */

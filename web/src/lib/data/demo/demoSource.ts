@@ -759,6 +759,7 @@ export class DemoSource implements DataSource {
       miniOpensAt: !live && mine.length > 0 && early ? opens!.toISOString() : null,
       fullAllowed: false,
       open: live ? { id: live[0], kind: live[1].kind, startedAt: live[1].startedAt } : null,
+      reserveAvailable: true,
     }
   }
 
@@ -811,12 +812,12 @@ export class DemoSource implements DataSource {
     const live = this.liveOf(studentId, exam)
     if (live) {
       if (live[1].kind === kind) return delay(live[0])
-      throw new DataError('A progress check is already open', 'invalid')
+      throw new DataError(`A ${live[1].kind} progress check is already open for this exam; resume it`, 'invalid')
     }
     const rules = this.checkRules(studentId, exam)
-    if (kind === 'full' && !rules.fullAllowed) throw new DataError("A full progress check isn't available yet", 'invalid')
-    if (kind === 'initial' && !rules.initialAllowed) throw new DataError('The starting check has already been taken', 'invalid')
-    if (kind === 'mini' && !rules.miniAllowed) throw new DataError(rules.miniOpensAt ? `The next progress check opens on ${rules.miniOpensAt.slice(0, 10)}` : 'Take the starting check first', 'invalid')
+    if (kind === 'full' && !rules.fullAllowed) throw new DataError('This kind of progress check is not available for this exam yet', 'invalid')
+    if (kind === 'initial' && !rules.initialAllowed) throw new DataError('An initial progress check is only for a student who has not started one for this exam', 'invalid')
+    if (kind === 'mini' && !rules.miniAllowed) throw new DataError(rules.miniOpensAt ? `The next progress check opens ${MIN_DAYS_BETWEEN_CHECKS} days after the last one started (on ${rules.miniOpensAt.slice(0, 10)})` : 'A repeat progress check comes after a first check for this exam', 'invalid')
     // Mirrors start_benchmark (#263): the items are assigned once, here, per section: the plan size (PER_SECTION, as
     // practice_benchmark_plan) or the section's reserve if smaller; unseen first (mid difficulty), then repeats
     // (least recently seen first). Assignment counts as exposure at once.

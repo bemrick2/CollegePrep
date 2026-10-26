@@ -22,9 +22,9 @@ afterEach(() => vi.useRealTimers())
 describe('demo check rules (#279 proposed contract)', () => {
   it('first: only the starting check; full and mini are refused', async () => {
     const { src, sid } = await student()
-    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: true, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null })
-    await expect(src.startBenchmark(sid, 'full', 'act')).rejects.toThrow("A full progress check isn't available yet")
-    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('Take the starting check first')
+    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: true, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null, reserveAvailable: true })
+    await expect(src.startBenchmark(sid, 'full', 'act')).rejects.toThrow('This kind of progress check is not available for this exam yet')
+    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('A repeat progress check comes after a first check for this exam')
   })
 
   it('a partly answered check is resumed after a reload, with the same assignment and its progress; another kind is refused', async () => {
@@ -37,7 +37,7 @@ describe('demo check rules (#279 proposed contract)', () => {
     again.switchPersona(DEMO_STUDENT, 'Ava')
     expect((await again.benchmarkOptions(sid, 'act')).open).toMatchObject({ id: bm, kind: 'initial' })
     expect(await again.startBenchmark(sid, 'initial', 'act')).toBe(bm)
-    await expect(again.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('A progress check is already open')
+    await expect(again.startBenchmark(sid, 'mini', 'act')).rejects.toThrow(/progress check is already open for this exam; resume it/)
     const left = await again.benchmarkQuestions(bm, sid)
     expect(left.map((i) => i.question.id)).toEqual(items.slice(1).map((i) => i.question.id))
     const prog = await again.benchmarkProgress(bm, sid)
@@ -45,16 +45,16 @@ describe('demo check rules (#279 proposed contract)', () => {
     expect(prog.reduce((n, p) => n + p.used, 0)).toBe(1)
   })
 
-  it('initial once; a mini opens a week after the last check started, even after an unanswered, expired one', async () => {
+  it('initial once; a mini opens 28 days after the last check started, even after an unanswered, expired one', async () => {
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-10-26T12:00:00Z'))
     const { src, sid } = await student()
     await src.startBenchmark(sid, 'initial', 'act') // never answered
     vi.setSystemTime(new Date('2026-10-26T17:00:00Z')) // expired
-    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensAt: '2026-11-02T12:00:00.000Z', fullAllowed: false, open: null })
-    await expect(src.startBenchmark(sid, 'initial', 'act')).rejects.toThrow('The starting check has already been taken')
-    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('The next progress check opens on 2026-11-02')
-    vi.setSystemTime(new Date('2026-11-02T12:00:00Z'))
+    expect(await src.benchmarkOptions(sid, 'act')).toEqual({ initialAllowed: false, miniAllowed: false, miniOpensAt: '2026-11-23T12:00:00.000Z', fullAllowed: false, open: null, reserveAvailable: true })
+    await expect(src.startBenchmark(sid, 'initial', 'act')).rejects.toThrow('An initial progress check is only for a student who has not started one for this exam')
+    await expect(src.startBenchmark(sid, 'mini', 'act')).rejects.toThrow('The next progress check opens 28 days after the last one started (on 2026-11-23)')
+    vi.setSystemTime(new Date('2026-11-23T12:00:00Z'))
     expect((await src.benchmarkOptions(sid, 'act')).miniAllowed).toBe(true)
     await expect(src.startBenchmark(sid, 'mini', 'act')).resolves.toBeTruthy()
   })
@@ -83,9 +83,9 @@ describe('demo check rules (#279 proposed contract)', () => {
     await expect(other.completeBenchmark(sid, bm, summary)).rejects.toThrow()
     await src.completeBenchmark(sid, bm, summary)
     await expect(src.completeBenchmark(sid, bm, summary)).rejects.toThrow(/not an open benchmark/) // once
-    vi.setSystemTime(new Date('2026-11-03T12:00:00Z'))
+    vi.setSystemTime(new Date('2026-11-24T12:00:00Z'))
     const late = await src.startBenchmark(sid, 'mini', 'act')
-    vi.setSystemTime(new Date('2026-11-03T16:30:00Z'))
+    vi.setSystemTime(new Date('2026-11-24T16:30:00Z'))
     await expect(src.completeBenchmark(sid, late, summary)).rejects.toThrow(/expired/)
   })
 
