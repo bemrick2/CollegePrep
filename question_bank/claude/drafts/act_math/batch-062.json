@@ -1,7 +1,7 @@
 {
  "bank": "act_math",
  "batch": 62,
- "plan": "3 hard (perfect-square multiplier, external tangent, first blue on draw 3) / 4 medium / 3 easy; keys weighted to A and D after the 600 audit found B/C heavy.",
+ "plan": "3 hard (perfect-square multiplier, altitude geometric mean, at least 4 of 5 guesses) / 4 medium / 3 easy; keys weighted to A and D after the 600 audit found B/C heavy.",
  "candidates": [
   {
    "cand": "B062-01",
@@ -97,40 +97,40 @@
    "cand": "B062-03",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Algebra",
-   "subskill": "Linear equation with a fraction",
+   "subskill": "Translating a verbal equation",
    "repo_skill_key": "act_algebra_linear",
    "difficulty": "easy",
-   "stem": "What value of x satisfies (x − 4)/3 = 2 ?",
+   "stem": "Four more than 3 times a number is 25. What is the number?",
    "choices": {
-    "A": "−2",
-    "B": "2",
-    "C": "6",
-    "D": "10"
+    "A": "3",
+    "B": "7",
+    "C": "21",
+    "D": "29"
    },
-   "answer": "D",
-   "explanation": "Multiply both sides by 3: x − 4 = 6, so x = 10.",
+   "answer": "B",
+   "explanation": "3n + 4 = 25, so 3n = 21 and n = 7.",
    "distractors": {
     "A": {
-     "rationale": "−2 subtracts 4 from 6 and then changes the sign.",
-     "trap": "sign_error"
-    },
-    "B": {
-     "rationale": "2 subtracts 4 from 6 instead of adding it.",
-     "trap": "sign_error"
+     "rationale": "3 divides 25 − 4 by 7 instead of by 3.",
+     "trap": null
     },
     "C": {
-     "rationale": "6 forgets to add the 4 back.",
+     "rationale": "21 is 3n, not n.",
      "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "29 adds 4 to 25 instead of subtracting it.",
+     "trap": "sign_error"
     }
    },
    "hints": [
-    "Undo the division first."
+    "Write the sentence as an equation."
    ],
    "strategy": {
-    "key": "backsolve",
-    "explanation": "Check (10 − 4)/3."
+    "key": "translate_to_algebra",
+    "explanation": "3n + 4 = 25."
    },
-   "remember": "Undo operations in reverse order.",
+   "remember": "Translate word by word, then solve.",
    "expected_time_seconds": 25,
    "modeling": false,
    "author_checklist": {
@@ -232,41 +232,41 @@
    "cand": "B062-06",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Geometry",
-   "subskill": "Area of a regular hexagon from its perimeter",
+   "subskill": "Reflection across the line y = x",
    "repo_skill_key": "act_geometry",
    "difficulty": "medium",
-   "stem": "A regular hexagon has a perimeter of 36 centimeters. What is its area, in square centimeters?",
+   "stem": "In the standard (x, y) coordinate plane, the point (3, −5) is reflected across the line y = x. What are the coordinates of its image?",
    "choices": {
-    "A": "36√3",
-    "B": "54√3",
-    "C": "108√3",
-    "D": "216"
+    "A": "(−5, 3)",
+    "B": "(5, −3)",
+    "C": "(−3, 5)",
+    "D": "(3, 5)"
    },
-   "answer": "B",
-   "explanation": "Each side is 36 ÷ 6 = 6. A regular hexagon is 6 equilateral triangles of side 6, each with area (√3/4)(36) = 9√3, so the total is 54√3.",
+   "answer": "A",
+   "explanation": "Reflecting across y = x swaps the coordinates: (x, y) → (y, x). So (3, −5) → (−5, 3).",
    "distractors": {
-    "A": {
-     "rationale": "36√3 uses 4 triangles instead of 6.",
+    "B": {
+     "rationale": "(5, −3) swaps the numbers but keeps the signs in place, effectively reflecting across y = −x and then the origin.",
      "trap": null
     },
     "C": {
-     "rationale": "108√3 doubles the correct area, using (√3/2)s² for each triangle.",
+     "rationale": "(−3, 5) is the reflection through the origin.",
      "trap": null
     },
     "D": {
-     "rationale": "216 = 6 × 36 multiplies the number of sides by the perimeter.",
+     "rationale": "(3, 5) is the reflection across the x-axis.",
      "trap": null
     }
    },
    "hints": [
-    "Split the hexagon into equilateral triangles."
+    "What happens to the coordinates when a point is reflected across y = x ?"
    ],
    "strategy": {
     "key": "draw_it_out",
-    "explanation": "Draw lines from the center to each vertex."
+    "explanation": "Plot the point and the line y = x."
    },
-   "remember": "A regular hexagon is six equilateral triangles.",
-   "expected_time_seconds": 55,
+   "remember": "Reflection across y = x swaps x and y.",
+   "expected_time_seconds": 40,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -368,92 +368,92 @@
    "cand": "B062-09",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Geometry",
-   "subskill": "Common external tangent of two circles",
+   "subskill": "Altitude to the hypotenuse from its segments",
    "repo_skill_key": "act_geometry",
    "difficulty": "hard",
-   "stem": "Two circles have radii 3 and 5, and their centers are 10 units apart. A line is tangent to both circles, and both circles lie on the same side of the line. What is the distance between the two points of tangency?",
+   "stem": "In right triangle ABC, the altitude from the right angle C meets hypotenuse AB at D. If AD = 4 and DB = 9, what is the length of CD ?",
    "choices": {
-    "A": "6",
-    "B": "8",
-    "C": "4√6",
-    "D": "10"
+    "A": "5",
+    "B": "6",
+    "C": "6.5",
+    "D": "13"
    },
-   "answer": "C",
-   "explanation": "The radii to the tangent points are both perpendicular to the tangent line. Sliding the tangent segment to the center of the smaller circle forms a right triangle with hypotenuse 10 and one leg 5 − 3 = 2. The other leg, which equals the tangent length, is √(10² − 2²) = √96 = 4√6.",
+   "answer": "B",
+   "explanation": "Triangles ADC and CDB are similar, so AD/CD = CD/DB, giving CD² = 4 × 9 = 36 and CD = 6.",
    "distractors": {
     "A": {
-     "rationale": "6 = √(10² − 8²) uses the sum of the radii, which is the case for a tangent that passes between the circles.",
+     "rationale": "5 is the difference DB − AD.",
      "trap": null
     },
-    "B": {
-     "rationale": "8 is the sum of the radii, not a tangent length.",
+    "C": {
+     "rationale": "6.5 is the average of 4 and 9, not their geometric mean.",
      "trap": null
     },
     "D": {
-     "rationale": "10 is the distance between the centers.",
+     "rationale": "13 is the length of the hypotenuse AB.",
      "trap": "wrong_quantity"
     }
    },
    "hints": [
-    "What angle does a radius make with a tangent line?"
+    "Which two smaller triangles are similar?"
    ],
    "strategy": {
     "key": "draw_it_out",
-    "explanation": "Draw both radii to the tangent line and a segment parallel to it through one center."
+    "explanation": "Draw the altitude and label the similar triangles."
    },
-   "remember": "A radius to a point of tangency is perpendicular to the tangent.",
-   "expected_time_seconds": 80,
+   "remember": "The altitude to the hypotenuse is the geometric mean of the two segments.",
+   "expected_time_seconds": 70,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "hardness": "Students must build an auxiliary right triangle using the difference of the radii; using their sum (6) is the classic trap."
+    "hardness": "Requires recognizing the similar triangles formed by the altitude (or knowing the geometric-mean relation); the arithmetic mean 6.5 is a strong trap."
    }
   },
   {
    "cand": "B062-10",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Statistics & Probability",
-   "subskill": "Probability that the first success comes on a given draw",
+   "subskill": "Probability of at least 4 correct guesses",
    "repo_skill_key": "act_statistics_probability",
    "difficulty": "hard",
-   "stem": "A bag contains 3 red marbles and 2 blue marbles. Marbles are drawn one at a time without replacement. What is the probability that the first blue marble is drawn on the third draw?",
+   "stem": "A quiz has 5 true-or-false questions. A student guesses on every question. What is the probability that the student answers at least 4 questions correctly?",
    "choices": {
-    "A": "1/5",
-    "B": "3/10",
-    "C": "2/5",
-    "D": "3/5"
+    "A": "1/32",
+    "B": "5/32",
+    "C": "3/16",
+    "D": "1/4"
    },
-   "answer": "A",
-   "explanation": "The first two draws must be red and the third blue: (3/5)(2/4)(2/3) = 12/60 = 1/5.",
+   "answer": "C",
+   "explanation": "Exactly 4 correct can happen in C(5, 4) = 5 ways and exactly 5 correct in 1 way, out of 2⁵ = 32 equally likely outcomes. (5 + 1)/32 = 6/32 = 3/16.",
    "distractors": {
-    "B": {
-     "rationale": "3/10 = (3/5)(1/2) is only the probability that the first two draws are red.",
+    "A": {
+     "rationale": "1/32 is the probability of all 5 correct only.",
      "trap": "partial_answer"
     },
-    "C": {
-     "rationale": "2/5 is the probability that a single draw is blue.",
-     "trap": null
+    "B": {
+     "rationale": "5/32 is the probability of exactly 4 correct only.",
+     "trap": "partial_answer"
     },
     "D": {
-     "rationale": "3/5 is the probability that the first draw is red.",
+     "rationale": "1/4 = 8/32 overcounts the ways to get at least 4 correct.",
      "trap": null
     }
    },
    "hints": [
-    "What must happen on each of the first three draws?"
+    "\"At least 4\" includes which outcomes?"
    ],
    "strategy": {
     "key": "translate_to_algebra",
-    "explanation": "Multiply red, red, then blue, adjusting counts after each draw."
+    "explanation": "P(4) + P(5) using combinations."
    },
-   "remember": "A specific sequence without replacement: multiply updated probabilities.",
-   "expected_time_seconds": 65,
+   "remember": "\"At least\" means add every qualifying case.",
+   "expected_time_seconds": 60,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "hardness": "Students must model the full sequence red-red-blue with changing counts; stopping after two factors (3/10) is a strong trap."
+    "hardness": "Students must count arrangements with combinations and include both the 4-correct and 5-correct cases; most take only one case."
    }
   }
  ]

@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T23:32:08+00:00",
+  "updated_at": "2026-10-26T23:33:33+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,7 +15,7 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 596,
+    "act_math": 593,
     "act_english": 204,
     "act_reading": 178,
     "sat_reading_writing": 198
@@ -52,12 +52,12 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 596,
-      "retired_after_audit": 10,
+      "accepted": 593,
+      "retired_after_audit": 13,
       "by_skill": {
-        "Algebra": 110,
+        "Algebra": 109,
         "Functions": 95,
-        "Geometry": 137,
+        "Geometry": 135,
         "Integrating Essential Skills": 86,
         "Number & Quantity": 74,
         "Statistics & Probability": 94
@@ -104,7 +104,6 @@
         "Area of a triangle from two sides and the included angle": 1,
         "Area of an equilateral triangle": 1,
         "Area of an isosceles trapezoid": 1,
-        "Area of an isosceles trapezoid from its legs": 1,
         "Area of an isosceles triangle": 1,
         "Area with unit conversion": 1,
         "Areas of triangles with a common height": 1,
@@ -496,7 +495,6 @@
         "Quadratic pattern from second differences": 1,
         "Questions missed from a percent correct": 1,
         "Radical equations and extraneous solutions": 1,
-        "Radical equations with an extraneous solution": 1,
         "Radius from a chord and its distance to the center": 1,
         "Range of a data set": 1,
         "Range of a downward-opening quadratic": 1,
@@ -636,7 +634,6 @@
         "Volume displacement": 1,
         "Volume of a box from its face areas": 1,
         "Volume of a composite solid": 1,
-        "Volume of a cone from its slant height": 1,
         "Volume of a cube from its surface area": 1,
         "Volume of a cylinder from its diameter": 1,
         "Volume of a pyramid": 1,
@@ -661,24 +658,24 @@
       },
       "by_difficulty_author": {
         "easy": 155,
-        "hard": 188,
-        "medium": 253
+        "hard": 187,
+        "medium": 251
       },
       "by_difficulty_calibrated": {
         "easy": 197,
         "hard": 76,
-        "medium": 323
+        "medium": 320
       },
       "calibrated_share": {
-        "easy": 0.331,
+        "easy": 0.332,
         "hard": 0.128,
-        "medium": 0.542
+        "medium": 0.54
       },
       "answer_key_balance": {
         "A": 135,
-        "B": 170,
+        "B": 168,
         "C": 166,
-        "D": 125
+        "D": 124
       },
       "modeling_items": 127,
       "passages": 0
@@ -1157,27 +1154,35 @@
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -7.3,
-        "Algebra": 2.1,
-        "Functions": 17.1,
-        "Geometry": -24.9,
-        "Statistics & Probability": -12.2,
-        "Integrating Essential Skills": 35.2
+        "Number & Quantity": -7.7,
+        "Algebra": 2.6,
+        "Functions": 16.6,
+        "Geometry": -23.4,
+        "Statistics & Probability": -12.6,
+        "Integrating Essential Skills": 34.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -45.5,
-        "medium": -20.0,
-        "hard": 75.5
+        "easy": -46.2,
+        "medium": -18.5,
+        "hard": 74.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 16.5,
-        "B": -18.5,
-        "C": -14.5,
-        "D": 26.5
+        "A": 15.8,
+        "B": -17.2,
+        "C": -15.2,
+        "D": 26.8
       }
     }
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 21,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 19.7,
+        "Knowledge of Language": 14.9,
+        "Conventions of Standard English": -21.3
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 23,
       "skill_gap_for_next_10": {
@@ -1194,21 +1199,13 @@
         "Craft and Structure": -7.5,
         "Integration of Knowledge and Ideas": -6.7
       }
-    },
-    "act_english": {
-      "next_batch": 21,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 19.7,
-        "Knowledge of Language": 14.9,
-        "Conventions of Standard English": -21.3
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 596,
-      "share_of_target": 0.298
+      "accepted": 593,
+      "share_of_target": 0.296
     },
     "act_english": {
       "target": 700,
@@ -1227,7 +1224,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1176,
+  "total_accepted": 1173,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -47561,7 +47558,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-26T23:32:08+00:00",
+    "heartbeat_at": "2026-10-26T23:33:33+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

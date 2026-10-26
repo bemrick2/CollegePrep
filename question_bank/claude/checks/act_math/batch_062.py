@@ -17,7 +17,7 @@ def c02(ch):
 
 
 def c03(ch):
-    return pick(ch, 2 * 3 + 4)
+    return pick(ch, F(25 - 4, 3))
 
 
 def c04(ch):
@@ -29,8 +29,11 @@ def c05(ch):
 
 
 def c06(ch):
-    s = 36 / 6
-    return pick(ch, 6 * math.sqrt(3) / 4 * s * s)
+    x, y = 3, -5
+    want = f"({y}, {x})".replace('-', '\u2212')
+    hits = [k for k, v in ch.items() if v == want]
+    assert len(hits) == 1
+    return hits[0]
 
 
 def c07(ch):
@@ -43,11 +46,11 @@ def c08(ch):
 
 
 def c09(ch):
-    return pick(ch, math.sqrt(10 ** 2 - (5 - 3) ** 2))
+    return pick(ch, math.sqrt(4 * 9))
 
 
 def c10(ch):
-    return pick(ch, F(3, 5) * F(2, 4) * F(2, 3))
+    return pick(ch, F(math.comb(5, 4) + math.comb(5, 5), 2 ** 5))
 
 
 CHECKS = {f'B062-{i:02d}': f for i, f in enumerate([c01, c02, c03, c04, c05, c06, c07, c08, c09, c10], 1)}
