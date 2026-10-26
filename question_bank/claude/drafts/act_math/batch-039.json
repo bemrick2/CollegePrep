@@ -1,0 +1,463 @@
+{
+ "bank": "act_math",
+ "batch": 39,
+ "plan": "Ten new items with subskills checked against the bank (a conditional 'at least one girl' idea dropped as a concept repeat of the reduced-sample-space item). 4 hard (square in a semicircle, reversed percent, reflection across y = x + 1, matched pair) / 3 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B039-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Evaluating an expression at a negative value",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What is the value of 3x² - x when x = -2 ?",
+   "choices": {
+    "A": "-14",
+    "B": "-10",
+    "C": "10",
+    "D": "14"
+   },
+   "answer": "D",
+   "explanation": "3(-2)² - (-2) = 3(4) + 2 = 14.",
+   "distractors": {
+    "A": {
+     "rationale": "-14 negates the correct value, treating the whole expression as negative because x is negative.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "-10 squares -2 as -4: 3(-4) + 2 = -10.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "10 subtracts 2 instead of subtracting -2: 12 - 2.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Use parentheses when substituting a negative number."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Substitute (-2) in parentheses."
+   },
+   "remember": "Square a negative inside parentheses: (-2)² = 4.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B039-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Combining functions from tables",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "The tables below give values of the functions f and g.\nx | 1 | 2 | 3\nf(x) | 4 | 7 | 10\ng(x) | 9 | 5 | 1\nWhat is the value of (f + g)(2) ?",
+   "choices": {
+    "A": "9",
+    "B": "12",
+    "C": "14",
+    "D": "35"
+   },
+   "answer": "B",
+   "explanation": "(f + g)(2) = f(2) + g(2) = 7 + 5 = 12.",
+   "distractors": {
+    "A": {
+     "rationale": "9 is g(1), read from the wrong column.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "14 doubles f(2) instead of adding g(2).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "35 multiplies f(2) and g(2) instead of adding them.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "(f + g)(2) means f(2) + g(2)."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Read both values in the x = 2 column."
+   },
+   "remember": "(f + g)(x) = f(x) + g(x).",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B039-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Base angles of an isosceles triangle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "In isosceles triangle PQR, PQ = PR and the measure of angle P is 40°. What is the measure of angle Q ?",
+   "choices": {
+    "A": "40°",
+    "B": "50°",
+    "C": "70°",
+    "D": "140°"
+   },
+   "answer": "C",
+   "explanation": "The base angles Q and R are equal and sum to 180° - 40° = 140°, so each is 70°.",
+   "distractors": {
+    "A": {
+     "rationale": "40° assumes angle Q equals angle P.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "50° subtracts 40° from 90°, as if the triangle had a right angle.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "140° is the sum of the two base angles.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Which angles are equal when PQ = PR?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Mark the equal sides and the angles opposite them."
+   },
+   "remember": "Equal sides are opposite equal angles.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B039-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Day-of-the-week cycles",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Today is a Tuesday. What day of the week will it be 100 days from today?",
+   "choices": {
+    "A": "Wednesday",
+    "B": "Thursday",
+    "C": "Friday",
+    "D": "Saturday"
+   },
+   "answer": "B",
+   "explanation": "Days of the week repeat every 7 days. 100 = 7 × 14 + 2, so 100 days from Tuesday is 2 days after Tuesday: Thursday.",
+   "distractors": {
+    "A": {
+     "rationale": "Wednesday counts only 1 extra day, as if 100 = 7 × 14 + 1.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Friday counts 3 extra days, miscounting the remainder.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Saturday counts 4 extra days, adding the remainder of 100 ÷ 12 instead of 100 ÷ 7.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the remainder when 100 is divided by 7?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Every 7 days it is Tuesday again."
+   },
+   "remember": "Cycles: only the remainder matters.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B039-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Completing a two-way table",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A survey of 120 students recorded whether each student has a part-time job and whether each plays a sport. Of the 120 students, 45 have a job, 50 play a sport, and 20 have a job and play a sport. How many students neither have a job nor play a sport?",
+   "choices": {
+    "A": "25",
+    "B": "35",
+    "C": "45",
+    "D": "75"
+   },
+   "answer": "C",
+   "explanation": "Students with a job or a sport: 45 + 50 - 20 = 75. Those with neither: 120 - 75 = 45.",
+   "distractors": {
+    "A": {
+     "rationale": "25 is the number who have a job but do not play a sport.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "35 = 120 - 45 - 50 + 10 subtracts both groups and adds back only half the overlap.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "75 is the number who have a job, play a sport, or both.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Fill in a 2 × 2 table, starting with the 20 in the overlap cell."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Build the two-way table."
+   },
+   "remember": "Subtract the overlap once when combining two groups.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B039-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Rounding up in pricing",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "A shipping company charges $4.00 for the first pound and $1.50 for each additional pound or fraction of a pound. What is the cost to ship a package that weighs 5.3 pounds?",
+   "choices": {
+    "A": "$7.95",
+    "B": "$10.00",
+    "C": "$10.45",
+    "D": "$11.50"
+   },
+   "answer": "D",
+   "explanation": "After the first pound, 4.3 pounds remain. Any fraction counts as a full pound, so that is 5 additional pounds: $4.00 + 5 × $1.50 = $11.50.",
+   "distractors": {
+    "A": {
+     "rationale": "$7.95 = $1.50 × 5.3 applies the additional-pound rate to the whole weight.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "$10.00 rounds 4.3 additional pounds down to 4.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "$10.45 charges for exactly 4.3 additional pounds.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many additional pounds are charged, counting any fraction as a whole pound?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "4 + 1.5 × (number of additional pounds, rounded up)."
+   },
+   "remember": "\"Or fraction of\" means round up.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B039-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Square inscribed in a semicircle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A square is inscribed in a semicircle of radius 5 so that one side of the square lies along the diameter and the other two vertices lie on the arc. What is the area of the square?",
+   "choices": {
+    "A": "12.5",
+    "B": "20",
+    "C": "25",
+    "D": "50"
+   },
+   "answer": "B",
+   "explanation": "Let the side be s. The square is centered on the diameter, so a top vertex is s/2 from the center horizontally and s up. Then (s/2)² + s² = 5², so (5/4)s² = 25 and s² = 20.",
+   "distractors": {
+    "A": {
+     "rationale": "12.5 = 25/2 halves the area of a square whose side is the radius.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "25 assumes the side of the square equals the radius.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "50 is the area of a square inscribed in the full circle.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Draw a radius from the center to an upper vertex of the square.",
+    "The center of the semicircle is the midpoint of the square's bottom side."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Use a right triangle with legs s/2 and s."
+   },
+   "remember": "Inscribed figures: draw a radius to a vertex and use the Pythagorean theorem.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The key setup (center at the midpoint of the base, legs s/2 and s) is not obvious, and the full-circle answer 50 is a strong trap."
+   }
+  },
+  {
+   "cand": "B039-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Reversing a percent comparison",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "The price of Model A is 25% more than the price of Model B. The price of Model B is what percent less than the price of Model A?",
+   "choices": {
+    "A": "20%",
+    "B": "25%",
+    "C": "75%",
+    "D": "80%"
+   },
+   "answer": "A",
+   "explanation": "Let B = 100, so A = 125. B is 25 less than A, and 25/125 = 20%.",
+   "distractors": {
+    "B": {
+     "rationale": "25% assumes the percent difference is the same in both directions.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "75% = 100% - 25% treats B as 75% of A.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "80% is B as a percent of A, not how much less B is.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Pick a price for Model B, such as 100."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "B = 100, A = 125."
+   },
+   "remember": "Percent difference depends on the base: divide by the reference amount.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The symmetric answer 25% catches most quick solvers; the base changes when the comparison is reversed."
+   }
+  },
+  {
+   "cand": "B039-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Reflection across a line not through the origin",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In the standard (x,y) coordinate plane, point P(4, 1) is reflected across the line y = x + 1. What are the coordinates of the image of P ?",
+   "choices": {
+    "A": "(0, 5)",
+    "B": "(1, 4)",
+    "C": "(2, 3)",
+    "D": "(-4, -1)"
+   },
+   "answer": "A",
+   "explanation": "The image P' is such that the line y = x + 1 is the perpendicular bisector of PP'. The segment PP' has slope -1: from (4, 1) the image is (4 - t, 1 + t). Its midpoint (4 - t/2, 1 + t/2) lies on y = x + 1: 1 + t/2 = (4 - t/2) + 1, so t = 4 and P' = (0, 5). Check: the midpoint (2, 3) is on the line.",
+   "distractors": {
+    "B": {
+     "rationale": "(1, 4) reflects across y = x, ignoring the + 1.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "(2, 3) is the midpoint of P and its image, the point on the line.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "(-4, -1) reflects through the origin.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "The mirror line is the perpendicular bisector of the segment from P to its image.",
+    "Move along slope -1 from P until you reach the line, then go the same distance again."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the line and P, then move perpendicular to the line."
+   },
+   "remember": "Reflection: the mirror line is the perpendicular bisector of the point and its image.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The swap-coordinates rule works only for y = x; the shifted line requires the perpendicular-bisector setup."
+   }
+  },
+  {
+   "cand": "B039-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of selecting a matched pair",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "Four married couples attend a meeting. Two of the 8 people are chosen at random to give a presentation. What is the probability that the two people chosen are married to each other?",
+   "choices": {
+    "A": "1/28",
+    "B": "1/8",
+    "C": "1/7",
+    "D": "1/4"
+   },
+   "answer": "C",
+   "explanation": "There are C(8, 2) = 28 equally likely pairs, and 4 of them are married couples: 4/28 = 1/7. (Equivalently, once the first person is chosen, 1 of the remaining 7 is that person's spouse.)",
+   "distractors": {
+    "A": {
+     "rationale": "1/28 is the probability of choosing one particular couple.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/8 uses 8 people instead of the 7 remaining after the first choice.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1/4 treats the 4 couples as the only possible outcomes.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "After the first person is chosen, how many people remain, and how many of them are that person's spouse?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Fix the first person, then find the chance the second is the spouse."
+   },
+   "remember": "Fix the first choice, then count favorable second choices.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires seeing that any first person works and only the spouse completes a couple; 1/28 and 1/8 are tempting."
+   }
+  }
+ ]
+}
