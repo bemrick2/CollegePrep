@@ -114,13 +114,20 @@ export interface EditorialOptions {
 }
 
 /**
- * The app bank's authors, resolved from the ledger: "AI (Claude)" (the bank's recorded AI drafting) is explicit AI
- * authorship; a human name counts only with an identity in author_records.
+ * The app bank's authors, resolved from the ledger. Stage 2 records an author under its identity key ("au-…" or
+ * "ai:<model>") in `authors`, with a matching entry in `author_records`. Only those keys resolve, and only when the
+ * record agrees with its key. "AI (Claude)" (the bank's recorded AI drafting) is explicit AI authorship. Any other name
+ * is a legacy name: it stays unresolved, whatever identity happens to share its display name.
  */
 export function ledgerAuthorship(entry: LedgerEntry | undefined, identities: IdentityRegistry = IDENTITIES, reviewers: ReviewerRegistry = REVIEWERS) {
   const records = entry?.author_records ?? []
+  const keyOf = (i: AuthorIdentity | null | undefined) => (i?.kind === 'ai' ? `ai:${i.model}` : i?.kind === 'person' ? i.identity_id : null)
+  const identityFor = (name: string): AuthorIdentity | null => {
+    if (/^(au-|ai:)/.test(name)) return records.find((r) => r.name === name && keyOf(r.identity) === name)?.identity ?? null
+    return name === AI_AUTHOR ? { kind: 'ai', model: 'claude' } : null
+  }
   return resolveAuthors(
-    ledgerAuthors(entry).map((name) => ({ name, identity: name === AI_AUTHOR ? { kind: 'ai' as const, model: 'claude' } : (records.find((r) => r.name === name)?.identity ?? null) })),
+    ledgerAuthors(entry).map((name) => ({ name, identity: identityFor(name) })),
     identities,
     reviewers,
   )

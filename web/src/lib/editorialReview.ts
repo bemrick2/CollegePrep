@@ -73,9 +73,10 @@ export function selectItems(items: ReviewItem[], ids: string[] | null): ReviewIt
   return items.filter((i) => ids.includes(i.id))
 }
 
-export const stateOf = (item: ReviewItem, ledger: Ledger, reviewers: ReviewerRegistry) =>
+export const stateOf = (item: ReviewItem, ledger: Ledger, reviewers: ReviewerRegistry, identities: IdentityRegistry = IDENTITIES) =>
   editorialState(item.question, ledger, {
     reviewers,
+    identities,
     authors: item.authors,
     // Imports: authorship from the import; the bank: from the ledger as it stands now (stage 2 may have added authors).
     ...(item.source === 'import' ? { authorship: item.authorship } : {}),
@@ -96,7 +97,7 @@ article{break-inside:avoid;border-top:1px solid #999;padding:1rem 0}h1{font-size
 export const SIGNOFF_COLUMNS = ['id', 'stage', 'reviewer_id', 'by', 'date', 'result', 'hash', 'rights_hash', 'answer', 'seconds', 'license', 'note', 'author_identity'] as const
 
 /** Every packet file, by file name. Blind packets carry no key, hints or explanations. */
-export function packetFiles(items: ReviewItem[], ledger: Ledger, reviewers: ReviewerRegistry, label: string): Record<string, string> {
+export function packetFiles(items: ReviewItem[], ledger: Ledger, reviewers: ReviewerRegistry, label: string, identities: IdentityRegistry = IDENTITIES): Record<string, string> {
   const files: Record<string, string> = {}
   const groups = new Map<string, ReviewItem[]>()
   for (const i of items) groups.set(`${i.question.exam_family}-${i.question.section}`, [...(groups.get(`${i.question.exam_family}-${i.question.section}`) ?? []), i])
@@ -121,7 +122,7 @@ ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<l
   files['status.csv'] = table([
     ['id', 'source', 'batch', 'exam', 'section', 'difficulty', 'track', 'hash', 'rights_hash', 'authors_resolved', 'passed', 'next', 'problems'],
     ...items.map((i) => {
-      const s = stateOf(i, ledger, reviewers)
+      const s = stateOf(i, ledger, reviewers, identities)
       return [i.id, i.source, i.batch ?? '', i.question.exam_family, i.question.section, i.question.difficulty, i.track, i.content_hash, i.rights_hash ?? '', i.authorship.resolved ? 'yes' : 'no', `${s.passed} ${STAGE_NAME[s.passed]}`, s.next ? `${s.next} ${STAGE_NAME[s.next]}` : 'approved', s.problems.join('; ')]
     }),
   ])
@@ -224,14 +225,16 @@ export function recordSignoffs(ledger: Ledger, items: ReviewItem[], rows: Record
         identity = { kind: 'ai', model }
         name = raw
       } else if (/^au-/.test(raw)) {
-        const x = identities.identities?.[raw]
+        const x = Object.hasOwn(identities.identities ?? {}, raw) ? identities.identities[raw] : undefined
         if (!x) return refuse(`${raw} is not a recorded identity (identities.json); identities are recorded by the owner or a content lead`)
         identity = { kind: 'person', identity_id: raw }
-        name = x.display_name
+        // Recorded under its id, not its display name, so a legacy name that happens to match is never "resolved".
+        name = raw
       } else return refuse('stage 2 rows give the author’s identity ("au-…" or "ai:<model>") in "author_identity" (or "note"); a name alone isn’t an identity')
       const lead = authorized(reviewers, reviewerId, 'content_lead')
       if (!lead) return refuse(`reviewer "${reviewerId}" is not an active content lead; only a content lead records authorship`)
-      if (isAnAuthor(lead) || (identity.kind === 'person' && identities.identities[identity.identity_id]!.reviewer_id === lead.id)) return refuse(`${reviewerId} is an author of this item and can’t record its authorship`)
+      const recording = identity.kind === 'person' ? identities.identities[identity.identity_id]! : null
+      if (isAnAuthor(lead) || (recording && (recording.reviewer_id === lead.id || isAuthor(lead, [recording.display_name, ...recording.aliases])))) return refuse(`${reviewerId} is an author of this item and can’t record its authorship`)
       const entry = (next.items[id] ??= { author: AI_AUTHOR, signoffs: [] })
       entry.authors = [...new Set([...ledgerAuthors(entry), name])]
       entry.author_records = [...(entry.author_records ?? []), { name, identity }]

@@ -40,5 +40,5 @@ const all = opts['--registry']
 const items = selectItems(all, opts['--ids'] ? opts['--ids'].split(',').map((s) => s.trim()).filter(Boolean) : null)
 const label = opts['--registry'] ? 'Imported batch' : 'App bank'
 mkdirSync(out, { recursive: true })
-for (const [name, text] of Object.entries(packetFiles(items, ledger, REVIEWERS, label))) writeFileSync(join(out, name), text)
-console.log(`${label}: ${items.length} items; ${items.filter((i) => stateOf(i, ledger, REVIEWERS).humanApproved).length} human-approved`)
+for (const [name, text] of Object.entries(packetFiles(items, ledger, REVIEWERS, label, identities))) writeFileSync(join(out, name), text)
+console.log(`${label}: ${items.length} items; ${items.filter((i) => stateOf(i, ledger, REVIEWERS, identities).humanApproved).length} human-approved`)

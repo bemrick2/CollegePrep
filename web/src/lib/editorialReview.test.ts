@@ -244,7 +244,8 @@ describe('recording authorship for the app’s bank (stage 2)', () => {
     expect(rec(EMPTY, [author('Pat Lead', 'ai:')]).refused.join(' ')).toMatch(/names its model/)
     const ok = rec(EMPTY, [author('Pat Lead', jo)])
     expect(ok).toMatchObject({ added: 1, refused: [] })
-    expect(ok.ledger.items[b0.id]).toMatchObject({ author: 'Jo Writer', authors: ['AI (Claude)', 'Jo Writer'], author_records: [{ name: 'Jo Writer', identity: { kind: 'person', identity_id: jo } }] })
+    // Recorded under the identity id, never the display name.
+    expect(ok.ledger.items[b0.id]).toMatchObject({ author: jo, authors: ['AI (Claude)', jo], author_records: [{ name: jo, identity: { kind: 'person', identity_id: jo } }] })
     // A content lead who is an author can't record the item's authorship (here: linked by id).
     expect(rec(ok.ledger, [author('Jo Writer', testIdentityId('Someone Else'))]).refused.join(' ')).toMatch(/is an author of this item and can’t record its authorship/)
     // An AI author is recorded explicitly.
@@ -254,7 +255,7 @@ describe('recording authorship for the app’s bank (stage 2)', () => {
   it('authors are append-only: renaming the author never lets the earlier one approve, even in the same run', () => {
     const rows = [author('Pat Lead', testIdentityId('Jo Writer')), author('Claude Debussy', testIdentityId('Someone Else')), row(b0, 8, 'Jo Writer')]
     const r = rec(EMPTY, rows)
-    expect(r.ledger.items[b0.id]!.authors).toEqual(['AI (Claude)', 'Jo Writer', 'Someone Else'])
+    expect(r.ledger.items[b0.id]!.authors).toEqual(['AI (Claude)', testIdentityId('Jo Writer'), testIdentityId('Someone Else')])
     expect(r.refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 8/)
     expect(rec(r.ledger, [row(b0, 8, 'Jo Writer')]).refused.join(' ')).toMatch(/is an author/)
   })
@@ -266,6 +267,69 @@ describe('recording authorship for the app’s bank (stage 2)', () => {
     expect(item.authorship.resolved).toBe(false)
     const done = rec(legacy, fullRows(item)).ledger
     expect(stateOf(item, done, R)).toMatchObject({ humanApproved: false, next: 2 })
+  })
+
+  // #290 review: identities decide, by id; display names never do.
+  const recWith = (ids: ReturnType<typeof testIdentities>, l: Ledger, rows: Record<string, string>[]) =>
+    recordSignoffs(l, itemsFromBank(QUESTIONS.slice(0, 1), new Set(), l, ids, R), rows, R, TODAY, 'sheet', ids)
+  /** Jordan Smith writes; the same person reviews as "Pat Lead" (no alias): only the identity link connects them. */
+  const jordanIsPat = () => {
+    const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Pat Lead') } })
+    delete ids.identities[testIdentityId('Pat Lead')]
+    return ids
+  }
+
+  it('the recorder refuses a linked reviewer under a different name, at stages 4, 6 and 8 (bank and import)', () => {
+    // Bank: Pat (the lead) records Jordan, who is linked to Kim's reviewer id; Kim's fairness pass is refused.
+    const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Kim Fair') } })
+    delete ids.identities[testIdentityId('Kim Fair')]
+    const authored = recWith(ids, EMPTY, [author('Pat Lead', 'au-test-jordan')])
+    expect(authored.refused).toEqual([])
+    expect(recWith(ids, authored.ledger, [row(b0, 6, 'Kim Fair')]).refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 6/)
+    // In the same run as the stage-2 row, too.
+    expect(recWith(ids, EMPTY, [author('Pat Lead', 'au-test-jordan'), row(b0, 6, 'Kim Fair')]).refused.join(' ')).toMatch(/can’t sign stage 6/)
+    // And when the item already carries the link, whatever ledger the rows are recorded into.
+    const linkedItems = itemsFromBank(QUESTIONS.slice(0, 1), new Set(), authored.ledger, ids, R)
+    expect(recordSignoffs(EMPTY, linkedItems, [row(linkedItems[0]!, 6, 'Kim Fair')], R, TODAY, 'sheet', ids).refused.join(' ')).toMatch(/can’t sign stage 6/)
+    // Import: the import's own identity links Sam Solver; Sam's blind solve is refused.
+    const sam = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Sam Solver') } })
+    delete sam.identities[testIdentityId('Sam Solver')]
+    const line = { ...testOnlyBatch(1)[0]!, contract: 'question_import/v2' as const, origin: 'human_original' as const, author: 'Jordan Smith', author_identity: { kind: 'person' as const, identity_id: 'au-test-jordan' } }
+    const reg = intake(emptyRegistry(), [line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const items = itemsFromRegistry(reg, sam, R)
+    expect(items[0]!.authorship.reviewerIds).toEqual([testId('Sam Solver')])
+    expect(recordSignoffs(EMPTY, items, [row(items[0]!, 4, 'Sam Solver')], R, TODAY, 'sheet', sam).refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 4/)
+    expect(recordSignoffs(EMPTY, items, [row(items[0]!, 4, 'Ana Solver')], R, TODAY, 'sheet', sam).refused).toEqual([])
+  })
+
+  it('a content lead can’t record their own identity as the author, by link or by name', () => {
+    expect(recWith(jordanIsPat(), EMPTY, [author('Pat Lead', 'au-test-jordan')]).refused.join(' ')).toMatch(/can’t record its authorship/)
+    // A different person also named "Pat Lead" (recorded as such): the name still blocks Pat, fail-closed.
+    const twin = testIdentities({ 'au-test-pat-two': { display_name: 'Pat Lead', distinct_from: [testId('Pat Lead')] } })
+    expect(recWith(twin, EMPTY, [author('Pat Lead', 'au-test-pat-two')]).refused.join(' ')).toMatch(/can’t record its authorship/)
+  })
+
+  it('two recorded authors with the same display name keep both identities: the linked reviewer stays excluded', () => {
+    const ids = testIdentities({
+      'au-test-other': { display_name: 'Sam Lee', distinct_from: [testId('Sam Solver')] },
+      [testIdentityId('Sam Solver')]: { display_name: 'Sam Lee', aliases: ['Sam Solver'] },
+    })
+    const r = recWith(ids, EMPTY, [author('Pat Lead', 'au-test-other'), author('Pat Lead', testIdentityId('Sam Solver'))])
+    expect(r.refused).toEqual([])
+    expect(recWith(ids, r.ledger, [row(b0, 4, 'Sam Solver')]).refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 4/)
+  })
+
+  it('a legacy name stays unresolved even when a recorded identity has the same display name; a mislabelled AI record is unresolved', () => {
+    const legacy: Ledger = { items: { [b0.id]: { author: 'Jo Writer', authors: ['AI (Claude)', 'Jo Writer'], signoffs: [] } } }
+    const r = rec(legacy, [author('Pat Lead', testIdentityId('Jo Writer'))]) // Jo's identity: display name "Jo Writer"
+    expect(r.refused).toEqual([])
+    const item = itemsFromBank(QUESTIONS.slice(0, 1), new Set(), r.ledger, TI, R)[0]!
+    expect(item.authorship).toMatchObject({ resolved: false, unresolved: [expect.stringMatching(/"Jo Writer" is a name only/)] })
+    // A hand-edited AI record must be named "ai:<model>".
+    const hand: Ledger = { items: { [b0.id]: { author: 'Jordan Smith', authors: ['AI (Claude)', 'Jordan Smith'], author_records: [{ name: 'Jordan Smith', identity: { kind: 'ai', model: 'claude' } }], signoffs: [] } } }
+    expect(itemsFromBank(QUESTIONS.slice(0, 1), new Set(), hand, TI, R)[0]!.authorship.resolved).toBe(false)
+    const mismatched: Ledger = { items: { [b0.id]: { author: 'ai:claude', authors: ['ai:claude'], author_records: [{ name: 'ai:claude', identity: { kind: 'person', identity_id: testIdentityId('Jo Writer') } }], signoffs: [] } } }
+    expect(itemsFromBank(QUESTIONS.slice(0, 1), new Set(), mismatched, TI, R)[0]!.authorship.resolved).toBe(false)
   })
 })
 

@@ -17,8 +17,9 @@ const TI = testIdentities()
 const full = (author = 'Dana Author', identityId = testIdentityId(author)): Ledger => ({
   items: {
     [q.id]: {
-      author,
-      author_records: [{ name: author, identity: { kind: 'person', identity_id: identityId } }],
+      // Stage 2 records an author under its identity key, never its display name.
+      author: identityId,
+      author_records: [{ name: identityId, identity: { kind: 'person', identity_id: identityId } }],
       signoffs: [
         so(3, 'Lee Rights', { license: 'original' }),
         so(4, 'Sam Solver', { answer: key, seconds: 50 }),
@@ -101,7 +102,11 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
     for (const author of ['J. Writer', 'writer, jo', 'JO  WRITER\u200b', 'Jose Writer']) {
       const l = full(author, 'au-test-variant')
       l.items[q.id]!.signoffs[6] = so(8, author === 'Jose Writer' ? 'José Writer' : 'Jo Writer')
-      expect(editorialState(q, l, { reviewers: R, identities: testIdentities({ 'au-test-variant': { display_name: author } }) }), author).toMatchObject({ next: 8, humanApproved: false })
+      // Recorded as a different person from Jo (distinct_from), so only the fail-closed name match is left to block.
+      const ids = testIdentities({ 'au-test-variant': { display_name: author, distinct_from: [testId('Jo Writer'), testId('José Writer')] } })
+      expect(editorialState(q, l, { reviewers: R, identities: ids }), author).toMatchObject({ next: 8, humanApproved: false })
+      // Without distinct_from, a reviewer whose names match an identity it isn't linked to makes the registry unusable.
+      expect(editorialState(q, l, { reviewers: R, identities: testIdentities({ 'au-test-variant': { display_name: author } }) }), author).toMatchObject({ next: 2, humanApproved: false })
     }
   })
 
@@ -219,14 +224,16 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
     expect(registryProblems(rehired)).toEqual([])
     const l = full()
     l.items[q.id]!.signoffs[2] = { ...so(4, 'Ana Solver', { answer: key }), reviewer_id: 'rv-test-ana-solver-2' }
-    expect(state(l, rehired)).toMatchObject({ humanApproved: true })
+    // The identity is re-linked to the new id; the revoked entry no longer needs a link.
+    const ids = testIdentities({ [testIdentityId('Ana Solver')]: { reviewer_id: 'rv-test-ana-solver-2' } })
+    expect(editorialState(q, l, { reviewers: rehired, identities: ids })).toMatchObject({ humanApproved: true })
   })
 
   it('author identity: an author who is also a reviewer is excluded by id, whatever name either is recorded under', () => {
     // "Jordan Smith" writes; the same person reviews as "Pat Lead" with no alias. Only the identity link catches it.
     const l = full('Jordan Smith', 'au-test-jordan')
     const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Pat Lead') } })
-    ids.identities[testIdentityId('Pat Lead')]!.reviewer_id = undefined // one reviewer, one identity
+    delete ids.identities[testIdentityId('Pat Lead')] // one person, one identity
     expect(editorialState(q, l, { reviewers: R, identities: ids })).toMatchObject({ next: 8, humanApproved: false })
     // Without the link the names don't match, and the approval counts.
     expect(editorialState(q, l, { reviewers: R, identities: testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith' } }) })).toMatchObject({ humanApproved: true })

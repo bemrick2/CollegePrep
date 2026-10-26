@@ -107,8 +107,9 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
    one entered on the wrong item); until there is, the content lead revises the item or makes a reviewed ledger edit. A newer row from the same reviewer replaces only their earlier **pass**
    for that stage and content; a recorded fail is never removed or replaced: it stands until the item is revised.
    For the app's bank, a stage-2 row adds an author by identity, in `author_identity`: a recorded `au-…` id, or
-   `ai:<model>`. A bare name is refused. It needs an active content lead who isn't an author, and the current hash;
-   authors are only ever added.
+   `ai:<model>`. A bare name is refused, and the author is recorded under that key, never a display name. It needs an
+   active content lead who isn't an author (by id or by any name) and isn't the identity being recorded, and the
+   current hash; authors are only ever added.
 6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 3.
    This includes a key change: an earlier key, solve or approval never carries over to revised content.
    - A revision may not return to an earlier version's content; it is refused, so an old review can't revive.
@@ -127,7 +128,8 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
 
 ## Imported batches
 
-`npx vite-node scripts/intakeQuestionBatch.ts <batch.jsonl> --registry <candidates.json> [--write]` (from `web/`).
+`npx vite-node scripts/intakeQuestionBatch.ts <batch.jsonl> --registry <candidates.json> [--identities <identities.json>] [--write]` (from `web/`).
+- **Identities first.** An identity registry with any problem stops the batch.
 - **Validation first.** The import validator runs before anything is recorded, and any problem stops the whole batch.
 - **What gets recorded:**
   - a new item is a draft on its requested track, unconfirmed;

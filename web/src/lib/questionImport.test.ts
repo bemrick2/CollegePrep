@@ -81,6 +81,9 @@ describe('question import contract (question_import/v1)', () => {
       expect(p2([v2(0, { origin: 'human_original', author: 'Jo Writer', author_identity: { kind: 'person', identity_id: 'au-new-person' } })]).join(' ')).toMatch(/is not a recorded identity/)
       // The real identity registry is empty: no person can be named yet.
       expect(p2([v2(0, { origin: 'human_original', author: 'Jo Writer', author_identity: { kind: 'person', identity_id: 'au-test-jo-writer' } })], IDENTITIES).join(' ')).toMatch(/is not a recorded identity/)
+      // Built-in object keys are never identities (#290 review).
+      for (const k of ['constructor', 'toString', '__proto__', 'hasOwnProperty'])
+        expect(p2([v2(0, { origin: 'human_original', author: 'Jo Writer', author_identity: { kind: 'person', identity_id: k } })], IDENTITIES).join(' '), k).toMatch(/is not a recorded identity/)
     })
 
     it('AI authorship stays explicit and consistent with origin and author', () => {

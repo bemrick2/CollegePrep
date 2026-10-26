@@ -523,7 +523,7 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     expect(eligibility(ai2.candidates[id]!, fullReview(ai2, id)).eligible).toBe(true)
     // An identity linked to a reviewer under an unrelated name: that reviewer is excluded by id.
     const linked = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Pat Lead') } })
-    linked.identities[testIdentityId('Pat Lead')]!.reviewer_id = undefined
+    delete linked.identities[testIdentityId('Pat Lead')] // one person, one identity
     let reg = reg0([person(0, { author: 'Jordan Smith', author_identity: { kind: 'person', identity_id: 'au-test-jordan' } })])
     reg = QC.setTrack(reg, id, 'practice_candidate', testId('Claude Debussy'), 'r', AT, NONE, R, linked)
     const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), R, linked)
@@ -535,6 +535,40 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     mixed = intake(mixed, [person(0, { stem: QUESTIONS[0]!.stem + ' (v2)' })], 'v2.jsonl', AT, NOBANK).registry
     mixed = setTrack(mixed, id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
     expect(eligibility(mixed.candidates[id]!, fullReview(mixed, id)).eligible).toBe(false)
+  })
+
+  it('(#290 review) identity links are re-checked wherever authorship matters: track confirmation, blind solves, rights', () => {
+    const jordan = (extra = {}) => person(0, { author: 'Jordan Smith', author_identity: { kind: 'person', identity_id: 'au-test-jordan' }, ...extra })
+    const unlinked = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith' } })
+    const linkTo = (who: string) => {
+      const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId(who) } })
+      delete ids.identities[testIdentityId(who)]
+      return ids
+    }
+    // Track confirmed by Pat while no link was recorded; once the link is recorded, the confirmation stops counting.
+    let reg = reg0([jordan()])
+    reg = QC.setTrack(reg, id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R, unlinked)
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), R, unlinked).eligible).toBe(true)
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), R, linkTo('Pat Lead')).problems.join(' ')).toMatch(/track confirmed by .* who wrote a version of this item/)
+    // A blind solve by the linked reviewer never confirms the key.
+    const c = reg.candidates[id]!
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R, unlinked).verified).toBe(true)
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R, linkTo('Sam Solver')).verified).toBe(false)
+    // The identity is part of the rights claims: changing only it is a rights change.
+    const other = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith' }, 'au-test-jordan-2': { display_name: 'Jordan Smith', distinct_from: [] } })
+    const next = intake(reg, [jordan({ author_identity: { kind: 'person', identity_id: 'au-test-jordan-2' } })], 'v2.jsonl', AT, NOBANK).registry
+    expect(next.candidates[id]!.versions).toHaveLength(2)
+    expect(JSON.stringify(next.candidates[id]!.history)).toMatch(/"rights_changed":true/)
+    expect(QC.authorshipOf(next.candidates[id]!, other, R).resolved).toBe(true)
+  })
+
+  it('(#290 review) a reviewer matching an author identity by name is excluded, fail-closed, even when recorded as a different person', () => {
+    // Jordan's identity has the alias "Pat Lead"; the reviewer Pat Lead is recorded as someone else. The name still blocks.
+    const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', aliases: ['Pat Lead'], distinct_from: [testId('Pat Lead')] } })
+    const reg = reg0([person(0, { author: 'Jordan Smith', author_identity: { kind: 'person', identity_id: 'au-test-jordan' } })])
+    expect(() => QC.setTrack(reg, id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R, ids)).toThrow(/wrote this item/)
+    const confirmed = QC.setTrack(reg, id, 'practice_candidate', testId('Claude Debussy'), 'r', AT, NONE, R, ids)
+    expect(QC.eligibility(confirmed.candidates[id]!, fullReview(confirmed, id), R, ids).problems).toContain('needs approval by an authorized approver who is not the author')
   })
 })
 

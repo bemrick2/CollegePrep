@@ -53,4 +53,4 @@ if (refused.length) {
   process.exit(1)
 }
 writeFileSync(ledgerPath, JSON.stringify(current, null, 1) + '\n')
-console.log(`${added} sign-offs recorded; ${items.filter((i) => stateOf(i, current, reviewers).humanApproved).length}/${items.length} items human-approved`)
+console.log(`${added} sign-offs recorded; ${items.filter((i) => stateOf(i, current, reviewers, identities).humanApproved).length}/${items.length} items human-approved`)

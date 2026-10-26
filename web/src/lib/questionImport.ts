@@ -6,7 +6,7 @@
  * 3–8 in the editorial ledger, the CR-24 rights gate and approve_practice_question (CR-21). Generation confers nothing.
  */
 import type { FixtureQuestion } from './data/demo/fixtures'
-import { AI_MODEL, IDENTITIES, type AuthorIdentity, type IdentityRegistry } from './data/demo/authorIdentity'
+import { AI_MODEL, IDENTITIES, identityOf, type AuthorIdentity, type IdentityRegistry } from './data/demo/authorIdentity'
 
 /** The legacy contract: authors are names only, so a human author is never a resolved identity. Still read. */
 export const IMPORT_CONTRACT = 'question_import/v1'
@@ -161,7 +161,7 @@ export function validateImport(items: unknown[], skills: { skill_key: string; ex
       } else {
         if (Object.keys(ai).some((k) => k !== 'kind' && k !== 'identity_id')) bad('author_identity', 'a person identity has only kind and identity_id')
         if (q.origin === 'ai_drafted') bad('author_identity', 'an AI draft has an AI author identity')
-        if (!identities.identities?.[ai.identity_id]) bad('author_identity', `${ai.identity_id || '(blank)'} is not a recorded identity; identities are recorded by the owner or a content lead (identities.json), never by a batch`)
+        if (!identityOf(identities, ai.identity_id)) bad('author_identity', `${ai.identity_id || '(blank)'} is not a recorded identity; identities are recorded by the owner or a content lead (identities.json), never by a batch`)
       }
     }
     if (ORIGINS.includes(q.origin as Origin) && ALLOWED_LICENSES.test(q.license ?? '') && !ORIGIN_LICENSES[q.origin as Origin].test(q.license!))
