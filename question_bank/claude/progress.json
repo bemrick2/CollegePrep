@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T23:44:57+00:00",
+  "updated_at": "2026-10-26T23:46:12+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 611,
-    "act_english": 204,
+    "act_english": 213,
     "act_reading": 178,
     "sat_reading_writing": 207
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 204,
+      "PASS": 213,
       "REVISE": 10,
       "REJECT": 0,
-      "candidates": 214,
+      "candidates": 223,
       "passed_after_revision": 7
     },
     "act_reading": {
@@ -699,15 +699,15 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 204,
+      "accepted": 213,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 108,
-        "Knowledge of Language": 29,
-        "Production of Writing": 67
+        "Conventions of Standard English": 114,
+        "Knowledge of Language": 30,
+        "Production of Writing": 69
       },
       "by_subskill": {
-        "Adding a sentence (relevance)": 1,
+        "Adding a sentence (relevance)": 2,
         "Adding a sentence: relevance and focus": 1,
         "Adjectives versus adverbs": 1,
         "Affect versus effect": 1,
@@ -715,6 +715,7 @@
         "Agreement in an inverted sentence (lie/lay)": 1,
         "Agreement with \"most of\" + plural": 1,
         "Agreement with a compound subject": 1,
+        "Ambiguous pronoun reference": 1,
         "Amount versus number": 1,
         "Choosing a phrase that fits the essay's point": 1,
         "Choosing content that states a purpose": 1,
@@ -728,13 +729,14 @@
         "Comma with a coordinating conjunction": 1,
         "Commas around a nonessential clause": 1,
         "Commas around a nonessential element": 1,
+        "Commas around a nonessential participial phrase": 1,
         "Commas around a nonessential phrase": 1,
         "Commas around a nonrestrictive appositive": 1,
         "Commas in a series": 1,
         "Commas in a series within a compound sentence": 1,
         "Commas with a nonessential clause": 1,
         "Concision": 2,
-        "Concision (redundancy)": 2,
+        "Concision (redundancy)": 3,
         "Concision (word choice)": 1,
         "Concision and redundancy": 3,
         "Concluding sentence that links to earlier content": 1,
@@ -745,15 +747,17 @@
         "Conclusion that returns to the opening": 2,
         "Conclusion tied to the essay's opening purpose": 1,
         "Conclusions that echo the opening": 1,
+        "Coordinating conjunction (logic)": 1,
         "Correlative conjunctions (not only ... but also)": 1,
         "Dangling modifier": 3,
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 9,
         "Double negatives": 1,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 9,
+        "Evaluating whether an essay meets a goal": 10,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 3,
+        "Faulty comparison (\"any other\")": 1,
         "Fewer versus less": 1,
         "Function of a sentence (what would be lost)": 1,
         "Idiom (\"arrive at\")": 1,
@@ -770,6 +774,7 @@
         "Less versus fewer": 1,
         "Logical comparison": 1,
         "Modal verb form (\"could of\")": 1,
+        "No comma between a subject and its verb": 1,
         "No comma in a \"so ... that\" construction": 1,
         "Nonessential clause with \"which\"": 2,
         "Paired dashes around an interrupting list": 1,
@@ -845,34 +850,35 @@
         "Verb tense in a hypothetical conditional": 1,
         "What a sentence contributes": 1,
         "Who versus which for people": 1,
+        "Who versus whom": 1,
         "Whoever as a clause subject": 1,
         "Whoever versus whomever": 1,
         "Whom after a preposition": 1,
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 65,
-        "hard": 24,
-        "medium": 115
+        "easy": 67,
+        "hard": 25,
+        "medium": 121
       },
       "by_difficulty_calibrated": {
-        "easy": 113,
-        "hard": 3,
-        "medium": 88
+        "easy": 118,
+        "hard": 4,
+        "medium": 91
       },
       "calibrated_share": {
         "easy": 0.554,
-        "hard": 0.015,
-        "medium": 0.431
+        "hard": 0.019,
+        "medium": 0.427
       },
       "answer_key_balance": {
-        "A": 56,
-        "B": 52,
-        "C": 49,
-        "D": 47
+        "A": 59,
+        "B": 54,
+        "C": 51,
+        "D": 49
       },
       "modeling_items": 0,
-      "passages": 20
+      "passages": 21
     },
     "act_reading": {
       "accepted": 178,
@@ -1164,7 +1170,7 @@
   },
   "last_completed_batch": {
     "act_math": 63,
-    "act_english": 20,
+    "act_english": 21,
     "act_reading": 22,
     "sat_reading_writing": 23
   },
@@ -1198,6 +1204,14 @@
     }
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 23,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 24.2,
+        "Craft and Structure": -7.5,
+        "Integration of Knowledge and Ideas": -6.7
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 24,
       "skill_gap_for_next_10": {
@@ -1207,20 +1221,12 @@
         "Expression of Ideas": -1.6
       }
     },
-    "act_reading": {
-      "next_batch": 23,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 24.2,
-        "Craft and Structure": -7.5,
-        "Integration of Knowledge and Ideas": -6.7
-      }
-    },
     "act_english": {
-      "next_batch": 21,
+      "next_batch": 22,
       "skill_gap_for_next_10": {
-        "Production of Writing": 19.7,
-        "Knowledge of Language": 14.9,
-        "Conventions of Standard English": -21.3
+        "Production of Writing": 21.3,
+        "Knowledge of Language": 15.7,
+        "Conventions of Standard English": -23.7
       }
     }
   },
@@ -1232,8 +1238,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 204,
-      "share_of_target": 0.291
+      "accepted": 213,
+      "share_of_target": 0.304
     },
     "act_reading": {
       "target": 600,
@@ -1247,9 +1253,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1200,
+  "total_accepted": 1209,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -47451,7 +47457,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 20,
+      "bank_version": 21,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -47581,7 +47587,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-26T23:44:56+00:00",
+    "heartbeat_at": "2026-10-26T23:46:12+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

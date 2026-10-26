@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 64,
+ "plan": "2 hard (two angles of elevation, absolute-value symmetry) / 6 medium / 2 easy; every concept searched in the bank first.",
+ "candidates": [
+  {
+   "cand": "B064-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Maximum value of a sinusoidal function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "What is the maximum value of the function y = 3 sin x + 2 ?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "C",
+   "explanation": "sin x is at most 1, so y is at most 3(1) + 2 = 5.",
+   "distractors": {
+    "A": {
+     "rationale": "2 is the midline value, where sin x = 0.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3 is the amplitude, not the maximum.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "6 multiplies the amplitude by 2 instead of adding 2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the largest value of sin x ?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Substitute sin x = 1."
+   },
+   "remember": "Maximum of a sin x + d is |a| + d.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Counting codes with and without repetition",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A license plate consists of 3 letters followed by 3 digits. Letters may repeat, but the 3 digits must all be different. Which expression gives the number of possible license plates?",
+   "choices": {
+    "A": "26³ · 10³",
+    "B": "26 · 25 · 24 · 10 · 9 · 8",
+    "C": "26³ + 10 · 9 · 8",
+    "D": "26³ · 10 · 9 · 8"
+   },
+   "answer": "D",
+   "explanation": "Each letter position has 26 choices (repeats allowed): 26³. The digits must differ: 10 · 9 · 8. Multiply the counts for independent positions.",
+   "distractors": {
+    "A": {
+     "rationale": "26³ · 10³ allows the digits to repeat.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "26 · 25 · 24 forbids repeated letters, which are allowed.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Adding the counts instead of multiplying undercounts the combinations.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which positions allow repeats?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw six slots and fill in the number of choices for each."
+   },
+   "remember": "Multiply choices for independent positions; reduce only when repeats are banned.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Solving a proportion",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies 3/x = 12/20 ?",
+   "choices": {
+    "A": "5",
+    "B": "9",
+    "C": "36",
+    "D": "80"
+   },
+   "answer": "A",
+   "explanation": "Cross-multiply: 12x = 60, so x = 5.",
+   "distractors": {
+    "B": {
+     "rationale": "9 = 12 − 3 subtracts instead of setting up a proportion.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "36 = 3 × 12 multiplies the numerators.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "80 = 12 × 20/3 inverts the proportion.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Cross-multiply."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check 3/5 = 0.6 and 12/20 = 0.6."
+   },
+   "remember": "Cross-multiply to solve a proportion.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of an open box from cut corners",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A rectangular sheet of cardboard is 20 inches by 12 inches. A 3-inch square is cut from each corner, and the sides are folded up to make an open box. What is the volume of the box, in cubic inches?",
+   "choices": {
+    "A": "252",
+    "B": "378",
+    "C": "459",
+    "D": "720"
+   },
+   "answer": "A",
+   "explanation": "Cutting 3 inches from each end of each side leaves a base of (20 − 6) by (12 − 6) = 14 by 6, and the height is 3. Volume = 14 × 6 × 3 = 252.",
+   "distractors": {
+    "B": {
+     "rationale": "378 = 14 × 9 × 3 subtracts 3 only once from the 12-inch side.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "459 = 17 × 9 × 3 subtracts 3 only once from each side.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "720 = 20 × 12 × 3 uses the original sheet as the base.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How much does each side of the base shrink?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the sheet with the four squares removed."
+   },
+   "remember": "Cutting a square from each corner removes twice the cut from each side.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Greatest common factor from prime factorizations",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the greatest common factor of 2⁴ · 3² · 5 and 2² · 3³ · 7 ?",
+   "choices": {
+    "A": "6",
+    "B": "12",
+    "C": "36",
+    "D": "108"
+   },
+   "answer": "C",
+   "explanation": "Take the lower power of each shared prime: 2² · 3² = 4 · 9 = 36. (5 and 7 are not shared.)",
+   "distractors": {
+    "A": {
+     "rationale": "6 = 2 · 3 uses only the first power of each shared prime.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12 = 2² · 3 takes the lower power of 2 but only one factor of 3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "108 = 2² · 3³ takes the higher power of 3.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which primes appear in both numbers, and to what powers?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the smaller exponent of each common prime."
+   },
+   "remember": "GCF: shared primes to their lowest powers.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability that the first success comes after a given trial",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A fair coin is flipped until it lands heads. What is the probability that more than 3 flips are needed?",
+   "choices": {
+    "A": "1/16",
+    "B": "1/8",
+    "C": "1/2",
+    "D": "7/8"
+   },
+   "answer": "B",
+   "explanation": "More than 3 flips are needed exactly when the first 3 flips are all tails: (1/2)³ = 1/8.",
+   "distractors": {
+    "A": {
+     "rationale": "1/16 is the probability that the first 4 flips are tails.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1/2 is the probability of tails on a single flip.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "7/8 is the probability that 3 or fewer flips are needed.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What must happen on the first 3 flips?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "P(T, T, T)."
+   },
+   "remember": "\"Needs more than n tries\" means the first n tries all fail.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Choosing a representative sampling method",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A school wants to estimate the average number of hours its 1,200 students sleep on school nights. Which of the following sampling methods is most likely to produce a representative sample?",
+   "choices": {
+    "A": "Selecting 100 students at random from a list of all students",
+    "B": "Surveying the first 100 students who arrive at school one morning",
+    "C": "Surveying 100 members of the school's sports teams",
+    "D": "Asking for 100 volunteers through an online post"
+   },
+   "answer": "A",
+   "explanation": "Random selection from the whole population gives every student the same chance of being chosen, which avoids systematic bias.",
+   "distractors": {
+    "B": {
+     "rationale": "Students who arrive first may sleep differently from others, so the sample is biased.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Athletes are a subgroup whose sleep habits may differ from the whole school.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Volunteers choose themselves, which tends to bias the sample.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Does every student have an equal chance of being chosen?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate methods that favor a subgroup."
+   },
+   "remember": "A random sample from the whole population avoids bias.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B064-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Height from two angles of elevation",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "From point A on level ground, the angle of elevation to the top of a tower is 30°. From point B, 40 meters closer to the tower along the same line, the angle of elevation is 60°. What is the height of the tower, in meters?",
+   "choices": {
+    "A": "10√3",
+    "B": "20",
+    "C": "20√3",
+    "D": "40"
+   },
+   "answer": "C",
+   "explanation": "The triangle formed by A, B and the top of the tower has angles 30° at A and 120° at B, so its third angle is 30° and it is isosceles: the distance from B to the top is 40. Then the height is 40 sin 60° = 20√3.",
+   "distractors": {
+    "A": {
+     "rationale": "10√3 is half the correct height.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "20 = 40 sin 30° uses the wrong angle.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "40 is the distance from B to the top of the tower, not the height.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What kind of triangle do A, B and the top of the tower form?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw both lines of sight and label the angles."
+   },
+   "remember": "Look for an isosceles triangle when angles of 30° and 60° appear together.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must combine two right triangles (or spot the isosceles triangle) rather than use a single trig ratio."
+   }
+  },
+  {
+   "cand": "B064-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Absolute value graph from symmetric points",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "The graph of y = |x − a| + b passes through the points (1, 5) and (7, 5), and the minimum value of y is 2. What is the value of a + b ?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "D",
+   "explanation": "The graph is symmetric about its vertex x = a, so a is the midpoint of 1 and 7: a = 4. The minimum value is b = 2. Check: |1 − 4| + 2 = 5. So a + b = 6.",
+   "distractors": {
+    "A": {
+     "rationale": "2 is b alone.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4 is a alone.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "5 is the y-value of the given points.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where is the axis of symmetry of an absolute value graph?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the two points and the vertex halfway between them."
+   },
+   "remember": "Points with equal y-values on a V-shaped graph are symmetric about the vertex.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use the symmetry of the V to locate the vertex, then read b from the minimum; algebraic solving without symmetry is error-prone."
+   }
+  },
+  {
+   "cand": "B064-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Power function through a point",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "The graph of f(x) = ax² passes through the point (2, 12). What is the value of f(−3) ?",
+   "choices": {
+    "A": "−27",
+    "B": "9",
+    "C": "18",
+    "D": "27"
+   },
+   "answer": "D",
+   "explanation": "12 = a(2)², so a = 3. Then f(−3) = 3(−3)² = 27.",
+   "distractors": {
+    "A": {
+     "rationale": "−27 treats (−3)² as −9.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "9 is (−3)², forgetting the coefficient a.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "18 = 6 × 3 uses a = 6 (12 ÷ 2) and multiplies by 3.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find a first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute (2, 12) to find a."
+   },
+   "remember": "Use the given point to find the coefficient, then evaluate.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}
