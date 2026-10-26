@@ -1,0 +1,310 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 10,
+  "reviewed_at": "2026-10-26T20:26:48+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 10
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000082",
+    "CLD-ACT-R-000083",
+    "CLD-ACT-R-000084",
+    "CLD-ACT-R-000085",
+    "CLD-ACT-R-000086",
+    "CLD-ACT-R-000087",
+    "CLD-ACT-R-000088",
+    "CLD-ACT-R-000089",
+    "CLD-ACT-R-000090"
+  ],
+  "results": [
+    {
+      "cand": "R010-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: key D is the longest choice and the only one with two parts (describe + weigh), a mild length tell"
+      ],
+      "blind_notes": "Passage presents the decoy effect, then paragraphs 4-5 question how far it holds outside the lab. A is only the opening detail, B goes beyond the passage (no recommendation is made), and C reverses paragraph 3.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: key is noticeably the longest choice and the only two-part answer (length cue)",
+        "minor: A, B, C are each refuted by a single sentence; distractors are weak"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000082"
+    },
+    {
+      "cand": "R010-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Para 2: 'Faced with a comparison that is easy to make, people lean toward the option that wins it.' C is contradicted ('tells them nothing new'). B and D are unsupported.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: key closely paraphrases P2 ('a comparison that is easy to make... the option that wins it'), making it a lift-and-match item",
+        "minor: C is directly contradicted by 'tells them nothing new', so it is only a careless-reader trap"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000083"
+    },
+    {
+      "cand": "R010-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "The parenthetical explains why print-only is clearly worse than print-and-online (more for the same price). D is false: online-only is cheapest.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000084"
+    },
+    {
+      "cand": "R010-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Near-paraphrase of 'should not change which of the remaining options is preferred.' A describes what actually happened (the trap), and D is the alternative view.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: A is the observed result, a reasonable trap for students who confuse model prediction with outcome"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R010-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "'Troubling for a model' means it poses a problem for the model. 'Distressing' is the tempting emotional sense.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000085"
+    },
+    {
+      "cand": "R010-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Direct paraphrase of para 4, sentence 2. C reverses the lab point.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: near-verbatim detail retrieval from P4"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000086"
+    },
+    {
+      "cand": "R010-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: distractors B, C and D are all extreme ('main force', 'ever... at all', 'sure'), so only A is moderately worded, which is a test-wise tell"
+      ],
+      "blind_notes": "Last sentence: 'a question the research has not yet settled.'",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: B, C, D are all extreme ('main force', 'ever... at all', 'sure... wasting money'), so the moderate key stands out"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000087"
+    },
+    {
+      "cand": "R010-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "The skeptics say the effect is reliable mainly in simple lab tasks. Real-world shoppers with many attributes who ignore decoys supports them. A is consistent with their view but does not support the overstated-importance claim, and B undercuts them. C is irrelevant.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000088"
+    },
+    {
+      "cand": "R010-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "'Even so, businesses appear to have taken the lesson to heart.' B is wrong because the question is explicitly unsettled. C overstates with 'only', and D is unsupported.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: 'Even so' makes the contrast relationship easy to spot"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000089"
+    },
+    {
+      "cand": "R010-10",
+      "revision": 2,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: B is absolute ('any living animal at all') and is easily eliminated"
+      ],
+      "blind_notes": "The cells were immune cells that accumulated iron 'for unrelated reasons', so they were not magnetic sensors.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: A, B, D are not discussed in P3 and are easily eliminated"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000090"
+    }
+  ]
+}

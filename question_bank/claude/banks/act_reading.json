@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 9,
-  "updated_at": "2026-10-26T20:16:54+00:00",
+  "version": 10,
+  "updated_at": "2026-10-26T20:26:49+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -102,6 +102,17 @@
       "word_count": 405,
       "text": "Each autumn, a young European robin that has never made the journey before leaves its breeding ground and flies hundreds of kilometers south, often at night and often alone. How it finds its way has puzzled biologists for more than a century. Young birds raised in isolation still orient in roughly the right direction when the season arrives, which suggests that at least part of the ability is inborn rather than learned.\n\nBirds are now known to use several cues. They can read the position of the sun, correcting for its movement across the sky during the day; they can use patterns of stars, learning as nestlings which part of the night sky rotates least; and they can sense Earth's magnetic field. The last of these has proved the most difficult to explain. Magnetic fields pass through living tissue almost without effect, so a sense that detects them needs some special mechanism, and for decades no one could say what it was.\n\nOne early proposal held that birds carry tiny crystals of magnetite, a magnetic iron mineral, that act like compass needles. Clusters of iron-rich cells were in fact found in the upper beaks of pigeons, and for a time the case seemed strong. Later work showed that many of those cells were not nerve cells at all but immune cells that had accumulated iron for unrelated reasons. The magnetite idea has not been entirely abandoned, but it no longer dominates the field.\n\nThe leading alternative is stranger. In the bird's eye, a light-sensitive protein called cryptochrome may form pairs of molecules whose chemical behavior depends slightly on the direction of a magnetic field. If so, a robin might literally see the field, perhaps as a faint pattern laid over its ordinary vision. The hypothesis fits two puzzling observations: in experiments, robins could orient magnetically only when some light was present, and very weak radio-frequency noise, far too weak to move a compass needle, was enough to disrupt their orientation.\n\nNone of this has been confirmed in a living bird's eye, and the chemistry involved operates at a scale where measurements are extraordinarily difficult. What researchers can say is that the robin's magnetic sense, whatever its mechanism, appears to be a compass rather than a map: it tells the bird which way is north, not where the bird is. Knowing where to go, and recognizing when it has arrived, may depend on other senses entirely.",
       "batch": 9,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000010",
+      "title": "The Option Nobody Wants",
+      "genre": "social science",
+      "word_count": 310,
+      "text": "Imagine choosing between two subscriptions to a news site: an online-only plan for $59 a year and a print-and-online plan for $125. Many people pick the cheaper plan. Now add a third option, print only, also for $125, and something strange happens. Almost no one chooses print only, yet far more people now choose print-and-online. An option that almost nobody wants has changed what people pick.\n\nResearchers call this the decoy effect. The decoy is designed to be clearly worse than one option (print-and-online gives everything print-only gives, plus more, at the same price) but not clearly worse than the other. Faced with a comparison that is easy to make, people seem to lean toward the option that wins it, even though the decoy tells them nothing new about whether that option is worth its price.\n\nThe effect is troubling for a simple model of choice in which people assign each option a value and pick the highest. Under that model, adding an option nobody chooses should not change which of the remaining options is preferred. That it does suggests that people often evaluate options by comparing them with one another rather than judging each on its own merits.\n\nNot every study has found the effect, however. When options are described by many attributes, or when people already hold strong preferences, decoys often have little influence. Some researchers have argued that the effect appears most reliably in laboratory tasks with simple, numerical descriptions, and that its importance in everyday decisions may have been overstated.\n\nEven so, businesses appear to have taken the lesson to heart. Menus, software plans, and appliance lineups often include an option whose main purpose seems to be making a neighbor look attractive. Whether those decoys work as well in the store as they do in the laboratory is a question the research has not yet settled.",
+      "batch": 10,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -5906,6 +5917,644 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-009.review.json",
         "computation": "checks/act_reading/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000082",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "Whether those decoys work as well in the store as they do in the laboratory is a question the research has not yet settled.",
+      "figure": null,
+      "stem": "The passage is primarily concerned with:",
+      "choices": {
+        "A": "explaining why most consumers choose the cheaper of two subscription plans.",
+        "B": "arguing that businesses should stop adding decoy options to their product lineups.",
+        "C": "showing that a simple model of choice accurately predicts how people decide.",
+        "D": "describing a pattern in decision-making and weighing how far it holds outside the laboratory."
+      },
+      "correct_answer": "D",
+      "explanation": "The passage introduces the decoy effect, explains it, notes doubts about its strength in everyday life, and ends on that open question.",
+      "distractor_explanations": {
+        "A": "The cheaper plan appears only in the opening example.",
+        "B": "The author describes businesses' use of decoys but never urges them to stop.",
+        "C": "Paragraph 3 says the effect is \"troubling\" for that model."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "out_of_scope",
+        "C": null
+      },
+      "hints": [
+        "What does the last paragraph leave unresolved?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize each paragraph in a phrase first."
+      },
+      "remember": "The main purpose must include the passage's qualifications.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-01",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: key D is the longest choice and the only one with two parts (describe + weigh), a mild length tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000083",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference about a mechanism",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "Faced with a comparison that is easy to make, people seem to lean toward the option that wins it",
+      "figure": null,
+      "stem": "In the opening example, adding the print-only plan most likely made the print-and-online plan more attractive because the new plan:",
+      "choices": {
+        "A": "gave people an easy comparison that print-and-online clearly won.",
+        "B": "lowered the effective price of the print-and-online plan for readers.",
+        "C": "gave readers new information about how valuable a print edition is.",
+        "D": "made the online-only plan seem more expensive than it really was."
+      },
+      "correct_answer": "A",
+      "explanation": "Print-only costs the same as print-and-online but offers less, so print-and-online plainly beats it; that easy win draws people toward print-and-online.",
+      "distractor_explanations": {
+        "B": "The price of print-and-online stayed $125.",
+        "C": "Paragraph 2 says the decoy tells people \"nothing new.\"",
+        "D": "Nothing suggests online-only's price seemed to change."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Which plan does print-only lose to, and how clearly?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Use paragraph 2's explanation."
+      },
+      "remember": "A decoy works by losing clearly to its target.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-02",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000084",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a parenthetical remark",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "print-and-online gives everything print-only gives, plus more, at the same price",
+      "figure": null,
+      "stem": "The parenthetical remark in paragraph 2 primarily serves to:",
+      "choices": {
+        "A": "suggest that print subscriptions are more valuable than online ones.",
+        "B": "explain why almost no one chooses the online-only subscription plan.",
+        "C": "clarify why the decoy is clearly worse than one of the other options.",
+        "D": "show that the print-and-online plan is the cheapest of the options."
+      },
+      "correct_answer": "C",
+      "explanation": "The sentence says the decoy is \"clearly worse than one option\"; the parenthetical shows how, using the example.",
+      "distractor_explanations": {
+        "A": "The remark compares two plans' contents, not the value of print itself.",
+        "B": "Many people choose online-only; the remark concerns print-only.",
+        "D": "Print-and-online costs $125, more than online-only."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What claim does the parenthetical follow?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the clause just before the parentheses."
+      },
+      "remember": "Parenthetical remarks often illustrate the claim they interrupt.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-03",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000085",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "That it does suggests that people often evaluate options by comparing them",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word \"troubling\" most nearly means:",
+      "choices": {
+        "A": "distressing.",
+        "B": "problematic.",
+        "C": "annoying.",
+        "D": "dangerous."
+      },
+      "correct_answer": "B",
+      "explanation": "The effect conflicts with the simple model's prediction, so it is \"problematic\" for that model.",
+      "distractor_explanations": {
+        "A": "The effect does not upset the model emotionally; it challenges it.",
+        "C": "\"Annoying\" describes irritation, not a challenge to a theory.",
+        "D": "Nothing harmful is involved."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "How does the effect relate to the model's prediction?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"hard to explain for.\""
+      },
+      "remember": "Words about feelings can describe ideas in academic writing.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-05",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000086",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (paraphrased)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "When options are described by many attributes, or when people already hold strong preferences, decoys often have little influence.",
+      "figure": null,
+      "stem": "According to the passage, decoys often have little influence when:",
+      "choices": {
+        "A": "choices involve many features or people already have firm preferences.",
+        "B": "the decoy is priced far below every other option offered.",
+        "C": "people make their choices in a controlled laboratory setting.",
+        "D": "only two options are available rather than three or more."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 4 names two conditions: many attributes and strong prior preferences.",
+      "distractor_explanations": {
+        "B": "Decoy pricing below the others is never discussed.",
+        "C": "Paragraph 4 says the effect appears most reliably in the laboratory.",
+        "D": "With only two options there is no decoy at all."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Look for \"little influence\" in paragraph 4."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence and match its paraphrase."
+      },
+      "remember": "Correct detail answers are often paraphrases.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-06",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000087",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's view",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "is a question the research has not yet settled",
+      "figure": null,
+      "stem": "The author's view of how much the decoy effect matters in everyday shopping is best described as:",
+      "choices": {
+        "A": "open, since the research has not settled how well decoys work in stores.",
+        "B": "confident that decoys are the main force shaping most shoppers' choices.",
+        "C": "skeptical that the effect has ever been observed in any setting at all.",
+        "D": "sure that businesses are wasting money when they include decoy options."
+      },
+      "correct_answer": "A",
+      "explanation": "The final sentence leaves the real-world strength of decoys as an open question.",
+      "distractor_explanations": {
+        "B": "The author notes studies where decoys had little influence.",
+        "C": "The author describes the effect as found in many studies, especially laboratory ones.",
+        "D": "The author says the question is unsettled."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": "extreme_language",
+        "D": "extreme_language"
+      },
+      "hints": [
+        "How does the passage end?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that claim more certainty than the author does."
+      },
+      "remember": "Match the author's level of certainty.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-07",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: distractors B, C and D are all extreme ('main force', 'ever... at all', 'sure'), so only A is moderately worded, which is a test-wise tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000088",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Evaluating evidence for a claim",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "its importance in everyday decisions may have been overstated",
+      "figure": null,
+      "stem": "Which finding, if true, would most directly support the researchers in paragraph 4 who think the effect's everyday importance has been overstated?",
+      "choices": {
+        "A": "Laboratory volunteers given simple price tables reliably chose the option a decoy favored.",
+        "B": "A restaurant that added a decoy dish saw orders of the dish it favored rise sharply.",
+        "C": "Most shoppers say in surveys that they compare products carefully before buying.",
+        "D": "Shoppers comparing real appliances with many listed features ignored added decoys."
+      },
+      "correct_answer": "D",
+      "explanation": "Their claim is that the effect weakens outside simple lab tasks. A real-world, many-attribute setting where decoys had no effect supports exactly that.",
+      "distractor_explanations": {
+        "A": "This shows the effect in the lab, which those researchers already accept; it says nothing about everyday life.",
+        "B": "This shows the effect working in a real setting, which cuts against their claim.",
+        "C": "What shoppers say about themselves does not test whether decoys affect them."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "What exactly do these researchers claim?",
+        "Which finding shows the effect failing in an everyday setting?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask whether each finding concerns everyday choices and whether it shows the effect failing."
+      },
+      "remember": "Support a claim with evidence from the setting the claim is about.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-08",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000089",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Relationship between paragraphs",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000010",
+      "underline": null,
+      "evidence": "Even so, businesses appear to have taken the lesson to heart.",
+      "figure": null,
+      "stem": "How does paragraph 5 relate to paragraph 4?",
+      "choices": {
+        "A": "It notes that businesses use decoys despite the doubts that paragraph 4 raises.",
+        "B": "It provides experimental evidence that resolves the doubts raised in paragraph 4.",
+        "C": "It repeats paragraph 4's claim that the decoy effect appears only in laboratories.",
+        "D": "It argues that the researchers in paragraph 4 misunderstood the decoy effect."
+      },
+      "correct_answer": "A",
+      "explanation": "\"Even so\" signals that despite paragraph 4's doubts, businesses still use decoys, and the question of whether they work remains open.",
+      "distractor_explanations": {
+        "B": "Paragraph 5 says the question \"has not yet settled.\"",
+        "C": "Paragraph 4 says the effect is most reliable in labs, not only there; paragraph 5 adds business practice.",
+        "D": "Paragraph 5 does not criticize those researchers."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does \"Even so\" respond to?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Use the transition at the start of paragraph 5."
+      },
+      "remember": "Opening transitions reveal how paragraphs relate.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-09",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000090",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference about evidence",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000009",
+      "underline": null,
+      "evidence": "were not nerve cells at all but immune cells that had accumulated iron for unrelated reasons",
+      "figure": null,
+      "stem": "Based on paragraph 3, the later findings about the iron-rich cells weakened the magnetite proposal mainly because they suggested that:",
+      "choices": {
+        "A": "pigeons do not actually migrate and so cannot reveal how robins navigate.",
+        "B": "magnetite cannot exist inside the body of any living animal at all.",
+        "C": "the cells thought to detect magnetism may serve an unrelated function.",
+        "D": "a bird's upper beak is too small to contain crystals of magnetite."
+      },
+      "correct_answer": "C",
+      "explanation": "The proposal depended on iron-rich cells acting as sensors. Finding that they were immune cells that held iron for other reasons removed that support.",
+      "distractor_explanations": {
+        "A": "The passage never questions whether pigeons are useful to study.",
+        "B": "The passage says only that these cells were not nerve cells.",
+        "D": "Size is never mentioned."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "extreme_language",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What were the iron-rich cells supposed to be doing?",
+        "What did they turn out to be?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that go beyond the passage."
+      },
+      "remember": "Evidence weakens a claim when it removes what the claim depends on.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "R010-10",
+      "created_at": "2026-10-26T20:26:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: B is absolute ('any living animal at all') and is easily eliminated"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-010.review.json",
+        "computation": "checks/act_reading/batch_010.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

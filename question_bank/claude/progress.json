@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:25:11+00:00",
+  "updated_at": "2026-10-26T20:26:51+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -17,7 +17,7 @@
   "accepted_by_section": {
     "act_math": 262,
     "act_english": 98,
-    "act_reading": 81,
+    "act_reading": 90,
     "sat_reading_writing": 95
   },
   "review_totals": {
@@ -36,11 +36,11 @@
       "passed_after_revision": 3
     },
     "act_reading": {
-      "PASS": 81,
-      "REVISE": 11,
+      "PASS": 90,
+      "REVISE": 12,
       "REJECT": 0,
-      "candidates": 92,
-      "passed_after_revision": 9
+      "candidates": 102,
+      "passed_after_revision": 10
     },
     "sat_reading_writing": {
       "PASS": 95,
@@ -457,12 +457,12 @@
       "passages": 9
     },
     "act_reading": {
-      "accepted": 81,
+      "accepted": 90,
       "retired_after_audit": 0,
       "by_skill": {
-        "Craft and Structure": 26,
-        "Integration of Knowledge and Ideas": 18,
-        "Key Ideas and Details": 37
+        "Craft and Structure": 29,
+        "Integration of Knowledge and Ideas": 20,
+        "Key Ideas and Details": 41
       },
       "by_subskill": {
         "Applying the author's reasoning": 1,
@@ -470,6 +470,7 @@
         "Applying the passage's reasoning": 1,
         "Author's attitude": 4,
         "Author's reasoning": 1,
+        "Author's view": 1,
         "Central claim of a passage": 1,
         "Central idea of a narrative": 1,
         "Central idea of an informational passage": 1,
@@ -480,7 +481,9 @@
         "Contrasting the passages' approaches": 1,
         "Detail": 6,
         "Detail (cross-passage trap)": 1,
+        "Detail (paraphrased)": 1,
         "Effect of figurative language": 1,
+        "Evaluating evidence for a claim": 1,
         "Evaluating evidence for a hypothesis": 1,
         "Evaluating evidence for competing explanations": 1,
         "Function of a comparison": 2,
@@ -488,6 +491,7 @@
         "Function of a detail": 2,
         "Function of a figurative comparison": 1,
         "Function of a paragraph": 2,
+        "Function of a parenthetical remark": 1,
         "Function of a phrase": 2,
         "Function of a short paragraph": 1,
         "Function of a statement": 1,
@@ -495,8 +499,10 @@
         "Function of examples": 1,
         "How one author would respond to the other": 1,
         "Inference about a character's action": 1,
+        "Inference about a mechanism": 1,
         "Inference about a narrator's view": 1,
         "Inference about a stated outcome": 1,
+        "Inference about evidence": 1,
         "Inference from a detail": 2,
         "Inference from a sequence of details": 1,
         "Inference from dialogue": 1,
@@ -513,40 +519,41 @@
         "Main claim of one passage": 1,
         "Main focus of a passage": 1,
         "Main idea of a narrative": 1,
-        "Main purpose of a passage": 2,
+        "Main purpose of a passage": 3,
         "Meaning of a phrase in context": 1,
-        "Meaning of a word in context": 8,
+        "Meaning of a word in context": 9,
         "Narrator's attitude": 1,
         "Overall structure of an argument": 1,
         "Points of agreement across paired passages": 1,
         "Points of agreement across passages": 1,
         "Predicting one author's response to the other": 1,
         "Purpose of a passage": 1,
+        "Relationship between paragraphs": 1,
         "Sequence of a described process": 1,
         "Summary of a narrative": 1,
         "Synthesizing the passage": 1
       },
       "by_difficulty_author": {
-        "easy": 21,
-        "hard": 10,
-        "medium": 50
+        "easy": 23,
+        "hard": 11,
+        "medium": 56
       },
       "by_difficulty_calibrated": {
-        "easy": 54,
-        "medium": 27
+        "easy": 60,
+        "medium": 30
       },
       "calibrated_share": {
         "easy": 0.667,
         "medium": 0.333
       },
       "answer_key_balance": {
-        "A": 23,
-        "B": 20,
-        "C": 21,
-        "D": 17
+        "A": 27,
+        "B": 21,
+        "C": 23,
+        "D": 19
       },
       "modeling_items": 0,
-      "passages": 9
+      "passages": 10
     },
     "sat_reading_writing": {
       "accepted": 95,
@@ -651,7 +658,7 @@
   "last_completed_batch": {
     "act_math": 27,
     "act_english": 9,
-    "act_reading": 9,
+    "act_reading": 10,
     "sat_reading_writing": 10
   },
   "next_batch_guidance": {
@@ -694,20 +701,20 @@
         "Expression of Ideas": 0.0
       }
     },
-    "act_reading": {
-      "next_batch": 10,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 6.7,
-        "Craft and Structure": 0.8,
-        "Integration of Knowledge and Ideas": 2.5
-      }
-    },
     "act_english": {
       "next_batch": 10,
       "skill_gap_for_next_10": {
         "Production of Writing": 4.7,
         "Knowledge of Language": 7.1,
         "Conventions of Standard English": -0.3
+      }
+    },
+    "act_reading": {
+      "next_batch": 11,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 7.0,
+        "Craft and Structure": 0.5,
+        "Integration of Knowledge and Ideas": 2.5
       }
     }
   },
@@ -724,8 +731,8 @@
     },
     "act_reading": {
       "target": 600,
-      "accepted": 81,
-      "share_of_target": 0.135
+      "accepted": 90,
+      "share_of_target": 0.15
     },
     "sat_reading_writing": {
       "target": 700,
@@ -734,7 +741,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 536,
+  "total_accepted": 545,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -947,7 +954,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 9,
+      "bank_version": 10,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -993,7 +1000,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:25:11+00:00",
+    "heartbeat_at": "2026-10-26T20:26:51+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

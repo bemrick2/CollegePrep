@@ -1,6 +1,6 @@
 {
   "bank": "act_reading",
-  "bank_version": 9,
+  "bank_version": 10,
   "answers": [
     {
       "id": "CLD-ACT-R-000001",
@@ -1428,6 +1428,161 @@
       "strategy": {
         "key": "locate_evidence",
         "explanation": "Read the sentence right before the examples."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000082",
+      "correct_answer": "D",
+      "explanation": "The passage introduces the decoy effect, explains it, notes doubts about its strength in everyday life, and ends on that open question.",
+      "distractor_explanations": {
+        "A": "The cheaper plan appears only in the opening example.",
+        "B": "The author describes businesses' use of decoys but never urges them to stop.",
+        "C": "Paragraph 3 says the effect is \"troubling\" for that model."
+      },
+      "hints": [
+        "What does the last paragraph leave unresolved?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize each paragraph in a phrase first."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000083",
+      "correct_answer": "A",
+      "explanation": "Print-only costs the same as print-and-online but offers less, so print-and-online plainly beats it; that easy win draws people toward print-and-online.",
+      "distractor_explanations": {
+        "B": "The price of print-and-online stayed $125.",
+        "C": "Paragraph 2 says the decoy tells people \"nothing new.\"",
+        "D": "Nothing suggests online-only's price seemed to change."
+      },
+      "hints": [
+        "Which plan does print-only lose to, and how clearly?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Use paragraph 2's explanation."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000084",
+      "correct_answer": "C",
+      "explanation": "The sentence says the decoy is \"clearly worse than one option\"; the parenthetical shows how, using the example.",
+      "distractor_explanations": {
+        "A": "The remark compares two plans' contents, not the value of print itself.",
+        "B": "Many people choose online-only; the remark concerns print-only.",
+        "D": "Print-and-online costs $125, more than online-only."
+      },
+      "hints": [
+        "What claim does the parenthetical follow?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the clause just before the parentheses."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000085",
+      "correct_answer": "B",
+      "explanation": "The effect conflicts with the simple model's prediction, so it is \"problematic\" for that model.",
+      "distractor_explanations": {
+        "A": "The effect does not upset the model emotionally; it challenges it.",
+        "C": "\"Annoying\" describes irritation, not a challenge to a theory.",
+        "D": "Nothing harmful is involved."
+      },
+      "hints": [
+        "How does the effect relate to the model's prediction?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"hard to explain for.\""
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000086",
+      "correct_answer": "A",
+      "explanation": "Paragraph 4 names two conditions: many attributes and strong prior preferences.",
+      "distractor_explanations": {
+        "B": "Decoy pricing below the others is never discussed.",
+        "C": "Paragraph 4 says the effect appears most reliably in the laboratory.",
+        "D": "With only two options there is no decoy at all."
+      },
+      "hints": [
+        "Look for \"little influence\" in paragraph 4."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence and match its paraphrase."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000087",
+      "correct_answer": "A",
+      "explanation": "The final sentence leaves the real-world strength of decoys as an open question.",
+      "distractor_explanations": {
+        "B": "The author notes studies where decoys had little influence.",
+        "C": "The author describes the effect as found in many studies, especially laboratory ones.",
+        "D": "The author says the question is unsettled."
+      },
+      "hints": [
+        "How does the passage end?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that claim more certainty than the author does."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000088",
+      "correct_answer": "D",
+      "explanation": "Their claim is that the effect weakens outside simple lab tasks. A real-world, many-attribute setting where decoys had no effect supports exactly that.",
+      "distractor_explanations": {
+        "A": "This shows the effect in the lab, which those researchers already accept; it says nothing about everyday life.",
+        "B": "This shows the effect working in a real setting, which cuts against their claim.",
+        "C": "What shoppers say about themselves does not test whether decoys affect them."
+      },
+      "hints": [
+        "What exactly do these researchers claim?",
+        "Which finding shows the effect failing in an everyday setting?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask whether each finding concerns everyday choices and whether it shows the effect failing."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000089",
+      "correct_answer": "A",
+      "explanation": "\"Even so\" signals that despite paragraph 4's doubts, businesses still use decoys, and the question of whether they work remains open.",
+      "distractor_explanations": {
+        "B": "Paragraph 5 says the question \"has not yet settled.\"",
+        "C": "Paragraph 4 says the effect is most reliable in labs, not only there; paragraph 5 adds business practice.",
+        "D": "Paragraph 5 does not criticize those researchers."
+      },
+      "hints": [
+        "What does \"Even so\" respond to?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Use the transition at the start of paragraph 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000090",
+      "correct_answer": "C",
+      "explanation": "The proposal depended on iron-rich cells acting as sensors. Finding that they were immune cells that held iron for other reasons removed that support.",
+      "distractor_explanations": {
+        "A": "The passage never questions whether pigeons are useful to study.",
+        "B": "The passage says only that these cells were not nerve cells.",
+        "D": "Size is never mentioned."
+      },
+      "hints": [
+        "What were the iron-rich cells supposed to be doing?",
+        "What did they turn out to be?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that go beyond the passage."
       }
     }
   ]
