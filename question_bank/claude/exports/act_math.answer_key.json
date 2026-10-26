@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 57,
+  "bank_version": 58,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -9818,6 +9818,176 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "8^a = (2^a)^3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000567",
+      "correct_answer": "B",
+      "explanation": "The trip was 23,915 − 23,480 = 435 miles. 435 ÷ 15 = 29 miles per gallon.",
+      "distractor_explanations": {
+        "A": "27 results from subtracting the readings incorrectly (405 miles).",
+        "C": "31 results from a subtraction error of 30 miles in the other direction (465 miles).",
+        "D": "435 is the distance driven, not miles per gallon."
+      },
+      "hints": [
+        "How far was the trip?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Distance ÷ gallons."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000568",
+      "correct_answer": "C",
+      "explanation": "Each side is 36 ÷ 4 = 9, so the diagonal is 9√2.",
+      "distractor_explanations": {
+        "A": "6√2 uses a side of 6, dividing the perimeter by 6.",
+        "B": "9 is the side length, not the diagonal.",
+        "D": "18 doubles the side instead of multiplying by √2."
+      },
+      "hints": [
+        "What is the side length?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The diagonal splits the square into two 45°-45°-90° triangles."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000569",
+      "correct_answer": "A",
+      "explanation": "Subtract 2x from both sides: −7 = x + 4. Subtract 4: x = −11.",
+      "distractor_explanations": {
+        "B": "−3 adds 4 to −7 instead of subtracting.",
+        "C": "3 has the wrong sign and adds the constants incorrectly.",
+        "D": "11 has the right size but the wrong sign."
+      },
+      "hints": [
+        "Collect the x-terms on one side."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 2(−11) − 7 = 3(−11) + 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000570",
+      "correct_answer": "C",
+      "explanation": "g(−1) = −1 + 3 = 2, and f(2) = 2² = 4.",
+      "distractor_explanations": {
+        "A": "2 is g(−1), the inside value, not f(g(−1)).",
+        "B": "7/2 is g(f(−1)) = 1/2 + 3, the composition in the wrong order.",
+        "D": "8 = 2³ uses 3 as the exponent instead of g(−1)."
+      },
+      "hints": [
+        "Evaluate the inside function first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute g(−1), then plug the result into f."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000571",
+      "correct_answer": "D",
+      "explanation": "There are 6³ = 216 outcomes. The number with all different values is 6 × 5 × 4 = 120. 120/216 = 5/9.",
+      "distractor_explanations": {
+        "A": "1/36 is the probability that all three numbers are the same.",
+        "B": "1/6 is the probability of one particular number on one roll.",
+        "C": "5/18 = 60/216 multiplies 5 × 4 × 3, starting with 5 instead of 6 choices."
+      },
+      "hints": [
+        "How many choices does each roll have if it must differ from earlier rolls?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply 6/6 × 5/6 × 4/6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000572",
+      "correct_answer": "A",
+      "explanation": "The length of AB is √(6² + 8²) = 10, so the distance from the midpoint to A is half of that: 5. (The midpoint is (4, 6).)",
+      "distractor_explanations": {
+        "B": "2√13 is the distance from the origin to the midpoint (4, 6).",
+        "C": "10 is the whole length of AB.",
+        "D": "25 is the square of the correct distance."
+      },
+      "hints": [
+        "How does the distance from the midpoint to A compare with AB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find AB, then halve it."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000573",
+      "correct_answer": "B",
+      "explanation": "(2 + i)(2 − i) = 4 − i² = 4 + 1 = 5. Then 5 + i² = 5 − 1 = 4.",
+      "distractor_explanations": {
+        "A": "2 computes (2 + i)(2 − i) as 4 − 1 = 3 and then adds i² = −1.",
+        "C": "5 is only the product and ignores the + i².",
+        "D": "6 treats i² as +1 in the final step."
+      },
+      "hints": [
+        "What is i²?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply conjugates: a² + b²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000574",
+      "correct_answer": "B",
+      "explanation": "(a + b)² = a² + 2ab + b², so a² + b² = 20² − 2(91) = 400 − 182 = 218. (The numbers are 7 and 13: 49 + 169 = 218.)",
+      "distractor_explanations": {
+        "A": "182 is 2ab, the term to be subtracted.",
+        "C": "309 = 400 − 91 subtracts the product once instead of twice.",
+        "D": "400 squares the sum and forgets the 2ab term."
+      },
+      "hints": [
+        "How does (a + b)² relate to a² + b²?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand (a + b)²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000575",
+      "correct_answer": "D",
+      "explanation": "The square's diagonal is the circle's diameter, 12, so the square's side is 12/√2 = 6√2 and its area is 72. The region's area is 36π − 72.",
+      "distractor_explanations": {
+        "A": "36π − 144 uses the diameter, 12, as the square's side; the result is negative.",
+        "B": "144 − 36π is the area inside a square of side 12 but outside a circle inscribed in it, the reverse figure.",
+        "C": "36π − 36 uses the radius, 6, as the square's side."
+      },
+      "hints": [
+        "Which length of the square equals the circle's diameter?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square's diagonal through the center."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000576",
+      "correct_answer": "B",
+      "explanation": "86 − 70 = 16 points above the mean, and 16 ÷ 8 = 2 standard deviations.",
+      "distractor_explanations": {
+        "A": "1 would be a score of 78.",
+        "C": "8 is the size of one standard deviation, not the number of them.",
+        "D": "16 is the number of points above the mean, not standard deviations."
+      },
+      "hints": [
+        "How many points above the mean is 86?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(86 − 70) ÷ 8."
       }
     }
   ]

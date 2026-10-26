@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 18,
-  "updated_at": "2026-10-26T22:56:38+00:00",
+  "version": 19,
+  "updated_at": "2026-10-26T23:16:31+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -201,6 +201,17 @@
       "word_count": 259,
       "text": "The summer I turned sixteen, I took a job sweeping floors at Hanley & Daughters, a bookbindery that had operated on Water Street since 1934. The shop {{1|smelled of glue, leather, and old paper,}} and the radio on the workbench played the same baseball station all day. {{2|Mrs. Hanley was the owner, she}} had been binding books in that room for almost fifty years.\n\nFor the first few weeks, I only swept and watched. Mrs. Hanley folded large printed sheets into sections called signatures, sewed the signatures together along their spines, and {{3|then she glued}} each sewn block into a cover. Each of the hundreds of books on her shelves {{4|were}} sewn by hand. She never used the machine that sat in the corner, {{5|which she called \"the shortcut.\"}}\n\nIn August, she finally let me bind a book of my own. My first attempt was a disaster. The stitches were uneven, the spine leaned to one side, and the cover {{6|wouldn't hardly}} close. I expected her to drop it in the scrap bin. {{7|Nevertheless,}} Mrs. Hanley studied it for a long time, turning it over in her hands, before she gave it back to me. \"Now make one with {{8|less}} knots,\" she said.\n\nI made eleven more books before school started again. {{9|}} Each one was a little better than the last. By the twelfth, the stitches were even, the spine was straight, and the cover closed {{10|flatly and evenly without any gaps.}} Mrs. Hanley put that book on the shelf beside her own, and it is still there today.",
       "batch": 18,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000019",
+      "title": "The Town That Turned Down Its Lights",
+      "genre": "informational essay",
+      "word_count": 236,
+      "text": "When the town of Alder Falls replaced its old streetlights in 2015, few residents {{1|expected, that}} the change would make news. The new fixtures, {{2|which pointed}} their light downward instead of outward, were chosen mainly to save electricity. Within a year, however, the town had become a destination for stargazers.\n\n{{3|The town also hosts a popular summer fair each July.}} Under the old lights, which scattered their glow in every direction, only the brightest stars had been visible. Now, on clear nights, visitors spread blankets across the town park and watched meteors until dawn. The local diner began staying open past midnight, and two motels that had nearly closed were suddenly full on {{4|weekends; their}} owners credited the darkness.\n\nNot everyone was pleased at first. A group of shop owners {{5|were}} worried that customers would feel unsafe on darker sidewalks. {{6|For example,}} the town council studied police records and found that reported crimes had not increased since the change. The council voted {{7|unanimously}} to keep the new lights and later passed a rule requiring that any new outdoor lights in town be shielded {{8|so that their light falls only downward toward the ground below them.}}\n\nToday, Alder Falls holds a star party every August. Astronomers set up telescopes on the {{9|librarys'}} lawn, and children line up to see the rings of Saturn. {{10|The darkness that once worried shop owners is now part of the town's routine.}}",
+      "batch": 19,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -13368,6 +13379,642 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-018.review.json",
         "computation": "checks/act_english/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000187",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary comma before a that-clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 1,
+      "evidence": "few residents",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "expected that",
+        "C": "expected: that",
+        "D": "expected; that"
+      },
+      "correct_answer": "B",
+      "explanation": "\"That the change would make news\" is the object of \"expected,\" so no punctuation belongs between them.",
+      "distractor_explanations": {
+        "A": "No comma belongs between a verb and the clause that is its object.",
+        "C": "A colon cannot separate a verb from its object.",
+        "D": "A semicolon must join two independent clauses; \"that the change would make news\" is not one."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does anything need to separate the verb from what follows it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove punctuation between a verb and its object."
+      },
+      "remember": "Don't separate a verb from its object with punctuation.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-01",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000188",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Nonessential clause with \"which\"",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 2,
+      "evidence": "were chosen mainly to save electricity",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "they pointed",
+        "C": "which pointing",
+        "D": "and pointed"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Which pointed their light downward instead of outward\" is a nonessential clause describing the fixtures, correctly set off by commas.",
+      "distractor_explanations": {
+        "B": "This creates a second independent clause inside the sentence, which becomes ungrammatical.",
+        "C": "\"Which\" needs a finite verb; \"pointing\" is not one.",
+        "D": "\"And pointed\" leaves \"The new fixtures\" without a verb before \"were chosen.\""
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the main verb of the sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the main verb (\"were chosen\"), then check what the clause between commas needs."
+      },
+      "remember": "A clause between commas must not create a second main clause.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-02",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000189",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Introducing a paragraph (topic sentence)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 3,
+      "evidence": "only the brightest stars had been visible",
+      "figure": null,
+      "stem": "Which choice most effectively introduces the main idea of the paragraph?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Stargazing has been a popular hobby in many countries for centuries.",
+        "C": "Suddenly, the Milky Way could be seen from Main Street.",
+        "D": "Streetlights were first installed in many cities during the 1800s."
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph explains why stargazers came: the sky became dark enough to see stars. C states that reason and links to the last sentence of paragraph 1.",
+      "distractor_explanations": {
+        "A": "The summer fair is unrelated to the paragraph's focus on the newly visible stars.",
+        "B": "This is too general; the paragraph is about what changed in Alder Falls.",
+        "D": "The history of streetlights is not the paragraph's subject."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the rest of the paragraph about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize the paragraph, then choose the sentence that introduces it."
+      },
+      "remember": "A topic sentence previews the paragraph and connects to what came before.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-03",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: 'Suddenly' paired with the 'Now' sentence and past-tense narration reads fine, but the original sentence's present tense 'hosts' versus past-tense narrative makes A conspicuously off-topic, making the item quite easy."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000190",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Semicolon between independent clauses",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 4,
+      "evidence": "two motels that had nearly closed were suddenly full on",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "weekends, their",
+        "C": "weekends their",
+        "D": "weekends, and, their"
+      },
+      "correct_answer": "A",
+      "explanation": "Both \"two motels … were suddenly full on weekends\" and \"their owners credited the darkness\" are independent clauses, so a semicolon correctly joins them.",
+      "distractor_explanations": {
+        "B": "A comma alone between two independent clauses creates a comma splice.",
+        "C": "With no punctuation, the two independent clauses run together.",
+        "D": "No comma belongs after \"and\" here."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Are both sides of the punctuation complete sentences?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate comma splices and run-ons."
+      },
+      "remember": "A semicolon can join two closely related complete sentences.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-04",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000191",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (response)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 6,
+      "evidence": "A group of shop owners",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Likewise,",
+        "C": "In other words,",
+        "D": "In response,"
+      },
+      "correct_answer": "D",
+      "explanation": "The shop owners raised a concern, and the council then investigated it: the second sentence is a response, so \"In response\" fits.",
+      "distractor_explanations": {
+        "A": "The council's study is not an example of the shop owners' worry.",
+        "B": "The council's study does not resemble the worry; it responds to it.",
+        "C": "The second sentence does not restate the first."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "C": "wrong_transition"
+      },
+      "hints": [
+        "How is the council's action related to the shop owners' worry?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"because of this concern.\""
+      },
+      "remember": "Name the relationship between sentences before choosing a transition.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-06",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000192",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (word choice)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 7,
+      "evidence": "The council voted",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "with everybody totally agreeing",
+        "C": "in a unanimous way all together",
+        "D": "all as one in a unanimous vote"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Unanimously\" says, in one word, that every member voted the same way.",
+      "distractor_explanations": {
+        "B": "This is wordy and too informal for the essay.",
+        "C": "\"Unanimous\" already means \"all together\"; this is redundant.",
+        "D": "This repeats \"voted\" and \"all as one\" redundantly."
+      },
+      "distractor_traps": {
+        "B": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice says the same thing in the fewest words?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest choice that keeps the meaning."
+      },
+      "remember": "When choices mean the same, prefer the concise one.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-07",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000193",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (redundancy)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 8,
+      "evidence": "any new outdoor lights in town be shielded",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "so that their light falls only downward.",
+        "C": "so that the light they give falls only down toward the ground.",
+        "D": "so that, falling downward, their light falls only toward the ground below."
+      },
+      "correct_answer": "B",
+      "explanation": "\"Downward\" already means toward the ground, so the extra phrase is redundant. B states the idea once.",
+      "distractor_explanations": {
+        "A": "\"Downward\" and \"toward the ground below them\" say the same thing.",
+        "C": "\"Down toward the ground\" is still redundant and wordier.",
+        "D": "This repeats \"falling\" and \"downward\" redundantly."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which words repeat an idea already stated?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Cut words that repeat \"downward.\""
+      },
+      "remember": "Remove phrases that repeat an idea in other words.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-08",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: C ('falls only down toward the ground') is only mildly redundant; acceptable as a distractor since B is clearly most concise with no meaning loss."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000194",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 9,
+      "evidence": "Astronomers set up telescopes on the",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "libraries'",
+        "C": "library's",
+        "D": "libraries"
+      },
+      "correct_answer": "C",
+      "explanation": "The lawn belongs to one library, so the singular possessive \"library's\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Librarys'\" is not a correct form of any word.",
+        "B": "\"Libraries'\" is plural; the town has one library lawn here.",
+        "D": "\"Libraries\" is a plural with no apostrophe, so it does not show possession."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many libraries are there, and does the lawn belong to one?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide singular or plural, then add the possessive."
+      },
+      "remember": "Singular possessive: add 's.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-09",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000195",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Concluding sentence that links to the introduction",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000019",
+      "underline": 10,
+      "evidence": "were chosen mainly to save electricity",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by connecting to the reason the town replaced its lights?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Saturn's rings are easiest to see through a telescope on a late-summer night.",
+        "C": "Several nearby towns have since passed similar rules about outdoor lighting.",
+        "D": "Lights chosen to save electricity have given the town its stars."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 1 says the lights were chosen \"mainly to save electricity.\" D links that purpose to the unplanned result, the visible stars.",
+      "distractor_explanations": {
+        "A": "This mentions the shop owners' worry but not the original reason for the new lights.",
+        "B": "This is about astronomy, not the reason for the change.",
+        "C": "This adds new information rather than connecting to the reason for the change."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "true_but_irrelevant",
+        "C": null
+      },
+      "hints": [
+        "Why did the town replace its lights?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the reason in paragraph 1, then look for it in a choice."
+      },
+      "remember": "A strong conclusion echoes the introduction.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "E019-10",
+      "created_at": "2026-10-26T23:16:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: A is a reasonable conclusion in general (links to shop owners), which is the intended trap; stem's explicit 'reason the town replaced its lights' (saving electricity) cleanly selects D."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-019.review.json",
+        "computation": "checks/act_english/batch_019.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
