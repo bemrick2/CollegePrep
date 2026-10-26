@@ -100,4 +100,20 @@ describe('demo check rules (#279 proposed contract)', () => {
     expect(saved.metrics).toMatchObject({ answered: 3, correct: 3 })
     // Without `resumed`, the client's record is kept as it is (it saw the whole check).
   })
+
+  it('(#291 confirm) a check id of another student is refused even with one’s own id; completion is closed at once (no double save)', async () => {
+    const a = await student()
+    const bmA = await a.src.startBenchmark(a.sid, 'initial', 'act')
+    // A second student, another user, in the same store.
+    const bsrc = new DemoSource(a.store)
+    bsrc.switchPersona('u-test-bo', 'Bo')
+    const b = { src: bsrc, sid: await bsrc.createSelfStudentProfile({ displayName: 'Bo', graduationYear: null, gradeLevel: 10, independent: false, timeZone: 'UTC' }) }
+    await expect(b.src.benchmarkProgress(bmA, b.sid)).rejects.toThrow(/not an open benchmark of this student/)
+    await expect(b.src.benchmarkQuestions(bmA, b.sid)).rejects.toThrow()
+    const summary = { id: 'x', kind: 'initial', exam_family: 'act', started_at: '', completed_at: '', attempt_ids: [], metrics: {} } as never
+    await expect(b.src.completeBenchmark(b.sid, bmA, summary)).rejects.toThrow()
+    a.src.switchPersona(DEMO_STUDENT, 'Ava')
+    const two = await Promise.allSettled([a.src.completeBenchmark(a.sid, bmA, summary, { resumed: true }), a.src.completeBenchmark(a.sid, bmA, summary, { resumed: true })])
+    expect(two.map((r) => r.status).sort()).toEqual(['fulfilled', 'rejected'])
+  })
 })

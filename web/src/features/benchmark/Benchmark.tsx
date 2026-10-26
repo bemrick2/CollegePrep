@@ -367,7 +367,8 @@ export function Benchmark() {
       const [list, prog, opts] = await Promise.all([
         source.benchmarkQuestions(id, student.id, exam),
         source.benchmarkProgress(id, student.id),
-        startedAt ? Promise.resolve(null) : source.benchmarkOptions(student.id, exam),
+        // Only for the start time; if it fails, the check still resumes (the time falls back to now).
+        startedAt ? Promise.resolve(null) : source.benchmarkOptions(student.id, exam).catch(() => null),
       ])
       const sections = SECTION_ORDER[exam].flatMap((sec) => {
         const p = prog.find((x) => x.section === sec)
@@ -449,7 +450,7 @@ export function Benchmark() {
             <Compass size={28} />
           </span>
           <h1 className="display mt-4 text-[32px] font-semibold leading-tight text-ink">
-            {chosenKind === 'initial' ? "Let's find your starting point" : 'Check how far you have come'}
+            {chosenKind === 'initial' || (history.data?.length ?? 0) === 0 ? "Let's find your starting point" : 'Check how far you have come'}
           </h1>
           <p className="mt-2 text-ink-2">
             {bplan
@@ -477,8 +478,8 @@ export function Benchmark() {
             )
           )}
           {error && (
-            <Notice tone="bad" title="The check didn't start" className="mt-4">
-              {error}
+            <Notice tone="bad" title={/expired|not an open benchmark/i.test(error) ? 'That progress check has closed' : "The check didn't start"} className="mt-4">
+              {/expired|not an open benchmark/i.test(error) ? 'Checks close 4 hours after they start. Your answers in it are saved.' : error}
             </Notice>
           )}
           {options.length > 1 && (
@@ -525,6 +526,9 @@ export function Benchmark() {
                 const prog = await source.benchmarkProgress(id, student.id)
                 if (prog.some((p) => p.used > 0)) resumeId = id
                 else {
+                  // The server may have returned a check opened elsewhere: use its start time when it says so.
+                  const fresh = await source.benchmarkOptions(student.id, exam).catch(() => null)
+                  if (fresh?.open?.id === id && fresh.open.startedAt) run.current.startedAt = fresh.open.startedAt
                   run.current.benchmarkId = id
                   // The check's own reserved items, now readable; its plan is sized from them.
                   const list = await source.benchmarkQuestions(id, student.id, exam)

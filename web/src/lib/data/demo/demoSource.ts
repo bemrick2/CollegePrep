@@ -863,9 +863,9 @@ export class DemoSource implements DataSource {
     this.requireLinked(studentId)
     // Like complete_benchmark: only the student's own live check closes, once.
     const c = this.liveCheck(benchmarkId, studentId)
+    c.completed = true // closed at once (the row and its assignment stay), so a second call is refused even mid-way
     // The server computes metrics from every attempt in the check; a resumed client saw only part of them.
     const summary = opts.resumed ? { ...client, id: benchmarkId, ...(await this.checkMetrics(benchmarkId, studentId)) } : { ...client, id: benchmarkId }
-    c.completed = true // closed (the row and its assignment stay)
     ;(this.s.benchmarks[studentId] ??= []).push(summary)
     this.commit()
     return delay(summary)

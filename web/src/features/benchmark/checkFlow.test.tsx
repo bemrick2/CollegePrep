@@ -301,7 +301,7 @@ describe('check error path', () => {
     // The page re-reads the server's options after the error, so wait for the settled screen, not the first render.
     await waitFor(
       () => {
-        expect(screen.getByText(/expired/)).toBeInTheDocument()
+        expect(screen.getByText('That progress check has closed')).toBeInTheDocument()
         expect(screen.getByText(/Your next progress check opens on/)).toBeInTheDocument()
         expect(screen.queryByRole('button', { name: 'Resume the check' })).not.toBeInTheDocument()
       },
@@ -327,7 +327,7 @@ describe('check error path', () => {
 
   it('a resumed check is completed as resumed (the server’s metrics, not this screen’s partial record), and home offers Resume', async () => {
     const user = userEvent.setup()
-    const { src, sid } = await riley()
+    const { src, sid, store } = await riley()
     const bm = await src.startBenchmark(sid, 'initial', 'act')
     const total = (await src.benchmarkProgress(bm, sid)).reduce((n, p) => n + p.assigned, 0)
     await answerElsewhere(src, sid, bm, total - 1)
@@ -348,7 +348,39 @@ describe('check error path', () => {
     await user.click(screen.getByRole('button', { name: 'Fairly sure' }))
     await waitFor(() => expect(complete).toHaveBeenCalled(), { timeout: 8000 })
     expect(complete.mock.calls[0]![3]).toEqual({ resumed: true })
+    expect(complete.mock.calls[0]![2].started_at).toBe(store.checks![bm]!.startedAt) // the server's start time, not the reload's
     const saved = await complete.mock.results[0]!.value
     expect(saved.attempt_ids).toHaveLength(total)
+  }, 30_000)
+
+  it('(#291 confirm) dates are the student’s own; a resumed check keeps the server’s start time; home follows the server for a mini after an abandoned start', async () => {
+    vi.useFakeTimers({ toFake: ['Date'], shouldAdvanceTime: true })
+    // 8:30pm in Chicago on Oct 26 is Oct 27 in UTC; a week later the next check opens on Nov 2, Chicago time.
+    vi.setSystemTime(new Date('2026-10-27T01:30:00Z'))
+    const user = userEvent.setup()
+    const { src, sid } = await riley()
+    const bm = await src.startBenchmark(sid, 'initial', 'act')
+    await answerElsewhere(src, sid, bm, 1)
+    show(src)
+    await user.click(await screen.findByRole('button', { name: 'Resume the check' }, { timeout: 8000 }))
+    await screen.findAllByRole('radio', {}, { timeout: 8000 })
+    cleanup()
+    // Expired, unanswered beyond one item: the next check opens a week after the start, shown in Chicago time.
+    vi.setSystemTime(new Date('2026-10-27T06:00:00Z'))
+    show(src)
+    expect(await screen.findByText(/Your next progress check opens on/, {}, { timeout: 8000 })).toHaveTextContent(/Nov 2\b/)
+    cleanup()
+    // A week later a mini is allowed: home offers it rather than "no check can start".
+    vi.setSystemTime(new Date('2026-11-03T12:00:00Z'))
+    render(
+      <MemoryRouter initialEntries={['/student']}>
+        <AppProvider source={src}>
+          <App />
+        </AppProvider>
+      </MemoryRouter>,
+    )
+    expect(await screen.findByText('Mini benchmark', {}, { timeout: 8000 })).toBeInTheDocument()
+    expect(screen.queryByText('No progress check can be started right now')).not.toBeInTheDocument()
+    vi.useRealTimers()
   }, 30_000)
 })

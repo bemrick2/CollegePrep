@@ -64,7 +64,9 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
   const co = checkOpts.data ?? null
   const openCheck = co?.open ?? null
   const checkDue = o.benchmarks.length > 0 && schedule.inDays === 0 && (co ? co.miniAllowed || co.fullAllowed : true)
-  const startingBlocked = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.open
+  const startingBlocked = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.miniAllowed && !co.fullAllowed && !co.open
+  // No completed check, but the server offers a mini (an abandoned starting check, a week later).
+  const miniInstead = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.open && (co.miniAllowed || co.fullAllowed)
   const lastWeekStart = addDays(o.weekStart, -7)
   const recap = o.lastWeek && showRecap(o.today, o.weekStart) ? weekRecap({ weekStart: lastWeekStart, tz: o.tz, plan: o.plan, week: o.lastWeek, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates }) : null
   const hour = new Date().getHours()
@@ -78,6 +80,14 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
           cta: 'Resume the check',
           to: '/student/benchmark',
           detail: 'Questions you were already shown stay used, and no new ones are added. Checks close 4 hours after they start.',
+        }
+      : miniInstead
+      ? {
+          title: 'Mini benchmark',
+          length: 'About 15 minutes',
+          cta: 'Start progress check',
+          to: '/student/benchmark?kind=mini',
+          detail: 'Your starting check closed before it was finished, so the next one is a mini check. It finds your strengths and gaps for the plan.',
         }
       : startingBlocked
       ? {
@@ -186,7 +196,7 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
             </div>
           )}
           {/* An open or blocked starting check uses the next-step card below; otherwise the first steps. */}
-          {o.benchmarks.length === 0 && !openCheck && !startingBlocked ? (
+          {o.benchmarks.length === 0 && !openCheck && !startingBlocked && !miniInstead ? (
             <div className={cx(!fresh && 'pt-5 md:pt-6')}>
               <h2 id="next-title" className="mb-3 text-sm font-semibold text-ink-3">
                 {practicedToday ? 'Today' : 'Next up'}
