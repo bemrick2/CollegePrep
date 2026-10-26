@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 63,
+ "plan": "2 hard (f(f(x)) = 0 count, committee majority symmetry) / 6 medium / 2 easy; concepts searched in the bank before drafting.",
+ "candidates": [
+  {
+   "cand": "B063-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Number of sides from an interior angle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "Each interior angle of a regular polygon measures 150°. How many sides does the polygon have?",
+   "choices": {
+    "A": "5",
+    "B": "6",
+    "C": "10",
+    "D": "12"
+   },
+   "answer": "D",
+   "explanation": "Each exterior angle is 180° − 150° = 30°. The exterior angles sum to 360°, so there are 360° ÷ 30° = 12 sides.",
+   "distractors": {
+    "A": {
+     "rationale": "5 divides 150 by 30.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "6 divides 180 by 30.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10 uses an exterior angle of 36°.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is each exterior angle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Exterior = 180 − interior; n = 360 ÷ exterior."
+   },
+   "remember": "Exterior angles of any convex polygon sum to 360°.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Counting handshakes",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "At a meeting, each of 8 people shakes hands exactly once with every other person. How many handshakes take place?",
+   "choices": {
+    "A": "8",
+    "B": "28",
+    "C": "56",
+    "D": "64"
+   },
+   "answer": "B",
+   "explanation": "Each handshake is a pair of people: C(8, 2) = (8 × 7)/2 = 28.",
+   "distractors": {
+    "A": {
+     "rationale": "8 counts one handshake per person.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "56 = 8 × 7 counts each handshake twice.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "64 = 8 × 8 counts people shaking their own hands and double-counts.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Does A shaking B's hand count as a different handshake from B shaking A's?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "List the handshakes for a smaller group, such as 4 people."
+   },
+   "remember": "Unordered pairs: n(n − 1)/2.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Hypotenuse from an angle and its opposite side",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In a right triangle, the side opposite a 35° angle is 10 centimeters long. To the nearest tenth of a centimeter, how long is the hypotenuse? (sin 35° ≈ 0.574, cos 35° ≈ 0.819, tan 35° ≈ 0.700)",
+   "choices": {
+    "A": "5.7",
+    "B": "8.2",
+    "C": "14.3",
+    "D": "17.4"
+   },
+   "answer": "D",
+   "explanation": "sin 35° = opposite/hypotenuse, so hypotenuse = 10 ÷ 0.574 ≈ 17.4.",
+   "distractors": {
+    "A": {
+     "rationale": "5.7 = 10 × 0.574 multiplies by the sine instead of dividing.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "8.2 = 10 × 0.819 uses cosine and multiplies.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "14.3 = 10 ÷ 0.700 uses tangent, which gives the adjacent side.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which ratio relates the opposite side and the hypotenuse?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "sin 35° = 10/h."
+   },
+   "remember": "SOH: sine = opposite/hypotenuse.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Integer solutions of a compound inequality",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "How many integers x satisfy −3 < 2x + 1 ≤ 7 ?",
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "6",
+    "D": "7"
+   },
+   "answer": "B",
+   "explanation": "Subtract 1: −4 < 2x ≤ 6. Divide by 2: −2 < x ≤ 3. The integers are −1, 0, 1, 2 and 3: five integers.",
+   "distractors": {
+    "A": {
+     "rationale": "4 leaves out the endpoint 3, which is included because of ≤.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "6 includes −2, which is excluded because of <.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "7 counts −3 through 3, using the original bounds without solving.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Isolate x in all three parts."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract 1 and divide by 2 throughout."
+   },
+   "remember": "Watch strict (<) versus inclusive (≤) endpoints.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-05",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Statistics & Probability",
+   "subskill": "Weighted grade-point average",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A student earned an A (4 points) in a 4-credit course, a B (3 points) in a 3-credit course and a C (2 points) in a 3-credit course. What is the student's grade-point average, weighted by credits?",
+   "choices": {
+    "A": "3.0",
+    "B": "3.1",
+    "C": "3.4",
+    "D": "31"
+   },
+   "answer": "B",
+   "explanation": "Total grade points = 4(4) + 3(3) + 2(3) = 16 + 9 + 6 = 31. Total credits = 10. GPA = 31 ÷ 10 = 3.1.",
+   "distractors": {
+    "A": {
+     "rationale": "3.0 averages 4, 3 and 2 without weighting by credits.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "3.4 weights only the A course by credits.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "31 is the total number of grade points, not the average.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Which course counts the most?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Sum of points × credits ÷ total credits."
+   },
+   "remember": "A weighted mean multiplies each value by its weight.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a quadrilateral in the coordinate plane",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "What is the area of the quadrilateral with vertices (0, 0), (6, 0), (6, 4) and (2, 4) in the standard (x, y) coordinate plane?",
+   "choices": {
+    "A": "10",
+    "B": "12",
+    "C": "16",
+    "D": "20"
+   },
+   "answer": "D",
+   "explanation": "The figure is a trapezoid with parallel sides of length 6 (on y = 0) and 4 (on y = 4) and height 4. Area = (1/2)(6 + 4)(4) = 20.",
+   "distractors": {
+    "A": {
+     "rationale": "10 adds the two parallel sides without multiplying by the height.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12 = (1/2)(6)(4) treats the figure as a triangle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "16 = 4 × 4 uses only the shorter parallel side.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which sides are parallel?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the four points."
+   },
+   "remember": "Trapezoid area = average of the parallel sides × height.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Solving a volume formula for a variable",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "The volume of a cone is V = (1/3)πr²h. Which of the following expresses h in terms of V and r ?",
+   "choices": {
+    "A": "3V/(πr²)",
+    "B": "3Vπr²",
+    "C": "3V − πr²",
+    "D": "V/(3πr²)"
+   },
+   "answer": "A",
+   "explanation": "Multiply both sides by 3: 3V = πr²h. Divide by πr²: h = 3V/(πr²).",
+   "distractors": {
+    "B": {
+     "rationale": "3Vπr² multiplies by πr² instead of dividing.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "3V − πr² subtracts πr² instead of dividing by it.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "V/(3πr²) divides by 3 instead of multiplying.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Undo the 1/3 first, then the πr²."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply by 3, then divide by πr²."
+   },
+   "remember": "Undo multiplication with division, in reverse order.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Effect on volume of changing a cylinder's dimensions",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "The radius of a right circular cylinder is doubled, and its height is cut in half. How does the volume of the new cylinder compare with the volume of the original?",
+   "choices": {
+    "A": "It is doubled.",
+    "B": "It is unchanged.",
+    "C": "It is halved.",
+    "D": "It is quadrupled."
+   },
+   "answer": "A",
+   "explanation": "V = πr²h. The new volume is π(2r)²(h/2) = π · 4r² · h/2 = 2πr²h, twice the original.",
+   "distractors": {
+    "B": {
+     "rationale": "Unchanged assumes doubling one dimension and halving another cancel, but the radius is squared.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Halved ignores the effect of doubling the radius.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Quadrupled accounts for squaring the radius but forgets that the height is halved.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Which dimension is squared in the volume formula?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try r = 1, h = 2, then r = 2, h = 1."
+   },
+   "remember": "Squared dimensions change volume by the square of the factor.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B063-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Counting solutions of f(f(x)) = 0",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "Let f(x) = x² − 2x. How many real numbers x satisfy f(f(x)) = 0 ?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "6"
+   },
+   "answer": "C",
+   "explanation": "f(u) = 0 when u = 0 or u = 2. So f(x) = 0 (x = 0 or x = 2) or f(x) = 2 (x² − 2x − 2 = 0, x = 1 ± √3). These four values are all different.",
+   "distractors": {
+    "A": {
+     "rationale": "2 counts only the solutions of f(x) = 0.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3 finds f(x) = 2 but counts only one of its two solutions.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6 assumes f(f(x)) is a sixth-degree polynomial; it is fourth-degree.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "For which values of u is f(u) = 0 ?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set f(x) equal to each root of f."
+   },
+   "remember": "Solve the outer function first, then set the inner function equal to each root.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must treat f(x) as a single unknown, then solve two separate equations; most stop at f(x) = 0."
+   }
+  },
+  {
+   "cand": "B063-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of a majority in a random committee",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "A committee of 3 people is chosen at random from a group of 4 women and 4 men. What is the probability that the committee includes more women than men?",
+   "choices": {
+    "A": "1/4",
+    "B": "3/7",
+    "C": "1/2",
+    "D": "4/7"
+   },
+   "answer": "C",
+   "explanation": "More women means 2 or 3 women: C(4, 2)C(4, 1) + C(4, 3) = 24 + 4 = 28 committees out of C(8, 3) = 56, so 28/56 = 1/2. (By symmetry, a 3-person committee has more women or more men, equally likely.)",
+   "distractors": {
+    "A": {
+     "rationale": "1/4 has no basis in the counts; it may come from (1/2)².",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3/7 = 24/56 counts only committees with exactly 2 women.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4/7 = 32/56 overcounts the committees with 3 women.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Can a 3-person committee have equal numbers of women and men?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Count committees with 2 women and with 3 women."
+   },
+   "remember": "Look for symmetry before computing.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The symmetry insight (no ties are possible, so the answer is 1/2) is non-obvious; counting requires combinations for two cases."
+   }
+  }
+ ]
+}
