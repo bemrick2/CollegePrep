@@ -22,6 +22,10 @@ python3 -I question_bank/claude/tools/qb.py lock acquire <HOLDER>
 - If any `lock checkpoint` exits **4**, you have lost the lease. Stop writing at once.
 - For the import validator, run `cd web && npm ci --no-audit --no-fund --ignore-scripts` once if `web/node_modules` is missing. Nothing is deployed; it only reads files.
 
+## Current stop point (set by the user, 2026-10-26)
+
+Stop producing when **ACT Math reaches 500 live items** and **ACT English + ACT Reading + SAT Reading & Writing reach 500 live items combined**. Until then, alternate Math and verbal batches; among verbal banks, pick the one furthest behind its target share. Once both limits are met, run the Math 400-item audit if it has not been done, checkpoint, release the lock, and do not start new batches. The scheduled check-in is disabled at that point.
+
 ## 1. Pick up where the last run stopped
 
 Read `progress.json`:
