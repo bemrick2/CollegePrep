@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 24,
+  "bank_version": 25,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -4169,6 +4169,181 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "225/180 = 5/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000239",
+      "correct_answer": "A",
+      "explanation": "−3² means −(3²) = −9, and (−2)³ = −8. The sum is −17.",
+      "distractor_explanations": {
+        "B": "−1 treats −3² as (−3)² = 9, then adds −8.",
+        "C": "1 treats −3² as 9 and (−2)³ as −8, then subtracts in the wrong order.",
+        "D": "17 makes both terms positive."
+      },
+      "hints": [
+        "Does the exponent in −3² apply to the negative sign?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "−(9) + (−8)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000240",
+      "correct_answer": "B",
+      "explanation": "The smallest is 8² = 64 and the largest is 22² = 484 (23² = 529 is too big). From 8 through 22 there are 22 − 8 + 1 = 15 squares.",
+      "distractor_explanations": {
+        "A": "14 subtracts 22 − 8 without adding 1.",
+        "C": "16 includes 7² = 49, which is less than 50.",
+        "D": "22 is the largest root, not the count."
+      },
+      "hints": [
+        "Find the smallest and largest whole numbers whose squares are in range."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8 through 22 inclusive."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000241",
+      "correct_answer": "A",
+      "explanation": "At first the top is √(25² − 7²) = 24 feet high. Afterward it is √(25² − 15²) = 20 feet high. It slides 24 − 20 = 4 feet.",
+      "distractor_explanations": {
+        "B": "5 is 25 − 20, the difference between the ladder and the new height.",
+        "C": "8 is how far the base moved, not the top.",
+        "D": "20 is the new height of the top, not the distance it slid."
+      },
+      "hints": [
+        "Find the height of the top before and after.",
+        "Each position is a right triangle with hypotenuse 25."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "24 − 20 = 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000242",
+      "correct_answer": "D",
+      "explanation": "12.5 is the coefficient of t, so it is the rate of change: G decreases by 12.5 gallons for each minute.",
+      "distractor_explanations": {
+        "A": "The starting amount is 350, the constant term.",
+        "B": "The tank is empty when 350 − 12.5t = 0, at t = 28 minutes.",
+        "C": "The minus sign shows the amount decreases."
+      },
+      "hints": [
+        "Which term changes as t changes?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare t = 0 and t = 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000243",
+      "correct_answer": "B",
+      "explanation": "Area = (1/2)(PQ)(PR) sin P = (1/2)(8)(10)(√3/2) = 20√3.",
+      "distractor_explanations": {
+        "A": "20 uses sin 30° = 1/2 instead of sin 60°.",
+        "C": "40 is (1/2)(8)(10), leaving out the sine.",
+        "D": "40√3 leaves out the factor 1/2."
+      },
+      "hints": [
+        "Which formula uses two sides and the angle between them?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(1/2)ab sin C."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000244",
+      "correct_answer": "C",
+      "explanation": "Lowering one value by 36 lowers the sum, so the mean decreases by 36/7. The value remains the largest, so the order of the values is unchanged and the middle value is still 40.",
+      "distractor_explanations": {
+        "A": "The median depends only on the middle value, which did not change.",
+        "B": "The sum, and therefore the mean, decreases.",
+        "D": "This reverses the effects on the mean and the median."
+      },
+      "hints": [
+        "Does the middle value change?",
+        "Does the sum change?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the mean and the median separately."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000245",
+      "correct_answer": "C",
+      "explanation": "Each vertex connects by a diagonal to the 7 vertices that are not itself or its neighbors: 10 × 7 = 70, and each diagonal is counted twice, so 70 ÷ 2 = 35.",
+      "distractor_explanations": {
+        "A": "10 is the number of sides.",
+        "B": "20 counts two diagonals per vertex.",
+        "D": "45 = C(10, 2) counts all segments between vertices, including the 10 sides."
+      },
+      "hints": [
+        "From one vertex, how many other vertices can you reach by a diagonal?",
+        "Is each diagonal counted twice?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "10 × 7 ÷ 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000246",
+      "correct_answer": "B",
+      "explanation": "Coupon first: (80 − 10) × 0.75 = $52.50. Discount first: 80 × 0.75 − 10 = $50.00. The difference is $2.50.",
+      "distractor_explanations": {
+        "A": "$0 assumes the order does not matter.",
+        "C": "$7.50 is 25% of $30, not related to the difference in orders.",
+        "D": "$10 is the coupon itself."
+      },
+      "hints": [
+        "Compute both orders.",
+        "Why does applying the coupon first cost more?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "52.50 − 50.00."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000247",
+      "correct_answer": "C",
+      "explanation": "Adding the two equations gives (2x + 4x) + (−3y + y) = 7 + 21, so 6x − 2y = 28.",
+      "distractor_explanations": {
+        "A": "14 is twice the first equation's constant.",
+        "B": "21 is the second equation's constant alone.",
+        "D": "35 adds 7 to 28."
+      },
+      "hints": [
+        "Compare 6x − 2y with the sum of the two left sides."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the equations."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000248",
+      "correct_answer": "D",
+      "explanation": "|x² − 4| = 3 means x² − 4 = 3 or x² − 4 = −3, so x² = 7 or x² = 1. That gives x = ±√7 and x = ±1: four solutions.",
+      "distractor_explanations": {
+        "A": "1 counts only x = 1.",
+        "B": "2 solves only x² − 4 = 3 and forgets the negative case.",
+        "C": "3 drops one sign from one of the cases."
+      },
+      "hints": [
+        "Split the absolute value into two equations.",
+        "How many solutions does each give?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch y = |x² − 4| and the line y = 3."
       }
     }
   ]

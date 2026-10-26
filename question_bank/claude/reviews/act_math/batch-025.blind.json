@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 25},
+ "answers": {
+  "B025-01": {"answer": "A", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "-3^2 = -9 (exponent before negation); (-2)^3 = -8; sum -17. Order-of-operations trap (-1 from treating as +9) catches some."},
+  "B025-02": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "8^2=64 through 22^2=484 -> 22-8+1 = 15. Off-by-one trap gives 14; 22 distractor is the top root."},
+  "B025-03": {"answer": "A", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "Initial height sqrt(625-49)=24; final sqrt(625-225)=20; slide 4. Two Pythagorean steps."},
+  "B025-04": {"answer": "D", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": [], "notes": "Slope -12.5 gal/min: loses 12.5 gallons each minute."},
+  "B025-05": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "Area = 1/2*8*10*sin60 = 20*sqrt3. Requires the SAS area formula or drawing an altitude (8 sin60 = 4sqrt3)."},
+  "B025-06": {"answer": "C", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "Sum drops by 36 so mean drops; largest value stays largest, so the middle (4th) value is unchanged -> median unchanged."},
+  "B025-07": {"answer": "C", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "n(n-3)/2 = 10*7/2 = 35. 45 = C(10,2) trap if sides not subtracted."},
+  "B025-08": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": ["minor: 'A $80' reads awkwardly; 'An $80' is standard."], "notes": "Coupon first: 0.75*70 = 52.50; coupon after: 60-10 = 50.00; difference $2.50."},
+  "B025-09": {"answer": "C", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy", "flags": [], "notes": "Adding the equations gives 6x-2y = 28 directly (or x=5, y=1). Solving the system is routine with a calculator; easy-medium border."},
+  "B025-10": {"answer": "D", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "x^2-4 = 3 -> x=+-sqrt7; x^2-4 = -3 -> x=+-1. Four solutions. Trap: forget the negative case (answer 2)."}
+ }}

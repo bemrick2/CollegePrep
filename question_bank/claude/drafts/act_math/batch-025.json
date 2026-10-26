@@ -1,0 +1,465 @@
+{
+ "bank": "act_math",
+ "batch": 25,
+ "plan": "Ten items; stems searched against the bank first to avoid close repeats. 2 hard (moving ladder, |x² − 4| = 3) / 6 medium / 2 easy.",
+ "candidates": [
+  {
+   "cand": "B025-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Order of operations with negative signs",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "What is the value of −3² + (−2)³ ?",
+   "choices": {
+    "A": "−17",
+    "B": "−1",
+    "C": "1",
+    "D": "17"
+   },
+   "answer": "A",
+   "explanation": "−3² means −(3²) = −9, and (−2)³ = −8. The sum is −17.",
+   "distractors": {
+    "B": {
+     "rationale": "−1 treats −3² as (−3)² = 9, then adds −8.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "1 treats −3² as 9 and (−2)³ as −8, then subtracts in the wrong order.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "17 makes both terms positive.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Does the exponent in −3² apply to the negative sign?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "−(9) + (−8)."
+   },
+   "remember": "Without parentheses, the exponent applies before the negative.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Counting perfect squares in a range",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "How many perfect squares are greater than 50 and less than 500 ?",
+   "choices": {
+    "A": "14",
+    "B": "15",
+    "C": "16",
+    "D": "22"
+   },
+   "answer": "B",
+   "explanation": "The smallest is 8² = 64 and the largest is 22² = 484 (23² = 529 is too big). From 8 through 22 there are 22 − 8 + 1 = 15 squares.",
+   "distractors": {
+    "A": {
+     "rationale": "14 subtracts 22 − 8 without adding 1.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "16 includes 7² = 49, which is less than 50.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "22 is the largest root, not the count.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find the smallest and largest whole numbers whose squares are in range."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "8 through 22 inclusive."
+   },
+   "remember": "Counting from a to b inclusive gives b − a + 1.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Pythagorean theorem with a moving ladder",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A 25-foot ladder leans against a vertical wall with its base 7 feet from the wall. The base is then pulled outward until it is 15 feet from the wall, and the top slides down the wall. How many feet does the top of the ladder slide down?",
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "8",
+    "D": "20"
+   },
+   "answer": "A",
+   "explanation": "At first the top is √(25² − 7²) = 24 feet high. Afterward it is √(25² − 15²) = 20 feet high. It slides 24 − 20 = 4 feet.",
+   "distractors": {
+    "B": {
+     "rationale": "5 is 25 − 20, the difference between the ladder and the new height.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 is how far the base moved, not the top.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "20 is the new height of the top, not the distance it slid.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find the height of the top before and after.",
+    "Each position is a right triangle with hypotenuse 25."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "24 − 20 = 4."
+   },
+   "remember": "Find both positions, then subtract.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "two right triangles; tempting to equate base and top movement"
+   }
+  },
+  {
+   "cand": "B025-04",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Algebra",
+   "subskill": "Interpreting a coefficient in a linear model",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "The number of gallons of water G remaining in a tank t minutes after a drain is opened is given by G = 350 − 12.5t. Which of the following is the best interpretation of 12.5 in this equation?",
+   "choices": {
+    "A": "The tank held 12.5 gallons before the drain was opened.",
+    "B": "The tank will be empty after 12.5 minutes.",
+    "C": "The tank gains 12.5 gallons each minute.",
+    "D": "The tank loses 12.5 gallons each minute."
+   },
+   "answer": "D",
+   "explanation": "12.5 is the coefficient of t, so it is the rate of change: G decreases by 12.5 gallons for each minute.",
+   "distractors": {
+    "A": {
+     "rationale": "The starting amount is 350, the constant term.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "The tank is empty when 350 − 12.5t = 0, at t = 28 minutes.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The minus sign shows the amount decreases.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Which term changes as t changes?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compare t = 0 and t = 1."
+   },
+   "remember": "The coefficient of the variable is the rate of change.",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a triangle from two sides and the included angle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In triangle PQR, PQ = 8, PR = 10, and the measure of angle P is 60°. What is the area of the triangle?",
+   "choices": {
+    "A": "20",
+    "B": "20√3",
+    "C": "40",
+    "D": "40√3"
+   },
+   "answer": "B",
+   "explanation": "Area = (1/2)(PQ)(PR) sin P = (1/2)(8)(10)(√3/2) = 20√3.",
+   "distractors": {
+    "A": {
+     "rationale": "20 uses sin 30° = 1/2 instead of sin 60°.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "40 is (1/2)(8)(10), leaving out the sine.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "40√3 leaves out the factor 1/2.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Which formula uses two sides and the angle between them?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(1/2)ab sin C."
+   },
+   "remember": "Area = (1/2)ab sin C for the included angle C.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Effect of correcting a data value on mean and median",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A data set of 7 values has a median of 40. The largest value was recorded as 95 but should have been 59; after the correction, 59 is still the largest value. Which statement must be true after the correction?",
+   "choices": {
+    "A": "Both the mean and the median decrease.",
+    "B": "Both the mean and the median are unchanged.",
+    "C": "The mean decreases and the median is unchanged.",
+    "D": "The mean is unchanged and the median decreases."
+   },
+   "answer": "C",
+   "explanation": "Lowering one value by 36 lowers the sum, so the mean decreases by 36/7. The value remains the largest, so the order of the values is unchanged and the middle value is still 40.",
+   "distractors": {
+    "A": {
+     "rationale": "The median depends only on the middle value, which did not change.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "The sum, and therefore the mean, decreases.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This reverses the effects on the mean and the median.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Does the middle value change?",
+    "Does the sum change?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Check the mean and the median separately."
+   },
+   "remember": "Changing an extreme value moves the mean but not the median.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Counting diagonals of a polygon",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "How many diagonals does a convex polygon with 10 sides have?",
+   "choices": {
+    "A": "10",
+    "B": "20",
+    "C": "35",
+    "D": "45"
+   },
+   "answer": "C",
+   "explanation": "Each vertex connects by a diagonal to the 7 vertices that are not itself or its neighbors: 10 × 7 = 70, and each diagonal is counted twice, so 70 ÷ 2 = 35.",
+   "distractors": {
+    "A": {
+     "rationale": "10 is the number of sides.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "20 counts two diagonals per vertex.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "45 = C(10, 2) counts all segments between vertices, including the 10 sides.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "From one vertex, how many other vertices can you reach by a diagonal?",
+    "Is each diagonal counted twice?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "10 × 7 ÷ 2."
+   },
+   "remember": "Diagonals: n(n − 3)/2.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-08",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Order of a percent discount and a coupon",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "An $80 jacket is on sale for 25% off, and a customer also has a $10 coupon. How much more does the customer pay if the coupon is applied before the 25% discount than if it is applied after the discount?",
+   "choices": {
+    "A": "$0",
+    "B": "$2.50",
+    "C": "$7.50",
+    "D": "$10"
+   },
+   "answer": "B",
+   "explanation": "Coupon first: (80 − 10) × 0.75 = $52.50. Discount first: 80 × 0.75 − 10 = $50.00. The difference is $2.50.",
+   "distractors": {
+    "A": {
+     "rationale": "$0 assumes the order does not matter.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$7.50 is 25% of $30, not related to the difference in orders.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$10 is the coupon itself.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Compute both orders.",
+    "Why does applying the coupon first cost more?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "52.50 − 50.00."
+   },
+   "remember": "A percent discount shrinks whatever amount it is applied to.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "post_review_edit": "Article corrected (\"A $80\" to \"An $80\") after the blind solve flagged it; wording only, no effect on the solution."
+  },
+  {
+   "cand": "B025-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Combining equations without solving",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "If 2x − 3y = 7 and 4x + y = 21, what is the value of 6x − 2y ?",
+   "choices": {
+    "A": "14",
+    "B": "21",
+    "C": "28",
+    "D": "35"
+   },
+   "answer": "C",
+   "explanation": "Adding the two equations gives (2x + 4x) + (−3y + y) = 7 + 21, so 6x − 2y = 28.",
+   "distractors": {
+    "A": {
+     "rationale": "14 is twice the first equation's constant.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "21 is the second equation's constant alone.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "35 adds 7 to 28.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Compare 6x − 2y with the sum of the two left sides."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the equations."
+   },
+   "remember": "Look for a combination of the given equations before solving.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B025-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Number of solutions of an absolute-value equation",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "How many real solutions does the equation |x² − 4| = 3 have?",
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "D",
+   "explanation": "|x² − 4| = 3 means x² − 4 = 3 or x² − 4 = −3, so x² = 7 or x² = 1. That gives x = ±√7 and x = ±1: four solutions.",
+   "distractors": {
+    "A": {
+     "rationale": "1 counts only x = 1.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2 solves only x² − 4 = 3 and forgets the negative case.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "3 drops one sign from one of the cases.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Split the absolute value into two equations.",
+    "How many solutions does each give?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch y = |x² − 4| and the line y = 3."
+   },
+   "remember": "Absolute value splits into two cases; each can give two solutions.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "two cases each with ± roots; most stop at two"
+   }
+  }
+ ]
+}
