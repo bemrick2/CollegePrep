@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 43,
+  "bank_version": 44,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -7475,6 +7475,178 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the pentagon and the two diagonals."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000430",
+      "correct_answer": "A",
+      "explanation": "2x² + 7x + 3 = (2x + 1)(x + 3), so 2x + 1 is a factor.",
+      "distractor_explanations": {
+        "B": "x + 1 would make -1 a zero, but 2(1) - 7 + 3 = -2, not 0.",
+        "C": "2x + 3 pairs 2x with 3, but (2x + 3)(x + 1) = 2x² + 5x + 3.",
+        "D": "x - 3 has the wrong sign; x = 3 gives 18 + 21 + 3 = 42, not 0."
+      },
+      "hints": [
+        "Find two numbers that multiply to 2 × 3 = 6 and add to 7."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Multiply each choice by the factor it would need, or test its zero."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000431",
+      "correct_answer": "C",
+      "explanation": "As x grows, (0.8)ˣ approaches 0, so 5(0.8)ˣ approaches 0 and f(x) approaches 0 + 2 = 2.",
+      "distractor_explanations": {
+        "A": "0 is the limit of 5(0.8)ˣ alone, ignoring the + 2.",
+        "B": "0.8 is the decay factor, not a limiting value.",
+        "D": "7 is f(0), the starting value."
+      },
+      "hints": [
+        "What happens to (0.8)ˣ when x is very large?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 50."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000432",
+      "correct_answer": "A",
+      "explanation": "Experimental probability = observed successes ÷ trials = 30/50 = 3/5.",
+      "distractor_explanations": {
+        "C": "2/5 is the experimental probability of tails.",
+        "B": "1/2 is the theoretical probability for a fair coin, not the observed result.",
+        "D": "3/2 compares heads to tails (30 to 20), which is not a probability."
+      },
+      "hints": [
+        "Experimental probability uses what actually happened."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "30 ÷ 50."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000433",
+      "correct_answer": "D",
+      "explanation": "Odd + even = odd, so m + n is odd. The others are even: mn has an even factor, 2m is a multiple of 2, and n² = n · n with n even.",
+      "distractor_explanations": {
+        "A": "mn has the even factor n, so it is even.",
+        "B": "2m is a multiple of 2, so it is even.",
+        "C": "n² is the square of an even number, so it is even."
+      },
+      "hints": [
+        "Try m = 3 and n = 2."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "m = 3, n = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000434",
+      "correct_answer": "C",
+      "explanation": "The whole circle is 360°, and 35% of 360° = 126°.",
+      "distractor_explanations": {
+        "A": "35° uses the percent as the number of degrees.",
+        "B": "63° is 35% of 180°, half the circle.",
+        "D": "135° adds 100 to 35 without computing a percent of 360."
+      },
+      "hints": [
+        "How many degrees are in a full circle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "0.35 × 360."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000435",
+      "correct_answer": "B",
+      "explanation": "The side is √50 = 5√2, and the diagonal is side × √2 = 5√2 × √2 = 10.",
+      "distractor_explanations": {
+        "A": "5√2 is the side length, not the diagonal.",
+        "C": "25 is half the area.",
+        "D": "50√2 multiplies the area, not the side, by √2."
+      },
+      "hints": [
+        "Find the side length first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Diagonal = side × √2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000436",
+      "correct_answer": "B",
+      "explanation": "Rotating around the 6-unit leg makes a cone with height 6 and radius 8: V = (1/3)π(8²)(6) = 128π.",
+      "distractor_explanations": {
+        "A": "96π uses the 6-unit leg as the radius and the 8-unit leg as the height.",
+        "C": "200π uses the hypotenuse, 10, in place of a leg.",
+        "D": "384π forgets the 1/3 in the cone formula, giving a cylinder's volume."
+      },
+      "hints": [
+        "What solid does a right triangle sweep out when rotated around a leg?",
+        "Which leg becomes the radius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the rotation: the other leg sweeps out the base."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000437",
+      "correct_answer": "D",
+      "explanation": "Let u = x²: u² - 5u + 4 = 0, so u = 1 or u = 4. Then x = ±1 or x = ±2. The positive solutions are 1 and 2, with sum 3.",
+      "distractor_explanations": {
+        "A": "0 is the sum of all four solutions, positive and negative.",
+        "B": "2 is only the largest positive solution.",
+        "C": "5/2 is half of the sum of the values of u, 1 + 4."
+      },
+      "hints": [
+        "Substitute u = x².",
+        "Each positive value of u gives how many values of x?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "u² - 5u + 4 = (u - 1)(u - 4)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000438",
+      "correct_answer": "C",
+      "explanation": "f(1) = 3, f(3) = 7, and f(7) = 15.",
+      "distractor_explanations": {
+        "A": "7 is f(f(1)), one application short.",
+        "B": "9 is 3 × 3, as if f triples its input each time.",
+        "D": "27 = 3³ treats each application as multiplying by 3."
+      },
+      "hints": [
+        "Work from the inside out."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate f three times in a row."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000439",
+      "correct_answer": "B",
+      "explanation": "Passing the pole, the train covers its own length L in 10 seconds. Passing the platform, it covers L + 300 in 25 seconds. With speed v: L = 10v and L + 300 = 25v, so 15v = 300, v = 20, and L = 200.",
+      "distractor_explanations": {
+        "A": "120 = 300 × 10/25 ignores the train's own length in the platform crossing.",
+        "C": "300 is the platform's length.",
+        "D": "500 = L + 300, the total distance covered while passing the platform."
+      },
+      "hints": [
+        "How far does the train travel while passing the pole? While passing the platform?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "L = 10v and L + 300 = 25v."
       }
     }
   ]

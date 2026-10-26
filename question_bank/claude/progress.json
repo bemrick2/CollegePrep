@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:48:49+00:00",
+  "updated_at": "2026-10-26T21:48:59+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 423,
+    "act_math": 433,
     "act_english": 156,
     "act_reading": 127,
     "sat_reading_writing": 149
   },
   "review_totals": {
     "act_math": {
-      "PASS": 429,
+      "PASS": 439,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 434,
+      "candidates": 444,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 423,
+      "accepted": 433,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 72,
-        "Functions": 69,
-        "Geometry": 98,
-        "Integrating Essential Skills": 71,
-        "Number & Quantity": 49,
-        "Statistics & Probability": 64
+        "Algebra": 74,
+        "Functions": 71,
+        "Geometry": 100,
+        "Integrating Essential Skills": 73,
+        "Number & Quantity": 50,
+        "Statistics & Probability": 65
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -112,6 +112,7 @@
         "Break-even with a strict inequality": 1,
         "Bulk pricing (buying more can cost less)": 1,
         "Catch-up rate problems": 1,
+        "Central angle from a percent (circle graph)": 1,
         "Chained ratios": 1,
         "Chained ratios (gears)": 1,
         "Chained unit conversions (currency)": 1,
@@ -176,6 +177,7 @@
         "Determinant of a 2 × 2 matrix": 1,
         "Diagonal of a rectangle": 1,
         "Diagonal of a rectangular box": 1,
+        "Diagonal of a square from its area": 1,
         "Diagonals of a trapezoid (similar triangles)": 1,
         "Difference of consecutive function values": 1,
         "Difference of squares used structurally": 1,
@@ -205,14 +207,17 @@
         "Enlarging a photo proportionally": 1,
         "Equation of a circle": 1,
         "Equation of a parallel line through a point": 1,
+        "Equations quadratic in form": 1,
         "Equations with rational exponents": 1,
         "Equilateral triangle inscribed in a circle": 1,
         "Estimating a population by capture and recapture": 1,
         "Evaluating a function at an expression": 1,
         "Evaluating an expression at a negative value": 1,
         "Evaluating an inverse function at a value": 1,
+        "Even and odd number properties": 1,
         "Expected count from a probability": 1,
         "Expected value": 1,
+        "Experimental probability": 1,
         "Exponent rules with different bases": 1,
         "Exponent substitution": 1,
         "Exponential decay models": 1,
@@ -226,6 +231,7 @@
         "Exponential pattern from a table": 1,
         "Exterior angle theorem with algebra": 1,
         "Factored form: finding the leading coefficient": 1,
+        "Factoring a trinomial with a leading coefficient": 1,
         "Factoring out a common binomial": 1,
         "Fencepost counting on a closed perimeter": 1,
         "Finding a linear function from its self-composition": 1,
@@ -238,6 +244,7 @@
         "Geometric sequences in context": 1,
         "Greatest common divisor in context": 1,
         "Greatest common factor of monomials": 1,
+        "Horizontal asymptote of an exponential function": 1,
         "Horizontal asymptotes of rational functions": 1,
         "Horizontal compression of a function": 1,
         "Identifying a conic from its equation": 1,
@@ -275,6 +282,7 @@
         "Law of sines": 1,
         "Least common multiple in context": 1,
         "Least integer exponent exceeding a bound": 1,
+        "Length of a moving object passing a platform": 1,
         "Limiting ingredient in batches": 1,
         "Linear equations with decimals": 1,
         "Linear equations with distribution": 1,
@@ -395,6 +403,7 @@
         "Reflections to minimize a path": 1,
         "Relative speed on a circular track": 1,
         "Relative speed on a moving walkway": 1,
+        "Repeated composition": 1,
         "Repeated dilution": 1,
         "Repeating decimals as fractions": 1,
         "Residuals from a line of fit": 1,
@@ -421,6 +430,7 @@
         "Simplifying rational expressions": 1,
         "Sinusoidal models: time above a threshold": 1,
         "Slope with an unknown coordinate": 1,
+        "Solid of revolution (cone)": 1,
         "Solving a formula for a variable": 1,
         "Solving a reciprocal formula for a variable": 1,
         "Solving a system by elimination": 1,
@@ -488,27 +498,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 93,
-        "hard": 147,
-        "medium": 183
+        "easy": 97,
+        "hard": 150,
+        "medium": 186
       },
       "by_difficulty_calibrated": {
-        "easy": 103,
+        "easy": 107,
         "hard": 63,
-        "medium": 257
+        "medium": 263
       },
       "calibrated_share": {
-        "easy": 0.243,
-        "hard": 0.149,
-        "medium": 0.608
+        "easy": 0.247,
+        "hard": 0.145,
+        "medium": 0.607
       },
       "answer_key_balance": {
-        "A": 97,
-        "B": 117,
-        "C": 116,
-        "D": 93
+        "A": 99,
+        "B": 120,
+        "C": 119,
+        "D": 95
       },
-      "modeling_items": 99,
+      "modeling_items": 101,
       "passages": 0
     },
     "act_english": {
@@ -902,41 +912,49 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 43,
+    "act_math": 44,
     "act_english": 15,
     "act_reading": 15,
     "sat_reading_writing": 16
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 44,
+      "next_batch": 45,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -1.4,
-        "Algebra": 8.1,
-        "Functions": 11.1,
-        "Geometry": -17.9,
-        "Statistics & Probability": -5.5,
+        "Number & Quantity": -1.3,
+        "Algebra": 8.0,
+        "Functions": 11.0,
+        "Geometry": -18.0,
+        "Statistics & Probability": -5.2,
         "Integrating Essential Skills": 15.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 5.2,
-        "medium": -40.5,
-        "hard": 45.2
+        "easy": 3.8,
+        "medium": -41.5,
+        "hard": 47.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 11.2,
-        "B": -8.8,
-        "C": -7.8,
-        "D": 15.2
+        "A": 11.8,
+        "B": -9.2,
+        "C": -8.2,
+        "D": 15.8
       }
     }
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 16,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 13.8,
+        "Craft and Structure": -2.6,
+        "Integration of Knowledge and Ideas": -1.2
+      }
+    },
     "act_english": {
       "next_batch": 16,
       "skill_gap_for_next_10": {
@@ -953,21 +971,13 @@
         "Standard English Conventions": 3.3,
         "Expression of Ideas": 0.8
       }
-    },
-    "act_reading": {
-      "next_batch": 16,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 13.8,
-        "Craft and Structure": -2.6,
-        "Integration of Knowledge and Ideas": -1.2
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 423,
-      "share_of_target": 0.211
+      "accepted": 433,
+      "share_of_target": 0.216
     },
     "act_english": {
       "target": 700,
@@ -986,9 +996,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 855,
+  "total_accepted": 865,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_math",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -10061,7 +10071,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 43,
+      "bank_version": 44,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -10176,7 +10186,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:48:49+00:00",
+    "heartbeat_at": "2026-10-26T21:48:59+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
