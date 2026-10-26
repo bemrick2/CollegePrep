@@ -1,0 +1,301 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 2,
+  "reviewed_at": "2026-10-26T19:01:35+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver A (separate agent, answer-free packet)",
+    "batch": 2
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000009",
+    "CLD-ACT-R-000010",
+    "CLD-ACT-R-000011",
+    "CLD-ACT-R-000012",
+    "CLD-ACT-R-000013",
+    "CLD-ACT-R-000014",
+    "CLD-ACT-R-000015",
+    "CLD-ACT-R-000016"
+  ],
+  "results": [
+    {
+      "cand": "R002-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Passage A moves through ecological (P2), practical/flood (P3), and social ('people come', 'public room', P4) benefits while conceding 'Daylighting is not cheap'. A: no detailed cost comparison. B: no engineering steps. D: P1 describes past burial neutrally, no criticism.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000009"
+    },
+    {
+      "cand": "R002-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Sentence continues 'it gives the city room to absorb storms that pipes were never built for' -- practical flood benefit beyond looks. B/C/D invert or are unsupported.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000010"
+    },
+    {
+      "cand": "R002-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: passage says 'a benefit no engineer predicted' while choice D says 'the projects' designers had not anticipated'; equating engineers with designers is a reasonable paraphrase but could be tightened (e.g., 'engineers')."
+      ],
+      "blind_notes": "P4: 'a benefit no engineer predicted: people come.' A contradicts (unpredicted, so not the reason). B and C unsupported causal/limiting claims.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: passage says 'no engineer predicted'; key says 'projects' designers' -- a fair paraphrase but slightly broadened; consider 'engineers' or 'planners' for tighter match."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000011"
+    },
+    {
+      "cand": "R002-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "P4 of B: 'My concern is with treating daylighting as a symbol rather than a tool' and the first question should be 'the most effective way to manage this water'. A is too absolute ('always'; B concedes open lots/parks can be modest). C: 'inevitably' overstates. D: B says proposals are 'easy to love'.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000012"
+    },
+    {
+      "cand": "R002-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "'The answer is often sobering' introduces high costs/tradeoffs -- prompting serious reflection. B is the literal sense; C opposite; D too strong.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000013"
+    },
+    {
+      "cand": "R002-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "B P3: runoff 'carries oil, salt, and litter... may simply put polluted water on display'. Other choices not mentioned as limits.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000014"
+    },
+    {
+      "cand": "R002-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: D is far longer and more qualified than A-C, which are all absolute and easily eliminated; length/hedging cue makes the item easier than a typical synthesis question."
+      ],
+      "blind_notes": "A: 'not always possible... Where buildings now sit directly above an old stream, the cost... can be prohibitive' while advocating it. B: costly in dense neighborhoods (property, utilities, streets) but 'Where a buried stream runs beneath an open lot or a park, the costs can be modest and the benefits real.' A contradicts B; B-choice contradicts B P3; C supported by neither.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: the 'buildings or streets' wording is a composite -- A cites buildings directly above a stream ('prohibitive'), B cites dense neighborhoods requiring property acquisition and rebuilding streets. The 'or' keeps it defensible for both, but 'where a stream runs beneath developed areas' would be tighter."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "must reconcile both passages; three choices fit one author at most"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R002-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: B is much longer and more specific than the other three choices (length cue); A, C, D are extreme and easily eliminated."
+      ],
+      "blind_notes": "B P2: 'For the same budget, a city might install rain gardens and permeable pavement across dozens of blocks.' B never denies the stream can slow water (A), rejects it as first choice (C), and treats storm water as a real problem (D).",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "requires distinguishing a concession from a denial"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R002-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "B: 'As a city planner, though, I have learned to ask what such projects cost and what else the same money might do' -- budget-decision perspective absent from A. B, C, D are shared by both (A: 'not cheap'; A P3 flooding; A P2 insects, fish, birds), so they fail the 'unlike' test -- a good trap structure.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: 'someone responsible for deciding how a city spends its money' slightly overreaches -- B says only 'As a city planner, I have learned to ask what such projects cost and what else the same money might do'; a planner advises rather than necessarily decides. Consider 'someone who evaluates how a city should spend its money' / 'a city planner weighing costs'."
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "three distractors are true of Passage B but also of Passage A"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000015"
+    },
+    {
+      "cand": "R002-10",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "R001-09",
+          "status": "REVISE",
+          "reason": "labelled hard; both blind solvers estimated ~83-85% correct (easy). Text unchanged, relabelled easy."
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: this item uses a different passage (CLD-P-ACT-R-000001, bakery narrative) from the rest of the batch; confirm it is grouped with its own set in the assembled form."
+      ],
+      "blind_notes": "P5: she 'worked without a clock', pressing the dough and watching the dent. A: she answers openly. C: contradicted by 'reached for the scale'. D: unsupported, contradicts 'without a clock'.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: stem splices two quoted sentences separated in the passage by 'she said'; acceptable but could use an ellipsis or '...' convention."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000016"
+    }
+  ]
+}

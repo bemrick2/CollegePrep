@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:59:33+00:00",
+  "updated_at": "2026-10-26T19:01:37+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -17,7 +17,7 @@
   "accepted_by_section": {
     "act_math": 208,
     "act_english": 22,
-    "act_reading": 8,
+    "act_reading": 16,
     "sat_reading_writing": 8
   },
   "review_totals": {
@@ -36,11 +36,11 @@
       "passed_after_revision": 1
     },
     "act_reading": {
-      "PASS": 8,
-      "REVISE": 1,
+      "PASS": 16,
+      "REVISE": 3,
       "REJECT": 0,
-      "candidates": 9,
-      "passed_after_revision": 0
+      "candidates": 19,
+      "passed_after_revision": 1
     },
     "sat_reading_writing": {
       "PASS": 8,
@@ -347,43 +347,51 @@
       "passages": 2
     },
     "act_reading": {
-      "accepted": 8,
+      "accepted": 16,
       "by_skill": {
-        "Craft and Structure": 3,
-        "Integration of Knowledge and Ideas": 1,
-        "Key Ideas and Details": 4
+        "Craft and Structure": 5,
+        "Integration of Knowledge and Ideas": 2,
+        "Key Ideas and Details": 9
       },
       "by_subskill": {
+        "Central claim of a passage": 1,
         "Central idea of a narrative": 1,
         "Connecting the ending to earlier events": 1,
+        "Contrasting the passages' approaches": 1,
         "Effect of figurative language": 1,
+        "Function of a phrase": 1,
         "Function of a short paragraph": 1,
+        "Inference about a stated outcome": 1,
+        "Inference from dialogue": 1,
         "Inferring a character's attitude": 1,
         "Inferring a character's intent": 1,
         "Locating a stated detail": 1,
-        "Meaning of a phrase in context": 1
+        "Locating supporting details": 1,
+        "Meaning of a phrase in context": 1,
+        "Meaning of a word in context": 1,
+        "Purpose of a passage": 1
       },
       "by_difficulty_author": {
-        "easy": 2,
-        "hard": 1,
-        "medium": 5
+        "easy": 5,
+        "hard": 2,
+        "medium": 9
       },
       "by_difficulty_calibrated": {
-        "easy": 7,
-        "medium": 1
+        "easy": 14,
+        "medium": 2
       },
       "calibrated_share": {
         "easy": 0.875,
         "medium": 0.125
       },
       "answer_key_balance": {
-        "A": 2,
-        "B": 2,
-        "C": 2,
-        "D": 2
+        "A": 5,
+        "B": 4,
+        "C": 4,
+        "D": 3
       },
       "modeling_items": 0,
-      "passages": 1
+      "passages": 2
     },
     "sat_reading_writing": {
       "accepted": 8,
@@ -428,7 +436,7 @@
   "last_completed_batch": {
     "act_math": 21,
     "act_english": 2,
-    "act_reading": 1,
+    "act_reading": 2,
     "sat_reading_writing": 1
   },
   "next_batch_guidance": {
@@ -464,14 +472,6 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 3,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.0,
-        "Knowledge of Language": 4.6,
-        "Conventions of Standard English": 2.0
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 2,
       "skill_gap_for_next_10": {
@@ -482,11 +482,19 @@
       }
     },
     "act_reading": {
-      "next_batch": 2,
+      "next_batch": 3,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 4.6,
-        "Craft and Structure": 2.3,
-        "Integration of Knowledge and Ideas": 3.0
+        "Key Ideas and Details": 3.5,
+        "Craft and Structure": 2.7,
+        "Integration of Knowledge and Ideas": 3.9
+      }
+    },
+    "act_english": {
+      "next_batch": 3,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 4.0,
+        "Knowledge of Language": 4.6,
+        "Conventions of Standard English": 2.0
       }
     }
   },
@@ -503,8 +511,8 @@
     },
     "act_reading": {
       "target": 600,
-      "accepted": 8,
-      "share_of_target": 0.013
+      "accepted": 16,
+      "share_of_target": 0.027
     },
     "sat_reading_writing": {
       "target": 700,
@@ -513,7 +521,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 246,
+  "total_accepted": 254,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -726,7 +734,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 1,
+      "bank_version": 2,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -761,7 +769,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:59:33+00:00",
+    "heartbeat_at": "2026-10-26T19:01:37+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
