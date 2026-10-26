@@ -79,7 +79,8 @@ begin
   -- A check needs an exam version.
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini')$q$, st), '22023', '%exam version%');
   perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', null)$q$, st), '22023', '%exam version%');
-  b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
+  -- The first check is an initial one (#263: a repeat needs a completed check first).
+  b := public.start_benchmark(st, 'initial', '40000000-0000-0000-0000-000000000001');
   perform set_config('t.b', b::text, true);
   select string_agg(section || ':' || right(question_id::text, 1) || ':' || seen_before, ',' order by section, ord) into got
   from (select x.*, row_number() over () as ord from public.benchmark_questions(b) x) y;
@@ -139,6 +140,9 @@ begin
     where student_id = st and question_id = '30000000-0000-0000-0000-000000000006';
   update public.practice_benchmark_items set assigned_at = assigned_at - interval '2 days'
     where student_id = st and question_id = '30000000-0000-0000-0000-000000000006';
+  -- #263: a repeat check opens 28 days after the last completed one; the first check was taken a month ago.
+  update public.practice_benchmarks set started_at = started_at - interval '29 days', completed_at = completed_at - interval '29 days'
+    where student_id = st and completed_at is not null;
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000001');
   select string_agg(right(question_id::text, 1) || ':' || seen_before, ',') into got from public.benchmark_questions(b) where section = 'math';
@@ -192,15 +196,23 @@ begin
 
   -- A live check unlocks its own version only; a second start of the same version and kind resumes it.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  b := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002');
-  perform hp_test.eq(public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002'), b, 'a live open check is resumed, not duplicated');
+  b := public.start_benchmark(st, 'initial', '40000000-0000-0000-0000-000000000002');
+  perform hp_test.eq(public.start_benchmark(st, 'initial', '40000000-0000-0000-0000-000000000002'), b, 'a live open check is resumed, not duplicated');
   perform hp_test.eq((select count(*) from public.practice_benchmarks where student_id = st and completed_at is null), 1::bigint, 'one open check');
-  a := public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002');
-  perform hp_test.check(a <> b, 'another kind is its own check');
+  -- #263: the full-length form isn't ready, so the server has no 'full' plan and refuses it.
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'full', '40000000-0000-0000-0000-000000000002')$q$, st),
+    '22023', '%not available%');
+  -- #263: one live check per exam version; another kind is refused while it is open (never a second check).
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000002')$q$, st),
+    '22023', '%already open%');
+  perform hp_test.eq((select count(*) from public.practice_benchmarks where student_id = st and completed_at is null), 1::bigint, 'still one open check');
   perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-000000000009'), 1::bigint, 'the ACT check reads ACT reserved items');
-  -- Once something is answered in it, a check isn't resumed (its plan would restart at full length): a new one opens.
-  perform public.submit_practice_attempt(public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000009', p_benchmark => a), 'A');
-  perform hp_test.check(public.start_benchmark(st, 'full', '40000000-0000-0000-0000-000000000002') <> a, 'a half-taken check is not resumed');
+  -- #263: once something is answered in it, a live check is still resumed with its own assignment (only its unused
+  -- items are listed, so the plan doesn't restart at full length); it is not replaced by a fresh draw.
+  perform public.submit_practice_attempt(public.start_practice_attempt(st, '30000000-0000-0000-0000-000000000009', p_benchmark => b), 'A');
+  perform hp_test.eq(public.start_benchmark(st, 'initial', '40000000-0000-0000-0000-000000000002'), b, 'a half-taken live check is resumed');
+  perform hp_test.eq((select count(*) from public.benchmark_questions(b) where question_id = '30000000-0000-0000-0000-000000000009'), 0::bigint,
+    'the resumed check lists only its unused items');
   perform hp_test.eq((select count(*) from public.practice_questions where id = '30000000-0000-0000-0000-00000000000a'), 0::bigint,
     'an open check of another version unlocks nothing of this one');
   -- An abandoned check expires after 4 hours: no reserved content, no attempts, no list; a new start opens a new check.
@@ -212,6 +224,15 @@ begin
   perform hp_test.expect_error(format('select * from public.benchmark_questions(%L)', b), '22023', '%expired%');
   perform hp_test.expect_error(format('select public.start_practice_attempt(%L, %L, p_benchmark => %L)', st,
     '30000000-0000-0000-0000-000000000009', b), '22023', '%expired%');
+  -- #263: the expired check counts as the student's first ACT check: no second initial, and a repeat opens 28 days
+  -- after it started.
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial', '40000000-0000-0000-0000-000000000002')$q$, st),
+    '22023', '%initial progress check is only%');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'mini', '40000000-0000-0000-0000-000000000002')$q$, st),
+    '22023', '%opens 28 days%');
+  perform hp_test.as_owner();
+  update public.practice_benchmarks set started_at = started_at - interval '29 days' where id = b;
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   a := public.start_benchmark(st, 'mini', '40000000-0000-0000-0000-000000000002');
   perform hp_test.check(a <> b, 'an expired check is not resumed');
   perform hp_test.check((public.complete_benchmark(b)->>'definition') = 'v2', 'an expired check can still be completed (scores what was answered)');

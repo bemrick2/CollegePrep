@@ -387,7 +387,12 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/biology-biomedical-sciences/biology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#6f369a37eb28d9ac) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#6f369a37eb28d9ac."
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Credit Hours Required: 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#6f369a37eb28d9ac) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#6f369a37eb28d9ac. Completeness audit 2026-10-23 (independent, stored page read in full): no material requirement or note printed for this plan is missing; see completeness_audit.",
+      "completeness_audit": {
+        "date": "2026-10-23",
+        "result": "no material note uncaptured",
+        "evidence": "The page body between the title and the grid is empty, so there are no course lists, notes or footnotes. Every grid row is in the record. After the grid there is only advisory track guidance ('Students planning a career in ... should follow the coursework plan of the Biology, B.S. - Conservation Biology concentration'; '...should consider the following courses') and an advisory course list, then the footer. None of it is a rule, exclusion, substitution or note on this plan's rows."
+      }
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2409,8 +2414,11 @@
         ]
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/engineering/mechanical-industrial/mechanical-engineering-bs/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#7728ee7c983aac95) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#df25503beb0b3f0c."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#7728ee7c983aac95) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#df25503beb0b3f0c. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
+      "verification_correction_reason": "An independent audit (2026-10-23) of this plan's stored catalog page found printed requirements or notes for this plan that the record does not store: 'A grade of \"C\" or better is required in any science, engineering, or mathematics course required for the Mechanical Engineering degree.'; 'CEEN 3317 can be taken instead if IEEN 3325 has a time conflict or is not available.'. Under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures them passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
+      "captured_rows_reviewed": true,
+      "notes_capture": "incomplete"
     },
     {
       "last_verified_at": "2026-10-06",
@@ -4243,6 +4251,13 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid",
+            "scope": "this plan",
+            "text": "Students majoring in Architectural Engineering must receive a grade of C or better in all engineering courses (AEEN, CEEN, ITEN, etc.) to graduate. Each student is responsible for knowing the academic regulations in the Catalog. Unfamiliarity with the regulations does not constitute a valid reason for failure to fulfill them."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 125 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -4517,7 +4532,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/engineering/civil-architectural/architectural-engineering-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#f0632fdb48a57104) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#4fe62c12d37a6829."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Special Elective\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#4fe62c12d37a6829) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#4fe62c12d37a6829."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5980,6 +5995,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "This degree program provides students with the opportunity to earn a minor in Business Administration. Students who are interested in earning the minor should consult their academic advisor for recommended coursework that will satisfy the requirements for the Business Administration minor."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -6247,7 +6269,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/engineering/industrial-management-technology/construction-management-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 3 footnote(s) ['1', '2', '3'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"This degree program provides students with the opp\") Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#193da62a8079ebe0) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#193da62a8079ebe0."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 3 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"© 2026-2027 Texas A&M University Kingsville\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#193da62a8079ebe0) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#193da62a8079ebe0."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7398,6 +7420,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "All courses must be approved by the department."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -7650,7 +7679,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/arts-communication-literature/english-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 1 footnote(s) ['1'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"All courses must be approved by the department.\"); marker-like suffixes ['2'] have no footnote printed after this grid (not a reader loss) Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#a7044af4852b69bd) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#a7044af4852b69bd."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"© 2026-2027 Texas A&M University Kingsville\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#a7044af4852b69bd) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#a7044af4852b69bd."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -7906,6 +7935,13 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid",
+            "scope": "this plan",
+            "text": "Summer session work may be advisable to reduce term loads."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -8129,7 +8165,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/social-behavioral-sciences/history-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#737e7935cc934472) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#9580f6c7966d76f2."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"© 2026-2027 Texas A&M University Kingsville\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#9580f6c7966d76f2) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#9580f6c7966d76f2."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -9243,6 +9279,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Minor of 18-24 semester hours in one natural science or computer science."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -9503,7 +9546,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/mathematics-physical-sciences/math-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 3 footnote(s) ['1', '2', '3'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Minor of 18-24 semester hours in one natural scien\") Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#ac355c99e3856299) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#ac355c99e3856299."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 3 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"© 2026-2027 Texas A&M University Kingsville\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#ac355c99e3856299) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#ac355c99e3856299."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -10354,6 +10397,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Total hours may vary depending on the requirements of the minor chosen (see the list of Recognized Minors in the College of Arts and Sciences section of the current catalog), but must be at least 120, including 45 advanced hours. Majors must complete the department’s written communications skills requirement."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -10616,7 +10666,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/arts-sciences/social-behavioral-sciences/political-science-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Total hours may vary depending on the requirements\") Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#cf28bf38c7f59c1a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#cf28bf38c7f59c1a."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; cited markers covered; next text \"© 2026-2027 Texas A&M University Kingsville\" is page text/new section; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#cf28bf38c7f59c1a) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#cf28bf38c7f59c1a."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -13869,6 +13919,13 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid",
+            "scope": "this plan",
+            "text": "Veterinary Technology: upon satisfactory completion of the prescribed course work the student will be awarded a B.S. degree in Agriculture (Veterinary Technology) and will be eligible to take the examination to become a licensed Veterinary Technologist."
+          }
+        ],
         "rule_text": "Total Credit Hours Required: 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -14163,7 +14220,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/agriculture-natural-resources/animal-science-veterinary-technology/agriculture-animal-wildlife-veterinary-technology-bs/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence TX/2026-10-06-cat#5e590abb36bf6055) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#ec621b865d0aecc1."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"© 2026-2027 Texas A&M University Kingsville\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#ec621b865d0aecc1) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#ec621b865d0aecc1."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -15028,8 +15085,11 @@
         ]
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/education-human-performance/teacher-bilingual-education/interdisciplinary-studies-bs-core-subjects-4-8/",
-      "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] <<missing>>; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#20ea022b70c4f1bf) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#20ea022b70c4f1bf."
+      "verification_status": "partially_verified",
+      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/choice-headers, round 3): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed totals), each printed 'Select/Choose N of the following' block, including a printed label before it and footnote marks after it, checked to hold exactly the printed options. 1 choose block(s) match the printed header (label prefix and footnote marks kept), count, header credits and the full blank-credit run; every row, subtotal and total is as printed; block footnotes checked (grade, advising, scheduling, attribute or restatement only): [1] <<missing>>; footnote bodies are not stored (see systematic finding); the footnotes on this record were judged to be none of substitution, waiver, added option or constraint, apart from elective-pool lists for generic elective rows Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#20ea022b70c4f1bf) stored a printed choice block whose header carries a label or footnote mark as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#20ea022b70c4f1bf. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
+      "verification_correction_reason": "An independent audit (2026-10-23) of this plan's stored catalog page found printed requirements or notes for this plan that the record does not store: 'Special Emphasis courses to be chosen from one of the following disciplines: Mathematics, Social Studies, Science, English/LA/Reading, Special Education, or Bil…'. Under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures them passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
+      "captured_rows_reviewed": true,
+      "notes_capture": "incomplete"
     },
     {
       "last_verified_at": "2026-10-06",
@@ -18143,12 +18203,33 @@
           {
             "credit_hours": "17",
             "items": [
-              "Communication | 3",
-              "ENGL 1301 | Composition I | 3",
-              "American History | 3",
-              "MATH 1314 | College Algebra | 3",
-              "UNIV 1201 | Learning in Global Context | 2",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Communication"
+              },
+              {
+                "code": "ENGL 1301",
+                "credits": 3,
+                "title": "Composition I"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1314",
+                "credits": 3,
+                "title": "College Algebra"
+              },
+              {
+                "code": "UNIV 1201",
+                "credits": 2,
+                "title": "Learning in Global Context"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 1",
             "term_index": 2
@@ -18156,11 +18237,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "ENGL 1302 | Composition II | 3",
-              "American History | 3",
-              "MATH 1324 | Math for Bus and Econ I | 3",
-              "Creative Arts | 3",
-              "Life/Physical Sciences | 3"
+              {
+                "code": "ENGL 1302",
+                "credits": 3,
+                "title": "Composition II"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1324",
+                "credits": 3,
+                "title": "Math for Bus and Econ I"
+              },
+              {
+                "credits": 3,
+                "text": "Creative Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 2",
             "term_index": 3
@@ -18173,11 +18271,29 @@
           {
             "credit_hours": "13",
             "items": [
-              "ACCT 2301 | Principles of Accounting I | 3",
-              "BUAD 1115 | Intro to Business Software | 1",
-              "ECON 2301 | Principles of Macroeconomics | 3",
-              "Lang/Phil/Culture | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2301",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "BUAD 1115",
+                "credits": 1,
+                "title": "Intro to Business Software"
+              },
+              {
+                "code": "ECON 2301",
+                "credits": 3,
+                "title": "Principles of Macroeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Lang/Phil/Culture"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 1",
             "term_index": 5
@@ -18185,11 +18301,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2302 | Prnc of Accounting II | 3",
-              "BCOM 3306 | Business Communication (WI) | 3",
-              "BUAD 2341 | Business Law | 3",
-              "ECON 2302 | Principles of Microeconomics | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2302",
+                "credits": 3,
+                "title": "Prnc of Accounting II"
+              },
+              {
+                "code": "BCOM 3306",
+                "credits": 3,
+                "title": "Business Communication (WI)"
+              },
+              {
+                "code": "BUAD 2341",
+                "credits": 3,
+                "title": "Business Law"
+              },
+              {
+                "code": "ECON 2302",
+                "credits": 3,
+                "title": "Principles of Microeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 2",
             "term_index": 6
@@ -18202,11 +18337,31 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 3308 | Income Tax Accounting | 3",
-              "ACCT 3311 | Intermediate Accounting I | 3",
-              "BUAD 3355 | Business Statistics | 3",
-              "FINC 3321 | Business Finance | 3",
-              "MGMT 3322 | Principles of Management | 3"
+              {
+                "code": "ACCT 3308",
+                "credits": 3,
+                "title": "Income Tax Accounting"
+              },
+              {
+                "code": "ACCT 3311",
+                "credits": 3,
+                "title": "Intermediate Accounting I"
+              },
+              {
+                "code": "BUAD 3355",
+                "credits": 3,
+                "title": "Business Statistics"
+              },
+              {
+                "code": "FINC 3321",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGMT 3322",
+                "credits": 3,
+                "title": "Principles of Management"
+              }
             ],
             "label": "Semester 1",
             "term_index": 8
@@ -18214,11 +18369,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 3312 | Intermediate Accounting II | 3",
-              "ACCT 3314 | Cost Managerial Accounting | 3",
-              "ISYS 3330 | Info Sys and Bus Analytics | 3",
-              "MKTG 3324 | Principles of Marketing | 3",
-              "ACCT Elective | 3"
+              {
+                "code": "ACCT 3312",
+                "credits": 3,
+                "title": "Intermediate Accounting II"
+              },
+              {
+                "code": "ACCT 3314",
+                "credits": 3,
+                "title": "Cost Managerial Accounting"
+              },
+              {
+                "code": "ISYS 3330",
+                "credits": 3,
+                "title": "Info Sys and Bus Analytics"
+              },
+              {
+                "code": "MKTG 3324",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "credits": 3,
+                "text": "ACCT Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 9
@@ -18231,11 +18405,31 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 4305 | Ethics for Accountants | 3",
-              "ACCT 4310 | Accounting Systems | 3",
-              "ACCT 4314 | Advanced Financial Accounting | 3",
-              "BUAD 2374 | International Business | 3",
-              "MGMT 3355 | Operations and Supply Change Management | 3"
+              {
+                "code": "ACCT 4305",
+                "credits": 3,
+                "title": "Ethics for Accountants"
+              },
+              {
+                "code": "ACCT 4310",
+                "credits": 3,
+                "title": "Accounting Systems"
+              },
+              {
+                "code": "ACCT 4314",
+                "credits": 3,
+                "title": "Advanced Financial Accounting"
+              },
+              {
+                "code": "BUAD 2374",
+                "credits": 3,
+                "title": "International Business"
+              },
+              {
+                "code": "MGMT 3355",
+                "credits": 3,
+                "title": "Operations and Supply Change Management"
+              }
             ],
             "label": "Semester 1",
             "term_index": 11
@@ -18243,11 +18437,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 4311 | Introduction to Auditing | 3",
-              "ACCT 4342 | Business Law for Accountants | 3",
-              "MGMT 4390 | Strategic Mgmt Global Bus Env | 3",
-              "ACCT Elective | 3",
-              "ACCT Elective | 3"
+              {
+                "code": "ACCT 4311",
+                "credits": 3,
+                "title": "Introduction to Auditing"
+              },
+              {
+                "code": "ACCT 4342",
+                "credits": 3,
+                "title": "Business Law for Accountants"
+              },
+              {
+                "code": "MGMT 4390",
+                "credits": 3,
+                "title": "Strategic Mgmt Global Bus Env"
+              },
+              {
+                "credits": 3,
+                "text": "ACCT Elective"
+              },
+              {
+                "credits": 3,
+                "text": "ACCT Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 12
@@ -18256,7 +18468,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/business-administration/accounting-finance/accounting-bba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 41 items, every subtotal as credit_hours and rule_text 'Total Credit Hours Required: 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. 'Freshman Year'...'Senior Year' are genuine year rows and 'Semester 1/2' terms (check2 false alarm). Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#2c4c509cfe92919d."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->29, credits+text:0->12, str:41->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#2c4c509cfe92919d) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#a4d382a9b3d96806."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -18279,12 +18491,32 @@
           {
             "credit_hours": "17",
             "items": [
-              "Communication | 3",
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1314 | College Algebra | 3",
-              "UNIV 1201 | Learning in Global Context | 2",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Communication"
+              },
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1314",
+                "credits": 3,
+                "title": "College Algebra"
+              },
+              {
+                "code": "UNIV 1201",
+                "credits": 2,
+                "title": "Learning in Global Context"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 1",
             "term_index": 2
@@ -18292,11 +18524,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1324 | Math for Bus and Econ I | 3",
-              "Creative Arts | 3",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1324",
+                "credits": 3,
+                "title": "Math for Bus and Econ I"
+              },
+              {
+                "credits": 3,
+                "text": "Creative Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 2",
             "term_index": 3
@@ -18309,11 +18557,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2301 | Principles of Accounting I | 3",
-              "BUAD 2341 | Business Law | 3",
-              "ECON 2301 | Principles of Macroeconomics | 3",
-              "Lang/Phil/Culture | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2301",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "BUAD 2341",
+                "credits": 3,
+                "title": "Business Law"
+              },
+              {
+                "code": "ECON 2301",
+                "credits": 3,
+                "title": "Principles of Macroeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Lang/Phil/Culture"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 1",
             "term_index": 5
@@ -18321,11 +18587,30 @@
           {
             "credit_hours": "13",
             "items": [
-              "ACCT 2302 | Prnc of Accounting II | 3",
-              "BCOM 3306 | Business Communication (WI) | 3",
-              "BUAD 1115 | Intro to Business Software | 1",
-              "ECON 2302 | Principles of Microeconomics | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2302",
+                "credits": 3,
+                "title": "Prnc of Accounting II"
+              },
+              {
+                "code": "BCOM 3306",
+                "credits": 3,
+                "title": "Business Communication (WI)"
+              },
+              {
+                "code": "BUAD 1115",
+                "credits": 1,
+                "title": "Intro to Business Software"
+              },
+              {
+                "code": "ECON 2302",
+                "credits": 3,
+                "title": "Principles of Microeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 2",
             "term_index": 6
@@ -18338,11 +18623,31 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 3355 | Business Statistics | 3",
-              "FINC 3321 | Business Finance | 3",
-              "FINC 3338 | Financial Statement Analysis | 3",
-              "MGMT 3322 | Principles of Management | 3",
-              "MKTG 3324 | Principles of Marketing | 3"
+              {
+                "code": "BUAD 3355",
+                "credits": 3,
+                "title": "Business Statistics"
+              },
+              {
+                "code": "FINC 3321",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "FINC 3338",
+                "credits": 3,
+                "title": "Financial Statement Analysis"
+              },
+              {
+                "code": "MGMT 3322",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKTG 3324",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              }
             ],
             "label": "Semester 1",
             "term_index": 8
@@ -18350,11 +18655,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 2374 | International Business | 3",
-              "FINC 4341 | Money and Capital Markets | 3",
-              "ISYS 3330 | Info Sys and Bus Analytics | 3",
-              "FINC Elective | 3",
-              "FINC Elective | 3"
+              {
+                "code": "BUAD 2374",
+                "credits": 3,
+                "title": "International Business"
+              },
+              {
+                "code": "FINC 4341",
+                "credits": 3,
+                "title": "Money and Capital Markets"
+              },
+              {
+                "code": "ISYS 3330",
+                "credits": 3,
+                "title": "Info Sys and Bus Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "FINC Elective"
+              },
+              {
+                "credits": 3,
+                "text": "FINC Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 9
@@ -18367,11 +18690,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "FINC 4331 | Investments | 3",
-              "FINC 4336 | Intermediate Financial Mgmt | 3",
-              "MGMT 3355 | Operations and Supply Change Management | 3",
-              "ACCT Elective | 3",
-              "Nonbusiness Elective | 3"
+              {
+                "code": "FINC 4331",
+                "credits": 3,
+                "title": "Investments"
+              },
+              {
+                "code": "FINC 4336",
+                "credits": 3,
+                "title": "Intermediate Financial Mgmt"
+              },
+              {
+                "code": "MGMT 3355",
+                "credits": 3,
+                "title": "Operations and Supply Change Management"
+              },
+              {
+                "credits": 3,
+                "text": "ACCT Elective"
+              },
+              {
+                "credits": 3,
+                "text": "Nonbusiness Elective"
+              }
             ],
             "label": "Semester 1",
             "term_index": 11
@@ -18379,11 +18720,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "FINC 4332 | Portfolio Management | 3",
-              "FINC 4342 | International Finance | 3",
-              "FINC 4362 | Financial Planning & Capital | 3",
-              "MGMT 4390 | Strategic Mgmt Global Bus Env | 3",
-              "Business Elective | 3"
+              {
+                "code": "FINC 4332",
+                "credits": 3,
+                "title": "Portfolio Management"
+              },
+              {
+                "code": "FINC 4342",
+                "credits": 3,
+                "title": "International Finance"
+              },
+              {
+                "code": "FINC 4362",
+                "credits": 3,
+                "title": "Financial Planning & Capital"
+              },
+              {
+                "code": "MGMT 4390",
+                "credits": 3,
+                "title": "Strategic Mgmt Global Bus Env"
+              },
+              {
+                "credits": 3,
+                "text": "Business Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 12
@@ -18392,7 +18752,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/business-administration/accounting-finance/finance-bba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 41 items, every subtotal as credit_hours and rule_text 'Total Credit Hours Required: 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. 'Freshman Year'...'Senior Year' are genuine year rows and 'Semester 1/2' terms (check2 false alarm). Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#07739f10e6734440."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->25, credits+text:0->16, str:41->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#07739f10e6734440) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#dec8ab4f613ba5c5."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -18415,12 +18775,32 @@
           {
             "credit_hours": "17",
             "items": [
-              "Communication | 3",
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1314 | College Algebra | 3",
-              "UNIV 1201 | Learning in Global Context | 2",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Communication"
+              },
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1314",
+                "credits": 3,
+                "title": "College Algebra"
+              },
+              {
+                "code": "UNIV 1201",
+                "credits": 2,
+                "title": "Learning in Global Context"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 1",
             "term_index": 2
@@ -18428,11 +18808,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1324 | Math for Bus and Econ I | 3",
-              "Creative Arts | 3",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1324",
+                "credits": 3,
+                "title": "Math for Bus and Econ I"
+              },
+              {
+                "credits": 3,
+                "text": "Creative Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 2",
             "term_index": 3
@@ -18445,11 +18841,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2301 | Principles of Accounting I | 3",
-              "BUAD 2341 | Business Law | 3",
-              "ECON 2301 | Principles of Macroeconomics | 3",
-              "Lang/Phil/Culture | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2301",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "BUAD 2341",
+                "credits": 3,
+                "title": "Business Law"
+              },
+              {
+                "code": "ECON 2301",
+                "credits": 3,
+                "title": "Principles of Macroeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Lang/Phil/Culture"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 1",
             "term_index": 5
@@ -18457,12 +18871,34 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2302 | Prnc of Accounting II | 3",
-              "BCOM 3306 | Business Communication (WI) | 3",
-              "BUAD 1115 | Intro to Business Software | 1",
-              "ECON 2302 | Principles of Microeconomics | 3",
-              "Government/Political Science | 3",
-              "Nonbusiness Elective | 3"
+              {
+                "code": "ACCT 2302",
+                "credits": 3,
+                "title": "Prnc of Accounting II"
+              },
+              {
+                "code": "BCOM 3306",
+                "credits": 3,
+                "title": "Business Communication (WI)"
+              },
+              {
+                "code": "BUAD 1115",
+                "credits": 1,
+                "title": "Intro to Business Software"
+              },
+              {
+                "code": "ECON 2302",
+                "credits": 3,
+                "title": "Principles of Microeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              },
+              {
+                "credits": 3,
+                "text": "Nonbusiness Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 6
@@ -18475,11 +18911,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 3355 | Business Statistics | 3",
-              "FINC 3321 | Business Finance | 3",
-              "MGMT 3322 | Principles of Management | 3",
-              "MKTG 3324 | Principles of Marketing | 3",
-              "ACCT, adv. | 3"
+              {
+                "code": "BUAD 3355",
+                "credits": 3,
+                "title": "Business Statistics"
+              },
+              {
+                "code": "FINC 3321",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGMT 3322",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKTG 3324",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              },
+              {
+                "credits": 3,
+                "text": "ACCT, adv."
+              }
             ],
             "label": "Semester 1",
             "term_index": 8
@@ -18487,11 +18942,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 2374 | International Business | 3",
-              "ISYS 3330 | Info Sys and Bus Analytics | 3",
-              "Elective | 3",
-              "ISYS, adv. | 3",
-              "MKTG, adv. | 3"
+              {
+                "code": "BUAD 2374",
+                "credits": 3,
+                "title": "International Business"
+              },
+              {
+                "code": "ISYS 3330",
+                "credits": 3,
+                "title": "Info Sys and Bus Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              },
+              {
+                "credits": 3,
+                "text": "ISYS, adv."
+              },
+              {
+                "credits": 3,
+                "text": "MKTG, adv."
+              }
             ],
             "label": "Semester 2",
             "term_index": 9
@@ -18504,9 +18976,19 @@
           {
             "credit_hours": "15",
             "items": [
-              "MGMT 3355 | Operations and Supply Change Management | 3",
-              "Business, adv. | 9",
-              "FINC, adv. | 3"
+              {
+                "code": "MGMT 3355",
+                "credits": 3,
+                "title": "Operations and Supply Change Management"
+              },
+              {
+                "credits": 9,
+                "text": "Business, adv."
+              },
+              {
+                "credits": 3,
+                "text": "FINC, adv."
+              }
             ],
             "label": "Semester 1",
             "term_index": 11
@@ -18514,8 +18996,15 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4390 | Strategic Mgmt Global Bus Env | 3",
-              "Business, adv. | 9"
+              {
+                "code": "MGMT 4390",
+                "credits": 3,
+                "title": "Strategic Mgmt Global Bus Env"
+              },
+              {
+                "credits": 9,
+                "text": "Business, adv."
+              }
             ],
             "label": "Semester 2",
             "term_index": 12
@@ -18524,7 +19013,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/business-administration/management-marketing-information-systems/general-business-administration-bba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 37 items, every subtotal as credit_hours and rule_text 'Total Credit Hours Required: 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. 'Freshman Year'...'Senior Year' are genuine year rows and 'Semester 1/2' terms (check2 false alarm). Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#8118bc7dc3bc4f96."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->18, credits+text:0->19, str:37->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#8118bc7dc3bc4f96) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#2a00c0766d738059."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -18547,12 +19036,32 @@
           {
             "credit_hours": "17",
             "items": [
-              "Communication | 3",
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1314 | College Algebra | 3",
-              "UNIV 1201 | Learning in Global Context | 2",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Communication"
+              },
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1314",
+                "credits": 3,
+                "title": "College Algebra"
+              },
+              {
+                "code": "UNIV 1201",
+                "credits": 2,
+                "title": "Learning in Global Context"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 1",
             "term_index": 2
@@ -18560,11 +19069,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "MATH 1324 | Math for Bus and Econ I | 3",
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "Creative Arts | 3",
-              "Life/Physical Sciences | 3"
+              {
+                "code": "MATH 1324",
+                "credits": 3,
+                "title": "Math for Bus and Econ I"
+              },
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "credits": 3,
+                "text": "Creative Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 2",
             "term_index": 3
@@ -18577,11 +19102,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2301 | Principles of Accounting I | 3",
-              "ECON 2301 | Principles of Macroeconomics | 3",
-              "Lang/Phil/Culture | 3",
-              "Government/Political Science | 3",
-              "BUAD 2341 | Business Law | 3"
+              {
+                "code": "ACCT 2301",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "ECON 2301",
+                "credits": 3,
+                "title": "Principles of Macroeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Lang/Phil/Culture"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              },
+              {
+                "code": "BUAD 2341",
+                "credits": 3,
+                "title": "Business Law"
+              }
             ],
             "label": "Semester 1",
             "term_index": 5
@@ -18589,11 +19132,30 @@
           {
             "credit_hours": "13",
             "items": [
-              "ACCT 2302 | Prnc of Accounting II | 3",
-              "BUAD 1115 | Intro to Business Software | 1",
-              "ECON 2302 | Principles of Microeconomics | 3",
-              "BCOM 3306 | Business Communication (WI) | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2302",
+                "credits": 3,
+                "title": "Prnc of Accounting II"
+              },
+              {
+                "code": "BUAD 1115",
+                "credits": 1,
+                "title": "Intro to Business Software"
+              },
+              {
+                "code": "ECON 2302",
+                "credits": 3,
+                "title": "Principles of Microeconomics"
+              },
+              {
+                "code": "BCOM 3306",
+                "credits": 3,
+                "title": "Business Communication (WI)"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 2",
             "term_index": 6
@@ -18606,11 +19168,31 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 3355 | Business Statistics | 3",
-              "FINC 3321 | Business Finance | 3",
-              "MGMT 3322 | Principles of Management | 3",
-              "MGMT 3325 | Human Resource Management | 3",
-              "MKTG 3324 | Principles of Marketing | 3"
+              {
+                "code": "BUAD 3355",
+                "credits": 3,
+                "title": "Business Statistics"
+              },
+              {
+                "code": "FINC 3321",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "MGMT 3322",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MGMT 3325",
+                "credits": 3,
+                "title": "Human Resource Management"
+              },
+              {
+                "code": "MKTG 3324",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              }
             ],
             "label": "Semester 1",
             "term_index": 8
@@ -18618,11 +19200,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 2374 | International Business | 3",
-              "ISYS 3330 | Info Sys and Bus Analytics | 3",
-              "MGMT 4358 | Lean Operations | 3",
-              "Business, Adv. | 3",
-              "MGMT 4331 | International Management | 3"
+              {
+                "code": "BUAD 2374",
+                "credits": 3,
+                "title": "International Business"
+              },
+              {
+                "code": "ISYS 3330",
+                "credits": 3,
+                "title": "Info Sys and Bus Analytics"
+              },
+              {
+                "code": "MGMT 4358",
+                "credits": 3,
+                "title": "Lean Operations"
+              },
+              {
+                "credits": 3,
+                "text": "Business, Adv."
+              },
+              {
+                "code": "MGMT 4331",
+                "credits": 3,
+                "title": "International Management"
+              }
             ],
             "label": "Semester 2",
             "term_index": 9
@@ -18635,10 +19236,25 @@
           {
             "credit_hours": "15",
             "items": [
-              "ISYS 3358 | Business Information Systems | 3",
-              "MGMT 3355 | Operations and Supply Change Management | 3",
-              "MGMT 4351 | Leadership in Organizations | 3",
-              "MGMT Electives | 6"
+              {
+                "code": "ISYS 3358",
+                "credits": 3,
+                "title": "Business Information Systems"
+              },
+              {
+                "code": "MGMT 3355",
+                "credits": 3,
+                "title": "Operations and Supply Change Management"
+              },
+              {
+                "code": "MGMT 4351",
+                "credits": 3,
+                "title": "Leadership in Organizations"
+              },
+              {
+                "credits": 6,
+                "text": "MGMT Electives"
+              }
             ],
             "label": "Semester 1",
             "term_index": 11
@@ -18646,10 +19262,24 @@
           {
             "credit_hours": "15",
             "items": [
-              "MGMT 4390 | Strategic Mgmt Global Bus Env | 3",
-              "MGMT Elective | 6",
-              "MGMT 4365 | Ethics and Sustainability | 3",
-              "Nonbusiness Elective | 3"
+              {
+                "code": "MGMT 4390",
+                "credits": 3,
+                "title": "Strategic Mgmt Global Bus Env"
+              },
+              {
+                "credits": 6,
+                "text": "MGMT Elective"
+              },
+              {
+                "code": "MGMT 4365",
+                "credits": 3,
+                "title": "Ethics and Sustainability"
+              },
+              {
+                "credits": 3,
+                "text": "Nonbusiness Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 12
@@ -18658,7 +19288,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/business-administration/management-marketing-information-systems/management-bba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 39 items, every subtotal as credit_hours and rule_text 'Total Credit Hours Required: 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. 'Freshman Year'...'Senior Year' are genuine year rows and 'Semester 1/2' terms (check2 false alarm). Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#510af8d77b323210."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->24, credits+text:0->15, str:39->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#510af8d77b323210) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#218538a019ed0502."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -18681,12 +19311,32 @@
           {
             "credit_hours": "17",
             "items": [
-              "Communication | 3",
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1314 | College Algebra | 3",
-              "UNIV 1201 | Learning in Global Context | 2",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Communication"
+              },
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1314",
+                "credits": 3,
+                "title": "College Algebra"
+              },
+              {
+                "code": "UNIV 1201",
+                "credits": 2,
+                "title": "Learning in Global Context"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 1",
             "term_index": 2
@@ -18694,11 +19344,27 @@
           {
             "credit_hours": "15",
             "items": [
-              "Rhetoric & Composition | 3",
-              "American History | 3",
-              "MATH 1324 | Math for Bus and Econ I | 3",
-              "Creative Arts | 3",
-              "Life/Physical Sciences | 3"
+              {
+                "credits": 3,
+                "text": "Rhetoric & Composition"
+              },
+              {
+                "credits": 3,
+                "text": "American History"
+              },
+              {
+                "code": "MATH 1324",
+                "credits": 3,
+                "title": "Math for Bus and Econ I"
+              },
+              {
+                "credits": 3,
+                "text": "Creative Arts"
+              },
+              {
+                "credits": 3,
+                "text": "Life/Physical Sciences"
+              }
             ],
             "label": "Semester 2",
             "term_index": 3
@@ -18711,11 +19377,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "ACCT 2301 | Principles of Accounting I | 3",
-              "BUAD 2341 | Business Law | 3",
-              "ECON 2301 | Principles of Macroeconomics | 3",
-              "Lang/Phil/Culture | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2301",
+                "credits": 3,
+                "title": "Principles of Accounting I"
+              },
+              {
+                "code": "BUAD 2341",
+                "credits": 3,
+                "title": "Business Law"
+              },
+              {
+                "code": "ECON 2301",
+                "credits": 3,
+                "title": "Principles of Macroeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Lang/Phil/Culture"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 1",
             "term_index": 5
@@ -18723,11 +19407,30 @@
           {
             "credit_hours": "13",
             "items": [
-              "ACCT 2302 | Prnc of Accounting II | 3",
-              "BCOM 3306 | Business Communication (WI) | 3",
-              "BUAD 1115 | Intro to Business Software | 1",
-              "ECON 2302 | Principles of Microeconomics | 3",
-              "Government/Political Science | 3"
+              {
+                "code": "ACCT 2302",
+                "credits": 3,
+                "title": "Prnc of Accounting II"
+              },
+              {
+                "code": "BCOM 3306",
+                "credits": 3,
+                "title": "Business Communication (WI)"
+              },
+              {
+                "code": "BUAD 1115",
+                "credits": 1,
+                "title": "Intro to Business Software"
+              },
+              {
+                "code": "ECON 2302",
+                "credits": 3,
+                "title": "Principles of Microeconomics"
+              },
+              {
+                "credits": 3,
+                "text": "Government/Political Science"
+              }
             ],
             "label": "Semester 2",
             "term_index": 6
@@ -18740,11 +19443,31 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 3355 | Business Statistics | 3",
-              "FINC 3321 | Business Finance | 3",
-              "BUAD 3366 | Intro to Business Intelligence | 3",
-              "MGMT 3322 | Principles of Management | 3",
-              "MKTG 3324 | Principles of Marketing | 3"
+              {
+                "code": "BUAD 3355",
+                "credits": 3,
+                "title": "Business Statistics"
+              },
+              {
+                "code": "FINC 3321",
+                "credits": 3,
+                "title": "Business Finance"
+              },
+              {
+                "code": "BUAD 3366",
+                "credits": 3,
+                "title": "Intro to Business Intelligence"
+              },
+              {
+                "code": "MGMT 3322",
+                "credits": 3,
+                "title": "Principles of Management"
+              },
+              {
+                "code": "MKTG 3324",
+                "credits": 3,
+                "title": "Principles of Marketing"
+              }
             ],
             "label": "Semester 1",
             "term_index": 8
@@ -18752,11 +19475,30 @@
           {
             "credit_hours": "15",
             "items": [
-              "BUAD 2374 | International Business | 3",
-              "ISYS 3330 | Info Sys and Bus Analytics | 3",
-              "MKTG 3364 | Integrated Marketing Comm | 3",
-              "MKTG 3370 | Online Marketing | 3",
-              "Elective | 3"
+              {
+                "code": "BUAD 2374",
+                "credits": 3,
+                "title": "International Business"
+              },
+              {
+                "code": "ISYS 3330",
+                "credits": 3,
+                "title": "Info Sys and Bus Analytics"
+              },
+              {
+                "code": "MKTG 3364",
+                "credits": 3,
+                "title": "Integrated Marketing Comm"
+              },
+              {
+                "code": "MKTG 3370",
+                "credits": 3,
+                "title": "Online Marketing"
+              },
+              {
+                "credits": 3,
+                "text": "Elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 9
@@ -18769,11 +19511,31 @@
           {
             "credit_hours": "15",
             "items": [
-              "MGMT 3355 | Operations and Supply Change Management | 3",
-              "MKTG 3365 | Marketing Research | 3",
-              "MKTG 4310 | Retail Marketing Management | 3",
-              "MKTG 4334 | Product Development | 3",
-              "MKTG 4363 | Global Marketing | 3"
+              {
+                "code": "MGMT 3355",
+                "credits": 3,
+                "title": "Operations and Supply Change Management"
+              },
+              {
+                "code": "MKTG 3365",
+                "credits": 3,
+                "title": "Marketing Research"
+              },
+              {
+                "code": "MKTG 4310",
+                "credits": 3,
+                "title": "Retail Marketing Management"
+              },
+              {
+                "code": "MKTG 4334",
+                "credits": 3,
+                "title": "Product Development"
+              },
+              {
+                "code": "MKTG 4363",
+                "credits": 3,
+                "title": "Global Marketing"
+              }
             ],
             "label": "Semester 1",
             "term_index": 11
@@ -18781,11 +19543,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "MGMT 4390 | Strategic Mgmt Global Bus Env | 3",
-              "MKTG 4350 | Consumer Behavior | 3",
-              "MKTG 4390 | Marketing Mgmt and Analytics | 3",
-              "MKTG, adv. | 3",
-              "Nonbusiness elective | 3"
+              {
+                "code": "MGMT 4390",
+                "credits": 3,
+                "title": "Strategic Mgmt Global Bus Env"
+              },
+              {
+                "code": "MKTG 4350",
+                "credits": 3,
+                "title": "Consumer Behavior"
+              },
+              {
+                "code": "MKTG 4390",
+                "credits": 3,
+                "title": "Marketing Mgmt and Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "MKTG, adv."
+              },
+              {
+                "credits": 3,
+                "text": "Nonbusiness elective"
+              }
             ],
             "label": "Semester 2",
             "term_index": 12
@@ -18794,7 +19574,7 @@
       },
       "source_url": "https://catalog.tamuk.edu/undergraduate/business-administration/management-marketing-information-systems/marketing-bba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 41 items, every subtotal as credit_hours and rule_text 'Total Credit Hours Required: 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. 'Freshman Year'...'Senior Year' are genuine year rows and 'Semester 1/2' terms (check2 false alarm). Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#7b0e4460241e858f."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: code+credits+title:0->27, credits+text:0->14, str:41->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence TX/2026-10-06-cat#7b0e4460241e858f) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/TX/2026-10-06-cat/evidence.json#f362be5d1a3a3315."
     }
   ]
 }

@@ -28,33 +28,54 @@ These are verified records counted from `data/institutions/*`. Plans are `progra
 | Verified requirement groups | n/a | 15,062 | 15,011 | 15,307 | 15,307 | 15,307 |
 | Covered schools (STATUS.json, baseline) | 65 | 70 | 70 | 70 | 73 (Research) | 73 |
 
-## This PR: plans whose printed notes are not captured are partially verified (owner decision 2026-10-23)
+## This PR: plan notes (owner decisions 2026-10-23)
 
-- **Audit:** every verified plan on main `b4b9ce2` was checked against its stored source.
-  - 998 plans already carry their printed footnotes (#275).
-  - 1,955 plans come from pages that print no footnotes.
-- **Downgraded: 303 plans** to `partially_verified`. Each keeps its rows and earlier review, and carries:
-  - `verification_correction_reason`;
-  - `captured_rows_reviewed: true`;
-  - `notes_capture: "incomplete"`;
-  - a `supabase/corrections.json` entry with `previous_status: "verified"`, always appended, so earlier #229 entries stay.
-- **Reasons:**
-  - 112: footnotes the reader can't pair with the grid (Idaho 58, Montana 39, Roosevelt 14, Georgian 1). These are the known 113 minus 1 already partially verified.
-  - 84: footnotes printed after the grid but not stored.
-  - 35: one legend for several grids (Oregon State 33, Oregon 2).
-  - 72: other readers whose source prints notes not stored (UTC 67, EOU 4, PDX 1).
-- **Not downgraded:**
-  - 37 other-reader plans whose source prints no marked notes;
-  - 4 whose note text is already in the record;
-  - **UTC Management (`management-b-s-b-a`)**, deferred to Design on #218. It is the Tennessee pilot's showcase plan and Design's UI tests assert it as verified. The data change is the same; Design lands it with the test updates.
-- **Totals:** verified plans 3,524 → 3,221 at 65 schools. Groups unchanged at 15,545.
-- **Next:**
-  - a reader for unmarked plan notes (owner decision 2026-10-23: exclusions, retake rules, substitutions, with source location and scope; hold when the end or scope is unclear);
-  - pairing footnotes for Idaho, Montana and Roosevelt;
-  - Oregon State's shared legend;
-  - the 37 footnote edge cases;
-  - then reviewed replacements with `replaces_correction`.
-- **Third review reconciliation:** 83 held = 47 flat choice blocks + 37 footnote cases − 1 in both (NC State `ebd315442e5756d0`).
+**Reader (`programs/courseleaf.py`).** `grid_footnotes` and `plan_notes` keep every footnote and unmarked note printed with a plan, as printed:
+- footnotes go in `rule_details.footnotes` as `[{marker, text, grid?, shared?}]`;
+- unmarked notes go in `rule_details.plan_notes` as `[{text, location, scope}]`;
+- `verify` checks both verbatim.
+
+A plan is held, never shortened, when the reader can't settle its notes:
+- a line before the page text that it cannot read as a note (`plan_note_unclear`);
+- notes printed after the last of several plans' grids (`plan_note_scope_unclear`);
+- a mark a row cites ('Total Hours**', '+*') with no note printed after the grid (`footnote_missing`);
+- footnotes that cannot be paired with a grid (`footnotes_not_read`).
+
+**Reviews.** Three rounds, by two independent reviewers using their own parsers. Each round's findings were fixed:
+- footer contamination;
+- truncated final footnotes;
+- lists after ':';
+- missed table-row notes (JSU, CU Boulder);
+- note boundaries;
+- shared legends on the wrong plan;
+- a page-text filter that dropped real footnotes.
+
+Each fix has regression tests on the affected layout; 57 targeted mutants are killed.
+
+**Promoted: 510 re-reads.** Each one is identical to a reading an independent reviewer approved.
+- 417 verified plans now keep their notes (`replaces_promoted`).
+- 93 plans that were partially verified because their notes were not captured are verified again (`replaces_correction`). Their corrections.json entries stay.
+- 12 verified plans carry an earlier #229 correction and take `replaces_correction` as well.
+- Verified plans: 3,117 → 3,210 at 66 schools.
+
+**Still held, unchanged on file:**
+- 111 structural re-reads:
+  - 43 with flat choice blocks;
+  - 54 whose only issue is alternative rows kept as printed strings (an owner policy question);
+  - the rest with individual findings.
+- 28 note-only re-reads:
+  - 13 UNO business/education pages, where the disclaimer is attached to the last footnote;
+  - Kingsville notes whose list is a Course List table;
+  - WIT 'ENGL/HSS Note';
+  - NC State career text;
+  - UNH outcomes.
+- 431 re-reads held by the reader.
+- 168 verified plans newly held by the reader, now in an independent audit.
+
+**Known limits:**
+- Notes printed before a grid, or as a 'Notes:' page heading after it (LMU), are not read.
+- `courseleaf_plangrid` pages (UW-Madison, SHSU) have no notes reader.
+- The 2,411 plans the reader reads unchanged are not proven complete; a sampled audit is next.
 
 ## Merged on 2026-10-21/22
 

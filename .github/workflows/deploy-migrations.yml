@@ -14,6 +14,10 @@ on:
         description: 'Optional: apply pending migrations up to and including this 14-digit version, then stop (docs/DEPLOYING.md, CR-23 reserve release)'
         required: false
         default: ''
+      reserve:
+        description: 'Optional: CR-23 reserve script (outside supabase/migrations/) to run in one transaction with the migrations (docs/DEPLOYING.md)'
+        required: false
+        default: ''
 
 concurrency:
   group: live-supabase
@@ -53,4 +57,6 @@ jobs:
         if: steps.secret.outputs.configured == 'true'
         env:
           UNTIL: ${{ github.event.inputs.until }}
-        run: python scripts/apply_migrations.py ${UNTIL:+--until "$UNTIL"}
+          RESERVE: ${{ github.event.inputs.reserve }}
+        # A push (no inputs) can never apply the assessment pool: the applier refuses 20261022050000 without --reserve.
+        run: python scripts/apply_migrations.py ${UNTIL:+--until "$UNTIL"} ${RESERVE:+--reserve "$RESERVE"}

@@ -1,0 +1,38 @@
+{
+  "run": "pipeline/runs/TX/2026-10-04",
+  "reviewer": "Research session 2026-10-23 (current tuition b1, after the In-District reader fix)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/tx-2026-10-04 with the costs reader at commit bd68f4d290 (In-District columns read as district residency), including Lone Star 20b377a7afb7b054, Austin CC d43cdb64f647b2a2 and Galveston 37829683775a577b.",
+  "approve": [
+    {
+      "candidate_id": "20b377a7afb7b054",
+      "reason": "Lone Star table under heading \"2026-2027 Cost of Attendance\"; column \"In-District\" prints Tuition and Fees $3,330, Loan Fees $96, Books and Supplies $2,450, Food and Housing $10,960, Transportation $1,510, Personal / Misc $4,008, Professional Licensure Fee $410, TOTAL $22,764, all copied as printed. District residency, academic year; no living arrangement is printed for the column. Page conflict noted: the printed TOTAL $22,764 equals the sum of all printed rows including the $410 Professional Licensure Fee, while the page's footnote says that fee \"is not calculated in the total Cost of Attendance\"; the total is kept exactly as printed and the fee stays a labelled component."
+    },
+    {
+      "candidate_id": "d43cdb64f647b2a2",
+      "reason": "Austin CC table labelled \"2026-2027 In-District Cost of Attendance\"; columns \"In-district student not living at home\" (Tuition and fees $2,550, Housing and food $18,240, Books and Supplies $1,200, Transportation $1,824, Personal expenses $3,584, Total $27,398) and \"in-district student living at home with parents\" (Housing and food $8,800, Total $17,958), copied as printed with their headers. District residency, academic year."
+    },
+    {
+      "candidate_id": "37829683775a577b",
+      "accept_issues": true,
+      "reason": "Galveston College \"Cost of Attendance (COA)\" table whose header row prints \"2026-2027 | (In District) | (In District)\"; column \"Not Living with Parents\" prints Tuition/Fees $2,726, Books/Supplies $2,046, Housing/Food $11,274, Miscellaneous $2,826, Transportation $2,662, Total $21,534, and \"Dependent Living with Parents\" Housing/Food $5,300, Total $15,560, copied as printed. District residency, academic year. Open issue conflicting_sources accepted: the other two sources are copies of the same table on gc.edu (identical figures), rejected below as duplicates."
+    }
+  ],
+  "reject": [
+    {
+      "candidate_id": "8e90abd7169f3b1f",
+      "reason": "Lone Star \"Out-of-District\" column: a Texas-resident out-of-district rate; the header does not say in-state, so residency stays unknown."
+    },
+    {
+      "candidate_id": "311c6fb18b07eb48",
+      "reason": "Austin CC \"2026-2027 Out-of-District Cost of Attendance\": out-of-district rate with residency unknown."
+    },
+    {
+      "candidate_id": "97f9b4e70ab95f71",
+      "reason": "Galveston College consumer-information copy of the same 2026-2027 In District COA table; duplicate of the approved record."
+    },
+    {
+      "candidate_id": "8835ef093811e65c",
+      "reason": "Galveston College gc.edu (no www) copy of the same table; duplicate of the approved record."
+    }
+  ]
+}

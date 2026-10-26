@@ -1488,6 +1488,79 @@ minimum grade point average (GPA) of 3.0 are eligible for dual enrollment. Out-o
         self.assertEqual(costs.residency('resident students', 'KY'), 'in_state')  # public tuition tables (Ashland)
         self.assertEqual(costs.residency('nonresident', 'KY', private=True), 'out_of_state')
 
+    def test_in_district_column_is_district_residency(self):
+        """Regression (TX: Lone Star, Austin CC): 'In-District' columns were merged with 'Out-of-District' as residency unknown."""
+        self.assertEqual(costs.residency('in-district', 'TX'), 'district')
+        self.assertEqual(costs.residency('in-district student not living at home', 'TX'), 'district')
+        self.assertIsNone(costs.residency('out-of-district', 'TX'))
+        self.assertEqual(costs.residency('out-of-state student not living at home in-district', 'TX'), 'out_of_state')
+        # MD (UMD): the District of Columbia is not a district rate, and this heading is the out-of-state table.
+        self.assertEqual(costs.residency('2026-2027 residents of the district of columbia, other states, and other countries', 'MD'), 'out_of_state')
+        # IN (Manchester): a "Non-Residential" (commuter) budget at a private college is not out-of-state.
+        self.assertIsNone(costs.residency('non-residential undergraduate', 'IN', private=True))
+        self.assertEqual(costs.residency('non-resident', 'IN'), 'out_of_state')
+        self.assertIsNone(costs.column_meaning('Non-Residential Undergraduate', 'IN', True)['arrangement'])
+        self.assertEqual(costs.column_meaning('Residential Students', 'IN', True)['arrangement'], 'on_campus')
+        # PR #285 review: reciprocity and regional columns that name states stay non-out-of-state.
+        self.assertEqual(costs.residency('residents of ohio and other states with reciprocity', 'KY'), 'named_other_state')
+        self.assertEqual(costs.residency('residents of indiana, ohio and other states in the academic common market', 'KY'), 'named_other_state')
+        self.assertEqual(costs.residency('residents of new england and other states (nerc)', 'ME'), 'in_state')
+        # Mixed district headers and the District of Columbia are not a district rate.
+        self.assertEqual(costs.residency('in-district/in-state', 'TX'), 'in_state')
+        self.assertIsNone(costs.residency('in-district / out-of-county', 'TX'))
+        self.assertIsNone(costs.residency('in-district & out-of-service-area', 'TX'))
+        self.assertIsNone(costs.residency('students living in district of columbia', 'MD'))
+        rows = [['', 'In-District', 'Out-of-District', 'Out of State / International'],
+                ['Tuition and Fees', '$3,330', '$7,470', '$9,390'], ['Books and Supplies', '$2,450', '$2,450', '$2,450'],
+                ['TOTAL', '$5,780', '$9,920', '$11,840']]
+        html = ('<html><head><title>Cost of Attendance</title></head><body><h2>2026-2027 Cost of Attendance</h2><table>'
+                + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</table></body></html>')
+        got = {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'TX', 'control': 'public'},
+                                                                   {**ENTRY, 'url': 'https://x.edu/cost-of-attendance'},
+                                                                   T.parse_html(html.encode(), 'https://x.edu/cost-of-attendance'), '2026-27')}
+        self.assertEqual(got['district']['record']['tuition_and_mandatory_fees'], 3330)
+        self.assertEqual(got['district']['record']['components']['TOTAL'], 5780)
+        self.assertEqual(got['out_of_state']['record']['tuition_and_mandatory_fees'], 9390)
+        self.assertIn('residency_unknown', got['not_applicable']['issues'])  # Out-of-District alone stays unknown
+        self.assertEqual(got['not_applicable']['record']['tuition_and_mandatory_fees'], 7470)
+
+
+    def test_reciprocity_column_is_not_out_of_state_in_a_table(self):
+        """Regression (PR #285 review): 'Residents of Ohio and other states with reciprocity' became a clean out-of-state record."""
+        rows = [['', 'Kentucky Residents', 'Residents of Ohio and other states with reciprocity'],
+                ['Tuition', '$6,000', '$9,000'], ['Books', '$1,000', '$1,000'], ['Total', '$7,000', '$10,000']]
+        html = ('<html><head><title>Tuition</title></head><body><h2>2026-2027 Tuition</h2><table>'
+                + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</table></body></html>')
+        got = costs.extract({**INST, 'state': 'KY'}, {**ENTRY, 'url': 'https://x.edu/tuition'}, T.parse_html(html.encode(), 'https://x.edu/tuition'), '2026-27')
+        self.assertNotIn('out_of_state', [c['record']['residency'] for c in got])
+        self.assertEqual({c['record']['residency']: c['record']['tuition'] for c in got}.get('in_state'), 6000)
+
+    def _untitled_table_with_lead(self, lead, today='2026-27'):
+        html = ('<html><head><title>Facts</title></head><body><p>Fall 2025-26 class profile</p><p>%s</p><table>'
+                '<tr><td>Item</td><td>In-State</td><td>Out-of-State</td></tr><tr><td>Tuition and Fees</td><td>$14,768</td><td>$32,576</td></tr>'
+                '<tr><td>Housing and Food</td><td>$15,220</td><td>$15,220</td></tr><tr><td>TOTAL</td><td>$29,988</td><td>$47,796</td></tr>'
+                '</table></body></html>' % lead)
+        page = T.parse_html(html.encode(), 'https://x.edu/facts')
+        self.assertTrue(any(lead.split()[0] in (t.get('lead') or '') and not (t.get('heading') or t.get('caption')) for t in page.tables),
+                        'the parser must attach the lead line to the untitled table')
+        return {c['record']['residency']: c for c in costs.extract({**INST, 'state': 'VA'}, {**ENTRY, 'url': 'https://x.edu/facts'}, page, today)}
+
+    def test_year_from_lead_of_an_untitled_table(self):
+        """Regression (VA, JMU): 'Undergraduate (2026-27) - Per year' above a headingless table was ignored."""
+        got = self._untitled_table_with_lead('Undergraduate (2026-27) - Per year')
+        self.assertEqual(got['out_of_state']['year_basis'], 'labeled_in_source')
+        self.assertEqual(got['out_of_state']['academic_year'], '2026-27')
+
+    def test_lead_sentence_does_not_date_an_untitled_table(self):
+        """PR #285 review: only a title-like lead dates a table; an aid deadline or a caveat sentence does not."""
+        for lead in ('Apply for 2026-27 aid by March 1.', '2026-27 rates have not been approved; the table shows current rates.',
+                     'Effective 2026-27'):
+            got = self._untitled_table_with_lead(lead, today='2027-28')
+            self.assertEqual(got['out_of_state']['year_basis'], 'source_unlabeled', lead)
+            self.assertEqual(got['out_of_state']['academic_year'], '2027-28', lead)
+        self.assertEqual(costs.lead_title_year('Undergraduate (2026-27) - Per year'), '2026-27')
+        self.assertIsNone(costs.lead_title_year('Tuition 2026-27 estimates are shown below'))
+
     def test_dual_gpa_ranges_and_course_scoped_tiers(self):
         """Regression (KY: Thomas More '2.5 to 2.79 GPA' -> 2.79; KCTCS technical-course 2.0 GPA shown as the general minimum)."""
         html = (b'<html><head><title>Dual Credit</title></head><body><p>Students admitted with an unweighted 2.5 to 2.79 GPA may only take one course.</p>'
@@ -2390,6 +2463,123 @@ class MeritGridTests(unittest.TestCase):
 <tr><td>3.25 - 3.49</td><td>$7,000</td><td>$28,000</td></tr></table>"""
         r = self.got(jsu)['Gamecock Tradition']['record']
         self.assertEqual((r['test_requirement'], len(r['award_tiers'])), ('26-28 ACT or 1230-1320 SAT', 3))
+
+    def test_year_labels_that_belong_to_other_aid(self):
+        """2026-10-23 corrections (#278 review): a year printed only for other aid (a federal grant table, FAFSA updates, cost of
+        attendance, a FAFSA requirement) holds the merit table for review with the year kept as found; it is never verified on
+        that label and never re-dated as current."""
+        grid = """<h2>Merit Scholarships</h2><table><caption>Merit scholarship amounts for first-year students</caption>
+<tr><th>Scholarship</th><th>Annual Amount</th></tr><tr><td>Magis Scholarship</td><td>$30,000</td></tr>
+<tr><td>Presidential Scholarship</td><td>$26,000</td></tr><tr><td>University Scholarship</td><td>$22,000</td></tr></table>"""
+        fed = """<h2>Federal Grants</h2><table><caption>Federal grant programs with maximum award amounts for 2025-2026</caption>
+<tr><th>Grant</th><th>Maximum Award</th></tr><tr><td>Federal Pell Grant</td><td>$7,395</td></tr><tr><td>Federal SEOG</td><td>$1,000</td></tr></table>"""
+        cycle = '<p>To be eligible, you must apply for admission by November 1, 2026.</p>'
+        yr = lambda html: (lambda c: (c['academic_year'], c['year_basis'], c['issues']))(self.got('<title>Scholarships & Grants</title>' + html)['Magis Scholarship'])
+        held = ('2025-26', 'labeled_in_source', ['stale_year_label:2025-26', 'year_label_only_in_other_aid:2025-26'])
+        self.assertEqual(yr(grid + fed + cycle), held)  # OH (JCU)
+        self.assertEqual(yr(grid + fed), held)
+        self.assertIsNone(P.status_for({'year_basis': held[1], 'issues': held[2]}, accepted_issues=False))  # never verified on it
+        for s in ['Page last updated: August 3, 2026', 'The FAFSA opens October 1, 2026.', 'The 2025-26 Pell Grant maximum is $7,395.']:
+            self.assertEqual(yr(grid + fed + f'<p>{s}</p>')[0], '2025-26')  # other dates never make it current
+        self.assertIn('year_label_only_in_other_aid:2025-26', yr(grid + '<p>Requirements: Completed 2025-26 FAFSA.</p>' + cycle)[2])  # held, not dated
+        self.assertEqual(yr(grid + '<p>Freshman & Transfer Scholarships for Fall 2027/Spring 2028</p>' + cycle), ('2027-28', 'labeled_in_source', []))  # MO (SBU)
+        self.assertEqual(yr(grid + '<p>Scholarships listed are for 2025-2026.</p>')[:2], ('2025-26', 'labeled_in_source'))  # the award's own year
+        hsu = """<title>Scholarships</title><h2>Academic Merit Scholarships</h2><p>For new incoming students in Fall 2025, we offer these awards:</p>
+<h3>New Freshmen in Fall 2026</h3><table><tr><th>Award</th><th>Annual Value</th><th>Credential Required</th></tr>
+<tr><td>Trustee Scholarship</td><td>$22,000</td><td>SAT = 1200 ACT = 25</td></tr><tr><td>Presidents Scholarship</td><td>$20,000</td><td>3.9+ GPA</td></tr>
+<tr><td>Deans Scholarship</td><td>$18,000</td><td>3.5 – 3.8 GPA</td></tr></table>
+<p>The above scholarships apply to first-time freshmen or transfer students who begin attendance in the 2025-2026 academic year.</p>"""
+        c = self.got(hsu)['Presidents Scholarship']  # TX (HSUTX): the page disagrees with its own table heading
+        self.assertEqual((c['academic_year'], c['issues']), ('2026-27', ['conflicting_year_statement:2025-26']))
+        self.assertEqual(self.got(hsu.replace('Fall 2025', 'Fall 2026').replace('2025-2026', '2026-2027'))['Presidents Scholarship']['issues'], [])
+
+    def test_and_above_band_and_superseded_tables(self):
+        man = """<title>Scholarships & Grants</title><h2>Earning Merit-Based Academic Scholarships</h2><table><tr><th>GPA Requirement</th><th>Scholarship Award</th></tr>
+<tr><td>4.0 and above</td><td>$21,000</td></tr><tr><td>3.75 – 3.99</td><td>$18,000</td></tr><tr><td>3.50 – 3.74</td><td>$16,000</td></tr></table>"""
+        r = next(iter(self.got(man).values()))['record']  # IN (Manchester): "and above" is a GPA band, not a stray row
+        self.assertEqual((len(r['award_tiers']), r['award_max']), (3, 21000))
+        andrews = """<title>Scholarships</title><h2>Partnership Scholarship</h2><table><tr><td>Prior to Fall 2023</td></tr><tr><th>GPA</th><th>ANNUAL AMOUNT</th></tr>
+<tr><td>3.50 and higher</td><td>$9,000</td></tr><tr><td>3.00 - 3.49</td><td>$7,000</td></tr><tr><td>2.50 - 2.99</td><td>$5,000</td></tr></table>"""
+        self.assertEqual(self.got(andrews.replace('<tr><td>Prior to Fall 2023</td></tr>', '').replace('<h2>Partnership Scholarship</h2>', '<h2>Prior to Fall 2023</h2>')), {})  # MI (Andrews): superseded amounts
+        rows = """<tr><th>GPA</th><th>ANNUAL AMOUNT</th></tr><tr><td>3.90 to 4.00</td><td>$14,000</td></tr><tr><td>3.67 - 3.89</td><td>$12,000</td></tr><tr><td>3.50 - 3.66</td><td>$10,000</td></tr>"""
+        for label in ['Prior to Fall 2023', '2025-2026 Amounts', "Dean's Scholarship"]:  # #278 review: a label row is never dropped silently
+            got = self.got(f'<title>2026-27 Scholarships</title><h2>Freshman Awards</h2><table><tr><td>{label}</td><td></td></tr>{rows}</table>')
+            self.assertFalse(any(P.status_for(c, accepted_issues=False) == 'verified' and c['academic_year'] == '2026-27' and 'tiers' in str(c['record'].get('award_tiers')) for c in got.values()))
+            self.assertFalse(any(c['record'].get('award_tiers') for c in got.values()))
+        until = andrews.replace('<tr><td>Prior to Fall 2023</td></tr>', '').replace('<h2>Partnership Scholarship</h2>', '<h2>Until Fall 2027</h2>')
+        self.assertTrue(self.got(until))  # "Until Fall 2027" is not a superseded table
+
+    def test_score_rows_by_gpa_columns(self):
+        """Score bands down the side, GPA (or class-rank) bands across: AL (South Alabama), LA (Louisiana Tech), TX (Tarleton)."""
+        usa = """<title>Scholarships for Incoming Freshman | Scholarships</title><h2>Qualifications:</h2><table>
+<tr><th>ACT</th><th>SAT</th><th>High School GPA 3.0-3.49</th><th>High School GPA 3.5 - 3.74</th><th>High School GPA 3.75 &amp; Higher</th></tr>
+<tr><td>21-22</td><td>1060-1120</td><td>$2,000</td><td>$2,500</td><td>$3,000</td></tr><tr><td>23-24</td><td>1130-1190</td><td>$3,000</td><td>$3,500</td><td>$4,000</td></tr>
+<tr><td>≥ 32</td><td>1420-1600</td><td>$5,000</td><td>Full Tuition¹</td><td>Full Tuition¹</td></tr></table>"""
+        got = self.got(usa)
+        self.assertEqual(list(got), ['Scholarships for Incoming Freshman'])  # "Qualifications:" names no award; the page does
+        r = got['Scholarships for Incoming Freshman']['record']
+        self.assertEqual((len(r['award_tiers']), r['award_min'], r['award_max']), (9, 2000, 5000))
+        self.assertEqual(r['award_tiers'][0], {'test': 'ACT 21-22 / SAT 1060-1120', 'gpa': 'High School GPA 3.0-3.49', 'amount_text': '$2,000'})
+        self.assertIn('ACT 21-22 / SAT 1060-1120, High School GPA 3.0-3.49 → $2,000', r['test_requirement'])
+        short = usa.replace('<td>23-24</td><td>1130-1190</td><td>$3,000</td>', '<td>23-24</td><td>1130-1190</td>')
+        self.assertEqual(self.got(short), {})  # a row that does not fill the grid leaves it unread
+        odd = usa.replace('<td>$3,500</td>', '<td>see note</td>')
+        self.assertEqual(self.got(odd), {})  # a cell that is neither an amount nor blank leaves it unread
+        la = """<title>Freshman Scholarships</title><h2>Merit-Based Scholarships</h2><table><tr><th>Scholarship Name: ACT / SAT Score</th><th>GPA 3.0-3.749</th><th>GPA 3.75-4.0</th></tr>
+<tr><td>Presidential: ACT 33+ / SAT 1450-1600</td><td>$9,000</td><td>$9,500</td></tr><tr><td>Deans’ Scholarship: ACT 32 / SAT 1420-1440</td><td>$8,000</td><td>$8,500</td></tr>
+<tr><td>Academic Choice: ACT 20-22/SAT 1030-1120</td><td>N/A</td><td>$1,000</td></tr></table>
+<p>Bulldog Out-of-State Scholarship Incoming Freshmen – Category A (effective Fall 2023) Admitted students from Arkansas.</p>"""
+        c = self.got(la)['Merit-Based Scholarships']
+        self.assertEqual(len(c['record']['award_tiers']), 5)  # N/A is no tier
+        # an old "effective Fall 2023" keeps its stale label (held for review), never re-dated as current (#282 review)
+        self.assertEqual((c['academic_year'], c['issues']), ('2023-24', ['stale_year_label:2023-24']))
+        old = la.replace('Bulldog Out-of-State Scholarship Incoming Freshmen – Category A (effective Fall 2023) Admitted students from Arkansas.',
+                         'These merit scholarships are effective fall 2024 for incoming freshmen.')
+        self.assertEqual(self.got(old)['Merit-Based Scholarships']['academic_year'], '2024-25')
+        tar = """<title>Guaranteed Scholarship Program - Freshman</title><h2>Guaranteed Awards</h2><table><tr><th>SAT, ACT, or CLT</th><th>top 10%</th><th>top 25% (not top 10%)</th></tr>
+<tr><td>1300+ or 28+ or 92+</td><td>$4,000</td><td>$2,000</td></tr><tr><td>1100+ or 22+ or 72+</td><td>$3,000</td><td>$1,500</td></tr></table>"""
+        r = self.got(tar)['Guaranteed Awards']['record']
+        self.assertEqual((r['award_tiers'][1]['class rank'], 'gpa_requirement' in r), ('top 25% (not top 10%)', False))
+        sd = """<title>First-Time Student Scholarships</title><h2>Grid</h2><table><tr><td>TEST SCORES</td><td>ACT</td><td>32+</td><td>28</td><td>26</td></tr>
+<tr><td>GPA</td><td>4.00+</td><td>$4,000</td><td>$4,000</td><td>$3,000</td></tr><tr><td>3.90</td><td>$4,000</td><td>$3,000</td><td>$3,000</td></tr>
+<tr><td>3.75</td><td>$4,000</td><td>$3,000</td><td>$2,000</td></tr></table>"""
+        self.assertEqual(self.got(sd), {})  # SD (SDSU): rows shifted under a two-row header are never read by position
+        gre = usa.replace('<th>ACT</th><th>SAT</th>', '<th>GRE score</th><th>GMAT score</th>')
+        self.assertEqual(self.got(gre), {})  # graduate and professional tests are not first-year criteria
+
+        words = tar.replace('1100+ or 22+ or 72+', 'Recommended')
+        self.assertEqual(self.got(words), {})  # a side cell that is not a score band leaves the grid unread
+        mid = tar.replace('<th>top 10%</th><th>top 25% (not top 10%)</th>', '<th>top 10%</th><th>Notes</th><th>top 25% (not top 10%)</th>')
+        mid = mid.replace('<td>$4,000</td><td>$2,000</td>', '<td>$4,000</td><td>x</td><td>$2,000</td>').replace('<td>$3,000</td><td>$1,500</td>', '<td>$3,000</td><td>y</td><td>$1,500</td>')
+        self.assertEqual(self.got(mid), {})  # criteria columns must be one block at the right
+        self.assertEqual(self.got(usa.replace('<th>SAT</th>', '<th>SAT Score</th>'))['Scholarships for Incoming Freshman']['record']['award_tiers'][0]['test'],
+                         'ACT 21-22 / SAT 1060-1120')
+
+    def test_freshman_pages_that_also_list_transfer_awards(self):
+        ku = """<title>KU Scholarships | Renewable Merit Awards for Freshmen &amp; Transfers</title><h2>In-state freshman merit scholarships</h2><table>
+<tr><th>Name</th><th>GPA (based on 4.0 scale)</th><th>Amount</th></tr><tr><td>Chancellor</td><td>3.95+</td><td>$20,000 ($5,000 per year)</td></tr>
+<tr><td>Traditions</td><td>3.85 to 3.94</td><td>$16,000 ($4,000 per year)</td></tr><tr><td>Transfer Excellence</td><td>3.5+</td><td>$8,000 ($2,000 per year)</td></tr></table>"""
+        got = self.got(ku)  # KS (KU): a page for freshmen and transfers is read; its transfer award is not a first-year award
+        self.assertEqual(sorted(got), ['Chancellor', 'Traditions'])
+        self.assertEqual(got['Chancellor']['record']['award_max'], 5000)
+        self.assertEqual(self.got(ku.replace('for Freshmen &amp; Transfers', 'for Transfers')), {})
+        self.assertEqual(self.got(ku.replace('KU Scholarships | Renewable Merit Awards for Freshmen &amp; Transfers', 'Transfer Scholarships: First-Year Credit Requirements')), {})
+        tr = ku.replace('<h2>In-state freshman merit scholarships</h2>', '<h2>Transfer Merit Scholarships</h2>').replace('Transfer Excellence', 'Dean')
+        self.assertEqual(self.got(tr), {})  # on a freshman-and-transfer page a table headed transfer is the transfer award
+        led = ku.replace('<h2>In-state freshman merit scholarships</h2>', '<h2>Merit scholarships</h2><p>Transfer students (24+ credits)</p>').replace('Transfer Excellence', 'Dean')
+        self.assertEqual(self.got(led), {})  # ... and so is a table led by a transfer line
+        vcu = """<title>Out-of-state scholarships - Admissions</title><h2>Eligibility criteria</h2><table><tr><th>Minimum High School GPA</th><th>Annual Scholarship</th></tr>
+<tr><td>3.00</td><td>$10,000</td></tr><tr><td>3.25</td><td>$11,000</td></tr><tr><td>3.50</td><td>$12,000</td></tr></table>"""
+        self.assertEqual(list(self.got(vcu)), ['Out-of-state scholarships'])  # VA (VCU): a GPA grid under "Eligibility criteria"
+        exc = """<title>Excelsior Scholarship: SUNY Brockport</title><h2>Eligibility Requirements</h2><table><tr><th>Student Year</th><th>Requirements</th></tr>
+<tr><td>First-time Students</td><td>Must be a NYS resident whose family household adjusted gross income does not exceed $125,000</td></tr>
+<tr><td>Current Students</td><td>Must be on track to complete your degree on time and earn 30 credits a year</td></tr>
+<tr><td>Students with an Associate's Degree</td><td>Must meet the academic requirements and income guidelines</td></tr></table>"""
+        self.assertEqual(self.got(exc), {})  # NY (Brockport): under "Eligibility" only a tier grid is read
+        psu = """<title>Out-of-State Opportunity Scholarship</title><h2>Eligibility</h2><p>Transfer</p><table><tr><th>GPA</th><th>Award Amount</th></tr>
+<tr><td>3.75+</td><td>$6,000</td></tr><tr><td>3.0-3.74</td><td>$5,000</td></tr><tr><td>2.5 - 2.99</td><td>$4,000</td></tr></table>"""
+        self.assertEqual(self.got(psu), {})  # OR (PSU): the grid led "Transfer" is not the first-year award
+        self.assertTrue(self.got(psu.replace('<p>Transfer</p>', '<p>First Year</p>')))
 
     def test_home_state_residents(self):
         unf = """<title>UNF: Scholarship Options</title><h2>Florida Resident Merit-Based (Freshmen)</h2><table><caption>Freshman Merit Scholarships</caption>

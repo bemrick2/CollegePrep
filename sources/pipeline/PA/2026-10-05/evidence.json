@@ -614,6 +614,85 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "1c146983cab19fa3": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "1c146983cab19fa3",
+   "reason": "Eastern University Traditional Undergraduate COA, table \"Students Residing On Campus (24-36 credits/year)\", column \"2026-27\" (not marked Estimated): Tuition $40,560, Housing $7,732, Food $6,994, Fees $992, Total Direct Costs $56,278, Personal $2,656, Books & Supplies $1,376, Transportation $1,504, Loan Fees $100, Total Indirect Costs $5,636, Total Cost of Attendance $61,914, copied as printed. Undergraduate, on campus, private. Open issue conflicting_sources accepted: the other sources are Eastern's Esperanza, GPS online and seminary budgets, which are different programs (rejected below)."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition",
+    "snippet": "Tuition | $37,680 | $39,188 | $40,560 | $41,573 | $42,820 | $44,105",
+    "value": 40560
+   },
+   {
+    "field": "on_campus:Housing",
+    "snippet": "Housing | $7,182 | $7,470 | $7,732 | $7,924 | $8,161 | $8,406",
+    "value": 7732
+   },
+   {
+    "field": "on_campus:Food",
+    "snippet": "Food | $6,316 | $6,568 | $6,994 | $6,967 | $7,176 | $7,391",
+    "value": 6994
+   },
+   {
+    "field": "on_campus:Fees",
+    "snippet": "Fees | $900 | $928 | $992 | $983 | $1,012 | $1,042",
+    "value": 992
+   },
+   {
+    "field": "on_campus:Personal Expenses",
+    "snippet": "Personal Expenses | $2,528 | $2,604 | $2,656 | $2,762 | $2,844 | $2,929",
+    "value": 2656
+   },
+   {
+    "field": "on_campus:Books & Supplies",
+    "snippet": "Books & Supplies | $1,312 | $1,351 | $1,376 | $1,434 | $1,477 | $1,521",
+    "value": 1376
+   },
+   {
+    "field": "on_campus:Transportation",
+    "snippet": "Transportation | $1,440 | $1,483 | $1,504 | $1,574 | $1,621 | $1,670",
+    "value": 1504
+   },
+   {
+    "field": "on_campus:Loan Fees",
+    "snippet": "Loan Fees | $100 | $100 | $100 | $100 | $100 | $100",
+    "value": 100
+   },
+   {
+    "field": "on_campus:Total Cost of Attendance",
+    "snippet": "Total Cost of Attendance | $57,458 | $59,692 | $61,914 | $63,317 | $65,211 | $67,164",
+    "value": 61914
+   },
+   {
+    "field": "on_campus:Total Direct Costs",
+    "snippet": "Total Direct Costs | $52,078 | $54,154 | $56,278 | $57,447 | $59,169 | $60,944",
+    "value": 56278
+   },
+   {
+    "field": "on_campus:Total Indirect Costs",
+    "snippet": "Total Indirect Costs | $5,380 | $5,538 | $5,636 | $5,870 | $6,042 | $6,220",
+    "value": 5636
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "conflicting_sources:https://www.eastern.edu/admissions-financial-aid/financial-aid-office/loan-options/cost-attendance/esperanza-college-ec,https://www.eastern.edu/admissions-financial-aid/financial-aid-office/loan-options/cost-attendance/graduate-professional,https://www.eastern.edu/admissions-financial-aid/financial-aid-office/loan-options/cost-attendance/palmer-theological"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T13:47:05+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 12:29:14 GMT",
+   "page_file": "e57a53e3faeb7d23024f.json.gz",
+   "requested_url": "https://www.eastern.edu/admissions-financial-aid/financial-aid-office/loan-options/cost-attendance/traditional",
+   "sha256": "e57a53e3faeb7d23024ffa6d521d6cb9fd2740bde1a9d7d0247c788db921920f",
+   "title": "Traditional Undergraduate Cost of Attendance | Eastern University",
+   "url": "https://www.eastern.edu/admissions-financial-aid/financial-aid-office/loan-options/cost-attendance/traditional"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "1f8b99b58211ce0f": {
   "decision": {
    "candidate_id": "1f8b99b58211ce0f",
@@ -4390,6 +4469,67 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "65e8c3bcd4dc0f53": {
+  "decision": {
+   "candidate_id": "65e8c3bcd4dc0f53",
+   "reason": "Lehigh catalog \"Cost of Attendance\" table (caption \"Tuition and Fees\"; lead: charges listed for the academic year, fall and spring): row \"Tuition, 2026-2027\" $69,420, Technology Fee $630, Student Activity Fee $290, Wellness Fee $250, and the four University Housing category rates ($11,470 / $12,290 / $12,740 / $13,340), copied as printed. The year is printed in the table's tuition row. Private, residency not applicable; no total printed, none computed."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition, 2026-2027",
+    "snippet": "Tuition, 2026-2027 | $69,420",
+    "value": 69420
+   },
+   {
+    "field": "column:Technology Fee",
+    "snippet": "Technology Fee | $630",
+    "value": 630
+   },
+   {
+    "field": "column:Student Activity Fee",
+    "snippet": "Student Activity Fee | $290",
+    "value": 290
+   },
+   {
+    "field": "column:Wellness Fee",
+    "snippet": "Wellness Fee | $250",
+    "value": 250
+   },
+   {
+    "field": "column:Category I (Dravo, Drinker, Centennial I & II, McClintic Marshall, Richards, Taylor)",
+    "snippet": "Category I (Dravo, Drinker, Centennial I & II, McClintic Marshall, Richards, Taylor) | $11,470",
+    "value": 11470
+   },
+   {
+    "field": "column:Category II (All Greek Houses, Houses 84, 85, 87, 88, 89, 90, 93, 97, UMOJA, Warren Square)",
+    "snippet": "Category II (All Greek Houses, Houses 84, 85, 87, 88, 89, 90, 93, 97, UMOJA, Warren Square) | $12,290",
+    "value": 12290
+   },
+   {
+    "field": "column:Category III (Brodhead House, Singleton, Hitch, Maida Houses, Trembley Park Suite Singles)",
+    "snippet": "Category III (Brodhead House, Singleton, Hitch, Maida Houses, Trembley Park Suite Singles) | $12,740",
+    "value": 12740
+   },
+   {
+    "field": "column:Category IV (Farrington Square, Sayre Park Village, Trembley Park)",
+    "snippet": "Category IV (Farrington Square, Sayre Park Village, Trembley Park) | $13,340",
+    "value": 13340
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-05T13:56:01+00:00",
+   "kind": "html",
+   "last_modified": "Fri, 02 Oct 2026 13:07:49 GMT",
+   "page_file": "18de01d35012da26b0d5.json.gz",
+   "requested_url": "https://catalog.lehigh.edu/informationofgeneralinterest/costofattendance/",
+   "sha256": "18de01d35012da26b0d5587d872131cd9bc3489b617241366a1f44b2d3c724fd",
+   "title": "Cost of Attendance < Lehigh University",
+   "url": "https://catalog.lehigh.edu/informationofgeneralinterest/costofattendance/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "681866a3a6b306d8": {
   "decision": {
    "candidate_id": "681866a3a6b306d8",
@@ -6838,6 +6978,52 @@
    "sha256": "aa272f587b4bf3df763d44bed8415b241d489ec3e7a6c9e6165b96c512ef5c8b",
    "title": "Scholarships & Awards | Alvernia University",
    "url": "https://www.alvernia.edu/admissions-aid/scholarships-awards"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "9a78053494952ec4": {
+  "decision": {
+   "candidate_id": "9a78053494952ec4",
+   "reason": "Chestnut Hill \"Costs and Fees – Undergraduate (Full-time)\" table whose header row reads \"Fall 2026/Spring 2027 | Semester | Academic Year\"; Academic Year column: Tuition (All SUS programs except ABSN) $39,600, Accelerated BSN $39,200, Student Activity Fee $600, Health Services Fee $175, Matriculation Fee (one-time) $480, copied as printed (the ABSN row stays a labelled component). Full-time undergraduate, private."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition (All SUS programs except ABSN)",
+    "snippet": "Tuition (All SUS programs except ABSN) | $19,800 | $39,600",
+    "value": 39600
+   },
+   {
+    "field": "column:Accelerated Bachelor’s in Nursing (ABSN)*",
+    "snippet": "Accelerated Bachelor’s in Nursing (ABSN)* | $9,800 | $39,200**",
+    "value": 39200
+   },
+   {
+    "field": "column:Student Activity Fee",
+    "snippet": "Student Activity Fee | $300 | $600",
+    "value": 600
+   },
+   {
+    "field": "column:Health Services Fee",
+    "snippet": "Health Services Fee | $87.50 | $175",
+    "value": 175
+   },
+   {
+    "field": "column:Matriculation Fee (One-time fee)",
+    "snippet": "Matriculation Fee (One-time fee) |  | $480",
+    "value": 480
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-05T13:42:05+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "a34ee0e779e1fa24ebae.json.gz",
+   "requested_url": "https://www.chc.edu/undergraduate/financial_aid/",
+   "sha256": "a34ee0e779e1fa24ebae23c48503de98c07a8f96ed009ee5eb5136c0be1218f9",
+   "title": "Tuition and Financial Aid - Chestnut Hill College",
+   "url": "https://www.chc.edu/admissions-aid/financial-aid/"
   },
   "year_basis": "labeled_in_source"
  },
@@ -9971,6 +10157,55 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "cc6132dbb58fe2ac": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "cc6132dbb58fe2ac",
+   "reason": "Elizabethtown \"Tuition, Housing, Food Plan & Comprehensive Fee\" table, column \"2026-27\" (lead: full-time students, 12-18 credits per semester, in traditional on-campus housing): Tuition $39,520, Housing $7,100, Food Plan $7,260, Comprehensive Fee $1,030, Total Annual Rate $54,910, copied as printed. Private, academic year. Open issue conflicting_sources accepted: the other source is the admissions page's \"2026-27 Cost Breakdown\" with identical figures (rejected as a duplicate)."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $39,520",
+    "value": 39520
+   },
+   {
+    "field": "column:Housing",
+    "snippet": "Housing | $7,100",
+    "value": 7100
+   },
+   {
+    "field": "column:Food Plan",
+    "snippet": "Food Plan | $7,260",
+    "value": 7260
+   },
+   {
+    "field": "column:Comprehensive Fee**",
+    "snippet": "Comprehensive Fee** | $1,030",
+    "value": 1030
+   },
+   {
+    "field": "column:Total Annual Rate",
+    "snippet": "Total Annual Rate | $54,910*",
+    "value": 54910
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "conflicting_sources:https://www.etown.edu/admissions/tuition-aid/"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T13:57:29+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "710a6c0ff4b42438965f.json.gz",
+   "requested_url": "https://www.etown.edu/offices/financial-aid/tuition-fees.aspx",
+   "sha256": "710a6c0ff4b42438965fb25fb5195bdd59c43969b944497dfb228fd39ef405ab",
+   "title": "Tuition and Fees | Elizabethtown College",
+   "url": "https://www.etown.edu/offices/financial-aid/tuition-fees.aspx"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "cc85f6d446c2010c": {
   "decision": {
    "candidate_id": "cc85f6d446c2010c",
@@ -11244,6 +11479,85 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "e68e768391f96208": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "e68e768391f96208",
+   "reason": "Muhlenberg table headed \"2026-2027 First-Year/Transfer Cost of Attendance (COA)\", column \"Cost by Year\": Tuition $66,930, Student Activity Fee $324, Technology Fee $280, Health and Wellness Fee $226, First-Year Orientation Fee $228, First-Year Housing $8,558, Meal Plan $7,200, Books and Other Supplies $1,600, Transportation $850, Personal Expenses $1,500, TOTAL COST OF ATTENDANCE $87,696, copied as printed (Cost by Semester column not used). Private, academic year. Open issue conflicting_sources accepted: the Act 69 page prints the same table, and the aid terms page's direct-cost table prints Food and Housing $15,696 against $15,758 here; this record keeps this table's own figures. This is the first-year/transfer cost of attendance (first-year housing and orientation fee), not a continuing-student budget."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $33,465 | $66,930",
+    "value": 66930
+   },
+   {
+    "field": "column:Student Activity Fee",
+    "snippet": "Student Activity Fee | $162 | $324",
+    "value": 324
+   },
+   {
+    "field": "column:Technology Fee",
+    "snippet": "Technology Fee | $140 | $280",
+    "value": 280
+   },
+   {
+    "field": "column:Health and Wellness Fee",
+    "snippet": "Health and Wellness Fee | $113 | $226",
+    "value": 226
+   },
+   {
+    "field": "column:First-Year Orientation Fee",
+    "snippet": "First-Year Orientation Fee | $114 | $228",
+    "value": 228
+   },
+   {
+    "field": "column:First-Year Housing",
+    "snippet": "First-Year Housing | $4,279 | $8,558",
+    "value": 8558
+   },
+   {
+    "field": "column:Meal Plan",
+    "snippet": "Meal Plan | $3,600 | $7,200",
+    "value": 7200
+   },
+   {
+    "field": "column:Books and Other Supplies",
+    "snippet": "Books and Other Supplies | $800 | $1600",
+    "value": 1600
+   },
+   {
+    "field": "column:Transportation",
+    "snippet": "Transportation | $425 | $850",
+    "value": 850
+   },
+   {
+    "field": "column:Personal Expenses",
+    "snippet": "Personal Expenses | $750 | $1,500",
+    "value": 1500
+   },
+   {
+    "field": "column:TOTAL COST OF ATTENDANCE",
+    "snippet": "TOTAL COST OF ATTENDANCE | $43,848 | $87,696",
+    "value": 87696
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "conflicting_sources:https://www.muhlenberg.edu/admissions-aid/scholarships-and-financial-aid/scholarship-and-aid-offer-terms-and-conditions/,https://www.muhlenberg.edu/admissions-aid/tuition-and-fees/college-affordability-transparency-act-69/"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T13:59:55+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "a54c7d588cc9d5f791ae.json.gz",
+   "requested_url": "https://www.muhlenberg.edu/admissions-aid/tuition-and-fees/",
+   "sha256": "a54c7d588cc9d5f791ae3e15a723b9b87df7ff8bd2ba6400092ce10eb4bac184",
+   "title": "Muhlenberg College | Tuition and Fees | Muhlenberg College Cost of AttendanceTuition and Fees | Muhlenberg College Cost of Attendance",
+   "url": "https://www.muhlenberg.edu/admissions-aid/tuition-and-fees/"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "e6ac877e57ae343c": {
   "decision": {
    "candidate_id": "e6ac877e57ae343c",
@@ -12061,6 +12375,52 @@
    "sha256": "56c09d91f7142e4685c935b1562fcd03b421ceab49fa28876863009861f038eb",
    "title": "// Print - Scholarships and Grants",
    "url": "https://www.geneva.edu/financial-aid/scholarships-grants-print"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f4f5361a8b7a0593": {
+  "decision": {
+   "candidate_id": "f4f5361a8b7a0593",
+   "reason": "Widener table headed \"Estimated Tuition & Costs —Fall 2026-Spring 2027 Academic Year\", TOTAL column: \"Estimated Annual Tuition & Fees* (2026-2027)\" $60,038, Estimated 1st Year Annual Housing $9,500, Food $8,000, Residence Hall/On-Campus Students $77,538, Commuter/Off-Campus Students $60,038, copied as printed (FALL/SPRING columns not used). Undergraduate, private, academic year. Every row is labelled \"Estimated\" (heading \"Estimated Tuition & Costs\"). Unlike the rejected Eastern/Elizabethtown/Muhlenberg \"Estimated\" columns, which are projections for later years beside each school's actual current-year prices, this is Widener's only published 2026-27 schedule, labelled for that year; it is accepted on that basis and the label is noted here."
+  },
+  "evidence": [
+   {
+    "field": "column:Estimated Annual Tuition & Fees* (2026-2027)",
+    "snippet": "Estimated Annual Tuition & Fees* (2026-2027) | $30,019 | $30,019 | $60,038",
+    "value": 60038
+   },
+   {
+    "field": "column:Estimated 1st Year Annual Housing**",
+    "snippet": "Estimated 1st Year Annual Housing** | $4,750 | $4,750 | $9,500",
+    "value": 9500
+   },
+   {
+    "field": "column:Estimated 1st Year Annual Food (Meal Plans)**",
+    "snippet": "Estimated 1st Year Annual Food (Meal Plans)** | $4,000 | $4,000 | $8,000",
+    "value": 8000
+   },
+   {
+    "field": "column:Residence Hall/On-Campus Students",
+    "snippet": "Residence Hall/On-Campus Students | $38,769 | $38,769 | $77,538",
+    "value": 77538
+   },
+   {
+    "field": "column:Commuter/Off-Campus Students",
+    "snippet": "Commuter/Off-Campus Students | $30,019 | $30,019 | $60,038",
+    "value": 60038
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-05T14:19:23+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 13:35:41 GMT",
+   "page_file": "414c1c2ff8c903dfac33.json.gz",
+   "requested_url": "https://www.widener.edu/admissions-aid/undergraduate-admissions/tuition-financial-aid",
+   "sha256": "414c1c2ff8c903dfac33e50c5d4a4e8c7d460bf2ff77d27def48e8850ad7f388",
+   "title": "Undergraduate Tuition & Financial Aid | Widener University",
+   "url": "https://www.widener.edu/admissions-aid/undergraduate-admissions/tuition-financial-aid"
   },
   "year_basis": "labeled_in_source"
  },

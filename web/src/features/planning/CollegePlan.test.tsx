@@ -36,34 +36,42 @@ const renderPlan = (src: DemoSource) =>
   )
 
 describe('college plan pilot (#195), on the stored Tennessee records', () => {
-  it('UTC Management: verified plan and cost shown; unverified credit tables named, never shown as credit', async () => {
+  it('UTC Management today: the plan is on file but not verified, so it isn’t shown, and the page never says there is no plan', async () => {
     const user = userEvent.setup()
     renderPlan(await family())
     expect(await screen.findByRole('heading', { name: 'College plan' }, { timeout: 10000 })).toBeInTheDocument()
-    expect(await screen.findByText('Partly on file', {}, { timeout: 10000 })).toBeInTheDocument()
-    // Eight real terms; year headings, if printed, are not terms (#230).
-    expect(screen.getAllByText(/^Term [1-8]: /)).toHaveLength(8)
-    expect(screen.queryByText(/^Term 9: /)).toBeNull()
-    expect(screen.getByText(/120 credit hours in total, as printed/)).toBeInTheDocument()
-    // Exam credit: UTC's AP table isn't verified (no year printed), so no credit is claimed.
+    expect(await screen.findByText('Degree plan not yet verified', {}, { timeout: 10000 })).toBeInTheDocument()
+    expect(screen.queryByText('No degree plan on file')).not.toBeInTheDocument()
+    expect(screen.queryByText('Partly on file')).not.toBeInTheDocument()
+    // Why it isn't shown (2026-10-23: a printed note isn't captured), and no term or total from the unverified plan.
+    const plan = screen.getByRole('heading', { name: 'Degree plan' }).closest('section')!
+    expect(within(plan).getByText('Plan on file but not verified.')).toBeInTheDocument()
+    expect(within(plan).getByText(/A note printed with the plan, which can change the courses it requires, hasn’t been captured and checked yet/)).toBeInTheDocument()
+    // Its source is linked, but an unverified record's date is never called "verified".
+    expect(within(plan).getByRole('link', { name: 'Source' })).toHaveAttribute('href', expect.stringContaining('cob-management-bsba'))
+    expect(screen.queryByText(/^Term [1-9]: /)).toBeNull()
+    expect(screen.queryByText(/credit hours in total, as printed/)).toBeNull()
+    // Exam credit: the AP table isn't verified either, so no credit is claimed or placed.
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
     expect(within(credit).getAllByText('Academic year unconfirmed')).toHaveLength(2)
-    expect(within(credit).getAllByText(/credit table is on file but not yet verified: the values were checked, but the page prints no academic year/).length).toBeGreaterThan(0)
-    // Cost by living arrangement, as published.
+    expect(within(credit).queryByText('No credit at this score')).not.toBeInTheDocument()
+    // Cost by living arrangement, as published (still verified).
     expect(screen.getByText('$30,340')).toBeInTheDocument()
     await user.click(screen.getByRole('radio', { name: 'With family' }))
     expect(screen.getByText('$23,736')).toBeInTheDocument()
     expect(screen.getByText(/In-state price shown: home state not entered\. Published for 2026-27\./)).toBeInTheDocument()
-    // Nothing is claimed about time or money saved.
-    expect(screen.getByText('No whole plan term is covered by this credit.')).toBeInTheDocument()
-    expect(screen.getByText(/^Not shown\. No whole plan term is covered, so no time or money saved is shown\./)).toBeInTheDocument()
+    // Nothing is claimed about coverage, time or money saved.
+    expect(screen.getByText('No verified plan, so coverage can’t be checked.')).toBeInTheDocument()
+    expect(screen.getByText(/^Not shown\. No verified plan for a saved major is on file/)).toBeInTheDocument()
     expect(screen.queryByText(/Potential saving/)).not.toBeInTheDocument()
+    const missing = screen.getByRole('heading', { name: 'What isn’t on file yet' }).closest('section')!
+    expect(within(missing).getByText(/plan for this major is on file but not yet verified: its course rows were checked, but a note printed with it/)).toBeInTheDocument()
   }, 30_000)
 
   it('UTK: credit tables on file but their academic year is unconfirmed, so no credit is claimed and none is denied', async () => {
     const user = userEvent.setup()
     renderPlan(await family())
-    await screen.findByText('Partly on file', {}, { timeout: 10000 })
+    await screen.findByText('Degree plan not yet verified', {}, { timeout: 10000 })
     await user.selectOptions(screen.getByLabelText('School'), 'utk')
     expect(await screen.findByText('No degree plan on file')).toBeInTheDocument()
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
@@ -77,7 +85,7 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
 
   it('with no exams entered, unverified credit tables are still named and the page is not "ready"', async () => {
     renderPlan(await family(false))
-    expect(await screen.findByText('Partly on file', {}, { timeout: 10000 })).toBeInTheDocument()
+    expect(await screen.findByText('Degree plan not yet verified', {}, { timeout: 10000 })).toBeInTheDocument()
     expect(screen.queryByText('Plan, credit tables and cost on file')).not.toBeInTheDocument()
     const missing = screen.getByRole('heading', { name: 'What isn’t on file yet' }).closest('section')!
     expect(within(missing).getByText(/AP credit table is on file but not yet verified/)).toBeInTheDocument()
@@ -87,7 +95,7 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
   it('UTK: majors whose listing isn’t verified are labelled; a price the school doesn’t publish is named', async () => {
     const user = userEvent.setup()
     renderPlan(await family())
-    await screen.findByText('Partly on file', {}, { timeout: 10000 })
+    await screen.findByText('Degree plan not yet verified', {}, { timeout: 10000 })
     await user.selectOptions(screen.getByLabelText('School'), 'utk')
     await screen.findByText('No degree plan on file')
     expect(within(screen.getByLabelText('Major')).getAllByRole('option').every((o) => /\(listing not yet verified\)$/.test(o.textContent ?? ''))).toBe(true)
@@ -97,7 +105,7 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
   it('MTSU: no plan and no cost on file; each is named, nothing estimated', async () => {
     const user = userEvent.setup()
     renderPlan(await family())
-    await screen.findByText('Partly on file', {}, { timeout: 10000 })
+    await screen.findByText('Degree plan not yet verified', {}, { timeout: 10000 })
     await user.selectOptions(screen.getByLabelText('School'), 'mtsu')
     expect(await screen.findByText('No degree plan on file')).toBeInTheDocument()
     expect(screen.getAllByText(/No cost of attendance is on file for Middle Tennessee State University\./).length).toBeGreaterThan(0)
@@ -136,7 +144,7 @@ describe('college plan pilot when the flag is off', () => {
     )
     await new Promise((r) => setTimeout(r, 1500))
     expect(screen.queryByRole('heading', { name: 'College plan' })).not.toBeInTheDocument()
-    expect(screen.queryByText(/Partly on file|No degree plan on file/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Partly on file|No degree plan on file|Degree plan not yet verified/)).not.toBeInTheDocument()
   }, 30_000)
 })
 
