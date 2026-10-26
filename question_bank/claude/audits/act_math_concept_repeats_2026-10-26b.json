@@ -48,6 +48,16 @@
    "id": "CLD-ACT-M-000563",
    "duplicate_of": "CLD-ACT-M-000160",
    "shared_idea": "Converting a two-digit repeating decimal (0.2727… vs 0.3636…) to a fraction over 99. Found by keyword search."
+  },
+  {
+   "id": "CLD-ACT-M-000533",
+   "duplicate_of": "CLD-ACT-M-000019",
+   "shared_idea": "Same expression (6 × 10^5)(4 × 10^−2) ÷ (8 × 10^1) = 3 × 10^2; written with '^' instead of superscripts, so the text screen missed it. Found in a second sweep with superscripts normalized."
+  },
+  {
+   "id": "CLD-ACT-M-000624",
+   "duplicate_of": "CLD-ACT-M-000232",
+   "shared_idea": "Effect on a cylinder's volume of doubling/halving the radius and halving/doubling the height (mirror image of the same item). Found in a second sweep with superscripts normalized."
   }
  ],
  "root_cause": "The author re-created earlier items from memory; the draft screen only blocks stem similarity >= 0.6, and these scored 0.53-0.86 after rewording (000524 was missed because its stem used '^' notation vs a superscript). Mitigation: at draft time, list every bank item with similarity >= 0.4 to each candidate and compare by hand.",

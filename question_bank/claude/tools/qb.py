@@ -171,8 +171,12 @@ def save_bank(bank: str, data: dict, expected_hash: str, previous: dict) -> None
 STOP = set('the a an of to and in is for what which if on be by with at as are that this its it from following value'.split())
 
 
+SUPERSCRIPTS = str.maketrans('⁰¹⁴⁵⁶⁷⁸⁹⁻', '01456789-')
+
+
 def tokens(text: str) -> set[str]:
-    t = re.sub(r'[^a-z0-9π√²³^/.]+', ' ', text.lower())
+    # Superscript exponents other than ² and ³ were dropped, so 7¹⁰⁰ and 7^100 looked unrelated; map them to digits.
+    t = re.sub(r'[^a-z0-9π√²³^/.]+', ' ', text.translate(SUPERSCRIPTS).lower())
     return {w for w in t.split() if w not in STOP}
 
 
