@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 39,
-  "updated_at": "2026-10-26T21:19:40+00:00",
+  "version": 40,
+  "updated_at": "2026-10-26T21:32:35+00:00",
   "passages": [],
   "questions": [
     {
@@ -27136,6 +27136,712 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-039.review.json",
         "computation": "checks/act_math/batch_039.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000390",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Distributing and combining like terms",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following expressions is equivalent to 5 - 2(3 - 4x) + x ?",
+      "choices": {
+        "A": "9x - 1",
+        "B": "7x - 1",
+        "C": "9x + 11",
+        "D": "-7x - 1"
+      },
+      "correct_answer": "A",
+      "explanation": "-2(3 - 4x) = -6 + 8x. Then 5 - 6 + 8x + x = 9x - 1.",
+      "distractor_explanations": {
+        "B": "7x - 1 distributes -2 · (-4x) as -8x and then adds x.",
+        "C": "9x + 11 distributes -2 · 3 as +6.",
+        "D": "-7x - 1 makes both sign errors on the x-terms."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Distribute the -2 to both terms in the parentheses."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: 5 - 2(-1) + 1 = 8. Which choice gives 8?"
+      },
+      "remember": "A negative factor changes the sign of every term it multiplies.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-01",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000391",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Quadratic pattern from second differences",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table below shows values of a function f for several values of x.\nx | 1 | 2 | 3 | 4\nf(x) | 2 | 6 | 12 | 20\nIf the pattern continues, what is f(5) ?",
+      "choices": {
+        "A": "25",
+        "B": "26",
+        "C": "28",
+        "D": "30"
+      },
+      "correct_answer": "D",
+      "explanation": "The differences are 4, 6, 8, increasing by 2 each time, so the next difference is 10 and f(5) = 20 + 10 = 30. (In fact f(x) = x(x + 1).)",
+      "distractor_explanations": {
+        "A": "25 assumes f(x) = x² for x = 5.",
+        "B": "26 adds the first difference pattern incorrectly, using +6 again.",
+        "C": "28 repeats the last difference, 8, instead of letting it grow."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Find the differences between consecutive outputs.",
+        "How do the differences themselves change?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Extend the differences: 4, 6, 8, 10."
+      },
+      "remember": "Constant second differences mean a quadratic pattern.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-02",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: 'if the pattern continues' leaves the rule implicit; both first differences (4,6,8,10) and n(n+1) give 30, so the answer is the same either way"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000392",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Surface area of a rectangular prism",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A closed rectangular box measures 3 inches by 4 inches by 5 inches. What is the total surface area of the box, in square inches?",
+      "choices": {
+        "A": "47",
+        "B": "60",
+        "C": "94",
+        "D": "120"
+      },
+      "correct_answer": "C",
+      "explanation": "Surface area = 2(3·4 + 3·5 + 4·5) = 2(12 + 15 + 20) = 94.",
+      "distractor_explanations": {
+        "A": "47 counts each pair of faces only once.",
+        "B": "60 is the volume, 3 × 4 × 5.",
+        "D": "120 doubles the volume."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "How many faces does a box have, and which ones are the same size?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List the three pairs of faces."
+      },
+      "remember": "Box surface area = 2(lw + lh + wh).",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-03",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000393",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Greatest common factor of monomials",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the greatest common factor of 12x³y and 18x²y² ?",
+      "choices": {
+        "A": "6xy",
+        "B": "6x²y",
+        "C": "36x³y²",
+        "D": "6x³y²"
+      },
+      "correct_answer": "B",
+      "explanation": "The GCF of 12 and 18 is 6; take the lower power of each variable: x² and y¹. So the GCF is 6x²y.",
+      "distractor_explanations": {
+        "A": "6xy uses the lowest possible powers, not the lowest powers that appear.",
+        "C": "36x³y² is the least common multiple, not the greatest common factor.",
+        "D": "6x³y² takes the higher power of each variable."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "For each variable, which exponent appears in both terms?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check that each choice divides both terms evenly."
+      },
+      "remember": "GCF: smallest exponent of each shared factor.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-04",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000394",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Linear pairs of angles",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two angles form a linear pair. One angle measures x° and the other measures (3x - 20)°. What is the value of x ?",
+      "choices": {
+        "A": "10",
+        "B": "40",
+        "C": "45",
+        "D": "50"
+      },
+      "correct_answer": "D",
+      "explanation": "A linear pair is supplementary: x + 3x - 20 = 180, so 4x = 200 and x = 50.",
+      "distractor_explanations": {
+        "A": "10 sets the angles equal: x = 3x - 20 gives x = 10.",
+        "B": "40 subtracts 20 from 180 and divides by 4 without adding the 20 back: 4x = 160.",
+        "C": "45 = 180/4 ignores the -20."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "What do the angles of a linear pair add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x + (3x - 20) = 180."
+      },
+      "remember": "Linear pair: the two angles sum to 180°.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-05",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000395",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Ratio mixture with unit conversion",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A paint color is made by mixing blue and yellow paint in a ratio of 3 to 5. How many quarts of blue paint are needed to make 2 gallons of this color? (1 gallon = 4 quarts)",
+      "choices": {
+        "A": "3",
+        "B": "4.8",
+        "C": "5",
+        "D": "24"
+      },
+      "correct_answer": "A",
+      "explanation": "2 gallons = 8 quarts. Blue is 3 of every 3 + 5 = 8 parts, so blue = (3/8)(8) = 3 quarts.",
+      "distractor_explanations": {
+        "B": "4.8 = (3/5)(8) uses the blue-to-yellow ratio as if it were blue's share of the whole.",
+        "C": "5 quarts is the amount of yellow paint.",
+        "D": "24 = 3 × 8 multiplies the ratio term by the total without dividing by 8 parts."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What fraction of the mixture is blue?",
+        "How many quarts are in 2 gallons?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(3/8) × 8 quarts."
+      },
+      "remember": "Part-to-part ratio a:b → part a is a/(a + b) of the whole.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-06",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000396",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "At least two of three independent events",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Three independent events A, B, and C have probabilities 0.5, 0.6, and 0.7, respectively. What is the probability that at least two of the three events occur?",
+      "choices": {
+        "A": "0.21",
+        "B": "0.44",
+        "C": "0.65",
+        "D": "0.79"
+      },
+      "correct_answer": "C",
+      "explanation": "Exactly two: (0.5)(0.6)(0.3) + (0.5)(0.4)(0.7) + (0.5)(0.6)(0.7) = 0.09 + 0.14 + 0.21 = 0.44. All three: (0.5)(0.6)(0.7) = 0.21. At least two: 0.44 + 0.21 = 0.65.",
+      "distractor_explanations": {
+        "A": "0.21 is the probability that all three occur.",
+        "B": "0.44 is the probability that exactly two occur.",
+        "D": "0.79 = 1 - 0.21 is the probability that not all three occur."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "\"At least two\" means exactly two or all three.",
+        "For exactly two, which event fails in each case?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List the four favorable cases."
+      },
+      "remember": "\"At least two\": add exactly two and all three.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-07",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000397",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Rectangle inscribed in a circle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle is inscribed in a circle of radius 10 centimeters. The sides of the rectangle are in the ratio 3 : 4. What is the area of the rectangle, in square centimeters?",
+      "choices": {
+        "A": "96",
+        "B": "192",
+        "C": "240",
+        "D": "300"
+      },
+      "correct_answer": "B",
+      "explanation": "The diagonal of an inscribed rectangle is a diameter, 20. Sides 3k and 4k give 5k = 20, so k = 4 and the sides are 12 and 16. Area = 192.",
+      "distractor_explanations": {
+        "A": "96 is half the area.",
+        "C": "240 = 12 × 20 multiplies one side by the diameter.",
+        "D": "300 = 3 × 4 × 25 uses k² = 25, taking k = 5 from the radius-diagonal mix-up."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the diagonal of a rectangle inscribed in a circle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the diagonal through the center."
+      },
+      "remember": "An inscribed rectangle's diagonal is a diameter.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-08",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000398",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Average cost with a fixed cost",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A company spends $2,000 to set up production and then $3 to make each item. How many items must it make so that the average cost per item is $5 ?",
+      "choices": {
+        "A": "400",
+        "B": "667",
+        "C": "1,000",
+        "D": "2,000"
+      },
+      "correct_answer": "C",
+      "explanation": "Average cost = (2,000 + 3n)/n = 5, so 2,000 + 3n = 5n and n = 1,000.",
+      "distractor_explanations": {
+        "A": "400 = 2,000/5 ignores the $3 cost per item.",
+        "B": "667 = 2,000/3 divides the setup cost by the per-item cost.",
+        "D": "2,000 is the setup cost, not a number of items."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write the total cost for n items, then divide by n."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 1,000 items: (2,000 + 3,000)/1,000."
+      },
+      "remember": "Average cost = (fixed + variable × n)/n.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-09",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000399",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear models: burning candles",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two candles are the same height when they are lit at the same time. The first candle burns down completely in 3 hours, and the second in 5 hours, each at a constant rate. After how many hours will the second candle be exactly twice as tall as the first?",
+      "choices": {
+        "A": "15/8",
+        "B": "15/7",
+        "C": "5/2",
+        "D": "15/4"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the height be 1. After t hours the heights are 1 - t/3 and 1 - t/5. Setting 1 - t/5 = 2(1 - t/3) gives 2t/3 - t/5 = 1, so 7t/15 = 1 and t = 15/7.",
+      "distractor_explanations": {
+        "A": "15/8 = 15/(3 + 5) combines the burn times without setting up the heights.",
+        "C": "5/2 is halfway through the second candle's burning time.",
+        "D": "15/4 sets 1 - t/3 = 2(1 - t/5), making the first candle twice as tall."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write each candle's remaining height as a fraction of the original.",
+        "Which candle should be twice the other?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1 - t/5 = 2(1 - t/3)."
+      },
+      "remember": "Model each quantity as a linear function of time, then set up the stated relationship.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "B040-10",
+      "created_at": "2026-10-26T21:32:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-040.review.json",
+        "computation": "checks/act_math/batch_040.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
