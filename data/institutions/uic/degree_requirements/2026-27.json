@@ -349,6 +349,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: Electives must be selected in consultation with an advisor in the College of Education. Electives taken in the junior and senior year must be at the 300 level or above."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -644,7 +651,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/education/epsy/ba-hdl/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#5315cbfd0fbc64e5) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#5315cbfd0fbc64e5."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#5315cbfd0fbc64e5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#5315cbfd0fbc64e5."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -4254,6 +4261,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "Select one of the following: MUS 150, MUS 151, MUS 152, MUS 153, MUS 154, MUS 155, MUS 157, MUS 159, MUS 160."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -4676,11 +4689,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/architecture-design-arts/thtr-mus/ba-mus/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#54f8464895d5c7c3) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#54f8464895d5c7c3. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'Select one of the following: MUS 150, MUS 151, MUS 152, MUS 153, MUS 154, MUS 155, MUS 157, MUS 159, MUS 160.'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#54f8464895d5c7c3) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#54f8464895d5c7c3); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#54f8464895d5c7c3."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -6882,6 +6892,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "This course is only offered in the spring semester."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -7175,11 +7191,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/architecture-design-arts/thtr-mus/ba-thtr-des/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#4fbacc576c12c2d0) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#e34497111f3137d6. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'This course is only offered in the spring semester.'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#e34497111f3137d6) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#e34497111f3137d6); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#e34497111f3137d6."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -9952,6 +9965,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "ENGR 100 is a one-semester-hour course, but the hour does not count toward the total hours required for graduation. Students who transfer into the College of Engineering will take ENGR 101 within the first semester after enrolling."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 158 (as printed)",
         "schema": "requirement_group/v1",
@@ -10350,11 +10369,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/che/bs-ms-chemical-engineering/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#5497ad8434ea8dc7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#f92154a1b220242a. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'ENGR 100 is a one-semester-hour course, but the hour does not count toward the total hours required for graduation. Students who transfer in'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#f92154a1b220242a) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#f92154a1b220242a); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#f92154a1b220242a."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -11994,6 +12010,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "ENGR 100 is a one-semester-hour course, but the hour does not count toward the total required for graduation. Students who transfer into the College of Engineering will take ENGR 101 within the first semester after enrolling."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 156 (as printed)",
         "schema": "requirement_group/v1",
@@ -12322,11 +12344,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/joint-bs-ms/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#ed8bcfab7c8454ec) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#029fd97bfd237fe5. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'ENGR 100 is a one-semester-hour course, but the hour does not count toward the total required for graduation. Students who transfer into the'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#029fd97bfd237fe5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#029fd97bfd237fe5); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#029fd97bfd237fe5."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -15347,6 +15366,32 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "This course has been approved for the Analyzing the Natural World General Education category."
+          },
+          {
+            "marker": "b",
+            "text": "Students who take CHEM 116 and CHEM 118 to fulfill the general chemistry requirement do not need to take CHEM 222."
+          },
+          {
+            "marker": "c",
+            "text": "Each of the following pairs will be considered one course in meeting the LAS General Education requirements: CHEM 122/CHEM 123 and CHEM 124/CHEM 125."
+          },
+          {
+            "marker": "d",
+            "text": "MATH 180 fulfills the LAS Quantitative Reasoning requirement."
+          },
+          {
+            "marker": "e",
+            "text": "Students who wish to use the CHEM 342/CHEM 343/CHEM 346 option to satisfy the physical chemistry requirement will need to also choose PHYS 141/PHYS 142 to satisfy their physics requirement and will need to take MATH 210 as a corequisite for CHEM 342."
+          },
+          {
+            "marker": "f",
+            "text": "CHEM 343 fulfills the LAS Writing-in-the-Discipline requirement."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -15670,11 +15715,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/biochem/bs/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (2 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#d2ad6749aa132ba2) stored a printed choice block as separate items, so every option read as required; the options are now one choice item. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#d2ad6749aa132ba2. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'This course has been approved for the Analyzing the Natural World General Education category.'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 6 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#d2ad6749aa132ba2) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#d2ad6749aa132ba2); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#d2ad6749aa132ba2."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -17533,6 +17575,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: COMM 100, COMM 105, and COMM 140 do not count toward the major. Students may not register in 100-, 200-, and 300-level COMM core courses concurrently. For example, students must complete COMM 101, COMM 102, and COMM 103 before they can register for COMM 301."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -17813,7 +17862,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/comm/ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#3a11d395a97846f4) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#3a11d395a97846f4."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#3a11d395a97846f4) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#3a11d395a97846f4."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -18264,6 +18313,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "EAES 300 and EAES 302 are offered in alternate years."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -18500,11 +18555,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/eaes/bs/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#9364b16ece66bed1) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#4150e17a62ad80f5. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'EAES 300 and EAES 302 are offered in alternate years.'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#4150e17a62ad80f5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#4150e17a62ad80f5); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#4150e17a62ad80f5."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -18627,6 +18679,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: Students should meet periodically with their academic advisor. For questions regarding career paths for economics majors or applications to graduate school, students are encouraged to consult the director of undergraduate studies in the Department of Economics."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -18857,7 +18916,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/econ/ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#4a7cbda688ec8a4a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#4a7cbda688ec8a4a."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 4 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#4a7cbda688ec8a4a) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#4a7cbda688ec8a4a."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -19486,6 +19545,13 @@
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid",
+            "scope": "this plan",
+            "text": "Note: One course from another department other than English may count toward the major. Students may petition the Office of Undergraduate Studies to apply this credit."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -19703,7 +19769,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/engl/ba-engl/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#0843e355df9ac8e7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#5cd70ae4997ec46c."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#5cd70ae4997ec46c) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#5cd70ae4997ec46c."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -19988,6 +20054,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: Study abroad options are available that can significantly advance the time required to satisfy the French major; this can help students who begin French in the 100-level program at UIC complete the major in a timely manner."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -20251,7 +20324,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/fr/ba-fr/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#3ce9487739f08843) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#3ce9487739f08843."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 4 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#3ce9487739f08843) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#3ce9487739f08843."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -20986,6 +21059,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: Study Abroad is strongly recommended during a summer session and/or Junior year."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -21215,7 +21295,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/ger/ba-ger/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#ae732a9e0c001449) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#ae732a9e0c001449."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#ae732a9e0c001449) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#ae732a9e0c001449."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -24638,6 +24718,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: The requirement of two additional courses taken from any General Education category is satisfied by MATH 180 and MATH 181."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -24848,7 +24935,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/mscs/bs-math/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#a0da312c8a2f9579) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#a0da312c8a2f9579."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#a0da312c8a2f9579) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#a0da312c8a2f9579."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -24927,6 +25014,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: The requirement of two additional courses taken from any general education category is satisfied by MATH 180 and MATH 181."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -25153,7 +25247,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/mscs/bs-stat/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#1490a02e58d8b06b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#1490a02e58d8b06b."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#1490a02e58d8b06b) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#1490a02e58d8b06b."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -26567,6 +26661,18 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: Students must earn at least 40 advanced hours at a four-year college or university. These hours may include hours in the major."
+          },
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: The General Education Requirement is nine courses, two laboratory courses from Analyzing the Natural World, one course from each of Understanding the Individual and Society, Understanding the Past, Understanding the Creative Arts , Exploring World Cultures, and Understanding U.S. Society. Two additional courses will be taken from any of these categories. Two Philosophy courses may be used to satisfy two of the nine courses in the General Education Requirement. Consult the catalog for the list."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -26775,7 +26881,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phil/ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#8953e0c6a1fadfcb) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#8953e0c6a1fadfcb."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 2 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#8953e0c6a1fadfcb) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#8953e0c6a1fadfcb."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -27434,6 +27540,23 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: PHYS 141 and PHYS 142 are offered every semester (including summer session). All other physics courses are offered only in the semester indicated."
+          },
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: Students must earn at least 40 advanced hours at a four-year college or university. These hours may include hours in the major."
+          },
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Note: The UIC General Education Requirement is nine courses: Two laboratory courses from Analyzing the Natural World, one course from each of Understanding the Individual and Society, Understanding the Past, Understanding the Creative Arts, Exploring World Cultures, and Understanding U.S. Society. The two remaining General Education courses can be taken from any category. For example, taking CHEM 122, CHEM 123, CHEM 124, CHEM 125 / and PHYS 141, PHYS 142 fulfills four of nine General Education courses and the Analyzing the Natural World category."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -27679,7 +27802,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phys/ba-phys/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#c0e25a0bcfff8a70) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#c0e25a0bcfff8a70."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 3 plan_note(s) verbatim and complete after this grid; cited markers covered; next text \"University of Illinois Chicago\" is page text/new section; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#c0e25a0bcfff8a70) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#c0e25a0bcfff8a70."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -27774,6 +27897,18 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Students who are not prepared to begin MATH 180 in their first semester may need to attend summer school or possibly take more than four years to finish their BS degree."
+          },
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "In addition to the degree programs shown above, there is an Engineering Physics program available through the College of Engineering."
+          }
+        ],
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -28027,7 +28162,7 @@
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phys/bs-phys/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent). Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#0de80644b2a230ca) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#0de80644b2a230ca."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 2 plan_note(s) verbatim and complete after this grid; cited markers covered; next text \"University of Illinois Chicago\" is page text/new section; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#0de80644b2a230ca) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#0de80644b2a230ca."
     },
     {
       "last_verified_at": "2026-10-08",
@@ -28214,6 +28349,28 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "a",
+            "text": "POLS 101 and POLS 120 may be used to satisfy two of the nine courses in the General Education Requirement."
+          },
+          {
+            "marker": "b",
+            "text": "Satisfies Quantitative Reasoning (with a grade of C or better) but is not required for the major. To be eligible, you must first satisfy the math prerequisite."
+          },
+          {
+            "marker": "c",
+            "text": "Not including POLS 305. A course must be at least 3 hours to count as an elective."
+          },
+          {
+            "marker": "d",
+            "text": "Only one of these two may be POLS 301 or POLS 303."
+          },
+          {
+            "marker": "e",
+            "text": "Any of these courses may be used to fulfill the Writing-in-the-Discipline requirement. May be taken fall or spring semester."
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Hours 120 (as printed)",
         "schema": "requirement_group/v1",
@@ -28481,11 +28638,8 @@
         ]
       },
       "source_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/pols/ba-pols/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#6ee31f718fc31ce7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#c08c97188b7dbc43. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'POLS 101 and POLS 120 may be used to satisfy two of the nine courses in the General Education Requirement.'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence IL/2026-10-08-b04#c08c97188b7dbc43) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#c08c97188b7dbc43); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/IL/2026-10-08-b04/evidence.json#c08c97188b7dbc43."
     },
     {
       "last_verified_at": "2026-10-08",

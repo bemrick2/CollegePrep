@@ -60850,12 +60850,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT designated 'Q' | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT designated 'Q'"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -60863,11 +60905,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "'N' designated course | 3"
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -60880,12 +60949,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "'H' designated course | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -60893,11 +60985,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "FIN 3113 | Principles of Finance | 3",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "3 hours of upper division business | 3",
-              "'D' designated course | 3",
-              "'H' designated course | 3"
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -60910,12 +61019,32 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3"
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -60923,11 +61052,27 @@
           {
             "credit_hours": "16",
             "items": [
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "'LN' designated course | 4",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3"
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -60940,11 +61085,26 @@
           {
             "credit_hours": "14",
             "items": [
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of electives | 3",
-              "2 hours of electives | 2"
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -60952,10 +61112,23 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "3 hours upper division business | 3",
-              "3 hours of electives | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -60964,7 +61137,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/economics/general-business-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#d1a4ec39d35f7707."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->3, code+credits+title:0->16, credits+text:0->23, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#d1a4ec39d35f7707) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#684d66164ab028d2."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -61592,12 +61765,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "3 hours of MATH or STAT designated 'Q' | 3",
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT designated 'Q'"
+              },
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -61605,11 +61820,37 @@
           {
             "credit_hours": "15",
             "items": [
-              "'H' designated course | 3",
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "'N' designated course | 3"
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -61622,12 +61863,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "FIN 2713 | Real Estate Principles and Practices | 3",
-              "'H' designated course | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "code": "FIN 2713",
+                "credits": 3,
+                "title": "Real Estate Principles and Practices"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -61635,11 +61899,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "HTM 3473 | Managing The Built Environment | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "3 hours from 12-hour list in major | 3",
-              "'D' designated course | 3"
+              {
+                "code": "HTM 3473",
+                "credits": 3,
+                "title": "Managing The Built Environment"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12-hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -61652,12 +61934,34 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "FIN 3113 | Principles of Finance | 3",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "HTM 3813 | Principles of Property Management | 3",
-              "3 hours from 12-hour list in major | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "HTM 3813",
+                "credits": 3,
+                "title": "Principles of Property Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12-hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -61665,11 +61969,30 @@
           {
             "credit_hours": "16",
             "items": [
-              "'LN' designated course | 4",
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "ECON 3043 | Real Estate Economics | 3",
-              "FIN 3713 | Real Estate Investment and Finance | 3"
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "code": "ECON 3043",
+                "credits": 3,
+                "title": "Real Estate Economics"
+              },
+              {
+                "code": "FIN 3713",
+                "credits": 3,
+                "title": "Real Estate Investment and Finance"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -61682,11 +62005,28 @@
           {
             "credit_hours": "14",
             "items": [
-              "HTM 4813 | Commercial Property and Asset Management | 3",
-              "FIN 4713 | Real Estate Valuation & Appraisal | 3",
-              "3 hours from 12-hour list in major | 3",
-              "3 hours electives | 3",
-              "2 hours electives | 2"
+              {
+                "code": "HTM 4813",
+                "credits": 3,
+                "title": "Commercial Property and Asset Management"
+              },
+              {
+                "code": "FIN 4713",
+                "credits": 3,
+                "title": "Real Estate Valuation & Appraisal"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12-hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours electives"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -61694,10 +62034,24 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "LSB 4523 | Law of Real Property | 3",
-              "3 hours from 12-hour list in major | 3",
-              "3 hours electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "code": "LSB 4523",
+                "credits": 3,
+                "title": "Law of Real Property"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12-hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -61706,7 +62060,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/hospitality-and-tourism-management/real-estate-property-management-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#6c83df9d45397831."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->3, code+credits+title:0->24, credits+text:0->15, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#6c83df9d45397831) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#44ec0c205aa46bcb."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -61729,12 +62083,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT designated 'Q' | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT designated 'Q'"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -61742,11 +62138,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "'N' designated course | 3"
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -61759,12 +62182,34 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "'H' designated course | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -61772,11 +62217,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "MGMT 3123 | Managing Behavior and Organizations | 3",
-              "FIN 3113 | Principles of Finance | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "3 hours of upper division MGMT | 3",
-              "'H' designated course | 3"
+              {
+                "code": "MGMT 3123",
+                "credits": 3,
+                "title": "Managing Behavior and Organizations"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MGMT"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -61789,12 +62252,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "MGMT 3313 | Human Resource Management | 3",
-              "BCOM 3113 | Written Communication | 3",
-              "3 hours of upper division MGMT | 3"
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "code": "MGMT 3313",
+                "credits": 3,
+                "title": "Human Resource Management"
+              },
+              {
+                "code": "BCOM 3113",
+                "credits": 3,
+                "title": "Written Communication"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MGMT"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -61802,11 +62288,37 @@
           {
             "credit_hours": "16",
             "items": [
-              "BCOM 3223 | Oral Communication | 3",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "MGMT 4073or MGMT 4083 | Management and Ethical Leadershipor Corporate and Social Responsibility | 3",
-              "'LN' designated course | 4",
-              "'D' designated course | 3"
+              {
+                "code": "BCOM 3223",
+                "credits": 3,
+                "title": "Oral Communication"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "MGMT 4073",
+                    "title": "Management and Ethical Leadership"
+                  },
+                  {
+                    "code": "MGMT 4083",
+                    "title": "Corporate and Social Responsibility"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -61819,11 +62331,26 @@
           {
             "credit_hours": "14",
             "items": [
-              "3 hours of upper division MGMT | 3",
-              "3 hours of upper division MGMT | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of electives | 3",
-              "2 hours of electives | 2"
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MGMT"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MGMT"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -61831,10 +62358,23 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of electives | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -61843,7 +62383,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/management/bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#b6cd926d0ffcf0df."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->4, code+credits+title:0->20, credits+text:0->18, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#b6cd926d0ffcf0df) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#5b5cb95bf6e60d2d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -61866,12 +62406,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT designated 'Q' | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT designated 'Q'"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -61879,11 +62461,38 @@
           {
             "credit_hours": "16",
             "items": [
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "MSIS 3293 | Business Analytics Programming | 3",
-              "'LN' designated course | 4"
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "code": "MSIS 3293",
+                "credits": 3,
+                "title": "Business Analytics Programming"
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -61896,12 +62505,36 @@
           {
             "credit_hours": "16",
             "items": [
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "MSIS 3333 | Database Systems Development | 3"
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "code": "MSIS 3333",
+                "credits": 3,
+                "title": "Database Systems Development"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -61909,11 +62542,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "POLS 1113 | American Government | 3",
-              "'H' designated course | 3",
-              "'N' designated course | 3",
-              "'D' designated course | 3"
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -61926,12 +62576,32 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "FIN 3113 | Principles of Finance | 3",
-              "'H' designated course | 3",
-              "3 hours from 12 hour list in major | 3",
-              "3 hours from 6 hour list in major | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 6 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -61939,11 +62609,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "MSIS 4333 | Data Wrangling | 3",
-              "3 hours from 12 hour list in major | 3",
-              "3 hours from 12 hour list in major | 3"
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "code": "MSIS 4333",
+                "credits": 3,
+                "title": "Data Wrangling"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 12 hour list in major"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -61956,11 +62644,26 @@
           {
             "credit_hours": "13",
             "items": [
-              "3 hours from 12 hour list in major | 3",
-              "3 hours from 6 hour list in major | 3",
-              "3 hours upper division business | 3",
-              "3 hours of electives | 3",
-              "1 hour elective | 1"
+              {
+                "credits": 3,
+                "text": "3 hours from 12 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 6 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 1,
+                "text": "1 hour elective"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -61968,11 +62671,29 @@
           {
             "credit_hours": "13",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "MSIS 4010 | Applied Analytics and Information System Studies | 3",
-              "MSIS 4111 | Technology Success Skills Application | 1",
-              "3 hours of electives | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "code": "MSIS 4010",
+                "credits": 3,
+                "title": "Applied Analytics and Information System Studies"
+              },
+              {
+                "code": "MSIS 4111",
+                "credits": 1,
+                "title": "Technology Success Skills Application"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -61981,7 +62702,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/management-science-information-systems/data-analytics-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 43 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#8845e9c7ad76041c."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->3, code+credits+title:0->21, credits+text:0->19, str:43->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#8845e9c7ad76041c) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#48892aafc550ddd0."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -62142,12 +62863,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT with 'Q' designation | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT with 'Q' designation"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -62155,11 +62918,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "'N' designated course | 3"
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -62172,12 +62962,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "ECON 2203 | Introduction to Macroeconomics | 3",
-              "MSIS 3293 | Business Analytics Programming | 3",
-              "'H' designated course | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "code": "ECON 2203",
+                "credits": 3,
+                "title": "Introduction to Macroeconomics"
+              },
+              {
+                "code": "MSIS 3293",
+                "credits": 3,
+                "title": "Business Analytics Programming"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -62185,11 +62998,31 @@
           {
             "credit_hours": "14",
             "items": [
-              "ACCT 3004 | Foundational Accounting and Data Skills | 4",
-              "ACCT 3001 | Practicum in Professional Accounting I | 1",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "MSIS 3333 | Database Systems Development | 3"
+              {
+                "code": "ACCT 3004",
+                "credits": 4,
+                "title": "Foundational Accounting and Data Skills"
+              },
+              {
+                "code": "ACCT 3001",
+                "credits": 1,
+                "title": "Practicum in Professional Accounting I"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "code": "MSIS 3333",
+                "credits": 3,
+                "title": "Database Systems Development"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -62202,11 +63035,30 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 3104 | Intermediate Accounting I and Data Analysis | 4",
-              "FIN 3113 | Principles of Finance | 3",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "ACCT 3104",
+                "credits": 4,
+                "title": "Intermediate Accounting I and Data Analysis"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -62214,12 +63066,33 @@
           {
             "credit_hours": "17",
             "items": [
-              "ACCT 3113 | Intermediate Accounting II | 3",
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "'H' designated course | 3",
-              "'LN' designated course | 4",
-              "3 hours of electives | 3"
+              {
+                "code": "ACCT 3113",
+                "credits": 3,
+                "title": "Intermediate Accounting II"
+              },
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -62232,11 +63105,53 @@
           {
             "credit_hours": "14",
             "items": [
-              "ACCT 4233or ACCT 4503 | Internal Auditingor External Auditing | 3",
-              "MSIS 4673or MSIS 4263 | Data Visualizationor Business Intelligence and Predictive Analytics | 3",
-              "MSIS 4003or MSIS 4523 | Systems Analysis and Designor Infrastructure Development | 3",
-              "'D' designated course | 3",
-              "2 hours of electives | 2"
+              {
+                "any_of": [
+                  {
+                    "code": "ACCT 4233",
+                    "title": "Internal Auditing"
+                  },
+                  {
+                    "code": "ACCT 4503",
+                    "title": "External Auditing"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "MSIS 4673",
+                    "title": "Data Visualization"
+                  },
+                  {
+                    "code": "MSIS 4263",
+                    "title": "Business Intelligence and Predictive Analytics"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "MSIS 4003",
+                    "title": "Systems Analysis and Design"
+                  },
+                  {
+                    "code": "MSIS 4523",
+                    "title": "Infrastructure Development"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -62244,10 +63159,24 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "MSIS 4123 | Cybersecurity Systems Management | 3",
-              "3 hours of upper division MSIS | 3",
-              "3 hours of upper division ACCT | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "code": "MSIS 4123",
+                "credits": 3,
+                "title": "Cybersecurity Systems Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MSIS"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division ACCT"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -62256,7 +63185,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/accounting/accounting-systems-cyber-audit-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#7338a098edea9973."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->6, code+credits+title:0->24, credits+text:0->12, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#7338a098edea9973) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#d1b290b98559098d."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -62279,12 +63208,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT with 'Q' designation | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT with 'Q' designation"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -62292,11 +63263,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "'N' designated course | 3"
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -62309,12 +63307,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "ECON 2203 | Introduction to Macroeconomics | 3",
-              "MSIS 3293 | Business Analytics Programming | 3",
-              "'H' designated course | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "code": "ECON 2203",
+                "credits": 3,
+                "title": "Introduction to Macroeconomics"
+              },
+              {
+                "code": "MSIS 3293",
+                "credits": 3,
+                "title": "Business Analytics Programming"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -62322,11 +63343,31 @@
           {
             "credit_hours": "14",
             "items": [
-              "ACCT 3004 | Foundational Accounting and Data Skills | 4",
-              "ACCT 3001 | Practicum in Professional Accounting I | 1",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "MSIS 3333 | Database Systems Development | 3"
+              {
+                "code": "ACCT 3004",
+                "credits": 4,
+                "title": "Foundational Accounting and Data Skills"
+              },
+              {
+                "code": "ACCT 3001",
+                "credits": 1,
+                "title": "Practicum in Professional Accounting I"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "code": "MSIS 3333",
+                "credits": 3,
+                "title": "Database Systems Development"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -62339,11 +63380,30 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 3104 | Intermediate Accounting I and Data Analysis | 4",
-              "FIN 3113 | Principles of Finance | 3",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "ACCT 3104",
+                "credits": 4,
+                "title": "Intermediate Accounting I and Data Analysis"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -62351,12 +63411,33 @@
           {
             "credit_hours": "17",
             "items": [
-              "ACCT 3113 | Intermediate Accounting II | 3",
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "'H' designated course | 3",
-              "'LN' designated course | 4",
-              "3 hours of electives | 3"
+              {
+                "code": "ACCT 3113",
+                "credits": 3,
+                "title": "Intermediate Accounting II"
+              },
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -62369,11 +63450,28 @@
           {
             "credit_hours": "14",
             "items": [
-              "MSIS 4333 | Data Wrangling | 3",
-              "MSIS 4263 | Business Intelligence and Predictive Analytics | 3",
-              "3 hours of upper division MSIS | 3",
-              "'D' designated course | 3",
-              "2 hours of electives | 2"
+              {
+                "code": "MSIS 4333",
+                "credits": 3,
+                "title": "Data Wrangling"
+              },
+              {
+                "code": "MSIS 4263",
+                "credits": 3,
+                "title": "Business Intelligence and Predictive Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MSIS"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -62381,10 +63479,24 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "MSIS 4123 | Cybersecurity Systems Management | 3",
-              "3 hours from list of upper division ACCT courses in major | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "code": "MSIS 4123",
+                "credits": 3,
+                "title": "Cybersecurity Systems Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from list of upper division ACCT courses in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -62393,7 +63505,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/accounting/accounting-systems-data-analytics-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#6949365b0b92776f."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->3, code+credits+title:0->26, credits+text:0->13, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#6949365b0b92776f) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#26a1ada9280a04a7."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -62692,12 +63804,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT designated 'Q' | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT designated 'Q'"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -62705,11 +63859,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "'N' designated course | 3"
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -62722,12 +63903,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "EEE 2083 | Entrepreneurship & Society | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "'H' designated course | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "EEE 2083",
+                "credits": 3,
+                "title": "Entrepreneurship & Society"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -62735,11 +63939,29 @@
           {
             "credit_hours": "15",
             "items": [
-              "EEE 3673 | Business Model Discovery | 3",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "3 hours from 9 hour list in major | 3",
-              "'H' designated course | 3"
+              {
+                "code": "EEE 3673",
+                "credits": 3,
+                "title": "Business Model Discovery"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 9 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -62752,12 +63974,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "FIN 3113 | Principles of Finance | 3",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "EEE 4223 | Entrepreneurial Marketing | 3",
-              "EEE 4663 | Applied Creativity & Design Thinking | 3",
-              "'D' designated course | 3"
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "EEE 4223",
+                "credits": 3,
+                "title": "Entrepreneurial Marketing"
+              },
+              {
+                "code": "EEE 4663",
+                "credits": 3,
+                "title": "Applied Creativity & Design Thinking"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -62765,11 +64010,27 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "3 hours from 9 hour list in major | 3",
-              "3 hours from 9 hour list in major | 3",
-              "'LN' designated course | 4",
-              "3 hours of electives | 3"
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 9 hour list in major"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours from 9 hour list in major"
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -62782,11 +64043,27 @@
           {
             "credit_hours": "14",
             "items": [
-              "EEE 4653 | Venture Capital | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division businses | 3",
-              "3 hours of electives | 3",
-              "2 hours of electives | 2"
+              {
+                "code": "EEE 4653",
+                "credits": 3,
+                "title": "Venture Capital"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division businses"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -62794,10 +64071,23 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -62806,7 +64096,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/entrepreneurship/bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#97e624b458d3ca59."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->3, code+credits+title:0->21, credits+text:0->18, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#97e624b458d3ca59) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#425721f08dcdbebf."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -63147,12 +64437,54 @@
           {
             "credit_hours": "16",
             "items": [
-              "UNIV 1111 | First Year Seminar | 1",
-              "ENGL 1113or ENGL 1313 | Composition Ior Critical Analysis and Writing I | 3",
-              "HIST 1103or HIST 1483or HIST 1493 | Survey of American Historyor American History to 1865 (H)or American History Since 1865 (DH) | 3",
-              "MSIS 2103 | Business Data Science Technologies | 3",
-              "3 hours of MATH or STAT designated 'Q' | 3",
-              "'G' designated course | 3"
+              {
+                "code": "UNIV 1111",
+                "credits": 1,
+                "title": "First Year Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1113",
+                    "title": "Composition I"
+                  },
+                  {
+                    "code": "ENGL 1313",
+                    "title": "Critical Analysis and Writing I"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1103",
+                    "title": "Survey of American History"
+                  },
+                  {
+                    "code": "HIST 1483",
+                    "title": "American History to 1865 (H)"
+                  },
+                  {
+                    "code": "HIST 1493",
+                    "title": "American History Since 1865 (DH)"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "MSIS 2103",
+                "credits": 3,
+                "title": "Business Data Science Technologies"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of MATH or STAT designated 'Q'"
+              },
+              {
+                "credits": 3,
+                "text": "'G' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 2
@@ -63160,11 +64492,38 @@
           {
             "credit_hours": "15",
             "items": [
-              "ENGL 1213or ENGL 1413 | Composition IIor Critical Analysis and Writing II | 3",
-              "POLS 1113 | American Government | 3",
-              "MSIS 2233 | Business Analytics Fundamentals (Q) | 3",
-              "MKTG 3213 | Marketing (S) | 3",
-              "'N' designated course | 3"
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 1213",
+                    "title": "Composition II"
+                  },
+                  {
+                    "code": "ENGL 1413",
+                    "title": "Critical Analysis and Writing II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1113",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "MSIS 2233",
+                "credits": 3,
+                "title": "Business Analytics Fundamentals (Q)"
+              },
+              {
+                "code": "MKTG 3213",
+                "credits": 3,
+                "title": "Marketing (S)"
+              },
+              {
+                "credits": 3,
+                "text": "'N' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 3
@@ -63177,12 +64536,35 @@
           {
             "credit_hours": "16",
             "items": [
-              "ACCT 2003 | Survey of Accounting | 3",
-              "BADM 2111 | Career Planning for Business Success | 1",
-              "ECON 2003 | Microeconomic Principles for Business | 3",
-              "MGMT 3013 | Fundamentals of Management (S) | 3",
-              "EEE 2023 | Introduction to Entrepreneurship | 3",
-              "'H' designated course | 3"
+              {
+                "code": "ACCT 2003",
+                "credits": 3,
+                "title": "Survey of Accounting"
+              },
+              {
+                "code": "BADM 2111",
+                "credits": 1,
+                "title": "Career Planning for Business Success"
+              },
+              {
+                "code": "ECON 2003",
+                "credits": 3,
+                "title": "Microeconomic Principles for Business"
+              },
+              {
+                "code": "MGMT 3013",
+                "credits": 3,
+                "title": "Fundamentals of Management (S)"
+              },
+              {
+                "code": "EEE 2023",
+                "credits": 3,
+                "title": "Introduction to Entrepreneurship"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Fall",
             "term_index": 5
@@ -63190,11 +64572,28 @@
           {
             "credit_hours": "15",
             "items": [
-              "MKTG 3323 | Consumer and Market Behavior | 3",
-              "MSIS 3223 | Principles of Data Analytics | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of upper division MKTG | 3",
-              "'H' designated course | 3"
+              {
+                "code": "MKTG 3323",
+                "credits": 3,
+                "title": "Consumer and Market Behavior"
+              },
+              {
+                "code": "MSIS 3223",
+                "credits": 3,
+                "title": "Principles of Data Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division MKTG"
+              },
+              {
+                "credits": 3,
+                "text": "'H' designated course"
+              }
             ],
             "label": "Spring",
             "term_index": 6
@@ -63207,12 +64606,34 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3111 | Professional Development for Business Success | 1",
-              "FIN 3113 | Principles of Finance | 3",
-              "LSB 3213 | Legal and Regulatory Environment of Business | 3",
-              "MKTG 3653 | Marketing Analytics | 3",
-              "'D' designated course | 3",
-              "3 hours of upper division business | 3"
+              {
+                "code": "BADM 3111",
+                "credits": 1,
+                "title": "Professional Development for Business Success"
+              },
+              {
+                "code": "FIN 3113",
+                "credits": 3,
+                "title": "Principles of Finance"
+              },
+              {
+                "code": "LSB 3213",
+                "credits": 3,
+                "title": "Legal and Regulatory Environment of Business"
+              },
+              {
+                "code": "MKTG 3653",
+                "credits": 3,
+                "title": "Marketing Analytics"
+              },
+              {
+                "credits": 3,
+                "text": "'D' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              }
             ],
             "label": "Fall",
             "term_index": 8
@@ -63220,11 +64641,28 @@
           {
             "credit_hours": "16",
             "items": [
-              "BADM 3113 | Practical Business and Interpersonal Skills | 3",
-              "MKTG 4333 | Marketing Research | 3",
-              "'LN' designated course | 4",
-              "3 hours upper division MKTG | 3",
-              "3 hours electives | 3"
+              {
+                "code": "BADM 3113",
+                "credits": 3,
+                "title": "Practical Business and Interpersonal Skills"
+              },
+              {
+                "code": "MKTG 4333",
+                "credits": 3,
+                "title": "Marketing Research"
+              },
+              {
+                "credits": 4,
+                "text": "'LN' designated course"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours upper division MKTG"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours electives"
+              }
             ],
             "label": "Spring",
             "term_index": 9
@@ -63237,11 +64675,35 @@
           {
             "credit_hours": "14",
             "items": [
-              "MKTG 4683or MKTG 4693 | Managerial Strategies in Marketingor Marketing Strategy and Customer-Employee Interactions | 3",
-              "3 hours upper division MKTG | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of electives | 3",
-              "2 hours of electives | 2"
+              {
+                "any_of": [
+                  {
+                    "code": "MKTG 4683",
+                    "title": "Managerial Strategies in Marketing"
+                  },
+                  {
+                    "code": "MKTG 4693",
+                    "title": "Marketing Strategy and Customer-Employee Interactions"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 3,
+                "text": "3 hours upper division MKTG"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 2,
+                "text": "2 hours of electives"
+              }
             ],
             "label": "Fall",
             "term_index": 11
@@ -63249,10 +64711,23 @@
           {
             "credit_hours": "12",
             "items": [
-              "MGMT 4513 | Strategic Management | 3",
-              "3 hours of upper division business | 3",
-              "3 hours of electives | 3",
-              "3 hours of electives | 3"
+              {
+                "code": "MGMT 4513",
+                "credits": 3,
+                "title": "Strategic Management"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of upper division business"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              },
+              {
+                "credits": 3,
+                "text": "3 hours of electives"
+              }
             ],
             "label": "Spring",
             "term_index": 12
@@ -63261,7 +64736,7 @@
       },
       "source_url": "https://catalog.okstate.edu/spears-business/marketing-international-business/marketing-bsba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Own program page; all 12 terms (printed order, year rows as empty terms), 42 items, every subtotal as credit_hours and rule_text 'Total Hours 120 (as printed)' reproduce the grid exactly; no subtotal/year/header/total rows stored as items. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#1528965b3ed14986."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->4, code+credits+title:0->19, credits+text:0->19, str:42->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence OK/2026-10-06-cat#1528965b3ed14986) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/OK/2026-10-06-cat/evidence.json#632933f3f1483eaa."
     },
     {
       "last_verified_at": "2026-10-08",
