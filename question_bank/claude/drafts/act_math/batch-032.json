@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 32,
+ "plan": "Ten items with stems checked against the bank. 2 hard (point-to-line distance, equal-time average speed) / 5 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B032-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of a pyramid",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A pyramid has a square base with side length 6 inches and a height of 10 inches. What is the volume of the pyramid, in cubic inches?",
+   "choices": {
+    "A": "60",
+    "B": "120",
+    "C": "180",
+    "D": "360"
+   },
+   "answer": "B",
+   "explanation": "V = (1/3)(base area)(height) = (1/3)(36)(10) = 120.",
+   "distractors": {
+    "A": {
+     "rationale": "60 uses one-sixth instead of one-third.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "180 uses one-half instead of one-third.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "360 leaves out the factor of 1/3.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What fraction of a prism's volume is a pyramid's?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(1/3)(36)(10)."
+   },
+   "remember": "Pyramid volume = (1/3) × base area × height.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Distance from a point to a line",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In the standard (x, y) coordinate plane, what is the shortest distance from the point (1, 2) to the line 3x + 4y = 21 ?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "10"
+   },
+   "answer": "A",
+   "explanation": "The shortest distance is along the perpendicular: |3(1) + 4(2) − 21| / √(3² + 4²) = |−10| / 5 = 2. (The perpendicular through (1, 2) meets the line at (11/5, 18/5).)",
+   "distractors": {
+    "B": {
+     "rationale": "3 is the vertical distance from (1, 2) to the line at x = 1, not the shortest distance.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "4 is roughly the horizontal distance to the line at y = 2 (it is 13/3), not the perpendicular distance.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "10 forgets to divide by √(3² + 4²) = 5.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which path from a point to a line is shortest?",
+    "Draw the perpendicular from the point to the line."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Perpendicular slope 4/3 through (1, 2)."
+   },
+   "remember": "The shortest distance to a line is perpendicular to it.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "perpendicular construction; vertical-distance trap"
+   }
+  },
+  {
+   "cand": "B032-03",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Algebra",
+   "subskill": "Interpreting the solution of a system in context",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "The cost of each of two phone plans depends on the number of months m of service. A student solves the system of equations for the two plans' total costs and finds the solution (12, 450). Which statement best describes the meaning of this solution?",
+   "choices": {
+    "A": "Each plan costs $12 per month for 450 days.",
+    "B": "The two plans differ in total cost by $450 after 12 months.",
+    "C": "After 450 months, each plan has cost a total of $12.",
+    "D": "After 12 months, both plans have cost the same total amount, $450."
+   },
+   "answer": "D",
+   "explanation": "The solution of a system is where both equations give the same output for the same input: at m = 12 months, both plans' total cost is $450.",
+   "distractors": {
+    "A": {
+     "rationale": "This swaps the roles of the numbers and invents days.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "At the solution, the costs are equal, not $450 apart.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This reverses the coordinates.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "What is true of both equations at their solution?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "x is months, y is total cost."
+   },
+   "remember": "A system's solution is where both quantities are equal.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Exponential growth with a doubling period",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "A population of bacteria is modeled by P(t) = 50 · 2^(t/3), where t is the time in hours. After how many hours will the population be 400 ?",
+   "choices": {
+    "A": "3",
+    "B": "6",
+    "C": "8",
+    "D": "9"
+   },
+   "answer": "D",
+   "explanation": "400 = 50 · 2^(t/3) gives 2^(t/3) = 8 = 2³, so t/3 = 3 and t = 9.",
+   "distractors": {
+    "A": {
+     "rationale": "3 is the doubling period, not the answer.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "6 is two doubling periods, which gives a population of 200.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "8 is the growth factor 400/50, not the time.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How many times must 50 double to reach 400?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "2^(t/3) = 8."
+   },
+   "remember": "Count doublings, then multiply by the doubling period.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Minimum of a quadratic in standard form",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "What is the minimum value of f(x) = 2x² − 12x + 7 ?",
+   "choices": {
+    "A": "−11",
+    "B": "−7",
+    "C": "3",
+    "D": "7"
+   },
+   "answer": "A",
+   "explanation": "The vertex is at x = −b/(2a) = 12/4 = 3, and f(3) = 18 − 36 + 7 = −11.",
+   "distractors": {
+    "B": {
+     "rationale": "−7 makes a sign error on the constant.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "3 is the x-coordinate of the vertex, not the minimum value.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "7 is the y-intercept, f(0).",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find the x-coordinate of the vertex first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "x = 3; f(3)."
+   },
+   "remember": "The minimum value is the y-coordinate of the vertex.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Counting codes with a restricted first digit",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A 4-digit code uses the digits 0 through 9, and digits may repeat. The first digit cannot be 0. How many different codes are possible?",
+   "choices": {
+    "A": "4,536",
+    "B": "5,040",
+    "C": "9,000",
+    "D": "10,000"
+   },
+   "answer": "C",
+   "explanation": "The first digit has 9 choices and each of the other three has 10: 9 × 10 × 10 × 10 = 9,000.",
+   "distractors": {
+    "A": {
+     "rationale": "4,536 = 9 × 9 × 8 × 7 forbids repeated digits, which the problem allows.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "5,040 = 10 × 9 × 8 × 7 forbids repeats and ignores the first-digit rule.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "10,000 ignores the rule that the first digit cannot be 0.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How many choices for each position?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "9 × 10³."
+   },
+   "remember": "Multiply the choices for each position.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Combining independent choices",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "A pizza shop offers 3 crusts and 8 toppings. A customer chooses 1 crust and exactly 2 different toppings. How many different pizzas are possible?",
+   "choices": {
+    "A": "11",
+    "B": "24",
+    "C": "84",
+    "D": "168"
+   },
+   "answer": "C",
+   "explanation": "There are C(8, 2) = 28 ways to choose two toppings and 3 crusts: 28 × 3 = 84.",
+   "distractors": {
+    "A": {
+     "rationale": "11 adds 3 and 8.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "24 = 3 × 8 allows only one topping.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "168 = 3 × 8 × 7 counts the order of the toppings.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Does the order of the two toppings matter?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "3 × C(8, 2)."
+   },
+   "remember": "Use combinations when order does not matter.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Midpoint of two fractions on a number line",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What number is exactly halfway between −3/4 and 5/6 on a number line?",
+   "choices": {
+    "A": "1/24",
+    "B": "1/12",
+    "C": "1/2",
+    "D": "19/24"
+   },
+   "answer": "A",
+   "explanation": "The midpoint is (−3/4 + 5/6)/2 = (−9/12 + 10/12)/2 = (1/12)/2 = 1/24.",
+   "distractors": {
+    "B": {
+     "rationale": "1/12 is the sum of the two numbers; it was not divided by 2.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "1/2 is not the average; it ignores the negative sign.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "19/24 is half the distance between the numbers, not the midpoint.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Average the two numbers."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(−9/12 + 10/12)/2."
+   },
+   "remember": "The midpoint is the average of the endpoints.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Street-grid distance",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "In a city laid out on a square grid, a courier must travel only along the streets from the corner at (1, 2) to the corner at (6, 9), where each unit is one block. What is the least number of blocks the courier must travel?",
+   "choices": {
+    "A": "√74",
+    "B": "12",
+    "C": "35",
+    "D": "74"
+   },
+   "answer": "B",
+   "explanation": "Along the grid the courier must cover the horizontal difference, 6 − 1 = 5 blocks, and the vertical difference, 9 − 2 = 7 blocks: 12 blocks.",
+   "distractors": {
+    "A": {
+     "rationale": "√74 is the straight-line distance, which the streets do not allow.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "35 multiplies the differences.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "74 is the squared straight-line distance.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Can the courier travel diagonally?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "5 across + 7 up."
+   },
+   "remember": "On a grid, distance = horizontal + vertical.",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B032-10",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Average speed over equal times",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "A driver travels for 2 hours at 40 miles per hour and then for 2 more hours at 60 miles per hour. What is the driver's average speed for the entire trip, in miles per hour?",
+   "choices": {
+    "A": "45",
+    "B": "48",
+    "C": "50",
+    "D": "52"
+   },
+   "answer": "C",
+   "explanation": "Total distance = 2(40) + 2(60) = 200 miles over 4 hours, so the average speed is 50 miles per hour. Because equal TIMES are spent at each speed, the simple average is correct here.",
+   "distractors": {
+    "A": {
+     "rationale": "45 averages 40 and 50, misreading the second speed.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "48 is the harmonic-mean answer, which applies to equal distances, not equal times.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "52 weights the faster speed more heavily (60 × 0.6 + 40 × 0.4).",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the driver spending equal time or equal distance at each speed?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "200 ÷ 4."
+   },
+   "remember": "Equal times: average the speeds; equal distances: they don't simply average.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "students who learned the equal-distance trap over-apply it here"
+   }
+  }
+ ]
+}

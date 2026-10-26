@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:41:44+00:00",
+  "updated_at": "2026-10-26T20:44:01+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 302,
+    "act_math": 311,
     "act_english": 109,
     "act_reading": 98,
     "sat_reading_writing": 113
   },
   "review_totals": {
     "act_math": {
-      "PASS": 308,
-      "REVISE": 2,
+      "PASS": 317,
+      "REVISE": 3,
       "REJECT": 2,
-      "candidates": 312,
+      "candidates": 322,
       "passed_after_revision": 2
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 302,
+      "accepted": 311,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 56,
-        "Functions": 51,
-        "Geometry": 62,
-        "Integrating Essential Skills": 54,
-        "Number & Quantity": 33,
-        "Statistics & Probability": 46
+        "Algebra": 57,
+        "Functions": 53,
+        "Geometry": 64,
+        "Integrating Essential Skills": 55,
+        "Number & Quantity": 34,
+        "Statistics & Probability": 48
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -110,6 +110,7 @@
         "Combined transformations": 1,
         "Combined work rates": 1,
         "Combining equations without solving": 1,
+        "Combining independent choices": 1,
         "Combining two ratios": 1,
         "Common external tangent of two circles": 1,
         "Comparing a linear and a quadratic function": 1,
@@ -130,6 +131,7 @@
         "Consecutive integer word problems": 1,
         "Continuous uniform probability": 1,
         "Converting degrees to radians": 1,
+        "Counting codes with a restricted first digit": 1,
         "Counting committees with at least one from each group": 1,
         "Counting diagonals of a polygon": 1,
         "Counting divisors (perfect squares)": 1,
@@ -151,6 +153,7 @@
         "Digit problems with a system": 1,
         "Direct variation": 1,
         "Discriminant with a degenerate case": 1,
+        "Distance from a point to a line": 1,
         "Dividing a quantity in a given ratio": 1,
         "Dividing complex numbers": 1,
         "Division with whole-unit rounding": 1,
@@ -176,6 +179,7 @@
         "Exponential equations with different bases (logarithms)": 1,
         "Exponential function properties": 1,
         "Exponential growth models and logarithms": 1,
+        "Exponential growth with a doubling period": 1,
         "Exponential model from two points": 1,
         "Exterior angle theorem with algebra": 1,
         "Factored form: finding the leading coefficient": 1,
@@ -202,6 +206,7 @@
         "Interpreting a margin of error": 1,
         "Interpreting a percentile": 1,
         "Interpreting an exponential decay model": 1,
+        "Interpreting the solution of a system in context": 1,
         "Interquartile range": 1,
         "Intersections of a line and a parabola": 1,
         "Inverse functions and excluded values": 1,
@@ -231,7 +236,9 @@
         "Mean from a frequency table": 1,
         "Mean, median and mode constraints": 1,
         "Median from a frequency table": 1,
+        "Midpoint of two fractions on a number line": 1,
         "Midpoint: finding an endpoint": 1,
+        "Minimum of a quadratic in standard form": 1,
         "Mixture problems": 1,
         "Modulus of complex numbers": 1,
         "Monomial exponent rules": 1,
@@ -325,6 +332,7 @@
         "Solving for an inner function in a composition": 1,
         "Space diagonal of a cube": 1,
         "Square-unit conversion": 1,
+        "Street-grid distance": 1,
         "Successive percent change": 1,
         "Surface area of a cube from its volume": 1,
         "Surface area with whole-unit purchase": 1,
@@ -355,6 +363,7 @@
         "Volume displacement": 1,
         "Volume of a box from its face areas": 1,
         "Volume of a composite solid": 1,
+        "Volume of a pyramid": 1,
         "Volume of a sphere": 1,
         "Volume scaling in cones (frustum)": 1,
         "Weighted mean": 1,
@@ -367,27 +376,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 53,
-        "hard": 116,
-        "medium": 133
+        "easy": 56,
+        "hard": 117,
+        "medium": 138
       },
       "by_difficulty_calibrated": {
-        "easy": 73,
+        "easy": 74,
         "hard": 40,
-        "medium": 189
+        "medium": 197
       },
       "calibrated_share": {
-        "easy": 0.242,
-        "hard": 0.132,
-        "medium": 0.626
+        "easy": 0.238,
+        "hard": 0.129,
+        "medium": 0.633
       },
       "answer_key_balance": {
-        "A": 70,
-        "B": 82,
-        "C": 83,
-        "D": 67
+        "A": 73,
+        "B": 84,
+        "C": 85,
+        "D": 69
       },
-      "modeling_items": 80,
+      "modeling_items": 82,
       "passages": 0
     },
     "act_english": {
@@ -719,14 +728,14 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 31,
+    "act_math": 32,
     "act_english": 10,
     "act_reading": 11,
     "sat_reading_writing": 12
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 32,
+      "next_batch": 33,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
@@ -735,40 +744,40 @@
       ],
       "skill_gap_for_next_10": {
         "Number & Quantity": 1.3,
-        "Algebra": 1.7,
-        "Functions": 6.7,
-        "Geometry": -4.3,
-        "Statistics & Probability": -3.9,
-        "Integrating Essential Skills": 8.4
+        "Algebra": 2.4,
+        "Functions": 6.4,
+        "Geometry": -4.6,
+        "Statistics & Probability": -4.7,
+        "Integrating Essential Skills": 9.2
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 5.0,
-        "medium": -33.0,
-        "hard": 38.0
+        "easy": 6.2,
+        "medium": -36.5,
+        "hard": 40.2
       },
       "answer_key_gap_for_next_10": {
-        "A": 8.0,
-        "B": -4.0,
-        "C": -5.0,
-        "D": 11.0
+        "A": 7.2,
+        "B": -3.8,
+        "C": -4.8,
+        "D": 11.2
       }
     }
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 12,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 7.8,
-        "Craft and Structure": -0.1,
-        "Integration of Knowledge and Ideas": 2.3
-      }
-    },
     "act_english": {
       "next_batch": 11,
       "skill_gap_for_next_10": {
         "Production of Writing": 4.2,
         "Knowledge of Language": 9.4,
         "Conventions of Standard English": -1.8
+      }
+    },
+    "act_reading": {
+      "next_batch": 12,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 7.8,
+        "Craft and Structure": -0.1,
+        "Integration of Knowledge and Ideas": 2.3
       }
     },
     "sat_reading_writing": {
@@ -784,8 +793,8 @@
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 302,
-      "share_of_target": 0.151
+      "accepted": 311,
+      "share_of_target": 0.155
     },
     "act_english": {
       "target": 700,
@@ -804,7 +813,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 622,
+  "total_accepted": 631,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -9613,7 +9622,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 31,
+      "bank_version": 32,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -9705,7 +9714,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:41:44+00:00",
+    "heartbeat_at": "2026-10-26T20:44:01+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
