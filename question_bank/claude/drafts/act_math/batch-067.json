@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 67,
+ "plan": "2 hard (half-height cone, tangent line) / 5 medium / 3 easy; concepts searched in the bank first.",
+ "candidates": [
+  {
+   "cand": "B067-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Number of sides from the interior angle sum",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "The interior angles of a convex polygon have a sum of 1,440°. How many sides does the polygon have?",
+   "choices": {
+    "A": "8",
+    "B": "9",
+    "C": "10",
+    "D": "12"
+   },
+   "answer": "C",
+   "explanation": "The angle sum is (n − 2) × 180°. Setting (n − 2) × 180 = 1,440 gives n − 2 = 8, so n = 10.",
+   "distractors": {
+    "A": {
+     "rationale": "8 is n − 2, forgetting to add 2.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "9 adds only 1 to 1,440 ÷ 180.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "12 divides 1,440 by 120, as if each angle were 120°.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What formula gives the sum of the interior angles?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(n − 2)180 = 1,440."
+   },
+   "remember": "Interior angle sum = (n − 2) × 180°.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Amount remaining after several half-lives",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "A radioactive substance has a half-life of 5 years. A sample contains 80 grams. How many grams of the substance remain after 15 years?",
+   "choices": {
+    "A": "5",
+    "B": "10",
+    "C": "20",
+    "D": "40"
+   },
+   "answer": "B",
+   "explanation": "15 years is 3 half-lives, so the amount is halved 3 times: 80 → 40 → 20 → 10 grams.",
+   "distractors": {
+    "A": {
+     "rationale": "5 halves the amount 4 times.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "20 halves the amount only twice.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "40 halves the amount only once.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How many half-lives are in 15 years?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "80 × (1/2)³."
+   },
+   "remember": "Each half-life cuts the amount in half.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Cosine from a point on the terminal side",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x, y) coordinate plane, the terminal side of an angle θ in standard position passes through the point (−5, 12). What is cos θ ?",
+   "choices": {
+    "A": "5/13",
+    "B": "−12/13",
+    "C": "12/13",
+    "D": "−5/13"
+   },
+   "answer": "D",
+   "explanation": "The distance from the origin to (−5, 12) is √(25 + 144) = 13, so cos θ = x/r = −5/13.",
+   "distractors": {
+    "A": {
+     "rationale": "5/13 drops the negative sign of x.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "−12/13 uses y with the sign of x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "12/13 is sin θ.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What is the distance from the origin to the point?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the point and a right triangle to the x-axis."
+   },
+   "remember": "cos θ = x/r and sin θ = y/r, with r = √(x² + y²).",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Arc length with a radian angle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In a circle with radius 4 centimeters, a central angle measures 1.5 radians. What is the length, in centimeters, of the arc the angle intercepts?",
+   "choices": {
+    "A": "6",
+    "B": "12",
+    "C": "6π",
+    "D": "24"
+   },
+   "answer": "A",
+   "explanation": "In radians, arc length = radius × angle = 4 × 1.5 = 6 centimeters.",
+   "distractors": {
+    "B": {
+     "rationale": "12 uses the diameter instead of the radius.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "6π treats 1.5 as a multiple of π radians.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "24 uses r² instead of r.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the arc-length formula when the angle is in radians?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "s = rθ."
+   },
+   "remember": "With θ in radians, s = rθ.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Absolute value equation with two expressions",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "What value of x satisfies |x − 3| = |x − 7| ?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "5",
+    "D": "10"
+   },
+   "answer": "C",
+   "explanation": "|x − 3| = |x − 7| means x is equally distant from 3 and 7, so x is their midpoint, 5. (Algebraically, x − 3 = −(x − 7) gives x = 5; x − 3 = x − 7 has no solution.)",
+   "distractors": {
+    "A": {
+     "rationale": "2 is half the distance between 3 and 7.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "4 is the distance between 3 and 7.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "10 is the sum of 3 and 7.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does |x − a| mean on a number line?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each choice."
+   },
+   "remember": "|x − a| = |x − b| at the midpoint of a and b.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Maximizing a linear expression over a region",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "The numbers x and y satisfy x ≥ 0, y ≥ 0, x + y ≤ 6 and x + 2y ≤ 8. What is the greatest possible value of 2x + 3y ?",
+   "choices": {
+    "A": "12",
+    "B": "14",
+    "C": "18",
+    "D": "24"
+   },
+   "answer": "B",
+   "explanation": "The region's corners are (0, 0), (6, 0), (4, 2) and (0, 4). There 2x + 3y equals 0, 12, 14 and 12. The greatest value, 14, occurs at (4, 2).",
+   "distractors": {
+    "A": {
+     "rationale": "12 is the value at (6, 0) or (0, 4), not the greatest.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "18 = 2(6) + 3(2) uses the point (6, 2), which violates x + y ≤ 6.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "24 = 2(6) + 3(4) combines the largest x and the largest y, which cannot happen together.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where are the corners of the region?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Graph the constraints and test each corner."
+   },
+   "remember": "A linear expression is greatest at a corner of the region.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Largest prime factor of 2^10 − 1",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the largest prime factor of 1,023 ?",
+   "choices": {
+    "A": "11",
+    "B": "31",
+    "C": "33",
+    "D": "341"
+   },
+   "answer": "B",
+   "explanation": "1,023 = 2¹⁰ − 1 = (2⁵ − 1)(2⁵ + 1) = 31 × 33 = 3 × 11 × 31. The largest prime factor is 31.",
+   "distractors": {
+    "A": {
+     "rationale": "11 is a prime factor but not the largest.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "33 = 3 × 11 is not prime.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "341 = 11 × 31 is not prime.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Try dividing by small primes first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "1,023 ÷ 3 = 341; then factor 341."
+   },
+   "remember": "Factor completely before naming the largest prime.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B067-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of a cone filled to half its height",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A cone-shaped cup, with its point at the bottom, is filled with water to half its height. What fraction of the cup's volume is filled with water?",
+   "choices": {
+    "A": "1/8",
+    "B": "1/4",
+    "C": "1/2",
+    "D": "3/4"
+   },
+   "answer": "A",
+   "explanation": "The water forms a smaller cone similar to the cup, with all dimensions half as large. Volume scales by (1/2)³ = 1/8.",
+   "distractors": {
+    "B": {
+     "rationale": "1/4 scales by (1/2)², the area factor.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1/2 assumes volume is proportional to height.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3/4 may come from subtracting 1/4 from 1, confusing the empty part with the full part.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What shape does the water form?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Similar cones: volume ratio = (height ratio)³."
+   },
+   "remember": "Similar solids: volume scales by the cube of the length factor.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The intuitive answer 1/2 is very strong; students must see the water as a similar cone and cube the scale factor."
+   }
+  },
+  {
+   "cand": "B067-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Line tangent to a parabola",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "For what value of c is the line y = 2x + c tangent to the parabola y = x² + 3 (touching it at exactly one point)?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "5"
+   },
+   "answer": "A",
+   "explanation": "Setting x² + 3 = 2x + c gives x² − 2x + (3 − c) = 0. Exactly one solution requires a zero discriminant: 4 − 4(3 − c) = 0, so c = 2.",
+   "distractors": {
+    "B": {
+     "rationale": "3 is the parabola's y-intercept, where the line would cross the parabola twice.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4 makes the discriminant positive, so the line crosses the parabola twice.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "5 makes the discriminant positive, giving two intersection points.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What condition on the equation gives exactly one intersection?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the expressions equal and require b² − 4ac = 0."
+   },
+   "remember": "Tangent means exactly one intersection: discriminant = 0.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must turn 'tangent' into a discriminant condition on the intersection equation, combining two concepts."
+   }
+  },
+  {
+   "cand": "B067-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Order of operations with an exponent",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "What is the value of 18 − 3 × (2 + 4)² ÷ 6 ?",
+   "choices": {
+    "A": "−36",
+    "B": "0",
+    "C": "8",
+    "D": "90"
+   },
+   "answer": "B",
+   "explanation": "Parentheses: 6. Exponent: 36. Multiply and divide left to right: 3 × 36 = 108, 108 ÷ 6 = 18. Then 18 − 18 = 0.",
+   "distractors": {
+    "A": {
+     "rationale": "−36 multiplies 3 × 6 before squaring: 18 − 18² ÷ 6.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 squares 2 and 4 separately: 2² + 4² = 20.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "90 subtracts 18 − 3 first.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What comes first: the parentheses, the exponent or the subtraction?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Follow PEMDAS step by step."
+   },
+   "remember": "Parentheses, exponents, then multiplication and division left to right.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

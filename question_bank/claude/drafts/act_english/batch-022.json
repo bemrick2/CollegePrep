@@ -7,8 +7,8 @@
    "passage_id": "CLD-P-ACT-E-000022",
    "title": "Recipes Worth Keeping",
    "genre": "personal essay",
-   "word_count": 257,
-   "text": "Last fall, our history teacher, Ms. Ito, asked each pair of students in our class to interview a resident of the senior center across the street and write down one family recipe. She assigned my partner and {{1|I}} to Mr. Okoye, a retired engineer who had moved to the city from Nigeria fifty years earlier.\n\nEach week we {{2|visit}} the center after school. Mr. Okoye was more willing to talk about his childhood {{3|then}} about cooking, and for the first two visits we wrote down only stories. We listened {{4|careful}}, though, and the stories turned out to matter. His recipe for pepper soup{{5|—which}} he had never written down, was one his mother had taught him in a kitchen with no measuring cups, and he described every ingredient by the size of a hand or the color of a broth.\n\n[1] The hardest part of the project was turning those descriptions into measurements. [2] Then we checked each batch with him. [3] We cooked the soup three times in the school's kitchen, adjusting the pepper each time. [4] On the third try, he tasted it, closed his eyes, and said only, \"Yes.\" {{6|}}\n\nOf the first two batches, the second had been {{7|the most}} faithful to his memory, though it still needed more ginger. The finished book contained recipes from four {{8|countries: Mexico,}} Nigeria, Japan, and Poland. The {{9|affect}} of the project surprised all of us. Several residents asked for extra copies to send to their grandchildren, and Mr. Okoye now cooks pepper soup for the center's monthly dinner."
+   "word_count": 260,
+   "text": "Last fall, our history teacher, Ms. Ito, asked each pair of students in our class to interview a resident of the senior center across the street and write down one family recipe for a class cookbook. She assigned my partner and {{1|I}} to Mr. Okoye, a retired engineer who had moved to the city from Nigeria fifty years earlier.\n\nEach week we {{2|visit}} the center after school. Mr. Okoye was more willing to talk about his childhood {{3|then}} about cooking, and for the first two visits we wrote down only stories. We listened {{4|careful}}, though, and the stories turned out to matter. His recipe for pepper soup{{5|—which}} he had never written down, was one his mother had taught him in a kitchen with no measuring cups, and he described every ingredient by the size of a hand or the color of a broth.\n\n[1] The hardest part of the project was turning those descriptions into measurements. [2] Then we checked each batch with him. [3] We cooked the soup three times in the school's kitchen, adjusting the pepper each time. [4] On the third try, he tasted it, closed his eyes, and said only, \"Yes.\" {{6|}}\n\nOf the two Nigerian recipes in the cookbook, his turned out to be {{7|the most}} popular with the other residents. The finished book contained recipes from four {{8|countries: Mexico,}} Nigeria, Japan, and Poland. The {{9|affect}} of the project surprised all of us. Several residents asked for extra copies to send to their grandchildren, and Mr. Okoye now cooks pepper soup for the center's monthly dinner."
   }
  ],
  "candidates": [
@@ -325,11 +325,11 @@
     "D": "the more"
    },
    "answer": "D",
-   "evidence": "Of the first two batches",
-   "explanation": "When two things (the first two batches) are compared, the comparative \"the more\" is used, not the superlative.",
+   "evidence": "Of the two Nigerian recipes in the cookbook",
+   "explanation": "When two things (the two Nigerian recipes) are compared, the comparative \"the more\" is used, not the superlative.",
    "distractors": {
     "A": {
-     "rationale": "\"The most\" is superlative, but only two versions are compared.",
+     "rationale": "\"The most\" is superlative, but only two recipes are compared.",
      "trap": null
     },
     "B": {
@@ -355,7 +355,7 @@
     "solved_independently": true,
     "single_correct": true,
     "choice_lengths": "balanced",
-    "hardness": "'The most faithful' sounds natural; students must notice 'Of the first two batches' several words earlier."
+    "hardness": "'The most popular' sounds natural; students must notice 'Of the two Nigerian recipes' several words earlier."
    }
   },
   {
@@ -460,7 +460,11 @@
  "revision_log": [
   {
    "round": 1,
-   "change": "Passage fix before ingest: both solvers found that 'Of the two versions we tested ... still needed more ginger' contradicted paragraph 3 (three batches, the third approved). The sentence now reads 'Of the first two batches, the second had been [the most] faithful to his memory, though it still needed more ginger.' Serial comma added to the country list. Whole batch re-solved blind (round 2)."
+   "change": "Passage fix: 'Of the two versions we tested ... still needed more ginger' contradicted paragraph 3 (three batches, the third approved); reworded; serial comma added. Re-solved (round 2)."
+  },
+  {
+   "round": 2,
+   "change": "Round-2 solver B: the batch comparison opened the last paragraph after the story's climax, and 'the finished book' was never introduced. Paragraph 1 now says the recipes were for a class cookbook, and item 7's sentence now compares the two Nigerian recipes in the cookbook ('his turned out to be [the most] popular'). Whole batch re-solved blind (round 3)."
   }
  ]
 }
