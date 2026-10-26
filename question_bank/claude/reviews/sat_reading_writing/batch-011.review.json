@@ -1,0 +1,295 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 11,
+  "reviewed_at": "2026-10-26T20:28:37+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 11
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000096",
+    "CLD-SAT-RW-000097",
+    "CLD-SAT-RW-000098",
+    "CLD-SAT-RW-000099",
+    "CLD-SAT-RW-000100",
+    "CLD-SAT-RW-000101",
+    "CLD-SAT-RW-000102",
+    "CLD-SAT-RW-000103"
+  ],
+  "results": [
+    {
+      "cand": "S011-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "Blueprints lost, layout inferred from cracks -> could only guess (conjecture). 'verify' contradicts 'only'/inferring; 'conjecture' as a verb is less familiar vocabulary, adding a small twist.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000096"
+    },
+    {
+      "cand": "S011-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Sentence 2 gives the remembered 'island in a wide room'; sentence 3 ('Now...') contradicts it. C describes sentence 3, not 2.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000097"
+    },
+    {
+      "cand": "S011-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: C and D are mirror images; D reverses years, a simple careless-reading trap"
+      ],
+      "blind_notes": "$2.0M/100,000 = $20; $2.4M/150,000 = $16. C supports the claim with per-resident figures; B alone does not show per-resident spending fell.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: C and D are mirror images, so the per-resident direction is the only discriminator; A/B each give only half the data"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "S011-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Distant stone + almost no waste flakes -> tools were shaped elsewhere and arrived finished. B is contradicted by the missing flakes.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000098"
+    },
+    {
+      "cand": "S011-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Relative pronoun is object of 'selected' (the committee selected her) -> whom. 'who' is the common trap because the main verb 'has studied' follows.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000099"
+    },
+    {
+      "cand": "S011-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [
+        "minor: correctness hinges on 'several books' making the appositive restrictive; that cue is present and fair"
+      ],
+      "blind_notes": "Carson wrote several books, so 'Silent Spring' is a restrictive appositive (no comma before it); the comma after closes the nonessential participial phrase 'published in 1962,'. B (nonrestrictive commas) is the strong trap; C/D lack the needed comma before the participial phrase or are mismatched.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: correctness depends on reading 'several books' as making the title restrictive; some prep sources teach B as acceptable, so the key should cite the first sentence explicitly in the explanation"
+      ],
+      "blind2_difficulty_opinion": "hard",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000100"
+    },
+    {
+      "cand": "S011-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Most sharks must keep swimming; nurse sharks can rest motionless -> contrast.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000101"
+    },
+    {
+      "cand": "S011-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "low",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "Ambiguous key: D states the researchers' key finding verbatim with attribution and is defensible; goal says 'present the study's key finding' without explicitly requiring the method/context, so A vs D is not cleanly separable. Revise stem to e.g. 'present the study and its key finding' or make D clearly deficient.",
+        "A's 'suggesting they remember human faces' slightly overreaches (crows reacted to a mask, not a face) and omits the control-mask comparison."
+      ],
+      "blind_notes": "Chose A because 'audience unfamiliar with the study' usually signals the need for study context plus finding; A gives both. B and C lack the finding.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "D is also defensible: it states the study's key finding verbatim from the notes. Only the phrase 'audience unfamiliar with the study' pushes toward A (which supplies context for the finding). Consider sharpening the goal (e.g., 'present the study's key finding along with the evidence supporting it') or rewriting D so it is clearly incomplete."
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Ambiguous key: D states the researchers' key finding verbatim with attribution and is defensible; goal says 'present the study's key finding' without explicitly requiring the method/context, so A vs D is not cleanly separable. Revise stem to e.g. 'present the study and its key finding' or make D clearly deficient.; A's 'suggesting they remember human faces' slightly overreaches (crows reacted to a mask, not a face) and omits the control-mask comparison.; D is also defensible: it states the study's key finding verbatim from the notes. Only the phrase 'audience unfamiliar with the study' pushes toward A (which supplies context for the finding). Consider sharpening the goal (e.g., 'present the study's key finding along with the evidence supporting it') or rewriting D so it is clearly incomplete."
+    },
+    {
+      "cand": "S011-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Common view (sudden break) -> Lindqvist disagrees -> her evidence (woodblock printing, manuscript-like pages) and account (sped up existing changes).",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: correct choice C is the longest and most detailed choice"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000102"
+    },
+    {
+      "cand": "S011-10",
+      "revision": 2,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: B is the only option containing an explicit causal link ('attribute...to'), which makes it test-wise identifiable"
+      ],
+      "blind_notes": "Goal is to explain why glaciers shrank; only B ties the loss to a cause. C and D give related facts without linking them to shrinkage; A states the loss only.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: C and D each give a plausible causal factor but don't explicitly link it to the loss; B is the only one with an attribution word, which test-wise solvers spot fast"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000103"
+    }
+  ]
+}

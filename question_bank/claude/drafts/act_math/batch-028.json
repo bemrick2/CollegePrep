@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 28,
+ "plan": "Ten items with stems checked against the bank. 1 hard (weighted mean solved for a group size), several medium two-step items, 2 easy.",
+ "candidates": [
+  {
+   "cand": "B028-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Direct variation",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "The quantity y varies directly with x. When x = 8, y = 12. What is the value of y when x = 10 ?",
+   "choices": {
+    "A": "10",
+    "B": "12",
+    "C": "15",
+    "D": "16"
+   },
+   "answer": "C",
+   "explanation": "y = kx with k = 12/8 = 1.5, so y = 1.5 × 10 = 15.",
+   "distractors": {
+    "A": {
+     "rationale": "10 assumes y equals x.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12 assumes y does not change.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "16 adds the change in x twice (12 + 2 + 2).",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find the constant k = y/x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "k = 1.5."
+   },
+   "remember": "Direct variation: y/x stays constant.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Working backward through fractions of a remainder",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "Maya spent 1/3 of her money on a jacket and then 1/4 of what remained on a scarf. She had $30 left. How much money did she have at the start?",
+   "choices": {
+    "A": "$40",
+    "B": "$60",
+    "C": "$72",
+    "D": "$90"
+   },
+   "answer": "B",
+   "explanation": "After the jacket she had 2/3 of her money; after the scarf, 3/4 of that, or (3/4)(2/3) = 1/2. Half of her money is $30, so she started with $60.",
+   "distractors": {
+    "A": {
+     "rationale": "$40 takes 1/4 of the original amount instead of 1/4 of what remained.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$72 subtracts 1/3 + 1/4 = 7/12 of the original: 5/12 of $72 = $30.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "$90 undoes only the 1/3 spent on the jacket.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What fraction is left after each purchase?",
+    "The second fraction applies to what remained."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try $60: 40 after jacket, 30 after scarf."
+   },
+   "remember": "\"Of what remained\" multiplies; it does not add.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Quadratic from the sum and product of its roots",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "Which of the following quadratic equations has two solutions whose sum is 7 and whose product is 10 ?",
+   "choices": {
+    "A": "x² − 7x + 10 = 0",
+    "B": "x² + 7x + 10 = 0",
+    "C": "x² − 10x + 7 = 0",
+    "D": "x² + 7x − 10 = 0"
+   },
+   "answer": "A",
+   "explanation": "The numbers with sum 7 and product 10 are 2 and 5, so the equation is (x − 2)(x − 5) = 0, which is x² − 7x + 10 = 0.",
+   "distractors": {
+    "B": {
+     "rationale": "x² + 7x + 10 has solutions −2 and −5, whose sum is −7.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "This swaps the roles of the sum and the product.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x² + 7x − 10 has a sum of −7 and a product of −10.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Which two numbers add to 7 and multiply to 10?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Factor each choice and check."
+   },
+   "remember": "For x² − sx + p, the roots sum to s and multiply to p.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Parallel lines cut by a transversal",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Two parallel lines are cut by a transversal. A pair of alternate interior angles measure (3x + 10)° and (5x − 30)°. What is the measure of each of these angles?",
+   "choices": {
+    "A": "20°",
+    "B": "50°",
+    "C": "70°",
+    "D": "110°"
+   },
+   "answer": "C",
+   "explanation": "Alternate interior angles formed by parallel lines are equal: 3x + 10 = 5x − 30, so x = 20 and each angle is 3(20) + 10 = 70°.",
+   "distractors": {
+    "A": {
+     "rationale": "20 is the value of x.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "50 sets the expressions as supplementary and then misreads the result.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "110° is the supplement of the correct angle.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How are alternate interior angles related when lines are parallel?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "3x + 10 = 5x − 30."
+   },
+   "remember": "Alternate interior angles are equal.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Triangle formed by a line and the axes",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x, y) coordinate plane, the line 3x + 4y = 24 and the two coordinate axes form a triangle. What is the area of the triangle?",
+   "choices": {
+    "A": "7",
+    "B": "12",
+    "C": "14",
+    "D": "24"
+   },
+   "answer": "D",
+   "explanation": "The x-intercept is 8 and the y-intercept is 6, so the legs are 8 and 6 and the area is (1/2)(8)(6) = 24.",
+   "distractors": {
+    "A": {
+     "rationale": "7 adds the coefficients 3 and 4.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12 halves the area a second time.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "14 adds the intercepts 8 and 6.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find where the line crosses each axis."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Intercepts (8, 0) and (0, 6)."
+   },
+   "remember": "Intercepts give the legs of the triangle.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Interpreting a percentile",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "A student's score on a national exam is at the 80th percentile. Which statement must be true?",
+   "choices": {
+    "A": "The student answered 80% of the questions correctly.",
+    "B": "The student scored 80 points out of 100 possible points.",
+    "C": "About 80% of test takers scored higher than the student.",
+    "D": "About 80% of test takers scored at or below the student."
+   },
+   "answer": "D",
+   "explanation": "A percentile describes standing relative to other test takers: the 80th percentile means about 80% scored at or below that score.",
+   "distractors": {
+    "A": {
+     "rationale": "A percentile is not a percent of questions answered correctly.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "A percentile is not a raw score.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "This reverses the meaning: about 20% scored higher.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Is a percentile about questions or about other test takers?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate readings of percentile as a score."
+   },
+   "remember": "Percentile = percent of people at or below a score.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Weighted mean: solving for a group size",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "The mean score of the students in class A is 80, and the mean score of the 20 students in class B is 70. The mean score of all the students in both classes combined is 76. How many students are in class A?",
+   "choices": {
+    "A": "12",
+    "B": "20",
+    "C": "30",
+    "D": "40"
+   },
+   "answer": "C",
+   "explanation": "Let n be the number in class A. Then 80n + 70(20) = 76(n + 20), so 80n + 1400 = 76n + 1520 and n = 30.",
+   "distractors": {
+    "A": {
+     "rationale": "12 sets up the weights in the wrong proportion (80 − 76 against 76 − 70 reversed).",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "20 assumes the classes are the same size, which would give a mean of 75.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "40 doubles the size of class B without solving.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write total points for each class."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "80n + 1400 = 76(n + 20)."
+   },
+   "remember": "A combined mean is closer to the larger group's mean.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "solving a weighted-mean equation for a group size; equal-size trap"
+   }
+  },
+  {
+   "cand": "B028-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Product of the GCF and LCM",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "The greatest common factor of two positive integers is 6, and their least common multiple is 180. If one of the integers is 36, what is the other integer?",
+   "choices": {
+    "A": "5",
+    "B": "30",
+    "C": "36",
+    "D": "144"
+   },
+   "answer": "B",
+   "explanation": "For two positive integers, GCF × LCM = product of the integers. So 6 × 180 = 36 × n, and n = 1080 / 36 = 30. Check: gcd(36, 30) = 6 and lcm(36, 30) = 180.",
+   "distractors": {
+    "A": {
+     "rationale": "5 divides 180 by 36.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "36 is the integer already given.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "144 subtracts 36 from 180.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How are GCF, LCM and the two numbers related?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check gcd and lcm of 36 and each choice."
+   },
+   "remember": "GCF × LCM = product of the two numbers.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Counting tiles with a border",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A rectangular floor measuring 12 feet by 15 feet is covered with 1-foot-square tiles. The tiles along the outer edge, one tile wide, are blue, and all the other tiles are white. How many white tiles are there?",
+   "choices": {
+    "A": "126",
+    "B": "130",
+    "C": "150",
+    "D": "180"
+   },
+   "answer": "B",
+   "explanation": "The white tiles form a rectangle (12 − 2) by (15 − 2), so 10 × 13 = 130.",
+   "distractors": {
+    "A": {
+     "rationale": "126 subtracts a border of 54 tiles, counting each corner tile twice.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "150 subtracts only one tile width from one dimension: 10 × 15.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "180 is the total number of tiles.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Strip one tile from each side."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Inner rectangle 10 by 13."
+   },
+   "remember": "A one-wide border removes 2 from each dimension.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B028-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Intercepts of an absolute-value function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "What is the distance between the two x-intercepts of the graph of y = |x − 2| − 3 ?",
+   "choices": {
+    "A": "3",
+    "B": "4",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "D",
+   "explanation": "y = 0 when |x − 2| = 3, so x = −1 or x = 5. The distance between them is 6.",
+   "distractors": {
+    "A": {
+     "rationale": "3 is the distance from the vertex to one intercept.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4 subtracts the intercepts incorrectly, as 5 − 1.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "5 is the larger intercept, not the distance.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Set y = 0 and solve both cases."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "The V opens up from (2, −3)."
+   },
+   "remember": "Absolute-value graphs are symmetric about the vertex.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

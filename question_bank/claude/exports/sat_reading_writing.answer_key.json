@@ -1,6 +1,6 @@
 {
   "bank": "sat_reading_writing",
-  "bank_version": 10,
+  "bank_version": 11,
   "answers": [
     {
       "id": "CLD-SAT-RW-000001",
@@ -1687,6 +1687,144 @@
       "strategy": {
         "key": "locate_evidence",
         "explanation": "Compare the claimed cause with the observed frequency."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000096",
+      "correct_answer": "B",
+      "explanation": "Lacking blueprints, the engineers inferred the layout from indirect clues: they could only \"conjecture,\" or make an educated guess.",
+      "distractor_explanations": {
+        "A": "Without blueprints they could not confirm the layout; \"inferring\" signals a guess.",
+        "C": "Engineers could not command how the supports were arranged.",
+        "D": "The engineers never knew the layout, so they could not remember it."
+      },
+      "hints": [
+        "What does \"inferring\" suggest about how certain the engineers could be?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"guess\" for the blank."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000097",
+      "correct_answer": "A",
+      "explanation": "\"In his mind\" marks the second sentence as memory; the third sentence (\"Now ...\") shows the small reality, undercutting it.",
+      "distractor_explanations": {
+        "B": "No reason for moving is given.",
+        "C": "The second sentence describes the kitchen \"in his mind,\" not as it looks now.",
+        "D": "Chasing is a detail of the memory, not a judgment of the brothers."
+      },
+      "hints": [
+        "What does \"In his mind\" signal?",
+        "What does \"Now\" introduce?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Use the time markers to separate memory from present."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000098",
+      "correct_answer": "A",
+      "explanation": "Distant stone shows the material came from far away; the absence of flakes shows the shaping did not happen at the site. Together: finished tools were brought in.",
+      "distractor_explanations": {
+        "B": "Shaping at the site would have left many waste flakes, which are almost absent.",
+        "C": "Tools were found there; the question is where they were made.",
+        "D": "Nothing about the quarry's dates is given."
+      },
+      "hints": [
+        "What would be left behind if tools were shaped at the site?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use both clues; eliminate choices that fit only one."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000099",
+      "correct_answer": "C",
+      "explanation": "Inside the clause, \"the grant committee selected ___\": the committee is the subject and the pronoun is the object, so \"whom.\"",
+      "distractor_explanations": {
+        "A": "The pronoun is the object of \"selected\" (the committee selected her), so the object form is needed.",
+        "B": "\"Which\" is not used for people in this construction.",
+        "D": "\"Whose\" shows possession, which does not fit."
+      },
+      "hints": [
+        "Rearrange: the committee selected him or he?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use the he/him test inside the clause."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000100",
+      "correct_answer": "A",
+      "explanation": "Because Carson wrote several books, \"Silent Spring\" is essential and takes no commas; \"published in 1962\" is extra information set off by a pair of commas.",
+      "distractor_explanations": {
+        "B": "Because Carson wrote several books, the title is essential to identify which one, so no commas should set it off.",
+        "C": "A comma separates the noun from the essential title, and the comma before \"published\" is missing.",
+        "D": "A comma is needed before the descriptive phrase \"published in 1962,\" which closes with a comma."
+      },
+      "hints": [
+        "Did Carson write only one book?",
+        "Which part is extra information?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "The first sentence tells you whether the title is essential."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000101",
+      "correct_answer": "D",
+      "explanation": "Other sharks must swim to breathe; nurse sharks can rest. The sentences contrast.",
+      "distractor_explanations": {
+        "A": "Resting motionless is the opposite of having to keep swimming.",
+        "B": "The nurse shark's ability is not caused by other sharks' need to swim.",
+        "C": "The second sentence describes a different shark, not a restatement."
+      },
+      "hints": [
+        "Is the nurse shark like or unlike the other sharks?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"however.\""
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000102",
+      "correct_answer": "C",
+      "explanation": "Sentence 1: common view; sentence 2: Lindqvist disagrees; sentence 3: her evidence; sentence 4: her alternative account.",
+      "distractor_explanations": {
+        "A": "No technical explanation or list of books is given.",
+        "B": "Only one historian's view is presented against a general view.",
+        "D": "The text never says other historians reject Lindqvist's view."
+      },
+      "hints": [
+        "Label each sentence's role."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Outline the four sentences first."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000103",
+      "correct_answer": "B",
+      "explanation": "Only B links a cause (longer melt seasons, starting three weeks earlier) to the effect (glacier shrinkage).",
+      "distractor_explanations": {
+        "A": "This states the effect without giving a cause.",
+        "C": "This is related, but it never connects warming to the glaciers.",
+        "D": "This gives the change but does not link it to glacier loss."
+      },
+      "hints": [
+        "Which choice connects a cause to the glaciers?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "An explanation must link cause and effect."
       }
     }
   ]

@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:26:51+00:00",
+  "updated_at": "2026-10-26T20:28:40+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
     "act_math": 262,
     "act_english": 98,
     "act_reading": 90,
-    "sat_reading_writing": 95
+    "sat_reading_writing": 103
   },
   "review_totals": {
     "act_math": {
@@ -43,11 +43,11 @@
       "passed_after_revision": 10
     },
     "sat_reading_writing": {
-      "PASS": 95,
-      "REVISE": 8,
+      "PASS": 103,
+      "REVISE": 10,
       "REJECT": 0,
-      "candidates": 103,
-      "passed_after_revision": 7
+      "candidates": 113,
+      "passed_after_revision": 8
     }
   },
   "sections": {
@@ -556,13 +556,13 @@
       "passages": 10
     },
     "sat_reading_writing": {
-      "accepted": 95,
+      "accepted": 103,
       "retired_after_audit": 0,
       "by_skill": {
-        "Craft and Structure": 25,
-        "Expression of Ideas": 21,
-        "Information and Ideas": 24,
-        "Standard English Conventions": 25
+        "Craft and Structure": 28,
+        "Expression of Ideas": 23,
+        "Information and Ideas": 25,
+        "Standard English Conventions": 27
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -584,7 +584,8 @@
         "Finite verb in a main clause": 1,
         "Function of a quotation": 1,
         "Function of a sentence": 3,
-        "Inferences": 7,
+        "Function of a sentence (literary)": 1,
+        "Inferences": 8,
         "Inferences (alternative explanation)": 1,
         "Inferences (base rates)": 1,
         "Inferring a character's reaction": 1,
@@ -592,16 +593,18 @@
         "Main purpose": 1,
         "Main purpose (literary)": 1,
         "Modifier placement": 2,
-        "Overall text structure": 2,
+        "Overall text structure": 3,
         "Paired dashes": 1,
         "Plural possessives": 1,
         "Pronoun-antecedent agreement": 1,
         "Punctuating a quotation followed by an appositive": 1,
         "Punctuation with parentheses": 1,
+        "Restrictive title after a noun": 1,
         "Rhetorical synthesis": 1,
         "Rhetorical synthesis (advantage)": 1,
         "Rhetorical synthesis (emphasizing a contrast)": 1,
         "Rhetorical synthesis (emphasizing scale)": 1,
+        "Rhetorical synthesis (explaining a cause)": 1,
         "Rhetorical synthesis (explaining value)": 1,
         "Rhetorical synthesis (introducing a subject)": 1,
         "Rhetorical synthesis (method and limitation)": 1,
@@ -622,44 +625,45 @@
         "Transitions (consequence)": 1,
         "Transitions (contrast with a prediction)": 1,
         "Transitions (contrast with an expectation)": 1,
-        "Transitions (contrast)": 1,
+        "Transitions (contrast)": 2,
         "Transitions (reinforcing)": 1,
         "Transitions (specification)": 1,
         "Transitions (time sequence)": 1,
         "Verb tense (past perfect)": 1,
-        "Words in context": 10,
+        "Who versus whom": 1,
+        "Words in context": 11,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 11,
-        "hard": 13,
-        "medium": 71
+        "easy": 12,
+        "hard": 15,
+        "medium": 76
       },
       "by_difficulty_calibrated": {
-        "easy": 41,
-        "hard": 1,
-        "medium": 53
+        "easy": 45,
+        "hard": 2,
+        "medium": 56
       },
       "calibrated_share": {
-        "easy": 0.432,
-        "hard": 0.011,
-        "medium": 0.558
+        "easy": 0.437,
+        "hard": 0.019,
+        "medium": 0.544
       },
       "answer_key_balance": {
-        "A": 24,
-        "B": 23,
-        "C": 23,
-        "D": 25
+        "A": 27,
+        "B": 25,
+        "C": 25,
+        "D": 26
       },
       "modeling_items": 0,
-      "passages": 95
+      "passages": 103
     }
   },
   "last_completed_batch": {
     "act_math": 27,
     "act_english": 9,
     "act_reading": 10,
-    "sat_reading_writing": 10
+    "sat_reading_writing": 11
   },
   "next_batch_guidance": {
     "act_math": {
@@ -692,13 +696,21 @@
     }
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
+    "act_reading": {
       "next_batch": 11,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 4.4,
-        "Information and Ideas": 3.3,
-        "Standard English Conventions": 2.3,
-        "Expression of Ideas": 0.0
+        "Key Ideas and Details": 7.0,
+        "Craft and Structure": 0.5,
+        "Integration of Knowledge and Ideas": 2.5
+      }
+    },
+    "sat_reading_writing": {
+      "next_batch": 12,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 3.6,
+        "Information and Ideas": 4.4,
+        "Standard English Conventions": 2.4,
+        "Expression of Ideas": -0.4
       }
     },
     "act_english": {
@@ -707,14 +719,6 @@
         "Production of Writing": 4.7,
         "Knowledge of Language": 7.1,
         "Conventions of Standard English": -0.3
-      }
-    },
-    "act_reading": {
-      "next_batch": 11,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 7.0,
-        "Craft and Structure": 0.5,
-        "Integration of Knowledge and Ideas": 2.5
       }
     }
   },
@@ -736,12 +740,12 @@
     },
     "sat_reading_writing": {
       "target": 700,
-      "accepted": 95,
-      "share_of_target": 0.136
+      "accepted": 103,
+      "share_of_target": 0.147
     }
   },
   "total_target": 4000,
-  "total_accepted": 545,
+  "total_accepted": 553,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -935,6 +939,2042 @@
         "Process: 2 items passed after revision (B013-03 relabelled; B020-07 rewritten after a blind solver showed a naive method also reached the key). 2 rejected (fixture duplicates in batch 1).",
         "Section policy: ACT Math reached 200, so per next_bank the verbal banks now get batches until their share of target catches up (about 10% each)."
       ]
+    },
+    {
+      "bank": "sat_reading_writing",
+      "audited_at": "2026-10-26T20:28:38+00:00",
+      "accepted": 103,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000018",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000029",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000039",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000040",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000057",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000060",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000001",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000006",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000011",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000012",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000013",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000021",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000022",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000005",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000011",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000012",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000013",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000021",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000022",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000006",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000007",
+          "b": "CLD-SAT-RW-000014",
+          "similarity": 0.82
+        },
+        {
+          "a": "CLD-SAT-RW-000007",
+          "b": "CLD-SAT-RW-000075",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000007",
+          "b": "CLD-SAT-RW-000083",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000007",
+          "b": "CLD-SAT-RW-000093",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000007",
+          "b": "CLD-SAT-RW-000101",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000012",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000013",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000021",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000022",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000011",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000013",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000021",
+          "similarity": 1.0
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000022",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.85
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000074",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.92
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000012",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000021",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000022",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000023",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.69
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000013",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000014",
+          "b": "CLD-SAT-RW-000075",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000014",
+          "b": "CLD-SAT-RW-000083",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000014",
+          "b": "CLD-SAT-RW-000093",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000014",
+          "b": "CLD-SAT-RW-000101",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000029",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000039",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000040",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000057",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000060",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000018",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000022",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.85
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000074",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.92
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000021",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000023",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000022",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000034",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000023",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000024",
+          "b": "CLD-SAT-RW-000036",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000024",
+          "b": "CLD-SAT-RW-000046",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000024",
+          "b": "CLD-SAT-RW-000063",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000024",
+          "b": "CLD-SAT-RW-000075",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000024",
+          "b": "CLD-SAT-RW-000101",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000039",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000040",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000057",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000060",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000029",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000035",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000034",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000043",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000035",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000036",
+          "b": "CLD-SAT-RW-000054",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000036",
+          "b": "CLD-SAT-RW-000063",
+          "similarity": 0.69
+        },
+        {
+          "a": "CLD-SAT-RW-000036",
+          "b": "CLD-SAT-RW-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000040",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000057",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000060",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000039",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000057",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000060",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000040",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000044",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000045",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000043",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000044",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000045",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000046",
+          "b": "CLD-SAT-RW-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000046",
+          "b": "CLD-SAT-RW-000075",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000053",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000074",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.77
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000052",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000058",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.83
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.69
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000053",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000054",
+          "b": "CLD-SAT-RW-000083",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000057",
+          "b": "CLD-SAT-RW-000060",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000057",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000057",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000057",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000057",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000057",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000062",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.73
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000058",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-SAT-RW-000060",
+          "b": "CLD-SAT-RW-000066",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000060",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000060",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000060",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000060",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000067",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000062",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000063",
+          "b": "CLD-SAT-RW-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000066",
+          "b": "CLD-SAT-RW-000068",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000066",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000066",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000066",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000073",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.69
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000067",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000068",
+          "b": "CLD-SAT-RW-000078",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000068",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000068",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000082",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000073",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000075",
+          "b": "CLD-SAT-RW-000083",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000075",
+          "b": "CLD-SAT-RW-000093",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-RW-000078",
+          "b": "CLD-SAT-RW-000087",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000078",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000081",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000081",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000081",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000081",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000081",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000082",
+          "b": "CLD-SAT-RW-000086",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000082",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000082",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000082",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000082",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-RW-000083",
+          "b": "CLD-SAT-RW-000101",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-RW-000086",
+          "b": "CLD-SAT-RW-000091",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000086",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000086",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000086",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000087",
+          "b": "CLD-SAT-RW-000096",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-RW-000091",
+          "b": "CLD-SAT-RW-000092",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000091",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000091",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-RW-000092",
+          "b": "CLD-SAT-RW-000099",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000092",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000093",
+          "b": "CLD-SAT-RW-000101",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-SAT-RW-000099",
+          "b": "CLD-SAT-RW-000100",
+          "similarity": 0.57
+        }
+      ],
+      "answer_key_balance": {
+        "A": 27,
+        "B": 25,
+        "C": 25,
+        "D": 26
+      },
+      "by_skill": {
+        "Craft and Structure": 28,
+        "Expression of Ideas": 23,
+        "Information and Ideas": 25,
+        "Standard English Conventions": 27
+      },
+      "by_difficulty_author": {
+        "easy": 12,
+        "hard": 15,
+        "medium": 76
+      },
+      "by_difficulty_calibrated": {
+        "easy": 45,
+        "hard": 2,
+        "medium": 56
+      },
+      "thin_explanations": [
+        "CLD-SAT-RW-000010",
+        "CLD-SAT-RW-000012",
+        "CLD-SAT-RW-000045",
+        "CLD-SAT-RW-000085",
+        "CLD-SAT-RW-000086",
+        "CLD-SAT-RW-000091"
+      ],
+      "subskills_used_more_than_twice": {
+        "Command of evidence: quantitative": 6,
+        "Cross-text connections": 4,
+        "Function of a sentence": 3,
+        "Inferences": 8,
+        "Overall text structure": 3,
+        "Words in context": 11
+      },
+      "scope": "automatic audit at 103 accepted"
     }
   ],
   "files": {
@@ -961,7 +3001,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 10,
+      "bank_version": 11,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -1000,7 +3040,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:26:51+00:00",
+    "heartbeat_at": "2026-10-26T20:28:40+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
