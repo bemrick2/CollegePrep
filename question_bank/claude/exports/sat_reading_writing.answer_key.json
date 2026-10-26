@@ -1,6 +1,6 @@
 {
   "bank": "sat_reading_writing",
-  "bank_version": 2,
+  "bank_version": 3,
   "answers": [
     {
       "id": "CLD-SAT-RW-000001",
@@ -306,6 +306,204 @@
       "strategy": {
         "key": "locate_evidence",
         "explanation": "Trace the sequence in the second sentence to its result."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000018",
+      "correct_answer": "B",
+      "explanation": "The study weighs several explanations and admits the limits of its evidence, which describes a careful, restrained approach: \"measured.\"",
+      "distractor_explanations": {
+        "A": "\"Strident\" means loud and forceful, the opposite of careful weighing.",
+        "C": "\"Cursory\" means hasty and superficial, but the study weighs several explanations.",
+        "D": "\"Dogmatic\" means insisting on one view, but the study considers several and admits uncertainty."
+      },
+      "hints": [
+        "What does the colon tell you about the study's approach?",
+        "Which word describes careful, restrained judgment?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict 'careful' or 'balanced,' then match."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000019",
+      "correct_answer": "D",
+      "explanation": "Text 1's evidence covers only the year after widening. Text 2 agrees that travel times often improve at first but says congestion returns within a few years. So the researchers would accept the evidence but judge it too short-term to support a lasting conclusion.",
+      "distractor_explanations": {
+        "A": "Text 2 says travel times improve at first, so it does not claim congestion worsens right away.",
+        "B": "Neither text discusses whether drivers prefer or avoid widened roads; Text 2 says more people choose to drive.",
+        "C": "Text 2 agrees that travel times often improve at first, so it does not dispute the data's accuracy."
+      },
+      "hints": [
+        "What time period does Text 1's evidence cover?",
+        "What does Text 2 say happens after that period?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Compare the time frames of the two texts."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000020",
+      "correct_answer": "B",
+      "explanation": "Increases: A +3,000 (25%), B +4,500 (15%), C +2,400 (30%). Town C has the largest percentage increase, but Town B has the largest increase in number. B states exactly that contrast.",
+      "distractor_explanations": {
+        "A": "Total visits in each year say nothing about either kind of increase.",
+        "C": "Both numbers are correct, but neither town named has both the largest percentage and largest number, and no percentage is given.",
+        "D": "Town B's 15% is the smallest percentage increase, and Town A's 3,000 is less than Town B's 4,500."
+      },
+      "hints": [
+        "Compute each town's increase in number and as a percent of its 2019 visits.",
+        "Check both halves of each choice against your numbers."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each half of each comparison against the computed increases."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000021",
+      "correct_answer": "B",
+      "explanation": "The sentence is inverted: the subject comes after the verb. The subject is \"a set,\" which is singular, and the narrative is in the past tense, so the verb is \"was.\"",
+      "distractor_explanations": {
+        "A": "\"Were\" agrees with the nearby plural \"objects\" or \"dividers,\" but the subject is the singular \"a set.\"",
+        "C": "\"Are\" is plural and also shifts out of the past tense.",
+        "D": "\"Have been\" is plural and does not agree with \"a set.\""
+      },
+      "hints": [
+        "Find the subject: it comes after the blank.",
+        "Is the head noun \"set\" or \"dividers\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Flip the sentence: \"a set ... ______ among the objects.\""
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000022",
+      "correct_answer": "D",
+      "explanation": "Two independent clauses meet at the blank, so they need a semicolon (or period). \"However\" marks the contrast between what the committee expected and what happened, so it begins the second clause: \"; however, the.\"",
+      "distractor_explanations": {
+        "A": "Commas alone join two independent clauses, creating a comma splice.",
+        "B": "This attaches \"however\" to the first clause, where nothing earlier is being contrasted; the contrast is with the anchorages' cost.",
+        "C": "With no punctuation before \"however,\" the two clauses run together."
+      },
+      "hints": [
+        "Are there complete sentences on both sides of the blank?",
+        "Which clause does \"however\" contrast with what came before?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate comma splices, then place \"however\" with the clause it contrasts."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000023",
+      "correct_answer": "C",
+      "explanation": "The opening phrase describes a person who was trained as a botanist, so the subject that follows it must be that person: \"Ines Varga recorded.\"",
+      "distractor_explanations": {
+        "A": "The subject is \"paintings,\" so the sentence says the paintings were trained as a botanist.",
+        "B": "The subject is still \"the paintings,\" which cannot have been trained as a botanist.",
+        "D": "\"There\" leaves the opening phrase with nothing to modify and creates an awkward passive construction."
+      },
+      "hints": [
+        "Who was trained as a botanist?",
+        "Which choice puts that person right after the comma?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask who or what the opening phrase describes."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000024",
+      "correct_answer": "B",
+      "explanation": "Using less steel would normally lower the cost, but the bridge will cost more anyway. \"Even so\" signals a result that holds despite the preceding fact.",
+      "distractor_explanations": {
+        "A": "Higher cost is not a consequence of using less steel; the text gives a different reason (individual fabrication).",
+        "C": "The second sentence does not restate the first; it adds a contrasting fact.",
+        "D": "\"Likewise\" signals a similar point, but higher cost contrasts with lower steel use."
+      },
+      "hints": [
+        "What would you expect less steel to do to the cost?",
+        "Does the second sentence meet or defy that expectation?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"but despite that,\" then match."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000025",
+      "correct_answer": "A",
+      "explanation": "The goal pairs two facts: the earlier departure and the later arrival. Only A states both and links them with \"Although\" to stress the contrast.",
+      "distractor_explanations": {
+        "B": "This gives location facts but mentions neither the departure nor the arrival dates.",
+        "C": "This gives the later arrival but omits the earlier departure, so the contrast is lost.",
+        "D": "This gives the head start but not the later arrival, so it does not show that the head start failed."
+      },
+      "hints": [
+        "The goal has two parts: earlier departure and later arrival.",
+        "Which choice includes both?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Turn the goal into a checklist, then test each choice."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000026",
+      "correct_answer": "A",
+      "explanation": "Without crabs, unprotected cordgrass was grazed bare; with abundant snail-eating crabs, unprotected cordgrass did as well as fenced cordgrass. So the snails' damage depends on whether predators keep their numbers down.",
+      "distractor_explanations": {
+        "B": "The text never says crabs eat or harm cordgrass; it describes them as eating snails.",
+        "C": "In the crab marsh, fenced and open plots were nearly identical, so fences made little difference there.",
+        "D": "\"Stop ... entirely\" goes beyond the data; the text supports fewer snails, not a total change in feeding."
+      },
+      "hints": [
+        "Compare open plots in the two marshes.",
+        "What is different about the second marsh?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict: grazing matters only where crabs are scarce."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000027",
+      "correct_answer": "C",
+      "explanation": "If pitch is learned, chicks raised by city adults should copy the high city pitch even in quiet. If they sing lower in a quiet lab, pitch tracks noise rather than learning, which undercuts Mensah.",
+      "distractor_explanations": {
+        "A": "Copying rural tutors is exactly what the learning hypothesis predicts (and the quiet lab fits the noise view too), so this does not weaken Mensah.",
+        "B": "Adults that do not shift pitch in noisy cities fit Mensah's view and count against the noise explanation.",
+        "D": "When birds sing most often does not show whether pitch is learned or caused by noise."
+      },
+      "hints": [
+        "What does each explanation predict for a chick raised in quiet by city adults?",
+        "Which finding fits the noise explanation but not learning?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "For each finding, ask which hypothesis it fits; keep the one that fits only the rival."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000028",
+      "correct_answer": "D",
+      "explanation": "Critics call the later style a decline in ambition; the last sentence, introduced by \"however,\" shows Ostrova worked harder on the sparse passages than on anything earlier, which challenges that view.",
+      "distractor_explanations": {
+        "A": "The sentence shows how much she revised, not why she changed styles.",
+        "B": "\"However\" signals that the sentence pushes against the critics, not that it supports them.",
+        "C": "The sentence concerns revising the later sparse passages, not a shared technique."
+      },
+      "hints": [
+        "What claim comes right before the last sentence?",
+        "What does \"however\" tell you about the last sentence's relation to it?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence before it and note the contrast word."
       }
     }
   ]
