@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:32:59+00:00",
+  "updated_at": "2026-10-26T20:34:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 282,
-    "act_english": 98,
+    "act_english": 109,
     "act_reading": 90,
     "sat_reading_writing": 103
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 98,
+      "PASS": 109,
       "REVISE": 4,
       "REJECT": 0,
-      "candidates": 102,
+      "candidates": 113,
       "passed_after_revision": 3
     },
     "act_reading": {
@@ -371,21 +371,23 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 98,
+      "accepted": 109,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 44,
+        "Conventions of Standard English": 50,
         "Knowledge of Language": 15,
-        "Production of Writing": 39
+        "Production of Writing": 44
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
         "Adjectives versus adverbs": 1,
         "Agreement in an inverted sentence (lie/lay)": 1,
         "Agreement with \"most of\" + plural": 1,
+        "Agreement with a compound subject": 1,
         "Choosing a phrase that fits the essay's point": 1,
+        "Choosing content that states a purpose": 1,
         "Colon introducing an explanation": 1,
-        "Comma splice": 1,
+        "Comma splice": 2,
         "Comma splices": 1,
         "Commas around a nonessential clause": 1,
         "Commas around a nonessential element": 1,
@@ -396,13 +398,14 @@
         "Concision and redundancy": 3,
         "Concluding sentence that links to earlier content": 1,
         "Conclusion emphasizing a point": 1,
+        "Conclusion that echoes the opening": 1,
         "Conclusion that links to the essay's focus": 1,
         "Conclusion that returns to the opening": 2,
         "Conclusions that echo the opening": 1,
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 4,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 6,
+        "Evaluating whether an essay meets a goal": 7,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 1,
         "Function of a sentence (what would be lost)": 1,
@@ -436,7 +439,7 @@
         "Sentence placement": 1,
         "Sentence placement (adding a sentence)": 1,
         "Singular possessive": 1,
-        "Subject-verb agreement": 1,
+        "Subject-verb agreement": 2,
         "Subject-verb agreement (\"each of\")": 1,
         "Subject-verb agreement in a relative clause": 1,
         "Subject-verb agreement with a gerund subject": 1,
@@ -446,35 +449,41 @@
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
         "Transitions (concession)": 2,
-        "Transitions (contrast)": 2,
+        "Transitions (contrast)": 3,
         "Transitions (example)": 1,
         "Transitions: contrast": 1,
+        "Unnecessary comma": 1,
         "Unnecessary comma between noun and clause": 1,
+        "Unnecessary comma in a clause": 1,
         "Unnecessary comma in a relative clause": 1,
         "Verb forms and agreement": 1,
+        "What a sentence contributes": 1,
+        "Whoever versus whomever": 1,
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 34,
-        "hard": 11,
-        "medium": 53
+        "easy": 36,
+        "hard": 13,
+        "medium": 60
       },
       "by_difficulty_calibrated": {
-        "easy": 58,
-        "medium": 40
+        "easy": 66,
+        "hard": 1,
+        "medium": 42
       },
       "calibrated_share": {
-        "easy": 0.592,
-        "medium": 0.408
+        "easy": 0.606,
+        "hard": 0.009,
+        "medium": 0.385
       },
       "answer_key_balance": {
-        "A": 30,
-        "B": 22,
-        "C": 24,
-        "D": 22
+        "A": 33,
+        "B": 24,
+        "C": 27,
+        "D": 25
       },
       "modeling_items": 0,
-      "passages": 9
+      "passages": 10
     },
     "act_reading": {
       "accepted": 90,
@@ -681,7 +690,7 @@
   },
   "last_completed_batch": {
     "act_math": 29,
-    "act_english": 9,
+    "act_english": 10,
     "act_reading": 10,
     "sat_reading_writing": 11
   },
@@ -716,13 +725,12 @@
     }
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 12,
+    "act_english": {
+      "next_batch": 11,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 3.6,
-        "Information and Ideas": 4.4,
-        "Standard English Conventions": 2.4,
-        "Expression of Ideas": -0.4
+        "Production of Writing": 4.2,
+        "Knowledge of Language": 9.4,
+        "Conventions of Standard English": -1.8
       }
     },
     "act_reading": {
@@ -733,12 +741,13 @@
         "Integration of Knowledge and Ideas": 2.5
       }
     },
-    "act_english": {
-      "next_batch": 10,
+    "sat_reading_writing": {
+      "next_batch": 12,
       "skill_gap_for_next_10": {
-        "Production of Writing": 4.7,
-        "Knowledge of Language": 7.1,
-        "Conventions of Standard English": -0.3
+        "Craft and Structure": 3.6,
+        "Information and Ideas": 4.4,
+        "Standard English Conventions": 2.4,
+        "Expression of Ideas": -0.4
       }
     }
   },
@@ -750,8 +759,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 98,
-      "share_of_target": 0.14
+      "accepted": 109,
+      "share_of_target": 0.156
     },
     "act_reading": {
       "target": 600,
@@ -765,9 +774,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 573,
+  "total_accepted": 584,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -2995,6 +3004,6420 @@
         "Words in context": 11
       },
       "scope": "automatic audit at 103 accepted"
+    },
+    {
+      "bank": "act_english",
+      "audited_at": "2026-10-26T20:34:07+00:00",
+      "accepted": 109,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-ACT-E-000001",
+          "b": "CLD-ACT-E-000012",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000001",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000001",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000001",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000001",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000003",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000004",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000006",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000012",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000013",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000014",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000015",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.7
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000002",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000012",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000013",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000014",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000058",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000003",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000012",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000013",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000014",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000004",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000012",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000013",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000014",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000059",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000006",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000011",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000011",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000011",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000011",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000011",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000013",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000014",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000015",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000022",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000024",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000025",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000026",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000037",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.88
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000049",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000058",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000062",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000068",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.86
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000012",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000014",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000015",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000013",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000015",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.7
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000014",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000015",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000017",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000017",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000023",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000026",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.62
+        },
+        {
+          "a": "CLD-ACT-E-000022",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000026",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000059",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 1.0
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000023",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000024",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000025",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000028",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000026",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000029",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000037",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000062",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000028",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000034",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.7
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000037",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000062",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.7
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000029",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000032",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000036",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000034",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000038",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000036",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000037",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000040",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000038",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000047",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000062",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000040",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000041",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000045",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000045",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000050",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000062",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000047",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000049",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000049",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000049",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000049",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000049",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000052",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000050",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000055",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000052",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000056",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000055",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000058",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000061",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000062",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000068",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.86
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000056",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000058",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000058",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000058",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000058",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000059",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-ACT-E-000059",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000059",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000063",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000061",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000062",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000062",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000062",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000062",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000062",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000062",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000064",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000063",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000067",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000064",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000069",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000067",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000068",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000068",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-E-000068",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000068",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000070",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000069",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000071",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000070",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000072",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000074",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.86
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000071",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000075",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000072",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000074",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000074",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000074",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000074",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000079",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000075",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000079",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000080",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000082",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000081",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000083",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000082",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000085",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000083",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000087",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000085",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000089",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000087",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000090",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000089",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000091",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.8
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000090",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000092",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000094",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-E-000091",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000093",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000092",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000095",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000093",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.64
+        },
+        {
+          "a": "CLD-ACT-E-000094",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000094",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000094",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000099",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000095",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000099",
+          "b": "CLD-ACT-E-000100",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000099",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000099",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000099",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000099",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000099",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000100",
+          "b": "CLD-ACT-E-000102",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000100",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000100",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-ACT-E-000100",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000100",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000102",
+          "b": "CLD-ACT-E-000103",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000102",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000102",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-E-000102",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000103",
+          "b": "CLD-ACT-E-000104",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000103",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-E-000103",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000104",
+          "b": "CLD-ACT-E-000106",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-E-000104",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-E-000106",
+          "b": "CLD-ACT-E-000107",
+          "similarity": 0.55
+        }
+      ],
+      "answer_key_balance": {
+        "A": 33,
+        "B": 24,
+        "C": 27,
+        "D": 25
+      },
+      "by_skill": {
+        "Conventions of Standard English": 50,
+        "Knowledge of Language": 15,
+        "Production of Writing": 44
+      },
+      "by_difficulty_author": {
+        "easy": 36,
+        "hard": 13,
+        "medium": 60
+      },
+      "by_difficulty_calibrated": {
+        "easy": 66,
+        "hard": 1,
+        "medium": 42
+      },
+      "thin_explanations": [
+        "CLD-ACT-E-000034",
+        "CLD-ACT-E-000040",
+        "CLD-ACT-E-000047",
+        "CLD-ACT-E-000056",
+        "CLD-ACT-E-000059",
+        "CLD-ACT-E-000061",
+        "CLD-ACT-E-000062",
+        "CLD-ACT-E-000063",
+        "CLD-ACT-E-000064",
+        "CLD-ACT-E-000075",
+        "CLD-ACT-E-000091",
+        "CLD-ACT-E-000093",
+        "CLD-ACT-E-000094",
+        "CLD-ACT-E-000100",
+        "CLD-ACT-E-000104"
+      ],
+      "subskills_used_more_than_twice": {
+        "Concision and redundancy": 3,
+        "Deciding whether to keep a sentence": 4,
+        "Evaluating whether an essay meets a goal": 7,
+        "Parallel structure": 3,
+        "Redundancy": 3,
+        "Transitions (contrast)": 3
+      },
+      "scope": "automatic audit at 109 accepted"
     }
   ],
   "files": {
@@ -3007,7 +9430,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 9,
+      "bank_version": 10,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -3072,7 +9495,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:32:59+00:00",
+    "heartbeat_at": "2026-10-26T20:34:10+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

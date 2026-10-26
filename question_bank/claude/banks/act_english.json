@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 9,
-  "updated_at": "2026-10-26T20:23:34+00:00",
+  "version": 10,
+  "updated_at": "2026-10-26T20:34:07+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -102,6 +102,17 @@
       "word_count": 205,
       "text": "On the roof of a downtown hotel in Riverton, between the air-conditioning units and a row of potted herbs, sit four white wooden boxes. They hold roughly two hundred thousand honeybees, which the hotel's chef inspects every Tuesday morning. Urban hives often produce {{1|less}} honey than rural ones, but the chef is not trying to compete with farms. If the chef {{2|was}} to skip an inspection during the spring swarming season, half of a colony might leave for a nearby tree.\n\nWhen the chef meets with the hotel's manager about the hives, {{3|he}} usually brings a jar of honey to the meeting. The hotel must also comply {{4|to}} the city's rules for beekeeping: hives must be registered, and inspectors visit twice a year. {{5|Even so,}} the number of rooftop hives in Riverton has tripled since 2015, and the city now counts dozens of beekeepers {{6|who's}} hives sit on roofs and balconies.\n\n{{7|At the present time}}, the hotel sells its honey in the lobby. Guests often say that rooftop honey tastes different from {{8|the countryside}}, and they are right: city bees forage on linden trees, window boxes, and weedy lots, so each season's honey carries a slightly different flavor. {{9|The jars sell for twelve dollars each.}}",
       "batch": 9,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000010",
+      "title": "Mapping the Dark",
+      "genre": "informational essay",
+      "word_count": 226,
+      "text": "On a stretch of shingle beach near the English coast stand three strange concrete structures: a curved wall more than sixty meters long and two giant dishes {{1|facing, the sea}}. Built in the 1920s and 1930s, they {{2|was}} part of an experiment in hearing. Before radar existed, military planners hoped {{3|that sound could warn them of approaching aircraft}} before the planes came into view.\n\nThe idea was simple. A curved concrete surface gathers sound waves and concentrates them at a single point, {{4|where, a listener}} with a microphone could detect the drone of an engine miles away. In tests, the largest mirror could pick up aircraft roughly twenty miles off when conditions were ideal.\n\n{{5|However,}} conditions were rarely ideal. Wind, waves, and the noise of nearby boats {{6|was drowning out}} faint engines, and as aircraft grew faster, the warning the mirrors provided shrank to just a few minutes. {{7|By the late 1930s, radar, which could detect planes far more reliably and at much greater distances, had made the mirrors obsolete.}}\n\nToday the mirrors are protected {{8|landmarks, visitors}} can tour them on guided walks a few times a year. Standing in front of the largest one, a visitor who speaks quietly can be heard clearly by {{9|whomever}} stands at the focal point dozens of meters away. {{10|The site also has a small parking lot near the beach.}}",
+      "batch": 10,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -7057,6 +7068,783 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-009.review.json",
         "computation": "checks/act_english/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000099",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary comma",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 1,
+      "evidence": "two giant dishes",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "facing: the sea",
+        "C": "facing the sea",
+        "D": "facing; the sea"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Facing the sea\" is a single phrase describing the dishes; no punctuation belongs inside it.",
+      "distractor_explanations": {
+        "A": "A comma should not separate the verb form \"facing\" from its object.",
+        "B": "A colon must follow a complete clause, which \"two giant dishes facing\" is not.",
+        "D": "A semicolon must join two independent clauses."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Should anything separate \"facing\" from what the dishes face?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate every choice that inserts a mark."
+      },
+      "remember": "Don't separate a verb form from its object.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-01",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: 'near the English coast' is slightly odd for structures standing on a beach; the real Denge mirrors sit on gravel/lake land near Dungeness rather than literally on the shingle beach"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000100",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 2,
+      "evidence": "Built in the 1920s and 1930s, they",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were",
+        "C": "is",
+        "D": "has been"
+      },
+      "correct_answer": "B",
+      "explanation": "The subject \"they\" (the structures) is plural, and the sentence is in the past: \"were.\"",
+      "distractor_explanations": {
+        "A": "\"Was\" is singular, but \"they\" is plural.",
+        "C": "\"Is\" is singular and present tense.",
+        "D": "\"Has\" is singular."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the subject of the verb?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the verb to its subject."
+      },
+      "remember": "Plural subjects take plural verbs.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-02",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000101",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Choosing content that states a purpose",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 3,
+      "evidence": "Before radar existed",
+      "figure": null,
+      "stem": "Which choice most clearly explains why the structures were built?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "that the structures would last for many centuries",
+        "C": "to build the structures as cheaply as they could",
+        "D": "that concrete would resist the damp, salty air"
+      },
+      "correct_answer": "A",
+      "explanation": "The structures were built to use sound to warn of aircraft; the current wording states that purpose and sets up \"an experiment in hearing.\"",
+      "distractor_explanations": {
+        "B": "Durability is not the reason they were built.",
+        "C": "Cost does not explain their purpose.",
+        "D": "Weather resistance is not their purpose."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "true_but_irrelevant",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "What were the mirrors for, according to the essay?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the goal: the reason for building them."
+      },
+      "remember": "Match the choice to the purpose named in the stem.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-03",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000102",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary comma in a clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 4,
+      "evidence": "a single point",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "where; a listener",
+        "C": "where a listener,",
+        "D": "where a listener"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Where a listener with a microphone could detect ...\" is one clause describing the point; no internal punctuation is needed.",
+      "distractor_explanations": {
+        "A": "A comma should not split \"where\" from the subject of its clause.",
+        "B": "A semicolon cannot be used inside a dependent clause.",
+        "C": "A comma after \"listener\" splits the subject from \"with a microphone could detect.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does the clause need any internal pause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove marks that split a clause."
+      },
+      "remember": "No commas inside a short dependent clause.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-04",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000103",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (contrast)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 5,
+      "evidence": "when conditions were ideal",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Therefore,",
+        "C": "For example,",
+        "D": "Likewise,"
+      },
+      "correct_answer": "A",
+      "explanation": "The previous sentence describes results under ideal conditions; this sentence says such conditions were rare: a contrast.",
+      "distractor_explanations": {
+        "B": "Rarely ideal conditions do not follow from the mirror's range.",
+        "C": "The sentence does not give an example of the previous claim.",
+        "D": "Rarely ideal conditions contrast with the ideal-condition results."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "How does \"rarely ideal\" relate to \"when conditions were ideal\"?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"but.\""
+      },
+      "remember": "Name the relationship first.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-05",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000104",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Agreement with a compound subject",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 6,
+      "evidence": "Wind, waves, and the noise of nearby boats",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "drowns out",
+        "C": "drowned out",
+        "D": "has drowned out"
+      },
+      "correct_answer": "C",
+      "explanation": "Three items joined by \"and\" form a plural subject; the past tense matches the narrative: \"drowned out.\"",
+      "distractor_explanations": {
+        "A": "The compound subject (wind, waves, and noise) is plural, and the passage narrates past events.",
+        "B": "\"Drowns\" is singular and present tense.",
+        "D": "\"Has\" is singular."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "How many things are doing the drowning out?",
+        "Is the nearest noun the real subject?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Count the parts of the subject."
+      },
+      "remember": "Subjects joined by \"and\" are plural.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-06",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000105",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "What a sentence contributes",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 7,
+      "evidence": "had made the mirrors obsolete",
+      "figure": null,
+      "stem": "If the writer deleted the underlined sentence, the essay would primarily lose:",
+      "choices": {
+        "A": "a description of how the mirrors focused sound at one point.",
+        "B": "evidence that the mirrors could detect planes twenty miles away.",
+        "C": "a comparison between the mirrors and modern satellite systems.",
+        "D": "an explanation of what finally ended the use of the mirrors."
+      },
+      "correct_answer": "D",
+      "explanation": "The sentence explains that radar made the mirrors obsolete, which links their weaknesses to their abandonment and to the final paragraph.",
+      "distractor_explanations": {
+        "A": "That is explained in the second paragraph.",
+        "B": "That detail is in the second paragraph.",
+        "C": "Satellites are never mentioned."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What happens to the mirrors after this sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what job the sentence does."
+      },
+      "remember": "Ask what is missing if a sentence goes.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-07",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000106",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 8,
+      "evidence": "Today the mirrors are protected",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "landmarks visitors",
+        "C": "landmarks; visitors",
+        "D": "landmarks, visitors,"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Today the mirrors are protected landmarks\" and \"visitors can tour them ...\" are both complete; a semicolon joins them.",
+      "distractor_explanations": {
+        "A": "A comma alone joins two independent clauses.",
+        "B": "The two clauses run together.",
+        "D": "Adding a second comma does not fix the splice and splits the subject from its verb."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": "comma_splice",
+        "D": "comma_splice"
+      },
+      "hints": [
+        "Is there a complete sentence on each side?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate splices and run-ons."
+      },
+      "remember": "Join two sentences with a semicolon or period, not a comma.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-08",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000107",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Whoever versus whomever",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 9,
+      "evidence": "stands at the focal point dozens of meters away",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "whoever",
+        "C": "whom",
+        "D": "whichever"
+      },
+      "correct_answer": "B",
+      "explanation": "The whole clause \"whoever stands at the focal point\" is the object of \"by,\" but inside the clause the pronoun is the subject of \"stands,\" so \"whoever\" is correct.",
+      "distractor_explanations": {
+        "A": "The pronoun is the subject of \"stands,\" so the subject form is needed even after \"by.\"",
+        "C": "\"Whom\" is an object form and cannot be the subject of \"stands.\"",
+        "D": "\"Whichever\" refers to things, not people."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the verb right after the pronoun?",
+        "Is the pronoun its subject?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide the pronoun's role inside its own clause."
+      },
+      "remember": "Inside its clause, the subject takes \"whoever.\"",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-09",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000108",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that echoes the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 10,
+      "evidence": "they was part of an experiment in hearing",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by referring back to an idea from its first paragraph?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Radar has since been joined by satellite systems for tracking aircraft.",
+        "C": "Concrete has long been a common building material along that coast.",
+        "D": "A century later, the experiment in hearing still works for visitors."
+      },
+      "correct_answer": "D",
+      "explanation": "The first paragraph calls the mirrors \"an experiment in hearing\"; the ending returns to that phrase and notes it still works for visitors.",
+      "distractor_explanations": {
+        "A": "A parking lot does not connect to the first paragraph.",
+        "B": "This introduces new technology rather than echoing the opening.",
+        "C": "This is a general fact that does not refer to the opening's idea."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "out_of_scope",
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "What phrase in the first paragraph describes the mirrors?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the first paragraph for an idea to echo."
+      },
+      "remember": "Echo endings repeat a specific idea from the opening.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-10",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: B mentions radar, which also appears in paragraph 1 ('Before radar existed'), so it technically 'refers back' to the first paragraph. D's echo of 'experiment in hearing' is clearly better, but a distractor that doesn't touch paragraph 1 would make the item tighter.",
+          "minor: 'A century later' is approximate, since the mirrors date from the 1920s-30s and the passage is undated; acceptable."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000109",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": null,
+      "evidence": "had made the mirrors obsolete",
+      "figure": null,
+      "stem": "Suppose the writer's goal had been to describe a technology that was replaced by a better one. Would this essay accomplish that goal?",
+      "choices": {
+        "A": "Yes, because it explains how the sound mirrors worked and why radar made them obsolete.",
+        "B": "Yes, because it describes in detail how radar works and why it detects planes at long range.",
+        "C": "No, because it focuses mainly on guided tours of the mirrors and the visitors who take them.",
+        "D": "No, because it never explains why the mirrors stopped being used for detecting aircraft."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay explains the mirrors' method and limits and says radar, which worked better, made them obsolete: a technology replaced by a better one.",
+      "distractor_explanations": {
+        "B": "The essay mentions radar briefly; it does not explain how radar works.",
+        "C": "Tours appear only in the last paragraph.",
+        "D": "The third paragraph explains this."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Does the essay name what replaced the mirrors, and why?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Decide yes or no, then check the reason."
+      },
+      "remember": "Both the verdict and the reason must be right.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "E010-11",
+      "created_at": "2026-10-26T20:34:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-010.review.json",
+        "computation": "checks/act_english/batch_010.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
