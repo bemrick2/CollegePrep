@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 11,
-  "updated_at": "2026-10-26T20:41:24+00:00",
+  "version": 12,
+  "updated_at": "2026-10-26T20:58:11+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -124,6 +124,17 @@
       "word_count": 352,
       "text": "The first thing Master Brandt taught me was that a map is mostly a list of things left out. I had come to his workshop at fourteen expecting to learn how to draw rivers, and for my first month he would not let me draw anything at all. Instead he sent me out with a surveyor's chain and a notebook, and each evening he asked me what I had decided not to record.\n\nI did not understand the question. I had recorded everything I could: the width of the road, the position of each farmhouse, the bend in the stream below the mill. When I said so, he took my notebook, turned a few pages, and asked how many sheep had been in the field behind the church. I told him I had not counted. \"Then you decided,\" he said, \"that the sheep did not matter. You were right. But you did not know you were deciding.\"\n\nIt took me a long time to see what he meant. A map of the parish that showed every sheep would be useless, but so would one that showed only the church. Every line was a choice about what a reader would need, and a mapmaker who made those choices without noticing them would make them badly, leaving off a ford because it was small, or drawing a ruined wall because it was large, without asking which one a traveler would care about.\n\nBrandt himself was not an easy man to work for. He corrected my lettering until I hated the alphabet, and he once made me redraw a coastline four times because, he said, I had drawn the sea instead of the shore. But he never corrected a choice without first asking me why I had made it, and he listened to the answer as if it might change his mind. Occasionally it did.\n\nI have made maps for thirty years now. I still hear his question at the end of each day's work, and I still find, more often than I would like to admit, that I have decided something without knowing it.",
       "batch": 11,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000012",
+      "title": "The Joke That Will Not Cross",
+      "genre": "humanities",
+      "word_count": 492,
+      "text": "Every translator eventually meets a sentence that refuses to cross. Usually it is a joke. A pun depends on two meanings sharing one sound, and the chance that another language will happen to pair the same two meanings in the same sound is close to zero. Faced with such a sentence, the translator has three choices, none of them good: translate the words and lose the joke, keep the joke by inventing a new one, or explain the joke in a footnote and kill it.\n\nReaders tend to assume that the first choice is the honest one. A translation, they feel, should report what the author wrote, not what the translator wishes the author had written. But this assumes that what the author wrote was a set of words. If a character in a novel makes a pun at a funeral, what the author wrote is not chiefly the words of the pun; it is the shock of someone joking at a funeral. A translation that renders the words faithfully and leaves the reader puzzled has preserved the least important part of the sentence and discarded the rest.\n\nThe second choice, inventing a new joke, is the one translators argue about most. Its defenders point out that it preserves the effect the author intended: the reader laughs, or winces, at the same moment the original reader did. Its critics answer that the new joke is, after all, the translator's, and that a book full of such substitutions slowly becomes a different book. Both sides are right, which is why the argument never ends. The question is not whether substitution is legitimate but how much of it a book can absorb before its author disappears.\n\nThe footnote is the scholar's solution, and it has its uses. In an edition meant for study, a reader may want to know exactly what the original said and why it was funny. But a joke explained is a joke that has already been told and has fallen flat; the reader understands it and does not laugh. For a novel meant to be read rather than studied, the footnote trades the experience of the book for information about it.\n\nI have translated novels for twenty years, and I no longer believe there is a rule. I keep the words when the joke is incidental, a small flourish the book can lose without noticing. I invent when the joke carries weight, when a character is defined by wit or a scene turns on a laugh. And I reserve footnotes for the rare case where the original words matter more than any effect they produce, as in a pun on a historical figure's name that readers will meet again. What I have stopped doing is pretending that any of these choices is neutral. Each is a decision about what the book is for, and a translator who will not make that decision has simply let it be made by default.",
+      "batch": 12,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -7209,6 +7220,643 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-011.review.json",
         "computation": "checks/act_reading/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000100",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference from an example",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "has preserved the least important part of the sentence and discarded the rest",
+      "figure": null,
+      "stem": "In paragraph 2, the author suggests that a translation that renders a funeral pun word for word, leaving readers puzzled, has:",
+      "choices": {
+        "A": "been more faithful to the author than a version that substitutes a new joke.",
+        "B": "been dishonest, because it alters the words the author actually wrote.",
+        "C": "made the funeral scene more shocking than the author originally intended.",
+        "D": "kept the author's words while losing what the sentence was mainly meant to do."
+      },
+      "correct_answer": "D",
+      "explanation": "The author says the point of the funeral pun is the shock of joking at a funeral. A literal version keeps the words but loses that effect.",
+      "distractor_explanations": {
+        "A": "This is the readers' assumption that the author argues against.",
+        "B": "The literal version keeps the author's words; it does not alter them.",
+        "C": "A puzzled reader feels less shock, not more."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Whose view does \"Readers tend to assume\" introduce, and does the author share it?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the paragraph's last sentence."
+      },
+      "remember": "Separate the view an author reports from the view the author holds.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-02",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000101",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's view of a debate",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "how much of it a book can absorb before its author disappears",
+      "figure": null,
+      "stem": "The statement \"Both sides are right, which is why the argument never ends\" (paragraph 3) most strongly suggests that the author believes:",
+      "choices": {
+        "A": "inventing a joke can be justified, but how acceptable it is depends on how often it is done.",
+        "B": "the critics of substitution are, in the end, more persuasive than its defenders.",
+        "C": "translators could avoid the whole debate simply by using footnotes instead.",
+        "D": "the defenders of substitution have misunderstood what the original author intended."
+      },
+      "correct_answer": "A",
+      "explanation": "Since both sides are right, the question becomes one of degree: \"how much of it a book can absorb.\"",
+      "distractor_explanations": {
+        "B": "The author says both sides are right and does not favor the critics.",
+        "C": "Paragraph 4 says footnotes have their own serious cost.",
+        "D": "The author agrees that substitution preserves the intended effect."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the sentence after \"Both sides are right\" turn the question into?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the next sentence."
+      },
+      "remember": "When an author grants both sides, look for the reframed question.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-03",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 52,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000102",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "The footnote is the scholar's solution, and it has its uses",
+      "figure": null,
+      "stem": "The fourth paragraph mainly serves to:",
+      "choices": {
+        "A": "argue that footnotes should never appear in translated novels.",
+        "B": "describe the author's own rules for deciding how to handle untranslatable jokes.",
+        "C": "weigh the third option, noting when it is useful and what it costs a reader.",
+        "D": "explain why readers tend to prefer literal translations."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 4 grants the footnote's value for study editions, then names its cost for novels meant to be read.",
+      "distractor_explanations": {
+        "A": "The author grants that footnotes \"have their uses\" in study editions.",
+        "B": "The author's own practice appears in the final paragraph.",
+        "D": "Readers' preference for literal translation is the subject of paragraph 2."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which of the three choices does paragraph 4 discuss, and does it praise, criticize, or both?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each paragraph's job."
+      },
+      "remember": "Paragraph-function questions ask what the paragraph does, not what it says.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-04",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: B accurately describes paragraph 5, a reasonable distractor but also cues the content tested in R012-06"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000103",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a phrase in context",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "a book full of such substitutions slowly becomes a different book",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the phrase \"before its author disappears\" most nearly refers to the point at which:",
+      "choices": {
+        "A": "the original author's name is no longer printed on the translation.",
+        "B": "readers can no longer tell which jokes appeared in the original version and which did not.",
+        "C": "the original author stops writing new jokes in later novels.",
+        "D": "the translated book reflects the translator's choices more than the original writer's."
+      },
+      "correct_answer": "D",
+      "explanation": "Critics fear that enough substitutions make the book \"a different book,\" the translator's rather than the author's. The author \"disappears\" in that sense.",
+      "distractor_explanations": {
+        "A": "This reads the phrase literally; the passage is about whose voice the book carries.",
+        "B": "The concern is whose book it becomes, not readers' ability to spot jokes.",
+        "C": "Nothing in the passage concerns the author's later work."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What do the critics say happens to a book full of substitutions?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the phrase with your own words."
+      },
+      "remember": "Figurative phrases: use the surrounding argument, not the literal meaning.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-05",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000104",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Applying the author's reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "I invent when the joke carries weight, when a character is defined by wit or a scene turns on a laugh",
+      "figure": null,
+      "stem": "Based on the final paragraph, the author would most likely invent a new joke when translating which of the following?",
+      "choices": {
+        "A": "A comic novel's scene that turns on a pun by its hero, who is known for quick wordplay",
+        "B": "A history book's pun on a king's name, which later chapters refer to again",
+        "C": "A long novel's single passing pun in a description of the weather",
+        "D": "A study edition of a play for students who want to know the exact wording of each line"
+      },
+      "correct_answer": "A",
+      "explanation": "The author invents when \"a character is defined by wit or a scene turns on a laugh\": exactly the comic hero's scene.",
+      "distractor_explanations": {
+        "B": "The author reserves footnotes for puns on historical names readers will meet again.",
+        "C": "An incidental flourish is a case where the author keeps the words.",
+        "D": "The author grants footnotes their use in editions meant for study."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Match each choice to one of the author's three rules."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Sort each case by the final paragraph's rules."
+      },
+      "remember": "Applying questions: match the new case to the passage's criteria.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-06",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 76,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000105",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "a translator who will not make that decision has simply let it be made by default",
+      "figure": null,
+      "stem": "The author's attitude toward translators who treat their choices as neutral is best described as:",
+      "choices": {
+        "A": "admiring, because staying neutral protects the original author's words.",
+        "B": "critical, because such translators let important decisions be made without thought.",
+        "C": "indifferent, because the choice of method rarely affects a book's purpose.",
+        "D": "sympathetic, because the author still finds that position mostly convincing."
+      },
+      "correct_answer": "B",
+      "explanation": "The author faults translators who pretend neutrality: their decisions get \"made by default.\"",
+      "distractor_explanations": {
+        "A": "The author says no choice is neutral and faults those who pretend otherwise.",
+        "C": "The author says each choice is \"a decision about what the book is for.\"",
+        "D": "\"What I have stopped doing\" shows the author has abandoned that position."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the last sentence say happens when a translator avoids deciding?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the final two sentences."
+      },
+      "remember": "Attitude answers need both a tone and a reason the passage supports.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-07",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000106",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Connecting the opening to the conclusion",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "I no longer believe there is a rule",
+      "figure": null,
+      "stem": "In light of the final paragraph, the description of the three choices as \"none of them good\" (paragraph 1) is best understood to mean that:",
+      "choices": {
+        "A": "translators should decline to translate books that depend heavily on jokes.",
+        "B": "the author has since discovered a fourth option that keeps the words, the joke and the experience.",
+        "C": "each choice gives something up, so the right one depends on what matters most in a given case.",
+        "D": "the literal option is usually the least harmful, as most readers suspect."
+      },
+      "correct_answer": "C",
+      "explanation": "Each option loses something (the joke, the author's ownership, or the experience). The final paragraph shows the author choosing case by case according to which loss matters least.",
+      "distractor_explanations": {
+        "A": "The author keeps translating and describes how to choose; refusal is never suggested.",
+        "B": "The final paragraph uses the same three options and finds no cost-free one.",
+        "D": "Paragraph 2 argues against the readers' preference, and the author says there is no rule."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Does the final paragraph name a fourth option, or a way of choosing among the three?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect the opening claim to the closing practice."
+      },
+      "remember": "Opening claims are often clarified by the conclusion.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-08",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 64,
+        "blind_flags": [
+          "minor: overlaps conceptually with R012-01 key"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000107",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated reason",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000012",
+      "underline": null,
+      "evidence": "the reader understands it and does not laugh",
+      "figure": null,
+      "stem": "According to paragraph 4, a joke explained in a footnote fails in a novel meant to be read mainly because the reader:",
+      "choices": {
+        "A": "understands the joke but no longer experiences it as funny.",
+        "B": "cannot find out what the original sentence actually said.",
+        "C": "usually skips footnotes and so misses the joke entirely.",
+        "D": "is distracted by the translator's long and inaccurate notes."
+      },
+      "correct_answer": "A",
+      "explanation": "An explained joke is understood but not enjoyed: \"the reader understands it and does not laugh.\"",
+      "distractor_explanations": {
+        "B": "The footnote supplies the original wording, so the reader can find it.",
+        "C": "The passage never says readers skip footnotes.",
+        "D": "The passage does not call footnotes long or inaccurate."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Find the sentence that says what the reader does after the explanation."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Scan paragraph 4."
+      },
+      "remember": "Detail questions: the answer is restated, not invented.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-09",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000108",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference about a character's meaning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000011",
+      "underline": null,
+      "evidence": "Then you decided",
+      "figure": null,
+      "stem": "When Brandt says, \"You were right. But you did not know you were deciding\" (paragraph 2), he most likely means that the narrator:",
+      "choices": {
+        "A": "made a sound omission without realizing that it was a choice.",
+        "B": "should have counted the sheep after all, since every detail matters.",
+        "C": "had recorded so many details that the notebook was nearly useless.",
+        "D": "had been careless in measuring the width of the road and the stream."
+      },
+      "correct_answer": "A",
+      "explanation": "Brandt approves the omission (\"You were right\") but points out that it was an unconscious choice (\"you did not know you were deciding\").",
+      "distractor_explanations": {
+        "B": "\"You were right\" confirms that leaving out the sheep was correct.",
+        "C": "Brandt's point is not that there were too many details, but that the narrator chose without noticing.",
+        "D": "Brandt raises no complaint about the measurements."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does \"You were right\" approve?",
+        "What does the \"But\" sentence criticize?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read both halves of the quotation."
+      },
+      "remember": "A quotation with \"but\" often approves one thing and criticizes another.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "R012-10",
+      "created_at": "2026-10-26T20:58:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: item uses passage CLD-P-ACT-R-000011 (mapmaker) while rest of batch uses -000012; confirm intended grouping/set size"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-012.review.json",
+        "computation": "checks/act_reading/batch_012.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

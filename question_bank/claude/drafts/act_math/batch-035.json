@@ -1,0 +1,462 @@
+{
+ "bank": "act_math",
+ "batch": 35,
+ "plan": "Ten new items with stems checked against the bank (dropped two concept repeats found in the check). 3 hard (self-composition, painted cube, cylinder path) / 4 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B035-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Triangle proportionality (parallel segment)",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC so that segment DE is parallel to side BC. If AD = 4, DB = 6, and DE = 5, what is the length of BC ?",
+   "choices": {
+    "A": "15/2",
+    "B": "25/3",
+    "C": "11",
+    "D": "25/2"
+   },
+   "answer": "D",
+   "explanation": "Because DE ∥ BC, triangle ADE is similar to triangle ABC with ratio AD/AB = 4/10. So BC = 5 × 10/4 = 25/2.",
+   "distractors": {
+    "A": {
+     "rationale": "15/2 = 5 × 6/4 uses DB/AD instead of AB/AD.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "25/3 = 5 × 10/6 compares AB with DB instead of AD.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "11 adds DB to DE, treating the lengths as additive.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which two triangles are similar?",
+    "Compare AD with the whole side AB."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the small triangle inside the large one."
+   },
+   "remember": "Use whole sides in the ratio: AD/AB = DE/BC.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Coefficient in a polynomial product",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "When (2x - 3)(x² + 4x - 1) is expanded and like terms are combined, what is the coefficient of x ?",
+   "choices": {
+    "A": "-14",
+    "B": "-12",
+    "C": "-2",
+    "D": "10"
+   },
+   "answer": "A",
+   "explanation": "The x-terms come from 2x × (-1) = -2x and -3 × 4x = -12x, for a total of -14x.",
+   "distractors": {
+    "B": {
+     "rationale": "-12 counts only -3 × 4x.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "-2 counts only 2x × (-1).",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "10 drops the negative sign on -3 × 4x.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Which pairs of terms multiply to give an x-term?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Collect only the products that give x¹."
+   },
+   "remember": "Find a single coefficient by listing only the products that produce it.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Evaluating a function at an expression",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = x² - 3x. Which of the following is equivalent to f(a + 2) ?",
+   "choices": {
+    "A": "a² + a - 2",
+    "B": "a² - 3a + 2",
+    "C": "a² - 3a - 2",
+    "D": "a² + 7a + 10"
+   },
+   "answer": "A",
+   "explanation": "f(a + 2) = (a + 2)² - 3(a + 2) = a² + 4a + 4 - 3a - 6 = a² + a - 2.",
+   "distractors": {
+    "B": {
+     "rationale": "a² - 3a + 2 is f(a) + 2, adding 2 to the output instead of the input.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "a² - 3a - 2 squares a + 2 as a² + 4, dropping the middle term 4a.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "a² + 7a + 10 subtracts -3(a + 2) as if it were +3(a + 2).",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Replace every x with (a + 2)."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let a = 1: f(3) = 0. Which choice gives 0 at a = 1?"
+   },
+   "remember": "Substitute the whole expression, in parentheses, for x.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Comparing powers with different bases",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Which of the following lists 2³⁰, 3²⁰, and 5¹⁰ in order from least to greatest?",
+   "choices": {
+    "A": "2³⁰, 3²⁰, 5¹⁰",
+    "B": "5¹⁰, 2³⁰, 3²⁰",
+    "C": "5¹⁰, 3²⁰, 2³⁰",
+    "D": "3²⁰, 2³⁰, 5¹⁰"
+   },
+   "answer": "B",
+   "explanation": "Write each as a 10th power: 2³⁰ = 8¹⁰, 3²⁰ = 9¹⁰, and 5¹⁰. Since 5 < 8 < 9, the order is 5¹⁰, 2³⁰, 3²⁰.",
+   "distractors": {
+    "A": {
+     "rationale": "This orders the numbers by their exponents, largest exponent first.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This orders by base alone, ignoring that 2 is raised to the largest power.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This reverses the correct order.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Can each number be written with the same exponent?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite as 8¹⁰, 9¹⁰, 5¹⁰."
+   },
+   "remember": "To compare powers, rewrite them with a common exponent or a common base.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Independent draws with replacement",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "A bag contains 5 red marbles and 3 blue marbles. A marble is drawn at random, its color is recorded, and it is put back. Then a second marble is drawn at random. What is the probability that both marbles drawn are red?",
+   "choices": {
+    "A": "5/14",
+    "B": "25/64",
+    "C": "15/32",
+    "D": "5/8"
+   },
+   "answer": "B",
+   "explanation": "With replacement the draws are independent: (5/8)(5/8) = 25/64.",
+   "distractors": {
+    "A": {
+     "rationale": "5/14 = (5/8)(4/7) is the probability without replacement.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "15/32 is the probability of one red and one blue, in either order.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "5/8 is the probability for one draw only.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Does putting the marble back change the second draw?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the two probabilities."
+   },
+   "remember": "With replacement, multiply the same probability.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Consecutive angles of a parallelogram",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "Two consecutive angles of a parallelogram measure (3x + 20)° and (5x)°. What is the measure of the larger of these two angles?",
+   "choices": {
+    "A": "20°",
+    "B": "50°",
+    "C": "80°",
+    "D": "100°"
+   },
+   "answer": "D",
+   "explanation": "Consecutive angles of a parallelogram are supplementary: 3x + 20 + 5x = 180, so x = 20. The angles are 80° and 100°, and the larger is 100°.",
+   "distractors": {
+    "A": {
+     "rationale": "20 is the value of x.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "50° sets the angles equal (x = 10), which is true of opposite angles, not consecutive ones.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "80° is the smaller angle.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Are consecutive angles of a parallelogram equal or supplementary?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "8x + 20 = 180."
+   },
+   "remember": "Parallelogram: consecutive angles sum to 180°, opposite angles are equal.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-07",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Objects moving toward each other",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "Two towns are 330 miles apart. At the same moment, one car leaves each town and drives toward the other town on the same road, one at 50 miles per hour and the other at 60 miles per hour. When the cars meet, how many miles will the faster car have traveled?",
+   "choices": {
+    "A": "3",
+    "B": "150",
+    "C": "165",
+    "D": "180"
+   },
+   "answer": "D",
+   "explanation": "The gap closes at 50 + 60 = 110 miles per hour, so they meet after 330/110 = 3 hours. The faster car has gone 60 × 3 = 180 miles.",
+   "distractors": {
+    "A": {
+     "rationale": "3 is the number of hours until they meet.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "150 is the slower car's distance.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "165 is half of 330, as if the cars traveled at equal speeds.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How fast is the distance between the cars shrinking?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the two cars closing a 330-mile gap."
+   },
+   "remember": "Toward each other: add the speeds to get the closing rate.",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B035-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Finding a linear function from its self-composition",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = ax + b, where a and b are constants and a > 0. If f(f(x)) = 4x + 9 for all values of x, what is the value of f(1) ?",
+   "choices": {
+    "A": "-11",
+    "B": "3",
+    "C": "5",
+    "D": "13"
+   },
+   "answer": "C",
+   "explanation": "f(f(x)) = a(ax + b) + b = a²x + ab + b. Matching gives a² = 4, so a = 2 (since a > 0), and 2b + b = 9, so b = 3. Then f(1) = 2 + 3 = 5.",
+   "distractors": {
+    "A": {
+     "rationale": "-11 uses a = -2 (so b = -9), which the condition a > 0 rules out.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "3 is the value of b, not f(1).",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "13 = 4(1) + 9 is f(f(1)), not f(1).",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Write f(f(x)) in terms of a and b, then match coefficients."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "a² = 4 and ab + b = 9."
+   },
+   "remember": "Match coefficients after composing a general form.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires setting up the composition of a general linear function and matching coefficients; f(f(1)) = 13 and the excluded a = -2 are traps."
+   }
+  },
+  {
+   "cand": "B035-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Painted cube counting",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A 5 × 5 × 5 cube is painted on all six faces and then cut into 125 unit cubes. How many of the unit cubes have paint on exactly two faces?",
+   "choices": {
+    "A": "8",
+    "B": "36",
+    "C": "54",
+    "D": "60"
+   },
+   "answer": "B",
+   "explanation": "Unit cubes with exactly two painted faces lie along the cube's 12 edges but not at the corners. Each edge has 5 cubes, 2 of which are corners, leaving 3. So 12 × 3 = 36.",
+   "distractors": {
+    "A": {
+     "rationale": "8 counts the corner cubes, which have three painted faces.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "54 = 6 × 9 counts cubes with exactly one painted face.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "60 = 12 × 5 includes the corner cubes on each edge.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Where on the big cube are the unit cubes with exactly two painted faces?",
+    "How many cubes on each edge are not corners?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Picture one edge of the big cube."
+   },
+   "remember": "Exactly two painted faces: edge cubes minus the corners.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Needs a spatial model of which cubes touch two faces and the adjustment for corners; most solvers count 60 or confuse the categories."
+   }
+  },
+  {
+   "cand": "B035-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Shortest path on the surface of a cylinder",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A cylindrical column is 12 feet tall and has a circumference of 16 feet. A stripe is painted along the shortest path that winds exactly once around the column, from a point on the bottom edge to the point directly above it on the top edge. What is the length of the stripe, in feet?",
+   "choices": {
+    "A": "12",
+    "B": "4√13",
+    "C": "20",
+    "D": "28"
+   },
+   "answer": "C",
+   "explanation": "Unroll the column's side into a 16-by-12 rectangle. The stripe becomes the rectangle's diagonal: √(16² + 12²) = 20.",
+   "distractors": {
+    "A": {
+     "rationale": "12 is the height, the path that does not wind around at all.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4√13 = √(8² + 12²) uses half the circumference.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "28 = 16 + 12 goes around and then up instead of along the diagonal.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What shape does the side of a cylinder become when it is unrolled?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Unroll the cylinder into a rectangle."
+   },
+   "remember": "Paths on a cylinder: unroll it and use the Pythagorean theorem.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires the non-obvious step of unrolling the curved surface into a rectangle, then a Pythagorean triple."
+   }
+  }
+ ]
+}
