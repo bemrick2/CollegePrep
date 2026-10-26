@@ -1,0 +1,462 @@
+{
+ "bank": "act_math",
+ "batch": 47,
+ "plan": "Ten new items with stems checked against the bank (an inequality-phrase item dropped as close to the compound-inequality item; the rectangle item uses perimeter 46 and diagonal 17 to avoid the existing 34/60 rectangle). 3 hard / 3 medium / 4 easy.",
+ "candidates": [
+  {
+   "cand": "B047-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Combining like terms with powers",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "Which of the following is equivalent to 3x² + 2x - x² + 5x ?",
+   "choices": {
+    "A": "9x²",
+    "B": "2x² + 7x",
+    "C": "4x² + 7x",
+    "D": "2x² + 3x"
+   },
+   "answer": "B",
+   "explanation": "Combine the x² terms: 3x² - x² = 2x². Combine the x terms: 2x + 5x = 7x. The result is 2x² + 7x.",
+   "distractors": {
+    "A": {
+     "rationale": "9x² adds all the coefficients as if every term were an x² term.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4x² + 7x adds -x² instead of subtracting it.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "2x² + 3x subtracts 2x from 5x instead of adding.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Which terms are like terms?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let x = 1: 3 + 2 - 1 + 5 = 9. Which choice gives 9?"
+   },
+   "remember": "Only like terms (same variable and power) combine.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Interpreting the zero of a linear model",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "A tank holds 500 gallons of water and is drained at a constant rate. The volume of water in the tank t minutes after draining begins is V(t) = 500 - 25t. After how many minutes will the tank be empty?",
+   "choices": {
+    "A": "20",
+    "B": "25",
+    "C": "475",
+    "D": "525"
+   },
+   "answer": "A",
+   "explanation": "The tank is empty when V(t) = 0: 500 - 25t = 0, so t = 20.",
+   "distractors": {
+    "B": {
+     "rationale": "25 is the draining rate in gallons per minute.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "475 is the volume after 1 minute.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "525 adds the rate to the starting volume.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is V(t) when the tank is empty?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set 500 - 25t = 0."
+   },
+   "remember": "\"Empty\" or \"reaches zero\" means set the function equal to 0.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Complement and supplement of an angle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "The supplement of an angle is three times the complement of the same angle. What is the measure of the angle?",
+   "choices": {
+    "A": "30°",
+    "B": "45°",
+    "C": "60°",
+    "D": "67.5°"
+   },
+   "answer": "B",
+   "explanation": "Let the angle be x. Then 180 - x = 3(90 - x), so 180 - x = 270 - 3x, 2x = 90, and x = 45°.",
+   "distractors": {
+    "A": {
+     "rationale": "30° makes the complement three times the angle: 90 - x = 2x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "60° makes the supplement three times the angle itself: 180 - x = 2x.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "67.5° solves 180 - x = 3(90 - x) with a sign error, getting 4x = 270.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Write the complement and supplement of x in terms of x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "180 - x = 3(90 - x)."
+   },
+   "remember": "Complement = 90° - x; supplement = 180° - x.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Finding a fraction between two fractions",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "Which of the following numbers is between 1/3 and 1/2 ?",
+   "choices": {
+    "A": "1/4",
+    "B": "3/5",
+    "C": "2/5",
+    "D": "2/3"
+   },
+   "answer": "C",
+   "explanation": "1/3 ≈ 0.333 and 1/2 = 0.5. Since 2/5 = 0.4, it lies between them.",
+   "distractors": {
+    "A": {
+     "rationale": "1/4 = 0.25 is less than 1/3.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3/5 = 0.6 is greater than 1/2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2/3 ≈ 0.667 is greater than 1/2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Convert each fraction to a decimal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compare decimals."
+   },
+   "remember": "To compare fractions, use decimals or a common denominator.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Range of a data set",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "What is the range of the data set 12, 7, 19, 3, 15 ?",
+   "choices": {
+    "A": "3",
+    "B": "11.2",
+    "C": "12",
+    "D": "16"
+   },
+   "answer": "D",
+   "explanation": "Range = greatest value - least value = 19 - 3 = 16.",
+   "distractors": {
+    "A": {
+     "rationale": "3 is the least value, not the range.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "11.2 is the mean, (12 + 7 + 19 + 3 + 15)/5.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "12 is the median.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find the greatest and least values."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "19 - 3."
+   },
+   "remember": "Range = maximum - minimum.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Comparing travel times",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Rosa bikes 3 kilometers to school at 12 kilometers per hour. Her brother walks 2 kilometers to the same school at 6 kilometers per hour. If they leave home at the same time, how many minutes earlier does Rosa arrive?",
+   "choices": {
+    "A": "5",
+    "B": "10",
+    "C": "15",
+    "D": "20"
+   },
+   "answer": "A",
+   "explanation": "Rosa takes 3/12 hour = 15 minutes. Her brother takes 2/6 hour = 20 minutes. Rosa arrives 5 minutes earlier.",
+   "distractors": {
+    "B": {
+     "rationale": "10 subtracts the distances times 10, or misconverts one of the times.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "15 is Rosa's travel time.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "20 is her brother's travel time.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find each travel time in minutes."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Time = distance ÷ speed, then × 60."
+   },
+   "remember": "Convert each time to minutes before comparing.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Tangent line to a circle with a parameter",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "In the standard (x,y) coordinate plane, the line y = x + b is tangent to the circle x² + y² = 8. If b > 0, what is the value of b ?",
+   "choices": {
+    "A": "2",
+    "B": "2√2",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "C",
+   "explanation": "A line is tangent to a circle when its distance from the center equals the radius. The distance from (0, 0) to x - y + b = 0 is |b|/√2, and the radius is √8 = 2√2. So b/√2 = 2√2 and b = 4. (Equivalently, substituting y = x + b gives 2x² + 2bx + b² - 8 = 0, whose discriminant is 0 when b = 4.)",
+   "distractors": {
+    "A": {
+     "rationale": "2 sets b/√2 equal to √2 instead of the radius 2√2.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2√2 is the radius, not the intercept b.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "8 is the square of the radius.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What is the distance from the center to a tangent line?",
+    "Or: substitute and require exactly one solution."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the circle and a line of slope 1 just touching it."
+   },
+   "remember": "Tangent: distance from center to line = radius (or discriminant = 0).",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires either the point-to-line distance or the discriminant condition; the radius and its square are close traps."
+   }
+  },
+  {
+   "cand": "B047-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Rectangle from perimeter and diagonal",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A rectangle has a perimeter of 46 centimeters and a diagonal of 17 centimeters. What is the area of the rectangle, in square centimeters?",
+   "choices": {
+    "A": "60",
+    "B": "120",
+    "C": "144",
+    "D": "240"
+   },
+   "answer": "B",
+   "explanation": "Let the sides be l and w. Then l + w = 23 and l² + w² = 17² = 289. Since (l + w)² = l² + 2lw + w², 529 = 289 + 2lw, so lw = 120. (The sides are 8 and 15.)",
+   "distractors": {
+    "A": {
+     "rationale": "60 is half the area.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "144 = 12² treats the rectangle as a square with side 46 ÷ 4 rounded to 12.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "240 is 2lw, forgetting to divide by 2.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Write l + w and l² + w² from the given facts.",
+    "How is (l + w)² related to l² + w²?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(l + w)² - (l² + w²) = 2lw."
+   },
+   "remember": "Use (l + w)² = l² + w² + 2lw to get lw directly.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires combining the Pythagorean theorem with the square-of-a-sum identity; solvers who forget to halve 2lw choose 240."
+   }
+  },
+  {
+   "cand": "B047-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Two-stage (total) probability",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "Bag A contains 3 red and 2 blue marbles. Bag B contains 1 red and 4 blue marbles. A bag is chosen at random, each with probability 1/2, and then one marble is drawn at random from that bag. What is the probability that the marble is red?",
+   "choices": {
+    "A": "1/10",
+    "B": "1/5",
+    "C": "2/5",
+    "D": "3/5"
+   },
+   "answer": "C",
+   "explanation": "P(red) = (1/2)(3/5) + (1/2)(1/5) = 3/10 + 1/10 = 2/5.",
+   "distractors": {
+    "A": {
+     "rationale": "1/10 is the probability of choosing bag B and then drawing red, only one of the two paths.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/5 is the probability of red from bag B alone.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "3/5 is the probability of red from bag A alone.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Consider each bag separately, then weight by the chance of choosing it."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw a two-stage tree."
+   },
+   "remember": "Total probability: add the probability of each path.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B047-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Equal percent increase and decrease",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "A price is increased by x percent, and the new price is then decreased by x percent. The final price is 4% less than the original price. What is the value of x ?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "16",
+    "D": "20"
+   },
+   "answer": "D",
+   "explanation": "The final price is (1 + x/100)(1 - x/100) = 1 - (x/100)² times the original. Setting 1 - (x/100)² = 0.96 gives (x/100)² = 0.04, so x/100 = 0.2 and x = 20.",
+   "distractors": {
+    "A": {
+     "rationale": "2 halves the 4% loss.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "4 assumes the net change equals x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "16 squares 4 instead of taking a square root.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write the final price as a multiple of the original price."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try x = 20: 1.2 × 0.8 = 0.96."
+   },
+   "remember": "An x% rise then x% fall multiplies by 1 - (x/100)².",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The intuitive answer (no change, or x = 4) is wrong; requires the difference-of-squares structure of the two multipliers."
+   }
+  }
+ ]
+}
