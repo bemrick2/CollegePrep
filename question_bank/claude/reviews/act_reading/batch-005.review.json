@@ -1,0 +1,307 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 5,
+  "reviewed_at": "2026-10-26T19:22:22+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 5
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000037",
+    "CLD-ACT-R-000038",
+    "CLD-ACT-R-000039",
+    "CLD-ACT-R-000040",
+    "CLD-ACT-R-000041",
+    "CLD-ACT-R-000042",
+    "CLD-ACT-R-000043",
+    "CLD-ACT-R-000044"
+  ],
+  "results": [
+    {
+      "cand": "R005-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [
+        "minor: D is the longest choice and the only one spanning the whole passage (length/scope cue)",
+        "minor: 'tested and revised' slightly overstates; the passage mostly evaluates explanations rather than describing tests, though it does cite checked numbers, experiments and measurements"
+      ],
+      "blind_notes": "Passage surveys pressure, friction, and Faraday surface-layer explanations and how support shifted. A contradicts para 5; B Faraday proposed, modern measurements detected; C too narrow.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: 'tested and revised' is slightly generous since the passage describes reasoning and objections more than tests, but it is clearly the best fit"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000037"
+    },
+    {
+      "cand": "R005-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "C is arguably defensible on a literal reading: the pressure explanation also does not account for frictional heating under sled runners. 'According to the passage' points to A (para 2 explicitly), but consider replacing C with an observation the pressure account clearly does explain"
+      ],
+      "blind_notes": "Para 2: pressure explanation cannot explain a stationary shoe sliding as readily. B is what pressure might explain (mild afternoon); D is the pressure mechanism itself.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: C is arguably defensible on a literal reading: the pressure explanation also does not account for frictional heating under sled runners. 'According to the passage' points to A (para 2 explicitly), but consider replacing C with an observation the pressure account clearly does explain"
+    },
+    {
+      "cand": "R005-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Para 3: ice is slippery at the very first instant of a step, before heat builds. A contradicts 'experiments have supported'.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000038"
+    },
+    {
+      "cand": "R005-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: D is the longest choice"
+      ],
+      "blind_notes": "'Tidy, memorable, and ... largely wrong' signals why people believe it despite its being wrong. B contradicts 'largely wrong'; C contradicts physicists checking numbers.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: the correct choice D is noticeably the longest, which is a length cue"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000039"
+    },
+    {
+      "cand": "R005-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "'Order of the story' = sequence: the surface is slippery first, before anyone steps on it; pressure/friction come after. B 'tidiness' is a planted trap echoing 'tidy' in para 1.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: 'tidiness' (B) is a reasonable trap because it echoes 'tidy' in paragraph 1"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000040"
+    },
+    {
+      "cand": "R005-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: distractor D is scientifically backwards (lower pressure at altitude slightly raises ice's melting point), harmless as a wrong choice but could be swapped for a scientifically accurate irrelevant fact"
+      ],
+      "blind_notes": "Slipperiness before any heating undercuts friction and fits a pre-existing liquid-like layer. A supports friction; C supports pressure; D irrelevant.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R005-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Surface molecules have fewer neighbors and are loosely bound, implying interior molecules are held more firmly. A reverses surface/interior; B Faraday reasoned, did not measure.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000041"
+    },
+    {
+      "cand": "R005-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 76,
+      "blind_flags": [],
+      "blind_notes": "Para 5 concedes pressure and friction may play a role, then restates that ice is slippery before anyone steps on it.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000042"
+    },
+    {
+      "cand": "R005-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 76,
+      "blind_flags": [],
+      "blind_notes": "Para 2: pressure 'might matter on a mild afternoon, when the ice is already close to melting.' B, C, D are cases it cannot explain.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: 'fifteen degrees below zero' gives no unit (C or F); the argument holds either way"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000043"
+    },
+    {
+      "cand": "R005-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: D is the longest choice and the only balanced/moderate one (common test-wise tell for attitude items)"
+      ],
+      "blind_notes": "Para 4: modern measurements detected the layer, though researchers still debate thickness, liquidity, temperature dependence.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: the correct choice D is the longest and most hedged, a common test-wise tell"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000044"
+    }
+  ]
+}

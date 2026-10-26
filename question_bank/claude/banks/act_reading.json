@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 4,
-  "updated_at": "2026-10-26T19:13:50+00:00",
+  "version": 5,
+  "updated_at": "2026-10-26T19:22:22+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -47,6 +47,17 @@
       "word_count": 392,
       "text": "My grandfather tuned pianos for forty years, and for most of those years he refused to own one. \"A tuner with a piano at home,\" he told me once, \"is like a baker who eats his own bread. He stops tasting it.\" So the upright that arrived at his house the spring I turned twelve was a surprise to everyone, including, I think, him.\n\nIt had belonged to Mrs. Okafor, whose church had replaced it with an electric keyboard. The movers set it against the dining-room wall, and for a week my grandfather walked past it as though it were a stranger who had come to stay without being invited. He did not lift the lid. He did not, as far as I could tell, even look at it.\n\nOn Saturday he called me in from the yard. He had laid his tools out on a dish towel—the tuning hammer, the rubber mutes, the felt strip—in the same order he used in other people's houses. \"You'll do the middle octave,\" he said. I said I didn't know how. \"Nobody knows how,\" he said. \"They learn to hear it.\"\n\nWhat he meant, I found out, was that a string slightly out of tune with its neighbor doesn't sound wrong so much as restless. Two notes that should agree produce a slow wavering, a beat, like someone breathing just out of step with you. My job was to turn the pin until the breathing stopped. For the first hour I heard nothing at all. Then, near noon, I heard it everywhere: in the piano, in the refrigerator's hum against the clock radio, in the two of us humming the same note while we waited for each other.\n\nMy grandfather did not praise me. When I finished the octave he played a single chord, listened, and moved one pin a hair's width with his own hand. Then he put the hammer back on the towel—at my place, not his—and went to make lunch.\n\nI understood years later that he had not needed a piano. He had needed someone to hand his ear to, and an instrument was simply the only way he knew to do it. That afternoon, though, I knew only that the house sounded different, and that when I walked past the dining-room wall, I no longer felt I was passing a stranger.",
       "batch": 4,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000005",
+      "title": "Why Ice Is Slippery",
+      "genre": "natural science",
+      "word_count": 370,
+      "text": "Ask most people why ice is slippery and they will offer an explanation they probably learned in school: the weight of a skater presses on the ice, the pressure melts a thin film of water, and the blade glides on that film. The account is tidy, memorable, and, according to most physicists who have checked the numbers, largely wrong.\n\nPressure does lower the temperature at which ice melts, but only slightly. Even the narrow blade of a skate, concentrating a person's full weight on a sliver of steel, lowers the melting point by only a few degrees at most. That might matter on a mild afternoon, when the ice is already close to melting. It cannot explain why people slip on sidewalks at fifteen degrees below zero, or why a stationary shoe, pressing far less sharply than a blade, slides just as readily.\n\nA second explanation shifts attention from pressure to motion. When an object slides across ice, friction generates heat, and that heat may melt a thin layer of water at the point of contact. Experiments have supported this idea for fast-moving objects such as skates and sled runners. But friction requires movement, and ice is slippery even at the very first instant of a step, before any appreciable heat could build up.\n\nThe explanation that has gained the most support in recent decades was first suggested in the 1850s by the physicist Michael Faraday. Faraday proposed that the surface of ice is never entirely solid. The molecules in the outermost layer, he reasoned, have fewer neighbors to hold them in place than molecules deeper inside, and so they remain loosely bound, behaving more like a liquid than a solid even well below the freezing point. Modern measurements have detected such a layer, though researchers still debate how thick it is, how liquid-like it really is, and how it changes with temperature.\n\nNone of this means that pressure and friction play no role. On a rink, all three effects may operate at once, and their relative importance likely shifts with temperature, speed, and the materials involved. What has changed is the order of the story. The surface of ice, it turns out, is slippery before anyone steps on it.",
+      "batch": 5,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -2634,6 +2645,576 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-004.review.json",
         "computation": "checks/act_reading/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000037",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "What has changed is the order of the story.",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "choices": {
+        "A": "argue that pressure and friction play no part in making ice slippery.",
+        "B": "describe the experiments in which Faraday detected a liquid-like layer on ice.",
+        "C": "compare how slippery ice is on cold sidewalks and on indoor skating rinks.",
+        "D": "explain how competing explanations for ice's slipperiness have been tested and revised."
+      },
+      "correct_answer": "D",
+      "explanation": "The passage moves through the pressure explanation, the friction explanation and Faraday's surface-layer explanation, showing the weaknesses of the first two and why the third has gained support.",
+      "distractor_explanations": {
+        "A": "Paragraph 5 says \"None of this means that pressure and friction play no role.\"",
+        "B": "Faraday proposed the layer; modern measurements detected it.",
+        "C": "Sidewalks and rinks appear only as examples within the larger argument."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "partial_answer",
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "List what each paragraph does.",
+        "Which choice covers all of them?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize the passage in one sentence first."
+      },
+      "remember": "A main-purpose answer must fit every paragraph.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-01",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: D is the longest choice and the only one spanning the whole passage (length/scope cue)",
+          "minor: 'tested and revised' slightly overstates; the passage mostly evaluates explanations rather than describing tests, though it does cite checked numbers, experiments and measurements"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000038",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Author's reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "ice is slippery even at the very first instant of a step, before any appreciable heat could build up",
+      "figure": null,
+      "stem": "The author's main objection to the friction explanation in paragraph 3 is that it:",
+      "choices": {
+        "A": "has never been supported by any experiment on ice.",
+        "B": "applies only at temperatures far below the freezing point.",
+        "C": "cannot account for slipperiness at the very start of a step.",
+        "D": "relies on pressure, which was already shown to be too weak."
+      },
+      "correct_answer": "C",
+      "explanation": "Friction needs motion to generate heat, but ice is slippery at the first instant of a step, before heat could build up.",
+      "distractor_explanations": {
+        "A": "Paragraph 3 says experiments support it for fast-moving objects.",
+        "B": "The passage links friction to motion, not to a temperature range.",
+        "D": "Friction depends on motion and heat, not on pressure."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "out_of_scope",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Find the \"But\" sentence in paragraph 3."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Objections usually follow \"but\" or \"however.\""
+      },
+      "remember": "Look for the contrast word to find an objection.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-03",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000039",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a phrase",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "The account is tidy, memorable, and, according to most physicists who have checked the numbers, largely wrong.",
+      "figure": null,
+      "stem": "The author describes the school explanation as \"tidy, memorable\" (paragraph 1) primarily to:",
+      "choices": {
+        "A": "praise the explanation as a model of careful scientific reasoning.",
+        "B": "indicate that the explanation is correct but merely incomplete.",
+        "C": "show that physicists have not yet tested the explanation carefully.",
+        "D": "suggest why the explanation is widely believed even though it is largely wrong."
+      },
+      "correct_answer": "D",
+      "explanation": "The appealing qualities (tidy, memorable) explain why most people offer this explanation, and they set up the turn to \"largely wrong.\"",
+      "distractor_explanations": {
+        "A": "The same sentence calls the explanation \"largely wrong.\"",
+        "B": "The author says it is \"largely wrong,\" not just incomplete.",
+        "C": "Physicists \"have checked the numbers.\""
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "partial_answer",
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "Read the whole sentence, not just the two words."
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask how the phrase relates to the rest of its sentence."
+      },
+      "remember": "Praise followed by a reversal sets up a correction.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-04",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: D is the longest choice"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000040",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "The surface of ice, it turns out, is slippery before anyone steps on it.",
+      "figure": null,
+      "stem": "As it is used in paragraph 5, the word \"order\" most nearly means:",
+      "choices": {
+        "A": "command.",
+        "B": "tidiness.",
+        "C": "sequence.",
+        "D": "request."
+      },
+      "correct_answer": "C",
+      "explanation": "The next sentence explains the change: slipperiness comes before the step, not after it. \"Order\" means the sequence of cause and effect.",
+      "distractor_explanations": {
+        "A": "A command does not fit \"the order of the story.\"",
+        "B": "The point is which comes first, not neatness.",
+        "D": "Nothing is being requested."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "What does the next sentence say comes first?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Use the sentence after the word to define it."
+      },
+      "remember": "Context, not the common meaning, decides.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-05",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000041",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference from a detail",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "have fewer neighbors to hold them in place than molecules deeper inside",
+      "figure": null,
+      "stem": "It can most reasonably be inferred from paragraph 4 that molecules deep inside a block of ice:",
+      "choices": {
+        "A": "remain liquid-like even well below the freezing point.",
+        "B": "were measured directly by Faraday in the 1850s.",
+        "C": "are held more firmly in place than molecules at the surface.",
+        "D": "move more freely as pressure on the ice increases."
+      },
+      "correct_answer": "C",
+      "explanation": "Surface molecules have fewer neighbors holding them, so deeper molecules, with more neighbors, are held more firmly.",
+      "distractor_explanations": {
+        "A": "The passage says this of the outermost layer, not the interior.",
+        "B": "Faraday reasoned about the molecules; measurements came later.",
+        "D": "The passage says nothing about pressure affecting interior molecules."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "out_of_scope",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What do surface molecules have fewer of?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reverse the description of surface molecules."
+      },
+      "remember": "A comparison describes both sides.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-07",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000042",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "None of this means that pressure and friction play no role.",
+      "figure": null,
+      "stem": "The last paragraph mainly serves to:",
+      "choices": {
+        "A": "reject all of the explanations discussed earlier in the passage.",
+        "B": "allow that several effects may contribute while restating the central point.",
+        "C": "introduce a new explanation that combines pressure with friction.",
+        "D": "describe an experiment that finally settled the debate about ice."
+      },
+      "correct_answer": "B",
+      "explanation": "It concedes that all three effects may act together, then restates the main point: ice is slippery before anyone steps on it.",
+      "distractor_explanations": {
+        "A": "It says pressure and friction may still play a role.",
+        "C": "No new explanation is introduced.",
+        "D": "No experiment is described, and the passage says debate continues."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": "out_of_scope",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does the first sentence of the paragraph concede?",
+        "What does the last sentence repeat?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Describe the paragraph's two moves, then match."
+      },
+      "remember": "Concluding paragraphs often concede, then restate.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-08",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 76,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000043",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Applying the passage's reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "That might matter on a mild afternoon, when the ice is already close to melting.",
+      "figure": null,
+      "stem": "The passage suggests that the pressure explanation would be most plausible for:",
+      "choices": {
+        "A": "ice that is already close to its melting point.",
+        "B": "ice at fifteen degrees below zero.",
+        "C": "a person standing still in ordinary shoes.",
+        "D": "the first instant of a step on a cold sidewalk."
+      },
+      "correct_answer": "A",
+      "explanation": "Because pressure lowers the melting point by only a few degrees, it could matter only when the ice is within a few degrees of melting.",
+      "distractor_explanations": {
+        "B": "The author says pressure \"cannot explain\" slipping at that temperature.",
+        "C": "A stationary shoe presses \"far less sharply,\" so pressure is even less able to explain it.",
+        "D": "This is where the passage says the other explanations fail, not where pressure works."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "When does the author say pressure \"might matter\"?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find where the author concedes pressure could work."
+      },
+      "remember": "A small effect matters only near the threshold.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-09",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 76,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000044",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000005",
+      "underline": null,
+      "evidence": "Modern measurements have detected such a layer, though researchers still debate how thick it is",
+      "figure": null,
+      "stem": "The author's attitude toward current research on the liquid-like surface layer is best described as:",
+      "choices": {
+        "A": "dismissive, because the thickness of the layer is still uncertain.",
+        "B": "doubtful that the layer could ever be measured by any method.",
+        "C": "certain that it fully explains how ice behaves in every setting.",
+        "D": "confident that the layer exists but aware of unresolved questions about it."
+      },
+      "correct_answer": "D",
+      "explanation": "The author states the layer has been detected (confidence) and notes ongoing debate about its thickness and behavior (open questions).",
+      "distractor_explanations": {
+        "A": "The author presents the layer as the best-supported explanation.",
+        "B": "The passage says modern measurements have detected it.",
+        "C": "Paragraph 5 says pressure and friction may also contribute."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "out_of_scope",
+        "C": "extreme_language"
+      },
+      "hints": [
+        "What has been detected?",
+        "What is still debated?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate attitudes that are too extreme in either direction."
+      },
+      "remember": "Scientific writers often pair confidence with caveats.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 5,
+      "draft_candidate": "R005-10",
+      "created_at": "2026-10-26T19:22:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [
+          "minor: D is the longest choice and the only balanced/moderate one (common test-wise tell for attitude items)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-005.review.json",
+        "computation": "checks/act_reading/batch_005.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
