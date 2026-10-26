@@ -2,21 +2,65 @@
   "run": "pipeline/runs/NY/2026-10-05",
   "reviewer": "Research session 2026-10-23 (current tuition b1)",
   "approve": [
-    {"candidate_id": "15d5526831f88b58", "accept_issues": true, "reason": "LIU Tuition & Fees page: the table labelled \"2026-2027\" / \"Annual Undergraduate Tuition\" prints Undergraduate Tuition (24-36 credits) $41,874, Full-Time University Fee $2,116, University Dining Dollars $150, Standard Double Room $12,384, Residential Meal Plan One $6,554, Student Health Insurance $2,158, copied as printed (the per-credit row is excluded). Annual, undergraduate, private (residency not applicable); no total printed, none computed. Open issue conflicting_sources accepted: the other source is LIU's NYS aid page, whose 2026-27 undergraduate COA is a different table (rejected below to keep one record per key)."},
-    {"candidate_id": "d37b06b9b029d125", "accept_issues": true, "reason": "CIA table under heading \"2026–2027 Tuition Information\", titled \"Tuition and Fees—Associate and Bachelor’s Degree Programs\" for the Hyde Park, NY campus (effective July 1, 2026): Tuition $19,755, Board/Meal Plan—Residential $2,595, General Fee $885, \"Total per Semester\" $23,235, copied as printed. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. Private, residency not applicable. The St. Helena, Napa and San Antonio campus tables were not used."}
+    {
+      "candidate_id": "15d5526831f88b58",
+      "accept_issues": true,
+      "reason": "LIU Tuition & Fees page: the table labelled \"2026-2027\" / \"Annual Undergraduate Tuition\" prints Undergraduate Tuition (24-36 credits) $41,874, Full-Time University Fee $2,116, University Dining Dollars $150, Standard Double Room $12,384, Residential Meal Plan One $6,554, Student Health Insurance $2,158, copied as printed (the per-credit row is excluded). Annual, undergraduate, private (residency not applicable); no total printed, none computed. Open issue conflicting_sources accepted: the other source is LIU's NYS aid page, whose 2026-27 undergraduate COA is a different table (rejected below to keep one record per key). Conflict stated: LIU's NYS aid page prints 2026-27 undergraduate \"Tuition and fees\" $44,139, while this bursar table gives tuition $41,874 plus Full-Time University Fee $2,116 = $43,990 (the $150 dining dollars would make $44,140); the bursar table's printed rows are recorded and no combined tuition-and-fees figure is stored."
+    },
+    {
+      "candidate_id": "d37b06b9b029d125",
+      "accept_issues": true,
+      "reason": "CIA table under heading \"2026–2027 Tuition Information\", titled \"Tuition and Fees—Associate and Bachelor’s Degree Programs\" for the Hyde Park, NY campus (effective July 1, 2026): Tuition $19,755, Board/Meal Plan—Residential $2,595, General Fee $885, \"Total per Semester\" $23,235, copied as printed. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. Private, residency not applicable. The St. Helena, Napa and San Antonio campus tables were not used."
+    }
   ],
   "reject": [
-    {"candidate_id": "abb6d03b6ace11d3", "reason": "Cornell Law School JD tuition: graduate/professional."},
-    {"candidate_id": "5929a4a2a0b95037", "reason": "LIU NYS aid page multi-year undergraduate COA table: same record key as the bursar tuition table approved above; its 2026-27 rows sum to $1 more than the printed total."},
-    {"candidate_id": "4146031f61a94292", "reason": "Alfred State fee explanations: per-semester amounts with no academic year printed."},
-    {"candidate_id": "8c7428995b22c438", "reason": "Alfred State \"2026-27 Full Year Budget\": international-student budget."},
-    {"candidate_id": "a7f304a23ffb8c62", "reason": "Alfred State \"On Campus - Full-Time\": no academic year in the table's heading (the 2026 - 2027 label is elsewhere on the page) and residency unknown."},
-    {"candidate_id": "915c64bdfeffc62e", "reason": "Alfred State out-of-state table: no academic year in its heading, and the record's figures are the \"Associate\" column chosen by position over \"Bachelor's\"."},
-    {"candidate_id": "e50c2f151e54a297", "reason": "Alfred State Excelsior Scholarship worked example, not a price table."},
-    {"candidate_id": "14ebb4f338913ef2", "reason": "Alfred State On Campus table (index.php copy): no academic year in the heading, residency unknown."},
-    {"candidate_id": "81bbf803dcd2524a", "reason": "Alfred State fee explanations (index.php copy): no academic year printed."},
-    {"candidate_id": "03dd35f880b9638d", "reason": "Alfred State international budget (index.php copy)."},
-    {"candidate_id": "2991e4cdcc30ceff", "reason": "Alfred University \"Summary Cost of Attendance\" (New York resident): no academic year in the table's caption or heading (2026-27 appears only in footnotes), and tuition differs by college group; the record takes the first group by position."},
-    {"candidate_id": "bbed6b131785b311", "reason": "Alfred University non-New York summary COA: no academic year in the table's caption or heading (2026-27 only in footnotes)."}
+    {
+      "candidate_id": "abb6d03b6ace11d3",
+      "reason": "Cornell Law School JD tuition: graduate/professional."
+    },
+    {
+      "candidate_id": "5929a4a2a0b95037",
+      "reason": "LIU NYS aid page multi-year undergraduate COA table: same record key as the bursar tuition table approved above; its 2026-27 rows sum to $1 more than the printed total."
+    },
+    {
+      "candidate_id": "4146031f61a94292",
+      "reason": "Alfred State fee explanations: per-semester amounts with no academic year printed."
+    },
+    {
+      "candidate_id": "8c7428995b22c438",
+      "reason": "Alfred State \"2026-27 Full Year Budget\": international-student budget."
+    },
+    {
+      "candidate_id": "a7f304a23ffb8c62",
+      "reason": "Alfred State \"On Campus - Full-Time\": no academic year in the table's heading (the 2026 - 2027 label is elsewhere on the page) and residency unknown."
+    },
+    {
+      "candidate_id": "915c64bdfeffc62e",
+      "reason": "Alfred State out-of-state table: no academic year in its heading, and the record's figures are the \"Associate\" column chosen by position over \"Bachelor's\"."
+    },
+    {
+      "candidate_id": "e50c2f151e54a297",
+      "reason": "Alfred State Excelsior Scholarship worked example, not a price table."
+    },
+    {
+      "candidate_id": "14ebb4f338913ef2",
+      "reason": "Alfred State On Campus table (index.php copy): no academic year in the heading, residency unknown."
+    },
+    {
+      "candidate_id": "81bbf803dcd2524a",
+      "reason": "Alfred State fee explanations (index.php copy): no academic year printed."
+    },
+    {
+      "candidate_id": "03dd35f880b9638d",
+      "reason": "Alfred State international budget (index.php copy)."
+    },
+    {
+      "candidate_id": "2991e4cdcc30ceff",
+      "reason": "Alfred University \"Summary Cost of Attendance\" (New York resident): no academic year in the table's caption or heading (2026-27 appears only in footnotes), and tuition differs by college group; the record takes the first group by position."
+    },
+    {
+      "candidate_id": "bbed6b131785b311",
+      "reason": "Alfred University non-New York summary COA: no academic year in the table's caption or heading (2026-27 only in footnotes)."
+    }
   ]
 }
