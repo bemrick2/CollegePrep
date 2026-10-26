@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 53,
+ "plan": "3 hard (extraneous radical root, units-digit cycle, digit-sum count) / 5 medium / 2 easy.",
+ "candidates": [
+  {
+   "cand": "B053-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Exterior angle of a regular polygon",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "What is the measure of each exterior angle of a regular octagon?",
+   "choices": {
+    "A": "22.5°",
+    "B": "45°",
+    "C": "135°",
+    "D": "1,080°"
+   },
+   "answer": "B",
+   "explanation": "The exterior angles of any convex polygon sum to 360°. A regular octagon has 8 equal exterior angles, so each is 360° ÷ 8 = 45°.",
+   "distractors": {
+    "A": {
+     "rationale": "22.5° divides 180° by 8 instead of 360°.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "135° is each interior angle, not each exterior angle.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "1,080° is the sum of the interior angles.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What do the exterior angles of a polygon add up to?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Walk around the octagon: one full turn is 360°."
+   },
+   "remember": "Exterior angles of a convex polygon always sum to 360°.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Median of an unsorted list",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "What is the median of the data set 3, 9, 4, 15, 8 ?",
+   "choices": {
+    "A": "4",
+    "B": "7.8",
+    "C": "8",
+    "D": "12"
+   },
+   "answer": "C",
+   "explanation": "In order, the values are 3, 4, 8, 9, 15. The middle value is 8.",
+   "distractors": {
+    "A": {
+     "rationale": "4 is the middle value of the list before it is put in order.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "7.8 is the mean, 39 ÷ 5.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "12 is the range, 15 − 3.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Put the values in order first."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Sort, then take the middle value."
+   },
+   "remember": "Always sort before finding a median.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Ratio of shifted exponential outputs",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "If f(x) = 3^x, what is the value of f(x + 3)/f(x) for every value of x ?",
+   "choices": {
+    "A": "3",
+    "B": "6",
+    "C": "9",
+    "D": "27"
+   },
+   "answer": "D",
+   "explanation": "f(x + 3)/f(x) = 3^(x + 3)/3^x = 3³ = 27, whatever the value of x.",
+   "distractors": {
+    "A": {
+     "rationale": "3 is only the base, ignoring the shift of 3.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "6 adds the shift to the base, 3 + 3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "9 = 3² uses one factor of 3 too few.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write f(x + 3) as 3^x · 3^3."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 0: f(3)/f(0) = 27/1."
+   },
+   "remember": "Adding k to the exponent multiplies by base^k.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Side lengths from the area ratio of similar triangles",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Two similar triangles have areas of 18 square inches and 50 square inches. A side of the smaller triangle is 6 inches long. How long, in inches, is the corresponding side of the larger triangle?",
+   "choices": {
+    "A": "10",
+    "B": "50/3",
+    "C": "18",
+    "D": "30"
+   },
+   "answer": "A",
+   "explanation": "The area ratio is 50/18 = 25/9, so the side ratio is √(25/9) = 5/3. The corresponding side is 6 × 5/3 = 10.",
+   "distractors": {
+    "B": {
+     "rationale": "50/3 = 6 × 50/18 scales the side by the area ratio instead of its square root.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "18 is the smaller triangle's area, not a side length.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "30 = 6 × 5 uses the square root of 25 but not of 9.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How does the ratio of areas relate to the ratio of sides?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Side ratio = √(area ratio)."
+   },
+   "remember": "Areas of similar figures scale by the square of the side ratio.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Radical equations with an extraneous solution",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "Which of the following gives all real solutions of the equation √(x + 7) = x − 5 ?",
+   "choices": {
+    "A": "2 only",
+    "B": "9 only",
+    "C": "2 and 9",
+    "D": "There are no real solutions."
+   },
+   "answer": "B",
+   "explanation": "Squaring gives x + 7 = x² − 10x + 25, so x² − 11x + 18 = 0 and x = 2 or x = 9. Check: x = 9 gives √16 = 4 = 9 − 5. x = 2 gives √9 = 3, but 2 − 5 = −3, so 2 is extraneous.",
+   "distractors": {
+    "A": {
+     "rationale": "2 only keeps the extraneous root and drops the real one.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2 and 9 are the roots of the squared equation, but 2 fails the original because a square root cannot equal −3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "9 checks in the original equation.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Check every solution in the original equation."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Substitute 2 and 9 into the original equation."
+   },
+   "remember": "Squaring both sides can create extraneous solutions; always check.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Most students stop after factoring and pick '2 and 9'; recognizing that a principal square root cannot be negative is the insight."
+   }
+  },
+  {
+   "cand": "B053-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of a target sum on two spinners",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A spinner has 4 equal sections numbered 1, 2, 3 and 4. If the spinner is spun twice, what is the probability that the sum of the two numbers is 5 ?",
+   "choices": {
+    "A": "1/16",
+    "B": "1/8",
+    "C": "3/16",
+    "D": "1/4"
+   },
+   "answer": "D",
+   "explanation": "There are 4 × 4 = 16 equally likely ordered outcomes. The sum is 5 for (1, 4), (2, 3), (3, 2) and (4, 1): 4 outcomes, so the probability is 4/16 = 1/4.",
+   "distractors": {
+    "A": {
+     "rationale": "1/16 counts only one way to make 5.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/8 counts unordered pairs {1, 4} and {2, 3} but divides by the 16 ordered outcomes.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "3/16 misses one of the four ordered pairs.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "List the ordered pairs that add to 5."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Make a 4 × 4 grid of outcomes."
+   },
+   "remember": "With ordered outcomes, (1, 4) and (4, 1) are different.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Distance between opposite sides of a regular hexagon",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A regular hexagon has sides of length 4 centimeters. What is the distance, in centimeters, between two opposite (parallel) sides of the hexagon?",
+   "choices": {
+    "A": "2√3",
+    "B": "4",
+    "C": "4√3",
+    "D": "8"
+   },
+   "answer": "C",
+   "explanation": "A regular hexagon is made of 6 equilateral triangles with side 4. Each triangle's height is 2√3, and the distance between opposite sides is two heights: 4√3.",
+   "distractors": {
+    "A": {
+     "rationale": "2√3 is the height of one equilateral triangle, only half the distance.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4 is the side length.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "8 is the distance between opposite vertices, not opposite sides.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Split the hexagon into 6 equilateral triangles."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the hexagon and its center."
+   },
+   "remember": "Opposite sides of a regular hexagon are two triangle heights apart.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Units digit of a large power",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "What is the units digit of 7^2026 ?",
+   "choices": {
+    "A": "1",
+    "B": "3",
+    "C": "7",
+    "D": "9"
+   },
+   "answer": "D",
+   "explanation": "The units digits of 7^1, 7^2, 7^3, 7^4 are 7, 9, 3, 1, and the pattern repeats every 4 powers. Since 2026 = 4 × 506 + 2, the units digit matches 7², which is 9.",
+   "distractors": {
+    "A": {
+     "rationale": "1 is the units digit when the exponent is a multiple of 4.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3 is the units digit when the remainder is 3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "7 is the units digit when the remainder is 1.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find the pattern of units digits for 7, 7², 7³, …"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Find the cycle, then use the remainder of 2026 ÷ 4."
+   },
+   "remember": "Units digits of powers repeat in cycles.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "No direct computation is possible; the student must discover the 4-cycle and use the remainder of 2026 ÷ 4."
+   }
+  },
+  {
+   "cand": "B053-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Capacity from two fractional levels",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "A tank is 1/3 full of water. After 30 gallons are added, the tank is 3/4 full. What is the capacity of the tank, in gallons?",
+   "choices": {
+    "A": "40",
+    "B": "72",
+    "C": "90",
+    "D": "120"
+   },
+   "answer": "B",
+   "explanation": "The 30 gallons fill 3/4 − 1/3 = 5/12 of the tank, so the capacity is 30 ÷ 5/12 = 72 gallons.",
+   "distractors": {
+    "A": {
+     "rationale": "40 = 30 ÷ 3/4 treats the 30 gallons as three-fourths of the tank.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "90 = 30 ÷ 1/3 treats the 30 gallons as one-third of the tank.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "120 = 30 × 4 uses only the 3/4 level's denominator.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What fraction of the tank do the 30 gallons fill?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(3/4 − 1/3)C = 30."
+   },
+   "remember": "The amount added equals the change in fraction times the capacity.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B053-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Counting three-digit numbers with a digit sum",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "How many three-digit positive integers have digits whose sum is 5 ?",
+   "choices": {
+    "A": "10",
+    "B": "12",
+    "C": "15",
+    "D": "21"
+   },
+   "answer": "C",
+   "explanation": "Let the digits be a, b, c with a ≥ 1. Writing a = a' + 1 gives a' + b + c = 4 with all three ≥ 0, which has C(6, 2) = 15 solutions. (Listing by hundreds digit: 5 + 4 + 3 + 2 + 1 = 15.)",
+   "distractors": {
+    "A": {
+     "rationale": "10 lists only the numbers whose hundreds digit is 1 or 2 and then stops, or misses several cases.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12 misses some arrangements, such as those with a 0 in the tens place.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "21 counts all solutions of a + b + c = 5, including the 6 'numbers' that start with 0.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Organize the count by the hundreds digit."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "For hundreds digit h, the other two digits sum to 5 − h."
+   },
+   "remember": "A three-digit number cannot start with 0.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must organize the count systematically and exclude a leading zero; the stars-and-bars count without that restriction (21) is a strong trap."
+   }
+  }
+ ]
+}
