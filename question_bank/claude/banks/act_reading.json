@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 6,
-  "updated_at": "2026-10-26T19:29:15+00:00",
+  "version": 7,
+  "updated_at": "2026-10-26T19:34:57+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -69,6 +69,17 @@
       "word_count": 291,
       "text": "Passage A\n\nOn a July afternoon, the asphalt of an unshaded parking lot can grow far hotter than the air above it, while the pavement beneath a mature tree a few steps away stays markedly cooler. Multiply that difference across a neighborhood and the effect is measurable: blocks with dense tree canopy are often several degrees cooler than nearby blocks with little shade. For cities facing longer and more frequent heat waves, this makes street trees something more than decoration. They are infrastructure, as essential in their way as storm drains or power lines, and they deserve to be funded like it.\n\nThe comparison is not merely rhetorical. A tree, like a water main, delivers its benefits for decades, but only if it survives its vulnerable early years. Cities that count trees as infrastructure tend to budget not just for planting but for watering, pruning, and replacement—the unglamorous maintenance that turns a sapling into shade.\n\nPassage B\n\nAnnouncements of tree-planting campaigns are a fixture of city politics. A mayor promises a hundred thousand new trees; volunteers dig holes; photographs are taken. Five years later, a sizable share of those trees may be dead, killed by drought, road salt, or simple neglect. And the neighborhoods that most needed shade may have received the fewest saplings to begin with, because planting programs often depend on residents to request trees and to agree to water them.\n\nNone of this means planting is a mistake. But a count of trees planted measures effort, not results. The figure that matters is canopy—how much shade actually exists, and where. A city that plants fewer trees but keeps them alive, and that places them deliberately in the hottest, least-shaded blocks, may do more good than one that plants many and tracks none.",
       "batch": 6,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000007",
+      "title": "The Inventory",
+      "genre": "literary narrative",
+      "word_count": 510,
+      "text": "My aunt Theodora kept records of everything. When the lawyer handed me the keys to her house on Alder Street, he also handed me a ledger bound in green cloth, and in it, in her small upright hand, was an inventory of the house's contents: every chair, every teacup, every one of the eleven clocks, each with the date and price of its purchase. \"She made my job very easy,\" the lawyer said. I thanked him, though it seemed to me, even then, that a person who records the price of every teacup is not making anyone's job easy so much as making sure no one can say she was careless.\n\nI spent the first week checking the ledger against the rooms. The work suited me. I had been, for most of my adult life, the member of the family who could be relied upon to show up with a notebook, and I took a certain pride in finding that the inventory was, as far as I could tell, perfect. The clocks were where she had said they would be. The teacups numbered forty-two. In the pantry, the ledger told me, I would find a copper kettle bought in 1961 for four dollars and fifty cents, and there it was, dented exactly where I would have expected a kettle of that age to be dented.\n\nIt was on the eighth day, in the back bedroom, that I found the box. It was a shoebox, unremarkable, pushed to the back of the closet shelf behind a stack of folded blankets, and it did not appear in the ledger at all. Inside were perhaps two hundred letters, all addressed to my aunt, all from the same person, a woman named Celia whose return address changed four times over thirty years. I read the first one standing up. I read the second sitting on the edge of the bed. By the time I looked up, the light in the window had gone from white to orange, and I had not opened the ledger in hours.\n\nI do not intend to describe the letters. They were not mine, and in any case what struck me was less what they said than where they had been kept. My aunt had written down the price of a kettle. She had numbered her teacups. And she had left out of a record so complete that a lawyer could call it easy the one thing in the house she had evidently returned to again and again, for the envelopes were soft at the edges from handling.\n\nI had always thought of the ledger as a kind of self-portrait, and I suppose it was, though not in the way I had assumed. A list can be honest about every item on it and still be a disguise. I put the box back behind the blankets, though I knew I would have to decide, eventually, what to do with it, and I went downstairs and made tea in the copper kettle, and I did not write down anything at all.",
+      "batch": 7,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -4009,6 +4020,644 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-006.review.json",
         "computation": "checks/act_reading/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000056",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Summary of a narrative",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "and it did not appear in the ledger at all",
+      "figure": null,
+      "stem": "Which choice best summarizes the passage?",
+      "choices": {
+        "A": "While settling a relative's estate, the narrator argues with a lawyer about what the household items are worth.",
+        "B": "While checking a relative's inventory, the narrator learns that her records are full of careless mistakes.",
+        "C": "While checking a relative's inventory, the narrator finds an unrecorded item that alters the narrator's view of her.",
+        "D": "While reading a relative's old letters, the narrator pieces together the full history of her house."
+      },
+      "correct_answer": "C",
+      "explanation": "The narrator verifies the precise ledger, finds a box of letters it omits, and concludes that the complete-seeming record was \"a disguise,\" revising the view of the aunt.",
+      "distractor_explanations": {
+        "A": "The narrator thanks the lawyer; no argument or valuation dispute occurs.",
+        "B": "The narrator finds the inventory \"perfect\"; the issue is an omission, not errors.",
+        "D": "The letters are not about the house, and the narrator declines to describe them."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does the narrator find, and why does it matter?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize the plot in one sentence first."
+      },
+      "remember": "A summary must capture the turn in the story.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-01",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: 'alters the narrator's view of her' slightly ambiguous referent (her = relative), but clear in context"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000057",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference about a narrator's view",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "is not making anyone's job easy so much as making sure no one can say she was careless",
+      "figure": null,
+      "stem": "The narrator's response to the lawyer's remark in the first paragraph suggests that the narrator:",
+      "choices": {
+        "A": "already suspected that the aunt's careful records served a purpose other than convenience.",
+        "B": "resented the lawyer for underestimating how much work the estate would actually require.",
+        "C": "believed from the start that the aunt's ledger was probably incomplete or inaccurate.",
+        "D": "thought that the aunt had been careless with her money throughout most of her life."
+      },
+      "correct_answer": "A",
+      "explanation": "Even at the start, the narrator reads the ledger as self-protective (so no one can say she was careless) rather than as a kindness to others, foreshadowing the idea that it is \"a disguise.\"",
+      "distractor_explanations": {
+        "B": "The narrator thanks him; no resentment toward him is shown.",
+        "C": "The narrator later finds it \"perfect\"; the early doubt is about motive, not accuracy.",
+        "D": "The narrator says she recorded prices so no one could call her careless."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": "partial_answer",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "What does the narrator think the ledger's real purpose is?",
+        "Is the doubt about accuracy or about motive?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the \"though it seemed to me\" clause."
+      },
+      "remember": "Distinguish doubts about accuracy from doubts about motive.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-02",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000058",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "I had been, for most of my adult life, the member of the family who could be relied upon to show up with a notebook",
+      "figure": null,
+      "stem": "As it is used in paragraph 2, the word \"suited\" most nearly means:",
+      "choices": {
+        "A": "dressed.",
+        "B": "agreed with.",
+        "C": "requested.",
+        "D": "outfitted."
+      },
+      "correct_answer": "B",
+      "explanation": "The next sentence explains that the careful, notebook-keeping work matched the narrator's nature: it \"agreed with\" the narrator.",
+      "distractor_explanations": {
+        "A": "The clothing meaning does not fit work.",
+        "C": "The work did not ask anything of the narrator.",
+        "D": "\"Outfitted\" means equipped, which does not fit."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": null,
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "Why did the work fit the narrator?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the word with your own phrase, such as \"fit.\""
+      },
+      "remember": "Use the next sentence to confirm a word's meaning.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-03",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: 'agreed with' is a slightly loose gloss of 'suited' (better: 'pleased' or 'was well matched to'), though it is clearly the best option",
+          "minor: A ('dressed') and D ('outfitted') are near-synonyms on the clothing sense, so test-wise students can eliminate both together; leaves effectively a 2-way choice"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000059",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "My aunt had written down the price of a kettle.",
+      "figure": null,
+      "stem": "The details about the copper kettle at the end of paragraph 2 mainly serve to:",
+      "choices": {
+        "A": "suggest that the aunt had paid too much for many of her ordinary household goods.",
+        "B": "show that the narrator prefers old, worn objects to new ones bought in stores.",
+        "C": "explain why the narrator chooses to make tea at the very end of the passage.",
+        "D": "illustrate the ledger's exactness, which makes its later omission more striking."
+      },
+      "correct_answer": "D",
+      "explanation": "The kettle is recorded down to its price, and even its dents match expectations. Paragraph 4 then sets \"the price of a kettle\" against the unrecorded letters, so the kettle's exactness sharpens the omission.",
+      "distractor_explanations": {
+        "A": "Nothing suggests overpaying; the price shows how complete the record is.",
+        "B": "The dents confirm the ledger's accuracy; they reveal no preference.",
+        "C": "The kettle reappears, but this paragraph's purpose is to show the ledger's precision."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "out_of_scope",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Where else is the kettle mentioned, and in what contrast?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Follow the kettle to paragraph 4."
+      },
+      "remember": "A precise detail early often sets up a later contrast.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-04",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000060",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference from a sequence of details",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "By the time I looked up, the light in the window had gone from white to orange, and I had not opened the ledger in hours.",
+      "figure": null,
+      "stem": "The description of how the narrator read the letters in paragraph 3 mainly conveys the narrator's:",
+      "choices": {
+        "A": "physical exhaustion after a week of work.",
+        "B": "growing absorption in the letters.",
+        "C": "difficulty reading the aunt's handwriting.",
+        "D": "reluctance to keep reading the letters."
+      },
+      "correct_answer": "B",
+      "explanation": "Standing for the first letter, sitting for the second, and looking up hours later as the light changed show the narrator becoming more and more absorbed.",
+      "distractor_explanations": {
+        "A": "Moving from standing to sitting reflects settling in to read, not exhaustion.",
+        "C": "The letters were written by Celia, not the aunt.",
+        "D": "Reading for hours shows the opposite of reluctance."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Track the narrator from the first letter to the moment of looking up."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Describe the progression, then match."
+      },
+      "remember": "A sequence of small actions can show a change in state.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-05",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000061",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "for the envelopes were soft at the edges from handling",
+      "figure": null,
+      "stem": "According to the narrator, what indicated that the aunt had returned to the letters again and again?",
+      "choices": {
+        "A": "The letters came from one woman over thirty years.",
+        "B": "The box was hidden behind a stack of blankets.",
+        "C": "The envelopes were soft at the edges from handling.",
+        "D": "The box held about two hundred separate letters."
+      },
+      "correct_answer": "C",
+      "explanation": "The narrator says the aunt \"evidently returned to [them] again and again, for the envelopes were soft at the edges from handling\"; \"for\" introduces the evidence.",
+      "distractor_explanations": {
+        "A": "This shows how long Celia wrote, not that the aunt reread them.",
+        "B": "Hiding the box shows concealment, not repeated rereading.",
+        "D": "The number reflects how often Celia wrote, not how often the aunt reread."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "partial_answer",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "Find the word \"for\" in paragraph 4."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Locate the clause that gives the reason."
+      },
+      "remember": "\"For\" can mean \"because.\"",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-06",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000062",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Interpreting a central statement",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "the one thing in the house she had evidently returned to again and again",
+      "figure": null,
+      "stem": "The narrator's statement that \"A list can be honest about every item on it and still be a disguise\" (paragraph 5) most directly suggests that the ledger:",
+      "choices": {
+        "A": "hid what mattered most to the aunt by omitting it while recording everything else accurately.",
+        "B": "contained deliberate errors that were meant to mislead the lawyer about the estate's value.",
+        "C": "was written in a private code that only members of the aunt's family could ever understand.",
+        "D": "turned out to be far less accurate than the narrator had believed during the first week."
+      },
+      "correct_answer": "A",
+      "explanation": "Every recorded item was accurate (\"honest\"), yet the list left out the letters she cherished. Completeness elsewhere made the omission invisible, which is how an honest list can be a disguise.",
+      "distractor_explanations": {
+        "B": "\"Honest about every item\" rules out deliberate errors.",
+        "C": "Nothing suggests a code.",
+        "D": "The narrator never finds errors; the inventory stays \"perfect.\""
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "out_of_scope",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "How can a list be honest and still hide something?",
+        "What did the ledger leave out?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that contradict \"honest about every item.\""
+      },
+      "remember": "Omissions can mislead even when every entry is true.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-07",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000063",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Narrator's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "though not in the way I had assumed",
+      "figure": null,
+      "stem": "By the end of the passage, the narrator's attitude toward careful record keeping is best described as:",
+      "choices": {
+        "A": "newly aware that a complete-seeming record can conceal as much as it reveals.",
+        "B": "contemptuous of the aunt's need to record the price of every single purchase.",
+        "C": "determined to make an even more complete inventory than the aunt herself made.",
+        "D": "unchanged from the quiet pride in the inventory that was described in paragraph 2."
+      },
+      "correct_answer": "A",
+      "explanation": "The narrator's earlier pride in the perfect inventory gives way to the realization that such a record can be \"a disguise.\"",
+      "distractor_explanations": {
+        "B": "The narrator draws a lesson but shows no contempt for the aunt.",
+        "C": "The narrator ends by writing down \"anything at all\" — nothing.",
+        "D": "Paragraph 5 says the ledger was a self-portrait \"not in the way I had assumed.\""
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What did the narrator assume earlier, and what changed?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate attitudes that are too extreme or unchanged."
+      },
+      "remember": "Track how a narrator's view changes from start to finish.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-08",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000064",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Interpreting a closing action",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000007",
+      "underline": null,
+      "evidence": "the member of the family who could be relied upon to show up with a notebook",
+      "figure": null,
+      "stem": "The narrator's final actions of making tea in the copper kettle and writing nothing down most likely signal:",
+      "choices": {
+        "A": "the narrator's decision to sell off the house's contents now that the inventory is done.",
+        "B": "the narrator's wish to imitate the aunt's household routines as closely as possible.",
+        "C": "a break from the narrator's own habit of recording, prompted by what the box revealed.",
+        "D": "the narrator's relief at having finally finished checking every room against the ledger."
+      },
+      "correct_answer": "C",
+      "explanation": "The narrator, known for showing up with a notebook, now records nothing. After learning what the aunt's complete record hid, the narrator steps away from the urge to document.",
+      "distractor_explanations": {
+        "A": "No decision about selling is mentioned; the narrator defers deciding about the box.",
+        "B": "Using the kettle is ordinary; not writing anything is the opposite of the aunt's habit.",
+        "D": "The narrator stopped checking the ledger to read the letters; no sense of completion is given."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "partial_answer",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "What habit did paragraph 2 establish for the narrator?",
+        "What does the narrator do differently at the end?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Connect the ending to the habit described in paragraph 2."
+      },
+      "remember": "Endings often reverse a habit set up earlier.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "R007-09",
+      "created_at": "2026-10-26T19:34:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-007.review.json",
+        "computation": "checks/act_reading/batch_007.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

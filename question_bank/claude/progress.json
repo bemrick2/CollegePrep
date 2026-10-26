@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T19:33:20+00:00",
+  "updated_at": "2026-10-26T19:34:59+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -17,7 +17,7 @@
   "accepted_by_section": {
     "act_math": 208,
     "act_english": 67,
-    "act_reading": 55,
+    "act_reading": 64,
     "sat_reading_writing": 67
   },
   "review_totals": {
@@ -36,10 +36,10 @@
       "passed_after_revision": 3
     },
     "act_reading": {
-      "PASS": 55,
+      "PASS": 64,
       "REVISE": 8,
       "REJECT": 0,
-      "candidates": 63,
+      "candidates": 72,
       "passed_after_revision": 8
     },
     "sat_reading_writing": {
@@ -384,11 +384,11 @@
       "passages": 6
     },
     "act_reading": {
-      "accepted": 55,
+      "accepted": 64,
       "by_skill": {
-        "Craft and Structure": 16,
-        "Integration of Knowledge and Ideas": 12,
-        "Key Ideas and Details": 27
+        "Craft and Structure": 19,
+        "Integration of Knowledge and Ideas": 14,
+        "Key Ideas and Details": 31
       },
       "by_subskill": {
         "Applying the passage's general claim": 1,
@@ -403,26 +403,31 @@
         "Connecting parts of a text": 1,
         "Connecting the ending to earlier events": 1,
         "Contrasting the passages' approaches": 1,
-        "Detail": 3,
+        "Detail": 4,
         "Detail (cross-passage trap)": 1,
         "Effect of figurative language": 1,
         "Evaluating evidence for competing explanations": 1,
         "Function of a comparison": 1,
         "Function of a description": 1,
+        "Function of a detail": 1,
         "Function of a figurative comparison": 1,
         "Function of a paragraph": 2,
         "Function of a phrase": 2,
         "Function of a short paragraph": 1,
         "How one author would respond to the other": 1,
         "Inference about a character's action": 1,
+        "Inference about a narrator's view": 1,
         "Inference about a stated outcome": 1,
         "Inference from a detail": 2,
+        "Inference from a sequence of details": 1,
         "Inference from dialogue": 1,
         "Inference from stated effects": 1,
         "Inferring a character's attitude": 1,
         "Inferring a character's intent": 1,
         "Inferring a character's view": 1,
         "Inferring an author's view": 1,
+        "Interpreting a central statement": 1,
+        "Interpreting a closing action": 1,
         "Locating a stated detail": 1,
         "Locating a stated reason": 1,
         "Locating supporting details": 1,
@@ -430,34 +435,36 @@
         "Main idea of a narrative": 1,
         "Main purpose of a passage": 1,
         "Meaning of a phrase in context": 1,
-        "Meaning of a word in context": 5,
+        "Meaning of a word in context": 6,
+        "Narrator's attitude": 1,
         "Points of agreement across paired passages": 1,
         "Points of agreement across passages": 1,
         "Predicting one author's response to the other": 1,
         "Purpose of a passage": 1,
-        "Sequence of a described process": 1
+        "Sequence of a described process": 1,
+        "Summary of a narrative": 1
       },
       "by_difficulty_author": {
-        "easy": 17,
-        "hard": 4,
-        "medium": 34
+        "easy": 18,
+        "hard": 8,
+        "medium": 38
       },
       "by_difficulty_calibrated": {
-        "easy": 38,
-        "medium": 17
+        "easy": 42,
+        "medium": 22
       },
       "calibrated_share": {
-        "easy": 0.691,
-        "medium": 0.309
+        "easy": 0.656,
+        "medium": 0.344
       },
       "answer_key_balance": {
-        "A": 14,
-        "B": 13,
-        "C": 14,
-        "D": 14
+        "A": 17,
+        "B": 15,
+        "C": 17,
+        "D": 15
       },
       "modeling_items": 0,
-      "passages": 6
+      "passages": 7
     },
     "sat_reading_writing": {
       "accepted": 67,
@@ -546,7 +553,7 @@
   "last_completed_batch": {
     "act_math": 21,
     "act_english": 6,
-    "act_reading": 6,
+    "act_reading": 7,
     "sat_reading_writing": 7
   },
   "next_batch_guidance": {
@@ -582,6 +589,14 @@
     }
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 8,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 4.5,
+        "Craft and Structure": 2.8,
+        "Integration of Knowledge and Ideas": 2.7
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 8,
       "skill_gap_for_next_10": {
@@ -598,14 +613,6 @@
         "Knowledge of Language": 4.8,
         "Conventions of Standard English": 1.2
       }
-    },
-    "act_reading": {
-      "next_batch": 7,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 4.2,
-        "Craft and Structure": 3.2,
-        "Integration of Knowledge and Ideas": 2.6
-      }
     }
   },
   "section_targets": {
@@ -621,8 +628,8 @@
     },
     "act_reading": {
       "target": 600,
-      "accepted": 55,
-      "share_of_target": 0.092
+      "accepted": 64,
+      "share_of_target": 0.107
     },
     "sat_reading_writing": {
       "target": 700,
@@ -631,9 +638,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 397,
+  "total_accepted": 406,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_reading",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -844,7 +851,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 6,
+      "bank_version": 7,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -890,7 +897,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T19:33:20+00:00",
+    "heartbeat_at": "2026-10-26T19:34:59+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
