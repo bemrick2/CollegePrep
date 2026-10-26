@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:28:40+00:00",
+  "updated_at": "2026-10-26T20:29:18+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 262,
+    "act_math": 272,
     "act_english": 98,
     "act_reading": 90,
     "sat_reading_writing": 103
   },
   "review_totals": {
     "act_math": {
-      "PASS": 268,
+      "PASS": 278,
       "REVISE": 2,
       "REJECT": 2,
-      "candidates": 272,
+      "candidates": 282,
       "passed_after_revision": 2
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 262,
+      "accepted": 272,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 48,
-        "Functions": 45,
-        "Geometry": 53,
-        "Integrating Essential Skills": 49,
-        "Number & Quantity": 29,
-        "Statistics & Probability": 38
+        "Algebra": 51,
+        "Functions": 46,
+        "Geometry": 55,
+        "Integrating Essential Skills": 50,
+        "Number & Quantity": 30,
+        "Statistics & Probability": 40
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -129,6 +129,7 @@
         "Counting divisors (perfect squares)": 1,
         "Counting lattice paths through a point": 1,
         "Counting perfect squares in a range": 1,
+        "Counting tiles with a border": 1,
         "Counting with restrictions": 1,
         "Density from dimensions": 1,
         "Determinant of a 2 × 2 matrix": 1,
@@ -138,6 +139,7 @@
         "Difference of squares used structurally": 1,
         "Differences of exponential outputs": 1,
         "Digit problems with a system": 1,
+        "Direct variation": 1,
         "Discriminant with a degenerate case": 1,
         "Dividing complex numbers": 1,
         "Division with whole-unit rounding": 1,
@@ -177,10 +179,12 @@
         "Inscribed angles and arcs": 1,
         "Inscribed figures: composite area": 1,
         "Integer roots from coefficients": 1,
+        "Intercepts of an absolute-value function": 1,
         "Interior angles of regular polygons": 1,
         "Interpreting a coefficient in a linear model": 1,
         "Interpreting a correlation coefficient": 1,
         "Interpreting a margin of error": 1,
+        "Interpreting a percentile": 1,
         "Interquartile range": 1,
         "Inverse functions and excluded values": 1,
         "Inverse of a linear function": 1,
@@ -221,6 +225,7 @@
         "Order of a percent discount and a coupon": 1,
         "Order of operations with negative signs": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
+        "Parallel lines cut by a transversal": 1,
         "Percent change in area from a change in length": 1,
         "Percent change in unit price": 1,
         "Percent decrease then recovery": 1,
@@ -241,9 +246,11 @@
         "Probability of an ordered sequence without replacement": 1,
         "Probability of first success on a given trial": 1,
         "Probability that a sum of two dice is prime": 1,
+        "Product of the GCF and LCM": 1,
         "Profit as a percent of selling price": 1,
         "Pythagorean theorem with a moving ladder": 1,
         "Quadratic equations: solutions": 1,
+        "Quadratic from the sum and product of its roots": 1,
         "Quadratic from three points": 1,
         "Quadratic functions from key features": 1,
         "Quadratic inequalities in context": 1,
@@ -302,6 +309,7 @@
         "Three-variable system by adding equations": 1,
         "Translating relationships into a system": 1,
         "Triangle angle sum": 1,
+        "Triangle formed by a line and the axes": 1,
         "Triangle inequality (counting third sides)": 1,
         "Triangle inscribed in a semicircle (coordinates)": 1,
         "Trigonometric identities and quadrant signs": 1,
@@ -321,33 +329,35 @@
         "Volume of a sphere": 1,
         "Volume scaling in cones (frustum)": 1,
         "Weighted mean": 1,
+        "Weighted mean: solving for a group size": 1,
         "Work problems with a mid-job change": 1,
+        "Working backward through fractions of a remainder": 1,
         "Writing an exponential decay model": 1,
         "Zeros of a product of functions": 1,
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 40,
-        "hard": 106,
-        "medium": 116
+        "easy": 42,
+        "hard": 107,
+        "medium": 123
       },
       "by_difficulty_calibrated": {
-        "easy": 68,
+        "easy": 71,
         "hard": 39,
-        "medium": 155
+        "medium": 162
       },
       "calibrated_share": {
-        "easy": 0.26,
-        "hard": 0.149,
-        "medium": 0.592
+        "easy": 0.261,
+        "hard": 0.143,
+        "medium": 0.596
       },
       "answer_key_balance": {
-        "A": 64,
-        "B": 70,
-        "C": 71,
-        "D": 57
+        "A": 65,
+        "B": 73,
+        "C": 74,
+        "D": 60
       },
-      "modeling_items": 73,
+      "modeling_items": 74,
       "passages": 0
     },
     "act_english": {
@@ -660,14 +670,14 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 27,
+    "act_math": 28,
     "act_english": 9,
     "act_reading": 10,
     "sat_reading_writing": 11
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 28,
+      "next_batch": 29,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
@@ -675,35 +685,27 @@
         "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 0.9,
-        "Algebra": 2.3,
-        "Functions": 5.3,
-        "Geometry": -2.7,
-        "Statistics & Probability": -1.3,
-        "Integrating Essential Skills": 5.4
+        "Number & Quantity": 1.0,
+        "Algebra": 1.2,
+        "Functions": 6.2,
+        "Geometry": -2.8,
+        "Statistics & Probability": -1.9,
+        "Integrating Essential Skills": 6.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 0.0,
-        "medium": -19.0,
-        "hard": 29.0
+        "easy": -0.5,
+        "medium": -21.0,
+        "hard": 31.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 4.0,
-        "B": -2.0,
-        "C": -3.0,
-        "D": 11.0
+        "A": 5.5,
+        "B": -2.5,
+        "C": -3.5,
+        "D": 10.5
       }
     }
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 11,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 7.0,
-        "Craft and Structure": 0.5,
-        "Integration of Knowledge and Ideas": 2.5
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 12,
       "skill_gap_for_next_10": {
@@ -720,13 +722,21 @@
         "Knowledge of Language": 7.1,
         "Conventions of Standard English": -0.3
       }
+    },
+    "act_reading": {
+      "next_batch": 11,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 7.0,
+        "Craft and Structure": 0.5,
+        "Integration of Knowledge and Ideas": 2.5
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 262,
-      "share_of_target": 0.131
+      "accepted": 272,
+      "share_of_target": 0.136
     },
     "act_english": {
       "target": 700,
@@ -745,7 +755,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 553,
+  "total_accepted": 563,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -2980,7 +2990,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 27,
+      "bank_version": 28,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -3040,7 +3050,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:28:40+00:00",
+    "heartbeat_at": "2026-10-26T20:29:17+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
