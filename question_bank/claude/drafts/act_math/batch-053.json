@@ -5,42 +5,42 @@
  "candidates": [
   {
    "cand": "B053-01",
-   "reporting_category": "Preparing for Higher Math",
-   "skill": "Geometry",
-   "subskill": "Exterior angle of a regular polygon",
-   "repo_skill_key": "act_geometry",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Number of equal pieces cut from a board",
+   "repo_skill_key": "act_number_quantity",
    "difficulty": "easy",
-   "stem": "What is the measure of each exterior angle of a regular octagon?",
+   "stem": "A carpenter cuts a 12-foot board into pieces that are each 1 1/2 feet long, with no wood left over. How many pieces does the carpenter cut?",
    "choices": {
-    "A": "22.5°",
-    "B": "45°",
-    "C": "135°",
-    "D": "1,080°"
+    "A": "6",
+    "B": "8",
+    "C": "10",
+    "D": "18"
    },
    "answer": "B",
-   "explanation": "The exterior angles of any convex polygon sum to 360°. A regular octagon has 8 equal exterior angles, so each is 360° ÷ 8 = 45°.",
+   "explanation": "12 ÷ 1 1/2 = 12 ÷ 3/2 = 12 × 2/3 = 8 pieces.",
    "distractors": {
     "A": {
-     "rationale": "22.5° divides 180° by 8 instead of 360°.",
+     "rationale": "6 divides 12 by 2 instead of by 1 1/2.",
      "trap": null
     },
     "C": {
-     "rationale": "135° is each interior angle, not each exterior angle.",
-     "trap": "wrong_quantity"
+     "rationale": "10 subtracts 1 1/2 from 12 and rounds instead of dividing.",
+     "trap": null
     },
     "D": {
-     "rationale": "1,080° is the sum of the interior angles.",
-     "trap": "wrong_quantity"
+     "rationale": "18 multiplies 12 by 1 1/2 instead of dividing.",
+     "trap": null
     }
    },
    "hints": [
-    "What do the exterior angles of a polygon add up to?"
+    "Divide the board's length by the length of one piece."
    ],
    "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Walk around the octagon: one full turn is 360°."
+    "key": "translate_to_algebra",
+    "explanation": "12 ÷ (3/2)."
    },
-   "remember": "Exterior angles of a convex polygon always sum to 360°.",
+   "remember": "Dividing by a fraction means multiplying by its reciprocal.",
    "expected_time_seconds": 30,
    "modeling": false,
    "author_checklist": {
@@ -51,42 +51,42 @@
   {
    "cand": "B053-02",
    "reporting_category": "Preparing for Higher Math",
-   "skill": "Statistics & Probability",
-   "subskill": "Median of an unsorted list",
-   "repo_skill_key": "act_statistics_probability",
+   "skill": "Algebra",
+   "subskill": "Point one-third of the way along a number line",
+   "repo_skill_key": "act_algebra_linear",
    "difficulty": "easy",
-   "stem": "What is the median of the data set 3, 9, 4, 15, 8 ?",
+   "stem": "On a number line, point P is at −3 and point Q is at 9. What is the coordinate of the point that is 1/3 of the way from P to Q ?",
    "choices": {
-    "A": "4",
-    "B": "7.8",
-    "C": "8",
-    "D": "12"
+    "A": "1",
+    "B": "3",
+    "C": "4",
+    "D": "5"
    },
-   "answer": "C",
-   "explanation": "In order, the values are 3, 4, 8, 9, 15. The middle value is 8.",
+   "answer": "A",
+   "explanation": "The distance from P to Q is 9 − (−3) = 12. One-third of 12 is 4, so the point is at −3 + 4 = 1.",
    "distractors": {
-    "A": {
-     "rationale": "4 is the middle value of the list before it is put in order.",
+    "B": {
+     "rationale": "3 is the midpoint, halfway from P to Q.",
      "trap": null
     },
-    "B": {
-     "rationale": "7.8 is the mean, 39 ÷ 5.",
+    "C": {
+     "rationale": "4 is the distance traveled, not the coordinate reached.",
      "trap": "wrong_quantity"
     },
     "D": {
-     "rationale": "12 is the range, 15 − 3.",
-     "trap": "wrong_quantity"
+     "rationale": "5 is two-thirds of the way from P to Q.",
+     "trap": null
     }
    },
    "hints": [
-    "Put the values in order first."
+    "How far apart are P and Q?"
    ],
    "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Sort, then take the middle value."
+    "key": "draw_it_out",
+    "explanation": "Mark −3 and 9, then step one-third of the distance from −3."
    },
-   "remember": "Always sort before finding a median.",
-   "expected_time_seconds": 30,
+   "remember": "Start at the first point and add the fraction of the distance.",
+   "expected_time_seconds": 35,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,

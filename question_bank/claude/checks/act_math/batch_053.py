@@ -9,17 +9,13 @@ sys.path.insert(0, os.path.dirname(__file__))
 from _util import pick  # noqa: E402
 
 
-def deg(t):
-    return float(t.replace('°', '').replace(',', ''))
-
-
 def c01(ch):
-    return pick(ch, 360 / 8, conv=deg)
+    return pick(ch, F(12) / F(3, 2))
 
 
 def c02(ch):
-    xs = sorted([3, 9, 4, 15, 8])
-    return pick(ch, xs[2])
+    p, q = -3, 9
+    return pick(ch, p + F(q - p, 3))
 
 
 def c03(ch):
