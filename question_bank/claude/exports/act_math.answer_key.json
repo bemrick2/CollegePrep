@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 48,
+  "bank_version": 49,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -8333,6 +8333,179 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the parabola and shift it up."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000480",
+      "correct_answer": "C",
+      "explanation": "Adding 2 gives x/3 > 3, so x > 9. The least integer greater than 9 is 10.",
+      "distractor_explanations": {
+        "A": "3 divides by 3 instead of multiplying: from x/3 > 3 it takes x > 1.",
+        "B": "9 is the boundary, but the inequality is strict, so 9 does not satisfy it.",
+        "D": "11 skips over 10, which already satisfies the inequality."
+      },
+      "hints": [
+        "Solve the inequality, then check whether the boundary is included."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 9 and 10 in the inequality."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000481",
+      "correct_answer": "C",
+      "explanation": "h(1) = -16(1) + 64(1) + 5 = 53.",
+      "distractor_explanations": {
+        "A": "5 is the starting height, h(0).",
+        "B": "48 omits the + 5.",
+        "D": "85 adds 16 instead of subtracting it."
+      },
+      "hints": [
+        "Substitute t = 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate h(1)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000482",
+      "correct_answer": "B",
+      "explanation": "The hypotenuse is √(25 + 144) = 13, so the perimeter is 5 + 12 + 13 = 30.",
+      "distractor_explanations": {
+        "A": "17 adds only the two legs.",
+        "C": "60 is twice the area, 5 × 12.",
+        "D": "169 is the square of the hypotenuse."
+      },
+      "hints": [
+        "Find the missing side first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Hypotenuse = √(5² + 12²)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000483",
+      "correct_answer": "A",
+      "explanation": "A negative exponent means the reciprocal: (2/3)⁻² = (3/2)² = 9/4.",
+      "distractor_explanations": {
+        "C": "-4/9 treats the negative exponent as making the result negative.",
+        "B": "4/9 squares the fraction but ignores the negative sign of the exponent.",
+        "D": "-9/4 takes the reciprocal but also makes the result negative."
+      },
+      "hints": [
+        "What does a negative exponent tell you to do?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Flip, then square."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000484",
+      "correct_answer": "B",
+      "explanation": "One extreme value pulls the mean far above most incomes. The median is resistant to that outlier, so it better represents a typical income.",
+      "distractor_explanations": {
+        "A": "Using every value is exactly why the mean is distorted by the outlier.",
+        "C": "The owner's income being part of payroll does not make the mean typical.",
+        "D": "The range measures spread, not a typical value."
+      },
+      "hints": [
+        "How does a single very large value affect the mean?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate measures of spread and those sensitive to outliers."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000485",
+      "correct_answer": "D",
+      "explanation": "(30 + n)/(100 + n) ≥ 0.35 gives 30 + n ≥ 35 + 0.35n, so 0.65n ≥ 5 and n ≥ 7.69. The least whole number is 8.",
+      "distractor_explanations": {
+        "A": "5 adds hits without adding the at-bats they require: (30 + 5)/100 = 0.35.",
+        "B": "6 assumes each hit raises the average by about 0.01.",
+        "C": "7 rounds 7.69 down, which falls just short: 37/107 ≈ 0.346."
+      },
+      "hints": [
+        "Each new hit also adds an at-bat.",
+        "Set up (30 + n)/(100 + n) ≥ 0.35."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try n = 7 and n = 8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000486",
+      "correct_answer": "B",
+      "explanation": "The cylinder's diameter and height both equal the cube's edge, 6, so r = 3 and V = π(3²)(6) = 54π.",
+      "distractor_explanations": {
+        "A": "36π = π(6²) gives the area of a circle with radius 6, not a volume.",
+        "C": "108π doubles the volume.",
+        "D": "216π uses the edge, 6, as the radius."
+      },
+      "hints": [
+        "How are the cylinder's radius and height related to the cube's edge?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the cylinder inside the cube."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000487",
+      "correct_answer": "D",
+      "explanation": "f(g(x)) = 2x² - 3 and g(f(x)) = (2x - 3)² = 4x² - 12x + 9. Setting them equal: 2x² - 12x + 12 = 0, or x² - 6x + 6 = 0. The sum of the solutions is 6.",
+      "distractor_explanations": {
+        "A": "-6 takes the sum of the roots with the wrong sign.",
+        "B": "0 assumes the two compositions are always equal, or that the solutions cancel.",
+        "C": "3 is one-half the sum, the x-coordinate of the parabola's vertex."
+      },
+      "hints": [
+        "Write both compositions as polynomials.",
+        "For x² + bx + c = 0, what is the sum of the roots?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 2x² - 3 = (2x - 3)² and simplify."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000488",
+      "correct_answer": "A",
+      "explanation": "2ˣ⁺¹ = 2 · 2ˣ, so the left side is 3 · 2ˣ = 48. Then 2ˣ = 16 and x = 4.",
+      "distractor_explanations": {
+        "B": "5 adds the exponents, treating the sum as 2²ˣ⁺¹ = 48 and rounding.",
+        "C": "6 = 48 ÷ 8 divides by 2³ instead of solving for the exponent.",
+        "D": "24 halves 48, treating the equation as linear."
+      },
+      "hints": [
+        "Rewrite 2ˣ⁺¹ as 2 · 2ˣ.",
+        "Then factor out 2ˣ."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 4: 32 + 16 = 48."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000489",
+      "correct_answer": "C",
+      "explanation": "Students with at least 2 siblings: 12 + 6 = 18. Probability = 18/40 = 9/20.",
+      "distractor_explanations": {
+        "A": "3/20 counts only the students with 3 or more siblings.",
+        "B": "3/10 counts only the students with exactly 2 siblings.",
+        "D": "4/5 counts students with at least 1 sibling."
+      },
+      "hints": [
+        "Which columns count as \"at least 2\"?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(12 + 6)/40."
       }
     }
   ]

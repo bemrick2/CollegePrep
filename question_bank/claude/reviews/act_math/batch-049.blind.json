@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 49},
+ "answers": {
+  "B049-01": {"answer": "C", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy", "flags": [], "notes": "x/3 > 3 -> x > 9 (strict); least integer 10. B (9) is the boundary trap."},
+  "B049-02": {"answer": "C", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": [], "notes": "-16+64+5 = 53."},
+  "B049-03": {"answer": "B", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": ["minor: 'legs of length 5 and 12 inches' reads slightly awkwardly; 'legs of lengths 5 inches and 12 inches' is cleaner"], "notes": "Hypotenuse 13; 5+12+13 = 30."},
+  "B049-04": {"answer": "A", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy", "flags": [], "notes": "(3/2)^2 = 9/4."},
+  "B049-05": {"answer": "B", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": ["minor: unclear whether the owner is among the 10 employees; does not affect the answer"], "notes": "Outlier skews mean; median is resistant."},
+  "B049-06": {"answer": "D", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "(30+n)/(100+n) >= 0.35 -> 0.65n >= 5 -> n >= 7.69 -> 8. Check: 37/107 = 0.3458, 38/108 = 0.3519. Trap A (5) from forgetting that at-bats increase too."},
+  "B049-07": {"answer": "B", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "r = 3, h = 6 -> 54pi. Trap D (216pi) uses r = 6; C (108pi) doubles it; A (36pi) does not match a common error path."},
+  "B049-08": {"answer": "D", "confidence": "high", "est_pct_correct": 42, "difficulty_opinion": "medium", "flags": [], "notes": "2x^2 - 3 = 4x^2 - 12x + 9 -> x^2 - 6x + 6 = 0; real roots (disc 12), sum 6. Trap A (-6) from a sign error."},
+  "B049-09": {"answer": "A", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "3*2^x = 48 -> 2^x = 16 -> x = 4. Checking choices also works."},
+  "B049-10": {"answer": "C", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy", "flags": [], "notes": "(12+6)/40 = 9/20. Distractors: 3/20 (only '3 or more'), 3/10 (only 2), 4/5 (at least 1)."}
+ }}
