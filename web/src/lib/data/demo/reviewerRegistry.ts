@@ -126,7 +126,7 @@ export function registryProblems(reg: ReviewerRegistry): string[] {
  * that reaches the owner (any revoked link, broken link or loop disqualifies everyone below it).
  */
 export function authorized(reg: ReviewerRegistry, id: string | undefined, role: ReviewRole): Reviewer | null {
-  const r = id ? reg.reviewers[id] : undefined
+  const r = id && Object.hasOwn(reg?.reviewers ?? {}, id) ? reg.reviewers[id] : undefined
   if (!r || r.revoked || !r.roles.includes(role)) return null
   return chainReachesOwner(reg, r) ? r : null
 }

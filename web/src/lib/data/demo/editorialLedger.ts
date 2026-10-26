@@ -2,6 +2,7 @@ import type { FixtureQuestion } from './fixtures'
 import { contentHash } from './questionReview'
 import ledger from './editorialLedger.json'
 import { authorized, canonicalPerson, isAuthor, registryProblems, REVIEWERS, samePerson, STAGE_ROLE, type Reviewer, type ReviewerRegistry } from './reviewerRegistry'
+import { IDENTITIES, resolveAuthors, type AuthorIdentity, type IdentityRegistry } from './authorIdentity'
 
 export { canonicalPerson }
 
@@ -57,6 +58,11 @@ export interface LedgerEntry {
   author: string
   /** Every author ever recorded for the item, append-only. Each stays excluded from stages 4, 6 and 8. */
   authors?: string[]
+  /**
+   * The identity behind each recorded author name (import contract v2 / stage 2 with an identity). A human name with
+   * no record here is unresolved: the item is never human-approved while any author is unresolved.
+   */
+  author_records?: { name: string; identity: AuthorIdentity }[]
   signoffs: SignOff[]
 }
 
@@ -99,6 +105,32 @@ export interface EditorialOptions {
   sameClaims?: string[]
   /** Today (YYYY-MM-DD). A pass dated after tomorrow doesn't count. Default: the current date. */
   today?: string
+  /**
+   * Imported items: their authors' resolution, worked out from the import (every version). When given, it replaces the
+   * ledger-based resolution used for the app's bank.
+   */
+  authorship?: { resolved: boolean; unresolved: string[]; reviewerIds: string[]; names: string[] }
+  identities?: IdentityRegistry
+}
+
+/**
+ * The app bank's authors, resolved from the ledger. Stage 2 records an author under its identity key ("au-…" or
+ * "ai:<model>") in `authors`, with a matching entry in `author_records`. Only those keys resolve, and only when the
+ * record agrees with its key. "AI (Claude)" (the bank's recorded AI drafting) is explicit AI authorship. Any other name
+ * is a legacy name: it stays unresolved, whatever identity happens to share its display name.
+ */
+export function ledgerAuthorship(entry: LedgerEntry | undefined, identities: IdentityRegistry = IDENTITIES, reviewers: ReviewerRegistry = REVIEWERS) {
+  const records = entry?.author_records ?? []
+  const keyOf = (i: AuthorIdentity | null | undefined) => (i?.kind === 'ai' ? `ai:${i.model}` : i?.kind === 'person' ? i.identity_id : null)
+  const identityFor = (name: string): AuthorIdentity | null => {
+    if (/^(au-|ai:)/.test(name)) return records.find((r) => r.name === name && keyOf(r.identity) === name)?.identity ?? null
+    return name === AI_AUTHOR ? { kind: 'ai', model: 'claude' } : null
+  }
+  return resolveAuthors(
+    ledgerAuthors(entry).map((name) => ({ name, identity: identityFor(name) })),
+    identities,
+    reviewers,
+  )
 }
 
 /** Every author name recorded for an item in the ledger: the current one and every earlier one. */
@@ -107,7 +139,9 @@ export const ledgerAuthors = (entry: LedgerEntry | undefined) => [...new Set([..
 export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGER, opts: EditorialOptions = {}): EditorialState {
   const reviewers = opts.reviewers ?? REVIEWERS
   const entry = rec.items[q.id]
-  const authors = [...new Set([...(opts.authors ?? []), ...ledgerAuthors(entry)])]
+  const authorship = opts.authorship ?? ledgerAuthorship(entry, opts.identities ?? IDENTITIES, reviewers)
+  const authors = [...new Set([...(opts.authors ?? []), ...ledgerAuthors(entry), ...authorship.names])]
+  const authorIds = new Set(authorship.reviewerIds)
   const hash = contentHash(q)
   const all = entry?.signoffs ?? []
   const problems: string[] = []
@@ -130,7 +164,8 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
     if (s.result === 'pass' && s.stage !== 2 && registryOk && !signer(s))
       problems.push(`stage ${s.stage}: ${s.reviewer_id ? `reviewer ${s.reviewer_id}` : `"${s.by}" (no reviewer id)`} is not an active reviewer authorized for ${STAGE_ROLE[s.stage as Exclude<Stage, 2>]}; it doesn't count`)
   const passes = (st: Stage) => current.filter((s) => s.stage === st && s.result === 'pass' && isIsoDate(s.date) && s.date <= tomorrow && signer(s))
-  const notAuthor = (s: SignOff) => !isAuthor(signer(s)!, authors)
+  // An author is excluded by id (an identity linked to their reviewer id) and, fail-closed, by any recorded name.
+  const notAuthor = (s: SignOff) => !authorIds.has(signer(s)!.id) && !isAuthor(signer(s)!, authors)
 
   const checks: Record<Exclude<Stage, 2>, () => string | null> = {
     3: () => {
@@ -164,6 +199,11 @@ export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGE
       return { passed, next: st, humanApproved: false, problems }
     }
     passed = st
+  }
+  // Every stage passed, but approval also needs every author resolved (an AI model or a recorded identity).
+  if (!authorship.resolved) {
+    problems.push(...authorship.unresolved, 'not approved until every author has a recorded identity (next: 2 means authorship)')
+    return { passed, next: 2, humanApproved: false, problems }
   }
   return { passed, next: null, humanApproved: true, problems }
 }

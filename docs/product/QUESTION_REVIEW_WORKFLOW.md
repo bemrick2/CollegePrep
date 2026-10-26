@@ -50,12 +50,13 @@ Reviewers are entries in the **reviewer registry**, `web/src/lib/data/demo/revie
 - **Names are display only.** A sign-off's `by` and a reviewer's `display_name` are shown, never used to decide who
   someone is. Nobody is refused, or let through, for what their name looks like: a reviewer named "Claude Debussy" is
   entered like anyone else. Recorded `aliases` list the other names a person has used.
-- **Authors can't review their own items.** Authors are names in the import (`author`) or the ledger, so a reviewer
-  whose display name or any alias matches an author name, ignoring case, accents, spacing, punctuation and word order,
-  counts as that author. This can only block a sign-off. Every author ever recorded stays excluded (authorship is
-  append-only). **Limitation:** this rests on names. An author recorded as "Jordan Smith" who is registered as "Jordy
-  Smith" with no alias is not caught; the content lead records each author's names as aliases of their registry entry.
-  Tying authors to reviewer ids would need a new import contract version (an owner decision).
+- **Authors can't review their own items.** Since import contract v2, every author is an identity: an explicit AI model,
+  or a person recorded in `identities.json` (empty until the owner or a content lead records someone). When the author
+  is also a reviewer, the identity links their reviewer id, and they are excluded from stages 4, 6 and 8 **by id**,
+  whatever name either is recorded under. Names are still compared too (ignoring case, accents, spacing, punctuation
+  and word order), which can only block. Every author ever recorded stays excluded (authorship is append-only).
+  **A human author known only by a name** (a v1 line, or a name in the ledger without an identity) is unresolved, and the
+  item is never approved or eligible; nothing treats a legacy name as a verified identity.
 - **The sheet is not a signature.** `reviewer_id` is whatever the sheet says; whoever fills it in can type any id. The
   content lead checks each sheet against the people who signed it. The registry only decides what a given id may sign.
 - **Dates** are a record; no rule depends on their order. A pass counts only with a real YYYY-MM-DD date no later than
@@ -107,8 +108,10 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
    named on the row, since it can only block. There is no recorded way yet to withdraw a mistaken fail (for example,
    one entered on the wrong item); until there is, the content lead revises the item or makes a reviewed ledger edit. A newer row from the same reviewer replaces only their earlier **pass**
    for that stage and content; a recorded fail is never removed or replaced: it stands until the item is revised.
-   For the app's bank, a stage-2 row adds an author (name in `note`). It needs an active content lead who isn't an
-   author, and the current hash; authors are only ever added.
+   For the app's bank, a stage-2 row adds an author by identity, in `author_identity`: a recorded `au-…` id, or
+   `ai:<model>`. A bare name is refused, and the author is recorded under that key, never a display name. It needs an
+   active content lead who isn't an author (by id or by any name) and isn't the identity being recorded, and the
+   current hash; authors are only ever added.
 6. **Fix and re-issue.** Any edit changes the hash and voids every earlier sign-off, so the item goes back to stage 3.
    This includes a key change: an earlier key, solve or approval never carries over to revised content.
    - A revision may not return to an earlier version's content; it is refused, so an old review can't revive.
@@ -127,7 +130,8 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
 
 ## Imported batches
 
-`npx vite-node scripts/intakeQuestionBatch.ts <batch.jsonl> --registry <candidates.json> [--write]` (from `web/`).
+`npx vite-node scripts/intakeQuestionBatch.ts <batch.jsonl> --registry <candidates.json> [--identities <identities.json>] [--write]` (from `web/`).
+- **Identities first.** An identity registry with any problem stops the batch.
 - **Validation first.** The import validator runs before anything is recorded, and any problem stops the whole batch.
 - **What gets recorded:**
   - a new item is a draft on its requested track, unconfirmed;
