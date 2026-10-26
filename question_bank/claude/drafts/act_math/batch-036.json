@@ -1,0 +1,464 @@
+{
+ "bank": "act_math",
+ "batch": 36,
+ "plan": "Ten new items with subskills checked against the bank. 3 hard (second draw without replacement, 13-14-15 triangle, fast clock) / 3 medium / 4 easy.",
+ "candidates": [
+  {
+   "cand": "B036-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Perpendicular slope from standard form",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "In the standard (x,y) coordinate plane, what is the slope of a line perpendicular to the line 3x - 4y = 12 ?",
+   "choices": {
+    "A": "-4/3",
+    "B": "-3/4",
+    "C": "3/4",
+    "D": "4/3"
+   },
+   "answer": "A",
+   "explanation": "Solving for y gives y = (3/4)x - 3, so the given slope is 3/4. A perpendicular slope is the negative reciprocal, -4/3.",
+   "distractors": {
+    "B": {
+     "rationale": "-3/4 negates the slope but does not take the reciprocal.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "3/4 is the slope of the given line itself.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "4/3 takes the reciprocal but keeps the sign.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Rewrite the equation as y = mx + b first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve for y, then take the negative reciprocal."
+   },
+   "remember": "Perpendicular slopes are negative reciprocals.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Exponential pattern from a table",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The table below shows values of an exponential function f.\nx | 0 | 1 | 2\nf(x) | 5 | 15 | 45\nWhat is the value of f(4) ?",
+   "choices": {
+    "A": "105",
+    "B": "135",
+    "C": "225",
+    "D": "405"
+   },
+   "answer": "D",
+   "explanation": "Each step multiplies by 3, so f(x) = 5 · 3ˣ and f(4) = 5 · 81 = 405.",
+   "distractors": {
+    "A": {
+     "rationale": "105 adds 30 per step after x = 2, treating the function as linear.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "135 is f(3).",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "225 multiplies f(2) by 5, the starting value, instead of by the growth factor.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What do you multiply by to go from one output to the next?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Extend the pattern: 45, 135, 405."
+   },
+   "remember": "Exponential: equal steps in x multiply y by the same factor.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Equilateral triangle inscribed in a circle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "An equilateral triangle is inscribed in a circle with radius 6 centimeters. What is the length of one side of the triangle, in centimeters?",
+   "choices": {
+    "A": "3√3",
+    "B": "6",
+    "C": "6√2",
+    "D": "6√3"
+   },
+   "answer": "D",
+   "explanation": "The center of the circle is the triangle's centroid, which lies 2/3 of the way along each median, so the median (height) is 9. For an equilateral triangle, height = (√3/2) × side, so side = 9 × 2/√3 = 6√3. (Equivalently, side = r√3.)",
+   "distractors": {
+    "A": {
+     "rationale": "3√3 is half the side length.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "6 assumes the side equals the radius, which is true for a regular hexagon, not a triangle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "6√2 is the side of a square inscribed in the same circle.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where is the circle's center relative to the triangle's height?",
+    "The centroid is 2/3 of the way down each median."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the radius to a vertex and the height."
+   },
+   "remember": "Equilateral triangle in a circle: side = radius × √3.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Percents less than 1 percent",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "What is 0.5% of 240 ?",
+   "choices": {
+    "A": "1.2",
+    "B": "12",
+    "C": "120",
+    "D": "1,200"
+   },
+   "answer": "A",
+   "explanation": "0.5% = 0.005, and 0.005 × 240 = 1.2.",
+   "distractors": {
+    "B": {
+     "rationale": "12 is 5% of 240.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "120 is 50% of 240, treating 0.5% as 0.5.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1,200 multiplies 240 by 5 without converting the percent.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write 0.5% as a decimal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Move the decimal point two places left: 0.005."
+   },
+   "remember": "Percent to decimal: divide by 100, even when the percent is less than 1.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of the second draw without replacement",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "A bag contains 5 red marbles and 3 blue marbles. Two marbles are drawn at random, one after the other, without replacement. What is the probability that the second marble drawn is red?",
+   "choices": {
+    "A": "5/14",
+    "B": "4/7",
+    "C": "5/8",
+    "D": "5/7"
+   },
+   "answer": "C",
+   "explanation": "Consider both cases for the first draw: (5/8)(4/7) + (3/8)(5/7) = 20/56 + 15/56 = 35/56 = 5/8. By symmetry, the second marble is as likely to be red as the first.",
+   "distractors": {
+    "A": {
+     "rationale": "5/14 = (5/8)(4/7) is the probability that both marbles are red.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "4/7 assumes the first marble was red.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "5/7 assumes the first marble was blue.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "The first marble could be red or blue. Consider both cases.",
+    "Does not knowing the first draw change the odds for the second?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw a two-stage tree diagram."
+   },
+   "remember": "Without information about earlier draws, each draw has the original probability.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The unknown first draw makes most solvers condition on one case (4/7 or 5/7); the correct total-probability or symmetry argument is non-obvious."
+   }
+  },
+  {
+   "cand": "B036-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Measurements in mixed units",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A board is 12 feet long. A carpenter needs pieces that are each 1 foot 8 inches long. What is the greatest number of such pieces that can be cut from the board? (Ignore the width of the saw cuts.)",
+   "choices": {
+    "A": "6",
+    "B": "7",
+    "C": "8",
+    "D": "20"
+   },
+   "answer": "B",
+   "explanation": "12 feet = 144 inches and 1 foot 8 inches = 20 inches. 144 ÷ 20 = 7.2, so 7 full pieces can be cut.",
+   "distractors": {
+    "A": {
+     "rationale": "6 treats 1 foot 8 inches as 1.8 feet: 12 ÷ 1.8 ≈ 6.7.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 rounds 7.2 up, but the eighth piece would be too short.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "20 is the length of one piece in inches.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Convert both lengths to inches."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "144 ÷ 20."
+   },
+   "remember": "Convert mixed units to a single unit before dividing.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Evaluating an inverse function at a value",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = x³ + 2x + 1, and f has an inverse function f⁻¹. What is the value of f⁻¹(13) ?",
+   "choices": {
+    "A": "1/2199",
+    "B": "1/13",
+    "C": "2",
+    "D": "2199"
+   },
+   "answer": "C",
+   "explanation": "f⁻¹(13) is the input x for which f(x) = 13. Since f(2) = 8 + 4 + 1 = 13, f⁻¹(13) = 2.",
+   "distractors": {
+    "A": {
+     "rationale": "1/2199 is 1/f(13), treating the inverse as a reciprocal of the output.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1/13 treats f⁻¹ as \"1 over\" the input.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2199 is f(13), which evaluates f instead of its inverse.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "f⁻¹(13) asks: which input gives an output of 13?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test the choices in f."
+   },
+   "remember": "f⁻¹(b) = a exactly when f(a) = b.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a triangle from its three sides",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A triangle has sides of lengths 13, 14, and 15 units. What is the area of the triangle, in square units?",
+   "choices": {
+    "A": "42",
+    "B": "78",
+    "C": "84",
+    "D": "91"
+   },
+   "answer": "C",
+   "explanation": "Drop the altitude to the side of length 14, splitting it into x and 14 - x. Then 13² - x² = 15² - (14 - x)², so x = 5 and the altitude is √(169 - 25) = 12. Area = (1/2)(14)(12) = 84.",
+   "distractors": {
+    "A": {
+     "rationale": "42 uses half of 14 as the base, (1/2)(7)(12).",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "78 = (1/2)(13)(12) puts the altitude of 12 on the wrong side.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "91 = (1/2)(13)(14) treats two sides as perpendicular.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "No right angle is given. How can you find a height?",
+    "Let the altitude split the base of 14 into x and 14 - x."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the altitude to the side of length 14."
+   },
+   "remember": "No height given? Split the base with an altitude and use the Pythagorean theorem twice.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "No height is given; the solver must set up two Pythagorean equations (or know Heron's formula), and 91 tempts those who assume a right angle."
+   }
+  },
+  {
+   "cand": "B036-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Volume of a triangular prism",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A right prism has bases that are right triangles with legs of 3 inches and 4 inches. The prism is 10 inches long. What is the volume of the prism, in cubic inches?",
+   "choices": {
+    "A": "60",
+    "B": "100",
+    "C": "120",
+    "D": "132"
+   },
+   "answer": "A",
+   "explanation": "The base area is (1/2)(3)(4) = 6 square inches, so the volume is 6 × 10 = 60 cubic inches.",
+   "distractors": {
+    "B": {
+     "rationale": "100 uses the hypotenuse, 5, in place of a leg: (1/2)(5)(4)(10).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "120 forgets the 1/2 in the triangle's area.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "132 is the prism's total surface area, not its volume.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What is the area of one triangular base?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Base area × length."
+   },
+   "remember": "Prism volume = base area × length.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B036-10",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Rates with a fast clock",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "A clock runs fast: for every 60 minutes of actual time, the clock advances 66 minutes. The clock is set to the correct time at 12:00 noon. What is the actual time when the clock first shows 11:00 p.m. that day?",
+   "choices": {
+    "A": "9:54 p.m.",
+    "B": "10:00 p.m.",
+    "C": "10:06 p.m.",
+    "D": "12:06 a.m."
+   },
+   "answer": "B",
+   "explanation": "From noon the clock must advance 11 hours = 660 minutes. At 66 clock minutes per actual hour, that takes 660/66 = 10 actual hours, so the actual time is 10:00 p.m.",
+   "distractors": {
+    "A": {
+     "rationale": "9:54 p.m. subtracts 66 minutes from 11:00 p.m., treating the gain as 6 minutes for each clock hour plus a stray hour.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10:06 p.m. subtracts only the 6-minute gain from one hour instead of rescaling the whole interval.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "12:06 a.m. adds the clock's gain instead of removing it.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "How many clock minutes pass for each actual hour?",
+    "How many clock minutes must pass between noon and 11:00 p.m.?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Actual hours = clock minutes ÷ 66."
+   },
+   "remember": "Convert with the rate: actual time = clock time ÷ (clock rate per actual hour).",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires treating the clock's reading as a rate and rescaling the whole interval; most solvers subtract a fixed gain."
+   }
+  }
+ ]
+}

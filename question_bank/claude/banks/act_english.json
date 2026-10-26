@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 11,
-  "updated_at": "2026-10-26T20:45:10+00:00",
+  "version": 12,
+  "updated_at": "2026-10-26T21:03:52+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -124,6 +124,17 @@
       "word_count": 221,
       "text": "Every Friday after sunset, the parking lot behind the Ashford library becomes a market. By {{1|eight o'clock in the evening at night}}, more than forty vendors have set up folding tables, and the smell of grilled corn drifts across the street. The market began in 2016 with six stalls, {{2|most of them}} sold vegetables from nearby farms.\n\n{{3|Not only did the market grow quickly, but it also changed}} the neighborhood around it. Storefronts on Elm Street, which had stood empty for years, {{4|now houses}} a bakery, a bike shop, and a tailor. Some longtime residents complain that the crowds make parking {{5|harder then}} it used to be. {{6|Others argue that the market has raised rents, pushing out some of the very families it was meant to serve.}}\n\nThe market's founder, a retired teacher named Rosa Ibarra, takes these concerns seriously. Last year she persuaded the city to reserve a third of the stalls for vendors who live within a mile of the market {{7|and waiving their fees}}. {{8|Walking through the market on a Friday night, the mix of languages is striking.}} Vendors call out prices in Spanish, Vietnamese, and Amharic, and {{9|whoever}} buys a mango from the stall near the entrance is likely to be handed a free sample of something else. {{10|Ibarra still works the information table herself most Fridays.}}",
       "batch": 11,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000012",
+      "title": "The Seed Library",
+      "genre": "informational essay",
+      "word_count": 302,
+      "text": "When the Hollins Branch Library began lending seeds in 2019, {{1|it's}} staff expected only a few gardeners to take an interest. Instead, the first {{2|three hundred packets—tomatoes, beans, and squash, were}} gone within a week. Borrowers take seeds in the spring, grow the plants over the summer, and return a portion of the new seeds in the fall, so the collection renews itself. The program costs almost nothing to run: donated envelopes, a card catalog rescued from the basement, and a few hours of volunteer time each week.\n\nThe idea is not new. Farmers have saved and traded seeds for thousands of years, and the program's founder, {{3|librarian, Dana Whitfield,}} learned the practice from her grandmother. {{4|Her grandmother also kept bees and sold the honey at a roadside stand.}} What has changed is the scale. Today the collection holds more than two hundred varieties, many of them adapted over generations to the region's short summers and heavy clay soil. Tomatoes grown from the library's seeds often ripen two weeks earlier than {{5|commercial packets}}.\n\nIn theory, every borrower returns seeds each fall. {{6|In practice,}} about a third never do, and others return seeds from squash that cross-pollinated with a neighbor's plants, producing gourds no one can eat. The staff responded with a simple {{7|rule, seeds}} from squash must now come back labeled with the address of the garden where they grew. If every borrower {{8|will return}} seeds, Whitfield says, the collection would double each year.\n\nEven so, the variety of beans that borrowers have brought back over the years {{9|have}} surprised her. Some of those beans, a speckled variety from a farm that closed decades ago, exist nowhere else. Whitfield keeps a jar of them on her desk, and she lends them only to gardeners who promise to bring twice as many back.",
+      "batch": 12,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -8425,6 +8436,782 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-011.review.json",
         "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000118",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Its versus it's (possessive)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 1,
+      "evidence": "began lending seeds in 2019",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "its",
+        "C": "their",
+        "D": "its'"
+      },
+      "correct_answer": "B",
+      "explanation": "The staff belongs to the library, so the possessive \"its\" is needed.",
+      "distractor_explanations": {
+        "A": "\"It's\" means \"it is,\" which makes no sense before \"staff.\"",
+        "C": "\"Their\" is plural, but the antecedent, \"the Hollins Branch Library,\" is singular.",
+        "D": "\"Its'\" is not a word."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can you replace the word with \"it is\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test \"it is staff.\""
+      },
+      "remember": "Its = possessive; it's = it is.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-01",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000119",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Paired dashes around an interrupting list",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 2,
+      "evidence": "gone within a week",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "three hundred packets, tomatoes, beans, and squash were",
+        "C": "three hundred packets—tomatoes, beans, and squash were",
+        "D": "three hundred packets—tomatoes, beans, and squash—were"
+      },
+      "correct_answer": "D",
+      "explanation": "The list \"tomatoes, beans, and squash\" interrupts \"the first three hundred packets ... were gone.\" Because the list contains commas, it is set off with a matching pair of dashes.",
+      "distractor_explanations": {
+        "A": "An interruption opened with a dash must be closed with a dash, not a comma.",
+        "B": "With commas only, the list reads as a series of four separate subjects, which is not what is meant.",
+        "C": "The dash that opens the interruption is never closed, so \"squash were\" runs into the main clause."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where does the interrupting list begin and end?",
+        "Do the marks on each side match?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the sentence without the list."
+      },
+      "remember": "Interruptions need matching punctuation on both sides.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-02",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 52,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000120",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Restrictive appositive with a title",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 3,
+      "evidence": "the program's founder,",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "librarian Dana Whitfield,",
+        "C": "librarian Dana Whitfield",
+        "D": "librarian—Dana Whitfield,"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Librarian Dana Whitfield\" is one phrase renaming \"the program's founder.\" It is set off as a whole by a comma on each side, with no comma inside it.",
+      "distractor_explanations": {
+        "A": "A comma between the title \"librarian\" and the name splits a single descriptive phrase.",
+        "C": "The phrase begins with a comma after \"founder,\" so it must also end with one before the verb.",
+        "D": "A dash cannot separate the title from the name it describes."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"librarian\" a separate item or part of the name phrase?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the commas around the whole phrase."
+      },
+      "remember": "No comma between a title and the name it precedes.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-03",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000121",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deciding whether to keep a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 4,
+      "evidence": "learned the practice from her grandmother",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it shows that Whitfield's grandmother was a skilled and self-reliant farmer.",
+        "B": "Kept, because it explains how Whitfield first learned to save and trade seeds.",
+        "C": "Deleted, because it describes an activity of the grandmother's that has no bearing on the seed library.",
+        "D": "Deleted, because it contradicts the claim that farmers have saved seeds for centuries."
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph is about seed saving and the library's collection. Beekeeping and honey sales are off topic.",
+      "distractor_explanations": {
+        "A": "This may be true, but it is not relevant to the essay's subject, the seed library.",
+        "B": "The sentence is about beekeeping and honey, not seed saving.",
+        "D": "Beekeeping does not contradict anything about seed saving."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the sentence say anything about seeds?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what the paragraph is about."
+      },
+      "remember": "Delete details that drift from the paragraph's focus.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-04",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000122",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Faulty comparison",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 5,
+      "evidence": "Tomatoes grown from the library's seeds often ripen two weeks earlier than",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "commercial packets do",
+        "C": "that of the commercial seed packets",
+        "D": "tomatoes from commercial packets"
+      },
+      "correct_answer": "D",
+      "explanation": "The sentence compares tomatoes grown from the library's seeds with tomatoes grown from commercial seeds, so the second term must also be tomatoes.",
+      "distractor_explanations": {
+        "A": "This compares tomatoes with packets instead of with other tomatoes.",
+        "B": "This still compares tomatoes with packets, as if packets ripen.",
+        "C": "\"That\" is singular and has nothing logical to refer to; tomatoes are plural."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is being compared with what?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check that like is compared with like."
+      },
+      "remember": "Compare like with like: tomatoes with tomatoes.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-05",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 48,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000123",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (contrast of theory and practice)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 6,
+      "evidence": "In theory, every borrower returns seeds each fall",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Similarly,",
+        "C": "As a result,",
+        "D": "For instance,"
+      },
+      "correct_answer": "A",
+      "explanation": "\"In theory\" sets up a contrast with what actually happens: \"In practice.\"",
+      "distractor_explanations": {
+        "B": "The second sentence contrasts with the first; it does not describe something similar.",
+        "C": "Expecting borrowers to return seeds does not cause a third of them not to.",
+        "D": "Borrowers who never return seeds are not an example of every borrower returning them."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "What does \"In theory\" usually pair with?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship: expectation versus reality."
+      },
+      "remember": "\"In theory\" ... \"in practice\" signals a contrast.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-06",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000124",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon introducing an explanation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 7,
+      "evidence": "must now come back labeled",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "rule: seeds",
+        "C": "rule seeds",
+        "D": "rule; and seeds"
+      },
+      "correct_answer": "B",
+      "explanation": "The second clause states the rule announced by \"a simple rule,\" so a colon correctly introduces it.",
+      "distractor_explanations": {
+        "A": "A comma alone cannot join two independent clauses; this is a comma splice.",
+        "C": "With no punctuation, the two clauses run together.",
+        "D": "A semicolon followed by \"and\" is not standard; the second clause also explains the rule rather than adding to it."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the second part a complete sentence?",
+        "Does it explain what came before it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate splices and run-ons first."
+      },
+      "remember": "A colon introduces an explanation after a complete clause.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-07",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000125",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense in a hypothetical conditional",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 8,
+      "evidence": "the collection would double each year",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "returns",
+        "C": "would return",
+        "D": "returned"
+      },
+      "correct_answer": "D",
+      "explanation": "A hypothetical condition paired with \"would\" uses the past form in the \"if\" clause: \"If every borrower returned seeds, ... the collection would double.\"",
+      "distractor_explanations": {
+        "A": "\"Will return\" does not fit a hypothetical paired with \"would double.\"",
+        "B": "The present tense describes a real condition and does not match \"would.\"",
+        "C": "\"Would\" belongs in the result clause, not the \"if\" clause."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is the \"if\" clause describing something real or imagined?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the \"if\" clause to \"would.\""
+      },
+      "remember": "If + past, ... would + verb.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-08",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000126",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement with a long subject",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000012",
+      "underline": 9,
+      "evidence": "Even so, the variety of beans that borrowers have brought back over the years",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were",
+        "C": "has",
+        "D": "having"
+      },
+      "correct_answer": "C",
+      "explanation": "Strip away \"of beans that borrowers have brought back over the years\": \"the variety ... has surprised her.\"",
+      "distractor_explanations": {
+        "A": "The subject is \"variety,\" which is singular; \"beans,\" \"borrowers\" and \"years\" are not the subject.",
+        "B": "\"Were\" is plural and does not agree with \"variety.\"",
+        "D": "\"Having\" leaves the sentence without a main verb."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": null
+      },
+      "hints": [
+        "What is the simple subject of the sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove the phrases between subject and verb."
+      },
+      "remember": "Find the subject before the prepositional phrase.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-09",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: 'Even so' at the start of the final paragraph has a weak logical link to the preceding 'collection would double' sentence; not tested here but reads oddly"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000127",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deciding whether to keep a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 6,
+      "evidence": "takes these concerns seriously",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it proves that the market has caused rents in the neighborhood to rise sharply.",
+        "B": "Kept, because it adds a more serious criticism that complicates the essay's picture of the market's success.",
+        "C": "Deleted, because it contradicts the essay's earlier claim that the market changed the neighborhood.",
+        "D": "Deleted, because it repeats the complaint about parking made in the previous sentence."
+      },
+      "correct_answer": "B",
+      "explanation": "The next paragraph says Ibarra \"takes these concerns seriously\" and responds by reserving stalls for local vendors, a response to the rent concern. The sentence sets that up and deepens the essay.",
+      "distractor_explanations": {
+        "A": "The sentence reports what some people argue; it does not prove anything.",
+        "C": "Rising rents are one way the market changed the neighborhood; there is no contradiction.",
+        "D": "Rents and parking are different concerns."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What concern does Ibarra's response in the next paragraph address?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Check whether later text depends on the sentence."
+      },
+      "remember": "Keep sentences that later text responds to.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-10",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000128",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion tied to the essay's opening purpose",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 10,
+      "evidence": "the very families it was meant to serve",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by returning to the idea that the market was meant to serve the people of its neighborhood?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Ibarra plans to add twenty more stalls to the market by the end of next year.",
+        "C": "The library has since extended its own Friday hours so that it now stays open until nine o'clock.",
+        "D": "Ibarra says she still hopes it will remain a place where neighbors meet after a week of work."
+      },
+      "correct_answer": "D",
+      "explanation": "The essay says the market was \"meant to serve\" neighborhood families. D ends on Ibarra's hope that it remains a place where neighbors meet, returning to that purpose. The other choices offer related details that do not mention the people it serves.",
+      "distractor_explanations": {
+        "A": "Where Ibarra works on Fridays does not connect the market to why it was founded.",
+        "B": "Growth plans do not refer to the market's original purpose.",
+        "C": "This is another neighborhood change, not the reason for founding the market."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "partial_answer",
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "Which choice mentions the neighborhood's people?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the goal."
+      },
+      "remember": "Match the conclusion to the stated goal, not just the topic.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 12,
+      "draft_candidate": "E012-11",
+      "created_at": "2026-10-26T21:03:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [
+          "minor: 'it' in D has a slightly remote antecedent (the market) after the preceding sentence about vendors and a mango stall"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-012.review.json",
+        "computation": "checks/act_english/batch_012.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
