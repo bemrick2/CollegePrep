@@ -1,6 +1,6 @@
 {
   "bank": "act_english",
-  "bank_version": 10,
+  "bank_version": 11,
   "answers": [
     {
       "id": "CLD-ACT-E-000001",
@@ -1904,6 +1904,143 @@
       "strategy": {
         "key": "predict_then_match",
         "explanation": "Decide yes or no, then check the reason."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000110",
+      "correct_answer": "D",
+      "explanation": "The first sentence already says \"after sunset,\" so \"eight o'clock\" is clear without extra words.",
+      "distractor_explanations": {
+        "A": "\"In the evening\" and \"at night\" repeat each other; \"after sunset\" already sets the time of day.",
+        "B": "Adding a comma does not remove the repetition.",
+        "C": "This repeats the idea twice."
+      },
+      "hints": [
+        "Does the reader already know it is evening?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000111",
+      "correct_answer": "B",
+      "explanation": "\"Most of which sold ...\" turns the second part into a dependent clause describing the stalls, avoiding a splice; \"which\" fits things.",
+      "distractor_explanations": {
+        "A": "\"Most of them sold ...\" is an independent clause joined with only a comma: a comma splice.",
+        "C": "\"Whom\" refers to people, but the stalls are things.",
+        "D": "This is not idiomatic and still creates a comma splice."
+      },
+      "hints": [
+        "Is \"most of them sold vegetables\" a complete sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate splices, then check which/whom."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000112",
+      "correct_answer": "A",
+      "explanation": "With \"Not only\" at the start, the inverted \"did the market grow\" is required, and \"but it also changed\" completes the pair correctly.",
+      "distractor_explanations": {
+        "B": "After an opening \"Not only,\" the verb must come before the subject (\"did the market grow\").",
+        "C": "The parts after \"not only\" and \"but also\" are not parallel.",
+        "D": "\"Changing\" leaves the second clause without a finite verb, and \"but\" is missing."
+      },
+      "hints": [
+        "What word order follows an opening \"Not only\"?",
+        "Are the two halves parallel?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each half of the pair."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000113",
+      "correct_answer": "C",
+      "explanation": "Skipping the interrupting clause, the subject \"Storefronts\" is plural: \"now house.\"",
+      "distractor_explanations": {
+        "A": "\"Houses\" is singular, but the subject \"Storefronts\" is plural.",
+        "B": "\"Housing\" leaves the sentence without a main verb.",
+        "D": "\"Has\" is singular."
+      },
+      "hints": [
+        "What is the subject once you skip the clause between the commas?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Remove the interrupting clause and re-read."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000114",
+      "correct_answer": "B",
+      "explanation": "The sentence compares parking now with before, so it needs \"than.\"",
+      "distractor_explanations": {
+        "A": "\"Then\" refers to time; a comparison needs \"than.\"",
+        "C": "\"More harder\" is a double comparative.",
+        "D": "\"Hardest\" is a superlative and cannot be used with \"than.\""
+      },
+      "hints": [
+        "Is the sentence about time or comparison?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Comparisons use \"than.\""
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000115",
+      "correct_answer": "C",
+      "explanation": "She persuaded the city \"to reserve ... and to waive ...\": two parallel infinitives.",
+      "distractor_explanations": {
+        "A": "\"Waiving\" breaks the parallel with \"to reserve.\"",
+        "B": "This is not parallel with \"to reserve.\"",
+        "D": "\"Waives\" is a present-tense verb, not parallel with \"to reserve.\""
+      },
+      "hints": [
+        "What form is the first thing the city was persuaded to do?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the second item to the first."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000116",
+      "correct_answer": "C",
+      "explanation": "The person walking must be the subject right after the opening phrase: \"a visitor is struck.\"",
+      "distractor_explanations": {
+        "A": "The opening phrase says the mix of languages is walking through the market.",
+        "B": "The subject after the comma is still \"the mix of languages.\"",
+        "D": "\"It\" cannot be the one walking, and the sentence is awkward."
+      },
+      "hints": [
+        "Who is walking through the market?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask who performs the action in the opening phrase."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000117",
+      "correct_answer": "A",
+      "explanation": "\"Whoever buys a mango\" is a clause in which \"whoever\" is the subject of \"buys.\"",
+      "distractor_explanations": {
+        "B": "The pronoun is the subject of \"buys,\" so the subject form is needed.",
+        "C": "\"Whom\" is an object form and cannot be the subject of \"buys.\"",
+        "D": "\"Who's\" means \"who is.\""
+      },
+      "hints": [
+        "What verb follows the pronoun?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide the pronoun's role in its own clause."
       }
     }
   ]

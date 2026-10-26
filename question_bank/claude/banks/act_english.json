@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 10,
-  "updated_at": "2026-10-26T20:34:07+00:00",
+  "version": 11,
+  "updated_at": "2026-10-26T20:45:10+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -113,6 +113,17 @@
       "word_count": 226,
       "text": "On a stretch of shingle beach near the English coast stand three strange concrete structures: a curved wall more than sixty meters long and two giant dishes {{1|facing, the sea}}. Built in the 1920s and 1930s, they {{2|was}} part of an experiment in hearing. Before radar existed, military planners hoped {{3|that sound could warn them of approaching aircraft}} before the planes came into view.\n\nThe idea was simple. A curved concrete surface gathers sound waves and concentrates them at a single point, {{4|where, a listener}} with a microphone could detect the drone of an engine miles away. In tests, the largest mirror could pick up aircraft roughly twenty miles off when conditions were ideal.\n\n{{5|However,}} conditions were rarely ideal. Wind, waves, and the noise of nearby boats {{6|was drowning out}} faint engines, and as aircraft grew faster, the warning the mirrors provided shrank to just a few minutes. {{7|By the late 1930s, radar, which could detect planes far more reliably and at much greater distances, had made the mirrors obsolete.}}\n\nToday the mirrors are protected {{8|landmarks, visitors}} can tour them on guided walks a few times a year. Standing in front of the largest one, a visitor who speaks quietly can be heard clearly by {{9|whomever}} stands at the focal point dozens of meters away. {{10|The site also has a small parking lot near the beach.}}",
       "batch": 10,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000011",
+      "title": "Mapping the Dark",
+      "genre": "informational essay",
+      "word_count": 221,
+      "text": "Every Friday after sunset, the parking lot behind the Ashford library becomes a market. By {{1|eight o'clock in the evening at night}}, more than forty vendors have set up folding tables, and the smell of grilled corn drifts across the street. The market began in 2016 with six stalls, {{2|most of them}} sold vegetables from nearby farms.\n\n{{3|Not only did the market grow quickly, but it also changed}} the neighborhood around it. Storefronts on Elm Street, which had stood empty for years, {{4|now houses}} a bakery, a bike shop, and a tailor. Some longtime residents complain that the crowds make parking {{5|harder then}} it used to be. {{6|Others argue that the market has raised rents, pushing out some of the very families it was meant to serve.}}\n\nThe market's founder, a retired teacher named Rosa Ibarra, takes these concerns seriously. Last year she persuaded the city to reserve a third of the stalls for vendors who live within a mile of the market {{7|and waiving their fees}}. {{8|Walking through the market on a Friday night, the mix of languages is striking.}} Vendors call out prices in Spanish, Vietnamese, and Amharic, and {{9|whoever}} buys a mango from the stall near the entrance is likely to be handed a free sample of something else. {{10|Ibarra still works the information table herself most Fridays.}}",
+      "batch": 11,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -7845,6 +7856,575 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-010.review.json",
         "computation": "checks/act_english/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000110",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 1,
+      "evidence": "Every Friday after sunset",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "eight o'clock in the evening, at night",
+        "C": "eight o'clock at nighttime in the evening",
+        "D": "eight o'clock"
+      },
+      "correct_answer": "D",
+      "explanation": "The first sentence already says \"after sunset,\" so \"eight o'clock\" is clear without extra words.",
+      "distractor_explanations": {
+        "A": "\"In the evening\" and \"at night\" repeat each other; \"after sunset\" already sets the time of day.",
+        "B": "Adding a comma does not remove the repetition.",
+        "C": "This repeats the idea twice."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "Does the reader already know it is evening?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      },
+      "remember": "Cut words the context already supplies.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-01",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: shortest-answer tell; all three distractors are transparently redundant, so the item tests little beyond 'pick the shortest'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000111",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Relative pronoun to avoid a comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 2,
+      "evidence": "The market began in 2016 with six stalls",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "most of which",
+        "C": "most of whom",
+        "D": "the most of them"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Most of which sold ...\" turns the second part into a dependent clause describing the stalls, avoiding a splice; \"which\" fits things.",
+      "distractor_explanations": {
+        "A": "\"Most of them sold ...\" is an independent clause joined with only a comma: a comma splice.",
+        "C": "\"Whom\" refers to people, but the stalls are things.",
+        "D": "This is not idiomatic and still creates a comma splice."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": null,
+        "D": "comma_splice"
+      },
+      "hints": [
+        "Is \"most of them sold vegetables\" a complete sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate splices, then check which/whom."
+      },
+      "remember": "\"Most of which\" turns a clause into a description.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-02",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: 'stalls ... sold vegetables' uses stalls as metonymy for vendors, which slightly invites C ('whom') as a distractor; B is still the cleaner choice since the antecedent is 'stalls'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000112",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Correlative conjunctions (not only ... but also)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 3,
+      "evidence": "the neighborhood around it",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Not only the market grew quickly, but it also changed",
+        "C": "The market not only grew quickly, but also it changed",
+        "D": "Not only did the market grow quickly, it also changing"
+      },
+      "correct_answer": "A",
+      "explanation": "With \"Not only\" at the start, the inverted \"did the market grow\" is required, and \"but it also changed\" completes the pair correctly.",
+      "distractor_explanations": {
+        "B": "After an opening \"Not only,\" the verb must come before the subject (\"did the market grow\").",
+        "C": "The parts after \"not only\" and \"but also\" are not parallel.",
+        "D": "\"Changing\" leaves the second clause without a finite verb, and \"but\" is missing."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What word order follows an opening \"Not only\"?",
+        "Are the two halves parallel?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each half of the pair."
+      },
+      "remember": "An opening \"Not only\" inverts the verb and subject.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-03",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: C ('not only grew quickly, but also it changed') is only mildly flawed (not parallel), so it may draw some careful readers. It is still clearly inferior"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000113",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Agreement across an interrupting clause",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 4,
+      "evidence": "Storefronts on Elm Street, which had stood empty for years,",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "now housing",
+        "C": "now house",
+        "D": "has now housed"
+      },
+      "correct_answer": "C",
+      "explanation": "Skipping the interrupting clause, the subject \"Storefronts\" is plural: \"now house.\"",
+      "distractor_explanations": {
+        "A": "\"Houses\" is singular, but the subject \"Storefronts\" is plural.",
+        "B": "\"Housing\" leaves the sentence without a main verb.",
+        "D": "\"Has\" is singular."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": null,
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the subject once you skip the clause between the commas?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Remove the interrupting clause and re-read."
+      },
+      "remember": "Interrupting clauses do not change the subject's number.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-04",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000114",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Than versus then",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 5,
+      "evidence": "it used to be",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "harder than",
+        "C": "more harder than",
+        "D": "hardest than"
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence compares parking now with before, so it needs \"than.\"",
+      "distractor_explanations": {
+        "A": "\"Then\" refers to time; a comparison needs \"than.\"",
+        "C": "\"More harder\" is a double comparative.",
+        "D": "\"Hardest\" is a superlative and cannot be used with \"than.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the sentence about time or comparison?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Comparisons use \"than.\""
+      },
+      "remember": "Than compares; then tells time.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-05",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: C and D are obviously ungrammatical, so the item is effectively a two-way choice between then and than"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000115",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel infinitives",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 7,
+      "evidence": "she persuaded the city to reserve a third of the stalls",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "and their fees waived",
+        "C": "and to waive their fees",
+        "D": "and waives their fees"
+      },
+      "correct_answer": "C",
+      "explanation": "She persuaded the city \"to reserve ... and to waive ...\": two parallel infinitives.",
+      "distractor_explanations": {
+        "A": "\"Waiving\" breaks the parallel with \"to reserve.\"",
+        "B": "This is not parallel with \"to reserve.\"",
+        "D": "\"Waives\" is a present-tense verb, not parallel with \"to reserve.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What form is the first thing the city was persuaded to do?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the second item to the first."
+      },
+      "remember": "Paired actions take the same form.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-07",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000116",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 8,
+      "evidence": "Vendors call out prices in Spanish, Vietnamese, and Amharic",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Walking through the market on a Friday night, the mix of languages strikes a visitor.",
+        "C": "Walking through the market on a Friday night, a visitor is struck by the mix of languages.",
+        "D": "Walking through the market on a Friday night, it is striking, the mix of languages."
+      },
+      "correct_answer": "C",
+      "explanation": "The person walking must be the subject right after the opening phrase: \"a visitor is struck.\"",
+      "distractor_explanations": {
+        "A": "The opening phrase says the mix of languages is walking through the market.",
+        "B": "The subject after the comma is still \"the mix of languages.\"",
+        "D": "\"It\" cannot be the one walking, and the sentence is awkward."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "Who is walking through the market?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask who performs the action in the opening phrase."
+      },
+      "remember": "An opening -ing phrase must describe the subject that follows.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-08",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000117",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Whoever as a clause subject",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000011",
+      "underline": 9,
+      "evidence": "buys a mango from the stall near the entrance",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "whomever",
+        "C": "whom",
+        "D": "who's"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Whoever buys a mango\" is a clause in which \"whoever\" is the subject of \"buys.\"",
+      "distractor_explanations": {
+        "B": "The pronoun is the subject of \"buys,\" so the subject form is needed.",
+        "C": "\"Whom\" is an object form and cannot be the subject of \"buys.\"",
+        "D": "\"Who's\" means \"who is.\""
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What verb follows the pronoun?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide the pronoun's role in its own clause."
+      },
+      "remember": "Subject of its own verb: whoever.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 11,
+      "draft_candidate": "E011-09",
+      "created_at": "2026-10-26T20:45:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-011.review.json",
+        "computation": "checks/act_english/batch_011.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

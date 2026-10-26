@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:44:01+00:00",
+  "updated_at": "2026-10-26T20:45:12+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 311,
-    "act_english": 109,
+    "act_english": 117,
     "act_reading": 98,
     "sat_reading_writing": 113
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 109,
-      "REVISE": 4,
+      "PASS": 117,
+      "REVISE": 6,
       "REJECT": 0,
-      "candidates": 113,
+      "candidates": 123,
       "passed_after_revision": 3
     },
     "act_reading": {
@@ -400,16 +400,17 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 109,
+      "accepted": 117,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 50,
-        "Knowledge of Language": 15,
+        "Conventions of Standard English": 57,
+        "Knowledge of Language": 16,
         "Production of Writing": 44
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
         "Adjectives versus adverbs": 1,
+        "Agreement across an interrupting clause": 1,
         "Agreement in an inverted sentence (lie/lay)": 1,
         "Agreement with \"most of\" + plural": 1,
         "Agreement with a compound subject": 1,
@@ -431,6 +432,8 @@
         "Conclusion that links to the essay's focus": 1,
         "Conclusion that returns to the opening": 2,
         "Conclusions that echo the opening": 1,
+        "Correlative conjunctions (not only ... but also)": 1,
+        "Dangling modifier": 1,
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 4,
         "Effective conclusions": 1,
@@ -447,6 +450,7 @@
         "Keeping or deleting a sentence": 2,
         "Less versus fewer": 1,
         "Logical comparison": 1,
+        "Parallel infinitives": 1,
         "Parallel structure": 3,
         "Participial phrases and sentence boundaries": 1,
         "Past perfect tense": 1,
@@ -455,8 +459,9 @@
         "Precise, register-appropriate wording": 1,
         "Pronoun case (who/whom)": 1,
         "Punctuating conjunctive adverbs": 1,
-        "Redundancy": 3,
+        "Redundancy": 4,
         "Redundancy (deleting a sentence)": 1,
+        "Relative pronoun to avoid a comma splice": 1,
         "Relevance": 1,
         "Relevance (supporting a point)": 1,
         "Relevance of an added sentence": 2,
@@ -474,6 +479,7 @@
         "Subject-verb agreement with a gerund subject": 1,
         "Subjunctive mood": 1,
         "Supporting a claim with detail": 1,
+        "Than versus then": 1,
         "Their / there / they're": 1,
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
@@ -487,32 +493,33 @@
         "Unnecessary comma in a relative clause": 1,
         "Verb forms and agreement": 1,
         "What a sentence contributes": 1,
+        "Whoever as a clause subject": 1,
         "Whoever versus whomever": 1,
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 36,
-        "hard": 13,
-        "medium": 60
+        "easy": 38,
+        "hard": 16,
+        "medium": 63
       },
       "by_difficulty_calibrated": {
-        "easy": 73,
+        "easy": 75,
         "hard": 1,
-        "medium": 35
+        "medium": 41
       },
       "calibrated_share": {
-        "easy": 0.67,
+        "easy": 0.641,
         "hard": 0.009,
-        "medium": 0.321
+        "medium": 0.35
       },
       "answer_key_balance": {
-        "A": 33,
-        "B": 24,
-        "C": 27,
-        "D": 25
+        "A": 35,
+        "B": 26,
+        "C": 30,
+        "D": 26
       },
       "modeling_items": 0,
-      "passages": 10
+      "passages": 11
     },
     "act_reading": {
       "accepted": 98,
@@ -729,7 +736,7 @@
   },
   "last_completed_batch": {
     "act_math": 32,
-    "act_english": 10,
+    "act_english": 11,
     "act_reading": 11,
     "sat_reading_writing": 12
   },
@@ -765,11 +772,11 @@
   },
   "verbal_guidance": {
     "act_english": {
-      "next_batch": 11,
+      "next_batch": 12,
       "skill_gap_for_next_10": {
-        "Production of Writing": 4.2,
-        "Knowledge of Language": 9.4,
-        "Conventions of Standard English": -1.8
+        "Production of Writing": 7.4,
+        "Knowledge of Language": 10.0,
+        "Conventions of Standard English": -5.6
       }
     },
     "act_reading": {
@@ -798,8 +805,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 109,
-      "share_of_target": 0.156
+      "accepted": 117,
+      "share_of_target": 0.167
     },
     "act_reading": {
       "target": 600,
@@ -813,7 +820,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 631,
+  "total_accepted": 639,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -9629,7 +9636,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 10,
+      "bank_version": 11,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -9714,7 +9721,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:44:01+00:00",
+    "heartbeat_at": "2026-10-26T20:45:12+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
