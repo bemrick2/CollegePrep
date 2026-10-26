@@ -65,6 +65,16 @@ At every 100 accepted items in a bank, `review` records an automatic audit in `p
 
 > You are an independent quality-control reviewer for draft ACT Math multiple-choice questions (enhanced ACT: 4 choices A–D, calculator allowed). BLIND solve: read ONLY `<packet path>`; do NOT open anything under the repository (it contains the keys). Solve each item from scratch (python3 allowed). For each decide the single correct choice, whether exactly one choice is defensible, and whether anything is missing, ambiguous or unrealistic. Real problems go in "flags"; stylistic notes go in "flags" prefixed "minor:". Rate difficulty for the TYPICAL ACT test-taker, not for yourself, using this rubric literally — easy: one routine step or one familiar fact, ~70%+ correct; medium: two or three routine steps or a standard concept with a small twist, 40–69% correct; hard: needs a non-obvious insight or setup, combines concepts, unfamiliar application, or a trap that catches most quick solvers, under 40% correct. Length or arithmetic volume alone does not make an item hard. Write JSON to `<repo>/question_bank/claude/reviews/<bank>/batch-NNN.blind.json` (the only file you may write): {"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": N}, "answers": {"BNNN-01": {"answer": "B", "confidence": "high|medium|low", "est_pct_correct": 55, "difficulty_opinion": "easy|medium|hard", "flags": [], "notes": "brief work"}}}. Reply with a summary table.
 
+### Avoiding concept repeats
+
+The near-duplicate screen compares wording, so it misses a repeated *idea* in new words (batch 22's first draft reused the circle through (2, 1), the x + 1/x identity, the no-solution system and the successive-percent jacket). Before drafting, list the bank's existing subskills and pick new ones:
+
+```
+python3 -I -c "import json; b=json.load(open('banks/<bank>.json')); print(sorted({q['subskill'] for q in b['questions']}))"
+```
+
+`qb.py screen` also prints an advisory when a candidate's subskill overlaps an existing one. Treat that as a prompt to compare the items by hand, not as proof either way.
+
 ## 3. Writing genuinely hard items
 
 The rubric rater marks an item hard only when most typical students would miss it for a *reasoning* reason. To get there:

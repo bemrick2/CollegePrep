@@ -83,4 +83,13 @@ def c10(ch):
     return pick(ch, 0.35 * 240)
 
 
-CHECKS = {f'B022-{i:02d}': globals()[f'c{i:02d}'] for i in range(1, 11)}
+def c11(ch):
+    w, h, gap = 120, 80, 8
+    perim = 2 * (w + h)
+    posts = {(x, 0) for x in range(0, w + 1, gap)} | {(x, h) for x in range(0, w + 1, gap)} \
+        | {(0, y) for y in range(0, h + 1, gap)} | {(w, y) for y in range(0, h + 1, gap)}
+    assert len(posts) == perim // gap
+    return pick(ch, len(posts))
+
+
+CHECKS = {f'B022-{i:02d}': globals()[f'c{i:02d}'] for i in (1, 2, 3, 4, 5, 7, 8, 9, 10, 11)}

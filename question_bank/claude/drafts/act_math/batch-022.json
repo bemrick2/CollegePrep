@@ -236,53 +236,6 @@
    }
   },
   {
-   "cand": "B022-06",
-   "reporting_category": "Integrating Essential Skills",
-   "skill": "Integrating Essential Skills",
-   "subskill": "Average speed for a round trip",
-   "repo_skill_key": "act_algebra_linear",
-   "difficulty": "hard",
-   "stem": "A cyclist rides 24 miles from home to a lake at an average speed of 12 miles per hour and returns along the same route at an average speed of 8 miles per hour. What is the cyclist's average speed for the entire round trip, in miles per hour?",
-   "choices": {
-    "A": "8",
-    "B": "9.6",
-    "C": "10",
-    "D": "20"
-   },
-   "answer": "B",
-   "explanation": "Time out: 24 ÷ 12 = 2 hours. Time back: 24 ÷ 8 = 3 hours. Average speed = total distance ÷ total time = 48 ÷ 5 = 9.6 miles per hour.",
-   "distractors": {
-    "A": {
-     "rationale": "8 is the slower speed alone.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "10 averages the two speeds, ignoring that more time is spent at the slower speed.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "20 adds the two speeds.",
-     "trap": null
-    }
-   },
-   "hints": [
-    "Find the time for each leg.",
-    "Average speed is total distance over total time."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "48 ÷ (2 + 3) = 9.6."
-   },
-   "remember": "Average speed = total distance ÷ total time.",
-   "expected_time_seconds": 90,
-   "modeling": true,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "the tempting arithmetic mean (10) is wrong; must weight by time"
-   }
-  },
-  {
    "cand": "B022-07",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Algebra",
@@ -462,6 +415,105 @@
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true
+   }
+  },
+  {
+   "cand": "B022-11",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Fencepost counting on a closed perimeter",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Fence posts are to be placed every 8 feet around the entire perimeter of a rectangular field that measures 120 feet by 80 feet, with a post at each corner. How many posts are needed?",
+   "choices": {
+    "A": "48",
+    "B": "50",
+    "C": "52",
+    "D": "54"
+   },
+   "answer": "B",
+   "explanation": "The perimeter is 2(120 + 80) = 400 feet. On a closed loop, the number of posts equals the number of 8-foot gaps: 400 ÷ 8 = 50. Both 120 and 80 are multiples of 8, so the corners already fall on post positions.",
+   "distractors": {
+    "A": {
+     "rationale": "48 subtracts the 2 end posts that a straight fence would add, which does not apply to a loop.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "52 adds one post per side (the straight-fence rule of gaps + 1) and then subtracts only part of the double-counted corners.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "54 treats each side as a separate straight fence (16 + 11 + 16 + 11) and counts each corner post twice.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How many 8-foot gaps fit around the whole perimeter?",
+    "On a closed loop, do posts outnumber gaps?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch a small loop: posts = gaps."
+   },
+   "remember": "Closed loop: posts equal gaps; straight line: posts = gaps + 1.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "B022-06",
+   "reason": "Concept repeat of CLD-ACT-M bank item 'Average speed over unequal times' (cyclist round trip at two speeds), missed by both the text and subskill screens; withdrawn before review and replaced by B022-11, which was solved by a separate blind agent.",
+   "item": {
+    "cand": "B022-06",
+    "reporting_category": "Integrating Essential Skills",
+    "skill": "Integrating Essential Skills",
+    "subskill": "Average speed for a round trip",
+    "repo_skill_key": "act_algebra_linear",
+    "difficulty": "hard",
+    "stem": "A cyclist rides 24 miles from home to a lake at an average speed of 12 miles per hour and returns along the same route at an average speed of 8 miles per hour. What is the cyclist's average speed for the entire round trip, in miles per hour?",
+    "choices": {
+     "A": "8",
+     "B": "9.6",
+     "C": "10",
+     "D": "20"
+    },
+    "answer": "B",
+    "explanation": "Time out: 24 ÷ 12 = 2 hours. Time back: 24 ÷ 8 = 3 hours. Average speed = total distance ÷ total time = 48 ÷ 5 = 9.6 miles per hour.",
+    "distractors": {
+     "A": {
+      "rationale": "8 is the slower speed alone.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "10 averages the two speeds, ignoring that more time is spent at the slower speed.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "20 adds the two speeds.",
+      "trap": null
+     }
+    },
+    "hints": [
+     "Find the time for each leg.",
+     "Average speed is total distance over total time."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "48 ÷ (2 + 3) = 9.6."
+    },
+    "remember": "Average speed = total distance ÷ total time.",
+    "expected_time_seconds": 90,
+    "modeling": true,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "the tempting arithmetic mean (10) is wrong; must weight by time"
+    }
    }
   }
  ]
