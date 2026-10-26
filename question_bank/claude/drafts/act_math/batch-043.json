@@ -1,0 +1,461 @@
+{
+ "bank": "act_math",
+ "batch": 43,
+ "plan": "Ten new items with stems checked against the bank. 3 hard (reciprocal system, parity without replacement, pentagon diagonals) / 3 medium / 4 easy.",
+ "candidates": [
+  {
+   "cand": "B043-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Reading point-slope form",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "In the standard (x,y) coordinate plane, the line y - 3 = -2(x + 1) passes through which of the following points and has which slope?",
+   "choices": {
+    "A": "(1, -3), slope -2",
+    "B": "(-1, 3), slope 2",
+    "C": "(-1, 3), slope -2",
+    "D": "(1, 3), slope -2"
+   },
+   "answer": "C",
+   "explanation": "Point-slope form y - y₁ = m(x - x₁) gives m = -2 and the point (x₁, y₁) = (-1, 3), since x + 1 = x - (-1).",
+   "distractors": {
+    "A": {
+     "rationale": "(1, -3) flips the signs of both coordinates.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "Slope 2 drops the negative sign of the slope.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "(1, 3) reads x + 1 as x - 1.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Rewrite x + 1 as x - (-1)."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check that the point makes both sides 0."
+   },
+   "remember": "In y - y₁ = m(x - x₁), the point's coordinates appear with opposite signs.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Identifying a function type from a table",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The table below shows values of a function f.\nx | 0 | 1 | 2 | 3\nf(x) | 3 | 6 | 12 | 24\nWhich of the following best describes f ?",
+   "choices": {
+    "A": "Linear, with slope 3",
+    "B": "Linear, with slope 2",
+    "C": "Exponential, with growth factor 3",
+    "D": "Exponential, with growth factor 2"
+   },
+   "answer": "D",
+   "explanation": "Each increase of 1 in x doubles f(x) (3, 6, 12, 24), so f is exponential with growth factor 2: f(x) = 3 · 2ˣ.",
+   "distractors": {
+    "A": {
+     "rationale": "The first difference is 3, but the differences grow (3, 6, 12), so f is not linear.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "A linear function would have constant differences; these differences are not constant.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "3 is the starting value, f(0), not the growth factor.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Are the differences constant, or are the ratios constant?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Divide each output by the one before it."
+   },
+   "remember": "Constant differences: linear. Constant ratios: exponential.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Perimeter ratio of similar figures",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "Two triangles are similar. The sides of the smaller triangle are 3, 4, and 5 centimeters, and the shortest side of the larger triangle is 9 centimeters. What is the perimeter of the larger triangle, in centimeters?",
+   "choices": {
+    "A": "18",
+    "B": "27",
+    "C": "36",
+    "D": "108"
+   },
+   "answer": "C",
+   "explanation": "The scale factor is 9/3 = 3, so the perimeter is 3 × (3 + 4 + 5) = 36.",
+   "distractors": {
+    "A": {
+     "rationale": "18 adds 6, the difference 9 - 3, to the smaller perimeter instead of multiplying.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "27 = 9 × 3 multiplies the new shortest side by the scale factor.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "108 multiplies the perimeter by the square of the scale factor, which applies to area.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the scale factor from the smaller to the larger triangle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Perimeter scales by the same factor as the sides."
+   },
+   "remember": "Perimeters of similar figures scale by k; areas by k².",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Percent of a percent",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "What is 30% of 40% of 500 ?",
+   "choices": {
+    "A": "60",
+    "B": "70",
+    "C": "150",
+    "D": "350"
+   },
+   "answer": "A",
+   "explanation": "40% of 500 is 200, and 30% of 200 is 60.",
+   "distractors": {
+    "B": {
+     "rationale": "70 adds the two percents and drops the 500.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "150 is 30% of 500, ignoring the 40%.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "350 is 70% of 500, adding the percents.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Work from the inside out: what is 40% of 500?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "0.30 × 0.40 × 500."
+   },
+   "remember": "\"Percent of a percent\": multiply the decimals.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Interpreting the intercept of a linear model",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A plumber's charge, in dollars, for a job that takes h hours is modeled by C = 65h + 90. Which of the following is the best interpretation of the number 90 in this model?",
+   "choices": {
+    "A": "The plumber charges $90 per hour of work.",
+    "B": "The plumber charges $90 even for a job that takes no time beyond arriving.",
+    "C": "A job that takes 90 hours costs $65.",
+    "D": "The plumber's charge increases by $90 for each additional hour."
+   },
+   "answer": "B",
+   "explanation": "90 is the value of C when h = 0: a fixed charge that applies to every job, before any hours of work are added.",
+   "distractors": {
+    "A": {
+     "rationale": "The hourly rate is 65, the coefficient of h.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "This reverses the roles of the numbers and the variables.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The charge increases by $65, not $90, per additional hour.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What is C when h = 0?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Set h = 0."
+   },
+   "remember": "In y = mx + b, b is the value when x = 0.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Distance with mixed time units",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A train travels at a constant speed of 72 kilometers per hour. How many kilometers does it travel in 25 minutes?",
+   "choices": {
+    "A": "2.88",
+    "B": "18",
+    "C": "30",
+    "D": "1,800"
+   },
+   "answer": "C",
+   "explanation": "25 minutes = 25/60 hour, and 72 × 25/60 = 30 kilometers.",
+   "distractors": {
+    "A": {
+     "rationale": "2.88 = 72 ÷ 25 divides the speed by the minutes.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "18 = 72 × 0.25 treats 25 minutes as a quarter of an hour.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1,800 = 72 × 25 multiplies by minutes without converting.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Convert 25 minutes to hours."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "72 × (25/60)."
+   },
+   "remember": "Match time units before multiplying by a rate.",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Systems in reciprocals",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "If 1/x + 1/y = 5 and 1/x - 1/y = 1, what is the value of x ?",
+   "choices": {
+    "A": "1/3",
+    "B": "1/2",
+    "C": "2",
+    "D": "3"
+   },
+   "answer": "A",
+   "explanation": "Let u = 1/x and v = 1/y. Then u + v = 5 and u - v = 1, so u = 3 and v = 2. Since u = 1/x, x = 1/3.",
+   "distractors": {
+    "B": {
+     "rationale": "1/2 is the value of y, not x.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "2 is the value of 1/y.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "3 is the value of 1/x; x is its reciprocal.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Treat 1/x and 1/y as the unknowns.",
+    "After finding 1/x, take its reciprocal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the equations: 2/x = 6."
+   },
+   "remember": "Substitute for awkward expressions, then undo the substitution.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires treating reciprocals as new variables and remembering to invert at the end; 3 (the value of 1/x) catches most solvers."
+   }
+  },
+  {
+   "cand": "B043-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Intersecting chords",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In a circle, chords AB and CD intersect at point E. If AE = 4, EB = 6, and CE = 3, what is the length of ED ?",
+   "choices": {
+    "A": "4.5",
+    "B": "5",
+    "C": "7",
+    "D": "8"
+   },
+   "answer": "D",
+   "explanation": "For intersecting chords, AE · EB = CE · ED. So 4 · 6 = 3 · ED, and ED = 8.",
+   "distractors": {
+    "A": {
+     "rationale": "4.5 = 3 · 6/4 sets up the proportion with the segments in the wrong positions.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "5 averages EA and EB instead of using products.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "7 assumes the chords have equal lengths: 4 + 6 = 3 + ED.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is true of the products of the two pieces of each chord?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "4 · 6 = 3 · ED."
+   },
+   "remember": "Intersecting chords: the products of the segment pairs are equal.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Geometric probability on a segment",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A point is chosen at random on a segment that is 10 units long. What is the probability that the point is closer to the midpoint of the segment than to either endpoint?",
+   "choices": {
+    "A": "1/4",
+    "B": "1/3",
+    "C": "1/2",
+    "D": "2/3"
+   },
+   "answer": "C",
+   "explanation": "A point is closer to the midpoint than to an endpoint when it lies within 2.5 units of the midpoint (halfway between the midpoint and each end). That region is 5 units long, so the probability is 5/10 = 1/2.",
+   "distractors": {
+    "A": {
+     "rationale": "1/4 uses only one side of the midpoint.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/3 divides the segment into three equal parts.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2/3 treats the middle region as two of three equal parts.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where are the points that are exactly as close to the midpoint as to an endpoint?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Mark the midpoint and the halfway points to each end."
+   },
+   "remember": "Geometric probability: favorable length ÷ total length.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B043-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Angles formed by diagonals of a regular pentagon",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In regular pentagon ABCDE, diagonals AC and AD are drawn from vertex A. What is the measure of angle CAD ?",
+   "choices": {
+    "A": "30°",
+    "B": "36°",
+    "C": "54°",
+    "D": "72°"
+   },
+   "answer": "B",
+   "explanation": "Each interior angle of a regular pentagon is 108°. Triangle ABC is isosceles with AB = BC, so angle BAC = (180° - 108°)/2 = 36°; by symmetry angle DAE = 36°. Then angle CAD = 108° - 36° - 36° = 36°.",
+   "distractors": {
+    "A": {
+     "rationale": "30° assumes the three angles at A are each one-third of 90°.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "54° is half of an interior angle, 108°/2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "72° is the central angle of the pentagon, 360°/5.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What is each interior angle of a regular pentagon?",
+    "Triangle ABC is isosceles. What are its base angles?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the pentagon and the two diagonals."
+   },
+   "remember": "Split a polygon's angle with diagonals and use isosceles triangles.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires the interior angle, an isosceles-triangle step and symmetry; the central angle (72°) is a strong trap."
+   }
+  }
+ ]
+}

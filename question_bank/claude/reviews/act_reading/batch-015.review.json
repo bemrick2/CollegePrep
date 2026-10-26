@@ -1,0 +1,224 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 15,
+  "reviewed_at": "2026-10-26T21:43:28+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 15
+  },
+  "counts": {
+    "PASS": 5,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000124",
+    "CLD-ACT-R-000125",
+    "CLD-ACT-R-000126",
+    "CLD-ACT-R-000127",
+    "CLD-ACT-R-000128"
+  ],
+  "results": [
+    {
+      "cand": "R015-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: B (fairness above all) is the main trap but is an overstatement; distractor set is otherwise weak (A contradicts 'valuable', D unsupported)",
+        "minor: key paraphrases paragraph 2's list (uncertainty, fairness) closely, and items 03/08 also rehearse that list"
+      ],
+      "blind_notes": "'Only half true' = time matters, but how the wait feels (uncertainty, fairness, etc.) matters at least as much (P2). B overstates; A, D unsupported.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: key paraphrases the thesis of paragraph 2 closely; B (fairness 'more than any other feature') is an extreme-wording distractor that test-wise students reject quickly"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Requires reading \"half true\" as \"true but incomplete\" and supplying the missing half from the next paragraph; B overstates one feature."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R015-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: A nearly restates the critics' theme-park sentence ('more bearable without making it any shorter'), so this is close to a direct analogy"
+      ],
+      "blind_notes": "Airport kept total time about the same but changed how it felt; critics say such moves manage perception without fixing the real problem. B contradicts 'stayed about the same'; C reverses critics' view; D unsupported.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: key echoes paragraph 4 wording ('more bearable without making it any shorter') and paragraph 3 ('total time ... stayed about the same')"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Requires applying the critics' general objection to an example from another paragraph; C reverses their view."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R015-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Posted estimates make the wait's length known, so they address uncertainty (P2: uncertain waits feel longer than waits of known length).",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000124"
+    },
+    {
+      "cand": "R015-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: D echoes passage wording ('advances a little at a time' / 'advances a few steps')"
+      ],
+      "blind_notes": "P6: steady movement and a good ending outweigh total length. D is steady to the end despite being longer. A (stall then sudden empty) mirrors the 'stalls and then lurches' line and tempts students focused on the quick ending; B ends badly; C is erratic.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: A ('empties quickly') may lure students who latch onto 'how the wait ended', but it still stalls 10 minutes, so it is a fair trap rather than a second defensible answer"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "The counterintuitive answer is not the shortest line; three distractors are shorter or longer but stall or end badly."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000125"
+    },
+    {
+      "cand": "R015-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Contrasted with steady advance after a stall, 'lurches forward' = moves suddenly and unevenly. B is the off-context dictionary sense; A and D contradict 'forward' and the contrast.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000126"
+    },
+    {
+      "cand": "R015-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "The author says the old assumption 'turned out to be only half true', calls the applications 'most cited' and a finding 'most intriguing', and lays out the critics vs. defenders debate. So A. D (neutral) tempts students because the author mostly reports, but the evaluative wording rules it out. B and C are extreme.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: key is the longest and most qualified choice (length cue)",
+        "minor: 'influential' is inferred from 'most cited applications' rather than stated directly; D (neutral reporting) is the main competitor for students who see the passage as expository"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000127"
+    },
+    {
+      "cand": "R015-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "The preceding 'story we tell ourselves afterward' means designers shape the remembered experience. A and C are literal readings of 'authors'; D's 'alone decide' is extreme and misses the point about memory.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000128"
+    }
+  ]
+}

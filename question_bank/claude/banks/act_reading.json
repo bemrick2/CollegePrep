@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 14,
-  "updated_at": "2026-10-26T21:27:08+00:00",
+  "version": 15,
+  "updated_at": "2026-10-26T21:43:28+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -157,6 +157,17 @@
       "word_count": 540,
       "text": "The sign had been in the window for three weeks before my grandfather admitted that it meant what it said. CLOSING AT THE END OF THE MONTH, it read, in my mother's neat capitals, and every morning he walked past it to unlock the door as though it were a notice for someone else's shop. Customers came in to say they were sorry. He thanked them, took their watches, and wrote out repair tickets with dates two and three weeks away, some of them later than the last day of the month.\n\nMy mother had asked me to spend my Saturdays there, helping him decide what would be sold and what would be thrown out. I was fifteen and had my own ideas about how Saturdays should be spent, but I went. The shop was narrow and smelled of oil and brass. Along the back wall stood a cabinet of shallow drawers, each one labeled in his small, slanting hand: mainsprings, crowns, crystals, and one drawer, near the bottom, labeled simply \"Others.\"\n\n\"What goes in Others?\" I asked on the first Saturday.\n\"Things that don't fit,\" he said, and went back to his bench.\n\nWe did not sort much that day, or the next. He would hand me a box of parts and tell me to separate the good from the bad, and when I held up a gear and asked which it was, he would take it from me, turn it under the lamp, and begin explaining how it had been cut, by whom, and in what year, until the afternoon was gone and the box was still full. I began to suspect that the sorting was not really the point, though I could not have said what the point was.\n\nIn the third week a woman came in with a pocket watch that had belonged to her father. My grandfather opened the case, held it to his ear, and told her it needed only a cleaning. He did the work while she waited, and when she tried to pay, he waved the money away. After she left, he stood at the window for a long time with his back to me, and I pretended to be busy with the box of gears.\n\nOn the last Saturday of the month, the shop was quieter than I had ever heard it. The repair tickets had been called in, the watches returned, and the cabinet stood half empty. My grandfather sat at his bench with nothing on it. I opened the drawer labeled \"Others\" at last. Inside were not parts but tickets, dozens of them, yellowed, for watches that had never been collected. Each had a name and a date, some forty years old, and on each, in the same slanting hand, he had marked the repair as finished.\n\"Why did you keep these?\" I asked.\nHe looked at the drawer for a while before he answered. \"Somebody might come back,\" he said.\n\nI did not tell my mother about the drawer. When we carried the cabinet out to her car that evening, I made sure the bottom drawer stayed shut, and when she asked whether there was anything in it worth keeping, I said I would go through it myself.",
       "batch": 14,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000015",
+      "title": "The Length of a Wait",
+      "genre": "social science",
+      "word_count": 534,
+      "text": "Anyone who has waited in line knows that ten minutes can feel like five or like thirty. Operations researchers, who study how to make systems run efficiently, spent much of the twentieth century trying to shorten actual waits: adding servers, smoothing the flow of arrivals, predicting busy periods. The mathematics they developed, known as queueing theory, is still used to decide how many agents a call center needs or how many booths a toll plaza should open. Their work was valuable, but it rested on an assumption that turned out to be only half true: that what people mind about waiting is the time itself.\n\nIn the 1980s a business scholar named David Maister proposed that the experience of waiting depends at least as much on how a wait feels as on how long it lasts. Unoccupied time, he argued, feels longer than occupied time. Uncertain waits feel longer than waits of known length, and unexplained waits feel longer than explained ones. People waiting alone notice the time more than people waiting in groups, and a wait that seems unfair, with someone who arrived later being served first, feels longer than an equal wait that seems fair.\n\nSome of the most cited applications of these ideas cost almost nothing. When passengers at one airport complained about long waits for their luggage, the airport moved arriving flights to gates farther from the baggage claim. Passengers now spent most of the interval walking instead of standing, and complaints dropped, although the total time from plane to bag stayed about the same. Mirrors in elevator lobbies, which give waiting people something to look at, are often explained in the same way. So are restaurants that hand waiting diners a menu before a table is free: a wait that feels as though service has already begun seems to pass more quickly than one that does not.\n\nNot everyone is comfortable with this approach. Critics point out that a company can use the psychology of waiting to avoid fixing the underlying problem: a theme park that entertains people in a ninety-minute line has made the wait more bearable without making it any shorter. In their view, distraction manages customers' perceptions instead of respecting their time.\n\nDefenders reply that the two goals are not in competition. Shortening a wait often requires expensive changes, such as hiring staff or building new facilities, that take years to complete; making a wait feel shorter can be done tomorrow. A hospital that posts estimated waiting times in its emergency room, they note, has not reduced those times, but it has removed one of the main sources of distress for patients who must wait regardless.\n\nPerhaps the most intriguing finding is how little the clock seems to matter in memory. Studies of people leaving lines suggest that their satisfaction depends heavily on how the wait ended and on whether it moved steadily, rather than on its total length. A line that advances a little at a time can be remembered more kindly than a shorter one that stalls and then lurches forward. If waiting is partly a story we tell ourselves afterward, then the people who design lines are, in a sense, also its authors.",
+      "batch": 15,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -8953,6 +8964,359 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-014.review.json",
         "computation": "checks/act_reading/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000124",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Connecting an example to an earlier idea",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000015",
+      "underline": null,
+      "evidence": "Uncertain waits feel longer than waits of known length",
+      "figure": null,
+      "stem": "Posting estimated waiting times in an emergency room (paragraph 5) most directly addresses which feature of waiting described in paragraph 2?",
+      "choices": {
+        "A": "Waiting alone rather than with other people",
+        "B": "Not knowing how long the wait will last",
+        "C": "Seeing someone who arrived later served first",
+        "D": "Having nothing to occupy one's attention"
+      },
+      "correct_answer": "B",
+      "explanation": "An estimated waiting time turns an uncertain wait into one of roughly known length, the feature Maister says makes waits feel shorter.",
+      "distractor_explanations": {
+        "A": "Posting times does not change whether patients wait alone.",
+        "C": "Posted times do not address the order of service.",
+        "D": "Posted times give information, not something to do."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What do patients learn from a posted time?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Match the example to one feature in paragraph 2."
+      },
+      "remember": "Link examples back to the specific principle they illustrate.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "R015-03",
+      "created_at": "2026-10-26T21:43:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-015.review.json",
+        "computation": "checks/act_reading/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000125",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Applying the passage's reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000015",
+      "underline": null,
+      "evidence": "A line that advances a little at a time can be remembered more kindly than a shorter one",
+      "figure": null,
+      "stem": "Based on paragraph 6, which of the following lines would most likely be remembered more favorably?",
+      "choices": {
+        "A": "A 15-minute line that does not move for 10 minutes and then empties quickly",
+        "B": "A 12-minute line that moves steadily at first and then stops for the last 8 minutes",
+        "C": "A 25-minute line that alternates between long stops and sudden bursts of movement",
+        "D": "A 20-minute line that advances a few steps every minute until the end"
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 6 says steady movement and a good ending matter more than total length. The 20-minute steady line beats shorter lines that stall.",
+      "distractor_explanations": {
+        "A": "This line stalls and then lurches forward, the pattern remembered less kindly.",
+        "B": "Satisfaction depends heavily on how the wait ended; this one ends with a stall.",
+        "C": "This line neither moves steadily nor ends well."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "According to paragraph 6, what matters more than total length?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate lines that stall or end badly."
+      },
+      "remember": "Apply the passage's criteria, even when they defy intuition.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "R015-04",
+      "created_at": "2026-10-26T21:43:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: D echoes passage wording ('advances a little at a time' / 'advances a few steps')"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-015.review.json",
+        "computation": "checks/act_reading/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000126",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000015",
+      "underline": null,
+      "evidence": "stalls and then lurches forward",
+      "figure": null,
+      "stem": "As it is used in paragraph 6, the word \"lurches\" most nearly means:",
+      "choices": {
+        "A": "stops completely.",
+        "B": "tilts to one side.",
+        "C": "moves suddenly and unevenly.",
+        "D": "moves forward at a slow, steady pace."
+      },
+      "correct_answer": "C",
+      "explanation": "After stalling, the line moves forward in a sudden, uneven jerk: it \"lurches.\"",
+      "distractor_explanations": {
+        "A": "The line has already stalled; \"lurches forward\" describes what happens next.",
+        "B": "This familiar sense of \"lurch\" does not describe a line moving forward.",
+        "D": "Steady movement is contrasted with stalling and lurching."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What does the line do just before it lurches?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"jerks ahead.\""
+      },
+      "remember": "Use the contrast in the sentence to fix a word's meaning.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "R015-05",
+      "created_at": "2026-10-26T21:43:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-015.review.json",
+        "computation": "checks/act_reading/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000127",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000015",
+      "underline": null,
+      "evidence": "Perhaps the most intriguing finding",
+      "figure": null,
+      "stem": "Which choice best describes the author's attitude toward Maister's ideas about waiting?",
+      "choices": {
+        "A": "The author treats them as insightful and influential while acknowledging a debate about how they are used.",
+        "B": "The author doubts them and suggests that only the actual length of a wait matters to people.",
+        "C": "The author argues that they make it unnecessary for any business to shorten its customers' waits.",
+        "D": "The author reports them without expressing any view about their importance or their usefulness."
+      },
+      "correct_answer": "A",
+      "explanation": "The author builds on Maister's ideas, gives examples of their influence, presents both sides of the debate over their use and calls one finding \"most intriguing.\"",
+      "distractor_explanations": {
+        "B": "The author calls the time-only assumption \"only half true.\"",
+        "C": "The author presents both critics and defenders and does not claim shortening is unnecessary.",
+        "D": "Phrases such as \"most intriguing finding\" show the author's interest and engagement."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "Does the author ever reject Maister's ideas?",
+        "Where does the author show a personal reaction?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate attitudes contradicted by the author's word choices."
+      },
+      "remember": "Attitude: look for evaluative words, not just topics.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "R015-06",
+      "created_at": "2026-10-26T21:43:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-015.review.json",
+        "computation": "checks/act_reading/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000128",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Interpreting a figurative statement",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000015",
+      "underline": null,
+      "evidence": "If waiting is partly a story we tell ourselves afterward",
+      "figure": null,
+      "stem": "In the final sentence, the author's claim that the people who design lines are \"also its authors\" most nearly means that they:",
+      "choices": {
+        "A": "write the rules that customers must follow while they are waiting in line.",
+        "B": "shape the experience people later recall, not just the time people spend.",
+        "C": "ask customers to write about their experiences after leaving a line.",
+        "D": "alone decide how long every wait will last for each customer in line."
+      },
+      "correct_answer": "B",
+      "explanation": "If a wait is remembered as a story, then those who control how it moves and ends help write that story.",
+      "distractor_explanations": {
+        "A": "\"Authors\" is figurative; the passage is not about written rules.",
+        "C": "Nothing suggests designers collect written accounts.",
+        "D": "The sentence concerns the remembered story of a wait, not control over its length."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "What does the \"if\" clause say waiting partly is?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Paraphrase the metaphor first."
+      },
+      "remember": "Figurative claims: follow the metaphor set up just before them.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "R015-07",
+      "created_at": "2026-10-26T21:43:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-015.review.json",
+        "computation": "checks/act_reading/batch_015.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

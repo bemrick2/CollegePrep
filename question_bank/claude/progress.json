@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:41:51+00:00",
+  "updated_at": "2026-10-26T21:43:44+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -17,7 +17,7 @@
   "accepted_by_section": {
     "act_math": 413,
     "act_english": 146,
-    "act_reading": 122,
+    "act_reading": 127,
     "sat_reading_writing": 149
   },
   "review_totals": {
@@ -36,10 +36,10 @@
       "passed_after_revision": 5
     },
     "act_reading": {
-      "PASS": 123,
-      "REVISE": 14,
+      "PASS": 128,
+      "REVISE": 16,
       "REJECT": 0,
-      "candidates": 137,
+      "candidates": 144,
       "passed_after_revision": 12
     },
     "sat_reading_writing": {
@@ -643,11 +643,11 @@
       "passages": 14
     },
     "act_reading": {
-      "accepted": 122,
+      "accepted": 127,
       "retired_after_audit": 1,
       "by_skill": {
-        "Craft and Structure": 41,
-        "Integration of Knowledge and Ideas": 29,
+        "Craft and Structure": 43,
+        "Integration of Knowledge and Ideas": 32,
         "Key Ideas and Details": 52
       },
       "by_subskill": {
@@ -655,8 +655,8 @@
         "Applying a model": 1,
         "Applying the author's reasoning": 2,
         "Applying the passage's general claim": 1,
-        "Applying the passage's reasoning": 2,
-        "Author's attitude": 5,
+        "Applying the passage's reasoning": 3,
+        "Author's attitude": 6,
         "Author's reasoning": 1,
         "Author's view": 1,
         "Author's view of a debate": 1,
@@ -666,6 +666,7 @@
         "Characterization": 1,
         "Comparing perspectives (younger and older narrator)": 1,
         "Comparing the passages' focus": 1,
+        "Connecting an example to an earlier idea": 1,
         "Connecting parts of a text": 1,
         "Connecting the ending to earlier events": 1,
         "Connecting the opening to the conclusion": 1,
@@ -711,7 +712,7 @@
         "Inferring an author's view": 1,
         "Interpreting a central statement": 1,
         "Interpreting a closing action": 1,
-        "Interpreting a figurative statement": 1,
+        "Interpreting a figurative statement": 2,
         "Locating a stated detail": 2,
         "Locating a stated reason": 3,
         "Locating supporting details": 1,
@@ -720,7 +721,7 @@
         "Main idea of a narrative": 2,
         "Main purpose of a passage": 3,
         "Meaning of a phrase in context": 3,
-        "Meaning of a word in context": 10,
+        "Meaning of a word in context": 11,
         "Narrator's attitude": 1,
         "Overall structure of an argument": 1,
         "Point of view": 1,
@@ -736,26 +737,26 @@
         "Synthesizing the passage": 1
       },
       "by_difficulty_author": {
-        "easy": 31,
-        "hard": 19,
-        "medium": 72
+        "easy": 32,
+        "hard": 20,
+        "medium": 75
       },
       "by_difficulty_calibrated": {
-        "easy": 79,
-        "medium": 43
+        "easy": 81,
+        "medium": 46
       },
       "calibrated_share": {
-        "easy": 0.648,
-        "medium": 0.352
+        "easy": 0.638,
+        "medium": 0.362
       },
       "answer_key_balance": {
-        "A": 39,
-        "B": 27,
-        "C": 31,
-        "D": 25
+        "A": 40,
+        "B": 29,
+        "C": 32,
+        "D": 26
       },
       "modeling_items": 0,
-      "passages": 14
+      "passages": 15
     },
     "sat_reading_writing": {
       "accepted": 149,
@@ -888,7 +889,7 @@
   "last_completed_batch": {
     "act_math": 42,
     "act_english": 14,
-    "act_reading": 14,
+    "act_reading": 15,
     "sat_reading_writing": 16
   },
   "next_batch_guidance": {
@@ -921,20 +922,12 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 15,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 11.2,
-        "Knowledge of Language": 13.0,
-        "Conventions of Standard English": -11.8
-      }
-    },
     "act_reading": {
-      "next_batch": 15,
+      "next_batch": 16,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 11.4,
-        "Craft and Structure": -2.1,
-        "Integration of Knowledge and Ideas": 0.7
+        "Key Ideas and Details": 13.8,
+        "Craft and Structure": -2.6,
+        "Integration of Knowledge and Ideas": -1.2
       }
     },
     "sat_reading_writing": {
@@ -944,6 +937,14 @@
         "Information and Ideas": 4.3,
         "Standard English Conventions": 3.3,
         "Expression of Ideas": 0.8
+      }
+    },
+    "act_english": {
+      "next_batch": 15,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 11.2,
+        "Knowledge of Language": 13.0,
+        "Conventions of Standard English": -11.8
       }
     }
   },
@@ -960,8 +961,8 @@
     },
     "act_reading": {
       "target": 600,
-      "accepted": 122,
-      "share_of_target": 0.203
+      "accepted": 127,
+      "share_of_target": 0.212
     },
     "sat_reading_writing": {
       "target": 700,
@@ -970,9 +971,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 830,
+  "total_accepted": 835,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_reading",
+  "next_bank": "act_math",
   "audits": [
     {
       "bank": "act_math",
@@ -10059,7 +10060,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 14,
+      "bank_version": 15,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -10160,7 +10161,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:41:51+00:00",
+    "heartbeat_at": "2026-10-26T21:43:44+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

@@ -352,53 +352,59 @@
     "single_correct": true,
     "choice_lengths": "balanced"
    }
-  },
+  }
+ ],
+ "withdrawn": [
   {
    "cand": "R015-08",
-   "passage_id": "CLD-P-ACT-R-000015",
-   "reporting_category": "Key Ideas and Details",
-   "skill": "Key Ideas and Details",
-   "subskill": "Locating a stated detail",
-   "repo_skill_key": "act_main_idea",
-   "difficulty": "easy",
-   "stem": "According to paragraph 2, Maister argued that a wait feels longer when:",
-   "choices": {
-    "A": "a person who arrived later is served before others.",
-    "B": "a person waits in a large group of friends.",
-    "C": "a person is told exactly how long the wait will be.",
-    "D": "a person has something to occupy the time."
-   },
-   "answer": "A",
-   "evidence": "someone who arrived later being served first",
-   "explanation": "Maister says an unfair wait, such as someone later being served first, feels longer.",
-   "distractors": {
-    "B": {
-     "rationale": "Maister says waiting alone, not in a group, feels longer.",
-     "trap": null
+   "reason": "Blind solver A flagged overlap: it tests the same paragraph-2 list as R015-01 and R015-03, and its choice C states the opposite of R015-03's key. A pure-lookup item, withdrawn after the blind solve and before review.",
+   "item": {
+    "cand": "R015-08",
+    "passage_id": "CLD-P-ACT-R-000015",
+    "reporting_category": "Key Ideas and Details",
+    "skill": "Key Ideas and Details",
+    "subskill": "Locating a stated detail",
+    "repo_skill_key": "act_main_idea",
+    "difficulty": "easy",
+    "stem": "According to paragraph 2, Maister argued that a wait feels longer when:",
+    "choices": {
+     "A": "a person who arrived later is served before others.",
+     "B": "a person waits in a large group of friends.",
+     "C": "a person is told exactly how long the wait will be.",
+     "D": "a person has something to occupy the time."
     },
-    "C": {
-     "rationale": "Waits of known length feel shorter, not longer.",
-     "trap": null
+    "answer": "A",
+    "evidence": "someone who arrived later being served first",
+    "explanation": "Maister says an unfair wait, such as someone later being served first, feels longer.",
+    "distractors": {
+     "B": {
+      "rationale": "Maister says waiting alone, not in a group, feels longer.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "Waits of known length feel shorter, not longer.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "Occupied time feels shorter.",
+      "trap": null
+     }
     },
-    "D": {
-     "rationale": "Occupied time feels shorter.",
-     "trap": null
+    "hints": [
+     "Which choice describes an unfair wait?"
+    ],
+    "strategy": {
+     "key": "locate_evidence",
+     "explanation": "Scan paragraph 2."
+    },
+    "remember": "Detail questions: the answer is stated in the passage.",
+    "expected_time_seconds": 30,
+    "modeling": false,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "choice_lengths": "balanced"
     }
-   },
-   "hints": [
-    "Which choice describes an unfair wait?"
-   ],
-   "strategy": {
-    "key": "locate_evidence",
-    "explanation": "Scan paragraph 2."
-   },
-   "remember": "Detail questions: the answer is stated in the passage.",
-   "expected_time_seconds": 30,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced"
    }
   }
  ]
