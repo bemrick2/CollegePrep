@@ -1,0 +1,290 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 14,
+  "reviewed_at": "2026-10-26T18:30:25+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 14
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000128",
+    "CLD-ACT-M-000129",
+    "CLD-ACT-M-000130",
+    "CLD-ACT-M-000131",
+    "CLD-ACT-M-000132",
+    "CLD-ACT-M-000133",
+    "CLD-ACT-M-000134",
+    "CLD-ACT-M-000135",
+    "CLD-ACT-M-000136",
+    "CLD-ACT-M-000137",
+    "CLD-ACT-M-000138"
+  ],
+  "results": [
+    {
+      "cand": "B014-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Odd divisor count iff perfect square; squares <=200: 1..14^2=196, so 14. Needs non-obvious insight.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "divisor-pairing insight; the literal reading (odd numbers) is a strong trap",
+        "dup_note": "distinct from CLD-ACT-M-000059 (n² with exactly 3 divisors)"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000128"
+    },
+    {
+      "cand": "B014-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [],
+      "blind_notes": "x=(10+c)/2, y=(10-c)/2 positive integers => c even, -10<c<10 => c in {-8,...,8}: 9 values. Traps 19 (all integers) and 11/10 (endpoint errors).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "parity and strict-endpoint conditions together"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000129"
+    },
+    {
+      "cand": "B014-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "C=(9/5)C+32 => C=-40. Familiar fact.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000130"
+    },
+    {
+      "cand": "B014-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "c=3; a+b=-3; a-b=7 => a=2,b=-5; f(2)=8-10+3=1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "build a 3-unknown system; the linear extrapolation is tempting"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000131"
+    },
+    {
+      "cand": "B014-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Need 5-x^2>=1 => x^2<=4 => -2<=x<=2. Trap C (domain of sqrt(5-x^2)).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "composition domain plus a quadratic inequality; each distractor misses one condition"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000132"
+    },
+    {
+      "cand": "B014-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Hypotenuse 10; r=Area/s=24/12=2 (or (a+b-c)/2). Trap 2.4 (half the altitude). Borderline medium/hard.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "area-decomposition insight; circumradius distractor"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000133"
+    },
+    {
+      "cand": "B014-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "minor: stating 'There are two such circles' is helpful but nearly gives away the quadratic structure"
+      ],
+      "blind_notes": "Center (r,r): (2-r)^2+(1-r)^2=r^2 => r^2-6r+5=0 => r=1,5; sum 6 (Vieta).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "set up the center from tangency, then a quadratic with two valid roots"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000134"
+    },
+    {
+      "cand": "B014-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "5!-2*4!=120-48=72. Trap 48 (adjacent count).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "complement counting with a block; the internal-order factor is a common miss"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000135"
+    },
+    {
+      "cand": "B014-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Predicted 2.4*5+31=43; residual 50-43=7. Sign trap -7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "app fixture interprets a line y = 2.5x + 40; this item computes a residual with different numbers"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000136"
+    },
+    {
+      "cand": "B014-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "46000/20=2300. Trap 2250 (average of densities 2500 and 2000).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000137"
+    },
+    {
+      "cand": "B014-11",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "B013-03",
+          "status": "REVISE",
+          "reason": "labelled hard but the blind solver rated it easy (70%); text unchanged, relabelled medium"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "a+b=9, 9(b-a)=27 => b-a=3 => 36 (63-36=27). Easily solved by checking choices; trap D 63.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000138"
+    }
+  ]
+}

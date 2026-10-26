@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 13,
+  "bank_version": 14,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -2286,6 +2286,204 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "$100 → $80; $80 → $100 is +$20 on $80, which is 25%."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000128",
+      "correct_answer": "B",
+      "explanation": "Divisors come in pairs d and n/d, so the count is odd only when one divisor is paired with itself, that is, when n is a perfect square. The perfect squares from 1 to 200 are 1², 2², …, 14² = 196 (15² = 225 is too large). There are 14 of them.",
+      "distractor_explanations": {
+        "A": "This leaves out 1, but 1 has exactly one divisor, which is odd.",
+        "C": "This includes 15² = 225, which is greater than 200.",
+        "D": "This counts the odd numbers up to 200, confusing 'an odd number of divisors' with 'odd numbers'."
+      },
+      "hints": [
+        "List the divisors of 12 in pairs. When can a divisor be its own pair?",
+        "Which numbers have a divisor that pairs with itself?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test small cases: 4 has 3 divisors, 9 has 3, 6 has 4, 12 has 6. Only squares have an odd count; count squares up to 200."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000129",
+      "correct_answer": "A",
+      "explanation": "Solving gives x = (10 + c)/2 and y = (10 − c)/2. For both to be integers, 10 + c must be even, so c is even. For both to be positive, −10 < c < 10. The even integers strictly between −10 and 10 are −8, −6, …, 6, 8: that is 9 values.",
+      "distractor_explanations": {
+        "B": "This counts the even values from −8 through 10, including c = 10, which makes y = 0; y must be positive.",
+        "C": "This includes c = −10 and c = 10, which give y = 10, x = 0 or x = 10, y = 0; 0 is not positive.",
+        "D": "This counts every integer from −9 to 9, ignoring that odd c makes x and y non-integers."
+      },
+      "hints": [
+        "Solve the system for x and y in terms of c.",
+        "What must be true about c for x and y to be whole numbers, and for both to be greater than 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x = (10 + c)/2, y = (10 − c)/2: c must be even and strictly between −10 and 10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000130",
+      "correct_answer": "A",
+      "explanation": "Set F = C: C = (9/5)C + 32. Then −(4/5)C = 32, so C = −40. Check: (9/5)(−40) + 32 = −72 + 32 = −40.",
+      "distractor_explanations": {
+        "B": "−32 comes from setting (9/5)C = −32 and stopping, or from treating the constant alone as the answer.",
+        "C": "At 0°C the Fahrenheit reading is 32°F, not 0°.",
+        "D": "This drops the negative sign: at 40°C the Fahrenheit reading is 104°F."
+      },
+      "hints": [
+        "Replace F with C in the formula.",
+        "Collect the C terms on one side."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test −40: (9/5)(−40) + 32 = −40. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000131",
+      "correct_answer": "B",
+      "explanation": "f(0) = c = 3. f(1) = a + b + 3 = 0, so a + b = −3. f(−1) = a − b + 3 = 10, so a − b = 7. Adding gives 2a = 4, so a = 2 and b = −5. Then f(2) = 2(4) − 5(2) + 3 = 1.",
+      "distractor_explanations": {
+        "A": "This assumes f is linear through (0, 3) and (1, 0), extending the slope −3 to x = 2.",
+        "C": "This writes a + b = 3 instead of −3 (moving the constant without changing its sign), giving a = 5, b = −2 and f(2) = 20 − 4 + 3 = 19.",
+        "D": "21 is f(−2) = 8 + 10 + 3, the value at x = −2 instead of x = 2."
+      },
+      "hints": [
+        "f(0) gives c directly.",
+        "Use the other two given values to write two equations in a and b, then add the equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "c = 3; a + b = −3 and a − b = 7 give a = 2, b = −5; f(2) = 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000132",
+      "correct_answer": "D",
+      "explanation": "f(g(x)) = √(5 − x² − 1) = √(4 − x²). This is real when 4 − x² ≥ 0, that is, x² ≤ 4, so −2 ≤ x ≤ 2.",
+      "distractor_explanations": {
+        "A": "x ≥ 1 is the domain of f alone; here the input of f is g(x), not x.",
+        "B": "This solves x² ≤ 4 as x ≤ 2 only, missing the lower bound x ≥ −2.",
+        "C": "This requires only g(x) ≥ 0; f needs its input to be at least 1, not 0."
+      },
+      "hints": [
+        "The input of f is g(x). What must be true of f's input?",
+        "Solve g(x) ≥ 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 2.1 gives g = 0.59 < 1 (not real), and x = −2 gives g = 1 (real); only D fits both tests."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000133",
+      "correct_answer": "A",
+      "explanation": "The hypotenuse is 10. Joining the center to the three vertices splits the triangle into three triangles whose heights are all the radius r, so the area is (1/2)r(6 + 8 + 10) = 12r. The area is also (1/2)(6)(8) = 24, so 12r = 24 and r = 2. (Equivalently, for a right triangle r = (a + b − c)/2 = (6 + 8 − 10)/2 = 2.)",
+      "distractor_explanations": {
+        "B": "2.4 is half the altitude to the hypotenuse (4.8 ÷ 2), not the inradius.",
+        "C": "3 is half the shorter leg; the circle's diameter is not equal to a leg.",
+        "D": "5 is the radius of the circle drawn through the three vertices (half the hypotenuse), not the inscribed circle."
+      },
+      "hints": [
+        "Connect the circle's center to each vertex. What do the three small triangles have in common?",
+        "Write the triangle's area in two ways."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Area = 24 and also r(6 + 8 + 10)/2 = 12r, so r = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000134",
+      "correct_answer": "C",
+      "explanation": "A first-quadrant circle tangent to both axes has center (r, r) and radius r. Passing through (2, 1): (2 − r)² + (1 − r)² = r², so r² − 6r + 5 = 0 and (r − 1)(r − 5) = 0. The radii are 1 and 5, with sum 6.",
+      "distractor_explanations": {
+        "A": "1 is only the smaller radius.",
+        "B": "5 is only the larger radius.",
+        "D": "10 is the diameter of the larger circle, not a sum of radii."
+      },
+      "hints": [
+        "If a circle is tangent to both axes in the first quadrant, where is its center?",
+        "Use the distance from the center to (2, 1)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Center (r, r): (2 − r)² + (1 − r)² = r² gives r² − 6r + 5 = 0; the roots sum to 6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000135",
+      "correct_answer": "C",
+      "explanation": "There are 5! = 120 orders in all. To count orders with Ari and Bea together, treat them as one unit: 4! = 24 arrangements of 4 units, times 2 orders within the unit, gives 48. So 120 − 48 = 72 orders keep them apart.",
+      "distractor_explanations": {
+        "A": "24 = 4! counts arrangements with Ari and Bea as one block in a fixed order; it is part of the 'together' count.",
+        "B": "48 is the number of orders in which Ari and Bea DO stand together.",
+        "D": "This subtracts only 24 from 120, forgetting that the pair can stand in either order (AB or BA)."
+      },
+      "hints": [
+        "It is easier to count the orders where they ARE together.",
+        "Treat Ari and Bea as a single block; how many ways can the block be arranged internally?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Total 120 − together (4! × 2 = 48) = 72."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000136",
+      "correct_answer": "B",
+      "explanation": "The predicted score is 2.4(5) + 31 = 12 + 31 = 43. The residual is actual − predicted = 50 − 43 = 7.",
+      "distractor_explanations": {
+        "A": "This computes predicted minus actual, reversing the definition.",
+        "C": "43 is the predicted score, not the residual.",
+        "D": "50 is the actual score."
+      },
+      "hints": [
+        "Find the predicted score for x = 5.",
+        "Subtract in the order the question defines."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "ŷ = 43; residual = 50 − 43 = 7."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000137",
+      "correct_answer": "C",
+      "explanation": "Total population 30,000 + 16,000 = 46,000. Total area 12 + 8 = 20 square miles. Density = 46,000 ÷ 20 = 2,300 people per square mile.",
+      "distractor_explanations": {
+        "A": "2,000 is Town B's density alone.",
+        "B": "2,250 averages the two densities (2,500 and 2,000) without weighting by area.",
+        "D": "2,500 is Town A's density alone."
+      },
+      "hints": [
+        "Density = people ÷ area.",
+        "Combine the totals first, then divide."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The merged density lies between 2,000 and 2,500, closer to Town A's because Town A has more area; only 2,300 fits."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000138",
+      "correct_answer": "B",
+      "explanation": "Let the tens digit be t and the units digit be u, so the number is 10t + u. Then t + u = 9, and (10u + t) − (10t + u) = 27, so 9(u − t) = 27 and u − t = 3. Solving, t = 3 and u = 6: the number is 36. Check: 63 − 36 = 27.",
+      "distractor_explanations": {
+        "A": "27 is the difference between the numbers, not the original number (and reversing 27 gives 72).",
+        "C": "45 has digit sum 9, but reversing gives 54, which is only 9 greater.",
+        "D": "63 is the reversed number; the original is the smaller one."
+      },
+      "hints": [
+        "Write the number as 10t + u, where t and u are its digits.",
+        "Write the reversed number the same way and subtract."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Each choice has digit sum 9. Reverse each: only 36 → 63 increases by 27."
       }
     }
   ]

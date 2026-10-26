@@ -1,0 +1,14 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 14},
+"answers": {
+"B014-01": {"answer": "B", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "hard", "flags": [], "notes": "Odd divisor count iff perfect square; squares <=200: 1..14^2=196, so 14. Needs non-obvious insight."},
+"B014-02": {"answer": "A", "confidence": "high", "est_pct_correct": 38, "difficulty_opinion": "hard", "flags": [], "notes": "x=(10+c)/2, y=(10-c)/2 positive integers => c even, -10<c<10 => c in {-8,...,8}: 9 values. Traps 19 (all integers) and 11/10 (endpoint errors)."},
+"B014-03": {"answer": "A", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "C=(9/5)C+32 => C=-40. Familiar fact."},
+"B014-04": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "c=3; a+b=-3; a-b=7 => a=2,b=-5; f(2)=8-10+3=1."},
+"B014-05": {"answer": "D", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "Need 5-x^2>=1 => x^2<=4 => -2<=x<=2. Trap C (domain of sqrt(5-x^2))."},
+"B014-06": {"answer": "A", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "Hypotenuse 10; r=Area/s=24/12=2 (or (a+b-c)/2). Trap 2.4 (half the altitude). Borderline medium/hard."},
+"B014-07": {"answer": "C", "confidence": "high", "est_pct_correct": 30, "difficulty_opinion": "hard", "flags": ["minor: stating 'There are two such circles' is helpful but nearly gives away the quadratic structure"], "notes": "Center (r,r): (2-r)^2+(1-r)^2=r^2 => r^2-6r+5=0 => r=1,5; sum 6 (Vieta)."},
+"B014-08": {"answer": "C", "confidence": "high", "est_pct_correct": 42, "difficulty_opinion": "medium", "flags": [], "notes": "5!-2*4!=120-48=72. Trap 48 (adjacent count)."},
+"B014-09": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "Predicted 2.4*5+31=43; residual 50-43=7. Sign trap -7."},
+"B014-10": {"answer": "C", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "46000/20=2300. Trap 2250 (average of densities 2500 and 2000)."},
+"B014-11": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "a+b=9, 9(b-a)=27 => b-a=3 => 36 (63-36=27). Easily solved by checking choices; trap D 63."}
+}}

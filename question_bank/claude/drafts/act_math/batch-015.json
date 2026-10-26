@@ -1,0 +1,477 @@
+{
+  "bank": "act_math",
+  "batch": 15,
+  "plan": "Gaps: IES 4, Functions 2, N&Q 1, Algebra 1, Geometry 1, S&P 1. Hard share still low, so 6 hard / 4 medium. Hard: rate per hen-day, chained gear ratios, conditional percent among responders, degenerate quadratic (k ≠ 0), exponential vs linear comparison with an equality boundary, continuous probability on an interval.",
+  "candidates": [
+    {
+      "cand": "B015-01",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Rates per worker per day",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "Three hens lay a total of 3 eggs in 3 days. At this same rate per hen, how many eggs will 6 hens lay in 6 days?",
+      "choices": {
+        "A": "6",
+        "B": "9",
+        "C": "12",
+        "D": "36"
+      },
+      "answer": "C",
+      "explanation": "3 hens × 3 days = 9 hen-days produce 3 eggs, so each hen-day produces 1/3 egg. Then 6 hens × 6 days = 36 hen-days produce 36 × 1/3 = 12 eggs.",
+      "distractors": {
+        "A": {
+          "rationale": "This doubles only once, as if doubling both hens and days doubled the eggs; doubling each one doubles the output, so the total quadruples.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This adds 3 eggs for each doubling instead of multiplying.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "36 is the number of hen-days, not eggs; each hen-day yields only 1/3 egg.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "How many eggs does one hen lay in one day?",
+        "Multiply that rate by the number of hens and the number of days."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rate = 3 eggs ÷ 9 hen-days = 1/3; 36 hen-days × 1/3 = 12."
+      },
+      "remember": "Double the workers and double the time: four times the output.",
+      "expected_time_seconds": 60,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "strong intuitive trap (6); requires a per-unit rate"
+      }
+    },
+    {
+      "cand": "B015-02",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Chained ratios (gears)",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "Gear A has 36 teeth and meshes with gear B, which has 24 teeth. Gear B is fixed to the same axle as gear C, so B and C always turn together at the same rate. Gear C has 30 teeth and meshes with gear D, which has 15 teeth. If gear A turns at 40 revolutions per minute, how many revolutions per minute does gear D turn?",
+      "choices": {
+        "A": "40",
+        "B": "60",
+        "C": "80",
+        "D": "120"
+      },
+      "answer": "D",
+      "explanation": "Meshing gears pass the same number of teeth per minute. A: 36 × 40 = 1,440 teeth per minute, so B turns 1,440 ÷ 24 = 60 rpm. C shares B's axle, so C also turns at 60 rpm, passing 30 × 60 = 1,800 teeth per minute. D turns 1,800 ÷ 15 = 120 rpm.",
+      "distractors": {
+        "A": {
+          "rationale": "This assumes all the gears turn at the same rate as gear A.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "60 rpm is the speed of gears B and C; the last mesh with gear D has not been applied.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This applies only the C-to-D ratio to gear A's speed (40 × 30/15 = 80), skipping the A-to-B mesh.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "When two gears mesh, teeth × revolutions per minute is the same for both.",
+        "Gears on the same axle turn at the same rate, whatever their sizes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "40 × 36/24 = 60 for B and C; 60 × 30/15 = 120 for D."
+      },
+      "remember": "Meshed gears: teeth × rpm is equal. Same axle: rpm is equal.",
+      "expected_time_seconds": 90,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "two different rules (mesh vs shared axle) applied in sequence"
+      }
+    },
+    {
+      "cand": "B015-03",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Tax and tip on the same base",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "A restaurant bill is $60.00 before tax. Sales tax is 8% of the $60.00, and the diners also leave a tip equal to 20% of the $60.00. What is the total amount the diners pay?",
+      "choices": {
+        "A": "$72.00",
+        "B": "$76.80",
+        "C": "$77.76",
+        "D": "$88.80"
+      },
+      "answer": "B",
+      "explanation": "Tax: 0.08 × 60 = $4.80. Tip: 0.20 × 60 = $12.00. Total: 60 + 4.80 + 12.00 = $76.80.",
+      "distractors": {
+        "A": {
+          "rationale": "$72.00 includes the tip but leaves out the tax.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This takes the tip on the after-tax amount (60 × 1.08 × 1.20), but the tip is based on the $60.00.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This adds 48% of $60 by counting the 20% tip twice.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Both percents are of the same $60.00.",
+        "Add the tax and the tip to the bill."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "60 × (1 + 0.08 + 0.20) = 60 × 1.28 = 76.80."
+      },
+      "remember": "Percents of the same base can be added.",
+      "expected_time_seconds": 40,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "the app fixture applies a discount then tax to a jacket price; this item adds two percents on one base"
+      }
+    },
+    {
+      "cand": "B015-04",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percents of subgroups (reversed condition)",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "In a survey, 40% of the respondents were students. Of the students, 25% said they use public transit daily; of the respondents who were not students, 10% said they use public transit daily. Of the respondents who said they use public transit daily, what percent were students?",
+      "choices": {
+        "A": "25%",
+        "B": "40%",
+        "C": "62.5%",
+        "D": "71.4%"
+      },
+      "answer": "C",
+      "explanation": "Imagine 1,000 respondents: 400 students and 600 non-students. Daily transit users: 25% of 400 = 100 students and 10% of 600 = 60 non-students, 160 in all. The fraction who are students is 100/160 = 62.5%.",
+      "distractors": {
+        "A": {
+          "rationale": "25% is the percent of students who use transit daily; the question reverses the condition.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "40% is the share of students among all respondents, not among daily transit users.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This compares the two percents directly, 25/(25 + 10), ignoring that there are more non-students.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Pick a convenient total, such as 1,000 respondents, and count people.",
+        "Restrict attention to the people who use transit daily."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "With 1,000 respondents: 100 student users and 60 other users; 100 ÷ 160."
+      },
+      "remember": "Reverse a condition by counting actual people.",
+      "expected_time_seconds": 90,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "reversed conditional with unequal group sizes; three strong traps"
+      }
+    },
+    {
+      "cand": "B015-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Scientific notation in a rate conversion",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "Light travels about 3.0 × 10⁵ kilometers per second. About how many kilometers does light travel in 1 hour?",
+      "choices": {
+        "A": "5.0 × 10³",
+        "B": "1.8 × 10⁷",
+        "C": "1.08 × 10⁸",
+        "D": "1.08 × 10⁹"
+      },
+      "answer": "D",
+      "explanation": "One hour is 3,600 = 3.6 × 10³ seconds. (3.0 × 10⁵)(3.6 × 10³) = 10.8 × 10⁸ = 1.08 × 10⁹ kilometers.",
+      "distractors": {
+        "A": {
+          "rationale": "This divides by 60 instead of multiplying.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "1.8 × 10⁷ is the distance in 1 minute; it must still be multiplied by 60.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This writes 3,600 as 3.6 × 10² instead of 3.6 × 10³.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many seconds are in an hour?",
+        "Multiply the leading numbers and add the exponents, then adjust so the leading number is between 1 and 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3.0 × 3.6 = 10.8, and 10⁵ × 10³ = 10⁸; rewrite 10.8 × 10⁸ as 1.08 × 10⁹."
+      },
+      "remember": "1 hour = 3.6 × 10³ seconds.",
+      "expected_time_seconds": 55,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B015-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Discriminant with a degenerate case",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "For which values of the constant k does the equation kx² + 4x + 1 = 0 have exactly two distinct real solutions?",
+      "choices": {
+        "A": "k < 4 and k ≠ 0",
+        "B": "k < 4",
+        "C": "k > 4",
+        "D": "k ≤ 4"
+      },
+      "answer": "A",
+      "explanation": "If k = 0, the equation is 4x + 1 = 0, which has only one solution. If k ≠ 0, the equation is quadratic and has two distinct real solutions when the discriminant is positive: 16 − 4k > 0, so k < 4. Together: k < 4 and k ≠ 0.",
+      "distractors": {
+        "B": {
+          "rationale": "This misses that k = 0 makes the equation linear, with just one solution.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This reverses the discriminant inequality; k > 4 gives no real solutions.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "k = 4 makes the discriminant 0, giving one repeated solution, not two distinct ones; k = 0 is also wrong.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "When does a quadratic have two distinct real solutions?",
+        "What kind of equation is it when k = 0?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test k = 0 (one solution: rules out B and D) and k = 5 (no real solutions: rules out C)."
+      },
+      "remember": "A quadratic's leading coefficient cannot be 0.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "degenerate-case insight beyond the routine discriminant",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B015-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Comparing exponential and linear growth",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "Let f(x) = 2^x and g(x) = 4x. For how many integers x with 1 ≤ x ≤ 10 is f(x) ≥ g(x) ?",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "7",
+        "D": "10"
+      },
+      "answer": "C",
+      "explanation": "Compare values: x = 1: 2 < 4; x = 2: 4 < 8; x = 3: 8 < 12; x = 4: 16 = 16; x = 5: 32 > 20; and 2^x keeps growing faster after that. So f(x) ≥ g(x) for x = 4, 5, …, 10: that is 7 integers.",
+      "distractors": {
+        "A": {
+          "rationale": "3 counts the integers where f(x) < g(x), the opposite condition.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "This leaves out x = 4, where the two values are equal; the condition includes equality.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This assumes the exponential is always at least as large, but for x = 1, 2 and 3 it is smaller.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Make a small table of 2^x and 4x for x = 1, 2, 3, 4, 5.",
+        "Watch for the value of x where they are equal."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Table: (2, 4), (4, 8), (8, 12), (16, 16), (32, 20): the exponential catches up at 4 and stays ahead."
+      },
+      "remember": "Exponentials start slow, then overtake linear functions.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "crossover with an equality case; both 'opposite' and 'strict' traps"
+      }
+    },
+    {
+      "cand": "B015-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Odd and even functions",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "A function f is called odd if f(−x) = −f(x) for every real number x. Which of the following functions is odd?",
+      "choices": {
+        "A": "f(x) = x² + 1",
+        "B": "f(x) = |x|",
+        "C": "f(x) = x³ + 1",
+        "D": "f(x) = x³ − x"
+      },
+      "answer": "D",
+      "explanation": "For f(x) = x³ − x: f(−x) = (−x)³ − (−x) = −x³ + x = −(x³ − x) = −f(x), so it is odd. The others fail: x² + 1 and |x| satisfy f(−x) = f(x) (even), and for x³ + 1, f(−1) = 0 but −f(1) = −2.",
+      "distractors": {
+        "A": {
+          "rationale": "x² + 1 is even: f(−x) = f(x), not −f(x).",
+          "trap": null
+        },
+        "B": {
+          "rationale": "|x| is even: |−x| = |x|.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "x³ is odd, but adding 1 breaks the property: f(−1) = 0 while −f(1) = −2.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Replace x with −x in each function and simplify.",
+        "Is the result the negative of the original function?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 2 and x = −2: x³ − x gives 6 and −6 (opposites); x³ + 1 gives 9 and −7; the even functions give equal outputs."
+      },
+      "remember": "Odd functions: f(−x) = −f(x); their graphs are symmetric about the origin.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "definition supplied in stem"
+      }
+    },
+    {
+      "cand": "B015-09",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Diagonal of a rectangular box",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "A closed rectangular box has inside dimensions 3 inches by 4 inches by 12 inches. What is the length, in inches, of the longest straight rod that fits completely inside the box?",
+      "choices": {
+        "A": "5",
+        "B": "12",
+        "C": "13",
+        "D": "19"
+      },
+      "answer": "C",
+      "explanation": "The longest rod lies along the box's space diagonal: √(3² + 4² + 12²) = √(9 + 16 + 144) = √169 = 13 inches.",
+      "distractors": {
+        "A": {
+          "rationale": "5 is the diagonal of the 3-by-4 face, not the whole box.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "12 is the longest edge; the diagonal through the box is longer.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "19 adds the three dimensions; a straight line is shorter than a path along the edges.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The longest segment goes from one corner to the opposite corner.",
+        "Use the Pythagorean theorem twice, or the three-dimensional version."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Face diagonal 5, then √(5² + 12²) = 13."
+      },
+      "remember": "Box diagonal = √(l² + w² + h²).",
+      "expected_time_seconds": 50,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "the bank's cube item (CLD-ACT-M-000074) goes from diagonal to volume; this is a non-cube box in context"
+      }
+    },
+    {
+      "cand": "B015-10",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Continuous uniform probability",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "A real number x is chosen at random from the interval 0 ≤ x ≤ 10, with every number equally likely. What is the probability that x² < 30 ?",
+      "choices": {
+        "A": "√30/20",
+        "B": "3/10",
+        "C": "1/2",
+        "D": "√30/10"
+      },
+      "answer": "D",
+      "explanation": "For x ≥ 0, x² < 30 means x < √30 ≈ 5.48. The favorable part of the interval has length √30 out of a total length of 10, so the probability is √30/10 ≈ 0.548.",
+      "distractors": {
+        "A": {
+          "rationale": "This divides by 20, as if x could range from −10 to 10; the interval here starts at 0.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This compares 30 with 10² = 100, treating x² as if it were equally likely to be any value from 0 to 100.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "1/2 assumes the cutoff is the midpoint 5, but √30 ≈ 5.48.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Rewrite x² < 30 as a condition on x itself.",
+        "Probability = favorable length ÷ total length."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x < √30 on [0, 10]: probability √30/10."
+      },
+      "remember": "Uniform on an interval: probability = favorable length ÷ total length.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "translate a quadratic condition to an interval and use length ratio"
+      }
+    }
+  ]
+}
