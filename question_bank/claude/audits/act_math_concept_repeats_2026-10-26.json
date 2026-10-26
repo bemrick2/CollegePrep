@@ -1,0 +1,256 @@
+{
+  "auditor": "AI concept-repeat audit (separate agent)",
+  "bank_size": 218,
+  "groups": [
+    {
+      "ids": [
+        "CLD-ACT-M-000016",
+        "CLD-ACT-M-000116"
+      ],
+      "shared_idea": "Probability of 'at least one' when choosing without replacement, solved as 1 - C(no-success group, k)/C(total, k) (committee with >=1 junior; product of two picks is even = 1 - P(both odd)).",
+      "severity": "same problem",
+      "keep": "CLD-ACT-M-000016",
+      "why": "Identical complement-with-combinations method; only the context differs. 016 is the more standard ACT framing."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000046",
+        "CLD-ACT-M-000158"
+      ],
+      "shared_idea": "Expected net gain of a game of chance: sum of payoff x probability, accounting for losses or cost.",
+      "severity": "same problem",
+      "keep": "CLD-ACT-M-000046",
+      "why": "Same setup (a game with payoffs and probabilities) and same one-line expected-value computation."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000019",
+        "CLD-ACT-M-000189"
+      ],
+      "shared_idea": "Multiply/divide numbers in scientific notation by combining coefficients and adding/subtracting powers of 10.",
+      "severity": "same problem",
+      "keep": "CLD-ACT-M-000189",
+      "why": "Same bare computation type; 189 also covers squaring and negative exponents, so it subsumes 019."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000034",
+        "CLD-ACT-M-000182"
+      ],
+      "shared_idea": "Line through a given point parallel/perpendicular to a line given in standard form; find slope from standard form, write point-slope, then find an intercept.",
+      "severity": "same problem",
+      "keep": "CLD-ACT-M-000034",
+      "why": "Identical pipeline; the perpendicular version adds the negative reciprocal, so 034 covers more."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000021",
+        "CLD-ACT-M-000122"
+      ],
+      "shared_idea": "Given a point (a, b) on y = f(x), find the image point on a transformed graph g(x) = A f(Bx + C) + D.",
+      "severity": "same problem",
+      "keep": "CLD-ACT-M-000122",
+      "why": "Same 'track one point through transformations' method; 122 adds stretch and reflection, so it covers 021."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000001",
+        "CLD-ACT-M-000153"
+      ],
+      "shared_idea": "Simplify a monomial with rational exponents using power-of-a-power and product rules.",
+      "severity": "same problem",
+      "keep": "CLD-ACT-M-000153",
+      "why": "Same exponent-rule simplification; 153 adds a second variable and a negative fractional power."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000147",
+        "CLD-ACT-M-000074"
+      ],
+      "shared_idea": "Space diagonal of a rectangular box/cube: d = sqrt(l^2 + w^2 + h^2).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000074",
+      "why": "074 runs the formula backward (diagonal to side to volume), but the key idea is the same."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000064",
+        "CLD-ACT-M-000172"
+      ],
+      "shared_idea": "Rewrite a shifted exponential b^(x+k) as b^k * b^x.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000172",
+      "why": "172 adds one subtraction step; the core insight (f(x+k) = b^k f(x)) is identical."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000022",
+        "CLD-ACT-M-000155"
+      ],
+      "shared_idea": "Quadratic in a known form (vertex or factored) with one unknown coefficient a: substitute a given point to get a, then evaluate.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000022",
+      "why": "Same 'plug a point to find a, then evaluate' method; 022 also needs symmetry to locate the vertex."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000096",
+        "CLD-ACT-M-000137"
+      ],
+      "shared_idea": "Combine two groups by adding totals: (total1 + total2)/(count1 + count2), not averaging the two rates/means.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000096",
+      "why": "Merged population density is a weighted mean in different clothing; the same trap (averaging 2,500 and 2,000) applies."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000097",
+        "CLD-ACT-M-000139"
+      ],
+      "shared_idea": "Worker-time units: compute the rate per worker per unit time and scale (painter-hours, hen-days).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000097",
+      "why": "Both rely on the 'per worker per unit time' rate; 097 adds a mid-job change."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000078",
+        "CLD-ACT-M-000206"
+      ],
+      "shared_idea": "Relative speed: time = separation distance / combined (or difference of) speeds.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000078",
+      "why": "Catch-up (subtract speeds) and opposite-direction meeting on a track (add speeds) use the same relative-speed idea."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000003",
+        "CLD-ACT-M-000161"
+      ],
+      "shared_idea": "Number of solutions of linear equations/systems determined by matching coefficients (proportional or equal coefficients).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000003",
+      "why": "Both ask for a parameter value that makes coefficients match (infinitely many solutions vs. no solution)."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000051",
+        "CLD-ACT-M-000170"
+      ],
+      "shared_idea": "Factor numerator and denominator of rational expressions and cancel common factors.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000170",
+      "why": "170 is the same factor-and-cancel process with one extra multiplication."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000104",
+        "CLD-ACT-M-000204"
+      ],
+      "shared_idea": "Area of an isosceles triangle/trapezoid: drop an altitude, use a Pythagorean triple (5-12-13 or 3-4-5) to get the height, then use the area formula.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000104",
+      "why": "Same altitude-plus-Pythagorean-triple method on an isosceles figure."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000024",
+        "CLD-ACT-M-000210"
+      ],
+      "shared_idea": "Area of an equilateral triangle, s^2*sqrt(3)/4 (the hexagon is 6 such triangles).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000210",
+      "why": "The hexagon problem is the equilateral-area problem times 6."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000056",
+        "CLD-ACT-M-000208"
+      ],
+      "shared_idea": "Geometric probability as (target region area)/(total area), where the target region is a difference of two similar shapes (square frame; annulus).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000056",
+      "why": "Same 'outer minus inner area over total' method."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000007",
+        "CLD-ACT-M-000127"
+      ],
+      "shared_idea": "Successive percent changes multiply as factors and do not add (1.2 x 0.75; 0.8 x ? = 1).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000007",
+      "why": "Same multiplicative-factor idea and the same trap answer; 127 solves for the second factor instead of the product."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000027",
+        "CLD-ACT-M-000197"
+      ],
+      "shared_idea": "Find the whole from a known percent of it (0.85x = 68; 0.15x = 27), then use the whole.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000027",
+      "why": "Same 'divide by the percent to recover the base' step."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000090",
+        "CLD-ACT-M-000176"
+      ],
+      "shared_idea": "Chain two ratios through a shared middle term (a:b and b:c to a:b:c) by scaling to a common value of b.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000176",
+      "why": "Same chaining technique; 176 adds a part-to-total step."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000067",
+        "CLD-ACT-M-000188"
+      ],
+      "shared_idea": "Area unit conversion uses the square of the linear factor (sq ft to sq yd: /9; m^2 to cm^2: x10,000).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000067",
+      "why": "Same squared-conversion-factor idea; 067 adds rounding up."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000045",
+        "CLD-ACT-M-000105"
+      ],
+      "shared_idea": "Cut a figure with a line/plane parallel to its base: the small similar piece scales by k^2 (area) or k^3 (volume); the remaining piece = whole - small.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000105",
+      "why": "Same 'similar piece cut off by a parallel cut, subtract from whole' method in 2-D vs 3-D."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000026",
+        "CLD-ACT-M-000151"
+      ],
+      "shared_idea": "Unit price = cost / quantity, compared or converted to a per-ounce price.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000151",
+      "why": "151 is the same unit-price computation with a pounds-to-ounces conversion."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000047",
+        "CLD-ACT-M-000195"
+      ],
+      "shared_idea": "Standard deviation measures spread from the mean: values far from the mean raise it, values at the mean lower it.",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000195",
+      "why": "Both are conceptual SD questions answered by the same 'distance from the mean' intuition, with no computation."
+    },
+    {
+      "ids": [
+        "CLD-ACT-M-000080",
+        "CLD-ACT-M-000093"
+      ],
+      "shared_idea": "Solve a one-variable linear equation (f(a) = 20 is just 5 - 3a = 20).",
+      "severity": "close variant",
+      "keep": "CLD-ACT-M-000080",
+      "why": "Both are basic linear solves; a student would see them as the same item. 030 (with fractions) is related but needs clearing denominators."
+    }
+  ]
+}

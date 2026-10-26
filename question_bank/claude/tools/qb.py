@@ -549,6 +549,17 @@ def to_import(q: dict, bank: str) -> dict:
     }
 
 
+def retired_ids() -> dict:
+    """Accepted items later found to repeat another item's concept (audits/retired.json). Bank records stay
+    unchanged (append-only); retired items are left out of exports and accepted counts."""
+    return (read_json(ROOT / 'audits' / 'retired.json', {}) or {}).get('retired', {})
+
+
+def live(qs: list) -> list:
+    gone = retired_ids()
+    return [q for q in qs if q['id'] not in gone]
+
+
 def export() -> None:
     ex = ROOT / 'exports'
     files = {}
@@ -556,7 +567,7 @@ def export() -> None:
         data, _ = load_bank(bank)
         if not bank_path(bank).exists():
             atomic_write(bank_path(bank), dumps(data))
-        qs = data['questions']
+        qs = live(data['questions'])
         student = [{'id': q['id'], 'exam': q['exam'], 'section': q['section'], 'skill': q['skill'],
                     'subskill': q['subskill'], 'difficulty': q['difficulty'], 'passage_id': q.get('passage_id'),
                     'underline': q.get('underline'),
@@ -590,7 +601,7 @@ def write_progress(files: dict) -> None:
     sections, review_totals, batches = {}, {}, {}
     for bank in BANKS:
         data, _ = load_bank(bank)
-        qs = data['questions']
+        qs = live(data['questions'])
         totals = {'PASS': 0, 'REVISE': 0, 'REJECT': 0, 'candidates': 0, 'passed_after_revision': 0}
         done = []
         for rp in sorted((ROOT / 'reviews' / bank).glob('batch-*.review.json')) if (ROOT / 'reviews' / bank).exists() else []:
@@ -606,6 +617,7 @@ def write_progress(files: dict) -> None:
         n = len(qs)
         sections[bank] = {
             'accepted': n,
+            'retired_after_audit': len(data['questions']) - n,
             'by_skill': dist(qs, 'skill'),
             'by_subskill': dist(qs, 'subskill'),
             'by_difficulty_author': dist(qs, 'difficulty'),

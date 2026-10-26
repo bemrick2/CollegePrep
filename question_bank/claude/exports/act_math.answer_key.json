@@ -1,25 +1,7 @@
 {
   "bank": "act_math",
-  "bank_version": 22,
+  "bank_version": 23,
   "answers": [
-    {
-      "id": "CLD-ACT-M-000001",
-      "correct_answer": "B",
-      "explanation": "Raising a power to a power multiplies the exponents: (x^(3/2))^4 = x^((3/2)(4)) = x^6. Multiplying powers of the same base adds the exponents: x^6 · x^(−1) = x^(6 + (−1)) = x^5.",
-      "distractor_explanations": {
-        "A": "This adds all three exponents, 3/2 + 4 − 1 = 9/2, instead of multiplying 3/2 by 4 first.",
-        "C": "x^6 is (x^(3/2))^4 alone; the factor x^(−1) was left out.",
-        "D": "This subtracts −1 instead of adding it, giving 6 + 1 = 7."
-      },
-      "hints": [
-        "When a power is raised to another power, what happens to the two exponents?",
-        "When two powers of x are multiplied, combine their exponents by adding."
-      ],
-      "strategy": {
-        "key": "plug_in_numbers",
-        "explanation": "Let x = 4: (4^(3/2))^4 = 8^4 = 4,096, and 4,096 · (1/4) = 1,024 = 4^5. Only x^5 gives 1,024."
-      }
-    },
     {
       "id": "CLD-ACT-M-000002",
       "correct_answer": "A",
@@ -327,24 +309,6 @@
       }
     },
     {
-      "id": "CLD-ACT-M-000019",
-      "correct_answer": "A",
-      "explanation": "Multiply the numerator: (6.0)(4.0) × 10^(5 + (−2)) = 24 × 10³ = 2.4 × 10⁴. Divide: 2.4 × 10⁴ ÷ (8.0 × 10¹) = 0.3 × 10³ = 3.0 × 10².",
-      "distractor_explanations": {
-        "B": "This finds 0.3 × 10³ but rewrites it as 3.0 × 10³ without lowering the exponent by 1.",
-        "C": "This adds the denominator's exponent instead of subtracting it: 5 − 2 + 1 = 4.",
-        "D": "This treats 10⁻² as 10²: 5 + 2 − 1 = 6."
-      },
-      "hints": [
-        "Handle the decimal parts and the powers of 10 separately.",
-        "When you divide powers of 10, subtract exponents; then make sure the leading number is between 1 and 10."
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "Compute 6 × 4 ÷ 8 = 3 and 10^(5 − 2 − 1) = 10², giving 3.0 × 10² directly."
-      }
-    },
-    {
       "id": "CLD-ACT-M-000020",
       "correct_answer": "C",
       "explanation": "Let a be the number of adult tickets, so 340 − a student tickets were sold. Then 12a + 8(340 − a) = 3,480, so 4a + 2,720 = 3,480, 4a = 760 and a = 190. Check: 190(12) + 150(8) = 2,280 + 1,200 = 3,480.",
@@ -360,24 +324,6 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Try 190 adults: 190 × 12 + 150 × 8 = 3,480. It works."
-      }
-    },
-    {
-      "id": "CLD-ACT-M-000021",
-      "correct_answer": "A",
-      "explanation": "f(3) = 7. To use that value in g, the input of f must be 3: x + 2 = 3, so x = 1. Then g(1) = f(3) − 5 = 7 − 5 = 2. The point (1, 2) is on the graph of g. (The graph of g is the graph of f shifted 2 units left and 5 units down.)",
-      "distractor_explanations": {
-        "B": "This shifts the point 2 units right instead of left; f(x + 2) moves the graph left.",
-        "C": "This shifts up 5 instead of down 5.",
-        "D": "This reverses both shifts."
-      },
-      "hints": [
-        "Which input x makes x + 2 equal to 3?",
-        "Then subtract 5 from the known output."
-      ],
-      "strategy": {
-        "key": "plug_in_numbers",
-        "explanation": "Test each choice's x-value in g: only x = 1 gives f(3), and f(3) − 5 = 2."
       }
     },
     {
@@ -2073,24 +2019,6 @@
       }
     },
     {
-      "id": "CLD-ACT-M-000116",
-      "correct_answer": "D",
-      "explanation": "A product is odd only if both numbers are odd. There are 5 odd numbers, so P(both odd) = (5/10)(4/9) = 2/9. Therefore P(product even) = 1 − 2/9 = 7/9.",
-      "distractor_explanations": {
-        "A": "This assumes the product is even exactly when one particular number is even; a product is even if either number is even.",
-        "B": "2/9 is the probability that the product is odd, the complement.",
-        "C": "This computes 1 − (1/2)², as if the second number could repeat the first (with replacement)."
-      },
-      "hints": [
-        "When is a product of two integers odd?",
-        "Find the probability of the opposite event and subtract from 1."
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "P(even) = 1 − P(both odd) = 1 − (5/10)(4/9)."
-      }
-    },
-    {
       "id": "CLD-ACT-M-000117",
       "correct_answer": "C",
       "explanation": "85% of 40 is 34 correct answers in all. She got 75% of 20 = 15 correct on the first part, so she needs 34 − 15 = 19 correct on the last 20.",
@@ -2829,24 +2757,6 @@
       }
     },
     {
-      "id": "CLD-ACT-M-000158",
-      "correct_answer": "D",
-      "explanation": "Each number has probability 1/6. Winnings from evens: (2 + 4 + 6)/6 = 12/6 = 2. Losses from odds: 3 outcomes × (−2)/6 = −1. Expected gain: 2 − 1 = 1 dollar per roll.",
-      "distractor_explanations": {
-        "A": "This subtracts the expected win from the expected loss, reversing the sign.",
-        "B": "This assumes a game with equal chances of winning and losing must be fair; the amounts differ.",
-        "C": "This divides the total of the six outcomes, 6, by 12 instead of by 6."
-      },
-      "hints": [
-        "List all six outcomes and the dollar result of each.",
-        "Expected value = sum of (value × probability)."
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "(−2 + 2 − 2 + 4 − 2 + 6)/6 = 6/6 = 1."
-      }
-    },
-    {
       "id": "CLD-ACT-M-000159",
       "correct_answer": "B",
       "explanation": "The entry in row 2, column 1 of AB is row 2 of A times column 1 of B: (3)(2) + (4)(1) = 6 + 4 = 10.",
@@ -3258,24 +3168,6 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Test 1: |−3| = 3 = 3. Test −5: |−9| = 9 but 2(−5) + 1 = −9. Only {1}."
-      }
-    },
-    {
-      "id": "CLD-ACT-M-000182",
-      "correct_answer": "C",
-      "explanation": "3x − y = 4 can be written y = 3x − 4, with slope 3. Line m: y − (−1) = 3(x − 2), so y = 3x − 7. Setting y = 0: 3x = 7, x = 7/3.",
-      "distractor_explanations": {
-        "A": "−7 is the y-intercept of line m, not the x-intercept.",
-        "B": "This uses the perpendicular slope −1/3 instead of the parallel slope.",
-        "D": "4 relates to the given line 3x − y = 4, not to line m."
-      },
-      "hints": [
-        "Parallel lines have equal slopes.",
-        "The x-intercept is where y = 0."
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "y = 3x − 7; set y = 0 to get x = 7/3."
       }
     },
     {
@@ -3922,6 +3814,185 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch a small loop: posts = gaps."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000219",
+      "correct_answer": "D",
+      "explanation": "f(a + 1) = (a + 1)² + 3(a + 1) = a² + 5a + 4. Subtracting f(a) = a² + 3a gives 2a + 4.",
+      "distractor_explanations": {
+        "A": "4 expands (a + 1)² as a² + 1, dropping the 2a term.",
+        "B": "2a + 1 is (a + 1)² − a², forgetting the 3x part of f.",
+        "C": "a² + 5a + 4 is f(a + 1) alone; f(a) was never subtracted."
+      },
+      "hints": [
+        "Substitute a + 1 for every x in f.",
+        "Then subtract f(a) and simplify."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1: f(2) − f(1) = 10 − 4 = 6 = 2(1) + 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000220",
+      "correct_answer": "C",
+      "explanation": "\"Differs from 4.5 by at most 0.03\" means the distance between L and 4.5 is no more than 0.03: |L − 4.5| ≤ 0.03.",
+      "distractor_explanations": {
+        "A": "|L + 4.5| measures distance from −4.5, not 4.5.",
+        "B": "This swaps the target and the tolerance.",
+        "D": "This describes the unacceptable lengths (plus the boundary)."
+      },
+      "hints": [
+        "Distance between L and 4.5 is |L − 4.5|.",
+        "\"At most\" means ≤."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Distance from target ≤ tolerance."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000221",
+      "correct_answer": "B",
+      "explanation": "The diagonals of a rhombus bisect each other at right angles. Half of the known diagonal is 12, so half of the other is √(13² − 12²) = 5; the other diagonal is 10. Area = (1/2)(24)(10) = 120.",
+      "distractor_explanations": {
+        "A": "60 uses half of each diagonal: (1/2)(12)(10).",
+        "C": "156 = 13 × 12 multiplies a side by half a diagonal.",
+        "D": "312 = 13 × 24 treats the rhombus like a rectangle with those sides."
+      },
+      "hints": [
+        "How do the diagonals of a rhombus meet?",
+        "Use a right triangle with hypotenuse 13."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Half-diagonals 12 and 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000222",
+      "correct_answer": "A",
+      "explanation": "P is 1/4 of the way from A to B: x = −2 + (1/4)(12) = 1 and y = 1 + (1/4)(8) = 3.",
+      "distractor_explanations": {
+        "B": "(4, 5) is the midpoint, which would be a 1:1 ratio.",
+        "C": "(7, 7) is 3/4 of the way from A, which reverses the ratio.",
+        "D": "(2, 11/3) goes 1/3 of the way, reading 1:3 as one-third of the segment."
+      },
+      "hints": [
+        "If AP:PB = 1:3, what fraction of AB is AP?",
+        "Move that fraction of the change in x and in y."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "1/4 of the way: (−2 + 3, 1 + 2)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000223",
+      "correct_answer": "D",
+      "explanation": "A correlation of −0.9 indicates a strong negative linear association: as hours increase, scores tend to decrease. Correlation alone does not establish causation.",
+      "distractor_explanations": {
+        "A": "Correlation does not show causation.",
+        "B": "The coefficient is not a percentage of students.",
+        "C": "A value near −1 indicates a strong relationship, not a weak one."
+      },
+      "hints": [
+        "What does the sign tell you? The size?",
+        "Can correlation prove cause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate causal and percentage readings."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000224",
+      "correct_answer": "B",
+      "explanation": "The first two rolls must not be 6 (probability 5/6 each) and the third must be 6 (1/6): (5/6)(5/6)(1/6) = 25/216.",
+      "distractor_explanations": {
+        "A": "1/216 = (1/6)³ requires a 6 on all three rolls.",
+        "C": "1/6 is the probability of a 6 on any single roll, ignoring the first two rolls.",
+        "D": "91/216 = 1 − (5/6)³ is the probability of at least one 6 in three rolls."
+      },
+      "hints": [
+        "What must happen on rolls 1 and 2?",
+        "Multiply the probabilities of independent events."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(5/6)²(1/6)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000225",
+      "correct_answer": "C",
+      "explanation": "1/2 + 1/3 = 5/6 and 1/2 − 1/3 = 1/6, so the quotient is (5/6) ÷ (1/6) = 5.",
+      "distractor_explanations": {
+        "A": "1/5 divides in the wrong order.",
+        "B": "1 assumes the numerator and denominator are equal.",
+        "D": "6 is the common denominator, not the quotient."
+      },
+      "hints": [
+        "Simplify the top and bottom separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(5/6) ÷ (1/6) = 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000226",
+      "correct_answer": "C",
+      "explanation": "The longest piece length that divides both 84 and 126 is their greatest common divisor, 42. The ropes give 84 ÷ 42 = 2 and 126 ÷ 42 = 3 pieces: 5 in all.",
+      "distractor_explanations": {
+        "A": "2 counts only the pieces from the 84-meter rope.",
+        "B": "3 counts only the pieces from the 126-meter rope.",
+        "D": "42 is the length of each piece, not the number of pieces."
+      },
+      "hints": [
+        "What is the longest length that divides both 84 and 126?",
+        "How many pieces does each rope give?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "gcd(84, 126) = 42; 2 + 3 = 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000227",
+      "correct_answer": "A",
+      "explanation": "Profit = $50 − $40 = $10. As a percent of the selling price: 10/50 = 20%.",
+      "distractor_explanations": {
+        "B": "25% divides the profit by the cost (markup on cost), not by the selling price.",
+        "C": "80% is the cost as a percent of the selling price.",
+        "D": "125% is the selling price as a percent of the cost."
+      },
+      "hints": [
+        "What is the profit in dollars?",
+        "\"Percent of the selling price\" means divide by what?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "10 ÷ 50 = 0.20."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000228",
+      "correct_answer": "B",
+      "explanation": "10:40 p.m. plus 7 hours 35 minutes is 6:15 a.m. departure-city time. Subtracting 3 hours gives 3:15 a.m. at the destination.",
+      "distractor_explanations": {
+        "A": "2:15 a.m. adds only 6 hours 35 minutes before adjusting for the time zone.",
+        "C": "6:15 a.m. is the time in the departure city; the time-zone change was ignored.",
+        "D": "9:15 a.m. adds 3 hours instead of subtracting them."
+      },
+      "hints": [
+        "Add the flight time to the departure time first.",
+        "Is the destination ahead or behind?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "10:40 p.m. + 7:35 = 6:15 a.m.; − 3 h = 3:15 a.m."
       }
     }
   ]
