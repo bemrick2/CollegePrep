@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:09:44+00:00",
+  "updated_at": "2026-10-26T20:11:43+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 222,
-    "act_english": 78,
+    "act_english": 88,
     "act_reading": 72,
     "sat_reading_writing": 86
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 78,
+      "PASS": 88,
       "REVISE": 3,
       "REJECT": 0,
-      "candidates": 81,
+      "candidates": 91,
       "passed_after_revision": 3
     },
     "act_reading": {
@@ -311,18 +311,19 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 78,
+      "accepted": 88,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 34,
+        "Conventions of Standard English": 40,
         "Knowledge of Language": 13,
-        "Production of Writing": 31
+        "Production of Writing": 35
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
         "Adjectives versus adverbs": 1,
         "Agreement in an inverted sentence (lie/lay)": 1,
         "Agreement with \"most of\" + plural": 1,
+        "Choosing a phrase that fits the essay's point": 1,
         "Colon introducing an explanation": 1,
         "Comma splice": 1,
         "Comma splices": 1,
@@ -338,13 +339,14 @@
         "Conclusion that returns to the opening": 2,
         "Conclusions that echo the opening": 1,
         "Dangling modifiers": 1,
-        "Deciding whether to keep a sentence": 3,
+        "Deciding whether to keep a sentence": 4,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 4,
+        "Evaluating whether an essay meets a goal": 5,
         "Evaluating whether an essay meets a stated goal": 1,
         "Function of a sentence (what would be lost)": 1,
         "Idiom (phrasal verb)": 1,
         "Idiom (preposition)": 1,
+        "Irregular past tense": 1,
         "It's / its": 1,
         "Its / it's": 1,
         "Its versus it's": 1,
@@ -353,7 +355,7 @@
         "Parallel structure": 3,
         "Participial phrases and sentence boundaries": 1,
         "Past perfect tense": 1,
-        "Plural possessive": 1,
+        "Plural possessive": 2,
         "Precise word choice": 2,
         "Precise, register-appropriate wording": 1,
         "Pronoun case (who/whom)": 1,
@@ -364,8 +366,9 @@
         "Relevance (supporting a point)": 1,
         "Relevance of an added sentence": 1,
         "Relevance to a stated purpose": 1,
+        "Restrictive appositive (no commas)": 1,
         "Semicolons joining independent clauses": 1,
-        "Sentence boundaries": 1,
+        "Sentence boundaries": 2,
         "Sentence fragment (finite verb)": 1,
         "Sentence placement": 1,
         "Sentence placement (adding a sentence)": 1,
@@ -380,30 +383,33 @@
         "Transitional sentences between paragraphs": 1,
         "Transitions (concession)": 1,
         "Transitions (contrast)": 2,
+        "Transitions (example)": 1,
         "Transitions: contrast": 1,
+        "Unnecessary comma between noun and clause": 1,
+        "Unnecessary comma in a relative clause": 1,
         "Verb forms and agreement": 1
       },
       "by_difficulty_author": {
-        "easy": 30,
-        "hard": 7,
-        "medium": 41
+        "easy": 32,
+        "hard": 9,
+        "medium": 47
       },
       "by_difficulty_calibrated": {
-        "easy": 45,
-        "medium": 33
+        "easy": 51,
+        "medium": 37
       },
       "calibrated_share": {
-        "easy": 0.577,
-        "medium": 0.423
+        "easy": 0.58,
+        "medium": 0.42
       },
       "answer_key_balance": {
-        "A": 24,
-        "B": 18,
-        "C": 18,
-        "D": 18
+        "A": 28,
+        "B": 20,
+        "C": 21,
+        "D": 19
       },
       "modeling_items": 0,
-      "passages": 7
+      "passages": 8
     },
     "act_reading": {
       "accepted": 72,
@@ -590,7 +596,7 @@
   },
   "last_completed_batch": {
     "act_math": 23,
-    "act_english": 7,
+    "act_english": 8,
     "act_reading": 8,
     "sat_reading_writing": 9
   },
@@ -627,6 +633,14 @@
     }
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 9,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 4.7,
+        "Knowledge of Language": 7.1,
+        "Conventions of Standard English": -0.3
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 10,
       "skill_gap_for_next_10": {
@@ -634,14 +648,6 @@
         "Information and Ideas": 3.0,
         "Standard English Conventions": 2.0,
         "Expression of Ideas": -0.8
-      }
-    },
-    "act_english": {
-      "next_batch": 8,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.6,
-        "Knowledge of Language": 5.0,
-        "Conventions of Standard English": 1.6
       }
     },
     "act_reading": {
@@ -661,8 +667,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 78,
-      "share_of_target": 0.111
+      "accepted": 88,
+      "share_of_target": 0.126
     },
     "act_reading": {
       "target": 600,
@@ -676,7 +682,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 458,
+  "total_accepted": 468,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -882,7 +888,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 7,
+      "bank_version": 8,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -935,7 +941,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:09:43+00:00",
+    "heartbeat_at": "2026-10-26T20:11:43+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
