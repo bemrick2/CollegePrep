@@ -1,6 +1,6 @@
 {
   "bank": "act_english",
-  "bank_version": 1,
+  "bank_version": 2,
   "answers": [
     {
       "id": "CLD-ACT-E-000001",
@@ -180,6 +180,222 @@
       "strategy": {
         "key": "predict_then_match",
         "explanation": "Predict a closing line about the value of the long record, then match."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000011",
+      "correct_answer": "D",
+      "explanation": "The clause \"who has guided rafting trips for twenty years\" adds nonessential information about Rosa. It opens with a comma after \"Rosa,\" so it must close with a comma before the verb \"kept.\"",
+      "distractor_explanations": {
+        "A": "Without the closing comma, the nonessential clause runs into the main verb \"kept.\"",
+        "B": "A comma between \"who\" and its verb splits the clause apart.",
+        "C": "A comma between the verb \"has guided\" and its object \"rafting trips\" is incorrect."
+      },
+      "hints": [
+        "The clause about Rosa begins with a comma. What does it need at its end?",
+        "Nonessential clauses are set off on both sides."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the opening comma with a closing one; reject commas that split a verb from its subject or object."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000012",
+      "correct_answer": "C",
+      "explanation": "The sentence needs the possessive pronoun for the river's language, which is \"its\" with no apostrophe. \"It's\" means \"it is.\"",
+      "distractor_explanations": {
+        "A": "\"It's\" is the contraction of \"it is\": \"learn it is language\" makes no sense.",
+        "B": "\"Its'\" is not a word in standard English.",
+        "D": "\"Their\" is plural, but it refers to the singular \"river.\""
+      },
+      "hints": [
+        "Try reading the underlined word as \"it is.\"",
+        "Possessive pronouns never use apostrophes."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Expand \"it's\" to \"it is\"; if that fails, use the possessive \"its.\""
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000013",
+      "correct_answer": "A",
+      "explanation": "The sentence is inverted: its subject comes after the verb. The subject is \"the safest channel,\" which is singular, so the verb is \"lies\" (present tense of \"to lie,\" meaning to be located). \"Rocks\" is in the introductory prepositional phrase and is not the subject.",
+      "distractor_explanations": {
+        "B": "\"Lie\" agrees with \"rocks,\" but \"rocks\" is inside the phrase \"Between two submerged rocks\"; the subject is \"channel.\"",
+        "C": "\"Lay\" is the past tense of \"lie\" (or the present of \"to lay,\" which needs an object); the paragraph describes how the river works in the present.",
+        "D": "\"Are lying\" is plural and does not agree with the singular subject \"channel.\""
+      },
+      "hints": [
+        "Find the subject: what lies between the rocks?",
+        "Is the subject singular or plural?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Flip the sentence: \"The safest channel lies between two submerged rocks.\" The singular present verb fits."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000014",
+      "correct_answer": "B",
+      "explanation": "\"Waves … can trap a boat\" and \"even a skilled paddler avoids them\" are both complete sentences. Joining them needs a comma plus a coordinating conjunction. \"So\" also shows the logical relationship: because holes can trap a boat, paddlers avoid them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two complete sentences creates a comma splice.",
+        "C": "With no punctuation or conjunction, the two sentences run together.",
+        "D": "A comma after \"and\" incorrectly separates the conjunction from the clause it introduces."
+      },
+      "hints": [
+        "Are the parts before and after the comma each complete sentences?",
+        "What connects two complete sentences with a comma?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Two independent clauses need a comma + FANBOYS (or a semicolon); only B provides it correctly."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000015",
+      "correct_answer": "D",
+      "explanation": "The word describes how the narrator read the signs (the verb \"reading\"), so it must be the adverb \"quickly.\"",
+      "distractor_explanations": {
+        "A": "\"Quick\" is an adjective; it cannot modify the verb \"reading.\"",
+        "B": "\"Quicker\" is a comparative adjective, and nothing is being compared.",
+        "C": "\"More quick\" is a nonstandard comparative and still an adjective."
+      },
+      "hints": [
+        "What does the underlined word describe: a thing or an action?",
+        "Words that describe actions usually end in -ly."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The word modifies a verb, so it must be an adverb."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000016",
+      "correct_answer": "C",
+      "explanation": "The preceding paragraph describes reading signs on the water; this paragraph describes lessons from gauge reports and Rosa's notebook. \"Not every lesson came from the water itself, though\" links the two by marking the shift from on-river signs to off-river information.",
+      "distractor_explanations": {
+        "A": "A fact about kayak materials connects to neither paragraph's focus.",
+        "B": "The river's length is unrelated to the shift from reading the water to checking reports.",
+        "D": "This introduces another lesson, but cooking has nothing to do with the gauge reports and notebook that the paragraph discusses."
+      },
+      "hints": [
+        "What is each paragraph about?",
+        "Which sentence bridges those two topics?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a bridge such as \"Other lessons came from data, not the water,\" then match."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000017",
+      "correct_answer": "D",
+      "explanation": "The sentence already says the river rises \"overnight,\" so phrases about a short amount of time are redundant. \"Can transform\" is clear and concise.",
+      "distractor_explanations": {
+        "A": "\"In a very short amount of time\" repeats the idea already given by \"overnight.\"",
+        "B": "\"Very quickly and in a short time\" repeats the same idea twice, on top of \"overnight.\"",
+        "C": "This still repeats the time idea and separates the verb from its object."
+      },
+      "hints": [
+        "Does the sentence already tell how fast the change happens?",
+        "Choose the version without repeated ideas."
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "All choices are grammatical; the shortest keeps the meaning without repetition."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000018",
+      "correct_answer": "C",
+      "explanation": "Saying that Rosa, an expert guide, had not seen holes that the narrator spotted shows the narrator's skill in reading the river. The other choices give location or general description without showing that skill.",
+      "distractor_explanations": {
+        "A": "The holes' location tells where they were, not how well the narrator read the water.",
+        "B": "\"Looked dangerous\" suggests anyone could see them, which undercuts the point about skill.",
+        "D": "Rosa's position in the boat shows the narrator was leading, but not how well the narrator read the river."
+      },
+      "hints": [
+        "What would show that the narrator was good at reading the river?",
+        "Which detail compares the narrator with the expert?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The question names the claim; pick the detail that proves skill."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000019",
+      "correct_answer": "B",
+      "explanation": "The opening phrase \"Watching me pick a line through the last rapid\" must describe the person doing the watching, Rosa. Only B places \"Rosa\" right after the phrase. In the original, the phrase seems to describe \"a grin.\"",
+      "distractor_explanations": {
+        "A": "The modifier dangles: it says a grin was watching the narrator.",
+        "C": "This says Rosa's face was watching and grinning, which is illogical.",
+        "D": "The phrase still modifies \"a grin,\" not Rosa."
+      },
+      "hints": [
+        "Who was watching the narrator?",
+        "That person should come right after the opening phrase."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the noun right after the comma in each choice; only \"Rosa\" can be watching."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000020",
+      "correct_answer": "B",
+      "explanation": "\"I still have it\" brings the story from the past into the present and sets up the final sentence, which describes the notebook's pages now. Without it, the shift to the present tense in the last sentence would be abrupt.",
+      "distractor_explanations": {
+        "A": "The sentence says nothing about Rosa's reasons for giving the notebook away.",
+        "C": "The previous sentence is Rosa's quotation; \"I still have it\" adds new information.",
+        "D": "The notebook is part of the narrator's connection to the river, so the sentence keeps that focus."
+      },
+      "hints": [
+        "What would the reader lose if this sentence were removed?",
+        "How does it connect to the sentence that follows?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the paragraph without the sentence; the jump to the notebook's present-day pages becomes abrupt."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000021",
+      "correct_answer": "A",
+      "explanation": "The essay opens with Rosa saying \"The river is talking.\" The original final sentence echoes that line: the narrator can now hear the river in the notebook's numbers. That closes the essay's arc of learning the river's language.",
+      "distractor_explanations": {
+        "B": "A physical description of the notebook does not connect to the opening idea.",
+        "C": "Rosa's retirement is new information that does not echo the opening.",
+        "D": "A general fact about the region is unrelated to the essay's personal arc."
+      },
+      "hints": [
+        "Reread the first paragraph. What memorable line does Rosa say?",
+        "Which choice echoes it?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the opening's key phrase, then pick the choice that returns to it."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000022",
+      "correct_answer": "A",
+      "explanation": "The subject \"researchers\" is plural, so it takes \"have\"; the sentence also needs a complete verb for that subject. \"Have figured out\" provides both.",
+      "distractor_explanations": {
+        "B": "\"Has\" is singular and does not agree with the plural subject \"researchers.\"",
+        "C": "\"Figuring out\" is not a complete verb, so the sentence would have no main verb.",
+        "D": "\"To figure out\" is an infinitive, which cannot serve as the sentence's main verb."
+      },
+      "hints": [
+        "What is the subject of the main clause?",
+        "Does the sentence still have a complete verb with each choice?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate the non-verbs (C, D) and the singular verb (B)."
       }
     }
   ]

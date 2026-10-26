@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:52:12+00:00",
+  "updated_at": "2026-10-26T18:54:45+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 208,
-    "act_english": 10,
+    "act_english": 22,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
@@ -29,11 +29,11 @@
       "passed_after_revision": 2
     },
     "act_english": {
-      "PASS": 10,
+      "PASS": 22,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 11,
-      "passed_after_revision": 0
+      "candidates": 23,
+      "passed_after_revision": 1
     },
     "act_reading": {
       "PASS": 0,
@@ -296,44 +296,55 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 10,
+      "accepted": 22,
       "by_skill": {
-        "Conventions of Standard English": 4,
-        "Knowledge of Language": 1,
-        "Production of Writing": 5
+        "Conventions of Standard English": 11,
+        "Knowledge of Language": 2,
+        "Production of Writing": 9
       },
       "by_subskill": {
         "Adding a sentence: relevance and focus": 1,
+        "Adjectives versus adverbs": 1,
+        "Agreement in an inverted sentence (lie/lay)": 1,
+        "Comma splices": 1,
+        "Commas around a nonessential clause": 1,
         "Commas around a nonessential phrase": 1,
-        "Concision and redundancy": 1,
+        "Concision and redundancy": 2,
+        "Conclusions that echo the opening": 1,
+        "Dangling modifiers": 1,
         "Effective conclusions": 1,
-        "Keeping or deleting a sentence": 1,
+        "Its versus it's": 1,
+        "Keeping or deleting a sentence": 2,
         "Logical comparison": 1,
         "Participial phrases and sentence boundaries": 1,
         "Relevance to a stated purpose": 1,
         "Subject-verb agreement with a gerund subject": 1,
-        "Transitions: contrast": 1
+        "Supporting a claim with detail": 1,
+        "Transitional sentences between paragraphs": 1,
+        "Transitions: contrast": 1,
+        "Verb forms and agreement": 1
       },
       "by_difficulty_author": {
-        "easy": 4,
-        "hard": 1,
-        "medium": 5
+        "easy": 9,
+        "hard": 3,
+        "medium": 10
       },
       "by_difficulty_calibrated": {
-        "easy": 7,
-        "medium": 3
+        "easy": 15,
+        "medium": 7
       },
       "calibrated_share": {
-        "easy": 0.7,
-        "medium": 0.3
+        "easy": 0.682,
+        "medium": 0.318
       },
       "answer_key_balance": {
-        "A": 6,
-        "B": 3,
-        "C": 1
+        "A": 9,
+        "B": 6,
+        "C": 4,
+        "D": 3
       },
       "modeling_items": 0,
-      "passages": 1
+      "passages": 2
     },
     "act_reading": {
       "accepted": 0,
@@ -360,7 +371,7 @@
   },
   "last_completed_batch": {
     "act_math": 21,
-    "act_english": 1,
+    "act_english": 2,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
@@ -398,19 +409,11 @@
   },
   "verbal_guidance": {
     "act_english": {
-      "next_batch": 2,
+      "next_batch": 3,
       "skill_gap_for_next_10": {
-        "Production of Writing": 3.1,
-        "Knowledge of Language": 3.1,
-        "Conventions of Standard English": 4.1
-      }
-    },
-    "act_reading": {
-      "next_batch": 1,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 4.8,
-        "Craft and Structure": 2.9,
-        "Integration of Knowledge and Ideas": 2.2
+        "Production of Writing": 4.0,
+        "Knowledge of Language": 4.6,
+        "Conventions of Standard English": 2.0
       }
     },
     "sat_reading_writing": {
@@ -420,6 +423,14 @@
         "Information and Ideas": 2.6,
         "Standard English Conventions": 2.6,
         "Expression of Ideas": 2.0
+      }
+    },
+    "act_reading": {
+      "next_batch": 1,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 4.8,
+        "Craft and Structure": 2.9,
+        "Integration of Knowledge and Ideas": 2.2
       }
     }
   },
@@ -431,8 +442,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 10,
-      "share_of_target": 0.014
+      "accepted": 22,
+      "share_of_target": 0.031
     },
     "act_reading": {
       "target": 600,
@@ -446,7 +457,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 218,
+  "total_accepted": 230,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_reading",
   "audits": [
@@ -652,7 +663,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 1,
+      "bank_version": 2,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -694,7 +705,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:52:12+00:00",
+    "heartbeat_at": "2026-10-26T18:54:44+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
