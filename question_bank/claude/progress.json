@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:41:27+00:00",
+  "updated_at": "2026-10-26T20:41:44+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -372,14 +372,14 @@
         "medium": 133
       },
       "by_difficulty_calibrated": {
-        "easy": 84,
-        "hard": 42,
-        "medium": 176
+        "easy": 73,
+        "hard": 40,
+        "medium": 189
       },
       "calibrated_share": {
-        "easy": 0.278,
-        "hard": 0.139,
-        "medium": 0.583
+        "easy": 0.242,
+        "hard": 0.132,
+        "medium": 0.626
       },
       "answer_key_balance": {
         "A": 70,
@@ -742,9 +742,9 @@
         "Integrating Essential Skills": 8.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -6.0,
-        "medium": -20.0,
-        "hard": 36.0
+        "easy": 5.0,
+        "medium": -33.0,
+        "hard": 38.0
       },
       "answer_key_gap_for_next_10": {
         "A": 8.0,
@@ -755,6 +755,14 @@
     }
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 12,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 7.8,
+        "Craft and Structure": -0.1,
+        "Integration of Knowledge and Ideas": 2.3
+      }
+    },
     "act_english": {
       "next_batch": 11,
       "skill_gap_for_next_10": {
@@ -770,14 +778,6 @@
         "Information and Ideas": 5.0,
         "Standard English Conventions": 3.0,
         "Expression of Ideas": -1.4
-      }
-    },
-    "act_reading": {
-      "next_batch": 12,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 7.8,
-        "Craft and Structure": -0.1,
-        "Integration of Knowledge and Ideas": 2.3
       }
     }
   },
@@ -9690,12 +9690,22 @@
         "Use essay-goal items sparingly, and make both 'No' choices plausible.",
         "Favor conventions that are rarely taught explicitly (restrictive appositives, faulty comparisons, pronoun case after prepositions, subjunctive), which the raters actually find hard."
       ]
+    },
+    {
+      "date": "2026-10-26",
+      "topic": "ACT Math 300-item audit",
+      "finding": "A fourth whole-bank AI rater (calibration/act_math_rater_2026-10-26d.json) rated 302 live items 46 easy / 218 medium / 38 hard and found no flawed items or key disagreements. Calibrated as the median across all raters: 24% easy / 63% medium / 13% hard. The only standing rater mismatch is the known slip on CLD-ACT-M-000130 (key A confirmed earlier).",
+      "assessment": "The math hard share (13%) is still below the 25% target. Items written as hard after batch 21 are usually rated medium; the hard ones that land need a construction or insight (tangent lines, face-area products, conditional reversal, period-doubling).",
+      "actions": [
+        "Keep 3-4 hard attempts per math batch built on insight rather than computation.",
+        "Accept that AI raters rarely put more than about 15-20% of competent items under 40%; real student data would be needed to settle the true share."
+      ]
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:41:26+00:00",
+    "heartbeat_at": "2026-10-26T20:41:44+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
