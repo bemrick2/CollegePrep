@@ -73,6 +73,7 @@ STATE_NAMES = {'AL': 'alabama', 'AK': 'alaska', 'AZ': 'arizona', 'AR': 'arkansas
 NAMED_STATE = re.compile(r'\b(non-?\s?)?(' + '|'.join(sorted((n.replace(' ', r'\s+') for n in STATE_NAMES.values()), key=len, reverse=True)) + r')\b', re.I)
 
 
+DISTRICT_MIXED = r'out[- ]of[- ](?:district|state|county|service)|in[- ]state|service[- ]area|non-?\s?resident|international'
 HOUSING_RESIDENT = re.compile(r'\bresiden(t\s+(budget|halls?|life|living)|tial)\b|\bcommuter', re.I)
 
 
@@ -86,13 +87,18 @@ def residency(h, home=None, private=False):
                  r'\bresidents?\s*(?:&|and|/)\s*non-?\s?residents?', h, re.I): return 'not_applicable'
     # TX (Lone Star, Austin CC, Galveston): a community college's "In-District" column is the district rate. A header that also
     # names out-of-district or out-of-state pricing is left to the rules below.
-    if re.search(r'\bin[- ]district\b', h, re.I) and not re.search(r'out[- ]of[- ](?:district|state)|non-?\s?resident|international', h, re.I):
+    # Mixed headers ("In-District/In-State", "In-District / Out-of-County", "& Out-of-Service-Area") and the District of
+    # Columbia are not a district rate.
+    if (re.search(r'\bin[- ]district\b', h, re.I) and not re.search(r'\bdistrict\s+of\s+columbia\b', h, re.I)
+            and not re.search(DISTRICT_MIXED, h, re.I)):
         return 'district'
     # MN (UMN Duluth): "Midwest nonresident" is the MSEP exchange rate for listed states, not the out-of-state rate.
     if re.search(r'\b(?:midwest|msep|wue|reciprocity)\W+non-?\s?resident', h, re.I): return 'named_other_state'
-    # MD (UMD): "Residents of the District of Columbia, Other States, and Other Countries" is the out-of-state rate.
+    # MD (UMD): "Residents of the District of Columbia, Other States, and Other Countries" is the out-of-state rate. Only the
+    # District of Columbia is anchored: "Residents of Ohio and other states with reciprocity" (KY) stays a named-state rate.
     # IN (Manchester): "Non-Residential Undergraduate" is a commuter budget, not a non-resident rate.
-    if re.search(r'out[- ]of[- ]state|non-?\s?resident(?!ial)|\bresidents?\s+of\s+other\s+states|\bresidents?\s+of\b.{0,40}\bother\s+states\b', h, re.I): return 'out_of_state'
+    if re.search(r'out[- ]of[- ]state|non-?\s?resident(?!ial)|\bresidents?\s+of\s+other\s+states|'
+                 r'\bresidents?\s+of\s+the\s+district\s+of\s+columbia\W+(?:and\s+)?other\s+states\b', h, re.I): return 'out_of_state'
     named = [(m.group(1), re.sub(r'\s+', ' ', m.group(2).lower())) for m in NAMED_STATE.finditer(h)
              if not (m.group(2).lower() == 'virginia' and re.search(r'west\s+$', h[:m.start()], re.I))]
     if named:
@@ -118,7 +124,7 @@ def column_meaning(header, home=None, private=False):
                         'off_campus_not_with_family' if re.search(r'not\s+(living\s+)?(with|w/)\s*(a\s+)?(parents?|family)|not\s+living\s+at\s+home|without\s+(a\s+)?parents?|away\s+from\s+(home|parents)', h) else
                         'with_parents_or_family' if re.search(r'(with|w/)\s*(a\s+)?(parents?|family|relatives)|at[- ]home|commut', h) else
                         'off_campus_not_with_family' if re.search(r'off[- ]campus|own\s+(house|home|apartment)', h) else
-                        'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|residential', h) else
+                        'on_campus' if re.search(r'on[- ]campus|residence hall|student\s+housing|resident(\s+student|\s+budget)?$|resident student|(?<!non-)(?<!non)residential', h) else
                         'other' if re.search(r'military|on base', h) else None),
         # Quarter calendars (OR) print "1 Term | 2 Terms | 3 Terms | 4 Terms" or "3 Months | 9 Months": the
         # academic year is three terms / nine months; other counts are partial years or include summer.
@@ -236,6 +242,10 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     semester_total = None
     home, private = inst.get('state'), inst.get('control') == 'private_nonprofit'
     ctx = column_meaning(context, home, private)
+    # VA (JMU): a table with no heading or caption is titled by its lead line ("Undergraduate (2026-27) - Per year").
+    if not ctx['year'] and not ((t.get('year_heading') or '').strip() or (t.get('heading') or '').strip() or (t.get('caption') or '').strip()):
+        lead_years = T.year_labels((t.get('lead') or '')[:160])
+        if len(lead_years) == 1: ctx['year'] = next(iter(lead_years))
     # WA (Columbia Basin): a row-label header "One Quarter" names the period only when read on its own.
     ctx['period'] = ctx['period'] or next((column_meaning(x)['period'] for x in titles if column_meaning(x)['period']), None)
     # TX (Lubbock Christian): the lead "Fall and Spring Semesters Block Rate 2026-27 (per semester)" names the period
