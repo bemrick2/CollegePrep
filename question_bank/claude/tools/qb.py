@@ -704,6 +704,15 @@ def screen(bank: str, n: int) -> None:
         seen.append((c['cand'], qtext(c, bank)))
         ok = not probs and got == c['answer'] and not dups
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
+        # Advisory (math): the stem-only screen missed reworded repeats such as 7^2026 vs 7¹⁰⁰ (superscripts are dropped
+        # by tokens()), so also compare stem + choices, as the 100-item audit does, at a lower threshold.
+        if not verbal:
+            mine = tokens(text_of(c))
+            close = sorted(((round(jaccard(mine, tokens(text_of(q))), 2), q['id']) for q in data['questions']
+                            if q['id'] not in retired_ids()), reverse=True)
+            close = [(i, s) for s, i in close if s >= 0.45][:3]
+            if close:
+                print(f"  warn: stem+choices close to {close} (compare by hand for a concept repeat)")
         # Advisory: the text screen misses concept-level repeats (same idea, new wording), so flag a subskill that is
         # already in the bank or overlaps an existing one heavily; check that item by hand before review.
         sub = tokens(c.get('subskill', ''))

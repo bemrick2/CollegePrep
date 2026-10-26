@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T23:26:27+00:00",
+  "updated_at": "2026-10-26T23:28:15+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,7 +15,7 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 600,
+    "act_math": 597,
     "act_english": 204,
     "act_reading": 171,
     "sat_reading_writing": 203
@@ -52,14 +52,14 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 600,
-      "retired_after_audit": 6,
+      "accepted": 597,
+      "retired_after_audit": 9,
       "by_skill": {
         "Algebra": 110,
         "Functions": 95,
-        "Geometry": 139,
+        "Geometry": 137,
         "Integrating Essential Skills": 87,
-        "Number & Quantity": 75,
+        "Number & Quantity": 74,
         "Statistics & Probability": 94
       },
       "by_subskill": {
@@ -92,7 +92,6 @@
         "Arc length from a chord": 1,
         "Arc length from an inscribed angle": 1,
         "Arc length from the area of a sector": 1,
-        "Area between a circle and an inscribed square": 1,
         "Area bounded by an absolute value graph and a line": 1,
         "Area modeling with a quadratic": 1,
         "Area of a 30°-60°-90° triangle": 1,
@@ -138,7 +137,6 @@
         "Circle area from its center and a point": 1,
         "Circle circumference and area": 1,
         "Circle equation by completing the square": 1,
-        "Circle tangent to both axes through a point": 1,
         "Circles tangent to both axes": 1,
         "Circular arrangements with two people adjacent": 1,
         "Circumference ratio from areas": 1,
@@ -622,7 +620,6 @@
         "Unit price comparison": 1,
         "Unit price with unit conversion": 1,
         "Unit rate from a bundle price": 1,
-        "Units digit of a large power": 1,
         "Units-digit cycles": 1,
         "Upstream and downstream rates": 1,
         "Using a formula with substitution": 1,
@@ -665,24 +662,24 @@
       },
       "by_difficulty_author": {
         "easy": 155,
-        "hard": 192,
+        "hard": 189,
         "medium": 253
       },
       "by_difficulty_calibrated": {
         "easy": 183,
-        "hard": 77,
-        "medium": 340
+        "hard": 76,
+        "medium": 338
       },
       "calibrated_share": {
-        "easy": 0.305,
-        "hard": 0.128,
-        "medium": 0.567
+        "easy": 0.307,
+        "hard": 0.127,
+        "medium": 0.566
       },
       "answer_key_balance": {
         "A": 135,
         "B": 171,
         "C": 166,
-        "D": 128
+        "D": 125
       },
       "modeling_items": 128,
       "passages": 0
@@ -1160,35 +1157,27 @@
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -7.9,
-        "Algebra": 2.8,
-        "Functions": 17.8,
-        "Geometry": -26.2,
-        "Statistics & Probability": -11.6,
-        "Integrating Essential Skills": 35.0
+        "Number & Quantity": -7.2,
+        "Algebra": 2.3,
+        "Functions": 17.3,
+        "Geometry": -24.7,
+        "Statistics & Probability": -12.1,
+        "Integrating Essential Skills": 34.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -30.5,
-        "medium": -35.0,
-        "hard": 75.5
+        "easy": -31.2,
+        "medium": -34.5,
+        "hard": 75.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 17.5,
-        "B": -18.5,
-        "C": -13.5,
-        "D": 24.5
+        "A": 16.8,
+        "B": -19.2,
+        "C": -14.2,
+        "D": 26.8
       }
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 21,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 19.7,
-        "Knowledge of Language": 14.9,
-        "Conventions of Standard English": -21.3
-      }
-    },
     "act_reading": {
       "next_batch": 22,
       "skill_gap_for_next_10": {
@@ -1205,13 +1194,21 @@
         "Standard English Conventions": 5.4,
         "Expression of Ideas": -0.4
       }
+    },
+    "act_english": {
+      "next_batch": 21,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 19.7,
+        "Knowledge of Language": 14.9,
+        "Conventions of Standard English": -21.3
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 600,
-      "share_of_target": 0.3
+      "accepted": 597,
+      "share_of_target": 0.298
     },
     "act_english": {
       "target": 700,
@@ -1230,7 +1227,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1178,
+  "total_accepted": 1175,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_reading",
   "audits": [
@@ -47542,7 +47539,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-26T23:26:27+00:00",
+    "heartbeat_at": "2026-10-26T23:28:14+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

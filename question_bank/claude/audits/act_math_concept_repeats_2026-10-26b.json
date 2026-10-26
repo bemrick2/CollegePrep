@@ -1,0 +1,24 @@
+{
+ "bank": "act_math",
+ "date": "2026-10-26",
+ "scope": "600-item audit: pairs with stem similarity >= 0.45 involving items 507+ were compared by hand.",
+ "method": "Each pair was read in full. Retired: later item of an exact or near-exact concept repeat. Kept deliberately: close variants that test a different twist (e.g. 000328 time-weighted vs 000546 distance-weighted average speed; 000281 vs 000594 ranges of different function families; 000374 vs 000522 different spinner events).",
+ "retired": [
+  {
+   "id": "CLD-ACT-M-000591",
+   "duplicate_of": "CLD-ACT-M-000134",
+   "shared_idea": "Circle in the first quadrant tangent to both axes through (2, 1); sum of the two possible radii (6). Same point, same question."
+  },
+  {
+   "id": "CLD-ACT-M-000575",
+   "duplicate_of": "CLD-ACT-M-000035",
+   "shared_idea": "Area inside a radius-6 circle but outside its inscribed square (36π − 72). Same numbers, same question."
+  },
+  {
+   "id": "CLD-ACT-M-000524",
+   "duplicate_of": "CLD-ACT-M-000180",
+   "shared_idea": "Units digit of a power of 7 via the 4-cycle (7^100 vs 7^2026); same base and method."
+  }
+ ],
+ "root_cause": "The author re-created earlier items from memory; the draft screen only blocks stem similarity >= 0.6, and these scored 0.53-0.86 after rewording (000524 was missed because its stem used '^' notation vs a superscript). Mitigation: at draft time, list every bank item with similarity >= 0.4 to each candidate and compare by hand."
+}
