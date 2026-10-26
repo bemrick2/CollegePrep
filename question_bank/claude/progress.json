@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T21:52:08+00:00",
+  "updated_at": "2026-10-26T21:53:50+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 433,
+    "act_math": 443,
     "act_english": 156,
     "act_reading": 136,
     "sat_reading_writing": 149
   },
   "review_totals": {
     "act_math": {
-      "PASS": 439,
+      "PASS": 449,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 444,
+      "candidates": 454,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 433,
+      "accepted": 443,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 74,
-        "Functions": 71,
-        "Geometry": 100,
-        "Integrating Essential Skills": 73,
-        "Number & Quantity": 50,
-        "Statistics & Probability": 65
+        "Algebra": 76,
+        "Functions": 72,
+        "Geometry": 103,
+        "Integrating Essential Skills": 74,
+        "Number & Quantity": 51,
+        "Statistics & Probability": 67
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -97,6 +97,7 @@
         "Area of an isosceles trapezoid": 1,
         "Area of an isosceles triangle": 1,
         "Area with unit conversion": 1,
+        "Areas of triangles with a common height": 1,
         "Arithmetic sequences": 1,
         "Arithmetic series in context": 1,
         "Arrangements with a restriction": 1,
@@ -117,6 +118,7 @@
         "Chained ratios (gears)": 1,
         "Chained unit conversions (currency)": 1,
         "Checking a point against a system of inequalities": 1,
+        "Choosing a pair from a group (combinations)": 1,
         "Chords and distance from the center": 1,
         "Circle circumference and area": 1,
         "Circle equation by completing the square": 1,
@@ -139,6 +141,7 @@
         "Comparing powers with different bases": 1,
         "Comparing rational numbers": 1,
         "Comparing spread (standard deviation)": 1,
+        "Comparing two linear functions": 1,
         "Comparing yearly fuel costs": 1,
         "Completing a two-way table": 1,
         "Complex number arithmetic": 1,
@@ -162,6 +165,7 @@
         "Counting committees with at least one from each group": 1,
         "Counting diagonals of a polygon": 1,
         "Counting divisors (perfect squares)": 1,
+        "Counting integers between square roots": 1,
         "Counting integers in a quadratic inequality": 1,
         "Counting lattice paths through a point": 1,
         "Counting multiples in a range": 1,
@@ -186,6 +190,7 @@
         "Digit problems with a system": 1,
         "Direct variation": 1,
         "Discriminant with a degenerate case": 1,
+        "Distance between parallel lines": 1,
         "Distance from a point to a circle": 1,
         "Distance from a point to a line": 1,
         "Distance with mixed time units": 1,
@@ -230,6 +235,7 @@
         "Exponential model from two points": 1,
         "Exponential pattern from a table": 1,
         "Exterior angle theorem with algebra": 1,
+        "Factor pairs from a trinomial": 1,
         "Factored form: finding the leading coefficient": 1,
         "Factoring a trinomial with a leading coefficient": 1,
         "Factoring out a common binomial": 1,
@@ -315,10 +321,12 @@
         "Midsegment (median) of a trapezoid": 1,
         "Minimum of a quadratic in intercept form": 1,
         "Minimum of a quadratic in standard form": 1,
+        "Missing angle in an irregular polygon": 1,
         "Mixture problems": 1,
         "Modulus of complex numbers": 1,
         "Monomial exponent rules": 1,
         "Multi-part rate and cost": 1,
+        "Multi-step rate in days": 1,
         "Multiplying rational expressions": 1,
         "Negative rational exponents": 1,
         "Number of solutions of an absolute-value equation": 1,
@@ -361,6 +369,7 @@
         "Probability of A or B with overlap (cards)": 1,
         "Probability of an ordered sequence without replacement": 1,
         "Probability of at least two heads": 1,
+        "Probability of distinct digits": 1,
         "Probability of first success on a given trial": 1,
         "Probability of selecting a matched pair": 1,
         "Probability of the second draw without replacement": 1,
@@ -460,6 +469,7 @@
         "Total distance of a bouncing ball (infinite geometric series)": 1,
         "Trailing zeros of a factorial": 1,
         "Translating relationships into a system": 1,
+        "Translating verbal expressions": 1,
         "Triangle angle sum": 1,
         "Triangle formed by a line and the axes": 1,
         "Triangle inequality (counting third sides)": 1,
@@ -498,27 +508,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 97,
-        "hard": 150,
-        "medium": 186
+        "easy": 101,
+        "hard": 152,
+        "medium": 190
       },
       "by_difficulty_calibrated": {
-        "easy": 107,
-        "hard": 63,
-        "medium": 263
+        "easy": 112,
+        "hard": 65,
+        "medium": 266
       },
       "calibrated_share": {
-        "easy": 0.247,
-        "hard": 0.145,
-        "medium": 0.607
+        "easy": 0.253,
+        "hard": 0.147,
+        "medium": 0.6
       },
       "answer_key_balance": {
-        "A": 99,
-        "B": 120,
-        "C": 119,
-        "D": 95
+        "A": 102,
+        "B": 123,
+        "C": 121,
+        "D": 97
       },
-      "modeling_items": 101,
+      "modeling_items": 102,
       "passages": 0
     },
     "act_english": {
@@ -917,49 +927,41 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 44,
+    "act_math": 45,
     "act_english": 15,
     "act_reading": 16,
     "sat_reading_writing": 16
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 45,
+      "next_batch": 46,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -1.3,
-        "Algebra": 8.0,
-        "Functions": 11.0,
-        "Geometry": -18.0,
-        "Statistics & Probability": -5.2,
-        "Integrating Essential Skills": 15.6
+        "Number & Quantity": -1.2,
+        "Algebra": 7.8,
+        "Functions": 11.8,
+        "Geometry": -19.2,
+        "Statistics & Probability": -5.8,
+        "Integrating Essential Skills": 16.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 3.8,
-        "medium": -41.5,
-        "hard": 47.8
+        "easy": 1.2,
+        "medium": -39.5,
+        "hard": 48.2
       },
       "answer_key_gap_for_next_10": {
-        "A": 11.8,
-        "B": -9.2,
-        "C": -8.2,
-        "D": 15.8
+        "A": 11.2,
+        "B": -9.8,
+        "C": -7.8,
+        "D": 16.2
       }
     }
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 17,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 17.1,
-        "Craft and Structure": -1.9,
-        "Integration of Knowledge and Ideas": -5.1
-      }
-    },
     "act_english": {
       "next_batch": 16,
       "skill_gap_for_next_10": {
@@ -976,13 +978,21 @@
         "Standard English Conventions": 3.3,
         "Expression of Ideas": 0.8
       }
+    },
+    "act_reading": {
+      "next_batch": 17,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 17.1,
+        "Craft and Structure": -1.9,
+        "Integration of Knowledge and Ideas": -5.1
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 433,
-      "share_of_target": 0.216
+      "accepted": 443,
+      "share_of_target": 0.222
     },
     "act_english": {
       "target": 700,
@@ -1001,7 +1011,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 874,
+  "total_accepted": 884,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -10076,7 +10086,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 44,
+      "bank_version": 45,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -10191,7 +10201,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T21:52:08+00:00",
+    "heartbeat_at": "2026-10-26T21:53:50+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

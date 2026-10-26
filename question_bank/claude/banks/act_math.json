@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 44,
-  "updated_at": "2026-10-26T21:48:57+00:00",
+  "version": 45,
+  "updated_at": "2026-10-26T21:53:47+00:00",
   "passages": [],
   "questions": [
     {
@@ -30658,6 +30658,707 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-044.review.json",
         "computation": "checks/act_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000440",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Translating verbal expressions",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following expressions represents \"5 less than the product of 4 and the sum of a number n and 3\" ?",
+      "choices": {
+        "A": "4n + 3 - 5",
+        "B": "5 - 4(n + 3)",
+        "C": "4(n + 3) - 5",
+        "D": "4(n + 3 - 5)"
+      },
+      "correct_answer": "C",
+      "explanation": "\"The sum of a number n and 3\" is n + 3; \"the product of 4 and\" that sum is 4(n + 3); \"5 less than\" that product is 4(n + 3) - 5.",
+      "distractor_explanations": {
+        "A": "4n + 3 - 5 multiplies only n by 4, not the whole sum.",
+        "B": "5 - 4(n + 3) reverses \"5 less than,\" subtracting the product from 5.",
+        "D": "4(n + 3 - 5) subtracts 5 inside the product instead of from it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "\"5 less than X\" means X - 5."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build the expression from the inside out."
+      },
+      "remember": "\"A less than B\" is B - A.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-01",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000441",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Comparing two linear functions",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Function f is defined by f(x) = 3x - 4. Function g is linear, and g(0) = 2 and g(2) = 10. Which of the following statements is true?",
+      "choices": {
+        "A": "f and g have the same slope.",
+        "B": "f has the greater slope and the greater y-intercept.",
+        "C": "g has the greater slope, but f has the greater y-intercept.",
+        "D": "g has the greater slope and the greater y-intercept."
+      },
+      "correct_answer": "D",
+      "explanation": "g has slope (10 - 2)/(2 - 0) = 4 and y-intercept 2. f has slope 3 and y-intercept -4. So g has both the greater slope and the greater y-intercept.",
+      "distractor_explanations": {
+        "A": "f's slope is 3 and g's slope is 4.",
+        "B": "Both of f's values are smaller than g's.",
+        "C": "g's y-intercept, 2, is greater than f's, -4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Find g's slope from the two points and its y-intercept from g(0)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare 3 with 4 and -4 with 2."
+      },
+      "remember": "Compare linear functions by slope (rate) and intercept (starting value).",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-02",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000442",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Missing angle in an irregular polygon",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Five of the six interior angles of a hexagon measure 120°, 130°, 110°, 125°, and 115°. What is the measure of the sixth interior angle?",
+      "choices": {
+        "A": "60°",
+        "B": "110°",
+        "C": "120°",
+        "D": "240°"
+      },
+      "correct_answer": "C",
+      "explanation": "The interior angles of a hexagon sum to (6 - 2) × 180° = 720°. The five given angles sum to 600°, so the sixth is 120°.",
+      "distractor_explanations": {
+        "A": "60° subtracts from 660°, using an incorrect angle sum.",
+        "B": "110° subtracts from 710°, an arithmetic slip in the angle sum.",
+        "D": "240° subtracts the five angles from 840°, using (6 - 1) × 180° - 60°; it misapplies the angle-sum formula."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the sum of the interior angles of a hexagon?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(n - 2) × 180° with n = 6."
+      },
+      "remember": "Polygon angle sum = (n - 2) × 180°.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-03",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000443",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Counting integers between square roots",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many integers are greater than √20 and less than √200 ?",
+      "choices": {
+        "A": "9",
+        "B": "10",
+        "C": "11",
+        "D": "180"
+      },
+      "correct_answer": "B",
+      "explanation": "√20 ≈ 4.47 and √200 ≈ 14.14, so the integers are 5 through 14: 14 - 5 + 1 = 10.",
+      "distractor_explanations": {
+        "A": "9 = 14 - 5 forgets to count both endpoints.",
+        "C": "11 counts 4 or 15, which lie outside the range.",
+        "D": "180 = 200 - 20 counts integers between 20 and 200, ignoring the square roots."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Between which consecutive integers does each square root lie?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Bound each root: 4² = 16 < 20 < 25 = 5²."
+      },
+      "remember": "Bound each root between perfect squares, then count inclusively.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-04",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000444",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Choosing a pair from a group (combinations)",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An ice cream shop offers 6 flavors. A customer chooses 2 different flavors for a cone, and the order does not matter. How many different pairs of flavors are possible?",
+      "choices": {
+        "A": "6",
+        "B": "10",
+        "C": "12",
+        "D": "15"
+      },
+      "correct_answer": "D",
+      "explanation": "C(6, 2) = (6 × 5)/2 = 15.",
+      "distractor_explanations": {
+        "A": "6 is the number of flavors, not pairs.",
+        "B": "10 = C(5, 2) uses one flavor too few.",
+        "C": "12 = 6 × 2 multiplies the flavors by the number chosen."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does vanilla-then-chocolate count as different from chocolate-then-vanilla?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(6 × 5) ÷ 2."
+      },
+      "remember": "When order does not matter, divide the ordered count by the number of orderings.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-05",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000445",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Multi-step rate in days",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Ana reads 30 pages per hour and reads for 2 hours each day. How many days will it take her to read a 420-page book?",
+      "choices": {
+        "A": "6",
+        "B": "7",
+        "C": "14",
+        "D": "21"
+      },
+      "correct_answer": "B",
+      "explanation": "Ana reads 30 × 2 = 60 pages per day, and 420 ÷ 60 = 7 days.",
+      "distractor_explanations": {
+        "A": "6 divides 420 by 70, adding instead of multiplying the rates.",
+        "C": "14 is the number of hours, 420 ÷ 30.",
+        "D": "21 = 420 ÷ 20 uses the wrong daily total."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "How many pages does Ana read per day?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "420 ÷ (30 × 2)."
+      },
+      "remember": "Combine rates into a per-day amount before dividing.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-06",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000446",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Areas of triangles with a common height",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, point D lies on side BC so that BD = 6 and DC = 9. The area of triangle ABC is 50 square units. What is the area of triangle ABD, in square units?",
+      "choices": {
+        "A": "15",
+        "B": "20",
+        "C": "25",
+        "D": "30"
+      },
+      "correct_answer": "B",
+      "explanation": "Triangles ABD and ADC share the same height from A to line BC, so their areas are in the ratio of their bases, 6 : 9. Triangle ABD has 6/15 of the total area: (6/15)(50) = 20.",
+      "distractor_explanations": {
+        "A": "15 = 6 + 9 confuses the total base length with an area.",
+        "C": "25 splits the area in half, ignoring the different base lengths.",
+        "D": "30 is the area of triangle ADC."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What do triangles ABD and ADC have in common?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude from A."
+      },
+      "remember": "Triangles with the same height have areas in the ratio of their bases.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-07",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000447",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Factor pairs from a trinomial",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If (x + a)(x + b) = x² + 7x + 12 for all x, and a > b, what is the value of a - b ?",
+      "choices": {
+        "A": "1",
+        "B": "4",
+        "C": "7",
+        "D": "12"
+      },
+      "correct_answer": "A",
+      "explanation": "We need a + b = 7 and ab = 12, so a and b are 4 and 3. With a > b, a - b = 4 - 3 = 1.",
+      "distractor_explanations": {
+        "B": "4 is the value of a, not a - b.",
+        "C": "7 is a + b.",
+        "D": "12 is ab."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Expand (x + a)(x + b). What must a + b and ab equal?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Find two numbers with sum 7 and product 12."
+      },
+      "remember": "(x + a)(x + b) = x² + (a + b)x + ab.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-08",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000448",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of distinct digits",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A three-digit positive integer (100 through 999) is chosen at random. What is the probability that its three digits are all different?",
+      "choices": {
+        "A": "18/25",
+        "B": "3/4",
+        "C": "81/100",
+        "D": "9/10"
+      },
+      "correct_answer": "A",
+      "explanation": "There are 900 three-digit numbers. With all digits different: 9 choices for the first digit (1-9), 9 for the second (0-9 except the first), and 8 for the third: 648. Probability = 648/900 = 18/25.",
+      "distractor_explanations": {
+        "B": "3/4 = 720/960 uses 10 choices for the first digit, allowing a leading zero, and a matching wrong total.",
+        "C": "81/100 = 9 × 9/100 handles only two of the three digits.",
+        "D": "9/10 accounts only for the first digit's restriction."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How many choices are there for the hundreds digit? For the next digit, given it must differ?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "9 × 9 × 8 out of 900."
+      },
+      "remember": "Count favorable outcomes digit by digit, applying each restriction in order.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-09",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000449",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Distance between parallel lines",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what is the distance between the parallel lines y = 2x + 1 and y = 2x + 6 ?",
+      "choices": {
+        "A": "√5",
+        "B": "5/2",
+        "C": "5",
+        "D": "2√5"
+      },
+      "correct_answer": "A",
+      "explanation": "The perpendicular distance from (0, 1) on the first line to 2x - y + 6 = 0 is |2(0) - 1 + 6|/√(2² + 1²) = 5/√5 = √5.",
+      "distractor_explanations": {
+        "B": "5/2 divides the intercept difference by the slope.",
+        "C": "5 is the vertical distance between the lines, not the perpendicular distance.",
+        "D": "2√5 doubles the correct distance."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "The vertical gap is 5. Is that the shortest distance between slanted lines?",
+        "Measure along a line perpendicular to both."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle formed by the vertical gap and the perpendicular."
+      },
+      "remember": "Distance between parallel lines is measured perpendicularly, not vertically.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "B045-10",
+      "created_at": "2026-10-26T21:53:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-045.review.json",
+        "computation": "checks/act_math/batch_045.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

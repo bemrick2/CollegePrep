@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 44,
+  "bank_version": 45,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -7647,6 +7647,177 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "L = 10v and L + 300 = 25v."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000440",
+      "correct_answer": "C",
+      "explanation": "\"The sum of a number n and 3\" is n + 3; \"the product of 4 and\" that sum is 4(n + 3); \"5 less than\" that product is 4(n + 3) - 5.",
+      "distractor_explanations": {
+        "A": "4n + 3 - 5 multiplies only n by 4, not the whole sum.",
+        "B": "5 - 4(n + 3) reverses \"5 less than,\" subtracting the product from 5.",
+        "D": "4(n + 3 - 5) subtracts 5 inside the product instead of from it."
+      },
+      "hints": [
+        "\"5 less than X\" means X - 5."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build the expression from the inside out."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000441",
+      "correct_answer": "D",
+      "explanation": "g has slope (10 - 2)/(2 - 0) = 4 and y-intercept 2. f has slope 3 and y-intercept -4. So g has both the greater slope and the greater y-intercept.",
+      "distractor_explanations": {
+        "A": "f's slope is 3 and g's slope is 4.",
+        "B": "Both of f's values are smaller than g's.",
+        "C": "g's y-intercept, 2, is greater than f's, -4."
+      },
+      "hints": [
+        "Find g's slope from the two points and its y-intercept from g(0)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare 3 with 4 and -4 with 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000442",
+      "correct_answer": "C",
+      "explanation": "The interior angles of a hexagon sum to (6 - 2) × 180° = 720°. The five given angles sum to 600°, so the sixth is 120°.",
+      "distractor_explanations": {
+        "A": "60° subtracts from 660°, using an incorrect angle sum.",
+        "B": "110° subtracts from 710°, an arithmetic slip in the angle sum.",
+        "D": "240° subtracts the five angles from 840°, using (6 - 1) × 180° - 60°; it misapplies the angle-sum formula."
+      },
+      "hints": [
+        "What is the sum of the interior angles of a hexagon?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(n - 2) × 180° with n = 6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000443",
+      "correct_answer": "B",
+      "explanation": "√20 ≈ 4.47 and √200 ≈ 14.14, so the integers are 5 through 14: 14 - 5 + 1 = 10.",
+      "distractor_explanations": {
+        "A": "9 = 14 - 5 forgets to count both endpoints.",
+        "C": "11 counts 4 or 15, which lie outside the range.",
+        "D": "180 = 200 - 20 counts integers between 20 and 200, ignoring the square roots."
+      },
+      "hints": [
+        "Between which consecutive integers does each square root lie?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Bound each root: 4² = 16 < 20 < 25 = 5²."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000444",
+      "correct_answer": "D",
+      "explanation": "C(6, 2) = (6 × 5)/2 = 15.",
+      "distractor_explanations": {
+        "A": "6 is the number of flavors, not pairs.",
+        "B": "10 = C(5, 2) uses one flavor too few.",
+        "C": "12 = 6 × 2 multiplies the flavors by the number chosen."
+      },
+      "hints": [
+        "Does vanilla-then-chocolate count as different from chocolate-then-vanilla?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(6 × 5) ÷ 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000445",
+      "correct_answer": "B",
+      "explanation": "Ana reads 30 × 2 = 60 pages per day, and 420 ÷ 60 = 7 days.",
+      "distractor_explanations": {
+        "A": "6 divides 420 by 70, adding instead of multiplying the rates.",
+        "C": "14 is the number of hours, 420 ÷ 30.",
+        "D": "21 = 420 ÷ 20 uses the wrong daily total."
+      },
+      "hints": [
+        "How many pages does Ana read per day?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "420 ÷ (30 × 2)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000446",
+      "correct_answer": "B",
+      "explanation": "Triangles ABD and ADC share the same height from A to line BC, so their areas are in the ratio of their bases, 6 : 9. Triangle ABD has 6/15 of the total area: (6/15)(50) = 20.",
+      "distractor_explanations": {
+        "A": "15 = 6 + 9 confuses the total base length with an area.",
+        "C": "25 splits the area in half, ignoring the different base lengths.",
+        "D": "30 is the area of triangle ADC."
+      },
+      "hints": [
+        "What do triangles ABD and ADC have in common?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude from A."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000447",
+      "correct_answer": "A",
+      "explanation": "We need a + b = 7 and ab = 12, so a and b are 4 and 3. With a > b, a - b = 4 - 3 = 1.",
+      "distractor_explanations": {
+        "B": "4 is the value of a, not a - b.",
+        "C": "7 is a + b.",
+        "D": "12 is ab."
+      },
+      "hints": [
+        "Expand (x + a)(x + b). What must a + b and ab equal?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Find two numbers with sum 7 and product 12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000448",
+      "correct_answer": "A",
+      "explanation": "There are 900 three-digit numbers. With all digits different: 9 choices for the first digit (1-9), 9 for the second (0-9 except the first), and 8 for the third: 648. Probability = 648/900 = 18/25.",
+      "distractor_explanations": {
+        "B": "3/4 = 720/960 uses 10 choices for the first digit, allowing a leading zero, and a matching wrong total.",
+        "C": "81/100 = 9 × 9/100 handles only two of the three digits.",
+        "D": "9/10 accounts only for the first digit's restriction."
+      },
+      "hints": [
+        "How many choices are there for the hundreds digit? For the next digit, given it must differ?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "9 × 9 × 8 out of 900."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000449",
+      "correct_answer": "A",
+      "explanation": "The perpendicular distance from (0, 1) on the first line to 2x - y + 6 = 0 is |2(0) - 1 + 6|/√(2² + 1²) = 5/√5 = √5.",
+      "distractor_explanations": {
+        "B": "5/2 divides the intercept difference by the slope.",
+        "C": "5 is the vertical distance between the lines, not the perpendicular distance.",
+        "D": "2√5 doubles the correct distance."
+      },
+      "hints": [
+        "The vertical gap is 5. Is that the shortest distance between slanted lines?",
+        "Measure along a line perpendicular to both."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle formed by the vertical gap and the perpendicular."
       }
     }
   ]
