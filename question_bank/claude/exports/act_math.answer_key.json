@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 15,
+  "bank_version": 16,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -2664,6 +2664,186 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "x < √30 on [0, 10]: probability √30/10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000149",
+      "correct_answer": "B",
+      "explanation": "Three packs (30 pens) plus 7 single pens cost 30.00 + 10.50 = $40.50. Four packs give 40 pens for $40.00, which is at least 37 pens and costs less. Any other mix costs more (for example, 2 packs and 17 singles cost $45.50). The least amount is $40.00.",
+      "distractor_explanations": {
+        "A": "This prices every pen at the pack rate of $1.00, but single pens cost $1.50 and packs must be bought whole.",
+        "C": "$40.50 buys exactly 37 pens, but buying 40 pens in 4 packs is cheaper and still meets the need.",
+        "D": "This buys all 37 pens individually."
+      },
+      "hints": [
+        "Compare the cost of 3 packs plus singles with the cost of 4 packs.",
+        "'At least 37' means extra pens are allowed."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "List the realistic options: 3 packs + 7 singles = $40.50; 4 packs = $40.00. Pick the smaller."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000150",
+      "correct_answer": "C",
+      "explanation": "Track the juice. Each removal takes away 2/10 of the mixture, so 80% of the juice remains each time. Juice: 2 L → 1.6 L → 1.28 L. The tank always holds 10 liters, so water = 10 − 1.28 = 8.72 liters.",
+      "distractor_explanations": {
+        "A": "8.00 is the original amount of water, before any replacement.",
+        "B": "8.40 is the amount of water after only the first replacement.",
+        "D": "This removes 0.4 liter of juice both times, but the second removal takes 20% of only 1.6 liters of juice (0.32 liter)."
+      },
+      "hints": [
+        "Follow the juice instead of the water.",
+        "Each time, what fraction of the juice currently in the tank is removed?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Juice = 2 × 0.8² = 1.28 L; water = 10 − 1.28 = 8.72 L."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000151",
+      "correct_answer": "A",
+      "explanation": "The bag holds 5 × 16 = 80 ounces. 375 cents ÷ 80 ounces = 4.6875 ≈ 4.7 cents per ounce.",
+      "distractor_explanations": {
+        "B": "This divides 75 cents per pound by 10 instead of 16.",
+        "C": "This divides $3.75 by 8 ounces instead of 80 ounces.",
+        "D": "75 cents is the price per pound, not per ounce."
+      },
+      "hints": [
+        "How many ounces are in the bag?",
+        "Work in cents: $3.75 = 375 cents."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "375 ÷ 80 ≈ 4.7 cents."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000152",
+      "correct_answer": "C",
+      "explanation": "|x − 3| is the distance from x to 3, and |x + 2| is the distance from x to −2. These two points are 5 apart, so the total distance is exactly 5 whenever x lies between them, −2 ≤ x ≤ 3, and is more than 5 otherwise. The integers −2, −1, 0, 1, 2, 3 work: 6 integers.",
+      "distractor_explanations": {
+        "A": "This finds only the endpoints −2 and 3, as if the equation had just two solutions like a typical absolute value equation.",
+        "B": "This uses the distance from −2 to 3, which is 5, as the count of integers, forgetting that both endpoints are included.",
+        "D": "Every real number from −2 to 3 works, but only finitely many of them are integers, and values outside that interval give sums greater than 5."
+      },
+      "hints": [
+        "Interpret |x − a| as a distance on the number line.",
+        "Where can x be if its distances to 3 and to −2 add up to exactly the distance between 3 and −2?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0 (3 + 2 = 5, works) and x = 4 (1 + 6 = 7, fails); every integer from −2 to 3 works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000153",
+      "correct_answer": "A",
+      "explanation": "(a⁻² b³)^(−1/2) = a^((−2)(−1/2)) b^((3)(−1/2)) = a¹ b^(−3/2). Multiply by a b^(1/2): a^(1 + 1) b^(−3/2 + 1/2) = a² b^(−1) = a²/b.",
+      "distractor_explanations": {
+        "B": "This forgets to multiply by the extra factor a, combining only the b exponents correctly.",
+        "C": "This drops the negative sign of the outer exponent, getting a⁻¹ b^(3/2) and then multiplying incorrectly.",
+        "D": "This is the reciprocal of the correct expression, from a sign error on every exponent."
+      },
+      "hints": [
+        "Distribute the outer exponent −1/2 to each exponent inside the parentheses.",
+        "Then add exponents of the same base."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let a = 1 and b = 4: (64)^(−1/2) · 1 · 2 = (1/8)(2) = 1/4; then a = 2, b = 1: (1/4)^(−1/2) · 2 = 2 · 2 = 4. Only a²/b gives 1/4 and 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000154",
+      "correct_answer": "D",
+      "explanation": "Write y = (x − 4)/3 and solve for x: 3y = x − 4, so x = 3y + 4. Therefore f⁻¹(x) = 3x + 4. Check: f(3x + 4) = (3x + 4 − 4)/3 = x.",
+      "distractor_explanations": {
+        "A": "This undoes the steps in the wrong order: multiply by 3 then subtract 4. Undoing 'subtract 4, then divide by 3' means 'multiply by 3, then add 4'.",
+        "B": "This undoes only the subtraction and keeps the division by 3.",
+        "C": "This is the reciprocal of f, not its inverse."
+      },
+      "hints": [
+        "Swap the roles of input and output: solve y = (x − 4)/3 for x.",
+        "Undo the operations in reverse order."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "f(10) = 2, so f⁻¹(2) must be 10; only 3(2) + 4 = 10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000155",
+      "correct_answer": "A",
+      "explanation": "Substitute (3, 8): 8 = a(3 − 1)(3 − 5) = a(2)(−2) = −4a, so a = −2. The y-intercept is y at x = 0: −2(0 − 1)(0 − 5) = −2(5) = −10.",
+      "distractor_explanations": {
+        "B": "−2 is the value of a, not the y-intercept.",
+        "C": "5 is (0 − 1)(0 − 5), the y-intercept before multiplying by a.",
+        "D": "This takes a = 2, dropping the negative sign from (3 − 5)."
+      },
+      "hints": [
+        "Use the given point to find a.",
+        "The y-intercept is the value of y when x = 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8 = −4a gives a = −2; y(0) = −2 × 5 = −10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000156",
+      "correct_answer": "D",
+      "explanation": "The arc length is (80/360)(2π · 9) = (2/9)(18π) = 4π. The perimeter of the sector includes the arc and the two radii: 4π + 9 + 9 = 18 + 4π centimeters.",
+      "distractor_explanations": {
+        "A": "4π is only the arc length; the two straight sides are missing.",
+        "B": "This includes only one radius; a sector has two straight sides.",
+        "C": "18π is the circumference of the whole circle."
+      },
+      "hints": [
+        "Sketch the sector: what three pieces make up its boundary?",
+        "The arc is 120/360 of the full circumference."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Boundary = two radii (18) + arc (4π)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000157",
+      "correct_answer": "A",
+      "explanation": "An angle bisector divides the opposite side in the ratio of the adjacent sides: BD/DC = AB/AC = 8/12 = 2/3. So BD is 2/5 of BC: BD = (2/5)(15) = 6 (and DC = 9).",
+      "distractor_explanations": {
+        "B": "7.5 assumes the bisector cuts BC in half, which happens only when AB = AC.",
+        "C": "9 is DC, the segment next to the longer side AC.",
+        "D": "This uses the ratio 2/3 of the whole side, (2/3)(15) = 10, instead of 2 parts out of 5."
+      },
+      "hints": [
+        "An angle bisector splits the opposite side in the same ratio as the two sides that form the angle.",
+        "Which part of BC is next to the shorter side AB?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "BD : DC = 8 : 12 = 2 : 3, so BD = 15 × 2/5 = 6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000158",
+      "correct_answer": "D",
+      "explanation": "Each number has probability 1/6. Winnings from evens: (2 + 4 + 6)/6 = 12/6 = 2. Losses from odds: 3 outcomes × (−2)/6 = −1. Expected gain: 2 − 1 = 1 dollar per roll.",
+      "distractor_explanations": {
+        "A": "This subtracts the expected win from the expected loss, reversing the sign.",
+        "B": "This assumes a game with equal chances of winning and losing must be fair; the amounts differ.",
+        "C": "This divides the total of the six outcomes, 6, by 12 instead of by 6."
+      },
+      "hints": [
+        "List all six outcomes and the dollar result of each.",
+        "Expected value = sum of (value × probability)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(−2 + 2 − 2 + 4 − 2 + 6)/6 = 6/6 = 1."
       }
     }
   ]

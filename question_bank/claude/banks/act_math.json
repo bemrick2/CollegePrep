@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 15,
-  "updated_at": "2026-10-26T18:32:43+00:00",
+  "version": 16,
+  "updated_at": "2026-10-26T18:33:55+00:00",
   "passages": [],
   "questions": [
     {
@@ -10108,6 +10108,696 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-015.review.json",
         "computation": "checks/act_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000149",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Bulk pricing (buying more can cost less)",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A store sells pens for $1.50 each or in packs of 10 for $10.00. Leo needs at least 37 pens. What is the least amount he can spend?",
+      "choices": {
+        "A": "$37.00",
+        "B": "$40.00",
+        "C": "$40.50",
+        "D": "$55.50"
+      },
+      "correct_answer": "B",
+      "explanation": "Three packs (30 pens) plus 7 single pens cost 30.00 + 10.50 = $40.50. Four packs give 40 pens for $40.00, which is at least 37 pens and costs less. Any other mix costs more (for example, 2 packs and 17 singles cost $45.50). The least amount is $40.00.",
+      "distractor_explanations": {
+        "A": "This prices every pen at the pack rate of $1.00, but single pens cost $1.50 and packs must be bought whole.",
+        "C": "$40.50 buys exactly 37 pens, but buying 40 pens in 4 packs is cheaper and still meets the need.",
+        "D": "This buys all 37 pens individually."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Compare the cost of 3 packs plus singles with the cost of 4 packs.",
+        "'At least 37' means extra pens are allowed."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "List the realistic options: 3 packs + 7 singles = $40.50; 4 packs = $40.00. Pick the smaller."
+      },
+      "remember": "With bulk pricing, check whether rounding up the bulk purchase is cheaper.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-01",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000150",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Repeated dilution",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A 10-liter tank is full of a drink that is 20% juice and 80% water. Two liters of the drink are removed and replaced with 2 liters of pure water. Then this process (remove 2 liters of the mixture, replace with 2 liters of water) is repeated once more. After the second replacement, how many liters of water are in the tank?",
+      "choices": {
+        "A": "8.00",
+        "B": "8.40",
+        "C": "8.72",
+        "D": "8.80"
+      },
+      "correct_answer": "C",
+      "explanation": "Track the juice. Each removal takes away 2/10 of the mixture, so 80% of the juice remains each time. Juice: 2 L → 1.6 L → 1.28 L. The tank always holds 10 liters, so water = 10 − 1.28 = 8.72 liters.",
+      "distractor_explanations": {
+        "A": "8.00 is the original amount of water, before any replacement.",
+        "B": "8.40 is the amount of water after only the first replacement.",
+        "D": "This removes 0.4 liter of juice both times, but the second removal takes 20% of only 1.6 liters of juice (0.32 liter)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Follow the juice instead of the water.",
+        "Each time, what fraction of the juice currently in the tank is removed?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Juice = 2 × 0.8² = 1.28 L; water = 10 − 1.28 = 8.72 L."
+      },
+      "remember": "Repeated removal of a fixed fraction multiplies by the same factor each time.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-02",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000151",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Unit price with unit conversion",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A 5-pound bag of rice costs $3.75. To the nearest tenth of a cent, what is the cost of the rice per ounce? (1 pound = 16 ounces)",
+      "choices": {
+        "A": "4.7 cents",
+        "B": "7.5 cents",
+        "C": "46.9 cents",
+        "D": "75.0 cents"
+      },
+      "correct_answer": "A",
+      "explanation": "The bag holds 5 × 16 = 80 ounces. 375 cents ÷ 80 ounces = 4.6875 ≈ 4.7 cents per ounce.",
+      "distractor_explanations": {
+        "B": "This divides 75 cents per pound by 10 instead of 16.",
+        "C": "This divides $3.75 by 8 ounces instead of 80 ounces.",
+        "D": "75 cents is the price per pound, not per ounce."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "How many ounces are in the bag?",
+        "Work in cents: $3.75 = 375 cents."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "375 ÷ 80 ≈ 4.7 cents."
+      },
+      "remember": "Convert to the unit the question asks about before dividing.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-03",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000152",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Absolute value as distance",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "For how many integers x is |x − 3| + |x + 2| = 5 ?",
+      "choices": {
+        "A": "2",
+        "B": "5",
+        "C": "6",
+        "D": "Infinitely many"
+      },
+      "correct_answer": "C",
+      "explanation": "|x − 3| is the distance from x to 3, and |x + 2| is the distance from x to −2. These two points are 5 apart, so the total distance is exactly 5 whenever x lies between them, −2 ≤ x ≤ 3, and is more than 5 otherwise. The integers −2, −1, 0, 1, 2, 3 work: 6 integers.",
+      "distractor_explanations": {
+        "A": "This finds only the endpoints −2 and 3, as if the equation had just two solutions like a typical absolute value equation.",
+        "B": "This uses the distance from −2 to 3, which is 5, as the count of integers, forgetting that both endpoints are included.",
+        "D": "Every real number from −2 to 3 works, but only finitely many of them are integers, and values outside that interval give sums greater than 5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Interpret |x − a| as a distance on the number line.",
+        "Where can x be if its distances to 3 and to −2 add up to exactly the distance between 3 and −2?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0 (3 + 2 = 5, works) and x = 4 (1 + 6 = 7, fails); every integer from −2 to 3 works."
+      },
+      "remember": "Sum of distances to a and b equals |a − b| between them.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-04",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 32,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000153",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Simplifying expressions with rational exponents",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "For all positive real numbers a and b, which of the following is equivalent to (a⁻² b³)^(−1/2) · a b^(1/2) ?",
+      "choices": {
+        "A": "a²/b",
+        "B": "a/b",
+        "C": "a² b²",
+        "D": "b/a²"
+      },
+      "correct_answer": "A",
+      "explanation": "(a⁻² b³)^(−1/2) = a^((−2)(−1/2)) b^((3)(−1/2)) = a¹ b^(−3/2). Multiply by a b^(1/2): a^(1 + 1) b^(−3/2 + 1/2) = a² b^(−1) = a²/b.",
+      "distractor_explanations": {
+        "B": "This forgets to multiply by the extra factor a, combining only the b exponents correctly.",
+        "C": "This drops the negative sign of the outer exponent, getting a⁻¹ b^(3/2) and then multiplying incorrectly.",
+        "D": "This is the reciprocal of the correct expression, from a sign error on every exponent."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Distribute the outer exponent −1/2 to each exponent inside the parentheses.",
+        "Then add exponents of the same base."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let a = 1 and b = 4: (64)^(−1/2) · 1 · 2 = (1/8)(2) = 1/4; then a = 2, b = 1: (1/4)^(−1/2) · 2 = 2 · 2 = 4. Only a²/b gives 1/4 and 4."
+      },
+      "remember": "Power of a power: multiply exponents; product of powers: add them.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-05",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 48,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000154",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Inverse of a linear function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (x − 4)/3. Which of the following defines the inverse function f⁻¹ ?",
+      "choices": {
+        "A": "f⁻¹(x) = 3x − 4",
+        "B": "f⁻¹(x) = (x + 4)/3",
+        "C": "f⁻¹(x) = 3/(x − 4)",
+        "D": "f⁻¹(x) = 3x + 4"
+      },
+      "correct_answer": "D",
+      "explanation": "Write y = (x − 4)/3 and solve for x: 3y = x − 4, so x = 3y + 4. Therefore f⁻¹(x) = 3x + 4. Check: f(3x + 4) = (3x + 4 − 4)/3 = x.",
+      "distractor_explanations": {
+        "A": "This undoes the steps in the wrong order: multiply by 3 then subtract 4. Undoing 'subtract 4, then divide by 3' means 'multiply by 3, then add 4'.",
+        "B": "This undoes only the subtraction and keeps the division by 3.",
+        "C": "This is the reciprocal of f, not its inverse."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Swap the roles of input and output: solve y = (x − 4)/3 for x.",
+        "Undo the operations in reverse order."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "f(10) = 2, so f⁻¹(2) must be 10; only 3(2) + 4 = 10."
+      },
+      "remember": "The inverse undoes the steps in reverse order.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-06",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000155",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Factored form: finding the leading coefficient",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The graph of y = a(x − 1)(x − 5), where a is a constant, passes through the point (3, 8). What is the y-intercept of the graph?",
+      "choices": {
+        "A": "−10",
+        "B": "−2",
+        "C": "5",
+        "D": "10"
+      },
+      "correct_answer": "A",
+      "explanation": "Substitute (3, 8): 8 = a(3 − 1)(3 − 5) = a(2)(−2) = −4a, so a = −2. The y-intercept is y at x = 0: −2(0 − 1)(0 − 5) = −2(5) = −10.",
+      "distractor_explanations": {
+        "B": "−2 is the value of a, not the y-intercept.",
+        "C": "5 is (0 − 1)(0 − 5), the y-intercept before multiplying by a.",
+        "D": "This takes a = 2, dropping the negative sign from (3 − 5)."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Use the given point to find a.",
+        "The y-intercept is the value of y when x = 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8 = −4a gives a = −2; y(0) = −2 × 5 = −10."
+      },
+      "remember": "Use a known point to find the leading coefficient.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-07",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 52,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000156",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Perimeter of a sector",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A sector of a circle has a radius of 9 centimeters and a central angle of 80°. What is the perimeter of the sector, in centimeters?",
+      "choices": {
+        "A": "4π",
+        "B": "9 + 4π",
+        "C": "18π",
+        "D": "18 + 4π"
+      },
+      "correct_answer": "D",
+      "explanation": "The arc length is (80/360)(2π · 9) = (2/9)(18π) = 4π. The perimeter of the sector includes the arc and the two radii: 4π + 9 + 9 = 18 + 4π centimeters.",
+      "distractor_explanations": {
+        "A": "4π is only the arc length; the two straight sides are missing.",
+        "B": "This includes only one radius; a sector has two straight sides.",
+        "C": "18π is the circumference of the whole circle."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Sketch the sector: what three pieces make up its boundary?",
+        "The arc is 120/360 of the full circumference."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Boundary = two radii (18) + arc (4π)."
+      },
+      "remember": "Sector perimeter = 2r + arc length.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-08",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000157",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Angle bisector theorem",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "In triangle ABC, AB = 8, AC = 12 and BC = 15. The bisector of ∠A meets side BC at point D. What is the length of BD ?",
+      "choices": {
+        "A": "6",
+        "B": "7.5",
+        "C": "9",
+        "D": "10"
+      },
+      "correct_answer": "A",
+      "explanation": "An angle bisector divides the opposite side in the ratio of the adjacent sides: BD/DC = AB/AC = 8/12 = 2/3. So BD is 2/5 of BC: BD = (2/5)(15) = 6 (and DC = 9).",
+      "distractor_explanations": {
+        "B": "7.5 assumes the bisector cuts BC in half, which happens only when AB = AC.",
+        "C": "9 is DC, the segment next to the longer side AC.",
+        "D": "This uses the ratio 2/3 of the whole side, (2/3)(15) = 10, instead of 2 parts out of 5."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "An angle bisector splits the opposite side in the same ratio as the two sides that form the angle.",
+        "Which part of BC is next to the shorter side AB?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "BD : DC = 8 : 12 = 2 : 3, so BD = 15 × 2/5 = 6."
+      },
+      "remember": "Angle bisector: BD/DC = AB/AC.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-09",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000158",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Expected value of a game",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "figure": null,
+      "stem": "In a game, a player rolls a fair six-sided die numbered 1 through 6. If the number rolled is even, the player wins that many dollars. If the number rolled is odd, the player loses $2. What is the player's expected gain per roll, in dollars?",
+      "choices": {
+        "A": "−1",
+        "B": "0",
+        "C": "0.50",
+        "D": "1"
+      },
+      "correct_answer": "D",
+      "explanation": "Each number has probability 1/6. Winnings from evens: (2 + 4 + 6)/6 = 12/6 = 2. Losses from odds: 3 outcomes × (−2)/6 = −1. Expected gain: 2 − 1 = 1 dollar per roll.",
+      "distractor_explanations": {
+        "A": "This subtracts the expected win from the expected loss, reversing the sign.",
+        "B": "This assumes a game with equal chances of winning and losing must be fair; the amounts differ.",
+        "C": "This divides the total of the six outcomes, 6, by 12 instead of by 6."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "List all six outcomes and the dollar result of each.",
+        "Expected value = sum of (value × probability)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(−2 + 2 − 2 + 4 − 2 + 6)/6 = 6/6 = 1."
+      },
+      "remember": "Expected value: weight each outcome by its probability.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "B016-10",
+      "created_at": "2026-10-26T18:33:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-016.review.json",
+        "computation": "checks/act_math/batch_016.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
