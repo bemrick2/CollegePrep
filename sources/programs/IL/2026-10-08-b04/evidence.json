@@ -62,6 +62,104 @@
  "029fd97bfd237fe5": {
   "decision": {
    "candidate_id": "029fd97bfd237fe5",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#029fd97bfd237fe5); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#029fd97bfd237fe5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 6 items, 18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fifth Year: 0 items, ? credits",
+    "value": "Fifth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 1 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 6 items, 12 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:37:10+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:26:42 GMT",
+   "page_file": "79f864e62bab9dae9caa.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/joint-bs-ms/",
+   "sha256": "79f864e62bab9dae9caadfa725bc49f44d983239b84d330b4baa186c6fe73a4d",
+   "title": "Joint BS in Computer Science/MS in Computer Science < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/joint-bs-ms/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "029fd97bfd237fe5~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "029fd97bfd237fe5",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#ed8bcfab7c8454ec) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -1260,8 +1358,8 @@
  "0de80644b2a230ca": {
   "decision": {
    "candidate_id": "0de80644b2a230ca",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#0de80644b2a230ca) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 2 plan_note(s) verbatim and complete after this grid; cited markers covered; next text \"University of Illinois Chicago\" is page text/new section; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#0de80644b2a230ca) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -1344,6 +1442,88 @@
    "candidate_id": "0de80644b2a230ca",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 2 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 2 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
    "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#0de80644b2a230ca) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman Year: 0 items, ? credits",
+    "value": "Freshman Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 16-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14-15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 14 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:39:05+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:51 GMT",
+   "page_file": "f51f5e2faf42382f1730.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phys/bs-phys/",
+   "sha256": "f51f5e2faf42382f173009cf18e2efe722542ea606c5a4b5347d60fe67bb71e3",
+   "title": "BS in Physics < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phys/bs-phys/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "0de80644b2a230ca~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "0de80644b2a230ca",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#0de80644b2a230ca) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -2166,8 +2346,8 @@
  "1490a02e58d8b06b": {
   "decision": {
    "candidate_id": "1490a02e58d8b06b",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#1490a02e58d8b06b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#1490a02e58d8b06b) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -2250,6 +2430,88 @@
    "candidate_id": "1490a02e58d8b06b",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#811b6aa058729d13) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14-16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 14-16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 13-15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 6 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:51+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:45 GMT",
+   "page_file": "a826d6c3ba0e50740e61.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/mscs/bs-stat/",
+   "sha256": "a826d6c3ba0e50740e61866ea191fb4c6ae651b05de8b4b819aec0700659aa1f",
+   "title": "BS with a Major in Statistics < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/mscs/bs-stat/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "1490a02e58d8b06b~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "1490a02e58d8b06b",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#1490a02e58d8b06b) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -5448,8 +5710,8 @@
  "3a11d395a97846f4": {
   "decision": {
    "candidate_id": "3a11d395a97846f4",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3a11d395a97846f4) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3a11d395a97846f4) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -5532,6 +5794,88 @@
    "candidate_id": "3a11d395a97846f4",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
    "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3a11d395a97846f4) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 13-15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15-18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 3 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:37:58+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:12 GMT",
+   "page_file": "27bf9e9d59a39edd3b4f.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/comm/ba/",
+   "sha256": "27bf9e9d59a39edd3b4fd82fa420cf88556307a0d2df9470e53cfe8f68b4693a",
+   "title": "BA with a Major in Communication < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/comm/ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3a11d395a97846f4~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "3a11d395a97846f4",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3a11d395a97846f4) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -5790,8 +6134,8 @@
  "3ce9487739f08843": {
   "decision": {
    "candidate_id": "3ce9487739f08843",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3ce9487739f08843) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 4 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3ce9487739f08843) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -5874,6 +6218,88 @@
    "candidate_id": "3ce9487739f08843",
    "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
    "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3ce9487739f08843) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15-17 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 6 items, 16-18 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15-17 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 14-16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 1 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:13+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:21 GMT",
+   "page_file": "ecb7386597222199614e.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/fr/ba-fr/",
+   "sha256": "ecb7386597222199614e23251a299509ac5be8abb7e89a1e1053c31be36b58ea",
+   "title": "BA with a Major in French and Francophone Studies < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/fr/ba-fr/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "3ce9487739f08843~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "3ce9487739f08843",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#3ce9487739f08843) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -6382,6 +6808,89 @@
   "year_basis": "labeled_in_source"
  },
  "4150e17a62ad80f5": {
+  "decision": {
+   "candidate_id": "4150e17a62ad80f5",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#4150e17a62ad80f5); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#4150e17a62ad80f5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 8 items, 15-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 3 items, 15-16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 3 items, 12-14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 12-13 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:03+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:13 GMT",
+   "page_file": "af211c13fec3c022beb2.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/eaes/bs/",
+   "sha256": "af211c13fec3c022beb2100b907b5d1f69c2d31b827ea8f467211d9a074cb779",
+   "title": "BS with a Major in Earth and Environmental Sciences < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/eaes/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4150e17a62ad80f5~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "4150e17a62ad80f5",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -7180,8 +7689,8 @@
  "4a7cbda688ec8a4a": {
   "decision": {
    "candidate_id": "4a7cbda688ec8a4a",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#4a7cbda688ec8a4a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 4 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#4a7cbda688ec8a4a) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -7264,6 +7773,88 @@
    "candidate_id": "4a7cbda688ec8a4a",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#efc181c7b07e6812) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 17 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 14-16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 13-18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 14 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:05+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:14 GMT",
+   "page_file": "e03701faa7f665a0ae48.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/econ/ba/",
+   "sha256": "e03701faa7f665a0ae48359df7108e21153005b01915ef771b7daa910ddfdf96",
+   "title": "BA with a Major in Economics < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/econ/ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "4a7cbda688ec8a4a~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "4a7cbda688ec8a4a",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#4a7cbda688ec8a4a) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -8289,8 +8880,8 @@
  "5315cbfd0fbc64e5": {
   "decision": {
    "candidate_id": "5315cbfd0fbc64e5",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#5315cbfd0fbc64e5) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#5315cbfd0fbc64e5) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -8373,6 +8964,88 @@
    "candidate_id": "5315cbfd0fbc64e5",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#1c53e95cc5b6044f) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 6 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:33:48+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:26:24 GMT",
+   "page_file": "e4d2ae46e7c2a745652e.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/education/epsy/ba-hdl/",
+   "sha256": "e4d2ae46e7c2a745652ed768f4ee3526c1542586b3f3d9306aa0ae06e0af6c7a",
+   "title": "BA in Human Development and Learning < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/education/epsy/ba-hdl/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5315cbfd0fbc64e5~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "5315cbfd0fbc64e5",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#5315cbfd0fbc64e5) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -8545,8 +9218,9 @@
  "54f8464895d5c7c3": {
   "decision": {
    "candidate_id": "54f8464895d5c7c3",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#54f8464895d5c7c3) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#54f8464895d5c7c3); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#54f8464895d5c7c3) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -8659,6 +9333,88 @@
    {
     "field": "term",
     "snippet": "Spring Semester: 16 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Junior Year: 0 items, ? credits",
+    "value": "Junior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 12 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Senior Year: 0 items, ? credits",
+    "value": "Senior Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 6 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 3 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:35:53+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:25:55 GMT",
+   "page_file": "7415a05d2712dceb49dc.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/architecture-design-arts/thtr-mus/ba-mus/",
+   "sha256": "7415a05d2712dceb49dce4018992b32e38610476cf07d9edb22563eed44c5bb6",
+   "title": "BA in Music < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/architecture-design-arts/thtr-mus/ba-mus/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "54f8464895d5c7c3~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "54f8464895d5c7c3",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 1 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (0 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#54f8464895d5c7c3) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "Freshman Year: 0 items, ? credits",
+    "value": "Freshman Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 9 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 10 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Sophomore Year: 0 items, ? credits",
+    "value": "Sophomore Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 8 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 9 items, 15 credits",
     "value": "Spring Semester"
    },
    {
@@ -9166,6 +9922,88 @@
   "year_basis": "labeled_in_source"
  },
  "5cd70ae4997ec46c": {
+  "decision": {
+   "candidate_id": "5cd70ae4997ec46c",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 0 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#5cd70ae4997ec46c) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 13-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16-18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16-18 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 14-15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:09+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:17 GMT",
+   "page_file": "eb563866d20d824687ea.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/engl/ba-engl/",
+   "sha256": "eb563866d20d824687ea339d5b07e39c08d3c831640155fe6e8b3e1cc2da8071",
+   "title": "BA with a Major in English < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/engl/ba-engl/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "5cd70ae4997ec46c~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "5cd70ae4997ec46c",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -12768,8 +13606,8 @@
  "8953e0c6a1fadfcb": {
   "decision": {
    "candidate_id": "8953e0c6a1fadfcb",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#8953e0c6a1fadfcb) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 2 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#8953e0c6a1fadfcb) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -12852,6 +13690,88 @@
    "candidate_id": "8953e0c6a1fadfcb",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#302cb1ad58c02410) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16-18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15-18 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:39:00+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:49 GMT",
+   "page_file": "eb15e2a79d34ceb32d08.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phil/ba/",
+   "sha256": "eb15e2a79d34ceb32d08661fe2a7f10c352a81b93b0fdec17810d22b99a241f5",
+   "title": "BA with a Major in Philosophy < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phil/ba/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "8953e0c6a1fadfcb~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "8953e0c6a1fadfcb",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#8953e0c6a1fadfcb) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -14627,8 +15547,8 @@
  "a0da312c8a2f9579": {
   "decision": {
    "candidate_id": "a0da312c8a2f9579",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#a0da312c8a2f9579) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#a0da312c8a2f9579) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -14711,6 +15631,88 @@
    "candidate_id": "a0da312c8a2f9579",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#6a50af64179ecd79) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 14 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16-18 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 14 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 2 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:49+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:44 GMT",
+   "page_file": "9c3144a75638a44da531.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/mscs/bs-math/",
+   "sha256": "9c3144a75638a44da5319ca622ee3abed43486dead58e85d3da9f4f7527a2ba5",
+   "title": "BS with a Major in Mathematics < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/mscs/bs-math/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "a0da312c8a2f9579~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "a0da312c8a2f9579",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#a0da312c8a2f9579) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -15620,8 +16622,8 @@
  "ae732a9e0c001449": {
   "decision": {
    "candidate_id": "ae732a9e0c001449",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#ae732a9e0c001449) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#ae732a9e0c001449) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -15704,6 +16706,88 @@
    "candidate_id": "ae732a9e0c001449",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#2bf1217210ee33f9) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 13-17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16-18 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 16 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 3 items, 15-16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 3 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 3 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:38:19+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:23 GMT",
+   "page_file": "da275c525a9fc418b09a.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/ger/ba-ger/",
+   "sha256": "da275c525a9fc418b09a75245de9b1085d8bd6e7698870d6c58700c56e3d5a47",
+   "title": "BA with a Major in Germanic Studies < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/ger/ba-ger/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ae732a9e0c001449~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "ae732a9e0c001449",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#ae732a9e0c001449) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -17254,6 +18338,89 @@
  "c08c97188b7dbc43": {
   "decision": {
    "candidate_id": "c08c97188b7dbc43",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#c08c97188b7dbc43); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#c08c97188b7dbc43) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 13-15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16-18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 16-18 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 2 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 7 items, 15-18 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 6 items, 14-18 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:39:14+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:55 GMT",
+   "page_file": "f0bc9514967d078a5052.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/pols/ba-pols/",
+   "sha256": "f0bc9514967d078a505224f73a31b17f1944e7c6dff70c63851b1306e7f5ca17",
+   "title": "BA with a Major in Political Science < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/pols/ba-pols/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c08c97188b7dbc43~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "c08c97188b7dbc43",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#6ee31f718fc31ce7) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
   },
@@ -17371,8 +18538,8 @@
  "c0e25a0bcfff8a70": {
   "decision": {
    "candidate_id": "c0e25a0bcfff8a70",
-   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#c0e25a0bcfff8a70) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 5 footnote(s), 3 plan_note(s) verbatim and complete after this grid; cited markers covered; next text \"University of Illinois Chicago\" is page text/new section; nothing else changed",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#c0e25a0bcfff8a70) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -17455,6 +18622,88 @@
    "candidate_id": "c0e25a0bcfff8a70",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
    "replaces_promoted": "courseleaf_plan/v1 record (evidence IL/2026-10-08-b04#c308b44f0e39931d) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 15 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:39:04+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:51 GMT",
+   "page_file": "e76f0cbf8bf8664f3768.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phys/ba-phys/",
+   "sha256": "e76f0cbf8bf8664f3768d977d85b52645aa77e03b4e61721a68c8b17680afb67",
+   "title": "BA with a Major in Physics < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/phys/ba-phys/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "c0e25a0bcfff8a70~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "c0e25a0bcfff8a70",
+   "reason": "Independent review 2026-10-22 (programs/plan-footnotes, round 2 after the footnote reader fix): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote line by line with the notes printed right after this grid (verbatim, complete, none from elsewhere). Footnotes ['a', 'b', 'c', 'd', 'e'] match the print after this grid verbatim (' / ' = line break), complete, nothing after the notes swallowed; rows, alternatives, subtotals and total match the print; no flat counted choice block. rule_details minus footnotes == old_rule_details. Note: unmarked note text printed after the footnotes is not captured (outside the [{marker,text}] design; not held, per precedent).",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#c0e25a0bcfff8a70) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan."
   },
   "evidence": [
    {
@@ -19575,8 +20824,9 @@
  "d2ad6749aa132ba2": {
   "decision": {
    "candidate_id": "d2ad6749aa132ba2",
-   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (2 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
-   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#d2ad6749aa132ba2) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 6 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#d2ad6749aa132ba2); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#d2ad6749aa132ba2) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
   },
   "evidence": [
    {
@@ -19714,6 +20964,88 @@
    {
     "field": "term",
     "snippet": "Fall Semester: 7 items, 17 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 5 items, 17 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:37:40+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:27:01 GMT",
+   "page_file": "9bb9037f2eb1b5bc59b0.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/biochem/bs/",
+   "sha256": "9bb9037f2eb1b5bc59b0f490de67fb3b0eb9f416fa95161304cfef33ba92ec80",
+   "title": "BS in Biochemistry < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/liberal-arts-sciences/biochem/bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d2ad6749aa132ba2~superseded-2026-10-23": {
+  "decision": {
+   "candidate_id": "d2ad6749aa132ba2",
+   "reason": "Independent review 2026-10-22 (programs/plan-choices): re-read from the same stored page and grid; compared row by row with the stored Plan of Study Grid by the reviewer's own parser (terms, items, code/title/credits, alternatives, subtotals, printed total), and each printed 'Select/Choose N of the following' block checked to hold exactly the printed options. 4 choose block(s): header text, count word and credits as printed; options = every blank-credit row from header to next credited row/term end, all course rows (2 at term end, 0 printed-string options: '&' pairs or cross-listed codes, each an alternative of the same kind under the header); all rows match print (code/title/credits, any_of pairing, strings for non-numeric credits); term labels and subtotals as printed; item credits (range-aware) consistent with every computable subtotal; rule_text 'Total Hours 120 (as printed)' = printed total",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#d2ad6749aa132ba2) stored a printed choice block as separate items, so every option read as required; the options are now one choice item."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 8 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 8 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 4 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 12 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 16 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 14 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 17 credits",
     "value": "Fall Semester"
    },
    {
@@ -21272,6 +22604,89 @@
   "year_basis": "labeled_in_source"
  },
  "e34497111f3137d6": {
+  "decision": {
+   "candidate_id": "e34497111f3137d6",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#e34497111f3137d6); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#e34497111f3137d6) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 6 items, 14 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 6 items, 14 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 6 items, 19 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 8 items, 14 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 8 items, 15 credits",
+    "value": "Spring Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "Fall Semester: 5 items, 15 credits",
+    "value": "Fall Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Spring Semester: 4 items, 14 credits",
+    "value": "Spring Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:36:01+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:25:56 GMT",
+   "page_file": "1553d3235d141020b821.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/architecture-design-arts/thtr-mus/ba-thtr-des/",
+   "sha256": "1553d3235d141020b821818e7839f21df2038c72b828290437eb2c2fcf641569",
+   "title": "BA in Theatre Design, Production, and Technology < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/architecture-design-arts/thtr-mus/ba-thtr-des/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "e34497111f3137d6~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "e34497111f3137d6",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
@@ -23975,6 +25390,104 @@
   "year_basis": "labeled_in_source"
  },
  "f92154a1b220242a": {
+  "decision": {
+   "candidate_id": "f92154a1b220242a",
+   "reason": "Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"University of Illinois Chicago\"; nothing else changed",
+   "replaces_correction": "The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence IL/2026-10-08-b04#f92154a1b220242a); the re-read keeps them and the review confirmed the plan.",
+   "replaces_promoted": "Plan on file (evidence IL/2026-10-08-b04#f92154a1b220242a) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location."
+  },
+  "evidence": [
+   {
+    "field": "term",
+    "snippet": "First Year: 0 items, ? credits",
+    "value": "First Year"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 7 items, 15 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 6 items, 16 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Year: 0 items, ? credits",
+    "value": "Second Year"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 5 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 5 items, 17 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Third Year: 0 items, ? credits",
+    "value": "Third Year"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 6 items, 17 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 6 items, 18 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fourth Year: 0 items, ? credits",
+    "value": "Fourth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 7 items, 16 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 6 items, 17 credits",
+    "value": "Second Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Fifth Year: 0 items, ? credits",
+    "value": "Fifth Year"
+   },
+   {
+    "field": "term",
+    "snippet": "First Semester: 4 items, 13 credits",
+    "value": "First Semester"
+   },
+   {
+    "field": "term",
+    "snippet": "Second Semester: 6 items, 13 credits",
+    "value": "Second Semester"
+   }
+  ],
+  "extractor": "courseleaf_plan/v3",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-08T15:36:44+00:00",
+   "kind": "html",
+   "last_modified": "Tue, 29 Sep 2026 21:26:27 GMT",
+   "page_file": "5dce4bde841098a95a70.json.gz",
+   "requested_url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/che/bs-ms-chemical-engineering/",
+   "sha256": "5dce4bde841098a95a70cc8882121480036799ef721265f5e07423ab2b85c64d",
+   "title": "Joint BS in Chemical Engineering/MS in Chemical Engineering < University of Illinois Chicago Academic Catalog",
+   "url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/che/bs-ms-chemical-engineering/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "f92154a1b220242a~superseded-2026-10-23": {
   "decision": {
    "candidate_id": "f92154a1b220242a",
    "reason": "Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item).",
