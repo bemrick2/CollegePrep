@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 3,
-  "updated_at": "2026-10-26T19:08:15+00:00",
+  "version": 4,
+  "updated_at": "2026-10-26T19:17:26+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -36,6 +36,17 @@
       "word_count": 229,
       "text": "In the river town of Calder, nearly every storefront sign was painted by hand, and most of them {{1|was}} painted by the same woman. For forty years, Edith Marrow climbed ladders with a {{2|brush a can of enamel, and a steady hand}}, lettering the names of bakeries, barbershops, and hardware stores {{3|onto there}} windows and walls.\n\nMarrow learned the trade from her father, who {{4|had painted signs}} for the town since before she was born. {{5|He taught her to mix colors, to space letters by eye, and that a sign should be read from across the street.}} She practiced on scrap boards in the garage, painting the alphabet hundreds of times until her strokes were {{6|identical; even}} her father could not tell them from his own.\n\nWhen vinyl lettering machines arrived in the 1990s, many of Marrow's customers switched. The machines were faster and {{7|cheaper, however,}} the stickers they produced {{8|got kind of messed up}} within a few years. One by one, the shop owners came back. \"A machine can make a letter,\" one barber told a reporter, \"but it can't make a sign.\"\n\nToday Marrow is in her seventies and no longer climbs ladders. {{9|Still, she enjoys gardening and reading in her spare time.}} {{10|Her students, many of whom are young and in their twenties,}} say they come for the craft but stay for the patience it teaches.",
       "batch": 3,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000004",
+      "title": "The Seed Library",
+      "genre": "informational essay",
+      "word_count": 261,
+      "text": "When the Westbrook Public Library added a seed library in 2019, the librarians were not sure anyone would use it. The idea was simple: patrons could {{1|check up}} a packet of seeds in spring, grow the plants, and return seeds saved from the harvest in the fall. {{2|The library's first catalog listed forty varieties, most of them donated by a single retired farmer.}}\n\nThe first spring, only a dozen patrons borrowed seeds. {{3|Therefore,}} by the next year, word had spread through the town's garden club and its two elementary schools, and more than three hundred packets went out. Both {{4|schools science teachers}}, in particular, found that a packet of bean seeds could anchor a whole unit on plant life cycles. Students who planted the seeds at home {{5|bringing}} their harvests back to class in September.\n\nNot every packet came back as hoped. Gardeners discovered that some vegetables, {{6|such as squash, cross-pollinate}} easily, so seeds saved from them may not grow true to the parent plant. {{7|Seeds from these plants can produce offspring that are different from the plants they came from.}} The librarians responded by labeling each packet \"easy,\" \"medium,\" or \"advanced\" to save, and the farmer's beans, which reliably breed true, became the most popular \"easy\" choice.\n\nToday the seed library circulates more than a thousand packets a year. {{8|It's shelves}} hold heirloom tomatoes, drought-tolerant peppers, and {{9|a variety of corn which was grown by the founders of the town and which had nearly been lost entirely}}. {{10|No one at the library still wonders whether patrons will use the seeds.}}",
+      "batch": 4,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -2395,6 +2406,782 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-003.review.json",
         "computation": "checks/act_english/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000034",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Idiom (phrasal verb)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 1,
+      "evidence": "patrons could check up a packet of seeds",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "check over",
+        "C": "check out",
+        "D": "check off"
+      },
+      "correct_answer": "C",
+      "explanation": "Borrowing an item from a library is to \"check out\" the item.",
+      "distractor_explanations": {
+        "A": "\"Check up\" means to investigate, not to borrow.",
+        "B": "\"Check over\" means to inspect.",
+        "D": "\"Check off\" means to mark an item on a list."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "What do library patrons do with books they borrow?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Supply the idiom yourself, then match."
+      },
+      "remember": "Phrasal verbs change meaning with the small word.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-01",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000035",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deciding whether to keep a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 2,
+      "evidence": "the farmer's beans, which reliably breed true, became the most popular",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it gives a detail about the collection's origins that the essay returns to later.",
+        "B": "Kept, because it explains why the librarians doubted that anyone would use the seed library.",
+        "C": "Deleted, because it shifts the focus of the paragraph from the library to farming in general.",
+        "D": "Deleted, because it repeats information already given in the paragraph's previous sentence."
+      },
+      "correct_answer": "A",
+      "explanation": "The sentence introduces the retired farmer who donated most of the seeds; paragraph 3 refers back to \"the farmer's beans,\" which would make no sense without it.",
+      "distractor_explanations": {
+        "B": "The sentence is about the catalog's source and gives no reason for the librarians' doubt.",
+        "C": "The sentence stays focused on the library's collection.",
+        "D": "The previous sentence explains how borrowing works; it says nothing about the catalog or donor."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does any later sentence depend on this one?",
+        "Look for \"the farmer\" later in the essay."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Search the rest of the essay for a reference that depends on this sentence."
+      },
+      "remember": "Keep a sentence that later text depends on.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-02",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000036",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (contrast)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 3,
+      "evidence": "only a dozen patrons borrowed seeds",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "However,",
+        "C": "Similarly,",
+        "D": "For example,"
+      },
+      "correct_answer": "B",
+      "explanation": "A dozen borrowers the first year contrasts with more than three hundred packets the next, so a contrast transition is needed: \"However.\"",
+      "distractor_explanations": {
+        "A": "Rapid growth is not a result of a slow first spring.",
+        "C": "The two years are different, not similar.",
+        "D": "The second sentence is not an example of the first."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Compare a dozen borrowers with three hundred packets."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Decide the relationship (contrast) before reading choices."
+      },
+      "remember": "Name the relationship first, then pick the transition.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-03",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000037",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Plural possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 4,
+      "evidence": "its two elementary schools",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "school's science teachers",
+        "C": "schools' science teachers'",
+        "D": "schools' science teachers"
+      },
+      "correct_answer": "D",
+      "explanation": "The teachers belong to two schools, so the plural possessive \"schools'\" is needed; \"teachers\" is simply plural and needs no apostrophe.",
+      "distractor_explanations": {
+        "A": "\"Schools\" needs an apostrophe to show possession.",
+        "B": "\"School's\" is singular, but \"Both\" refers to two schools.",
+        "C": "\"Teachers'\" adds a possessive that nothing follows."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "How many schools are there?",
+        "Do the teachers own anything in this sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each noun: is it plural, possessive, or both?"
+      },
+      "remember": "Plural possessive: add the apostrophe after the s.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-04",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000038",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Sentence fragment (finite verb)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 5,
+      "evidence": "Students who planted the seeds at home",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "and bringing",
+        "C": "brought",
+        "D": "having brought"
+      },
+      "correct_answer": "C",
+      "explanation": "The subject \"Students\" (modified by \"who planted the seeds at home\") needs a main verb; \"brought\" supplies it.",
+      "distractor_explanations": {
+        "A": "\"Bringing\" is not a main verb, so the sentence is a fragment.",
+        "B": "\"And bringing\" still leaves the subject without a main verb.",
+        "D": "\"Having brought\" is a participle, not a main verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Find the subject.",
+        "Is \"planted\" the main verb, or part of a who-clause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Strike the who-clause and see what verb the subject needs."
+      },
+      "remember": "A who-clause verb is not the sentence's main verb.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-05",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000039",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy (deleting a sentence)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 7,
+      "evidence": "so seeds saved from them may not grow true to the parent plant",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "These seeds can produce offspring that look unlike their parent plants.",
+        "C": "Gardeners learned, in other words, that such seeds could be unpredictable.",
+        "D": "DELETE the underlined portion."
+      },
+      "correct_answer": "D",
+      "explanation": "The previous sentence already says the seeds may not grow true to the parent plant; every version of this sentence repeats that point.",
+      "distractor_explanations": {
+        "A": "It restates the previous sentence's point.",
+        "B": "Shorter, but still repeats the previous sentence.",
+        "C": "\"In other words\" admits that it only restates the point."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "What does the previous sentence already say?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "If every version only repeats, delete it."
+      },
+      "remember": "Delete sentences that only restate the one before.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-07",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000040",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Its / it's",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 8,
+      "evidence": "Today the seed library circulates more than a thousand packets a year",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Its shelves",
+        "C": "Their shelves",
+        "D": "Its' shelves"
+      },
+      "correct_answer": "B",
+      "explanation": "The shelves belong to the seed library (singular), so the possessive \"Its\" is correct.",
+      "distractor_explanations": {
+        "A": "\"It's\" means \"it is.\"",
+        "C": "\"Their\" is plural, but the seed library is singular.",
+        "D": "\"Its'\" is not a word."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Does \"it is shelves\" make sense?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Expand \"it's\" to \"it is\" and test."
+      },
+      "remember": "Its = possessive; it's = it is.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-08",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000041",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 9,
+      "evidence": "a variety of corn which was grown by the founders of the town and which had nearly been lost entirely",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "corn, a variety of it that the town's founders grew and that had nearly been lost",
+        "C": "a nearly lost corn variety that the town's founders grew",
+        "D": "corn"
+      },
+      "correct_answer": "C",
+      "explanation": "C keeps all the information (grown by the founders, nearly lost) in the fewest words.",
+      "distractor_explanations": {
+        "A": "Wordy: two \"which\" clauses and \"entirely\" add length without meaning.",
+        "B": "Still wordy, and \"of it\" is awkward.",
+        "D": "Too short: it drops the information that the variety is historic and was nearly lost."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which choice keeps every fact in the fewest words?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Shortest choice that keeps the meaning."
+      },
+      "remember": "Concise is best only if no meaning is lost.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-09",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: A is grammatical, only wordy; correctness rests on the ACT concision convention, which is standard."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000042",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that returns to the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": 10,
+      "evidence": "the librarians were not sure anyone would use it",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by returning to an idea from its opening?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Several other libraries in the state have since started seed libraries.",
+        "C": "Heirloom vegetables are often prized by gardeners for their flavor.",
+        "D": "The library also lends cake pans, telescopes, and fishing rods."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay opens with the librarians unsure anyone would use the seed library; the current sentence answers that doubt.",
+      "distractor_explanations": {
+        "B": "It extends the story outward but does not return to the opening.",
+        "C": "It comments on heirlooms, not on the opening idea.",
+        "D": "It introduces unrelated items."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "out_of_scope",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What doubt does the first sentence express?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the goal: tie back to the opening."
+      },
+      "remember": "When asked to echo the opening, reread the first sentence.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-10",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000043",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Relevance of an added sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": null,
+      "evidence": "Today the seed library circulates more than a thousand packets a year",
+      "figure": null,
+      "stem": "The writer is considering adding the following sentence after the second sentence of the last paragraph:\n\"Corn is one of the most widely grown crops in the world.\"\nShould the writer make this addition there?",
+      "choices": {
+        "A": "Yes, because it explains why that variety of corn had nearly been lost.",
+        "B": "No, because it adds a general fact that distracts from the library's collection.",
+        "C": "Yes, because it emphasizes how valuable the library's collection has become.",
+        "D": "No, because it contradicts the claim that the corn variety was nearly lost."
+      },
+      "correct_answer": "B",
+      "explanation": "The paragraph describes the seed library's current collection; a world fact about corn is off topic.",
+      "distractor_explanations": {
+        "A": "Corn being widely grown does not explain why one variety was nearly lost.",
+        "C": "A fact about corn worldwide says nothing about this collection's value.",
+        "D": "A crop can be widespread while one variety of it is rare, so there is no contradiction."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "true_but_irrelevant",
+        "D": null
+      },
+      "hints": [
+        "What is the paragraph about?",
+        "Does a world statistic about corn serve that?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check whether the sentence serves the paragraph's focus."
+      },
+      "remember": "Added sentences must serve the paragraph's focus.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-11",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000044",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000004",
+      "underline": null,
+      "evidence": "The first spring, only a dozen patrons borrowed seeds.",
+      "figure": null,
+      "stem": "Suppose the writer's goal had been to write an essay explaining how to save seeds from garden vegetables. Would this essay accomplish that goal?",
+      "choices": {
+        "A": "Yes, because it explains which vegetables breed true and which do not.",
+        "B": "Yes, because it describes how patrons return saved seeds each fall.",
+        "C": "No, because it argues that most seed libraries fail in their first year.",
+        "D": "No, because it mainly recounts how one library's seed program grew."
+      },
+      "correct_answer": "D",
+      "explanation": "The essay tells the history of one library's seed program; it never explains the steps for saving seeds.",
+      "distractor_explanations": {
+        "A": "It mentions that some plants cross-pollinate but gives no seed-saving method.",
+        "B": "It says seeds are returned, not how to save them.",
+        "C": "The essay describes this program's success, not a failure."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What is the essay mostly about?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "State the essay's purpose, then compare with the goal."
+      },
+      "remember": "Judge a goal against the essay's main focus.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 4,
+      "draft_candidate": "E004-12",
+      "created_at": "2026-10-26T19:17:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-004.review.json",
+        "computation": "checks/act_english/batch_004.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
