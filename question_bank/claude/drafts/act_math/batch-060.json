@@ -1,0 +1,461 @@
+{
+ "bank": "act_math",
+ "batch": 60,
+ "plan": "4 hard (circle tangent to axes, roots differing by 4, gaining clock, constrained list) / 3 medium / 3 easy, to counter recent easy drift.",
+ "candidates": [
+  {
+   "cand": "B060-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Identifying a prime number",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "Which of the following numbers is prime?",
+   "choices": {
+    "A": "51",
+    "B": "57",
+    "C": "59",
+    "D": "91"
+   },
+   "answer": "C",
+   "explanation": "51 = 3 × 17, 57 = 3 × 19 and 91 = 7 × 13. 59 has no factors other than 1 and itself, so it is prime.",
+   "distractors": {
+    "A": {
+     "rationale": "51 = 3 × 17.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "57 = 3 × 19.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "91 = 7 × 13.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Test small primes such as 3 and 7 as factors."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Find a factor of each composite choice."
+   },
+   "remember": "Check divisibility by primes up to the square root.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B060-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Combining exponent rules",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "Which of the following is equivalent to (x³)(x⁴)/x² for x ≠ 0 ?",
+   "choices": {
+    "A": "x⁵",
+    "B": "x⁶",
+    "C": "x¹⁰",
+    "D": "x¹⁴"
+   },
+   "answer": "A",
+   "explanation": "Multiplying adds exponents: x³ · x⁴ = x⁷. Dividing subtracts: x⁷/x² = x⁵.",
+   "distractors": {
+    "B": {
+     "rationale": "x⁶ divides 12 by 2 after multiplying the exponents 3 and 4.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "x¹⁰ multiplies 3 and 4 to get 12, then subtracts 2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x¹⁴ adds 3 and 4 and then multiplies by 2 instead of subtracting.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What happens to exponents when you multiply powers with the same base?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 2."
+   },
+   "remember": "Multiply → add exponents; divide → subtract exponents.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B060-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Leg of a 45°-45°-90° triangle from its hypotenuse",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "The hypotenuse of a 45°-45°-90° triangle is 10 units long. How long is each leg?",
+   "choices": {
+    "A": "5",
+    "B": "5√2",
+    "C": "10√2",
+    "D": "20"
+   },
+   "answer": "B",
+   "explanation": "In a 45°-45°-90° triangle, the hypotenuse is √2 times a leg, so each leg is 10/√2 = 5√2.",
+   "distractors": {
+    "A": {
+     "rationale": "5 halves the hypotenuse, which works only for the short leg of a 30°-60°-90° triangle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10√2 multiplies by √2 instead of dividing.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "20 doubles the hypotenuse.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How does the hypotenuse compare with a leg in this triangle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "leg × √2 = 10."
+   },
+   "remember": "45°-45°-90° sides are in the ratio 1 : 1 : √2.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B060-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of exactly two heads in four flips",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A fair coin is flipped 4 times. What is the probability of getting exactly 2 heads?",
+   "choices": {
+    "A": "1/16",
+    "B": "1/8",
+    "C": "1/4",
+    "D": "3/8"
+   },
+   "answer": "D",
+   "explanation": "There are 2⁴ = 16 equally likely sequences, and C(4, 2) = 6 of them have exactly 2 heads. 6/16 = 3/8.",
+   "distractors": {
+    "A": {
+     "rationale": "1/16 counts only one sequence, such as HHTT.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/8 counts only two sequences.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "1/4 = 4/16 counts only four of the six sequences.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How many ways can 2 of the 4 flips be heads?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "List the sequences with exactly two H's."
+   },
+   "remember": "Count arrangements with combinations, then divide by all outcomes.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B060-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Circle tangent to both axes through a point",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A circle in the first quadrant is tangent to both the x-axis and the y-axis and passes through the point (2, 1). What is the sum of all possible values of the radius of the circle?",
+   "choices": {
+    "A": "1",
+    "B": "3",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "D",
+   "explanation": "A circle tangent to both axes in the first quadrant has center (r, r) and radius r. Requiring (2 − r)² + (1 − r)² = r² gives r² − 6r + 5 = 0, so r = 1 or r = 5. Both circles work, and the sum is 6.",
+   "distractors": {
+    "A": {
+     "rationale": "1 is only one of the two possible radii.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3 averages the two radii instead of adding them.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5 is only one of the two possible radii.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Where is the center of a circle tangent to both axes?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use center (r, r) and the distance formula."
+   },
+   "remember": "Tangent to both axes means the center is (r, r).",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must set up the center as (r, r), solve a quadratic, and realize both solutions give valid circles."
+   }
+  },
+  {
+   "cand": "B060-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Coefficient from roots that differ by a given amount",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "For what value of c do the two solutions of x² + 6x + c = 0 differ by exactly 4 ?",
+   "choices": {
+    "A": "5",
+    "B": "8",
+    "C": "9",
+    "D": "13"
+   },
+   "answer": "A",
+   "explanation": "The solutions add to −6. If they differ by 4, they are −5 and −1. Their product is c = (−5)(−1) = 5.",
+   "distractors": {
+    "B": {
+     "rationale": "8 is the product of −4 and −2, solutions that differ by only 2.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "9 makes the solutions equal (a double root at −3), a difference of 0.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "13 = 9 + 4 adds the difference to the double-root value.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What is the sum of the two solutions?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Let the roots be r and r + 4 with sum −6."
+   },
+   "remember": "For x² + bx + c, the roots sum to −b and multiply to c.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires using the sum and product of roots (or completing the square) in reverse; most students try to solve directly and get stuck."
+   }
+  },
+  {
+   "cand": "B060-07",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Clock that gains time",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "A clock with a standard 12-hour face gains 3 minutes every hour. It is set to the correct time at noon. After how many days will it next show the correct time?",
+   "choices": {
+    "A": "5",
+    "B": "10",
+    "C": "20",
+    "D": "240"
+   },
+   "answer": "B",
+   "explanation": "The clock shows the correct time again when it has gained a full 12 hours, or 720 minutes. At 3 minutes per hour, that takes 720 ÷ 3 = 240 hours, which is 10 days.",
+   "distractors": {
+    "A": {
+     "rationale": "5 days is when the clock has gained only 6 hours.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "20 days assumes the clock must gain a full 24 hours, but a 12-hour face repeats every 12 hours.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "240 is the number of hours, not days.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How far ahead must the clock be to look correct again?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "720 minutes ÷ 3 minutes per hour."
+   },
+   "remember": "A 12-hour clock looks correct when it is off by a multiple of 12 hours.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The key insight is that the clock needs to gain 12 hours, not 24; the 24-hour assumption (20 days) catches most solvers."
+   }
+  },
+  {
+   "cand": "B060-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Range of a downward-opening quadratic",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "What is the range of the function f(x) = −2(x − 1)² + 5 ?",
+   "choices": {
+    "A": "y ≥ 5",
+    "B": "y ≤ 1",
+    "C": "y ≤ 5",
+    "D": "All real numbers"
+   },
+   "answer": "C",
+   "explanation": "The vertex is (1, 5), and the parabola opens downward because the leading coefficient is negative. So the greatest value is 5, and the range is y ≤ 5.",
+   "distractors": {
+    "A": {
+     "rationale": "y ≥ 5 would be the range if the parabola opened upward.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "y ≤ 1 uses the x-coordinate of the vertex.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A quadratic's outputs are bounded on one side, so its range is not all real numbers.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which way does the parabola open, and where is its vertex?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the parabola from its vertex."
+   },
+   "remember": "Range of a quadratic: from the vertex's y-value in the direction the parabola opens.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B060-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Whole cans of paint for two coats",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "One gallon of paint covers 350 square feet. A wall is 12 feet high and 40 feet long, and it needs two coats. If paint is sold only in whole gallons, what is the least number of gallons needed?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "6"
+   },
+   "answer": "B",
+   "explanation": "The wall's area is 12 × 40 = 480 square feet; two coats cover 960 square feet. 960 ÷ 350 ≈ 2.74, so 3 gallons are needed.",
+   "distractors": {
+    "A": {
+     "rationale": "2 rounds 2.74 down, which would not cover the wall.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4 rounds up twice or adds an extra gallon unnecessarily.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6 rounds 480/350 up to 2 for one coat and then triples it.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What total area must be covered?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Area × coats ÷ coverage, then round up."
+   },
+   "remember": "When buying whole units, round up.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B060-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Greatest least value under mean, median and mode constraints",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "A list of 5 positive integers has a mean of 6, a median of 7 and a unique mode of 8. What is the greatest possible value of the smallest integer in the list?",
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "C",
+   "explanation": "The total is 30. With median 7 and a unique mode of 8, the list is a, b, 7, 8, 8 with a + b = 7. To keep 8 the only mode, a and b must differ from each other and from 7, so b ≤ 6 and a < b. The pairs (1, 6), (2, 5) and (3, 4) work; the greatest a is 3.",
+   "distractors": {
+    "A": {
+     "rationale": "1 is the smallest possible value, not the greatest.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2 works but is not the greatest possible.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4 would force b = 3 < a, putting the list out of order, or would require a = b = 3.5.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What must the two largest values be?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Write a, b, 7, 8, 8 and use the sum."
+   },
+   "remember": "Unique mode means no other value can repeat as often.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must combine three constraints and see that a and b cannot be equal (or equal 7) without breaking the unique mode."
+   }
+  }
+ ]
+}
