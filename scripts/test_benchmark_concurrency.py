@@ -66,6 +66,23 @@ def main():
         expect(psql('-At', '-c', 'select count(*) from public.practice_benchmarks').stdout.strip() == '1', 'one check')
         expect(psql('-At', '-c', 'select count(*) || \':\' || count(distinct question_id) from public.practice_benchmark_items').stdout.strip()
                == '5:5', 'one assignment (initial plans 9: all 5 reserved math items), no double exposure')
+        # The passage guard: a practice item and a reserved item attached to one passage at the same time. The trigger
+        # locks the passage, so the second writer waits, then sees the first and is refused.
+        psql('-c', "insert into public.practice_passages(id, exam_version_id, body) values "
+                   "('3c000000-0000-0000-0000-0000000000cc', '40000000-0000-0000-0000-000000000001', 'Shared passage')")
+        ins = lambda qid, pool: (f"insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, "
+                                 f"accepted_answers, expected_time_seconds, status, license, origin, passage_id, pool) values ('{qid}', "
+                                 f"'40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000001', 'math', 'P', '[\"A\",\"B\"]', "
+                                 f"'choice', '[\"A\"]', 60, 'draft', 'original-owned', 'authored', '3c000000-0000-0000-0000-0000000000cc', '{pool}');\n")
+        a = subprocess.Popen(base + ['begin;\n' + ins('3d000000-0000-0000-0000-000000000001', 'practice') + 'select pg_sleep(2);\ncommit;'],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        time.sleep(0.5)
+        b = subprocess.run(base + ['begin;\n' + ins('3d000000-0000-0000-0000-000000000002', 'assessment') + 'commit;'], capture_output=True, text=True)
+        out_a, err_a = a.communicate(timeout=30)
+        expect(a.returncode == 0 and b.returncode != 0 and 'only question on its passage' in b.stderr,
+               f'concurrent attaches to one passage: the second (reserved) is refused {err_a.strip()} {b.stderr.strip()[:200]}')
+        expect(psql('-At', '-c', "select count(*) from public.practice_questions where passage_id = '3c000000-0000-0000-0000-0000000000cc'").stdout.strip() == '1',
+               'one question on the passage')
     finally:
         psql('-c', f'drop database if exists {DB} with (force)', db='postgres', check=False)
     print('benchmark concurrency test passed')

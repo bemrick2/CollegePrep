@@ -37,8 +37,10 @@
        been attempted, planned into a practice session or assigned to a check, and has a passage no other question uses.
        Otherwise everything rolls back: no migration is recorded and nothing is marked. Fix the list, regenerate the
        script and dispatch again. Run it with `--dry-run` first: with `--reserve`, a dry run is a rehearsal that runs
-       the whole transaction against the live data and rolls back, so every eligibility check runs. Because it touches
-       the live database, the rehearsal also needs the hold lifted. The applier accepts only a reserve script that is
+       the whole transaction against the live data and rolls back, so every eligibility check runs. It runs the real
+       DDL of the pending migrations inside that rolled-back transaction, so it briefly takes exclusive locks on the
+       tables they alter (`practice_questions`, `practice_benchmarks` and others). Run it at a quiet time. Because it
+       touches the live database, the rehearsal also needs the hold lifted. The applier accepts only a reserve script that is
        byte for byte what the generator writes for the items listed in it, so an edited script (an added `commit`, a
        psql `\` command, a changed id) is refused before anything runs. Each applied reserve is recorded in
        `practice_reserve_releases` (digest, exam version, items, file sha256, time), and the same script refuses to run
@@ -48,7 +50,10 @@
       reload or retry. `initial` opens only when the student has never started a check for that exam version.
       Abandoning one (letting it expire) still counts. A repeat (`mini`) opens 28 days after the last check started,
       completed or not, so a student who abandons their initial check gets a mini 28 days later. `full` stays
-      unavailable. The app reads `benchmark_allowed_kinds(student, exam_version)` for what a start would do.
+      unavailable. The 28 days are counted in UTC (28 x 24 hours). An exam version with no reserved questions allows
+      nothing: a start is refused ("Not measured: no reserved questions for this exam") and doesn't use up the
+      student's initial check. The app reads `benchmark_allowed_kinds(student, exam_version)` for what a start would do
+      (`reserve_available` says whether the exam version has a reserve).
     - **Passages.** A reserved item must be the only question on its passage. A multi-question passage set can't be
       reserved; whether to allow that is a content-lead and owner decision. A trigger refuses attaching any question to
       a reserved item's passage.

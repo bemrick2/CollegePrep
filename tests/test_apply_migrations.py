@@ -23,6 +23,15 @@ class ApplyMigrationTests(unittest.TestCase):
         tag = sql.split('array[')[1].split('$')[1]
         self.assertNotIn(f'${tag}$', "select $m$ text $m$;")
 
+    def test_transaction_control_outside_comments_is_found(self):
+        for text in ('commit and chain;', 'COMMIT AND NO CHAIN;', "prepare transaction 'x';", 'savepoint s1;', 'release savepoint s1;',
+                     'release s1;', 'rollback to savepoint s1;', 'commit prepared \'x\';', 'start transaction isolation level serializable;',
+                     'begin transaction;', 'end work;', 'abort;'):
+            with self.assertRaises(ValueError, msg=text):
+                a.transaction_sql(self.write('select 1;\n' + text + '\n'), '20990101000000', 'x')
+        for text in ('-- commit;\nselect 1;', '/* begin;\ncommit; */ select 1;', 'create function f() returns void language plpgsql as $$\nbegin\n  null;\nend $$;'):
+            a.transaction_sql(self.write(text), '20990101000000', 'x')
+
     def test_files_with_own_transaction_control_are_refused(self):
         for text in ('begin;\nselect 1;\ncommit;', 'select 1;\n  COMMIT ;'):
             with self.assertRaises(ValueError):

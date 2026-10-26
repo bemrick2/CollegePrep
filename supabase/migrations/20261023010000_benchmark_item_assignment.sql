@@ -39,7 +39,10 @@
 --   no unique index for "one live check": liveness depends on the clock (expired checks stay completed_at null), so the
 --   per-student lock in start_benchmark enforces it instead.
 -- * benchmark_allowed_kinds(student, exam_version), read-only, for anyone who may view the student: the live check
---   (id, kind, expiry), the kinds start_benchmark would accept now, and when the next mini opens (a timestamp).
+--   (id, kind, expiry), the kinds start_benchmark would accept now, when the next mini opens (a timestamp), and
+--   reserve_available (false: the exam version has no servable reserved item in a planned section, nothing is allowed,
+--   and a start is refused with 22023 "Not measured: no reserved questions for this exam" instead of opening a check
+--   that would assign nothing yet count as the student's check). The 28-day gap is counted in UTC 24-hour days.
 -- * can_read_reserved_question admits a reserved item only when it is assigned to a live check of the caller's own
 --   (linked) student login, or, as before, to anyone who may view a student who attempted it (review of results).
 -- * benchmark_questions lists only the check's assigned items it hasn't used yet.
@@ -174,14 +177,28 @@ begin
 end $$;
 revoke all on function public.assign_benchmark_items_internal(uuid) from public, anon, authenticated;
 
+-- Whole days after a moment, counted in UTC (24-hour days), whatever the session TimeZone or a DST change.
+create function public.benchmark_plus_days_utc(p_at timestamptz, p_days integer) returns timestamptz
+language sql immutable set search_path = '' as $$
+  select ((p_at at time zone 'UTC') + make_interval(days => p_days)) at time zone 'UTC'
+$$;
+revoke all on function public.benchmark_plus_days_utc(timestamptz, integer) from public, anon;
+grant execute on function public.benchmark_plus_days_utc(timestamptz, integer) to authenticated, service_role;
+
 -- The one place the check rules are applied (start_benchmark and benchmark_allowed_kinds both call it).
+-- reserve_available: the exam version has at least one servable reserved item in a planned section; without one no
+-- check can be measured, so nothing is allowed and a start is refused (it would burn the student's initial check).
 create function public.benchmark_rules_internal(p_student uuid, p_exam_version uuid)
 returns table (live_benchmark uuid, live_kind text, live_expires_at timestamptz, last_prior_start timestamptz,
-  allowed_kinds text[], next_mini_at timestamptz)
+  allowed_kinds text[], next_mini_at timestamptz, reserve_available boolean)
 language plpgsql stable set search_path = '' as $$
 declare v_family text; v_mini integer;
 begin
   select e.exam_family into v_family from public.exam_versions e where e.id = p_exam_version;
+  reserve_available := exists (select 1 from public.practice_questions q
+    join public.practice_benchmark_plan p on p.exam_family = v_family and p.section = q.section
+    join public.practice_benchmark_kinds k on k.kind = p.kind and k.available
+    where q.exam_version_id = p_exam_version and q.pool = 'assessment' and q.status = 'published' and q.review_current);
   select b.id, b.kind, b.started_at + interval '4 hours' into live_benchmark, live_kind, live_expires_at
   from public.practice_benchmarks b
   where b.student_id = p_student and b.exam_version_id = p_exam_version
@@ -193,6 +210,8 @@ begin
     and b.id is distinct from live_benchmark;
   if live_benchmark is not null then
     allowed_kinds := array[live_kind];  -- the live check is resumed; nothing else opens
+  elsif not reserve_available then
+    allowed_kinds := '{}';  -- not measured: no reserved questions for this exam
   else
     select coalesce(array_agg(k.kind order by k.kind), '{}') into allowed_kinds
     from public.practice_benchmark_kinds k
@@ -200,18 +219,19 @@ begin
       and exists (select 1 from public.practice_benchmark_plan p where p.exam_family = v_family and p.kind = k.kind)
       and not (k.needs_no_prior and last_prior_start is not null)
       and not (k.needs_prior and last_prior_start is null)
-      and (last_prior_start is null or last_prior_start <= now() - make_interval(days => k.min_days_after_prior));
+      and (last_prior_start is null or public.benchmark_plus_days_utc(last_prior_start, k.min_days_after_prior) <= now());
   end if;
   select k.min_days_after_prior into v_mini from public.practice_benchmark_kinds k where k.kind = 'mini' and k.available;
   -- When the next mini may open: min_days_after_prior days after the last check started, counting a live check too.
-  next_mini_at := greatest(last_prior_start, live_expires_at - interval '4 hours') + make_interval(days => v_mini);
+  next_mini_at := public.benchmark_plus_days_utc(greatest(last_prior_start, live_expires_at - interval '4 hours'), v_mini);
   return next;
 end $$;
 revoke all on function public.benchmark_rules_internal(uuid, uuid) from public, anon, authenticated;
 
 -- Read-only: what a start would do now, for anyone who may view the student (the app reads this instead of guessing).
 create function public.benchmark_allowed_kinds(p_student uuid, p_exam_version uuid)
-returns table (live_benchmark uuid, live_kind text, live_expires_at timestamptz, allowed_kinds text[], next_mini_at timestamptz)
+returns table (live_benchmark uuid, live_kind text, live_expires_at timestamptz, allowed_kinds text[], next_mini_at timestamptz,
+  reserve_available boolean)
 language plpgsql stable security definer set search_path = '' as $$
 begin
   if not public.can_view_student(p_student) then
@@ -220,13 +240,13 @@ begin
   if p_exam_version is null or not exists (select 1 from public.exam_versions e where e.id = p_exam_version) then
     raise exception 'Unknown exam version' using errcode = '22023';
   end if;
-  return query select r.live_benchmark, r.live_kind, r.live_expires_at, r.allowed_kinds, r.next_mini_at
+  return query select r.live_benchmark, r.live_kind, r.live_expires_at, r.allowed_kinds, r.next_mini_at, r.reserve_available
     from public.benchmark_rules_internal(p_student, p_exam_version) r;
 end $$;
 revoke all on function public.benchmark_allowed_kinds(uuid, uuid) from public, anon;
 grant execute on function public.benchmark_allowed_kinds(uuid, uuid) to authenticated, service_role;
 comment on function public.benchmark_allowed_kinds(uuid, uuid) is
-  '#263: the live check (resumed by start_benchmark), the kinds a start would accept now, and when the next mini opens.';
+  '#263: the live check (resumed by start_benchmark), the kinds a start would accept now, when the next mini opens, and whether the exam version has a reserve at all.';
 
 -- From 20261022050000; owner contract (2026-10-26): one live check per student and exam version, resumed answered in
 -- or not with its assignment; which kinds may open comes from benchmark_rules_internal; sizes from the plan only.
@@ -258,6 +278,9 @@ begin
   if r.live_benchmark is not null then
     raise exception 'A % progress check is already open for this exam; resume it', r.live_kind using errcode = '22023';
   end if;
+  if not r.reserve_available then
+    raise exception 'Not measured: no reserved questions for this exam' using errcode = '22023';
+  end if;
   if not p_kind = any(r.allowed_kinds) then
     if v_rule.needs_no_prior and r.last_prior_start is not null then
       raise exception 'An initial progress check is only for a student who has not started one for this exam' using errcode = '22023';
@@ -266,14 +289,17 @@ begin
     else
       raise exception 'The next progress check opens % days after the last one started (on % in the student''s time zone)',
         v_rule.min_days_after_prior,
-        to_char((r.last_prior_start + make_interval(days => v_rule.min_days_after_prior)) at time zone public.student_time_zone(p_student),
+        to_char(public.benchmark_plus_days_utc(r.last_prior_start, v_rule.min_days_after_prior) at time zone public.student_time_zone(p_student),
           'YYYY-MM-DD HH24:MI')
         using errcode = '22023';
     end if;
   end if;
   insert into public.practice_benchmarks(student_id, kind, exam_version_id) values (p_student, p_kind, p_exam_version)
   returning id into v_id;
-  perform public.assign_benchmark_items_internal(v_id);
+  -- A check with no items would measure nothing yet count as the student's check: refuse, and the start rolls back.
+  if public.assign_benchmark_items_internal(v_id) = 0 then
+    raise exception 'Not measured: no reserved questions for this exam' using errcode = '22023';
+  end if;
   return v_id;
 end $$;
 
@@ -408,6 +434,8 @@ end $$;
 create function public.practice_question_passage_guard() returns trigger
 language plpgsql security definer set search_path = '' as $$
 begin
+  -- Lock the passage so two concurrent writers can't both attach to it.
+  perform 1 from public.practice_passages pp where pp.id = new.passage_id for update;
   if new.passage_id is not null and exists (select 1 from public.practice_questions o
       where o.passage_id = new.passage_id and o.id <> new.id and (o.pool = 'assessment' or new.pool = 'assessment')) then
     raise exception 'A reserved progress-check question must be the only question on its passage' using errcode = '23514';

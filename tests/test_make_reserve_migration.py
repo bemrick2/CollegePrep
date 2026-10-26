@@ -29,6 +29,15 @@ class ReserveGeneratorTests(unittest.TestCase):
             with self.assertRaisesRegex(r.ReserveError, msg):
                 r.parse_items(text)
 
+    def test_embedded_items_are_revalidated(self):
+        for items in ([('3b000000-0000-0000-0000-0000000000A1', 'math')], [(A, 'Math')], [(A, 'math'), (A, 'reading')], [('x', 'math')]):
+            with self.assertRaises(r.ReserveError):
+                r.reserve_sql('sat_digital_2024', items)
+        # A hand-made script embedding an uppercase section or a duplicate id is refused by verify_script.
+        good = r.reserve_sql('sat_digital_2024', [(A, 'math'), (B, 'math')])
+        for bad in (good.replace('"section":"math"}', '"section":"Math"}', 1), good.replace(B, A)):
+            self.assertTrue(r.verify_script(bad.encode()))
+
     def test_exam_version_key_is_validated(self):
         for bad in ("act'; drop table x; --", '', 'ACT'):
             with self.assertRaises(r.ReserveError):

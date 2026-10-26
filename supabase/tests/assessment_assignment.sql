@@ -297,6 +297,55 @@ begin
     '1,2,4,6,7,8', 'attempted reserved items stay readable for review');
 end $$;
 
+-- An exam version with no reserve: nothing is allowed (reserve_available false) and a start is refused, rolling back,
+-- so it doesn't burn the student's initial check. And the 28-day gap is 28 x 24 hours in UTC whatever the session
+-- TimeZone, across the November DST change.
+do $$
+declare st uuid := current_setting('t.st')::uuid; v uuid := '40000000-0000-0000-0000-00000000000e'; got text; b uuid; tz text := current_setting('timezone');
+begin
+  perform hp_test.as_owner();
+  insert into public.exam_versions(id, exam_family, version_key, name, effective_from, rules)
+  values (v, 'act', 'act_empty_fixture', 'ACT with no reserve', '2025-04-01', '{"sections":[]}');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  select string_agg(coalesce(live_benchmark::text, '-') || '|' || allowed_kinds::text || '|' || reserve_available, ';') into got
+    from public.benchmark_allowed_kinds(st, v);
+  perform hp_test.eq(got, '-|{}|false', 'no reserve: nothing allowed, flagged');
+  perform hp_test.expect_error(format($q$select public.start_benchmark(%L, 'initial', %L)$q$, st, v), '22023', '%Not measured: no reserved questions for this exam%');
+  perform hp_test.eq((select count(*) from public.practice_benchmarks where exam_version_id = v), 0::bigint, 'the refused start left no check');
+  -- Once reserved items exist in a planned section, the initial check is still available.
+  perform hp_test.as_owner();
+  insert into public.question_types(id, exam_version_id, type_key, name) values
+    ('41000000-0000-0000-0000-00000000000e', v, 'multiple_choice', 'Multiple choice');
+  insert into public.practice_questions(id, exam_version_id, question_type_id, section, stem, choices, answer_format, accepted_answers,
+    expected_time_seconds, status, license, origin, pool)
+  values ('30000000-0000-0000-0000-0000000000e1', v, '41000000-0000-0000-0000-00000000000e', 'math', 'E1', '["A","B"]', 'choice', '["A"]', 60,
+    'published', 'original-owned', 'authored', 'assessment');
+  perform public.approve_practice_question('30000000-0000-0000-0000-0000000000e1', 'test fixture');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select allowed_kinds from public.benchmark_allowed_kinds(st, v)), '{initial}'::text[], 'with a reserve, initial is allowed');
+  -- A reserved item in an unplanned section doesn't count as a reserve.
+  perform hp_test.as_owner();
+  update public.practice_questions set section = 'writing' where id = '30000000-0000-0000-0000-0000000000e1';
+  perform public.approve_practice_question('30000000-0000-0000-0000-0000000000e1', 'test fixture');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select reserve_available from public.benchmark_allowed_kinds(st, v)), false, 'an unplanned section is no reserve');
+  -- UTC gap: a check started 2026-10-20 15:00 UTC; the next mini opens exactly 672 hours later, even in a Chicago session
+  -- (DST ends 2026-11-01 there; local-calendar arithmetic would give 673 hours).
+  perform hp_test.as_owner();
+  update public.practice_questions set section = 'math' where id = '30000000-0000-0000-0000-0000000000e1';
+  perform public.approve_practice_question('30000000-0000-0000-0000-0000000000e1', 'test fixture');
+  insert into public.practice_benchmarks(student_id, kind, exam_version_id, started_at, completed_at, items_assigned_at)
+  values (st, 'initial', v, '2026-10-20 15:00+00', '2026-10-20 16:00+00', '2026-10-20 15:00+00') returning id into b;
+  perform set_config('timezone', 'America/Chicago', true);
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.eq((select extract(epoch from next_mini_at - '2026-10-20 15:00+00'::timestamptz) from public.benchmark_allowed_kinds(st, v)),
+    (28 * 86400)::numeric, 'the gap is 28 x 24 hours across the DST change, in a Chicago session');
+  perform hp_test.eq(public.benchmark_plus_days_utc('2026-10-20 15:00+00', 28), '2026-11-17 15:00+00'::timestamptz, 'UTC day arithmetic');
+  perform set_config('timezone', tz, true);
+  perform hp_test.as_owner();
+  delete from public.practice_benchmarks where id = b;
+end $$;
+
 -- Student 52: kind rules from scratch, expiry of a partly answered check, cross-exam independence, a skipped repeat,
 -- and legacy checks.
 do $$
@@ -307,6 +356,7 @@ begin
   select string_agg(coalesce(live_benchmark::text, '-') || '|' || allowed_kinds::text || '|' || coalesce(next_mini_at::text, '-'), ';') into got
     from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001');
   perform hp_test.eq(got, '-|{initial}|-', 'fresh: no live check, initial allowed, no mini date');
+  perform hp_test.eq((select reserve_available from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001')), true, 'SAT has a reserve');
   perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000b1');
   perform hp_test.eq((select allowed_kinds from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001')), '{initial}'::text[], 'a viewing guardian reads it');
@@ -326,7 +376,7 @@ begin
   i := public.start_benchmark(st2, 'initial', '40000000-0000-0000-0000-000000000001');
   perform hp_test.eq((select count(*) from public.benchmark_questions(i) where section = 'math'), 5::bigint, 'initial plans 9: the whole math reserve');
   perform hp_test.check((select live_benchmark = i and live_kind = 'initial' and allowed_kinds = '{initial}'
-      and live_expires_at = b.started_at + interval '4 hours' and next_mini_at = b.started_at + interval '28 days'
+      and live_expires_at = b.started_at + interval '4 hours' and next_mini_at = b.started_at + interval '672 hours'
     from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001'), public.practice_benchmarks b where b.id = i),
     'live: the check, its expiry, only its kind (resume), and the next mini 28 days after it started');
   perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');
@@ -356,7 +406,7 @@ begin
     '22023', '%opens 28 days after the last one started%');
   perform hp_test.eq((select count(distinct question_id) from public.practice_benchmark_items where student_id = st2), 6::bigint,
     'drain repro: restarts expose nothing new');
-  perform hp_test.check((select live_benchmark is null and allowed_kinds = '{}' and next_mini_at = b.started_at + interval '28 days'
+  perform hp_test.check((select live_benchmark is null and allowed_kinds = '{}' and next_mini_at = b.started_at + interval '672 hours'
     from public.benchmark_allowed_kinds(st2, '40000000-0000-0000-0000-000000000001'), public.practice_benchmarks b where b.id = i),
     'after expiry: nothing allowed until the mini date');
   perform hp_test.kinds_agree(st2, '40000000-0000-0000-0000-000000000001');

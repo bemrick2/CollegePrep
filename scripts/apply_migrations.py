@@ -29,7 +29,21 @@ import check_migration_history as h
 from live_write_guard import require_live_writes
 
 
-TRANSACTION_CONTROL = re.compile(r'^\s*(begin|commit|rollback|abort|start\s+transaction|end)(\s+(work|transaction))?\s*;', re.I | re.M)
+_TRANSACTION_CONTROL = re.compile(
+    r'^\s*(begin|commit|rollback|abort|end)(\s+(work|transaction))?(\s+and\s+(no\s+)?chain)?\s*;'
+    r'|^\s*(start|begin)\s+transaction\b|^\s*(prepare\s+transaction|commit\s+prepared|rollback\s+prepared)\b'
+    r'|^\s*(savepoint|release(\s+savepoint)?|rollback(\s+(work|transaction))?\s+to(\s+savepoint)?)\s+\w+\s*;', re.I | re.M)
+_COMMENTS = re.compile(r'/\*.*?\*/|--[^\n]*', re.S)
+
+
+class _TransactionControl:
+    """Matches statement-level transaction control (BEGIN/COMMIT/ROLLBACK/ABORT/END [WORK|TRANSACTION] [AND [NO] CHAIN],
+    START TRANSACTION, PREPARE TRANSACTION, COMMIT/ROLLBACK PREPARED, SAVEPOINT, RELEASE, ROLLBACK TO) outside comments."""
+    def search(self, text: str):
+        return _TRANSACTION_CONTROL.search(_COMMENTS.sub('', text))
+
+
+TRANSACTION_CONTROL = _TransactionControl()
 
 
 def migration_block(path: Path, version: str, name: str) -> str:
