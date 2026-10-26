@@ -1,23 +1,31 @@
 #!/usr/bin/env python3
-"""Write the CR-23 reserve migration: mark a reviewed list of questions as the assessment pool.
+"""Write the CR-23 reserve script: mark a reviewed list of questions as the assessment pool.
 
-The generated migration sets practice_questions.pool = 'assessment' for exactly the listed ids, and raises (so the
-applier rolls its transaction back and nothing is marked) unless every id, at apply time:
-  * exists, belongs to the expected exam version (exam_versions.version_key) and to the listed section;
+The output is a SQL *script*, not a migration: it never goes under supabase/migrations/ (CI applies every migration to
+an empty database, where a reserve would always fail, and a migration merged to main could be applied without its
+paired release). scripts/apply_migrations.py --reserve <file> runs it in the same transaction as the pending schema
+migrations it needs (20261022050000 assessment pool, 20261023010000 check assignment), so all of them commit together
+or none does. See docs/DEPLOYING.md ("CR-23 reserve release").
+
+At apply time the script sets practice_questions.pool = 'assessment' for exactly the listed ids, and raises (rolling the
+whole transaction back, so nothing is marked and no listed migration is recorded) unless every id:
+  * exists, belongs to the expected exam version (exam_versions.version_key) and to the listed section, and that
+    section has a progress-check plan (practice_benchmark_plan) for the exam family;
   * is status = 'published' and passes the CR-24 rights gate (allowed license, attribution where required, origin);
-  * is review_current with review_status 'approved' and a review_method starting 'human:' (CR-21 / CR-24; a
-    'fixture:' or any other approval never qualifies, whatever the item's origin);
+  * is review_current with review_status 'approved' and a review_method that names its human reviewer: it must match
+    '^human:\\s*\\S' (lowercase prefix; 'fixture:', a bare 'human:' or any other approval never qualifies, whatever the
+    item's origin);
   * has never been shown to a student: no attempt (practice or check), not planned into a practice session, and not
-    assigned to a progress check.
-The generator itself refuses an empty list, duplicates, malformed ids or sections, and a version that would not sort
-after every existing migration. It never connects to a database.
+    assigned to a progress check;
+  * has a passage of its own: no other question (practice item, already reserved item or another listed item) uses its
+    passage, so a reserved passage is never readable through another item.
+The generator itself refuses an empty list, duplicates, malformed ids or sections, and an output path inside
+supabase/migrations/. It never connects to a database.
 
 Items file: one item per line, `<question uuid> <section>`; blank lines and `#` comments are ignored.
 
-  python scripts/make_reserve_migration.py --exam-version act_enhanced_2025 --items reserve.txt --version 20261024000000
-      # writes supabase/migrations/20261024000000_assessment_reserve.sql (review it like any migration)
-
-Release procedure: docs/DEPLOYING.md ("CR-23 reserve release"). Only individually human-approved items may be listed.
+  python scripts/make_reserve_migration.py --exam-version act_enhanced_2025 --items reserve.txt \\
+      --out supabase/reserve/2026-11-01_act.sql
 """
 from __future__ import annotations
 import argparse, json, re, sys
@@ -25,11 +33,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MIGRATIONS = ROOT / 'supabase/migrations'
+MARKER = '-- collegeprep: CR-23 reserve script'
 UUID = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 SECTION = re.compile(r'^[a-z][a-z_]{0,39}$')
 VERSION_KEY = re.compile(r'^[a-z0-9][a-z0-9_]{0,79}$')
-VERSION = re.compile(r'^\d{14}$')
-NAME = re.compile(r'^[a-z][a-z0-9_]{0,62}$')
 
 
 class ReserveError(ValueError):
@@ -59,26 +66,25 @@ def parse_items(text: str) -> list[tuple[str, str]]:
     return items
 
 
-def check_version(version: str, existing: list[str]) -> None:
-    if not VERSION.match(version):
-        raise ReserveError(f'--version {version!r} is not a 14-digit migration version')
-    newer = [v for v in existing if v >= version]
-    if newer:
-        raise ReserveError(f'--version {version} must sort after every existing migration (newest: {max(existing)})')
+def inside_migrations(path: Path, migrations: Path = MIGRATIONS) -> bool:
+    p, m = path.resolve(), migrations.resolve()
+    return p == m or m in p.parents
 
 
-def migration_sql(exam_version_key: str, items: list[tuple[str, str]]) -> str:
+def reserve_sql(exam_version_key: str, items: list[tuple[str, str]]) -> str:
     if not VERSION_KEY.match(exam_version_key):
         raise ReserveError(f'{exam_version_key!r} is not an exam version key')
     if not items:
         raise ReserveError('the reserve list is empty; nothing would be marked')
     payload = json.dumps([{'id': q, 'section': s} for q, s in items], separators=(',', ':'))
     listing = '\n'.join(f'--   {q}  {s}' for q, s in items)
-    return f"""-- CR-23 reserve (generated by scripts/make_reserve_migration.py; review before merging).
+    return f"""{MARKER} (generated by scripts/make_reserve_migration.py; review before use).
+-- Not a migration: run only by scripts/apply_migrations.py --reserve, in one transaction with the schema migrations.
 -- Marks exactly {len(items)} question(s) of exam version {exam_version_key} as the assessment pool (pool = 'assessment').
--- Raises, so the whole migration rolls back and nothing is marked, unless every listed item exists in that exam version
--- and section, is published and passes the rights gate, has a current approved review whose method starts 'human:',
--- and has never been shown to a student (no attempt, no practice-session item, no progress-check assignment).
+-- Raises, so the whole transaction rolls back and nothing is marked, unless every listed item exists in that exam
+-- version and in a planned section, is published and passes the rights gate, has a current approved review whose
+-- method names a human reviewer ('human: <name>'), has never been shown to a student (no attempt, practice-session
+-- item or progress-check assignment), and is the only question using its passage.
 -- Items:
 {listing}
 do $reserve$
@@ -97,15 +103,24 @@ begin
       when q.id is null then 'does not exist'
       when e.version_key is distinct from v_expected then 'belongs to exam version ' || coalesce(e.version_key, '(none)')
       when q.section is distinct from x.section then 'is in section ' || coalesce(q.section, '(none)') || ', not ' || x.section
+      when not exists (select 1 from public.practice_benchmark_plan p where p.exam_family = e.exam_family and p.section = x.section)
+        then 'is in section ' || x.section || ', which has no progress-check plan'
       when q.status is distinct from 'published' then 'is not published'
       when not public.question_license_allowed(q.license)
         or (public.question_license_needs_attribution(q.license) and length(btrim(coalesce(q.source_attribution, ''))) = 0)
         or q.origin is null then 'fails the rights gate'
       when not q.review_current or q.review_status is distinct from 'approved' then 'has no current approved review'
-      when not coalesce(q.review_method ~* '^human:', false) then 'was not approved by a human review'
+      when not coalesce(q.review_method ~ '^human:\\s*\\S', false) then 'was not approved by a named human reviewer'
       when exists (select 1 from public.practice_attempts a where a.question_id = q.id) then 'has been attempted by a student'
       when exists (select 1 from public.practice_session_items i where i.question_id = q.id) then 'was planned into a practice session'
       when exists (select 1 from public.practice_benchmark_items i where i.question_id = q.id) then 'was assigned to a progress check'
+      when q.passage_id is not null and exists (select 1 from public.practice_questions o
+          where o.passage_id = q.passage_id and o.id <> q.id and o.pool <> 'assessment'
+            and o.id not in (select (j->>'id')::uuid from jsonb_array_elements(v_items) j))
+        then 'shares its passage with a practice item'
+      when q.passage_id is not null and exists (select 1 from public.practice_questions o
+          where o.passage_id = q.passage_id and o.id <> q.id)
+        then 'shares its passage with another reserved or listed item'
     end as why
     from (select (j->>'id')::uuid as id, j->>'section' as section, ord
           from jsonb_array_elements(v_items) with ordinality as t(j, ord)) x
@@ -117,7 +132,7 @@ begin
     raise exception 'Reserve refused, nothing marked: %', v_bad using errcode = '23514';
   end if;
   update public.practice_questions q set pool = 'assessment'
-  where q.id in (select x.id from jsonb_to_recordset(v_items) as x(id uuid, section text));
+  where q.id in (select (j->>'id')::uuid from jsonb_array_elements(v_items) j);
   get diagnostics v_n = row_count;
   if v_n <> jsonb_array_length(v_items) then
     raise exception 'Reserve refused: marked % of % items', v_n, jsonb_array_length(v_items) using errcode = '23514';
@@ -130,25 +145,24 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     p.add_argument('--exam-version', required=True, help='exam_versions.version_key every item must belong to')
     p.add_argument('--items', required=True, type=Path, help='file of "<question uuid> <section>" lines')
-    p.add_argument('--version', required=True, help='14-digit migration version, newer than every existing one')
-    p.add_argument('--name', default='assessment_reserve', help='migration name (default assessment_reserve)')
-    p.add_argument('--out', type=Path, help='output file (default supabase/migrations/<version>_<name>.sql)')
+    p.add_argument('--out', required=True, type=Path, help='output .sql file, outside supabase/migrations/ (e.g. supabase/reserve/...)')
     p.add_argument('--migrations-dir', type=Path, default=MIGRATIONS, help=argparse.SUPPRESS)
     a = p.parse_args(argv)
     try:
-        if not NAME.match(a.name):
-            raise ReserveError(f'--name {a.name!r} must be snake_case')
+        if inside_migrations(a.out, a.migrations_dir):
+            raise ReserveError(f'{a.out} is inside {a.migrations_dir}; a reserve is a script run by apply_migrations.py --reserve, never a migration')
+        if a.out.suffix != '.sql':
+            raise ReserveError(f'{a.out} must be a .sql file')
+        if a.out.exists():
+            raise ReserveError(f'{a.out} already exists')
         items = parse_items(a.items.read_text(encoding='utf-8'))
-        check_version(a.version, [f.name[:14] for f in a.migrations_dir.glob('*.sql')])
-        sql = migration_sql(a.exam_version, items)
-        out = a.out or a.migrations_dir / f'{a.version}_{a.name}.sql'
-        if out.exists():
-            raise ReserveError(f'{out} already exists')
+        sql = reserve_sql(a.exam_version, items)
     except (ReserveError, OSError) as e:
         print(f'make_reserve_migration: {e}', file=sys.stderr)
         return 1
-    out.write_text(sql, encoding='utf-8')
-    print(f'wrote {out} ({len(items)} items, exam version {a.exam_version})')
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.write_text(sql, encoding='utf-8')
+    print(f'wrote {a.out} ({len(items)} items, exam version {a.exam_version}); apply it with scripts/apply_migrations.py --reserve')
     return 0
 
 

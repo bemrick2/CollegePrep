@@ -6,9 +6,14 @@
 --
 -- * practice_benchmark_plan(exam_family, kind, section, items): the check length per section, owned by the server.
 --   Seeded with the app's rule (web/src/lib/engine/benchmark.ts PER_SECTION; checkPlanFromCounts uses the same sizes):
---   a section's check takes min(items, reserved items in that section). 'full' is 99 per section, i.e. the whole
---   section's reserve, as the app plans it. Readable by any signed-in user (it is not secret); written only by
---   migrations. A section without a row is not measured.
+--   a section's check takes min(items, reserved items in that section). There are no 'full' rows: the full-length form
+--   isn't ready (the app's FULL_FORM_READY is false; its 99-per-section placeholder would drain the whole reserve), and
+--   start_benchmark refuses a kind with no plan rows for the exam family. Readable by any signed-in user (it is not
+--   secret); written only by migrations. A section without a row is not measured. No caller can supply a size.
+-- * practice_benchmark_kinds(kind, available, needs_completed, needs_no_completed, min_days_after_completed): which
+--   kinds may open, per the owner's decision of 2026-10-26: 'initial' only with no completed check for the exam
+--   version; 'mini' only after a completed check and at least 28 days after the last one; 'full' unavailable. The rule
+--   values live only in this table. start_benchmark enforces them for every caller, including direct RPC calls.
 -- * practice_benchmark_items(benchmark_id, question_id, ...): the items start_benchmark assigned to a check, per
 --   section in the order the check uses them: unseen first (mid difficulty first), then repeats (least recently seen
 --   first). Each row records seen_before / last_seen as they were at assignment. Viewers of the student can read the
@@ -21,7 +26,12 @@
 -- * start_benchmark assigns once, in the transaction that opens the check (practice_benchmarks.items_assigned_at is set
 --   once, compare-and-set). It serialises per student (the student row lock it already took, plus a transaction
 --   advisory lock on the student, which tests can observe), so two simultaneous starts give one check and one
---   assignment. Resuming a live, untouched check returns the same check and never re-assigns.
+--   assignment. A student has at most one live check per exam version. A start of the same kind resumes it, answered
+--   in or not, with the same assignment (benchmark_questions lists only its unused items), so a reload or retry never
+--   draws a fresh set; a start of another kind while it is live is refused (22023, "already open ... resume it"). This
+--   replaces 20261022050000's "a half-taken check expires instead of being resumed". Expiry is unchanged: 4 hours after
+--   its start a check is no longer live, and the next start follows the kind rules. A live check of one exam version
+--   neither blocks nor resumes a start for another.
 -- * can_read_reserved_question admits a reserved item only when it is assigned to a live check of the caller's own
 --   (linked) student login, or, as before, to anyone who may view a student who attempted it (review of results).
 -- * benchmark_questions lists only the check's assigned items it hasn't used yet.
@@ -30,6 +40,8 @@
 --   item row of another version impossible to store.
 -- Checks opened before this migration have no assignment (items_assigned_at is null): they unlock nothing, take no
 -- attempts, and are never resumed; they expire as before and can still be completed.
+-- Passages: the reserve tooling (scripts/make_reserve_migration.py) refuses an item whose passage any other question
+-- uses, so a reserved item's passage is never readable through a practice item or a sibling.
 -- Objects are altered or replaced in place. Nothing here marks any question as reserved.
 
 -- The server-owned check length per exam family, kind and section.
@@ -45,15 +57,37 @@ comment on table public.practice_benchmark_plan is
 insert into public.practice_benchmark_plan(exam_family, kind, section, items) values
   ('act', 'initial', 'english', 7), ('act', 'initial', 'math', 8), ('act', 'initial', 'reading', 6), ('act', 'initial', 'science', 6),
   ('act', 'mini', 'english', 3), ('act', 'mini', 'math', 4), ('act', 'mini', 'reading', 3), ('act', 'mini', 'science', 3),
-  ('act', 'full', 'english', 99), ('act', 'full', 'math', 99), ('act', 'full', 'reading', 99), ('act', 'full', 'science', 99),
   ('sat', 'initial', 'reading_writing', 9), ('sat', 'initial', 'math', 9),
-  ('sat', 'mini', 'reading_writing', 4), ('sat', 'mini', 'math', 4),
-  ('sat', 'full', 'reading_writing', 99), ('sat', 'full', 'math', 99);
+  ('sat', 'mini', 'reading_writing', 4), ('sat', 'mini', 'math', 4);
 alter table public.practice_benchmark_plan enable row level security;
 revoke all on public.practice_benchmark_plan from anon, authenticated;
 grant select on public.practice_benchmark_plan to authenticated;
 grant select, insert, update, delete on public.practice_benchmark_plan to service_role;
 create policy benchmark_plan_read on public.practice_benchmark_plan for select to authenticated using (true);
+
+-- Which kinds of check may open (owner decision 2026-10-26; rule values live only here, for Design to adjust):
+--   initial  only while the student has no completed check for the exam version;
+--   mini     (repeat) only after a completed check, and at least min_days_after_completed days after the last one;
+--   full     not available until a full-length form exists (and it has no plan rows).
+create table public.practice_benchmark_kinds (
+  kind text primary key check (kind in ('initial','mini','full')),
+  available boolean not null,
+  needs_completed boolean not null,
+  needs_no_completed boolean not null,
+  min_days_after_completed integer not null check (min_days_after_completed between 0 and 365),
+  check (not (needs_completed and needs_no_completed))
+);
+comment on table public.practice_benchmark_kinds is
+  '#263: which progress-check kinds may open, enforced by start_benchmark for every caller. The app schedules a mini every ~35 days.';
+insert into public.practice_benchmark_kinds values
+  ('initial', true, false, true, 0),
+  ('mini', true, true, false, 28),
+  ('full', false, true, false, 28);
+alter table public.practice_benchmark_kinds enable row level security;
+revoke all on public.practice_benchmark_kinds from anon, authenticated;
+grant select on public.practice_benchmark_kinds to authenticated;
+grant select, insert, update, delete on public.practice_benchmark_kinds to service_role;
+create policy benchmark_kinds_read on public.practice_benchmark_kinds for select to authenticated using (true);
 
 -- Targets for the composite keys below (id is already unique; these add the pair).
 alter table public.practice_benchmarks add constraint practice_benchmarks_id_student_version_key unique (id, student_id, exam_version_id);
@@ -127,10 +161,12 @@ begin
 end $$;
 revoke all on function public.assign_benchmark_items_internal(uuid) from public, anon, authenticated;
 
--- From 20261022050000; the check's items are assigned once when it opens, and resuming never re-assigns.
+-- From 20261022050000; owner contract (2026-10-26): one live check per student and exam version, resumed answered in
+-- or not with its assignment; which kinds may open is decided here from practice_benchmark_kinds; sizes come from
+-- practice_benchmark_plan only.
 create or replace function public.start_benchmark(p_student uuid, p_kind text, p_exam_version uuid default null) returns uuid
 language plpgsql security definer set search_path = '' as $$
-declare v_id uuid;
+declare v_id uuid; v_kind text; v_rule public.practice_benchmark_kinds; v_last timestamptz;
 begin
   perform public.require_linked_student(p_student);
   if p_kind is null or p_kind not in ('initial','mini','full') then
@@ -142,17 +178,37 @@ begin
   if not exists (select 1 from public.exam_versions e where e.id = p_exam_version) then
     raise exception 'Unknown exam version' using errcode = '22023';
   end if;
+  select k.* into v_rule from public.practice_benchmark_kinds k where k.kind = p_kind;
+  if not coalesce(v_rule.available, false) or not exists (select 1 from public.exam_versions e
+      join public.practice_benchmark_plan p on p.exam_family = e.exam_family where e.id = p_exam_version and p.kind = p_kind) then
+    raise exception 'This kind of progress check is not available for this exam yet' using errcode = '22023';
+  end if;
   -- Serialise starts per student: the student row lock, and an advisory lock tests can observe in pg_locks.
   perform 1 from public.students s where s.id = p_student for update;
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('practice_benchmark_start:' || p_student::text, 0));
-  select b.id into v_id from public.practice_benchmarks b
-  where b.student_id = p_student and b.exam_version_id = p_exam_version and b.kind = p_kind
+  -- Resume: the live check for this exam version, answered in or not, with its assignment.
+  select b.id, b.kind into v_id, v_kind from public.practice_benchmarks b
+  where b.student_id = p_student and b.exam_version_id = p_exam_version
     and public.benchmark_is_live(b.started_at, b.completed_at)
     and b.items_assigned_at is not null
-    -- Only a check nothing was answered in yet: a half-taken check stays open until it expires.
-    and not exists (select 1 from public.practice_attempts a where a.benchmark_id = b.id)
   order by b.started_at desc limit 1;
-  if v_id is not null then return v_id; end if;
+  if v_id is not null and v_kind = p_kind then return v_id; end if;
+  if v_id is not null then
+    raise exception 'A % progress check is already open for this exam; resume it', v_kind using errcode = '22023';
+  end if;
+  -- Which kinds may open, from the student's completed checks of this exam version.
+  select max(b.completed_at) into v_last from public.practice_benchmarks b
+  where b.student_id = p_student and b.exam_version_id = p_exam_version and b.completed_at is not null;
+  if v_rule.needs_no_completed and v_last is not null then
+    raise exception 'An initial progress check is only for a student with no completed check for this exam' using errcode = '22023';
+  end if;
+  if v_rule.needs_completed and v_last is null then
+    raise exception 'A repeat progress check comes after a completed check for this exam' using errcode = '22023';
+  end if;
+  if v_last is not null and v_last > now() - make_interval(days => v_rule.min_days_after_completed) then
+    raise exception 'The next progress check opens % days after the last completed one (on %)', v_rule.min_days_after_completed,
+      (v_last + make_interval(days => v_rule.min_days_after_completed))::date using errcode = '22023';
+  end if;
   insert into public.practice_benchmarks(student_id, kind, exam_version_id) values (p_student, p_kind, p_exam_version)
   returning id into v_id;
   perform public.assign_benchmark_items_internal(v_id);

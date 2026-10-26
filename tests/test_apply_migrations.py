@@ -57,6 +57,18 @@ class UntilTests(unittest.TestCase):
         for bad in ('2026102204', '20261022040000_b', 'latest', ''):
             self.assertIn('not a 14-digit', a.check_until(bad, self.LOCAL)[0])
 
+    fail_psql = False
+
+    @staticmethod
+    def reserve_marker(sql):
+        return "/reserve.sql'" in sql  # the test reserve files are all named reserve.sql
+
+    def reserve_file(self, text=None):
+        import make_reserve_migration as r
+        d = Path(tempfile.mkdtemp()); p = d / 'reserve.sql'
+        p.write_text(text if text is not None else r.reserve_sql('sat_digital_2024', [('30000000-0000-0000-0000-000000000001', 'math')]))
+        return p
+
     def run_main(self, argv, live_pending):
         """main() against the real repository files, with the live database and psql replaced by fakes."""
         local, _ = a.h.local_migrations()
@@ -68,8 +80,12 @@ class UntilTests(unittest.TestCase):
 
         def fake_run(cmd, *args, **kw):
             sql = Path(cmd[-1]).read_text()
-            f = next(f for f in state['pending'] if f in sql)
-            calls.append(f); state['pending'].remove(f)
+            ran = [f for f in list(state['pending']) if f in sql]
+            calls.append(tuple(ran) if self.reserve_marker(sql) else ran[0])
+            if self.fail_psql:
+                return mock.Mock(returncode=3)
+            for f in ran:
+                state['pending'].remove(f)
             return mock.Mock(returncode=0)
 
         out = io.StringIO()
@@ -102,9 +118,70 @@ class UntilTests(unittest.TestCase):
         guard.assert_called_once()
 
     def test_apply_without_until_runs_every_pending_file(self):
-        code, out, calls, _, _ = self.run_main([], {'20261022040000', '20261022050000', '20261023010000'})
+        code, out, calls, _, _ = self.run_main([], {'20261022030000', '20261022040000'})
         self.assertEqual(code, 0, out)
-        self.assertEqual([c[:14] for c in calls], ['20261022040000', '20261022050000', '20261023010000'])
+        self.assertEqual([c[:14] for c in calls], ['20261022030000', '20261022040000'])
+
+    def test_pool_migration_is_refused_without_a_reserve(self):
+        # A push-triggered run (no --until, no --reserve) must never apply the pool, nor anything before it.
+        for argv in ([], ['--dry-run'], ['--until', '20261023010000']):
+            code, out, calls, _, _ = self.run_main(argv, {'20261022040000', '20261022050000', '20261023010000'})
+            self.assertEqual(code, 1, out)
+            self.assertIn('applies only with --reserve', out)
+            self.assertEqual(calls, [])
+
+    def test_reserve_runs_in_one_transaction_with_the_selected_migrations(self):
+        res = self.reserve_file()
+        code, out, calls, guard, _ = self.run_main(['--until', '20261023010000', '--reserve', str(res)],
+                                                   {'20261022050000', '20261023010000'})
+        self.assertEqual(code, 0, out)
+        self.assertEqual(calls, [('20261022050000_assessment_pool.sql', '20261023010000_benchmark_item_assignment.sql')])
+        guard.assert_called_once()
+        self.assertIn('applied reserve', out)
+
+    def test_combined_sql_is_one_transaction_ending_with_the_reserve(self):
+        res = self.reserve_file()
+        m = a.h.MIGRATIONS
+        sql = a.combined_transaction_sql([(m / '20261022050000_assessment_pool.sql', '20261022050000', 'assessment_pool'),
+                                          (m / '20261023010000_benchmark_item_assignment.sql', '20261023010000', 'benchmark_item_assignment')], res)
+        self.assertEqual(sql.count('begin;\n'), 1); self.assertTrue(sql.endswith(f"\\i '{res.resolve().as_posix()}'\ncommit;\n"))
+        self.assertLess(sql.index('20261022050000'), sql.index('20261023010000'))
+        self.assertEqual(sql.count('insert into supabase_migrations.schema_migrations'), 2)
+
+    def test_failed_reserve_transaction_reports_nothing_applied(self):
+        res = self.reserve_file()
+        self.fail_psql = True
+        code, out, calls, _, _ = self.run_main(['--reserve', str(res)], {'20261022050000', '20261023010000'})
+        self.assertEqual(code, 1)
+        self.assertIn('rolled back: no migration was applied and nothing was marked', out)
+
+    def test_dry_run_with_reserve_lists_and_applies_nothing(self):
+        res = self.reserve_file()
+        code, out, calls, guard, _ = self.run_main(['--dry-run', '--until', '20261023010000', '--reserve', str(res)],
+                                                   {'20261022050000', '20261023010000'})
+        self.assertEqual(code, 0, out)
+        self.assertIn('reserve ' + str(res), out)
+        self.assertEqual(calls, []); guard.assert_not_called()
+
+    def test_bad_reserve_scripts_are_refused_before_database_work(self):
+        inside = a.h.MIGRATIONS / '20991231000000_not_written.sql'
+        for path, msg in ((self.reserve_file('select 1;\n'), 'not a reserve script'),
+                          (self.reserve_file(self.reserve_file().read_text() + 'commit;\n'), 'controls its own transaction'),
+                          (inside, 'must not live under supabase/migrations'),
+                          (Path(tempfile.mkdtemp()) / 'missing.sql', 'No such file')):
+            code, out, calls, guard, rows = self.run_main(['--reserve', str(path)], {'20261022050000', '20261023010000'})
+            self.assertEqual(code, 1); self.assertIn(msg, out)
+            self.assertEqual(calls, []); guard.assert_not_called(); rows.assert_not_called()
+
+    def test_reserve_needs_the_assignment_migration(self):
+        res = self.reserve_file()
+        code, out, calls, _, _ = self.run_main(['--until', '20261022050000', '--reserve', str(res)], {'20261022050000', '20261023010000'})
+        self.assertEqual(code, 1); self.assertIn('needs 20261023010000', out); self.assertEqual(calls, [])
+
+    def test_reserve_alone_after_the_schema_is_live(self):
+        res = self.reserve_file()
+        code, out, calls, _, _ = self.run_main(['--reserve', str(res)], set())
+        self.assertEqual(code, 0, out); self.assertEqual(calls, [()])
 
     def test_unknown_until_is_refused_before_any_database_work(self):
         code, out, calls, guard, rows = self.run_main(['--until', '20261022045000'], {'20261022040000', '20261022050000'})
