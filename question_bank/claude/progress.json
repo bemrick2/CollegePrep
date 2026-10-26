@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:35:53+00:00",
+  "updated_at": "2026-10-26T20:36:55+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -477,14 +477,14 @@
         "medium": 60
       },
       "by_difficulty_calibrated": {
-        "easy": 66,
+        "easy": 73,
         "hard": 1,
-        "medium": 42
+        "medium": 35
       },
       "calibrated_share": {
-        "easy": 0.606,
+        "easy": 0.67,
         "hard": 0.009,
-        "medium": 0.385
+        "medium": 0.321
       },
       "answer_key_balance": {
         "A": 33,
@@ -735,14 +735,6 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 11,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.2,
-        "Knowledge of Language": 9.4,
-        "Conventions of Standard English": -1.8
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 12,
       "skill_gap_for_next_10": {
@@ -750,6 +742,14 @@
         "Information and Ideas": 4.4,
         "Standard English Conventions": 2.4,
         "Expression of Ideas": -0.4
+      }
+    },
+    "act_english": {
+      "next_batch": 11,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 4.2,
+        "Knowledge of Language": 9.4,
+        "Conventions of Standard English": -1.8
       }
     },
     "act_reading": {
@@ -9500,12 +9500,22 @@
         }
       ],
       "note": "The lower-middle median rule is deliberately conservative: an item is calibrated hard only when every rating so far agrees."
+    },
+    {
+      "date": "2026-10-26",
+      "topic": "ACT English 100-item audit",
+      "finding": "The whole-bank AI rater gave 109 English items 65 easy / 40 medium / 4 hard and found no flawed items. The hard items were faulty comparisons (x2), a restrictive appositive, and whoever-after-a-preposition. All nine essay-level 'did the essay meet this goal' items rated easy (78-82%). Too many rhetoric items have one obviously relevant choice and three throwaways.",
+      "actions": [
+        "Rhetorical-skills items: make every distractor relevant to the passage and wrong for a specific reason (wrong placement, wrong scope, a near-miss on the stated goal), not off-topic filler.",
+        "Use essay-goal items sparingly, and make both 'No' choices plausible.",
+        "Favor conventions that are rarely taught explicitly (restrictive appositives, faulty comparisons, pronoun case after prepositions, subjunctive), which the raters actually find hard."
+      ]
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:35:53+00:00",
+    "heartbeat_at": "2026-10-26T20:36:55+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
