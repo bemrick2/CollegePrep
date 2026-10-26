@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 2,
-  "updated_at": "2026-10-26T19:01:35+00:00",
+  "version": 3,
+  "updated_at": "2026-10-26T19:06:28+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -25,6 +25,17 @@
       "word_count": 518,
       "text": "Passage A\n\nFor much of the last century, cities treated small streams as problems to be solved. A creek that flooded a neighborhood or carried away sewage was straightened, lined with concrete, and eventually sealed inside a pipe beneath the street. Out of sight, the stream stopped being anyone's concern.\n\nIn recent decades, a number of cities have begun to reverse that choice by \"daylighting\" buried streams: removing the pavement above them and rebuilding a channel open to the sky. Supporters often lead with the ecological case. An open channel, lined with gravel and shaded by plants, can support insects, fish, and birds that a dark pipe cannot. Exposed water also cools the air around it on hot days.\n\nBut the most persuasive argument may be the practical one. A pipe has a fixed capacity; when a storm sends more water than it can carry, the excess backs up into basements and streets. A restored stream with a wide, shallow floodplain can spread that water out and slow it down. In this sense, daylighting does not merely decorate a city; it gives the city room to absorb storms that pipes were never built for.\n\nDaylighting is not cheap, and it is not always possible. Where buildings now sit directly above an old stream, the cost of restoration can be prohibitive. Yet the cities that have tried it often report a benefit no engineer predicted: people come. They walk along the water at lunch, bring children to look for minnows, and begin to treat the neighborhood as a place worth caring for. A stream that was once a problem to be hidden becomes, in a sense, a public room.\n\nPassage B\n\nProposals to daylight buried streams are easy to love. Few people object to the image of clear water running where there was once only asphalt. As a city planner, though, I have learned to ask what such projects cost and what else the same money might do.\n\nThe answer is often sobering. Opening a stream through a dense neighborhood can mean acquiring property, rerouting utility lines, and rebuilding streets, work that may cost many times as much as repairing the existing pipe. For the same budget, a city might install rain gardens and permeable pavement across dozens of blocks, capturing storm water closer to where it falls.\n\nNor is a restored stream automatically a healthy one. Water that runs off city streets carries oil, salt, and litter. Unless the surrounding area is also changed, a daylighted stream may simply put polluted water on display. Some restored channels require years of maintenance before they support the wildlife their designers promised.\n\nNone of this means daylighting is never worth doing. Where a buried stream runs beneath an open lot or a park, the costs can be modest and the benefits real. My concern is with treating daylighting as a symbol rather than a tool. A city's first question should not be \"How do we bring the stream back?\" but \"What is the most effective way to manage this water?\" Sometimes the answer will be a stream. Often it will not.",
       "batch": 2,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000003",
+      "title": "NATURAL SCIENCE: \"The Night Shift\" (an original essay written for this practice set)",
+      "genre": "natural science",
+      "word_count": 386,
+      "text": "On a summer afternoon in the desert, a plant faces a dilemma that most of us never consider. To grow, it needs carbon dioxide from the air, which enters through tiny pores in its leaves or stems called stomata. But every open pore is also an exit. Water vapor escapes through the same openings, and in hot, dry air it escapes quickly. A plant that keeps its pores open all day may run short of water; a plant that keeps them shut may run short of carbon.\n\nMany desert plants, including most cacti, have settled this dilemma by changing their schedule. Rather than opening their stomata in daylight, as most plants do, they open them at night, when the air is cooler and more humid and far less water is lost. The carbon dioxide they take in is not used right away. Instead, the plant stores it, chemically bound in an acid, inside its cells.\n\nWhen the sun rises, the stomata close, sealing the plant against the heat. Only then does the stored carbon go to work. Sunlight powers photosynthesis, and the plant releases carbon from its acid store and builds it into sugars, all without opening a single pore. In effect, the plant has separated two tasks that most plants perform together: gathering carbon at night and using it by day.\n\nBotanists call this strategy crassulacean acid metabolism, or CAM, after the stonecrop family of succulents in which it was first studied. The name is clumsy, but the idea is elegant. A plant using CAM can capture carbon while losing only a small fraction of the water that a typical plant would lose.\n\nThe strategy has a cost. Storing carbon overnight takes energy, and the amount a plant can store is limited by the size of its cells. CAM plants therefore tend to grow slowly. Where water is plentiful in the soil, they are usually outgrown by faster-growing neighbors. The very adjustment that lets a cactus thrive in the desert would be a handicap in a well-watered meadow.\n\nPerhaps that is the most useful lesson the cactus offers: an adaptation is not simply an improvement. It is a trade, and whether the trade pays depends on where the organism lives. A strategy that looks like brilliance in one place can look like weakness in another.",
+      "batch": 3,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -1175,6 +1186,580 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-002.review.json",
         "computation": "checks/act_reading/batch_002.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000017",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Central idea of an informational passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000003",
+      "underline": null,
+      "evidence": "In effect, the plant has separated two tasks that most plants perform together: gathering carbon at night and using it by day.",
+      "figure": null,
+      "stem": "The passage is primarily concerned with:",
+      "choices": {
+        "A": "describing how botanists first discovered CAM in the stonecrop family.",
+        "B": "explaining how some desert plants limit water loss and noting the costs of that strategy.",
+        "C": "arguing that cacti use water more efficiently than any other kind of plant.",
+        "D": "comparing how desert plants and meadow plants absorb water from the soil."
+      },
+      "correct_answer": "B",
+      "explanation": "Most of the passage explains how CAM plants take in carbon at night to save water (paragraphs 1–4), then describes the strategy's cost (paragraph 5) and draws a general lesson (paragraph 6). B covers both the mechanism and its cost.",
+      "distractor_explanations": {
+        "A": "The stonecrop family is mentioned only to explain the name; the discovery itself is not described.",
+        "C": "The passage never claims cacti are the most efficient of all plants.",
+        "D": "Meadow plants appear only in one comparison about growth rate, and soil absorption is not discussed."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "extreme_language",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which choice accounts for both the mechanism and its drawback?",
+        "Watch for choices built on a single detail."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize: 'CAM saves water but slows growth,' then match."
+      },
+      "remember": "Main idea covers the passage's whole arc.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-01",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: key is the longest choice and the only one with two parts (strategy + cost), which slightly cues it"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000018",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated reason",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000003",
+      "underline": null,
+      "evidence": "When the sun rises, the stomata close, sealing the plant against the heat.",
+      "figure": null,
+      "stem": "According to the passage, CAM plants keep their stomata closed during the day mainly in order to:",
+      "choices": {
+        "A": "reduce the amount of water they lose in the heat.",
+        "B": "store carbon dioxide inside their cells as an acid.",
+        "C": "absorb more sunlight for photosynthesis.",
+        "D": "release carbon dioxide they took in overnight."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraphs 1–3 explain that open pores let water escape quickly in hot, dry air. Closing them during the day seals the plant against the heat and so conserves water.",
+      "distractor_explanations": {
+        "B": "Carbon is stored at night, while the stomata are open, not as a reason for closing them by day.",
+        "C": "Closing the pores does not affect how much sunlight the plant absorbs.",
+        "D": "The stored carbon is released inside the plant for photosynthesis, not out through the pores."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Why is an open pore a problem in daytime desert heat?",
+        "Look at paragraph 1 and the start of paragraph 3."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Paragraph 1 states the water-loss problem; paragraph 3 states the response."
+      },
+      "remember": "Tie the action to the problem it solves.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-02",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000019",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference from stated effects",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000003",
+      "underline": null,
+      "evidence": "Where water is plentiful in the soil, they are usually outgrown by faster-growing neighbors.",
+      "figure": null,
+      "stem": "Based on the passage, a CAM plant growing in a place where water is plentiful in the soil would most likely:",
+      "choices": {
+        "A": "stop storing carbon at night and switch to daytime uptake.",
+        "B": "lose more water through its stomata than it would in a desert.",
+        "C": "grow more slowly than many of the plants around it.",
+        "D": "grow faster than it would in a hot, dry desert."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 5 says CAM plants tend to grow slowly and, where water is plentiful, are usually outgrown by faster-growing neighbors.",
+      "distractor_explanations": {
+        "A": "The passage never says CAM plants can switch strategies.",
+        "B": "The passage does not compare a CAM plant's water loss in different places.",
+        "D": "The passage says nothing about faster growth in wet places; it stresses slow growth."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What does paragraph 5 say about growth in places with plenty of water?",
+        "Choose the answer the text directly supports."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Paragraph 5 nearly states the answer."
+      },
+      "remember": "Inferences stay close to stated facts.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-03",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: D (grow faster than in a desert) is not directly refuted by the text, though it is unsupported; C is clearly the text-backed answer"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000020",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000003",
+      "underline": null,
+      "evidence": "The strategy has a cost.",
+      "figure": null,
+      "stem": "The main function of paragraph 5 is to:",
+      "choices": {
+        "A": "present a drawback of the strategy described in the preceding paragraphs.",
+        "B": "offer evidence that CAM plants lose more water than other plants.",
+        "C": "explain how the stonecrop family gave CAM its name.",
+        "D": "introduce a second strategy that desert plants use to save water."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 5 opens with \"The strategy has a cost\" and explains that storing carbon takes energy and slows growth, a drawback of CAM.",
+      "distractor_explanations": {
+        "B": "Paragraph 5 is about energy and growth; earlier paragraphs say CAM saves water.",
+        "C": "The name is explained in paragraph 4, not paragraph 5.",
+        "D": "Paragraph 5 discusses the same strategy's cost, not a new strategy."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Read the paragraph's first sentence.",
+        "How does it relate to paragraphs 2–4?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the paragraph's topic sentence, then its role."
+      },
+      "remember": "Topic sentences reveal a paragraph's job.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-05",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000021",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a description",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000003",
+      "underline": null,
+      "evidence": "But every open pore is also an exit. Water vapor escapes through the same openings",
+      "figure": null,
+      "stem": "The author describes each stoma as \"also an exit\" (paragraph 1) primarily to:",
+      "choices": {
+        "A": "show that stomata let in sunlight as well as air.",
+        "B": "suggest that stomata close permanently in hot weather.",
+        "C": "establish that gaining carbon risks losing water.",
+        "D": "explain why cacti have fewer stomata than other plants."
+      },
+      "correct_answer": "C",
+      "explanation": "Stomata let carbon dioxide in, but the same openings let water out. Calling each one \"also an exit\" sets up the dilemma that the rest of the passage explains.",
+      "distractor_explanations": {
+        "A": "The passage never says stomata let in sunlight.",
+        "B": "The passage says stomata close during the day, not permanently.",
+        "D": "The passage never compares the number of stomata."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "extreme_language",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What goes in through a stoma, and what goes out?",
+        "How does that set up the dilemma?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence that follows the phrase."
+      },
+      "remember": "Opening images often set up the central problem.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-06",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000022",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000003",
+      "underline": null,
+      "evidence": "The name is clumsy, but the idea is elegant.",
+      "figure": null,
+      "stem": "The author's attitude toward the term \"crassulacean acid metabolism\" is best described as:",
+      "choices": {
+        "A": "mildly critical of the name but admiring of the process.",
+        "B": "dismissive of both the name and the process.",
+        "C": "enthusiastic about both the name and the process.",
+        "D": "neutral, offering no opinion about the name."
+      },
+      "correct_answer": "A",
+      "explanation": "The author calls the name \"clumsy\" but the idea \"elegant\": mild criticism of the term and admiration for the process.",
+      "distractor_explanations": {
+        "B": "The author calls the idea \"elegant,\" not something to dismiss.",
+        "C": "\"Clumsy\" is not enthusiastic.",
+        "D": "The author does give an opinion: the name is clumsy."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the sentence that reacts to the name.",
+        "What words describe the name and the idea?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "One sentence states the attitude directly."
+      },
+      "remember": "Attitude words: look for evaluative adjectives.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-09",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: the stem asks about the attitude toward the 'term' but the key and distractors also judge the 'process'; something like 'toward the name and the process it describes' would fit better"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000023",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Points of agreement across paired passages",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000002",
+      "underline": null,
+      "evidence": "Where a buried stream runs beneath an open lot or a park, the costs can be modest and the benefits real.",
+      "figure": null,
+      "stem": "The authors of both passages would most likely agree that:",
+      "choices": {
+        "A": "daylighting is usually the most effective way for a city to manage storm water.",
+        "B": "restored streams tend to support wildlife soon after they are first opened.",
+        "C": "cities should generally spend less on repairing their storm-water pipes.",
+        "D": "daylighting can be worthwhile in some places but very costly in others."
+      },
+      "correct_answer": "D",
+      "explanation": "Passage A says daylighting \"is not cheap\" and can be \"prohibitive\" where buildings sit above a stream, while arguing that it brings real benefits. Passage B says costs can be many times higher in dense neighborhoods but \"modest\" near open lots, where the benefits are \"real.\" Both accept that it can be worthwhile in some places and very costly in others.",
+      "distractor_explanations": {
+        "A": "Passage B explicitly doubts this, suggesting rain gardens and permeable pavement may be more effective in many cases.",
+        "B": "Passage B says some channels need years of maintenance before supporting wildlife.",
+        "C": "Neither author argues for abandoning pipe repair; Passage B treats repair as a cheaper option."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "Find what each passage says about cost.",
+        "Does either passage say daylighting can be worthwhile in some cases?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate any choice that one author would reject; the survivor must fit both."
+      },
+      "remember": "Agreement questions: the answer must fit both authors.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-10",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000024",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Predicting one author's response to the other",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000002",
+      "underline": null,
+      "evidence": "For the same budget, a city might install rain gardens and permeable pavement across dozens of blocks, capturing storm water closer to where it falls.",
+      "figure": null,
+      "stem": "Based on Passage B, how would its author most likely respond to Passage A's claim that a restored stream \"can spread that water out and slow it down\"?",
+      "choices": {
+        "A": "By questioning whether a restored stream can slow down storm water at all",
+        "B": "By suggesting that other methods might manage the water at a lower cost",
+        "C": "By agreeing that daylighting should be a city's first choice for flood control",
+        "D": "By arguing that flooding is rarely a serious problem for most cities"
+      },
+      "correct_answer": "B",
+      "explanation": "Passage B does not dispute that streams can manage water; it questions whether daylighting is the most effective use of the money, pointing to rain gardens and permeable pavement that capture water across many blocks.",
+      "distractor_explanations": {
+        "A": "Passage B never denies that streams slow water; its objection is about cost and alternatives.",
+        "C": "Passage B says the first question should be about the most effective way to manage water, not about bringing the stream back.",
+        "D": "Passage B treats storm-water management as a serious goal; it does not dismiss flooding."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Does Passage B dispute what streams can do, or something else?",
+        "What alternatives does Passage B propose?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find Passage B's alternative to daylighting and connect it to the flood claim."
+      },
+      "remember": "A critic often concedes the point and questions the priority.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "R003-11",
+      "created_at": "2026-10-26T19:06:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-003.review.json",
+        "computation": "checks/act_reading/batch_003.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

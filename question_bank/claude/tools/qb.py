@@ -257,8 +257,8 @@ def structural_problems(c: dict, bank: str = 'act_math', passages: dict | None =
                 out.append('evidence must be a verbatim quote from the passage')
             if bank == 'act_english':
                 nums = {int(m.group(1)) for m in UNDERLINE.finditer(pas['text'])}
-                if c.get('underline') not in nums:
-                    out.append('ACT English item needs an underline number that exists in its passage')
+                if c.get('underline') not in nums and not c.get('essay_level'):
+                    out.append('ACT English item needs an underline number that exists in its passage (or essay_level: true)')
     if not (10 <= int(c['expected_time_seconds']) <= 600):
         out.append('expected_time_seconds out of 10-600')
     if len(c['remember'].split()) > 16:

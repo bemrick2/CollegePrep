@@ -1,0 +1,338 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 3,
+  "reviewed_at": "2026-10-26T19:06:28+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver A (separate agent, answer-free packet)",
+    "batch": 3
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 3,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000017",
+    "CLD-ACT-R-000018",
+    "CLD-ACT-R-000019",
+    "CLD-ACT-R-000020",
+    "CLD-ACT-R-000021",
+    "CLD-ACT-R-000022",
+    "CLD-ACT-R-000023",
+    "CLD-ACT-R-000024"
+  ],
+  "results": [
+    {
+      "cand": "R003-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: key is the longest choice and the only one with two parts (strategy + cost), which slightly cues it"
+      ],
+      "blind_notes": "P1-4 explain night stomata/acid storage to limit water loss; P5-6 cover the cost. A is a detail (P4), C is extreme ('any other'), D misreads the meadow comparison.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000017"
+    },
+    {
+      "cand": "R003-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "P3: stomata close 'sealing the plant against the heat'; P1 establishes open pores lose water in hot dry air. B happens at night; D (release from acid store) is internal and is not why stomata close; C unsupported.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: P3 gives the reason as 'sealing the plant against the heat'; linking that to water loss requires P1/P2 ('in hot, dry air it escapes quickly'). Still clearly the best answer.",
+        "minor: D echoes 'releases carbon from its acid store' (P3) - an internal release, not through stomata; good trap, but confirm students cannot read D as a stated purpose."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000018"
+    },
+    {
+      "cand": "R003-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: D (grow faster than in a desert) is not directly refuted by the text, though it is unsupported; C is clearly the text-backed answer"
+      ],
+      "blind_notes": "P5: 'Where water is plentiful in the soil, they are usually outgrown by faster-growing neighbors.' A and B have no support.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000019"
+    },
+    {
+      "cand": "R003-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "'settled this dilemma' = resolved it. 'Calmed' and 'paid off' are reasonable alternative senses that act as distractors.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R003-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "P5 opens 'The strategy has a cost' (energy, cell size limits storage, slow growth). B contradicts P4; C is P4; D does not happen.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000020"
+    },
+    {
+      "cand": "R003-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "The 'exit' line sets up the tradeoff: CO2 comes in, water vapor leaves through the same pores, which leads to 'run short of water / run short of carbon'. A, B and D are unsupported.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: the stem says 'each stoma' but the passage says 'every open pore'. It paraphrases the passage correctly but is not an exact quotation frame; consider 'describes every open pore as \"also an exit\"'."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000021"
+    },
+    {
+      "cand": "R003-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "P2: open at night and store as acid. P3: close at sunrise and use the carbon to make sugars. The other choices reverse or garble that order.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R003-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: key is noticeably the longest choice and the only one with a two-sided 'but' structure, which echoes the claim's form and is a mild length/form cue"
+      ],
+      "blind_notes": "The final paragraph says an adaptation is a trade whose value depends on environment. Fur that helps in the Arctic but hurts in the tropics fits. B shows only the benefit side; A and C show no tradeoff.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R003-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: the stem asks about the attitude toward the 'term' but the key and distractors also judge the 'process'; something like 'toward the name and the process it describes' would fit better"
+      ],
+      "blind_notes": "P4: 'The name is clumsy, but the idea is elegant.' This is mild criticism of the name and admiration of the process.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: the stem asks about the attitude toward 'the term', but choices A-C also judge the process. Consider 'toward crassulacean acid metabolism and its name' so the stem matches the choices."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced to avoid a length cue"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000022"
+    },
+    {
+      "cand": "R003-10",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "R002-07",
+          "status": "REVISE",
+          "reason": "labelled hard but rated easy; blind solvers also noted the key was longer and more qualified than the other choices (a length cue). Relabelled medium; choices rebalanced."
+        }
+      ],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "A: 'not cheap... not always possible... cost can be prohibitive' where buildings sit above. B: worth it under an open lot or park, very costly in dense neighborhoods. A is contradicted by B ('Often it will not'); B contradicts Passage B's 'years of maintenance'; neither author supports C.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced after revision"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000023"
+    },
+    {
+      "cand": "R003-11",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "R002-08",
+          "status": "REVISE",
+          "reason": "labelled hard but rated easy; blind solvers also noted the key was longer and more qualified than the other choices (a length cue). Relabelled medium; choices rebalanced."
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Passage B P2: the same budget could fund rain gardens and permeable pavement across dozens of blocks. B never denies that streams slow water (A), rejects 'first choice' framing (C), and never minimizes flooding (D).",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced after revision"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000024"
+    }
+  ]
+}
