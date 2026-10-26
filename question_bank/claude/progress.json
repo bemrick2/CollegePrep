@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:30:41+00:00",
+  "updated_at": "2026-10-26T18:32:59+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 138,
+    "act_math": 148,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 138,
+      "PASS": 148,
       "REVISE": 1,
       "REJECT": 2,
-      "candidates": 141,
+      "candidates": 151,
       "passed_after_revision": 1
     },
     "act_english": {
@@ -52,14 +52,14 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 138,
+      "accepted": 148,
       "by_skill": {
-        "Algebra": 26,
-        "Functions": 26,
-        "Geometry": 26,
-        "Integrating Essential Skills": 26,
-        "Number & Quantity": 15,
-        "Statistics & Probability": 19
+        "Algebra": 27,
+        "Functions": 28,
+        "Geometry": 27,
+        "Integrating Essential Skills": 30,
+        "Number & Quantity": 16,
+        "Statistics & Probability": 20
       },
       "by_subskill": {
         "Absolute value of numerical expressions": 1,
@@ -79,6 +79,7 @@
         "Binomial counting": 1,
         "Catch-up rate problems": 1,
         "Chained ratios": 1,
+        "Chained ratios (gears)": 1,
         "Chained unit conversions (currency)": 1,
         "Chords and distance from the center": 1,
         "Circle circumference and area": 1,
@@ -86,6 +87,7 @@
         "Combined population density": 1,
         "Combined transformations": 1,
         "Combined work rates": 1,
+        "Comparing exponential and linear growth": 1,
         "Comparing numbers in different forms": 1,
         "Comparing rational numbers": 1,
         "Comparing spread (standard deviation)": 1,
@@ -96,10 +98,13 @@
         "Conditional probability from a two-way table": 1,
         "Conditional probability with a reduced sample space": 1,
         "Conditions on quadratic roots": 1,
+        "Continuous uniform probability": 1,
         "Counting divisors (perfect squares)": 1,
         "Counting with restrictions": 1,
+        "Diagonal of a rectangular box": 1,
         "Difference of squares used structurally": 1,
         "Digit problems with a system": 1,
+        "Discriminant with a degenerate case": 1,
         "Dividing complex numbers": 1,
         "Division with whole-unit rounding": 1,
         "Divisors and primes": 1,
@@ -141,10 +146,12 @@
         "Mixture problems": 1,
         "Multi-part rate and cost": 1,
         "Negative rational exponents": 1,
+        "Odd and even functions": 1,
         "Opposing rates (fill and drain)": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
         "Percent decrease then recovery": 1,
         "Percent targets across parts": 1,
+        "Percents of subgroups (reversed condition)": 1,
         "Period of a trigonometric function": 1,
         "Perpendicular lines in the coordinate plane": 1,
         "Piecewise functions": 1,
@@ -160,6 +167,7 @@
         "Radical equations and extraneous solutions": 1,
         "Range on a restricted domain": 1,
         "Rate unit conversion": 1,
+        "Rates per worker per day": 1,
         "Rational and irrational numbers": 1,
         "Rational equations and extraneous solutions": 1,
         "Rational equations from work rates": 1,
@@ -174,6 +182,7 @@
         "Rotation about a point": 1,
         "Scale drawings and area cost": 1,
         "Scale drawings and proportions": 1,
+        "Scientific notation in a rate conversion": 1,
         "Scientific notation operations": 1,
         "Similar solids: area and volume ratios": 1,
         "Similar triangles: area ratios": 1,
@@ -187,6 +196,7 @@
         "Systems of linear equations: number of solutions": 1,
         "Systems with integer and sign constraints": 1,
         "Tangent lines and chords": 1,
+        "Tax and tip on the same base": 1,
         "Transformations of functions": 1,
         "Translating relationships into a system": 1,
         "Triangle angle sum": 1,
@@ -203,26 +213,26 @@
       },
       "by_difficulty_author": {
         "easy": 26,
-        "hard": 56,
-        "medium": 56
+        "hard": 62,
+        "medium": 60
       },
       "by_difficulty_calibrated": {
-        "easy": 37,
-        "hard": 19,
-        "medium": 82
+        "easy": 39,
+        "hard": 20,
+        "medium": 89
       },
       "calibrated_share": {
-        "easy": 0.268,
-        "hard": 0.138,
-        "medium": 0.594
+        "easy": 0.264,
+        "hard": 0.135,
+        "medium": 0.601
       },
       "answer_key_balance": {
-        "A": 32,
-        "B": 39,
-        "C": 39,
-        "D": 28
+        "A": 33,
+        "B": 40,
+        "C": 43,
+        "D": 32
       },
-      "modeling_items": 42,
+      "modeling_items": 48,
       "passages": 0
     },
     "act_english": {
@@ -260,48 +270,48 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 14,
+    "act_math": 15,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 15,
+      "next_batch": 16,
       "underrepresented_skills_vs_blueprint": [
-        "Integrating Essential Skills",
         "Algebra",
-        "Functions",
         "Geometry",
+        "Integrating Essential Skills",
         "Number & Quantity",
-        "Statistics & Probability"
+        "Statistics & Probability",
+        "Functions"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 1.3,
-        "Algebra": 1.4,
-        "Functions": 1.4,
-        "Geometry": 1.4,
-        "Statistics & Probability": 1.0,
-        "Integrating Essential Skills": 3.6
+        "Number & Quantity": 1.4,
+        "Algebra": 2.2,
+        "Functions": 1.2,
+        "Geometry": 2.2,
+        "Statistics & Probability": 1.3,
+        "Integrating Essential Skills": 1.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 0.0,
-        "medium": -8.0,
-        "hard": 18.0
+        "easy": 0.5,
+        "medium": -10.0,
+        "hard": 19.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 5.0,
-        "B": -2.0,
-        "C": -2.0,
-        "D": 9.0
+        "A": 6.5,
+        "B": -0.5,
+        "C": -3.5,
+        "D": 7.5
       }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 138,
-      "share_of_target": 0.069
+      "accepted": 148,
+      "share_of_target": 0.074
     },
     "act_english": {
       "target": 700,
@@ -320,7 +330,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 138,
+  "total_accepted": 148,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -428,7 +438,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 14,
+      "bank_version": 15,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -472,7 +482,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:30:41+00:00",
+    "heartbeat_at": "2026-10-26T18:32:59+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

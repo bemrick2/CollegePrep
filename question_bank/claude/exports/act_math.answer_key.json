@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 14,
+  "bank_version": 15,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -2484,6 +2484,186 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Each choice has digit sum 9. Reverse each: only 36 → 63 increases by 27."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000139",
+      "correct_answer": "C",
+      "explanation": "3 hens × 3 days = 9 hen-days produce 3 eggs, so each hen-day produces 1/3 egg. Then 6 hens × 6 days = 36 hen-days produce 36 × 1/3 = 12 eggs.",
+      "distractor_explanations": {
+        "A": "This doubles only once, as if doubling both hens and days doubled the eggs; doubling each one doubles the output, so the total quadruples.",
+        "B": "This adds 3 eggs for each doubling instead of multiplying.",
+        "D": "36 is the number of hen-days, not eggs; each hen-day yields only 1/3 egg."
+      },
+      "hints": [
+        "How many eggs does one hen lay in one day?",
+        "Multiply that rate by the number of hens and the number of days."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rate = 3 eggs ÷ 9 hen-days = 1/3; 36 hen-days × 1/3 = 12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000140",
+      "correct_answer": "D",
+      "explanation": "Meshing gears pass the same number of teeth per minute. A: 36 × 40 = 1,440 teeth per minute, so B turns 1,440 ÷ 24 = 60 rpm. C shares B's axle, so C also turns at 60 rpm, passing 30 × 60 = 1,800 teeth per minute. D turns 1,800 ÷ 15 = 120 rpm.",
+      "distractor_explanations": {
+        "A": "This assumes all the gears turn at the same rate as gear A.",
+        "B": "60 rpm is the speed of gears B and C; the last mesh with gear D has not been applied.",
+        "C": "This applies only the C-to-D ratio to gear A's speed (40 × 30/15 = 80), skipping the A-to-B mesh."
+      },
+      "hints": [
+        "When two gears mesh, teeth × revolutions per minute is the same for both.",
+        "Gears on the same axle turn at the same rate, whatever their sizes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "40 × 36/24 = 60 for B and C; 60 × 30/15 = 120 for D."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000141",
+      "correct_answer": "B",
+      "explanation": "Tax: 0.08 × 60 = $4.80. Tip: 0.20 × 60 = $12.00. Total: 60 + 4.80 + 12.00 = $76.80.",
+      "distractor_explanations": {
+        "A": "$72.00 includes the tip but leaves out the tax.",
+        "C": "This takes the tip on the after-tax amount (60 × 1.08 × 1.20), but the tip is based on the $60.00.",
+        "D": "This adds 48% of $60 by counting the 20% tip twice."
+      },
+      "hints": [
+        "Both percents are of the same $60.00.",
+        "Add the tax and the tip to the bill."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "60 × (1 + 0.08 + 0.20) = 60 × 1.28 = 76.80."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000142",
+      "correct_answer": "C",
+      "explanation": "Imagine 1,000 respondents: 400 students and 600 non-students. Daily transit users: 25% of 400 = 100 students and 10% of 600 = 60 non-students, 160 in all. The fraction who are students is 100/160 = 62.5%.",
+      "distractor_explanations": {
+        "A": "25% is the percent of students who use transit daily; the question reverses the condition.",
+        "B": "40% is the share of students among all respondents, not among daily transit users.",
+        "D": "This compares the two percents directly, 25/(25 + 10), ignoring that there are more non-students."
+      },
+      "hints": [
+        "Pick a convenient total, such as 1,000 respondents, and count people.",
+        "Restrict attention to the people who use transit daily."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "With 1,000 respondents: 100 student users and 60 other users; 100 ÷ 160."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000143",
+      "correct_answer": "D",
+      "explanation": "One hour is 3,600 = 3.6 × 10³ seconds. (3.0 × 10⁵)(3.6 × 10³) = 10.8 × 10⁸ = 1.08 × 10⁹ kilometers.",
+      "distractor_explanations": {
+        "A": "This divides by 60 instead of multiplying.",
+        "B": "1.8 × 10⁷ is the distance in 1 minute; it must still be multiplied by 60.",
+        "C": "This writes 3,600 as 3.6 × 10² instead of 3.6 × 10³."
+      },
+      "hints": [
+        "How many seconds are in an hour?",
+        "Multiply the leading numbers and add the exponents, then adjust so the leading number is between 1 and 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3.0 × 3.6 = 10.8, and 10⁵ × 10³ = 10⁸; rewrite 10.8 × 10⁸ as 1.08 × 10⁹."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000144",
+      "correct_answer": "A",
+      "explanation": "If k = 0, the equation is 4x + 1 = 0, which has only one solution. If k ≠ 0, the equation is quadratic and has two distinct real solutions when the discriminant is positive: 16 − 4k > 0, so k < 4. Together: k < 4 and k ≠ 0.",
+      "distractor_explanations": {
+        "B": "This misses that k = 0 makes the equation linear, with just one solution.",
+        "C": "This reverses the discriminant inequality; k > 4 gives no real solutions.",
+        "D": "k = 4 makes the discriminant 0, giving one repeated solution, not two distinct ones; k = 0 is also wrong."
+      },
+      "hints": [
+        "When does a quadratic have two distinct real solutions?",
+        "What kind of equation is it when k = 0?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test k = 0 (one solution: rules out B and D) and k = 5 (no real solutions: rules out C)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000145",
+      "correct_answer": "C",
+      "explanation": "Compare values: x = 1: 2 < 4; x = 2: 4 < 8; x = 3: 8 < 12; x = 4: 16 = 16; x = 5: 32 > 20; and 2^x keeps growing faster after that. So f(x) ≥ g(x) for x = 4, 5, …, 10: that is 7 integers.",
+      "distractor_explanations": {
+        "A": "3 counts the integers where f(x) < g(x), the opposite condition.",
+        "B": "This leaves out x = 4, where the two values are equal; the condition includes equality.",
+        "D": "This assumes the exponential is always at least as large, but for x = 1, 2 and 3 it is smaller."
+      },
+      "hints": [
+        "Make a small table of 2^x and 4x for x = 1, 2, 3, 4, 5.",
+        "Watch for the value of x where they are equal."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Table: (2, 4), (4, 8), (8, 12), (16, 16), (32, 20): the exponential catches up at 4 and stays ahead."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000146",
+      "correct_answer": "D",
+      "explanation": "For f(x) = x³ − x: f(−x) = (−x)³ − (−x) = −x³ + x = −(x³ − x) = −f(x), so it is odd. The others fail: x² + 1 and |x| satisfy f(−x) = f(x) (even), and for x³ + 1, f(−1) = 0 but −f(1) = −2.",
+      "distractor_explanations": {
+        "A": "x² + 1 is even: f(−x) = f(x), not −f(x).",
+        "B": "|x| is even: |−x| = |x|.",
+        "C": "x³ is odd, but adding 1 breaks the property: f(−1) = 0 while −f(1) = −2."
+      },
+      "hints": [
+        "Replace x with −x in each function and simplify.",
+        "Is the result the negative of the original function?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 2 and x = −2: x³ − x gives 6 and −6 (opposites); x³ + 1 gives 9 and −7; the even functions give equal outputs."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000147",
+      "correct_answer": "C",
+      "explanation": "The longest rod lies along the box's space diagonal: √(3² + 4² + 12²) = √(9 + 16 + 144) = √169 = 13 inches.",
+      "distractor_explanations": {
+        "A": "5 is the diagonal of the 3-by-4 face, not the whole box.",
+        "B": "12 is the longest edge; the diagonal through the box is longer.",
+        "D": "19 adds the three dimensions; a straight line is shorter than a path along the edges."
+      },
+      "hints": [
+        "The longest segment goes from one corner to the opposite corner.",
+        "Use the Pythagorean theorem twice, or the three-dimensional version."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Face diagonal 5, then √(5² + 12²) = 13."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000148",
+      "correct_answer": "D",
+      "explanation": "For x ≥ 0, x² < 30 means x < √30 ≈ 5.48. The favorable part of the interval has length √30 out of a total length of 10, so the probability is √30/10 ≈ 0.548.",
+      "distractor_explanations": {
+        "A": "This divides by 20, as if x could range from −10 to 10; the interval here starts at 0.",
+        "B": "This compares 30 with 10² = 100, treating x² as if it were equally likely to be any value from 0 to 100.",
+        "C": "1/2 assumes the cutoff is the midpoint 5, but √30 ≈ 5.48."
+      },
+      "hints": [
+        "Rewrite x² < 30 as a condition on x itself.",
+        "Probability = favorable length ÷ total length."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x < √30 on [0, 10]: probability √30/10."
       }
     }
   ]
