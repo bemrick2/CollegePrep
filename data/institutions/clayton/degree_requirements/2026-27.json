@@ -1583,6 +1583,12 @@
       "rule_details": {
         "catalog_year": "2026-2027",
         "category": "recommended_sequence",
+        "footnotes": [
+          {
+            "marker": "1",
+            "text": "Select one (1) group option (not both) to fulfill requirement within this area. / Group A: FILM 2400 AND FILM 2420 / Group B: FILM 1520"
+          }
+        ],
         "group_type": "sequence",
         "rule_text": "Total Credit Hours 122 (as printed)",
         "schema": "requirement_group/v1",
@@ -1908,11 +1914,8 @@
         ]
       },
       "source_url": "https://catalog.clayton.edu/academic-catalog/arts-sciences/film-communication-performing-arts/film-production-ba/",
-      "verification_status": "partially_verified",
-      "notes": "Reviewed 2026-10-21: Independent review 2026-10-21 (#229, owner-approved correction): re-read by courseleaf_plan/v3 from the same stored page and grid as the courseleaf_plan/v1 record; compared row by row with the stored Plan of Study Grid (every term, item, code, title, credits, subtotal and printed total; no subtotal, year or total row stored as an item). Replaces the record promoted earlier from this candidate: courseleaf_plan/v1 record (evidence GA/2026-10-06-cl#820c5652233ea366) stored grid subtotal/year/total rows as plan items or lost a term (#229); its course rows are kept, now with code, title and credits as separate fields. Evidence: sources/programs/GA/2026-10-06-cl/evidence.json#a1311596b81fa70c. Correction 2026-10-23 (owner-approved): partially_verified until the plan's printed notes are captured and reviewed; see verification_correction_reason.",
-      "verification_correction_reason": "The catalog page prints footnotes after this plan's grid that the record does not store (e.g. 'Select one (1) group option (not both) to fulfill requirement within this area. / Group A: FILM 2400 AND FILM 2420 / Group B: FILM 1520'). Whether each note changes the plan has not been reviewed, so under the owner's decision of 2026-10-23 the plan is partially verified until a replacement that captures its notes passes independent review. The course rows on file were reviewed against the source when promoted (see notes) and are unchanged.",
-      "captured_rows_reviewed": true,
-      "notes_capture": "incomplete"
+      "verification_status": "verified",
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 1 footnote(s), 0 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Clayton State University\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence GA/2026-10-06-cl#a1311596b81fa70c) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Re-verified after the correction on file (kept in supabase/corrections.json): The 2026-10-23 correction (or an earlier one) held this plan because its printed notes were not captured (evidence GA/2026-10-06-cl#a1311596b81fa70c); the re-read keeps them and the review confirmed the plan. Evidence: sources/programs/GA/2026-10-06-cl/evidence.json#a1311596b81fa70c."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -2646,6 +2649,13 @@
           }
         ],
         "group_type": "sequence",
+        "plan_notes": [
+          {
+            "location": "printed after the plan grid and its footnotes",
+            "scope": "this plan",
+            "text": "Grades of \"C\" or above are required in ALL history courses used in Core IMPACTS and Field of Study areas of the history major. No more than two grades of \"D\" in upper division courses are allowed in the history major. 1000 or 2000 level courses used in upper division are included in this restriction."
+          }
+        ],
         "rule_text": "Total Credit Hours 121 (as printed)",
         "schema": "requirement_group/v1",
         "source_section": "Sample Plan: Plan of Study Grid",
@@ -3036,7 +3046,7 @@
       },
       "source_url": "https://catalog.clayton.edu/academic-catalog/arts-sciences/humanities/history-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-22: Independent review 2026-10-22 (programs/plan-footnotes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and each printed footnote with the notes printed right after this grid (verbatim, complete, none from another grid). 2 footnote(s) ['1', '2'] match the marker/text pairs printed after grid 1 of 1 verbatim (whitespace-normalised); rule_details otherwise identical; unmarked text after last footnote judged page content (\"Grades of \"C\" or above are required in ALL history\") Replaces the record promoted earlier from this candidate: Plan on file (evidence GA/2026-10-06-cl#8cc2b87badc2e4cd) dropped the grid's printed footnotes (substitutions, options and notes); the footnotes are now kept with the plan. Evidence: sources/programs/GA/2026-10-06-cl/evidence.json#8cc2b87badc2e4cd."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. 2 footnote(s), 1 plan_note(s) verbatim and complete after this grid; the cited markers are covered; the next text is \"Clayton State University\"; nothing else changed Replaces the record promoted earlier from this candidate: Plan on file (evidence GA/2026-10-06-cl#8cc2b87badc2e4cd) did not keep the notes printed with this plan (footnotes or unmarked notes); they are now kept with their location. Evidence: sources/programs/GA/2026-10-06-cl/evidence.json#8cc2b87badc2e4cd."
     },
     {
       "last_verified_at": "2026-10-06",
@@ -5553,12 +5563,44 @@
           {
             "credit_hours": "15",
             "items": [
-              "ENGL 1101 | English Composition I | 3",
-              "COMM 1110 | Public Speaking | 3",
-              "MATH 1101 | Intro to Mathematical Modeling | 3",
-              "HIST 1111or HIST 1112 | Survey-PreModern World Historyor Survey of Modern World History | 3",
-              "THEA 1100 | Introduction to Theatre | 3",
-              "THEA 1890 | Theatre Laboratory | 0"
+              {
+                "code": "ENGL 1101",
+                "credits": 3,
+                "title": "English Composition I"
+              },
+              {
+                "code": "COMM 1110",
+                "credits": 3,
+                "title": "Public Speaking"
+              },
+              {
+                "code": "MATH 1101",
+                "credits": 3,
+                "title": "Intro to Mathematical Modeling"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 1111",
+                    "title": "Survey-PreModern World History"
+                  },
+                  {
+                    "code": "HIST 1112",
+                    "title": "Survey of Modern World History"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "THEA 1100",
+                "credits": 3,
+                "title": "Introduction to Theatre"
+              },
+              {
+                "code": "THEA 1890",
+                "credits": 0,
+                "title": "Theatre Laboratory"
+              }
             ],
             "label": "First Semester",
             "term_index": 2
@@ -5566,12 +5608,44 @@
           {
             "credit_hours": "16",
             "items": [
-              "ENGL 1102 | English Composition II | 3",
-              "CRIT 1101 | Critical Thinking | 3",
-              "THEA 2880 | Acting I | 3",
-              "THEA 2110or THEA 2120 | Stagecraft: Scenery and Lightor Stagecraft: Costume and Makeup | 3",
-              "POLS 1101 | American Government | 3",
-              "THEA 3911 | Production Practicum I | 1"
+              {
+                "code": "ENGL 1102",
+                "credits": 3,
+                "title": "English Composition II"
+              },
+              {
+                "code": "CRIT 1101",
+                "credits": 3,
+                "title": "Critical Thinking"
+              },
+              {
+                "code": "THEA 2880",
+                "credits": 3,
+                "title": "Acting I"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "THEA 2110",
+                    "title": "Stagecraft: Scenery and Light"
+                  },
+                  {
+                    "code": "THEA 2120",
+                    "title": "Stagecraft: Costume and Makeup"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "POLS 1101",
+                "credits": 3,
+                "title": "American Government"
+              },
+              {
+                "code": "THEA 3911",
+                "credits": 1,
+                "title": "Production Practicum I"
+              }
             ],
             "label": "Second Semester",
             "term_index": 3
@@ -5584,12 +5658,64 @@
           {
             "credit_hours": "16",
             "items": [
-              "THEA 3220 | Voice and Movement I | 3",
-              "ASTR 1010 | Solar System Astronomy | 3",
-              "THEA 2701or THEA 2702 | Theatre History Ior Theatre History II | 3",
-              "THEA 2800 | Script Analysis | 3",
-              "THEA 1990or THEA 2990or THEA 3991or THEA 3992or THEA 3993 | Production Developmentor Intermediate Prod. Developmentor Adv Prod Development Ior Adv Production Development IIor Adv Production Development III | 3",
-              "THEA 3912 | Production Practicum II | 1"
+              {
+                "code": "THEA 3220",
+                "credits": 3,
+                "title": "Voice and Movement I"
+              },
+              {
+                "code": "ASTR 1010",
+                "credits": 3,
+                "title": "Solar System Astronomy"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "THEA 2701",
+                    "title": "Theatre History I"
+                  },
+                  {
+                    "code": "THEA 2702",
+                    "title": "Theatre History II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "THEA 2800",
+                "credits": 3,
+                "title": "Script Analysis"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "THEA 1990",
+                    "title": "Production Development"
+                  },
+                  {
+                    "code": "THEA 2990",
+                    "title": "Intermediate Prod. Development"
+                  },
+                  {
+                    "code": "THEA 3991",
+                    "title": "Adv Prod Development I"
+                  },
+                  {
+                    "code": "THEA 3992",
+                    "title": "Adv Production Development II"
+                  },
+                  {
+                    "code": "THEA 3993",
+                    "title": "Adv Production Development III"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "THEA 3912",
+                "credits": 1,
+                "title": "Production Practicum II"
+              }
             ],
             "label": "First Semester",
             "term_index": 5
@@ -5597,12 +5723,56 @@
           {
             "credit_hours": "14",
             "items": [
-              "ASTR 1020 | Stellar and Galactic Astronomy | 3",
-              "ASTR 1020L | Astronomy Laboratory | 1",
-              "THEA 2500 | Sophomore Seminar | 1",
-              "PSYC 1101or SOCI 1101 | Intro to General Psychologyor Introduction to Sociology | 3",
-              "THEA 3850 | Directing for the Stage | 3",
-              "THEA 2400or THEA 2820or CMS 2015 | Visual Compositionor Arts Criticismor Visual Communication | 3"
+              {
+                "code": "ASTR 1020",
+                "credits": 3,
+                "title": "Stellar and Galactic Astronomy"
+              },
+              {
+                "code": "ASTR 1020L",
+                "credits": 1,
+                "title": "Astronomy Laboratory"
+              },
+              {
+                "code": "THEA 2500",
+                "credits": 1,
+                "title": "Sophomore Seminar"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "PSYC 1101",
+                    "title": "Intro to General Psychology"
+                  },
+                  {
+                    "code": "SOCI 1101",
+                    "title": "Introduction to Sociology"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "THEA 3850",
+                "credits": 3,
+                "title": "Directing for the Stage"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "THEA 2400",
+                    "title": "Visual Composition"
+                  },
+                  {
+                    "code": "THEA 2820",
+                    "title": "Arts Criticism"
+                  },
+                  {
+                    "code": "CMS 2015",
+                    "title": "Visual Communication"
+                  }
+                ],
+                "credits": 3
+              }
             ],
             "label": "Second Semester",
             "term_index": 6
@@ -5615,10 +5785,33 @@
           {
             "credit_hours": "14",
             "items": [
-              "THEA 3500 | Junior Seminar | 2",
-              "THEA 3910 | Artists as Entrepreneurs | 3",
-              "HIST 2111or HIST 2112 | Survey of US History to 1877or US HIST Since Reconstruction | 3",
-              "Upper Division Core/Electives or Free Elective | 6"
+              {
+                "code": "THEA 3500",
+                "credits": 2,
+                "title": "Junior Seminar"
+              },
+              {
+                "code": "THEA 3910",
+                "credits": 3,
+                "title": "Artists as Entrepreneurs"
+              },
+              {
+                "any_of": [
+                  {
+                    "code": "HIST 2111",
+                    "title": "Survey of US History to 1877"
+                  },
+                  {
+                    "code": "HIST 2112",
+                    "title": "US HIST Since Reconstruction"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "credits": 6,
+                "text": "Upper Division Core/Electives or Free Elective"
+              }
             ],
             "label": "First Semester",
             "term_index": 8
@@ -5626,10 +5819,33 @@
           {
             "credit_hours": "16",
             "items": [
-              "ENGL 2131or ENGL 2132 | American Literature Ior American Literature II | 3",
-              "THEA 3901 | Internship/Practicum I | 3",
-              "THEA 3913 | Production Practicum III | 1",
-              "Upper Division Core/Electives or Free Elective | 9"
+              {
+                "any_of": [
+                  {
+                    "code": "ENGL 2131",
+                    "title": "American Literature I"
+                  },
+                  {
+                    "code": "ENGL 2132",
+                    "title": "American Literature II"
+                  }
+                ],
+                "credits": 3
+              },
+              {
+                "code": "THEA 3901",
+                "credits": 3,
+                "title": "Internship/Practicum I"
+              },
+              {
+                "code": "THEA 3913",
+                "credits": 1,
+                "title": "Production Practicum III"
+              },
+              {
+                "credits": 9,
+                "text": "Upper Division Core/Electives or Free Elective"
+              }
             ],
             "label": "Second Semester",
             "term_index": 9
@@ -5642,8 +5858,15 @@
           {
             "credit_hours": "15",
             "items": [
-              "SCI 1901 | Selected Topics in Science | 3",
-              "Upper Division Core/Electives or Free Elective | 12"
+              {
+                "code": "SCI 1901",
+                "credits": 3,
+                "title": "Selected Topics in Science"
+              },
+              {
+                "credits": 12,
+                "text": "Upper Division Core/Electives or Free Elective"
+              }
             ],
             "label": "First Semester",
             "term_index": 11
@@ -5651,8 +5874,15 @@
           {
             "credit_hours": "15",
             "items": [
-              "THEA 4500 | Capstone Project | 3",
-              "Upper Division Core/Electives or Free Elective | 12"
+              {
+                "code": "THEA 4500",
+                "credits": 3,
+                "title": "Capstone Project"
+              },
+              {
+                "credits": 12,
+                "text": "Upper Division Core/Electives or Free Elective"
+              }
             ],
             "label": "Second Semester",
             "term_index": 12
@@ -5661,7 +5891,7 @@
       },
       "source_url": "https://catalog.clayton.edu/academic-catalog/arts-sciences/film-communication-performing-arts/stage-and-screen-ba/",
       "verification_status": "verified",
-      "notes": "Reviewed 2026-10-21: Independent plan review 2026-10-21 (all 376 compared position by position with the stored grid; 50 by hand): [manual] Grid heading metadata says 'Musical Theatre Certification...' (nearest heading) but the grid is the general Stage and Screen BA plan (no certificate courses, 121 total); labels 'First Semester'/'Second Semester' are genuine term rows (check2 false alarm). Exact match. Evidence: sources/programs/GA/2026-10-06-cat/evidence.json#dd6bde63bcab3102."
+      "notes": "Reviewed 2026-10-23: Independent review 2026-10-23 (programs/plan-notes): re-read from the same stored page and grid; the reviewer's own parser compared every term, item, code/title/credits, alternative, choice block, subtotal and printed total with the stored Plan of Study Grid, and every footnote and unmarked note with what is printed after this grid (verbatim, complete, printed for this plan, no page text), and checked nothing printed for this plan between the grid and the next section was left out. rows/subtotals/total match print exactly; notes 0 fn/0 pn verbatim, none missed; change vs old: item fields: any_of+credits:0->8, code+credits+title:0->24, credits+text:0->4, str:36->0; same cells; representation only Replaces the record promoted earlier from this candidate: Plan on file (evidence GA/2026-10-06-cat#dd6bde63bcab3102) did not keep the notes printed with this plan (footnotes or unmarked notes); its rows are now read into fields as printed; they are now kept with their location. Evidence: sources/programs/GA/2026-10-06-cat/evidence.json#b01671193a9e72d9."
     }
   ]
 }

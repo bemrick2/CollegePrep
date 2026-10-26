@@ -1,6 +1,9 @@
 import type { FixtureQuestion } from './fixtures'
 import { contentHash } from './questionReview'
 import ledger from './editorialLedger.json'
+import { authorized, canonicalPerson, isAuthor, registryProblems, REVIEWERS, samePerson, STAGE_ROLE, type Reviewer, type ReviewerRegistry } from './reviewerRegistry'
+
+export { canonicalPerson }
 
 /**
  * The human editorial review (docs/product/CONTENT_PLAN.md §5, stages 2–8), recorded in the repository so review can
@@ -27,12 +30,20 @@ export const STAGE_NAME: Record<Stage, string> = {
 
 export interface SignOff {
   stage: Stage
-  /** A named person. Never "AI", a team name or a role. */
+  /** The signer's stable id in the reviewer registry (reviewerRegistry.ts). This, not the name, is who signed. */
+  reviewer_id: string
+  /** The name as written on the sheet. Display only. */
   by: string
   date: string
   result: 'pass' | 'fail'
   /** contentHash(q) when signed. */
   hash: string
+  /**
+   * Stage 3, imported items: the rights version signed (questionCandidates rights_hash: the content plus author,
+   * origin, license and source). A rights or author change makes a new rights_hash, so an earlier rights check stops
+   * counting and a re-check of the new version counts at once, the same day or any day.
+   */
+  rights_hash?: string
   /** Stage 3: the license or source basis ("original", "public domain: <source>", "CC BY 4.0: <attribution>"). */
   license?: string
   /** Stage 4: the answer given without the key, and the time taken. */
@@ -44,6 +55,8 @@ export interface SignOff {
 export interface LedgerEntry {
   /** Who drafted the item: a person, or "AI (Claude)" for the existing bank. */
   author: string
+  /** Every author ever recorded for the item, append-only. Each stays excluded from stages 4, 6 and 8. */
+  authors?: string[]
   signoffs: SignOff[]
 }
 
@@ -54,61 +67,8 @@ export interface Ledger {
 export const EDITORIAL_LEDGER = ledger as unknown as Ledger
 export const AI_AUTHOR = 'AI (Claude)'
 const ALLOWED_LICENSE = /^(original|public domain|federal|cc by(-sa)? \d)/i
-/**
- * One canonical form for comparing reviewer names, so variants of one name count as one person: Unicode-normalized,
- * invisible characters and bracketed asides removed, punctuation ignored, case folded, and word order ignored.
- * "Jo  Writer", "Jo Writer.", "Jo-Writer", "Writer, Jo" and "Jo Writer (author)" are all "jo writer", and accents are
- * ignored ("José" = "Jose", "Straße" = "Strasse"). This errs toward
- * merging names, which can only block a sign-off, never let an author through. Look-alike letters from another script
- * are refused by isNotAPerson. Initials ("J. Writer") still need the content lead's check against the reviewer list.
- */
-export const canonicalPerson = (s: string) =>
-  s
-    .normalize('NFKD')
-    .replace(/\p{M}|\p{Cf}/gu, '')
-    .replace(/ß/g, 'ss')
-    .normalize('NFKC')
-    .replace(/\([^)]*\)|\[[^\]]*\]/g, ' ')
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, ' ')
-    .trim()
-    .split(' ')
-    .filter(Boolean)
-    .sort()
-    .join(' ')
 
-/** Whole names that are a tool, a role or a placeholder, not a person. */
-const NOT_A_PERSON_WHOLE = new Set([
-  'ai', 'a i', 'claude', 'anthropic', 'gpt', 'chatgpt', 'openai', 'gemini', 'bard', 'copilot', 'llama', 'mistral', 'opus', 'sonnet', 'haiku',
-  'assistant', 'bot', 'llm', 'model', 'system', 'team', 'staff', 'reviewer', 'solver', 'auditor', 'lead', 'content lead', 'editor', 'author',
-  'admin', 'tbd', 'todo', 'unknown', 'na', 'n a', 'none', 'anonymous', 'anon', 'test', 'intake', 'the content lead', 'the reviewer', 'the team',
-])
-/** First words that only a tool or a group uses ("Claude Opus", "GPT 5", "Team Rights"). */
-const NOT_A_PERSON_FIRST = /^(claude|anthropic|chatgpt|gpt|openai|gemini|copilot|assistant|llm|team|the)\b/
-/** Writing systems a single name normally uses one of (Japanese mixes kanji and kana, so those count as one). */
-const SCRIPTS = [
-  /\p{Script=Latin}/u, /\p{Script=Cyrillic}/u, /\p{Script=Greek}/u, /\p{Script=Armenian}/u, /\p{Script=Georgian}/u, /\p{Script=Hebrew}/u,
-  /\p{Script=Arabic}/u, /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u, /\p{Script=Hangul}/u, /\p{Script=Devanagari}/u,
-  /\p{Script=Thai}/u, /\p{Script=Cherokee}/u, /\p{Script=Ethiopic}/u, /\p{Script=Bengali}/u, /\p{Script=Tamil}/u,
-]
-/** Role or tool words followed by a number, a version or a single letter ("Reviewer 1", "Solver A", "Opus 4", "Sonnet 4.5"). */
-const NUMBERED_ROLE = /^(reviewer|solver|auditor|editor|checker|approver|bot|user|person|model|opus|sonnet|haiku|claude|llama|mistral|gemini|gpt|grok|deepseek|qwen|bard)( (\d+( \d+)*|[a-z]|large|small|mini|pro|max|ultra))+$/
-/** AI followed by a role ("AI Assistant", "AI Reviewer"); "Ai Nguyen" is a name. Other tool names alone. */
-const AI_ROLE = /^(ai|a i) (assistant|reviewer|solver|auditor|editor|model|bot|tool|agent|system|lead|checker)\b|^(grok|deepseek|qwen|perplexity)$|^(lead|unknown|test|placeholder) (reviewer|solver|user|person|editor|auditor)$/
-/**
- * A screen, not proof of identity: refuses obvious non-people (AI tools, roles, teams, placeholders, numbered roles
- * such as "Reviewer 1") and names mixing writing systems (look-alike spoofs). Real names such as "Ai Nguyen" or "Na Young Kim" pass. The
- * content lead still checks every name against the people actually doing the review.
- */
-export const isNotAPerson = (s: string) => {
-  const raw = s.normalize('NFKC').replace(/\p{Cf}/gu, '').trim()
-  if (/^ai\s*:/i.test(raw) || /^ai\s*\(/i.test(raw)) return true
-  if (SCRIPTS.filter((re) => re.test(raw)).length > 1) return true
-  const inOrder = raw.toLowerCase().replace(/\([^)]*\)|\[[^\]]*\]/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
-  return !inOrder || NOT_A_PERSON_WHOLE.has(inOrder) || NOT_A_PERSON_WHOLE.has(inOrder.replace(/ /g, '')) || NOT_A_PERSON_FIRST.test(inOrder) || NUMBERED_ROLE.test(inOrder) || AI_ROLE.test(inOrder)
-}
-
-/** A sign-off date must be a real calendar date written YYYY-MM-DD; anything else doesn't count. */
+/** A sign-off date must be a real calendar date written YYYY-MM-DD. Dates are a record, never an ordering rule. */
 export const isIsoDate = (d: string) => {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return false
   const t = new Date(`${d}T00:00:00Z`)
@@ -125,43 +85,80 @@ export interface EditorialState {
   problems: string[]
 }
 
-export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGER): EditorialState {
+export interface EditorialOptions {
+  reviewers?: ReviewerRegistry
+  /** Every author name of the item (all versions). Default: the ledger entry's author, else the AI default. */
+  authors?: string[]
+  /** When set, a rights check counts only if it signed exactly this rights version. */
+  rightsHash?: string
+  /**
+   * Rights versions making the same claims as the current one (same content, author, origin, license and source).
+   * A stage-3 fail recorded against any of them keeps blocking: a resubmission that changes nothing about the claims
+   * never clears a rights fail.
+   */
+  sameClaims?: string[]
+  /** Today (YYYY-MM-DD). A pass dated after tomorrow doesn't count. Default: the current date. */
+  today?: string
+}
+
+/** Every author name recorded for an item in the ledger: the current one and every earlier one. */
+export const ledgerAuthors = (entry: LedgerEntry | undefined) => [...new Set([...(entry?.authors ?? []), entry?.author ?? AI_AUTHOR])]
+
+export function editorialState(q: FixtureQuestion, rec: Ledger = EDITORIAL_LEDGER, opts: EditorialOptions = {}): EditorialState {
+  const reviewers = opts.reviewers ?? REVIEWERS
   const entry = rec.items[q.id]
-  const author = entry?.author ?? AI_AUTHOR
+  const authors = [...new Set([...(opts.authors ?? []), ...ledgerAuthors(entry)])]
   const hash = contentHash(q)
   const all = entry?.signoffs ?? []
   const problems: string[] = []
-  for (const s of all) if (isNotAPerson(s.by)) problems.push(`stage ${s.stage}: "${s.by}" is not a named person`)
-  for (const s of all) if (!isIsoDate(s.date)) problems.push(`stage ${s.stage}: date "${s.date}" is not YYYY-MM-DD and doesn't count`)
   const stale = all.filter((s) => s.hash !== hash)
   if (stale.length) problems.push(`${stale.length} sign-off(s) were for earlier content and no longer count`)
-  const current = all.filter((s) => s.hash === hash && !isNotAPerson(s.by) && isIsoDate(s.date))
-  const at = (st: Stage) => current.filter((s) => s.stage === st)
-  const person = canonicalPerson
-  const notAuthor = (s: SignOff) => person(s.by) !== person(author)
+  // A registry with any problem (a loop, a broken chain, one person under two ids) is not used: no pass counts.
+  const registryOk = registryProblems(reviewers).length === 0
+  if (!registryOk) problems.push('the reviewer registry has problems (see registryProblems); no sign-off counts until it is fixed')
+  const today = opts.today ?? new Date().toISOString().slice(0, 10)
+  const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10)
+  for (const s of all) if (s.hash === hash && !isIsoDate(s.date)) problems.push(`stage ${s.stage}: date "${s.date}" is not YYYY-MM-DD; a pass with it doesn't count`)
+  for (const s of all) if (s.hash === hash && isIsoDate(s.date) && s.date > tomorrow) problems.push(`stage ${s.stage}: dated ${s.date}, in the future; a pass with it doesn't count`)
+
+  // A pass counts only from an active reviewer authorized for that stage, with a valid date that isn't in the future.
+  // A recorded FAIL on this content always blocks, whoever recorded it and whatever its date: fail-closed until the
+  // item is revised. (Stage 3 of an imported item: a fail for a different rights version doesn't block this one.)
+  const current = all.filter((s) => s.hash === hash)
+  const signer = (s: SignOff): Reviewer | null => (s.stage === 2 || !registryOk ? null : authorized(reviewers, s.reviewer_id, STAGE_ROLE[s.stage as Exclude<Stage, 2>]))
+  for (const s of current)
+    if (s.result === 'pass' && s.stage !== 2 && registryOk && !signer(s))
+      problems.push(`stage ${s.stage}: ${s.reviewer_id ? `reviewer ${s.reviewer_id}` : `"${s.by}" (no reviewer id)`} is not an active reviewer authorized for ${STAGE_ROLE[s.stage as Exclude<Stage, 2>]}; it doesn't count`)
+  const passes = (st: Stage) => current.filter((s) => s.stage === st && s.result === 'pass' && isIsoDate(s.date) && s.date <= tomorrow && signer(s))
+  const notAuthor = (s: SignOff) => !isAuthor(signer(s)!, authors)
 
   const checks: Record<Exclude<Stage, 2>, () => string | null> = {
     3: () => {
-      const s = at(3).find((x) => x.result === 'pass')
-      if (!s) return 'needs a rights check'
-      return s.license && ALLOWED_LICENSE.test(s.license) ? null : 'rights check has no allowed license recorded'
+      const ok = passes(3).filter((x) => opts.rightsHash === undefined || x.rights_hash === opts.rightsHash)
+      if (!ok.length) return passes(3).length ? 'rights check was for an earlier rights version (author, origin, license or source changed); check the current one' : 'needs a rights check'
+      return ok.some((x) => x.license && ALLOWED_LICENSE.test(x.license)) ? null : 'rights check has no allowed license recorded'
     },
     4: () => {
-      const solves = at(4).filter(notAuthor)
-      const people = new Set(solves.map((s) => person(s.by)))
-      if (people.size < 2) return `needs ${2 - people.size} more blind solve(s) by someone other than the author`
+      const solves = passes(4).filter(notAuthor)
+      // Distinct people, not distinct ids: entries sharing any recorded name count as one person.
+      const people: Reviewer[] = []
+      for (const s of solves) {
+        const r = signer(s)!
+        if (!people.some((p) => samePerson(p, r))) people.push(r)
+      }
+      if (people.length < 2) return `needs ${2 - people.length} more blind solve(s) by an authorized solver other than the author`
       const wrong = solves.filter((s) => !q.accepted_answers.some((a) => a.trim().toLowerCase() === (s.answer ?? '').trim().toLowerCase()))
-      return wrong.length ? `blind solve by ${wrong.map((s) => s.by).join(', ')} did not match the key` : null
+      return wrong.length ? `blind solve by ${wrong.map((s) => s.reviewer_id).join(', ')} did not match the key` : null
     },
-    5: () => (at(5).some((s) => s.result === 'pass') ? null : 'needs a content audit'),
-    6: () => (at(6).some((s) => s.result === 'pass' && notAuthor(s)) ? null : 'needs a fairness review by someone other than the author'),
-    7: () => (at(7).some((s) => s.result === 'pass') ? null : 'needs a copy edit and accessibility check'),
-    8: () => (at(8).some((s) => s.result === 'pass' && notAuthor(s)) ? null : 'needs approval by a named content lead who is not the author'),
+    5: () => (passes(5).length ? null : 'needs a content audit by an authorized auditor'),
+    6: () => (passes(6).some(notAuthor) ? null : 'needs a fairness review by an authorized reviewer other than the author'),
+    7: () => (passes(7).length ? null : 'needs a copy edit and accessibility check by an authorized editor'),
+    8: () => (passes(8).some(notAuthor) ? null : 'needs approval by an authorized approver who is not the author'),
   }
   let passed: Stage = 2
   for (const st of [3, 4, 5, 6, 7, 8] as const) {
-    const failed = at(st).filter((s) => s.result === 'fail')
-    const why = failed.length ? `stage ${st} failed: ${failed.map((s) => s.note ?? s.by).join('; ')}` : checks[st]()
+    const failed = current.filter((s) => s.stage === st && s.result === 'fail' && (st !== 3 || opts.rightsHash === undefined || !s.rights_hash || s.rights_hash === opts.rightsHash || (opts.sameClaims ?? []).includes(s.rights_hash)))
+    const why = failed.length ? `stage ${st} failed: ${failed.map((s) => s.note ?? s.reviewer_id ?? s.by).join('; ')}` : checks[st]()
     if (why) {
       problems.push(why)
       return { passed, next: st, humanApproved: false, problems }
