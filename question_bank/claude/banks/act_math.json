@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 30,
-  "updated_at": "2026-10-26T20:35:50+00:00",
+  "version": 31,
+  "updated_at": "2026-10-26T20:38:23+00:00",
   "passages": [],
   "questions": [
     {
@@ -20723,6 +20723,710 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-030.review.json",
         "computation": "checks/act_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000299",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Adding fractions with unlike denominators",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of 1/6 + 1/10 + 1/15 ?",
+      "choices": {
+        "A": "1/10",
+        "B": "3/31",
+        "C": "1/3",
+        "D": "1/2"
+      },
+      "correct_answer": "C",
+      "explanation": "With common denominator 30: 5/30 + 3/30 + 2/30 = 10/30 = 1/3.",
+      "distractor_explanations": {
+        "A": "1/10 is one of the addends, not the sum.",
+        "B": "3/31 adds numerators and denominators separately.",
+        "D": "1/2 uses 5/30 + 5/30 + 5/30."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Find the least common denominator."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5/30 + 3/30 + 2/30."
+      },
+      "remember": "Add fractions only after finding a common denominator.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-01",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000300",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Intersections of a line and a parabola",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The graphs of y = x² and y = 2x + 3 intersect at two points. What is the sum of the x-coordinates of the two intersection points?",
+      "choices": {
+        "A": "−3",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "B",
+      "explanation": "Setting x² = 2x + 3 gives x² − 2x − 3 = 0, so (x − 3)(x + 1) = 0 and x = 3 or x = −1. The sum is 2.",
+      "distractor_explanations": {
+        "A": "−3 is the product of the x-coordinates, not their sum.",
+        "C": "3 is only one of the x-coordinates.",
+        "D": "4 adds 3 and 1, dropping the negative sign of −1."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Set the two expressions equal.",
+        "Solve the quadratic, then add the solutions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x² − 2x − 3 = 0."
+      },
+      "remember": "Intersections: set the equations equal and solve.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-02",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000301",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Algebra",
+      "subskill": "Writing a cost expression",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A shop rents bicycles for $8 per hour. Each rental also has a $5 helmet fee, and members receive a $3 discount on the total. Which expression gives the total cost, in dollars, for a member who rents a bicycle for h hours?",
+      "choices": {
+        "A": "8h − 3",
+        "B": "8h + 8",
+        "C": "5h + 5",
+        "D": "8h + 2"
+      },
+      "correct_answer": "D",
+      "explanation": "Cost = 8h + 5 − 3 = 8h + 2.",
+      "distractor_explanations": {
+        "A": "This leaves out the $5 helmet fee.",
+        "B": "This adds the discount instead of subtracting it.",
+        "C": "This charges the helmet fee per hour."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Which charges depend on h, and which are one-time?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "h = 1: 8 + 5 − 3 = 10."
+      },
+      "remember": "Separate per-unit charges from one-time charges.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-03",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000302",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Interpreting an exponential decay model",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The value V, in dollars, of a machine t years after purchase is modeled by V(t) = 500(0.9)^t. Which statement best describes the meaning of 0.9 in this model?",
+      "choices": {
+        "A": "The machine loses $0.90 of its value each year.",
+        "B": "The machine's value decreases by 90% each year.",
+        "C": "The machine's value increases by 10% each year.",
+        "D": "The machine's value decreases by 10% each year."
+      },
+      "correct_answer": "D",
+      "explanation": "Each year the value is multiplied by 0.9, so it keeps 90% and loses 10% of its value.",
+      "distractor_explanations": {
+        "A": "The model multiplies by 0.9; it does not subtract $0.90.",
+        "B": "Keeping 90% means losing 10%, not 90%.",
+        "C": "A factor less than 1 means the value decreases."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": "sign_error"
+      },
+      "hints": [
+        "What happens to the value from t = 0 to t = 1?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "V(0) = 500, V(1) = 450."
+      },
+      "remember": "A growth factor b means a change of (b − 1) × 100%.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-04",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000303",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Horizontal compression of a function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function g is defined by g(x) = f(2x). If f(6) = 10, for what value of x must g(x) equal 10 ?",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "12",
+        "D": "20"
+      },
+      "correct_answer": "A",
+      "explanation": "g(x) = f(2x) equals f(6) when 2x = 6, so x = 3.",
+      "distractor_explanations": {
+        "B": "6 assumes g and f give the same output at the same input.",
+        "C": "12 doubles 6 instead of halving it.",
+        "D": "20 doubles the output 10."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "What input to f does g(x) = f(2x) use?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2x = 6."
+      },
+      "remember": "f(2x) compresses horizontally: inputs are halved.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-05",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [
+          "minor: 'for what value of x must g(x) equal 10' is slightly awkward; g(3)=f(6)=10 is the intended reading and is unambiguous among choices"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000304",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Circumscribed circle of a right triangle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right triangle has legs of length 10 and 24. What is the radius of the circle that passes through all three vertices of the triangle?",
+      "choices": {
+        "A": "12",
+        "B": "13",
+        "C": "17",
+        "D": "26"
+      },
+      "correct_answer": "B",
+      "explanation": "The hypotenuse is √(10² + 24²) = 26. In a right triangle, the hypotenuse is a diameter of the circumscribed circle, so the radius is 13.",
+      "distractor_explanations": {
+        "A": "12 is half of the longer leg.",
+        "C": "17 averages the two legs.",
+        "D": "26 is the diameter (the hypotenuse), not the radius."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is special about the hypotenuse of a right triangle inscribed in a circle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The right angle subtends a semicircle."
+      },
+      "remember": "A right triangle's hypotenuse is a diameter of its circumcircle.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-06",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000305",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Slope with an unknown coordinate",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A line with slope 3 passes through the points (2, k) and (5, 11). What is the value of k ?",
+      "choices": {
+        "A": "−7",
+        "B": "−2",
+        "C": "2",
+        "D": "8"
+      },
+      "correct_answer": "C",
+      "explanation": "Slope = (11 − k)/(5 − 2) = 3, so 11 − k = 9 and k = 2.",
+      "distractor_explanations": {
+        "A": "−7 uses a run of 6 instead of 3: 11 − 18.",
+        "B": "−2 makes a sign error solving 11 − k = 9.",
+        "D": "8 subtracts the slope only once: 11 − 3."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Write the slope formula with k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(11 − k)/3 = 3."
+      },
+      "remember": "Slope = rise ÷ run.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-07",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000306",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability that a specific person is chosen",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Three people are chosen at random from a group of 8 people to form a committee. What is the probability that Ana, one of the 8, is chosen?",
+      "choices": {
+        "A": "1/8",
+        "B": "1/4",
+        "C": "3/8",
+        "D": "1/2"
+      },
+      "correct_answer": "C",
+      "explanation": "Committees including Ana: C(7, 2) = 21. All committees: C(8, 3) = 56. Probability = 21/56 = 3/8. (Equivalently, 3 of the 8 spots are filled.)",
+      "distractor_explanations": {
+        "A": "1/8 is the chance Ana is picked for one specific seat, not any of three.",
+        "B": "1/4 has no basis in the setup.",
+        "D": "1/2 assumes Ana is either chosen or not with equal chance."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many committees include Ana?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "C(7, 2)/C(8, 3)."
+      },
+      "remember": "Each person's chance equals spots ÷ people.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-08",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000307",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Reading a box plot's quartiles",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a large data set summarized by a box plot, the third quartile is 84. Approximately what percent of the data values are greater than 84 ?",
+      "choices": {
+        "A": "25%",
+        "B": "50%",
+        "C": "75%",
+        "D": "84%"
+      },
+      "correct_answer": "A",
+      "explanation": "The third quartile marks the 75th percentile, so about 25% of values lie above it.",
+      "distractor_explanations": {
+        "B": "50% lies above the median, not the third quartile.",
+        "C": "75% lies below the third quartile, not above it.",
+        "D": "84 is the value itself, not a percent."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "sign_error",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What percent of data lies below Q3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "100% − 75%."
+      },
+      "remember": "Q1, median, Q3 split the data into quarters.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-09",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000308",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Limiting ingredient in batches",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A recipe uses 3 cups of flour and 2 eggs for each batch. A baker has 10 cups of flour and 8 eggs. What is the greatest number of complete batches the baker can make?",
+      "choices": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "A",
+      "explanation": "Flour allows 10 ÷ 3 = 3 complete batches; eggs allow 8 ÷ 2 = 4. The flour runs out first, so 3 batches.",
+      "distractor_explanations": {
+        "B": "4 uses only the eggs and ignores that flour runs out.",
+        "C": "5 divides 10 cups by 2 (the eggs per batch), mixing up the ingredients.",
+        "D": "6 adds the flour and egg limits."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many batches does each ingredient allow?",
+        "Which runs out first?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "min(⌊10/3⌋, 8/2)."
+      },
+      "remember": "The scarcest ingredient limits the total.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "B031-10",
+      "created_at": "2026-10-26T20:38:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-031.review.json",
+        "computation": "checks/act_math/batch_031.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
