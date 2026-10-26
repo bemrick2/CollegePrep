@@ -1,0 +1,252 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 1,
+  "reviewed_at": "2026-10-26T17:40:43+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet)",
+    "batch": 1
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 0,
+    "REJECT": 2
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000001",
+    "CLD-ACT-M-000002",
+    "CLD-ACT-M-000003",
+    "CLD-ACT-M-000004",
+    "CLD-ACT-M-000005",
+    "CLD-ACT-M-000006",
+    "CLD-ACT-M-000007",
+    "CLD-ACT-M-000008"
+  ],
+  "results": [
+    {
+      "cand": "B001-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "(x^(3/2))^4 = x^6; x^6 * x^(-1) = x^5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "units_rounding_domain_stated": "domain x > 0 stated so rational exponents are defined"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000001"
+    },
+    {
+      "cand": "B001-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "35 + 12m <= 150 gives m <= 9.58, so 9 whole months (10 months costs $155).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "units_rounding_domain_stated": "whole months requested"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000002"
+    },
+    {
+      "cand": "B001-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_flags": [],
+      "blind_notes": "Second equation must be 1.5 times the first: 6 = 1.5*4, 15 = 1.5*10, so k = 1.5*(-6) = -9.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "units_rounding_domain_stated": "constants verified consistent (10 × 3/2 = 15)"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000003"
+    },
+    {
+      "cand": "B001-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "2(4) - 3(-2) + 1 = 8 + 6 + 1 = 15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "fixture#12",
+          "similarity": 1.0
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "B001-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "f(3) = 5; g(5) = 16.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000004"
+    },
+    {
+      "cand": "B001-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "Legs 5 (opposite A) and 12 (opposite B), hypotenuse 13; tan B = 12/5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "figure": "no figure needed; vertices and right angle fully specified"
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "fixture#19",
+          "similarity": 1.0
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "B001-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_flags": [],
+      "blind_notes": "Sector area = (1/2) r * arc length: 24π = (1/2) r (4π), so r = 12 (central angle π/3, consistent with a minor arc).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "figure": "described in words; sector defined explicitly"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000005"
+    },
+    {
+      "cand": "B001-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "Sum 6*15 = 90, remaining 5*13 = 65, removed 25.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000006"
+    },
+    {
+      "cand": "B001-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_flags": [],
+      "blind_notes": "1.20 * 0.75 = 0.90, so 90%.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000007"
+    },
+    {
+      "cand": "B001-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_flags": [],
+      "blind_notes": "Target depth 1.2 - 0.3 = 0.9 m, rise 0.5 m; volume 2*1.5*0.5 = 1.5 m^3 = 1500 L; 1500/36 = 41.67, about 42 min.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "units_rounding_domain_stated": "conversion and rounding instruction given; 41.67 is not a rounding tie"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000008"
+    }
+  ]
+}

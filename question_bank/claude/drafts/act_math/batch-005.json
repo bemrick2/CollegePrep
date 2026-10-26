@@ -1,0 +1,471 @@
+{
+  "bank": "act_math",
+  "batch": 5,
+  "plan": "Close the 50-item blueprint gaps (N&Q 2, Algebra 1, Functions 2, Geometry 2, S&P 2, IES 1) with 2 easy / 6 medium / 2 hard, bringing the bank to roughly 25/50/25. New subskills: comparing rational numbers, LCM in context, exponential equations with a common base, average rate of change, logarithm properties, composite volume, similar-triangle area ratios, expected value, spread/standard deviation, multi-part fuel cost.",
+  "candidates": [
+    {
+      "cand": "B005-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Comparing rational numbers",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "easy",
+      "stem": "Which of the following numbers is between 3/8 and 5/12 ?",
+      "choices": {
+        "A": "1/3",
+        "B": "2/5",
+        "C": "3/7",
+        "D": "1/2"
+      },
+      "answer": "B",
+      "explanation": "As decimals, 3/8 = 0.375 and 5/12 ≈ 0.417. Of the choices, 1/3 ≈ 0.333, 2/5 = 0.4, 3/7 ≈ 0.429 and 1/2 = 0.5. Only 2/5 = 0.4 lies between 0.375 and 0.417.",
+      "distractors": {
+        "A": {
+          "rationale": "1/3 ≈ 0.333 is less than 3/8 = 0.375.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "3/7 ≈ 0.429 is greater than 5/12 ≈ 0.417; the two are close, so compare decimals carefully.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "1/2 = 0.5 is greater than 5/12.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Convert each fraction to a decimal.",
+        "Compare with 0.375 and about 0.417."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Convert to decimals; 1/3 is too small and 3/7 and 1/2 are too large."
+      },
+      "remember": "Compare fractions by converting to decimals.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B005-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Least common multiple in context",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "Shuttle A leaves a station every 12 minutes, and Shuttle B leaves the same station every 18 minutes. Both shuttles leave the station at 7:00 a.m. What is the next time after 7:00 a.m. that both shuttles leave the station at the same time?",
+      "choices": {
+        "A": "7:06 a.m.",
+        "B": "7:30 a.m.",
+        "C": "7:36 a.m.",
+        "D": "10:36 a.m."
+      },
+      "answer": "C",
+      "explanation": "Both shuttles leave together after a number of minutes that is a multiple of both 12 and 18. The least common multiple is 36 (12 × 3 = 18 × 2 = 36). So they next leave together at 7:36 a.m.",
+      "distractors": {
+        "A": {
+          "rationale": "This uses the difference 18 − 12 = 6 minutes, which is not a multiple of either interval.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This adds the intervals, 12 + 18 = 30 minutes; 30 is not a multiple of 12 or 18.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This multiplies the intervals, 12 × 18 = 216 minutes; that is a common multiple, but not the least one.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "List the departure times of each shuttle after 7:00.",
+        "Look for the first time that appears on both lists."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "List multiples: 12, 24, 36… and 18, 36…; the first match is 36 minutes."
+      },
+      "remember": "'Next time together' means least common multiple.",
+      "expected_time_seconds": 45,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B005-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Exponential equations with a common base",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "What value of x satisfies the equation 4^(x + 1) = 8^(x − 1) ?",
+      "choices": {
+        "A": "−1",
+        "B": "2",
+        "C": "3",
+        "D": "5"
+      },
+      "answer": "D",
+      "explanation": "Write both sides as powers of 2: 4^(x + 1) = 2^(2x + 2) and 8^(x − 1) = 2^(3x − 3). Equal powers of the same base have equal exponents: 2x + 2 = 3x − 3, so x = 5. Check: 4⁶ = 4,096 and 8⁴ = 4,096.",
+      "distractors": {
+        "A": {
+          "rationale": "This writes 8^(x − 1) as 2^(3x + 3), dropping the negative sign: 2x + 2 = 3x + 3 gives x = −1.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "This multiplies only x by the new exponent: 2x + 1 = 3x − 1 gives x = 2.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This multiplies the bases by the exponents instead of rewriting the bases: 4(x + 1) = 8(x − 1) gives x = 3.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Both 4 and 8 are powers of the same number.",
+        "When a power is raised to a power, multiply the exponent by every term in the parentheses."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try x = 5: 4⁶ = 4,096 and 8⁴ = 4,096. The smaller choices give unequal sides."
+      },
+      "remember": "Rewrite with a common base, then set exponents equal.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "taxonomy_note": "nonlinear; mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B005-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Average rate of change",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "For the function f(x) = x² − 3x, what is the average rate of change of f from x = 1 to x = 5 ?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "7",
+        "D": "12"
+      },
+      "answer": "B",
+      "explanation": "Average rate of change = (f(5) − f(1)) / (5 − 1). f(5) = 25 − 15 = 10 and f(1) = 1 − 3 = −2. So the rate is (10 − (−2)) / 4 = 12/4 = 3.",
+      "distractors": {
+        "A": {
+          "rationale": "This adds the outputs instead of subtracting them: (10 + (−2)) / 4 = 2.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "7 is the slope of the curve at x = 5 alone (the rate of change at a single point), not the average over the interval.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "12 is the change in f(x); it still needs to be divided by the change in x, 4.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Average rate of change is the slope between two points on the graph.",
+        "Find f(1) and f(5) first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute the points (1, −2) and (5, 10), then the slope 12/4."
+      },
+      "remember": "Average rate of change = change in output ÷ change in input.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B005-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Logarithm properties",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "For a positive number b ≠ 1, log_b 2 = p and log_b 3 = q. Which of the following expressions is equal to log_b (18/b) ?",
+      "choices": {
+        "A": "p + 2q − 1",
+        "B": "p + q² − 1",
+        "C": "2pq − 1",
+        "D": "p + 2q − b"
+      },
+      "answer": "A",
+      "explanation": "log_b (18/b) = log_b 18 − log_b b = log_b (2 · 3²) − 1 = log_b 2 + 2 log_b 3 − 1 = p + 2q − 1.",
+      "distractors": {
+        "B": {
+          "rationale": "This treats log_b 9 as (log_b 3)²; the power rule gives 2 log_b 3, not its square.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This multiplies the logarithms of the factors; the log of a product is a sum of logs.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This subtracts b itself; log_b b equals 1, not b.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Write 18 as a product of powers of 2 and 3.",
+        "Use the quotient, product and power rules one at a time; what is log_b b?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let b = 2: p = 1, q = log₂ 3 ≈ 1.585, and log₂ 9 ≈ 3.17. Choice A gives 1 + 3.17 − 1 = 3.17. Only A matches."
+      },
+      "remember": "Products become sums, powers become multipliers, and log_b b = 1.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B005-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a composite solid",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "A grain silo is shaped like a right circular cylinder with a hemisphere on top. The cylinder and the hemisphere each have a radius of 5 meters, and the cylinder is 12 meters tall. What is the total volume of the silo, in cubic meters? (The volume of a sphere of radius r is (4/3)πr³.)",
+      "choices": {
+        "A": "300π",
+        "B": "1150π/3",
+        "C": "425π",
+        "D": "1400π/3"
+      },
+      "answer": "B",
+      "explanation": "Cylinder: πr²h = π(25)(12) = 300π. Hemisphere: half of (4/3)π(125) = (2/3)(125)π = 250π/3. Total: 300π + 250π/3 = 900π/3 + 250π/3 = 1150π/3 (about 1,204 cubic meters).",
+      "distractors": {
+        "A": {
+          "rationale": "300π is the cylinder alone; the hemisphere was left out.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This uses πr³ = 125π for the hemisphere instead of (2/3)πr³.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This adds a whole sphere, 500π/3, instead of half a sphere.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Find the two volumes separately, then add.",
+        "A hemisphere is half of a sphere."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "300π + (1/2)(4/3)π(5³) = 300π + 250π/3 = 1150π/3."
+      },
+      "remember": "Composite solids: add the volumes of the parts.",
+      "expected_time_seconds": 70,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "sphere formula supplied in stem, as ACT does for less common formulas"
+      }
+    },
+    {
+      "cand": "B005-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Similar triangles: area ratios",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC so that segment DE is parallel to side BC. AD = 6 and DB = 4. The area of triangle ADE is 54 square units. What is the area, in square units, of quadrilateral DBCE?",
+      "choices": {
+        "A": "24",
+        "B": "36",
+        "C": "96",
+        "D": "150"
+      },
+      "answer": "C",
+      "explanation": "Because DE ∥ BC, triangle ADE is similar to triangle ABC with scale factor AD/AB = 6/10 = 3/5. Areas scale by (3/5)² = 9/25, so the area of ABC is 54 × 25/9 = 150. The quadrilateral DBCE is ABC minus ADE: 150 − 54 = 96.",
+      "distractors": {
+        "A": {
+          "rationale": "This uses the ratio DB/AD = 4/6 and squares it: 54 × (4/6)² = 24. DB is not a side of either similar triangle.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This scales area by the linear ratio 10/6 (area of ABC = 90) and subtracts 54.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "150 is the area of the whole triangle ABC; the area of ADE still has to be subtracted.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Which two triangles are similar, and what is the ratio of their corresponding sides?",
+        "Areas of similar figures scale by the square of the side ratio."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle with DE across it; AB = 10, so ratio 3/5, area ratio 9/25; find ABC, then subtract ADE."
+      },
+      "remember": "Similar figures: area ratio is the side ratio squared.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "figure": null,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "figure": "configuration fully specified in words"
+      }
+    },
+    {
+      "cand": "B005-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Expected value",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "medium",
+      "stem": "A carnival game costs $2 to play. On each play, a player wins a $10 prize with probability 0.1, wins a $4 prize with probability 0.2, and wins nothing otherwise. What is the expected net gain for a player per play, taking the cost to play into account?",
+      "choices": {
+        "A": "−$0.20",
+        "B": "$1.80",
+        "C": "$2.67",
+        "D": "$3.80"
+      },
+      "answer": "A",
+      "explanation": "Expected prize = 10(0.1) + 4(0.2) + 0(0.7) = 1.00 + 0.80 = $1.80. Subtract the $2 cost: 1.80 − 2.00 = −$0.20 per play, an expected loss of 20 cents.",
+      "distractors": {
+        "B": {
+          "rationale": "$1.80 is the expected prize; the $2 cost has not been subtracted.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This averages the three outcomes $10, $4 and $0 equally and subtracts $2, ignoring the probabilities.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This adds the $2 cost to the expected prize instead of subtracting it.",
+          "trap": "sign_error"
+        }
+      },
+      "hints": [
+        "Multiply each prize by its probability and add.",
+        "Net gain means prizes minus what the player pays."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "E = Σ(value × probability) − cost = 1.80 − 2.00."
+      },
+      "remember": "Expected value weights each outcome by its probability.",
+      "expected_time_seconds": 55,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B005-09",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Comparing spread (standard deviation)",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "easy",
+      "stem": "Each of the following data sets has a mean of 5. Which data set has the greatest standard deviation?",
+      "choices": {
+        "A": "5, 5, 5, 5",
+        "B": "4, 5, 5, 6",
+        "C": "1, 5, 5, 9",
+        "D": "3, 5, 5, 7"
+      },
+      "answer": "C",
+      "explanation": "Standard deviation measures how far the values typically are from the mean. All four sets have mean 5. In set C, two values are 4 units from the mean; in the other sets the values are at most 2 units away. Set C is the most spread out.",
+      "distractors": {
+        "A": {
+          "rationale": "Every value equals the mean, so the standard deviation is 0, the least possible.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "The values are at most 1 unit from the mean, so this set has little spread.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "The values are at most 2 units from the mean, less spread than set C.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Standard deviation measures spread around the mean.",
+        "Which set has values farthest from 5?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "No calculation needed: compare how far each set's values are from 5."
+      },
+      "remember": "More spread from the mean means a larger standard deviation.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B005-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Multi-part rate and cost",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "On a 420-mile trip, Lena drove 300 miles on highways and the remaining miles in cities. Her car averaged 30 miles per gallon on highways and 20 miles per gallon in cities. Gasoline cost $3.60 per gallon. What was the total cost of the gasoline used on the trip?",
+      "choices": {
+        "A": "$50.40",
+        "B": "$57.60",
+        "C": "$60.48",
+        "D": "$75.60"
+      },
+      "answer": "B",
+      "explanation": "Highway: 300 ÷ 30 = 10 gallons. City: 120 ÷ 20 = 6 gallons. Total: 16 gallons × $3.60 = $57.60.",
+      "distractors": {
+        "A": {
+          "rationale": "This uses the highway rate for the whole trip: 420 ÷ 30 = 14 gallons, costing $50.40.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This averages the two mileage rates (25 miles per gallon): 420 ÷ 25 = 16.8 gallons, costing $60.48. The rates apply to different distances.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This uses the city rate for the whole trip: 420 ÷ 20 = 21 gallons, costing $75.60.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Find the gallons used on each part of the trip separately.",
+        "How many miles were driven in cities?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Gallons = 300/30 + 120/20 = 16; multiply by $3.60."
+      },
+      "remember": "Different rates for different parts: compute each part separately.",
+      "expected_time_seconds": 70,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

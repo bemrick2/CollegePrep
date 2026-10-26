@@ -1,0 +1,870 @@
+{
+  "bank": "act_math",
+  "bank_version": 5,
+  "answers": [
+    {
+      "id": "CLD-ACT-M-000001",
+      "correct_answer": "B",
+      "explanation": "Raising a power to a power multiplies the exponents: (x^(3/2))^4 = x^((3/2)(4)) = x^6. Multiplying powers of the same base adds the exponents: x^6 · x^(−1) = x^(6 + (−1)) = x^5.",
+      "distractor_explanations": {
+        "A": "This adds all three exponents, 3/2 + 4 − 1 = 9/2, instead of multiplying 3/2 by 4 first.",
+        "C": "x^6 is (x^(3/2))^4 alone; the factor x^(−1) was left out.",
+        "D": "This subtracts −1 instead of adding it, giving 6 + 1 = 7."
+      },
+      "hints": [
+        "When a power is raised to another power, what happens to the two exponents?",
+        "When two powers of x are multiplied, combine their exponents by adding."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 4: (4^(3/2))^4 = 8^4 = 4,096, and 4,096 · (1/4) = 1,024 = 4^5. Only x^5 gives 1,024."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000002",
+      "correct_answer": "A",
+      "explanation": "The total cost for m months is 35 + 12m, which must be at most 150. Then 12m ≤ 115, so m ≤ 9.58…. The greatest whole number of months is 9 (cost $143). Ten months would cost $155, which is over budget.",
+      "distractor_explanations": {
+        "B": "This rounds 9.58 up to 10, but 10 months cost 35 + 120 = $155, which exceeds $150.",
+        "C": "This ignores the $35 fee: 150 ÷ 12 = 12.5, rounded down to 12.",
+        "D": "This adds the fee to the budget instead of subtracting it: 185 ÷ 12 ≈ 15.4."
+      },
+      "hints": [
+        "Write the total cost for m months as an expression.",
+        "Set that expression less than or equal to the budget, then think about whether to round up or down."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 35 + 12m ≤ 150, solve to m ≤ 9.58, and round down because the budget cannot be exceeded."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000003",
+      "correct_answer": "A",
+      "explanation": "A system has infinitely many solutions when one equation is a constant multiple of the other. Multiplying the first equation by 3/2 gives 6x − 9y = 15. Its x-coefficient and constant already match the second equation, so k must equal −9.",
+      "distractor_explanations": {
+        "B": "This copies the y-coefficient −6 without scaling it by the same factor, 3/2, used for x and the constant.",
+        "C": "This scales −6 by 2/3 instead of 3/2, using the ratio upside down.",
+        "D": "This scales correctly but drops the negative sign on −6."
+      },
+      "hints": [
+        "Infinitely many solutions means both equations describe the same line.",
+        "What number multiplies 4x to give 6x? Apply it to every term."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the scale factor 6 ÷ 4 = 3/2, check that it also turns 10 into 15, then multiply −6 by 3/2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000004",
+      "correct_answer": "B",
+      "explanation": "Work from the inside out. f(3) = 3² − 4 = 5. Then g(5) = 3(5) + 1 = 16.",
+      "distractor_explanations": {
+        "A": "15 is f(3) + g(3) = 5 + 10, a sum rather than a composition.",
+        "C": "50 is f(3) · g(3) = 5 · 10, a product rather than a composition.",
+        "D": "96 is f(g(3)) = f(10), which applies the functions in the reverse order."
+      },
+      "hints": [
+        "Start with the inner function.",
+        "Use the output of the inner function as the input of the outer one."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate f(3) first, then feed that result into g."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000005",
+      "correct_answer": "D",
+      "explanation": "With central angle θ in radians, arc length = rθ and sector area = (1/2)r²θ = (1/2)r(rθ). So sector area = (1/2) · r · (arc length): 24π = (1/2) · r · 4π = 2πr, which gives r = 12. (Check: θ = 4π/12 = π/3, and (1/2)(144)(π/3) = 24π.)",
+      "distractor_explanations": {
+        "A": "This treats 4π as the whole circumference: 2πr = 4π gives r = 2.",
+        "B": "This treats 24π as the area of the whole circle: πr² = 24π gives r = √24 = 2√6.",
+        "C": "6 is sector area ÷ arc length, which equals r/2, not r."
+      },
+      "hints": [
+        "Write both the arc length and the sector area in terms of r and the central angle θ.",
+        "Dividing one of those expressions by the other eliminates θ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "rθ = 4π and (1/2)r²θ = 24π. Divide the second by the first: r/2 = 6, so r = 12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000006",
+      "correct_answer": "C",
+      "explanation": "The original sum is 6 × 15 = 90. The remaining sum is 5 × 13 = 65. The removed number is 90 − 65 = 25.",
+      "distractor_explanations": {
+        "A": "2 is the difference between the two means, not between the two sums.",
+        "B": "14 averages the two means, which has no meaning here.",
+        "D": "28 adds the two means instead of comparing sums."
+      },
+      "hints": [
+        "Convert each mean into a sum.",
+        "The removed number accounts for the difference between the sums."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum = mean × count: 90 before, 65 after, so the removed number is 25."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000007",
+      "correct_answer": "B",
+      "explanation": "An increase of 20% multiplies the price by 1.20, and a decrease of 25% multiplies by 0.75. The final price is 1.20 × 0.75 = 0.90 times the original, or 90%.",
+      "distractor_explanations": {
+        "A": "This multiplies by 0.80 for the 20% increase, treating it as a decrease: 0.80 × 0.75 = 0.60.",
+        "C": "This adds the percents (100 + 20 − 25), but the 25% is taken from the larger, increased price.",
+        "D": "This reverses the two changes' signs: 100 − 20 + 25 = 105."
+      },
+      "hints": [
+        "Turn each percent change into a multiplier.",
+        "Apply the second change to the new price, not to the original."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Start at $100: up 20% to $120, then down 25% (of $120, which is $30) to $90."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000008",
+      "correct_answer": "B",
+      "explanation": "The water must reach a depth of 1.2 − 0.3 = 0.9 meter, so it must rise 0.9 − 0.4 = 0.5 meter. The added volume is 2 × 1.5 × 0.5 = 1.5 cubic meters = 1,500 liters. At 36 liters per minute this takes 1,500 ÷ 36 ≈ 41.7 minutes, or 42 minutes to the nearest minute.",
+      "distractor_explanations": {
+        "A": "This fills only a 0.3-meter layer: 2 × 1.5 × 0.3 = 0.9 m³ = 900 L, and 900 ÷ 36 = 25.",
+        "C": "This fills from 0.4 meter all the way to the top: 0.8 m rise gives 2,400 L, and 2,400 ÷ 36 ≈ 66.7.",
+        "D": "This fills an empty tank to 0.9 meter, ignoring the 0.4 meter of water already there: 2,700 ÷ 36 = 75."
+      },
+      "hints": [
+        "First find the target depth, then how much the water must rise.",
+        "Convert the added volume to liters before using the pumping rate."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the tank with the current level (0.4 m) and target level (0.9 m); only the 0.5 m slab between them must be filled."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000009",
+      "correct_answer": "B",
+      "explanation": "Distribute: 3(1) + 3(4i) − 2i(1) − 2i(4i) = 3 + 12i − 2i − 8i². Since i² = −1, −8i² = 8. The product is (3 + 8) + (12i − 2i) = 11 + 10i.",
+      "distractor_explanations": {
+        "A": "This uses i² = 1, so −8i² becomes −8 and the real part is 3 − 8 = −5.",
+        "C": "This adds 2i instead of subtracting it, giving 12i + 2i = 14i.",
+        "D": "This makes both errors: i² = 1 for the real part and +2i for the imaginary part."
+      },
+      "hints": [
+        "Multiply every term in the first factor by every term in the second.",
+        "Replace i² with its value before combining real parts."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "FOIL the product, replace i² with −1, then combine real and imaginary parts separately."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000010",
+      "correct_answer": "C",
+      "explanation": "Factor: 2x² − 7x − 15 = (2x + 3)(x − 5), so the solutions are x = −3/2 and x = 5. Their sum is 5 − 3/2 = 7/2. (Equivalently, the sum of the roots of ax² + bx + c = 0 is −b/a = 7/2.)",
+      "distractor_explanations": {
+        "A": "−15/2 is the product of the solutions (c/a), not their sum.",
+        "B": "This uses b/a instead of −b/a, flipping the sign of the sum.",
+        "D": "This takes the first root as +3/2 instead of −3/2: 5 + 3/2 = 13/2."
+      },
+      "hints": [
+        "Try to factor 2x² − 7x − 15 into two binomials.",
+        "Set each factor equal to zero, then add the two values."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor to (2x + 3)(x − 5) = 0, or use the shortcut that the roots sum to −b/a."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000011",
+      "correct_answer": "D",
+      "explanation": "Multiply both sides by (x − 2), which requires x ≠ 2: x + (x − 2) = 2, so 2x = 4 and x = 2. But x = 2 makes the denominators zero, so it is extraneous. The equation has no solution, and the solution set is empty.",
+      "distractor_explanations": {
+        "A": "This distributes the 1 as x + 2 instead of x − 2, giving 2x + 2 = 2. Checking x = 0 gives 1 on the left and −1 on the right.",
+        "B": "This forgets to multiply the 1 by (x − 2), giving x + 1 = 2. Checking x = 1 gives 0 on the left and −2 on the right.",
+        "C": "x = 2 comes from the cleared equation, but it makes the original denominators zero, so it must be rejected."
+      },
+      "hints": [
+        "Clear the denominators, but note which value of x is not allowed.",
+        "Check any value you find in the original equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 0, 1 and 2 in the original equation: 0 and 1 fail, and 2 is undefined, so only the empty set remains."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000012",
+      "correct_answer": "A",
+      "explanation": "Each time x increases by 1, f(x) increases by 3, so the slope is 3. Then f(1) = 3(1) + b = 7 gives b = 4. So f(x) = 3x + 4. Check: f(4) = 12 + 4 = 16.",
+      "distractor_explanations": {
+        "B": "This swaps the slope and the intercept; f(1) = 7 works, but f(2) = 11, not 10.",
+        "C": "This fits only the first pair (1, 7); f(2) would be 8, not 10.",
+        "D": "This uses f(1) = 7 as the y-intercept, but the y-intercept is f(0) = 4."
+      },
+      "hints": [
+        "How much does f(x) change each time x goes up by 1?",
+        "The y-intercept is the value of f when x = 0, not when x = 1."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test the pair (2, 10) in each choice; only one choice also gives 13 at x = 3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000013",
+      "correct_answer": "C",
+      "explanation": "Set 1,200(2)^(t/5) = 60,000, so 2^(t/5) = 50. Then t/5 = log₂ 50 = ln 50 / ln 2 ≈ 5.644, and t ≈ 5(5.644) ≈ 28.2 weeks.",
+      "distractor_explanations": {
+        "A": "5.6 is log₂ 50, which equals t/5 (the number of 5-week doubling periods), not t.",
+        "B": "This computes 5 · ln 50 ≈ 19.6 without dividing by ln 2.",
+        "D": "This treats the growth as linear, multiplying the growth factor 50 by 5."
+      },
+      "hints": [
+        "Divide both sides by 1,200 first.",
+        "Use a logarithm to bring the exponent t/5 down, then solve for t."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "2^5 = 32 and 2^6 = 64, so t/5 is between 5 and 6 and t is between 25 and 30. Only 28.2 fits."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000014",
+      "correct_answer": "C",
+      "explanation": "The center is the midpoint of the diameter: ((−3 + 5)/2, (4 + (−2))/2) = (1, 1). The diameter's length is √((5 − (−3))² + (−2 − 4)²) = √(64 + 36) = 10, so the radius is 5 and r² = 25. The equation is (x − 1)² + (y − 1)² = 25.",
+      "distractor_explanations": {
+        "A": "The center (1, 1) requires (x − 1) and (y − 1); this equation has center (−1, −1).",
+        "B": "The right side must be r² = 25, not r = 5.",
+        "D": "100 is the square of the diameter; the radius is half of 10."
+      },
+      "hints": [
+        "The center of the circle is the midpoint of any diameter.",
+        "The right side of the equation is the square of the radius, not the diameter."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the midpoint (1, 1), the diameter length 10, halve it to get r = 5, and square it."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000015",
+      "correct_answer": "C",
+      "explanation": "For similar solids, areas scale by the square of the linear scale factor k and volumes by its cube. k² = 9/4, so k = 3/2 and the volume ratio is k³ = 27/8. The larger cup holds 160 × 27/8 = 540 milliliters.",
+      "distractor_explanations": {
+        "A": "This scales by the linear factor 3/2 instead of its cube: 160 × 3/2 = 240.",
+        "B": "This scales the volume by the area ratio 9/4: 160 × 9/4 = 360.",
+        "D": "This squares the area ratio, (9/4)² = 81/16, instead of cubing the linear factor: 160 × 81/16 = 810."
+      },
+      "hints": [
+        "Find the ratio of corresponding lengths from the ratio of areas.",
+        "Volume scales by the cube of the length ratio."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Length ratio = √(9/4) = 3/2; volume ratio = (3/2)³ = 27/8; multiply 160 by 27/8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000016",
+      "correct_answer": "D",
+      "explanation": "Use the complement. The number of 3-person committees is C(12, 3) = 220, and the number with no juniors (all seniors) is C(7, 3) = 35. So P(no junior) = 35/220 = 7/44, and P(at least 1 junior) = 1 − 7/44 = 37/44.",
+      "distractor_explanations": {
+        "A": "7/44 is the probability of no juniors, the complement of the event asked about.",
+        "B": "5/12 is the probability that a single randomly chosen member is a junior; it ignores that 3 members are chosen.",
+        "C": "21/44 = 105/220 is the probability of exactly 1 junior, which leaves out committees with 2 or 3 juniors."
+      },
+      "hints": [
+        "'At least 1' is often easiest through its opposite.",
+        "Count the committees that contain no juniors at all."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(at least 1) = 1 − P(none) = 1 − C(7,3)/C(12,3) = 1 − 35/220."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000017",
+      "correct_answer": "B",
+      "explanation": "With 15 values in order, the median is the 8th value. The first 2 values are 0, the next 4 (3rd–6th) are 1, and the next 5 (7th–11th) are 2. The 8th value is 2.",
+      "distractor_explanations": {
+        "A": "1.8 is the mean, (0·2 + 1·4 + 2·5 + 3·3 + 4·1) ÷ 15 = 27 ÷ 15.",
+        "C": "3 is the median of the frequencies 2, 4, 5, 3, 1 rather than of the numbers of books.",
+        "D": "5 is the largest frequency (the number of students who read 2 books), not a number of books."
+      },
+      "hints": [
+        "The median of 15 ordered values is the 8th one.",
+        "Count through the students in order of books read until you reach the 8th student."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Keep a running total of students (2, 6, 11, …) and stop at the row where the total first reaches 8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000018",
+      "correct_answer": "A",
+      "explanation": "Printer P prints 18 ÷ 45 = 0.4 page per second, and printer Q prints 3 ÷ 10 = 0.3 page per second. Together they print 0.7 page per second, so 300 pages take 300 ÷ 0.7 ≈ 428.6 seconds ≈ 7.1 minutes, or 7 minutes.",
+      "distractor_explanations": {
+        "B": "13 is printer P working alone: 300 ÷ 0.4 = 750 seconds = 12.5 minutes, rounded up.",
+        "C": "This averages the two rates (0.35 page per second) instead of adding them: 300 ÷ 0.35 ≈ 857 seconds ≈ 14 minutes.",
+        "D": "17 is printer Q working alone: 300 ÷ 0.3 = 1,000 seconds ≈ 16.7 minutes."
+      },
+      "hints": [
+        "Find each printer's rate in pages per second.",
+        "When machines work at the same time, their rates add."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the rates (0.4 + 0.3 = 0.7 page per second), divide 300 by 0.7, then convert seconds to minutes."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000019",
+      "correct_answer": "A",
+      "explanation": "Multiply the numerator: (6.0)(4.0) × 10^(5 + (−2)) = 24 × 10³ = 2.4 × 10⁴. Divide: 2.4 × 10⁴ ÷ (8.0 × 10¹) = 0.3 × 10³ = 3.0 × 10².",
+      "distractor_explanations": {
+        "B": "This finds 0.3 × 10³ but rewrites it as 3.0 × 10³ without lowering the exponent by 1.",
+        "C": "This adds the denominator's exponent instead of subtracting it: 5 − 2 + 1 = 4.",
+        "D": "This treats 10⁻² as 10²: 5 + 2 − 1 = 6."
+      },
+      "hints": [
+        "Handle the decimal parts and the powers of 10 separately.",
+        "When you divide powers of 10, subtract exponents; then make sure the leading number is between 1 and 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute 6 × 4 ÷ 8 = 3 and 10^(5 − 2 − 1) = 10², giving 3.0 × 10² directly."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000020",
+      "correct_answer": "C",
+      "explanation": "Let a be the number of adult tickets, so 340 − a student tickets were sold. Then 12a + 8(340 − a) = 3,480, so 4a + 2,720 = 3,480, 4a = 760 and a = 190. Check: 190(12) + 150(8) = 2,280 + 1,200 = 3,480.",
+      "distractor_explanations": {
+        "A": "150 is the number of student tickets, not adult tickets.",
+        "B": "170 splits the 340 tickets evenly; it ignores the revenue information.",
+        "D": "290 is 3,480 ÷ 12, which assumes every ticket was an adult ticket."
+      },
+      "hints": [
+        "Use one variable for adult tickets and write student tickets in terms of it.",
+        "Write an equation for the total money collected."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 190 adults: 190 × 12 + 150 × 8 = 3,480. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000021",
+      "correct_answer": "A",
+      "explanation": "f(3) = 7. To use that value in g, the input of f must be 3: x + 2 = 3, so x = 1. Then g(1) = f(3) − 5 = 7 − 5 = 2. The point (1, 2) is on the graph of g. (The graph of g is the graph of f shifted 2 units left and 5 units down.)",
+      "distractor_explanations": {
+        "B": "This shifts the point 2 units right instead of left; f(x + 2) moves the graph left.",
+        "C": "This shifts up 5 instead of down 5.",
+        "D": "This reverses both shifts."
+      },
+      "hints": [
+        "Which input x makes x + 2 equal to 3?",
+        "Then subtract 5 from the known output."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test each choice's x-value in g: only x = 1 gives f(3), and f(3) − 5 = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000022",
+      "correct_answer": "B",
+      "explanation": "Points (0, 5) and (4, 5) have equal y-values, so the axis of symmetry is x = 2 and the vertex is (2, 9). Write f(x) = a(x − 2)² + 9. Using (0, 5): 4a + 9 = 5, so a = −1. Then f(5) = −(5 − 2)² + 9 = −9 + 9 = 0.",
+      "distractor_explanations": {
+        "A": "This uses a = −1 but takes the vertex height as 5 instead of 9: −(3)² + 5 = −4.",
+        "C": "This puts the vertex at x = 4 instead of halfway between the two points; then a = −1/4 and f(5) = 8.75.",
+        "D": "This uses a = +1, but a maximum value requires the parabola to open downward."
+      },
+      "hints": [
+        "Two points with the same y-value are symmetric about the axis of the parabola.",
+        "Write f in vertex form, then use one of the given points to find a."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch: symmetric points at x = 0 and x = 4 put the vertex at (2, 9). x = 5 is 3 units from the axis, and f(−1) = f(5) by symmetry."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000023",
+      "correct_answer": "C",
+      "explanation": "The angles sum to 180°, so ∠P + ∠Q = 140°. With ∠P = ∠Q + 20°: 2∠Q + 20° = 140°, so ∠Q = 60° and ∠P = 80°.",
+      "distractor_explanations": {
+        "A": "60° is the measure of ∠Q, not ∠P.",
+        "B": "This splits 140° evenly, ignoring that ∠P is 20° larger.",
+        "D": "This adds 20° to the correct ∠P a second time."
+      },
+      "hints": [
+        "The three angles of a triangle add to 180°.",
+        "Write ∠P in terms of ∠Q."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "If ∠P = 80°, then ∠Q = 60° and 80 + 60 + 40 = 180. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000024",
+      "correct_answer": "B",
+      "explanation": "Each side is 36 ÷ 3 = 12 cm. The altitude splits the triangle into two 30°-60°-90° triangles, so its length is 6√3 cm. Area = (1/2)(12)(6√3) = 36√3 square centimeters (about 62.4).",
+      "distractor_explanations": {
+        "A": "36 is the perimeter, not the area.",
+        "C": "This multiplies base by height without the factor 1/2: 12 × 6√3 = 72√3.",
+        "D": "144 is the area of a square with side 12, not of the triangle."
+      },
+      "hints": [
+        "Find the side length first.",
+        "Draw an altitude; it creates two 30°-60°-90° triangles."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the altitude: half the base is 6, so the height is 6√3 and the area is (1/2)(12)(6√3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000025",
+      "correct_answer": "C",
+      "explanation": "The selection is only among the 114 students who prefer online tutoring. Of those, 66 are seniors. The probability is 66/114 = 11/19.",
+      "distractor_explanations": {
+        "A": "33/100 = 66/200 divides by all 200 students instead of only those who prefer online tutoring.",
+        "B": "57/100 = 114/200 is the probability that a randomly chosen student prefers online tutoring.",
+        "D": "33/50 = 66/100 is the fraction of seniors who prefer online tutoring; the condition is reversed."
+      },
+      "hints": [
+        "Which group of students is the selection made from?",
+        "Use that group's total as the denominator."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The denominator must be 114, the number who prefer online. Only 11/19 = 66/114 has that denominator in lowest terms."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000026",
+      "correct_answer": "A",
+      "explanation": "Brand A costs $4.80 ÷ 24 = $0.20 = 20 cents per ounce. Brand B costs $5.76 ÷ 32 = $0.18 = 18 cents per ounce. Brand B costs 20 − 18 = 2 cents less per ounce.",
+      "distractor_explanations": {
+        "B": "18 cents is Brand B's price per ounce, not the difference.",
+        "C": "20 cents is Brand A's price per ounce, not the difference.",
+        "D": "96 cents is the difference in jar prices, which ignores the different jar sizes."
+      },
+      "hints": [
+        "Find each brand's cost for one ounce.",
+        "Then compare the two unit prices."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide each price by its ounces (20¢ and 18¢), then subtract."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000027",
+      "correct_answer": "C",
+      "explanation": "The sale price is 85% of the original price: 0.85p = 68, so p = 68 ÷ 0.85 = $80.00. Check: 15% of $80 is $12, and $80 − $12 = $68.",
+      "distractor_explanations": {
+        "A": "$57.80 takes 15% off the sale price, 68 × 0.85, instead of undoing the discount.",
+        "B": "$78.20 adds 15% of $68 to $68; the discount was 15% of the original, larger price.",
+        "D": "$83.00 adds 15 dollars instead of 15 percent."
+      },
+      "hints": [
+        "What percent of the original price is the sale price?",
+        "Set that percent of the unknown original equal to $68."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Take 15% off each choice; only $80.00 becomes $68.00."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000028",
+      "correct_answer": "B",
+      "explanation": "Let x be the liters of 40% solution added. Acid before mixing: 0.10(6) + 0.40x. Acid in the mixture: 0.20(6 + x). So 0.6 + 0.4x = 1.2 + 0.2x, 0.2x = 0.6 and x = 3. Check: 0.6 + 1.2 = 1.8 liters of acid in 9 liters is 20%.",
+      "distractor_explanations": {
+        "A": "This sets the acid equal to 20% of only the original 6 liters, 0.6 + 0.4x = 1.2, forgetting that the added liquid increases the total volume.",
+        "C": "This assumes equal amounts of each solution are needed; 6 liters of each gives 25% acid, not 20%.",
+        "D": "This inverts the balance ratio: the 10% and 40% solutions differ from 20% by 10 and 20 points, so the 40% amount is half of 6, not double."
+      },
+      "hints": [
+        "Write the amount of pure acid before and after mixing.",
+        "The final volume is 6 + x liters, not 6."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 3 liters: 0.6 + 1.2 = 1.8 liters of acid in 9 liters is 20%. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000029",
+      "correct_answer": "B",
+      "explanation": "2u = ⟨6, −8⟩, so 2u − v = ⟨6 − (−1), −8 − 2⟩ = ⟨7, −10⟩. Its magnitude is √(7² + (−10)²) = √(49 + 100) = √149.",
+      "distractor_explanations": {
+        "A": "This adds v instead of subtracting it: 2u + v = ⟨5, −6⟩, with magnitude √61.",
+        "C": "This subtracts the magnitudes, |2u| − |v| = 10 − √5; magnitudes of vectors do not subtract that way.",
+        "D": "This adds the absolute values of the components, 7 + 10, instead of using the Pythagorean theorem."
+      },
+      "hints": [
+        "Find the components of 2u − v first.",
+        "The magnitude of ⟨a, b⟩ is √(a² + b²)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute ⟨7, −10⟩ component by component, then apply √(a² + b²)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000030",
+      "correct_answer": "D",
+      "explanation": "Cross-multiply: 5(x − 4) = 3(x + 2), so 5x − 20 = 3x + 6. Then 2x = 26 and x = 13. Check: (13 − 4)/3 = 3 and (13 + 2)/5 = 3.",
+      "distractor_explanations": {
+        "A": "This multiplies only the x-term by 5, giving 5x − 4 = 3x + 6.",
+        "B": "This gives 3(x + 2) the value 3x − 6, a sign error: 5x − 20 = 3x − 6 leads to x = 7.",
+        "C": "This multiplies only the x-term by 3 on the right, giving 5x − 20 = 3x + 2."
+      },
+      "hints": [
+        "Clear the fractions by cross-multiplying.",
+        "Distribute to every term inside each set of parentheses."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 13: both sides equal 3. The other choices give unequal sides."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000031",
+      "correct_answer": "A",
+      "explanation": "Square both sides: 2x + 7 = x² + 4x + 4, so x² + 2x − 3 = 0 and (x + 3)(x − 1) = 0, giving x = −3 or x = 1. Check in the original equation: x = 1 gives √9 = 3 = 1 + 2 (true); x = −3 gives √1 = 1 but −3 + 2 = −1 (false). Only x = 1 is a solution.",
+      "distractor_explanations": {
+        "B": "This keeps the extraneous value and discards the real solution; x = −3 makes the right side negative.",
+        "C": "These are the solutions of the squared equation; x = −3 fails in the original because a square root cannot equal −1.",
+        "D": "These are the roots with the factor signs reversed: (x + 3)(x − 1) = 0 gives −3 and 1, not 3 and −1."
+      },
+      "hints": [
+        "Square both sides, remembering that (x + 2)² has three terms.",
+        "Squaring can create solutions that don't work; check each one in the original equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 1 and −3 in the original equation: 1 works, −3 gives 1 = −1, so the answer is {1}."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000032",
+      "correct_answer": "A",
+      "explanation": "The expression under the square root must be nonnegative: x − 3 ≥ 0, so x ≥ 3. The value 2 is less than 3, so f(2) = √(−1) + 1 is not a real number.",
+      "distractor_explanations": {
+        "B": "x = 3 makes the radicand 0, and √0 = 0 is real, so 3 is in the domain.",
+        "C": "x = 4 gives √1 + 1 = 2, a real number.",
+        "D": "x = 7 gives √4 + 1 = 3, a real number."
+      },
+      "hints": [
+        "What values can go under a square root and still give a real number?",
+        "Test each choice in x − 3."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute each choice into x − 3 and look for a negative result."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000033",
+      "correct_answer": "B",
+      "explanation": "For y = a sin(bx) + d, the period is 2π/|b|. Here b = 4, so the period is 2π/4 = π/2. The 3 changes the amplitude and the 1 shifts the graph up; neither affects the period.",
+      "distractor_explanations": {
+        "A": "This divides π, not 2π, by 4.",
+        "C": "2π is the period of sin x; it ignores the factor 4 inside the function.",
+        "D": "This multiplies 2π by 4 instead of dividing; a larger b makes the period shorter."
+      },
+      "hints": [
+        "Only the number multiplying x inside the sine affects the period.",
+        "The basic sine function has period 2π."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "A coefficient greater than 1 compresses the graph, so the period must be less than 2π; then compute 2π/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000034",
+      "correct_answer": "D",
+      "explanation": "Solving 3x − 4y = 8 for y gives y = (3/4)x − 2, with slope 3/4. A perpendicular slope is −4/3. Line ℓ: y − 2 = −(4/3)(x − 1). At x = 0, y = 2 + 4/3 = 10/3, so the intercept is (0, 10/3).",
+      "distractor_explanations": {
+        "A": "(0, −2) is the y-intercept of the given line 3x − 4y = 8, not of line ℓ.",
+        "B": "This uses slope −4/3 but moves from x = 1 to x = 0 in the wrong direction: 2 − 4/3 = 2/3.",
+        "C": "This uses the parallel slope 3/4 instead of the perpendicular slope: 2 − 3/4 = 5/4."
+      },
+      "hints": [
+        "Rewrite the given line in slope-intercept form to read its slope.",
+        "Perpendicular slopes are negative reciprocals."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "From (1, 2), moving 1 unit left on a line of slope −4/3 raises y by 4/3, reaching (0, 10/3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000035",
+      "correct_answer": "C",
+      "explanation": "The square's diagonal is a diameter of the circle, 12 inches. A square with diagonal 12 has area (12²)/2 = 72 square inches (side 6√2). The circle's area is π(6²) = 36π. The region between them has area 36π − 72 (about 41.1 square inches).",
+      "distractor_explanations": {
+        "A": "This uses a square with side 12, the diameter; that square would surround the circle, and 36π − 144 is negative.",
+        "B": "This uses the radius, 6, as the square's side length; the diagonal, not the side, equals the diameter.",
+        "D": "144 − 36π is the area between a circle and a square drawn around it, the reverse arrangement."
+      },
+      "hints": [
+        "Which segment of the square has the same length as the circle's diameter?",
+        "The area of a square equals half the square of its diagonal."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the square's diagonal through the center: it is 12, so the square's area is 12² ÷ 2 = 72."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000036",
+      "correct_answer": "B",
+      "explanation": "There are 5 choices for the first (odd) digit and 5 choices for the last (even) digit; because one is odd and the other even, they can never be the same digit. That uses 2 of the 10 digits, leaving 8 for the second position and 7 for the third. Total: 5 × 8 × 7 × 5 = 1,400.",
+      "distractor_explanations": {
+        "A": "This removes too many digits from the middle positions (5 × 7 × 6 × 5 = 1,050), as if 3 digits were already used before the second position.",
+        "C": "This allows the two middle digits to repeat each other: 5 × 8 × 8 × 5 = 1,600.",
+        "D": "5,040 = 10 × 9 × 8 × 7 counts all codes without repeated digits, ignoring the odd and even conditions."
+      },
+      "hints": [
+        "Fill the restricted positions (first and last) before the others.",
+        "After the first and last digits are chosen, how many digits remain for the middle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw four blanks; fill first (5 ways) and last (5 ways), then the middle two from the 8 remaining digits (8 × 7)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000037",
+      "correct_answer": "B",
+      "explanation": "Each inch represents 20 ÷ 1.5 = 13.3… miles, so 4.2 inches represent 4.2 × 20 ÷ 1.5 = 56 miles. Equivalently, 1.5/20 = 4.2/d gives d = 56.",
+      "distractor_explanations": {
+        "A": "This inverts the ratio: 1.5 × 20 ÷ 4.2 ≈ 7.1.",
+        "C": "This treats each map inch as 20 miles: 4.2 × 20 = 84.",
+        "D": "This multiplies by 1.5 instead of dividing: 4.2 × 20 × 1.5 = 126."
+      },
+      "hints": [
+        "Set up a proportion with inches in both numerators.",
+        "How many miles does 1 inch represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 1.5/20 = 4.2/d and cross-multiply: 1.5d = 84, d = 56."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000038",
+      "correct_answer": "D",
+      "explanation": "Surface area = 2πr² + 2πrh = 2π(16) + 2π(4)(9) = 32π + 72π = 104π ≈ 326.7 square feet. 326.7 ÷ 40 ≈ 8.17 quarts. Eight quarts cover only 320 square feet, so 9 quarts must be bought.",
+      "distractor_explanations": {
+        "A": "This paints only the curved side: 72π ≈ 226.2 square feet needs 5.65, rounded up to 6 quarts.",
+        "B": "This includes the side and only one circular end: 88π ≈ 276.5 square feet needs about 6.9, or 7 quarts.",
+        "C": "This rounds 8.17 down; 8 quarts cover only 320 square feet, less than the 326.7 needed."
+      },
+      "hints": [
+        "The surface has three parts: two circles and the curved side.",
+        "If the paint needed is not a whole number of quarts, round in the direction that still covers everything."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute 2πr² + 2πrh = 104π ≈ 326.7, divide by 40 and round up."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000039",
+      "correct_answer": "B",
+      "explanation": "As decimals, 3/8 = 0.375 and 5/12 ≈ 0.417. Of the choices, 1/3 ≈ 0.333, 2/5 = 0.4, 3/7 ≈ 0.429 and 1/2 = 0.5. Only 2/5 = 0.4 lies between 0.375 and 0.417.",
+      "distractor_explanations": {
+        "A": "1/3 ≈ 0.333 is less than 3/8 = 0.375.",
+        "C": "3/7 ≈ 0.429 is greater than 5/12 ≈ 0.417; the two are close, so compare decimals carefully.",
+        "D": "1/2 = 0.5 is greater than 5/12."
+      },
+      "hints": [
+        "Convert each fraction to a decimal.",
+        "Compare with 0.375 and about 0.417."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Convert to decimals; 1/3 is too small and 3/7 and 1/2 are too large."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000040",
+      "correct_answer": "C",
+      "explanation": "Both shuttles leave together after a number of minutes that is a multiple of both 12 and 18. The least common multiple is 36 (12 × 3 = 18 × 2 = 36). So they next leave together at 7:36 a.m.",
+      "distractor_explanations": {
+        "A": "This uses the difference 18 − 12 = 6 minutes, which is not a multiple of either interval.",
+        "B": "This adds the intervals, 12 + 18 = 30 minutes; 30 is not a multiple of 12 or 18.",
+        "D": "This multiplies the intervals, 12 × 18 = 216 minutes; that is a common multiple, but not the least one."
+      },
+      "hints": [
+        "List the departure times of each shuttle after 7:00.",
+        "Look for the first time that appears on both lists."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "List multiples: 12, 24, 36… and 18, 36…; the first match is 36 minutes."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000041",
+      "correct_answer": "D",
+      "explanation": "Write both sides as powers of 2: 4^(x + 1) = 2^(2x + 2) and 8^(x − 1) = 2^(3x − 3). Equal powers of the same base have equal exponents: 2x + 2 = 3x − 3, so x = 5. Check: 4⁶ = 4,096 and 8⁴ = 4,096.",
+      "distractor_explanations": {
+        "A": "This writes 8^(x − 1) as 2^(3x + 3), dropping the negative sign: 2x + 2 = 3x + 3 gives x = −1.",
+        "B": "This multiplies only x by the new exponent: 2x + 1 = 3x − 1 gives x = 2.",
+        "C": "This multiplies the bases by the exponents instead of rewriting the bases: 4(x + 1) = 8(x − 1) gives x = 3."
+      },
+      "hints": [
+        "Both 4 and 8 are powers of the same number.",
+        "When a power is raised to a power, multiply the exponent by every term in the parentheses."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try x = 5: 4⁶ = 4,096 and 8⁴ = 4,096. The smaller choices give unequal sides."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000042",
+      "correct_answer": "B",
+      "explanation": "Average rate of change = (f(5) − f(1)) / (5 − 1). f(5) = 25 − 15 = 10 and f(1) = 1 − 3 = −2. So the rate is (10 − (−2)) / 4 = 12/4 = 3.",
+      "distractor_explanations": {
+        "A": "This adds the outputs instead of subtracting them: (10 + (−2)) / 4 = 2.",
+        "C": "7 is the slope of the curve at x = 5 alone (the rate of change at a single point), not the average over the interval.",
+        "D": "12 is the change in f(x); it still needs to be divided by the change in x, 4."
+      },
+      "hints": [
+        "Average rate of change is the slope between two points on the graph.",
+        "Find f(1) and f(5) first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute the points (1, −2) and (5, 10), then the slope 12/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000043",
+      "correct_answer": "A",
+      "explanation": "log_b (18/b) = log_b 18 − log_b b = log_b (2 · 3²) − 1 = log_b 2 + 2 log_b 3 − 1 = p + 2q − 1.",
+      "distractor_explanations": {
+        "B": "This treats log_b 9 as (log_b 3)²; the power rule gives 2 log_b 3, not its square.",
+        "C": "This multiplies the logarithms of the factors; the log of a product is a sum of logs.",
+        "D": "This subtracts b itself; log_b b equals 1, not b."
+      },
+      "hints": [
+        "Write 18 as a product of powers of 2 and 3.",
+        "Use the quotient, product and power rules one at a time; what is log_b b?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let b = 2: p = 1, q = log₂ 3 ≈ 1.585, and log₂ 9 ≈ 3.17. Choice A gives 1 + 3.17 − 1 = 3.17. Only A matches."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000044",
+      "correct_answer": "B",
+      "explanation": "Cylinder: πr²h = π(25)(12) = 300π. Hemisphere: half of (4/3)π(125) = (2/3)(125)π = 250π/3. Total: 300π + 250π/3 = 900π/3 + 250π/3 = 1150π/3 (about 1,204 cubic meters).",
+      "distractor_explanations": {
+        "A": "300π is the cylinder alone; the hemisphere was left out.",
+        "C": "This uses πr³ = 125π for the hemisphere instead of (2/3)πr³.",
+        "D": "This adds a whole sphere, 500π/3, instead of half a sphere."
+      },
+      "hints": [
+        "Find the two volumes separately, then add.",
+        "A hemisphere is half of a sphere."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "300π + (1/2)(4/3)π(5³) = 300π + 250π/3 = 1150π/3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000045",
+      "correct_answer": "C",
+      "explanation": "Because DE ∥ BC, triangle ADE is similar to triangle ABC with scale factor AD/AB = 6/10 = 3/5. Areas scale by (3/5)² = 9/25, so the area of ABC is 54 × 25/9 = 150. The quadrilateral DBCE is ABC minus ADE: 150 − 54 = 96.",
+      "distractor_explanations": {
+        "A": "This uses the ratio DB/AD = 4/6 and squares it: 54 × (4/6)² = 24. DB is not a side of either similar triangle.",
+        "B": "This scales area by the linear ratio 10/6 (area of ABC = 90) and subtracts 54.",
+        "D": "150 is the area of the whole triangle ABC; the area of ADE still has to be subtracted."
+      },
+      "hints": [
+        "Which two triangles are similar, and what is the ratio of their corresponding sides?",
+        "Areas of similar figures scale by the square of the side ratio."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle with DE across it; AB = 10, so ratio 3/5, area ratio 9/25; find ABC, then subtract ADE."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000046",
+      "correct_answer": "A",
+      "explanation": "Expected prize = 10(0.1) + 4(0.2) + 0(0.7) = 1.00 + 0.80 = $1.80. Subtract the $2 cost: 1.80 − 2.00 = −$0.20 per play, an expected loss of 20 cents.",
+      "distractor_explanations": {
+        "B": "$1.80 is the expected prize; the $2 cost has not been subtracted.",
+        "C": "This averages the three outcomes $10, $4 and $0 equally and subtracts $2, ignoring the probabilities.",
+        "D": "This adds the $2 cost to the expected prize instead of subtracting it."
+      },
+      "hints": [
+        "Multiply each prize by its probability and add.",
+        "Net gain means prizes minus what the player pays."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "E = Σ(value × probability) − cost = 1.80 − 2.00."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000047",
+      "correct_answer": "C",
+      "explanation": "Standard deviation measures how far the values typically are from the mean. All four sets have mean 5. In set C, two values are 4 units from the mean; in the other sets the values are at most 2 units away. Set C is the most spread out.",
+      "distractor_explanations": {
+        "A": "Every value equals the mean, so the standard deviation is 0, the least possible.",
+        "B": "The values are at most 1 unit from the mean, so this set has little spread.",
+        "D": "The values are at most 2 units from the mean, less spread than set C."
+      },
+      "hints": [
+        "Standard deviation measures spread around the mean.",
+        "Which set has values farthest from 5?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "No calculation needed: compare how far each set's values are from 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000048",
+      "correct_answer": "B",
+      "explanation": "Highway: 300 ÷ 30 = 10 gallons. City: 120 ÷ 20 = 6 gallons. Total: 16 gallons × $3.60 = $57.60.",
+      "distractor_explanations": {
+        "A": "This uses the highway rate for the whole trip: 420 ÷ 30 = 14 gallons, costing $50.40.",
+        "C": "This averages the two mileage rates (25 miles per gallon): 420 ÷ 25 = 16.8 gallons, costing $60.48. The rates apply to different distances.",
+        "D": "This uses the city rate for the whole trip: 420 ÷ 20 = 21 gallons, costing $75.60."
+      },
+      "hints": [
+        "Find the gallons used on each part of the trip separately.",
+        "How many miles were driven in cities?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Gallons = 300/30 + 120/20 = 16; multiply by $3.60."
+      }
+    }
+  ]
+}

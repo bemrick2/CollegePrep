@@ -1,0 +1,475 @@
+{
+  "bank": "act_math",
+  "batch": 2,
+  "plan": "Batch 1 covered every category once or twice. Batch 2 adds a second Statistics & Probability item and new subskills (complex numbers, quadratic roots, rational equations, exponential models, circle equations, similar solids, dependent probability, median from frequency table, combined work rates); 2 easy / 5 medium / 3 hard to move the bank toward 25/50/25.",
+  "candidates": [
+    {
+      "cand": "B002-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Complex number arithmetic",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "For i = √(−1), which of the following is equal to (3 − 2i)(1 + 4i) ?",
+      "choices": {
+        "A": "−5 + 10i",
+        "B": "11 + 10i",
+        "C": "11 + 14i",
+        "D": "−5 + 14i"
+      },
+      "answer": "B",
+      "explanation": "Distribute: 3(1) + 3(4i) − 2i(1) − 2i(4i) = 3 + 12i − 2i − 8i². Since i² = −1, −8i² = 8. The product is (3 + 8) + (12i − 2i) = 11 + 10i.",
+      "distractors": {
+        "A": {
+          "rationale": "This uses i² = 1, so −8i² becomes −8 and the real part is 3 − 8 = −5.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "This adds 2i instead of subtracting it, giving 12i + 2i = 14i.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "This makes both errors: i² = 1 for the real part and +2i for the imaginary part.",
+          "trap": "sign_error"
+        }
+      },
+      "hints": [
+        "Multiply every term in the first factor by every term in the second.",
+        "Replace i² with its value before combining real parts."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "FOIL the product, replace i² with −1, then combine real and imaginary parts separately."
+      },
+      "remember": "i² = −1, so −8i² = +8.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B002-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Quadratic equations: solutions",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "What is the sum of the two solutions of the equation 2x² − 7x − 15 = 0 ?",
+      "choices": {
+        "A": "−15/2",
+        "B": "−7/2",
+        "C": "7/2",
+        "D": "13/2"
+      },
+      "answer": "C",
+      "explanation": "Factor: 2x² − 7x − 15 = (2x + 3)(x − 5), so the solutions are x = −3/2 and x = 5. Their sum is 5 − 3/2 = 7/2. (Equivalently, the sum of the roots of ax² + bx + c = 0 is −b/a = 7/2.)",
+      "distractors": {
+        "A": {
+          "rationale": "−15/2 is the product of the solutions (c/a), not their sum.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "This uses b/a instead of −b/a, flipping the sign of the sum.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "This takes the first root as +3/2 instead of −3/2: 5 + 3/2 = 13/2.",
+          "trap": "sign_error"
+        }
+      },
+      "hints": [
+        "Try to factor 2x² − 7x − 15 into two binomials.",
+        "Set each factor equal to zero, then add the two values."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor to (2x + 3)(x − 5) = 0, or use the shortcut that the roots sum to −b/a."
+      },
+      "remember": "For ax² + bx + c = 0, the roots sum to −b/a.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "taxonomy_note": "nonlinear algebra; app taxonomy has no quadratic-algebra key, so mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B002-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Rational equations and extraneous solutions",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "hard",
+      "stem": "What is the solution set of the equation x/(x − 2) + 1 = 2/(x − 2) ?",
+      "choices": {
+        "A": "{0}",
+        "B": "{1}",
+        "C": "{2}",
+        "D": "The empty set"
+      },
+      "answer": "D",
+      "explanation": "Multiply both sides by (x − 2), which requires x ≠ 2: x + (x − 2) = 2, so 2x = 4 and x = 2. But x = 2 makes the denominators zero, so it is extraneous. The equation has no solution, and the solution set is empty.",
+      "distractors": {
+        "A": {
+          "rationale": "This distributes the 1 as x + 2 instead of x − 2, giving 2x + 2 = 2. Checking x = 0 gives 1 on the left and −1 on the right.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "This forgets to multiply the 1 by (x − 2), giving x + 1 = 2. Checking x = 1 gives 0 on the left and −2 on the right.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "x = 2 comes from the cleared equation, but it makes the original denominators zero, so it must be rejected.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Clear the denominators, but note which value of x is not allowed.",
+        "Check any value you find in the original equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 0, 1 and 2 in the original equation: 0 and 1 fail, and 2 is undefined, so only the empty set remains."
+      },
+      "remember": "Always check rational-equation solutions against the denominators.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "taxonomy_note": "rational equation reduces to linear; mapped to act_algebra_linear"
+      }
+    },
+    {
+      "cand": "B002-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Linear function from a table",
+      "repo_skill_key": "act_functions",
+      "difficulty": "easy",
+      "stem": "The table below shows four values of a linear function f.\nx: 1, 2, 3, 4\nf(x): 7, 10, 13, 16\nWhich of the following defines f ?",
+      "choices": {
+        "A": "f(x) = 3x + 4",
+        "B": "f(x) = 4x + 3",
+        "C": "f(x) = x + 6",
+        "D": "f(x) = 3x + 7"
+      },
+      "answer": "A",
+      "explanation": "Each time x increases by 1, f(x) increases by 3, so the slope is 3. Then f(1) = 3(1) + b = 7 gives b = 4. So f(x) = 3x + 4. Check: f(4) = 12 + 4 = 16.",
+      "distractors": {
+        "B": {
+          "rationale": "This swaps the slope and the intercept; f(1) = 7 works, but f(2) = 11, not 10.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This fits only the first pair (1, 7); f(2) would be 8, not 10.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This uses f(1) = 7 as the y-intercept, but the y-intercept is f(0) = 4.",
+          "trap": "misread_graph"
+        }
+      },
+      "hints": [
+        "How much does f(x) change each time x goes up by 1?",
+        "The y-intercept is the value of f when x = 0, not when x = 1."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test the pair (2, 10) in each choice; only one choice also gives 13 at x = 3."
+      },
+      "remember": "Slope is the constant change; the intercept is the value at x = 0.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "table given as two labeled rows in text"
+      }
+    },
+    {
+      "cand": "B002-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential growth models and logarithms",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The number of registered users of a new app t weeks after launch is modeled by U(t) = 1,200(2)^(t/5). According to the model, to the nearest tenth of a week, how many weeks after launch will the app have 60,000 registered users?",
+      "choices": {
+        "A": "5.6",
+        "B": "19.6",
+        "C": "28.2",
+        "D": "250.0"
+      },
+      "answer": "C",
+      "explanation": "Set 1,200(2)^(t/5) = 60,000, so 2^(t/5) = 50. Then t/5 = log₂ 50 = ln 50 / ln 2 ≈ 5.644, and t ≈ 5(5.644) ≈ 28.2 weeks.",
+      "distractors": {
+        "A": {
+          "rationale": "5.6 is log₂ 50, which equals t/5 (the number of 5-week doubling periods), not t.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This computes 5 · ln 50 ≈ 19.6 without dividing by ln 2.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This treats the growth as linear, multiplying the growth factor 50 by 5.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Divide both sides by 1,200 first.",
+        "Use a logarithm to bring the exponent t/5 down, then solve for t."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "2^5 = 32 and 2^6 = 64, so t/5 is between 5 and 6 and t is between 25 and 30. Only 28.2 fits."
+      },
+      "remember": "To solve b^x = k, use x = log k ÷ log b.",
+      "expected_time_seconds": 90,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "revision_note": "context and numbers rewritten before review: first draft resembled an app fixture (bacteria starting at 500)",
+        "units_rounding_domain_stated": "nearest tenth; 28.22 not near a boundary"
+      }
+    },
+    {
+      "cand": "B002-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Equation of a circle",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "In the standard (x,y) coordinate plane, the endpoints of a diameter of a circle are (−3, 4) and (5, −2). Which of the following is an equation of the circle?",
+      "choices": {
+        "A": "(x + 1)² + (y + 1)² = 25",
+        "B": "(x − 1)² + (y − 1)² = 5",
+        "C": "(x − 1)² + (y − 1)² = 25",
+        "D": "(x − 1)² + (y − 1)² = 100"
+      },
+      "answer": "C",
+      "explanation": "The center is the midpoint of the diameter: ((−3 + 5)/2, (4 + (−2))/2) = (1, 1). The diameter's length is √((5 − (−3))² + (−2 − 4)²) = √(64 + 36) = 10, so the radius is 5 and r² = 25. The equation is (x − 1)² + (y − 1)² = 25.",
+      "distractors": {
+        "A": {
+          "rationale": "The center (1, 1) requires (x − 1) and (y − 1); this equation has center (−1, −1).",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "The right side must be r² = 25, not r = 5.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "100 is the square of the diameter; the radius is half of 10.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "The center of the circle is the midpoint of any diameter.",
+        "The right side of the equation is the square of the radius, not the diameter."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the midpoint (1, 1), the diameter length 10, halve it to get r = 5, and square it."
+      },
+      "remember": "Circle: (x − h)² + (y − k)² = r², with r half the diameter.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B002-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Similar solids: area and volume ratios",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "Two cylindrical cups are similar in shape. The total surface area of the larger cup is 9/4 times the total surface area of the smaller cup. If the smaller cup holds 160 milliliters, how many milliliters does the larger cup hold?",
+      "choices": {
+        "A": "240",
+        "B": "360",
+        "C": "540",
+        "D": "810"
+      },
+      "answer": "C",
+      "explanation": "For similar solids, areas scale by the square of the linear scale factor k and volumes by its cube. k² = 9/4, so k = 3/2 and the volume ratio is k³ = 27/8. The larger cup holds 160 × 27/8 = 540 milliliters.",
+      "distractors": {
+        "A": {
+          "rationale": "This scales by the linear factor 3/2 instead of its cube: 160 × 3/2 = 240.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This scales the volume by the area ratio 9/4: 160 × 9/4 = 360.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This squares the area ratio, (9/4)² = 81/16, instead of cubing the linear factor: 160 × 81/16 = 810.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the ratio of corresponding lengths from the ratio of areas.",
+        "Volume scales by the cube of the length ratio."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Length ratio = √(9/4) = 3/2; volume ratio = (3/2)³ = 27/8; multiply 160 by 27/8."
+      },
+      "remember": "Similar solids: lengths k, areas k², volumes k³.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B002-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of 'at least one' with combinations",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "medium",
+      "stem": "A club has 5 juniors and 7 seniors. Three members of the club are chosen at random to form a committee. What is the probability that the committee includes at least 1 junior?",
+      "choices": {
+        "A": "7/44",
+        "B": "5/12",
+        "C": "21/44",
+        "D": "37/44"
+      },
+      "answer": "D",
+      "explanation": "Use the complement. The number of 3-person committees is C(12, 3) = 220, and the number with no juniors (all seniors) is C(7, 3) = 35. So P(no junior) = 35/220 = 7/44, and P(at least 1 junior) = 1 − 7/44 = 37/44.",
+      "distractors": {
+        "A": {
+          "rationale": "7/44 is the probability of no juniors, the complement of the event asked about.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "5/12 is the probability that a single randomly chosen member is a junior; it ignores that 3 members are chosen.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "21/44 = 105/220 is the probability of exactly 1 junior, which leaves out committees with 2 or 3 juniors.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "'At least 1' is often easiest through its opposite.",
+        "Count the committees that contain no juniors at all."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(at least 1) = 1 − P(none) = 1 − C(7,3)/C(12,3) = 1 − 35/220."
+      },
+      "remember": "At least one = 1 − probability of none.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "revision_note": "rewritten before review: first draft (socks drawn without replacement) resembled an app fixture"
+      }
+    },
+    {
+      "cand": "B002-09",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Median from a frequency table",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "easy",
+      "stem": "Fifteen students reported how many books they read over the summer. The results are shown below.\nNumber of books: 0, 1, 2, 3, 4\nNumber of students: 2, 4, 5, 3, 1\nWhat is the median number of books read by these 15 students?",
+      "choices": {
+        "A": "1.8",
+        "B": "2",
+        "C": "3",
+        "D": "5"
+      },
+      "answer": "B",
+      "explanation": "With 15 values in order, the median is the 8th value. The first 2 values are 0, the next 4 (3rd–6th) are 1, and the next 5 (7th–11th) are 2. The 8th value is 2.",
+      "distractors": {
+        "A": {
+          "rationale": "1.8 is the mean, (0·2 + 1·4 + 2·5 + 3·3 + 4·1) ÷ 15 = 27 ÷ 15.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "3 is the median of the frequencies 2, 4, 5, 3, 1 rather than of the numbers of books.",
+          "trap": "misread_graph"
+        },
+        "D": {
+          "rationale": "5 is the largest frequency (the number of students who read 2 books), not a number of books.",
+          "trap": "misread_graph"
+        }
+      },
+      "hints": [
+        "The median of 15 ordered values is the 8th one.",
+        "Count through the students in order of books read until you reach the 8th student."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Keep a running total of students (2, 6, 11, …) and stop at the row where the total first reaches 8."
+      },
+      "remember": "Median from a table: use cumulative counts.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "frequency table given as labeled rows"
+      }
+    },
+    {
+      "cand": "B002-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Combined work rates",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "Printer P prints 18 pages every 45 seconds, and printer Q prints 3 pages every 10 seconds. Working at the same time at these constant rates, about how many minutes will the two printers take to print a total of 300 pages? (Round to the nearest minute.)",
+      "choices": {
+        "A": "7",
+        "B": "13",
+        "C": "14",
+        "D": "17"
+      },
+      "answer": "A",
+      "explanation": "Printer P prints 18 ÷ 45 = 0.4 page per second, and printer Q prints 3 ÷ 10 = 0.3 page per second. Together they print 0.7 page per second, so 300 pages take 300 ÷ 0.7 ≈ 428.6 seconds ≈ 7.1 minutes, or 7 minutes.",
+      "distractors": {
+        "B": {
+          "rationale": "13 is printer P working alone: 300 ÷ 0.4 = 750 seconds = 12.5 minutes, rounded up.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This averages the two rates (0.35 page per second) instead of adding them: 300 ÷ 0.35 ≈ 857 seconds ≈ 14 minutes.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "17 is printer Q working alone: 300 ÷ 0.3 = 1,000 seconds ≈ 16.7 minutes.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Find each printer's rate in pages per second.",
+        "When machines work at the same time, their rates add."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the rates (0.4 + 0.3 = 0.7 page per second), divide 300 by 0.7, then convert seconds to minutes."
+      },
+      "remember": "Working together, add rates, not times.",
+      "expected_time_seconds": 75,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "units_rounding_domain_stated": "nearest minute; 7.14 is not near a boundary"
+      }
+    }
+  ]
+}

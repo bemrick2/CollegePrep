@@ -1,0 +1,279 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "updated_at": "2026-10-26T17:49:23+00:00",
+  "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
+  "id_prefixes": {
+    "act_math": "CLD-ACT-M-",
+    "act_english": "CLD-ACT-E-",
+    "act_reading": "CLD-ACT-R-",
+    "sat_reading_writing": "CLD-SAT-RW-"
+  },
+  "targets": {
+    "act_math": 2000,
+    "verbal_total": 2000
+  },
+  "accepted_by_section": {
+    "act_math": 48,
+    "act_english": 0,
+    "act_reading": 0,
+    "sat_reading_writing": 0
+  },
+  "review_totals": {
+    "act_math": {
+      "PASS": 48,
+      "REVISE": 0,
+      "REJECT": 2,
+      "candidates": 50,
+      "passed_after_revision": 0
+    },
+    "act_english": {
+      "PASS": 0,
+      "REVISE": 0,
+      "REJECT": 0,
+      "candidates": 0,
+      "passed_after_revision": 0
+    },
+    "act_reading": {
+      "PASS": 0,
+      "REVISE": 0,
+      "REJECT": 0,
+      "candidates": 0,
+      "passed_after_revision": 0
+    },
+    "sat_reading_writing": {
+      "PASS": 0,
+      "REVISE": 0,
+      "REJECT": 0,
+      "candidates": 0,
+      "passed_after_revision": 0
+    }
+  },
+  "sections": {
+    "act_math": {
+      "accepted": 48,
+      "by_skill": {
+        "Algebra": 8,
+        "Functions": 9,
+        "Geometry": 9,
+        "Integrating Essential Skills": 9,
+        "Number & Quantity": 6,
+        "Statistics & Probability": 7
+      },
+      "by_subskill": {
+        "Arc length and sector area": 1,
+        "Area of an equilateral triangle": 1,
+        "Average rate of change": 1,
+        "Combined work rates": 1,
+        "Comparing rational numbers": 1,
+        "Comparing spread (standard deviation)": 1,
+        "Complex number arithmetic": 1,
+        "Conditional probability from a two-way table": 1,
+        "Counting with restrictions": 1,
+        "Domain of a function": 1,
+        "Equation of a circle": 1,
+        "Expected value": 1,
+        "Exponential equations with a common base": 1,
+        "Exponential growth models and logarithms": 1,
+        "Function composition": 1,
+        "Inscribed figures: composite area": 1,
+        "Least common multiple in context": 1,
+        "Linear equations with fractions": 1,
+        "Linear function from a table": 1,
+        "Linear inequalities in context": 1,
+        "Logarithm properties": 1,
+        "Mean and total": 1,
+        "Median from a frequency table": 1,
+        "Mixture problems": 1,
+        "Multi-part rate and cost": 1,
+        "Period of a trigonometric function": 1,
+        "Perpendicular lines in the coordinate plane": 1,
+        "Probability of 'at least one' with combinations": 1,
+        "Quadratic equations: solutions": 1,
+        "Quadratic functions from key features": 1,
+        "Radical equations and extraneous solutions": 1,
+        "Rational equations and extraneous solutions": 1,
+        "Rational exponents": 1,
+        "Reverse percent (finding the original)": 1,
+        "Scale drawings and proportions": 1,
+        "Scientific notation operations": 1,
+        "Similar solids: area and volume ratios": 1,
+        "Similar triangles: area ratios": 1,
+        "Successive percent change": 1,
+        "Surface area with whole-unit purchase": 1,
+        "Systems of linear equations in context": 1,
+        "Systems of linear equations: number of solutions": 1,
+        "Transformations of functions": 1,
+        "Triangle angle sum": 1,
+        "Unit price comparison": 1,
+        "Vector operations and magnitude": 1,
+        "Volume and rates with unit conversion": 1,
+        "Volume of a composite solid": 1
+      },
+      "by_difficulty": {
+        "easy": 12,
+        "hard": 12,
+        "medium": 24
+      },
+      "difficulty_share": {
+        "easy": 0.25,
+        "hard": 0.25,
+        "medium": 0.5
+      },
+      "modeling_items": 16,
+      "passages": 0
+    },
+    "act_english": {
+      "accepted": 0,
+      "by_skill": {},
+      "by_subskill": {},
+      "by_difficulty": {},
+      "difficulty_share": {},
+      "modeling_items": 0,
+      "passages": 0
+    },
+    "act_reading": {
+      "accepted": 0,
+      "by_skill": {},
+      "by_subskill": {},
+      "by_difficulty": {},
+      "difficulty_share": {},
+      "modeling_items": 0,
+      "passages": 0
+    },
+    "sat_reading_writing": {
+      "accepted": 0,
+      "by_skill": {},
+      "by_subskill": {},
+      "by_difficulty": {},
+      "difficulty_share": {},
+      "modeling_items": 0,
+      "passages": 0
+    }
+  },
+  "last_completed_batch": {
+    "act_math": 5,
+    "act_english": 0,
+    "act_reading": 0,
+    "sat_reading_writing": 0
+  },
+  "next_batch_guidance": {
+    "act_math": {
+      "next_batch": 6,
+      "underrepresented_skills_vs_blueprint": [
+        "Algebra",
+        "Integrating Essential Skills",
+        "Functions",
+        "Geometry",
+        "Statistics & Probability"
+      ],
+      "skill_gap_for_next_10": {
+        "Number & Quantity": 0.4,
+        "Algebra": 2.7,
+        "Functions": 1.7,
+        "Geometry": 1.7,
+        "Statistics & Probability": 0.8,
+        "Integrating Essential Skills": 2.6
+      },
+      "difficulty_gap_for_next_10": {
+        "easy": 2.5,
+        "medium": 5.0,
+        "hard": 2.5
+      }
+    }
+  },
+  "audits": [
+    {
+      "bank": "act_math",
+      "audited_at": "2026-10-26T17:48:56+00:00",
+      "accepted": 48,
+      "similar_pairs_ge_0_45": [],
+      "answer_key_balance": {
+        "A": 11,
+        "B": 17,
+        "C": 13,
+        "D": 7
+      },
+      "by_skill": {
+        "Algebra": 8,
+        "Functions": 9,
+        "Geometry": 9,
+        "Integrating Essential Skills": 9,
+        "Number & Quantity": 6,
+        "Statistics & Probability": 7
+      },
+      "by_difficulty": {
+        "easy": 12,
+        "hard": 12,
+        "medium": 24
+      },
+      "subskills_used_more_than_twice": {},
+      "findings": [
+        "No stem pair at or above 0.45 token similarity within the bank.",
+        "Answer-key balance is skewed: A 11, B 17, C 13, D 7. Place more keys at D (and fewer at B) in upcoming batches; existing records are not reordered.",
+        "Difficulty: the author labels give exactly 12/24/12. The blind solver agreed on 26 of 48 and rated the other 22 one level easier. By its estimate the split is about 23 easy / 24 medium / 1 hard, so the bank probably has too few genuinely hard items.",
+        "Context overlap: CLD-ACT-M-000006 (jacket, successive percent) shares its context with an app fixture (jacket, discount then tax). Its structure differs; kept and flagged for human review.",
+        "Two batch-1 candidates (B001-04, B001-06) were rejected as near-verbatim duplicates of app fixtures. Two batch-2 drafts (B002-05, B002-08) were rewritten before review for resembling fixtures.",
+        "Every one of the 48 import-export items passes web/scripts/validateQuestionImport.ts (0 problems)."
+      ],
+      "scope": "audit at 48 accepted, run at the end of execution 1 (the brief requires one every 100; this is an early one)"
+    }
+  ],
+  "files": {
+    "act_math": {
+      "bank": "banks/act_math.json",
+      "bank_version": 5,
+      "student_export": "exports/act_math.student.json",
+      "answer_export": "exports/act_math.answer_key.json",
+      "import_export": "exports/import/act_math.jsonl"
+    },
+    "act_english": {
+      "bank": "banks/act_english.json",
+      "bank_version": 0,
+      "student_export": "exports/act_english.student.json",
+      "answer_export": "exports/act_english.answer_key.json",
+      "import_export": "exports/import/act_english.jsonl"
+    },
+    "act_reading": {
+      "bank": "banks/act_reading.json",
+      "bank_version": 0,
+      "student_export": "exports/act_reading.student.json",
+      "answer_export": "exports/act_reading.answer_key.json",
+      "import_export": "exports/import/act_reading.jsonl"
+    },
+    "sat_reading_writing": {
+      "bank": "banks/sat_reading_writing.json",
+      "bank_version": 0,
+      "student_export": "exports/sat_reading_writing.student.json",
+      "answer_export": "exports/sat_reading_writing.answer_key.json",
+      "import_export": "exports/import/sat_reading_writing.jsonl"
+    }
+  },
+  "next_recommended_work": [
+    "ACT Math batch 6: Algebra +3, IES +2-3, Functions +2, Geometry +2, S&P +1; write markedly harder \"hard\" items (multi-step, less familiar setups) and place more answer keys at D.",
+    "Get a human to blind-solve a sample of the existing items to calibrate difficulty; the AI solver rates most items easier than labeled.",
+    "Verify the enhanced-ACT blueprint percentages directly on act.org (unreachable from this environment).",
+    "If reference practice exams become available, calibrate style and difficulty once against them.",
+    "Before starting ACT English, ACT Reading or SAT Reading & Writing, agree on passage-ID conventions with the ChatGPT workstream so the banks can merge.",
+    "Content lead: run the human stages 3-8 (QUESTION_REVIEW_WORKFLOW.md) on exports/import/act_math.jsonl before any intake."
+  ],
+  "execution_log": [
+    {
+      "execution": 1,
+      "date": "2026-10-26",
+      "batches": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "candidates": 50,
+      "pass": 48,
+      "revise": 0,
+      "reject": 2,
+      "pre_review_rewrites": 2,
+      "blind_solver_disagreements_with_key": 0
+    }
+  ],
+  "human_review_status": "none of the accepted items has had human editorial review"
+}
