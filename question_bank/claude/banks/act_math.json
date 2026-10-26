@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 53,
-  "updated_at": "2026-10-26T22:58:48+00:00",
+  "version": 54,
+  "updated_at": "2026-10-26T23:02:40+00:00",
   "passages": [],
   "questions": [
     {
@@ -36780,6 +36780,706 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-053.review.json",
         "computation": "checks/act_math/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000527",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Time from a printing rate",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A printer prints 18 pages per minute. At this rate, how many minutes will it take the printer to print 405 pages?",
+      "choices": {
+        "A": "22.5",
+        "B": "23",
+        "C": "387",
+        "D": "7,290"
+      },
+      "correct_answer": "A",
+      "explanation": "Time = pages ÷ rate = 405 ÷ 18 = 22.5 minutes.",
+      "distractor_explanations": {
+        "B": "23 rounds up to a whole minute, but the printer finishes at 22.5 minutes.",
+        "C": "387 subtracts 18 from 405 instead of dividing.",
+        "D": "7,290 multiplies 405 by 18 instead of dividing."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Pages ÷ pages per minute = minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "t = 405/18."
+      },
+      "remember": "Divide the total by the rate to get the time.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-01",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000528",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear equation with a negative distributed coefficient",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies 5 − 2(x − 1) = 1 ?",
+      "choices": {
+        "A": "−3",
+        "B": "1",
+        "C": "3",
+        "D": "7/2"
+      },
+      "correct_answer": "C",
+      "explanation": "Distribute: 5 − 2x + 2 = 1, so 7 − 2x = 1, −2x = −6 and x = 3.",
+      "distractor_explanations": {
+        "A": "−3 has the right size but the wrong sign.",
+        "B": "1 distributes −2 as −2x − 2, getting 3 − 2x = 1.",
+        "D": "7/2 solves 7 − 2x = 0, dropping the 1 on the right side."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Distribute −2 to both terms in the parentheses."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 5 − 2(3 − 1) = 1."
+      },
+      "remember": "−2 times −1 is +2.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-02",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000529",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a cube from its surface area",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A cube has a total surface area of 150 square centimeters. What is the volume of the cube, in cubic centimeters?",
+      "choices": {
+        "A": "25",
+        "B": "125",
+        "C": "150",
+        "D": "625"
+      },
+      "correct_answer": "B",
+      "explanation": "Each of the 6 faces has area 150 ÷ 6 = 25, so each edge is 5 cm and the volume is 5³ = 125 cubic centimeters.",
+      "distractor_explanations": {
+        "A": "25 is the area of one face, not the volume.",
+        "C": "150 is the surface area itself.",
+        "D": "625 = 25² squares a face's area instead of cubing the edge."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "How many faces does a cube have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "6s² = 150, then V = s³."
+      },
+      "remember": "Surface area of a cube = 6s²; volume = s³.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-03",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000530",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Value added to change a mean",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A data set of 9 values has a mean of 12. After one more value is added, the mean of the 10 values is 13. What value was added?",
+      "choices": {
+        "A": "1",
+        "B": "13",
+        "C": "22",
+        "D": "130"
+      },
+      "correct_answer": "C",
+      "explanation": "The original total is 9 × 12 = 108. The new total is 10 × 13 = 130. The added value is 130 − 108 = 22.",
+      "distractor_explanations": {
+        "A": "1 is the change in the mean, not the added value.",
+        "B": "13 is the new mean; adding 13 would raise the mean only to 12.1.",
+        "D": "130 is the new total of all 10 values."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What are the totals before and after?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "New total − old total = added value."
+      },
+      "remember": "Work with totals when a mean changes.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-04",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000531",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Maximum height of a projectile model",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The height, in meters, of a ball t seconds after it is thrown is given by h(t) = −5t² + 30t + 2. What is the maximum height of the ball, in meters?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "30",
+        "D": "47"
+      },
+      "correct_answer": "D",
+      "explanation": "The vertex occurs at t = −30/(2 · −5) = 3. Then h(3) = −45 + 90 + 2 = 47 meters.",
+      "distractor_explanations": {
+        "A": "2 is the starting height, h(0).",
+        "B": "3 is the time of the maximum, not the height.",
+        "C": "30 is the coefficient of t, not a height."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "When does the ball reach its highest point?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "t = −b/(2a), then evaluate h."
+      },
+      "remember": "The maximum of a downward parabola is at its vertex.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-05",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000532",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Solving a system for a difference of variables",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 2x + 3y = 13 and 4x − y = 5, what is the value of x − y ?",
+      "choices": {
+        "A": "−1",
+        "B": "1",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "A",
+      "explanation": "From 4x − y = 5, y = 4x − 5. Then 2x + 3(4x − 5) = 13, so 14x = 28, x = 2 and y = 3. So x − y = −1.",
+      "distractor_explanations": {
+        "B": "1 is y − x.",
+        "C": "5 is x + y.",
+        "D": "6 is the product xy."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Solve for one variable first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute y = 4x − 5."
+      },
+      "remember": "Answer the question asked: x − y, not x or y.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-06",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000533",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Operations in scientific notation",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of (6 × 10^5)(4 × 10^−2) / (8 × 10^1) ?",
+      "choices": {
+        "A": "3 × 10^1",
+        "B": "3 × 10^2",
+        "C": "3 × 10^3",
+        "D": "3 × 10^4"
+      },
+      "correct_answer": "B",
+      "explanation": "The coefficients give 6 × 4 ÷ 8 = 3. The exponents give 5 + (−2) − 1 = 2. The value is 3 × 10^2.",
+      "distractor_explanations": {
+        "A": "3 × 10^1 subtracts 2 from the exponent once too often.",
+        "C": "3 × 10^3 ignores the 10^1 in the denominator.",
+        "D": "3 × 10^4 adds the denominator's exponent instead of subtracting it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Handle the coefficients and the powers of 10 separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add exponents when multiplying; subtract when dividing."
+      },
+      "remember": "Multiplying powers of 10 adds exponents; dividing subtracts.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-07",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000534",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Arc length from the area of a sector",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sector of a circle with radius 6 centimeters has an area of 15π square centimeters. What is the length, in centimeters, of the arc of the sector?",
+      "choices": {
+        "A": "5π/2",
+        "B": "5π",
+        "C": "6π",
+        "D": "12π"
+      },
+      "correct_answer": "B",
+      "explanation": "The whole circle has area 36π, so the sector is 15π/36π = 5/12 of the circle. The arc is 5/12 of the circumference 12π: 5π.",
+      "distractor_explanations": {
+        "A": "5π/2 = 15π ÷ 6 uses s = A/r, forgetting the 1/2 in A = (1/2)rs.",
+        "C": "6π is half the circumference, assuming a semicircle.",
+        "D": "12π is the whole circumference, not the sector's arc."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What fraction of the whole circle is the sector?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Fraction = sector area ÷ circle area; arc = fraction × circumference."
+      },
+      "remember": "A sector's area and arc are the same fraction of the circle.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-08",
+      "created_at": "2026-10-26T23:02:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000535",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Greatest possible value with mean and median constraints",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A list of 7 different positive integers has a median of 10 and a mean of 10. What is the greatest possible value of the largest integer in the list?",
+      "choices": {
+        "A": "31",
+        "B": "37",
+        "C": "54",
+        "D": "60"
+      },
+      "correct_answer": "A",
+      "explanation": "The total is 7 × 10 = 70. To make the largest value as big as possible, make the others as small as possible: 1, 2, 3 below the median, the median 10, and 11, 12 above it. Their sum is 39, so the largest is 70 − 39 = 31.",
+      "distractor_explanations": {
+        "B": "37 allows repeated values (1, 1, 1, 10, 10, 10), but the integers must be different.",
+        "C": "54 forgets the two values that must lie between the median and the largest value.",
+        "D": "60 subtracts only the median from the total."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What must the other six values be to leave the most for the largest?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write seven blanks with 10 in the middle."
+      },
+      "remember": "To maximize one value, minimize all the others within the rules.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-09",
+      "created_at": "2026-10-26T23:02:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 33,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000536",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Value not in the range of a rational function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following values is NOT in the range of the function f(x) = (3x − 2)/(x + 4) ?",
+      "choices": {
+        "A": "−1/2",
+        "B": "0",
+        "C": "1",
+        "D": "3"
+      },
+      "correct_answer": "D",
+      "explanation": "Solving y = (3x − 2)/(x + 4) for x gives x = (4y + 2)/(3 − y), which is undefined when y = 3. So f(x) never equals 3; y = 3 is the horizontal asymptote.",
+      "distractor_explanations": {
+        "A": "f(0) = −2/4 = −1/2, so −1/2 is in the range.",
+        "B": "f(2/3) = 0, so 0 is in the range.",
+        "C": "f(3) = 7/7 = 1, so 1 is in the range."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Try setting f(x) equal to each choice and solving for x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Set (3x − 2)/(x + 4) equal to each choice and solve."
+      },
+      "remember": "Solve y = f(x) for x; a y-value with no solution is not in the range.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "B054-10",
+      "created_at": "2026-10-26T23:02:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-054.review.json",
+        "computation": "checks/act_math/batch_054.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

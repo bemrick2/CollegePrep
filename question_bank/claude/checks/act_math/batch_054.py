@@ -27,12 +27,12 @@ def c03(ch):
 
 
 def c04(ch):
-    return pick(ch, F(20 * 75 + 30 * 85, 50))
+    return pick(ch, 10 * 13 - 9 * 12)
 
 
 def c05(ch):
-    t = F(-64, 2 * -16)
-    return pick(ch, -16 * t * t + 64 * t + 5)
+    t = F(-30, 2 * -5)
+    return pick(ch, -5 * t * t + 30 * t + 2)
 
 
 def c06(ch):
@@ -46,8 +46,15 @@ def c07(ch):
     return pick(ch, F(6 * 10 ** 5) * F(4, 100) / 80, conv=sci)
 
 
+def pi_frac(t):
+    """'5π/2' -> 5/2 (the coefficient of π)."""
+    num, _, den = t.partition('/')
+    return F(num.replace('π', '') or 1) / F(den or 1)
+
+
 def c08(ch):
-    return pick(ch, F(10) * F(6, 6 + 9))
+    frac = F(15, 6 ** 2)  # sector area / circle area (π cancels)
+    return pick(ch, frac * 2 * 6, conv=pi_frac)
 
 
 def c09(ch):
@@ -63,11 +70,11 @@ def c10(ch):
     out = []
     for k, v in ch.items():
         y = F(v.replace('−', '-'))
-        if y == 2:
-            out.append(k)  # (3y + 1)/(y - 2) undefined
+        if y == 3:
+            out.append(k)  # (4y + 2)/(3 - y) undefined
             continue
-        x = (3 * y + 1) / (y - 2)
-        assert x != 3 and (2 * x + 1) / (x - 3) == y
+        x = (4 * y + 2) / (3 - y)
+        assert x != -4 and (3 * x - 2) / (x + 4) == y
     assert len(out) == 1
     return out[0]
 

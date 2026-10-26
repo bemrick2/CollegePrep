@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 53,
+  "bank_version": 54,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -9138,6 +9138,176 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "For hundreds digit h, the other two digits sum to 5 − h."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000527",
+      "correct_answer": "A",
+      "explanation": "Time = pages ÷ rate = 405 ÷ 18 = 22.5 minutes.",
+      "distractor_explanations": {
+        "B": "23 rounds up to a whole minute, but the printer finishes at 22.5 minutes.",
+        "C": "387 subtracts 18 from 405 instead of dividing.",
+        "D": "7,290 multiplies 405 by 18 instead of dividing."
+      },
+      "hints": [
+        "Pages ÷ pages per minute = minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "t = 405/18."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000528",
+      "correct_answer": "C",
+      "explanation": "Distribute: 5 − 2x + 2 = 1, so 7 − 2x = 1, −2x = −6 and x = 3.",
+      "distractor_explanations": {
+        "A": "−3 has the right size but the wrong sign.",
+        "B": "1 distributes −2 as −2x − 2, getting 3 − 2x = 1.",
+        "D": "7/2 solves 7 − 2x = 0, dropping the 1 on the right side."
+      },
+      "hints": [
+        "Distribute −2 to both terms in the parentheses."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 5 − 2(3 − 1) = 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000529",
+      "correct_answer": "B",
+      "explanation": "Each of the 6 faces has area 150 ÷ 6 = 25, so each edge is 5 cm and the volume is 5³ = 125 cubic centimeters.",
+      "distractor_explanations": {
+        "A": "25 is the area of one face, not the volume.",
+        "C": "150 is the surface area itself.",
+        "D": "625 = 25² squares a face's area instead of cubing the edge."
+      },
+      "hints": [
+        "How many faces does a cube have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "6s² = 150, then V = s³."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000530",
+      "correct_answer": "C",
+      "explanation": "The original total is 9 × 12 = 108. The new total is 10 × 13 = 130. The added value is 130 − 108 = 22.",
+      "distractor_explanations": {
+        "A": "1 is the change in the mean, not the added value.",
+        "B": "13 is the new mean; adding 13 would raise the mean only to 12.1.",
+        "D": "130 is the new total of all 10 values."
+      },
+      "hints": [
+        "What are the totals before and after?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "New total − old total = added value."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000531",
+      "correct_answer": "D",
+      "explanation": "The vertex occurs at t = −30/(2 · −5) = 3. Then h(3) = −45 + 90 + 2 = 47 meters.",
+      "distractor_explanations": {
+        "A": "2 is the starting height, h(0).",
+        "B": "3 is the time of the maximum, not the height.",
+        "C": "30 is the coefficient of t, not a height."
+      },
+      "hints": [
+        "When does the ball reach its highest point?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "t = −b/(2a), then evaluate h."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000532",
+      "correct_answer": "A",
+      "explanation": "From 4x − y = 5, y = 4x − 5. Then 2x + 3(4x − 5) = 13, so 14x = 28, x = 2 and y = 3. So x − y = −1.",
+      "distractor_explanations": {
+        "B": "1 is y − x.",
+        "C": "5 is x + y.",
+        "D": "6 is the product xy."
+      },
+      "hints": [
+        "Solve for one variable first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute y = 4x − 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000533",
+      "correct_answer": "B",
+      "explanation": "The coefficients give 6 × 4 ÷ 8 = 3. The exponents give 5 + (−2) − 1 = 2. The value is 3 × 10^2.",
+      "distractor_explanations": {
+        "A": "3 × 10^1 subtracts 2 from the exponent once too often.",
+        "C": "3 × 10^3 ignores the 10^1 in the denominator.",
+        "D": "3 × 10^4 adds the denominator's exponent instead of subtracting it."
+      },
+      "hints": [
+        "Handle the coefficients and the powers of 10 separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add exponents when multiplying; subtract when dividing."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000534",
+      "correct_answer": "B",
+      "explanation": "The whole circle has area 36π, so the sector is 15π/36π = 5/12 of the circle. The arc is 5/12 of the circumference 12π: 5π.",
+      "distractor_explanations": {
+        "A": "5π/2 = 15π ÷ 6 uses s = A/r, forgetting the 1/2 in A = (1/2)rs.",
+        "C": "6π is half the circumference, assuming a semicircle.",
+        "D": "12π is the whole circumference, not the sector's arc."
+      },
+      "hints": [
+        "What fraction of the whole circle is the sector?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Fraction = sector area ÷ circle area; arc = fraction × circumference."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000535",
+      "correct_answer": "A",
+      "explanation": "The total is 7 × 10 = 70. To make the largest value as big as possible, make the others as small as possible: 1, 2, 3 below the median, the median 10, and 11, 12 above it. Their sum is 39, so the largest is 70 − 39 = 31.",
+      "distractor_explanations": {
+        "B": "37 allows repeated values (1, 1, 1, 10, 10, 10), but the integers must be different.",
+        "C": "54 forgets the two values that must lie between the median and the largest value.",
+        "D": "60 subtracts only the median from the total."
+      },
+      "hints": [
+        "What must the other six values be to leave the most for the largest?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write seven blanks with 10 in the middle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000536",
+      "correct_answer": "D",
+      "explanation": "Solving y = (3x − 2)/(x + 4) for x gives x = (4y + 2)/(3 − y), which is undefined when y = 3. So f(x) never equals 3; y = 3 is the horizontal asymptote.",
+      "distractor_explanations": {
+        "A": "f(0) = −2/4 = −1/2, so −1/2 is in the range.",
+        "B": "f(2/3) = 0, so 0 is in the range.",
+        "C": "f(3) = 7/7 = 1, so 1 is in the range."
+      },
+      "hints": [
+        "Try setting f(x) equal to each choice and solving for x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Set (3x − 2)/(x + 4) equal to each choice and solve."
       }
     }
   ]
