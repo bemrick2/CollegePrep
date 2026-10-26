@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:54:45+00:00",
+  "updated_at": "2026-10-26T18:59:08+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -17,7 +17,7 @@
   "accepted_by_section": {
     "act_math": 208,
     "act_english": 22,
-    "act_reading": 0,
+    "act_reading": 8,
     "sat_reading_writing": 0
   },
   "review_totals": {
@@ -36,10 +36,10 @@
       "passed_after_revision": 1
     },
     "act_reading": {
-      "PASS": 0,
-      "REVISE": 0,
+      "PASS": 8,
+      "REVISE": 1,
       "REJECT": 0,
-      "candidates": 0,
+      "candidates": 9,
       "passed_after_revision": 0
     },
     "sat_reading_writing": {
@@ -347,15 +347,43 @@
       "passages": 2
     },
     "act_reading": {
-      "accepted": 0,
-      "by_skill": {},
-      "by_subskill": {},
-      "by_difficulty_author": {},
-      "by_difficulty_calibrated": {},
-      "calibrated_share": {},
-      "answer_key_balance": {},
+      "accepted": 8,
+      "by_skill": {
+        "Craft and Structure": 3,
+        "Integration of Knowledge and Ideas": 1,
+        "Key Ideas and Details": 4
+      },
+      "by_subskill": {
+        "Central idea of a narrative": 1,
+        "Connecting the ending to earlier events": 1,
+        "Effect of figurative language": 1,
+        "Function of a short paragraph": 1,
+        "Inferring a character's attitude": 1,
+        "Inferring a character's intent": 1,
+        "Locating a stated detail": 1,
+        "Meaning of a phrase in context": 1
+      },
+      "by_difficulty_author": {
+        "easy": 2,
+        "hard": 1,
+        "medium": 5
+      },
+      "by_difficulty_calibrated": {
+        "easy": 7,
+        "medium": 1
+      },
+      "calibrated_share": {
+        "easy": 0.875,
+        "medium": 0.125
+      },
+      "answer_key_balance": {
+        "A": 2,
+        "B": 2,
+        "C": 2,
+        "D": 2
+      },
       "modeling_items": 0,
-      "passages": 0
+      "passages": 1
     },
     "sat_reading_writing": {
       "accepted": 0,
@@ -372,7 +400,7 @@
   "last_completed_batch": {
     "act_math": 21,
     "act_english": 2,
-    "act_reading": 0,
+    "act_reading": 1,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
@@ -426,11 +454,11 @@
       }
     },
     "act_reading": {
-      "next_batch": 1,
+      "next_batch": 2,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 4.8,
-        "Craft and Structure": 2.9,
-        "Integration of Knowledge and Ideas": 2.2
+        "Key Ideas and Details": 4.6,
+        "Craft and Structure": 2.3,
+        "Integration of Knowledge and Ideas": 3.0
       }
     }
   },
@@ -447,8 +475,8 @@
     },
     "act_reading": {
       "target": 600,
-      "accepted": 0,
-      "share_of_target": 0.0
+      "accepted": 8,
+      "share_of_target": 0.013
     },
     "sat_reading_writing": {
       "target": 700,
@@ -457,9 +485,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 230,
+  "total_accepted": 238,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_reading",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -670,7 +698,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 0,
+      "bank_version": 1,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -705,7 +733,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:54:44+00:00",
+    "heartbeat_at": "2026-10-26T18:59:08+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
