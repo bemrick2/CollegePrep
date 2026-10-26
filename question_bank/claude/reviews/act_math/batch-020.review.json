@@ -1,0 +1,257 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 20,
+  "reviewed_at": "2026-10-26T18:46:20+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 20
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000189",
+    "CLD-ACT-M-000190",
+    "CLD-ACT-M-000191",
+    "CLD-ACT-M-000192",
+    "CLD-ACT-M-000193",
+    "CLD-ACT-M-000194",
+    "CLD-ACT-M-000195",
+    "CLD-ACT-M-000196",
+    "CLD-ACT-M-000197"
+  ],
+  "results": [
+    {
+      "cand": "B020-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "16x10^-6 / 2x10^-5 = 8x10^-1 = 0.8. Calculator makes it routine; distractor C/D catch exponent-sign slips.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000189"
+    },
+    {
+      "cand": "B020-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: every choice is a valid b (-25,-14,-11,-10 from factor pairs 1x24,2x12,3x8,4x6), so the item tests 'greatest' of negatives; fine but students choosing -25 by magnitude is the main trap"
+      ],
+      "blind_notes": "b = -(r1+r2); positive-integer factor pairs of 24 give sums 25,14,11,10; greatest b = -10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "root–coefficient relationships plus a sign twist (greatest b means smallest sum)",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000190"
+    },
+    {
+      "cand": "B020-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "4x^6y^2 * 3xy^-4 = 12x^7y^-2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000191"
+    },
+    {
+      "cand": "B020-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "2x^2=8, x^2=4, x=±2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000192"
+    },
+    {
+      "cand": "B020-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [],
+      "blind_notes": "Triangles ABE ~ CDE, AE:EC = 6:15, AE = 14*6/21 = 4. Requires similar-triangle insight; D (half) and B (14*6/15) are tempting.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "spotting similar triangles formed by diagonals; bisection trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000193"
+    },
+    {
+      "cand": "B020-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "h = sqrt(25-9) = 4; V = (1/3)pi*9*4 = 12pi. Trap: using slant height gives 15pi.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000194"
+    },
+    {
+      "cand": "B020-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [
+        "Naive linear reasoning (ring width 2 out of radius 6, or 'one of three regions') also gives 1/3, so the most common misconception reaches the key; item does not discriminate area reasoning. Consider radii 1, 3, 6 or asking for the outer ring (20/36 = 5/9)."
+      ],
+      "blind_notes": "(16pi - 4pi)/36pi = 12/36 = 1/3. Correct and unique, but the naive 'one of three regions' or width-based guess also lands on 1/3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "area difference for an annulus; the 'within radius 4' trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Naive linear reasoning (ring width 2 out of radius 6, or 'one of three regions') also gives 1/3, so the most common misconception reaches the key; item does not discriminate area reasoning. Consider radii 1, 3, 6 or asking for the outer ring (20/36 = 5/9)."
+    },
+    {
+      "cand": "B020-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Adding the mean (14) reduces SD (pop 2.83->2.58; sample 3.16->2.83). Adding 10 or 18 increases SD under either definition; 30 increases greatly. Unique.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000195"
+    },
+    {
+      "cand": "B020-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "40+0.25m < 25+0.40m -> m > 100; costs equal at 100, so least whole number is 101. Trap B (equality point).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "strict inequality at an exact tie; the break-even value is the trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000196"
+    },
+    {
+      "cand": "B020-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Number = 27/0.15 = 180; 0.4*180 = 72.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000197"
+    }
+  ]
+}

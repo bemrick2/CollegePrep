@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 19,
-  "updated_at": "2026-10-26T18:43:59+00:00",
+  "version": 20,
+  "updated_at": "2026-10-26T18:46:20+00:00",
   "passages": [],
   "questions": [
     {
@@ -12939,6 +12939,647 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-019.review.json",
         "computation": "checks/act_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000189",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Scientific notation with negative exponents",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of (4 × 10⁻³)² ÷ (2 × 10⁻⁵) ?",
+      "choices": {
+        "A": "0.4",
+        "B": "0.8",
+        "C": "80",
+        "D": "800"
+      },
+      "correct_answer": "B",
+      "explanation": "(4 × 10⁻³)² = 16 × 10⁻⁶. Dividing by 2 × 10⁻⁵ gives (16 ÷ 2) × 10^(−6 − (−5)) = 8 × 10⁻¹ = 0.8.",
+      "distractor_explanations": {
+        "A": "This doubles 4 instead of squaring it: 8 × 10⁻⁶ ÷ (2 × 10⁻⁵) = 0.4.",
+        "C": "This subtracts the exponents in the wrong order, −5 − (−6) = 1, giving 8 × 10¹.",
+        "D": "This squares the 4 but not 10⁻³: 16 × 10⁻³ ÷ (2 × 10⁻⁵) = 800."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Square both factors inside the parentheses.",
+        "When dividing powers of 10, subtract the exponents: −6 − (−5)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "16 ÷ 2 = 8 and 10^(−6 + 5) = 10⁻¹, so 0.8."
+      },
+      "remember": "Subtracting a negative exponent adds.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-01",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000190",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Integer roots from coefficients",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The equation x² + bx + 24 = 0, where b is a constant, has two solutions that are both positive integers. What is the greatest possible value of b ?",
+      "choices": {
+        "A": "−25",
+        "B": "−14",
+        "C": "−11",
+        "D": "−10"
+      },
+      "correct_answer": "D",
+      "explanation": "If the solutions are r and s, then rs = 24 and r + s = −b. Positive integer pairs with product 24 are (1, 24), (2, 12), (3, 8) and (4, 6), with sums 25, 14, 11 and 10. Since b = −(r + s), the possible values of b are −25, −14, −11 and −10. The greatest is −10.",
+      "distractor_explanations": {
+        "A": "−25 is the least possible value of b, from the roots 1 and 24.",
+        "B": "−14 comes from the roots 2 and 12, which is not the greatest value.",
+        "C": "−11 comes from the roots 3 and 8, which is not the greatest value."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How are the two roots related to 24 and to b?",
+        "List positive integer pairs whose product is 24."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "b = −10: x² − 10x + 24 = (x − 4)(x − 6), positive integer roots. Since −10 is the largest choice, it is the answer if it works."
+      },
+      "remember": "For x² + bx + c: roots multiply to c and add to −b.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-02",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: every choice is a valid b (-25,-14,-11,-10 from factor pairs 1x24,2x12,3x8,4x6), so the item tests 'greatest' of negatives; fine but students choosing -25 by magnitude is the main trap"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000191",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Monomial exponent rules",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For all nonzero x and y, which of the following is equivalent to (2x³y)² · 3xy⁻⁴ ?",
+      "choices": {
+        "A": "12x⁷/y²",
+        "B": "6x⁷/y²",
+        "C": "12x⁶/y⁸",
+        "D": "7x⁷y⁻²"
+      },
+      "correct_answer": "A",
+      "explanation": "(2x³y)² = 4x⁶y². Multiplying by 3xy⁻⁴: 4 · 3 = 12, x⁶ · x = x⁷, and y² · y⁻⁴ = y⁻². The result is 12x⁷y⁻² = 12x⁷/y².",
+      "distractor_explanations": {
+        "B": "This doubles 2 instead of squaring it, using 2 · 3 = 6 for the coefficient.",
+        "C": "This multiplies the exponents of x (6 · 1) and of y (2 · 4) instead of adding them.",
+        "D": "This adds the coefficients 4 + 3 instead of multiplying them."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Square every factor inside the parentheses, including the 2.",
+        "When multiplying powers of the same base, add the exponents."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 2 and y = 1: (2 · 8 · 1)² · 3 · 2 · 1 = 256 · 6 = 1,536. Choice A gives 12 · 2⁷ = 1,536; choice C gives 12 · 2⁶ = 768."
+      },
+      "remember": "Coefficients multiply; same-base exponents add.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-03",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000192",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Zeros of a quadratic function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What are the zeros of the function f(x) = 2x² − 8 ?",
+      "choices": {
+        "A": "2 only",
+        "B": "4 only",
+        "C": "−2 and 2",
+        "D": "−4 and 4"
+      },
+      "correct_answer": "C",
+      "explanation": "Set 2x² − 8 = 0: x² = 4, so x = 2 or x = −2.",
+      "distractor_explanations": {
+        "A": "This misses the negative square root of 4.",
+        "B": "4 is the value of x², not of x.",
+        "D": "This multiplies 8 by 2 instead of dividing, getting x² = 16 and x = ±4."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Set f(x) equal to 0 and isolate x².",
+        "x² = 4 has two solutions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2x² = 8 → x² = 4 → x = ±2."
+      },
+      "remember": "Square roots come in ± pairs.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-04",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000193",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Diagonals of a trapezoid (similar triangles)",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In trapezoid ABCD, side AB is parallel to side CD, AB = 6 and CD = 15. Diagonals AC and BD intersect at point E. If AC = 14, what is the length of AE ?",
+      "choices": {
+        "A": "4",
+        "B": "5.6",
+        "C": "6",
+        "D": "7"
+      },
+      "correct_answer": "A",
+      "explanation": "Because AB ∥ CD, triangles ABE and CDE are similar (alternate interior angles), with ratio AB : CD = 6 : 15 = 2 : 5. So AE : EC = 2 : 5, and AE = (2/7)(14) = 4.",
+      "distractor_explanations": {
+        "B": "This treats 2 : 5 as a part-to-whole ratio, taking AE = (2/5)(14) = 5.6; AE is 2 of 2 + 5 = 7 parts.",
+        "C": "6 is the length of AB; the segments of the diagonal are not equal to the bases.",
+        "D": "7 assumes the diagonals bisect each other, which is true for a parallelogram, not a trapezoid with unequal bases."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "The parallel sides create two similar triangles at the intersection of the diagonals.",
+        "Their similarity ratio splits each diagonal in the same ratio."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trapezoid: triangle ABE ~ triangle CDE with ratio 2 : 5, so AC splits 2 : 5 and AE = 14 × 2/7."
+      },
+      "remember": "Trapezoid diagonals divide each other in the ratio of the bases.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-05",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000194",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Cone volume from slant height",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right circular cone has a base radius of 3 centimeters and a slant height of 5 centimeters. What is the volume of the cone, in cubic centimeters? (The volume of a cone is (1/3)πr²h.)",
+      "choices": {
+        "A": "9π",
+        "B": "12π",
+        "C": "15π",
+        "D": "36π"
+      },
+      "correct_answer": "B",
+      "explanation": "The height, radius and slant height form a right triangle: h = √(5² − 3²) = 4. Volume = (1/3)π(3²)(4) = 12π cubic centimeters.",
+      "distractor_explanations": {
+        "A": "9π is πr², the base area, not the volume.",
+        "C": "This uses the slant height 5 as the height: (1/3)π(9)(5) = 15π.",
+        "D": "This forgets the factor 1/3: π(9)(4) = 36π is the volume of a cylinder."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "The slant height is not the height.",
+        "Use the Pythagorean theorem with the radius and slant height."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "3-4-5 right triangle gives h = 4; then (1/3)(9)(4)π."
+      },
+      "remember": "Cone height ≠ slant height; use the Pythagorean theorem.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-06",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000195",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Effect of an added value on standard deviation",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The data set 10, 12, 14, 16, 18 has a mean of 14. If one of the following values is added to the data set, which one will DECREASE the standard deviation?",
+      "choices": {
+        "A": "10",
+        "B": "14",
+        "C": "18",
+        "D": "30"
+      },
+      "correct_answer": "B",
+      "explanation": "Standard deviation measures typical distance from the mean. Adding a value equal to the mean (14) adds a point with zero distance, which lowers the typical distance. Adding 10 or 18 (each 4 from the mean, more than the current typical distance of about 2.8) or 30 increases the spread.",
+      "distractor_explanations": {
+        "A": "10 is 4 below the mean, farther than the typical distance (about 2.8), so it increases the standard deviation.",
+        "C": "18 is 4 above the mean, which also increases the spread.",
+        "D": "30 is far from the mean and greatly increases the spread."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Standard deviation measures how far values typically are from the mean.",
+        "Which new value is closest to the mean?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Only a value near the mean can shrink the spread; 14 is exactly the mean."
+      },
+      "remember": "Adding the mean shrinks the standard deviation.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-08",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000196",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Break-even with a strict inequality",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Rental company A charges $40 plus $0.25 per mile. Rental company B charges $25 plus $0.40 per mile. What is the least whole number of miles for which company A is cheaper than company B?",
+      "choices": {
+        "A": "99",
+        "B": "100",
+        "C": "101",
+        "D": "150"
+      },
+      "correct_answer": "C",
+      "explanation": "A is cheaper when 40 + 0.25m < 25 + 0.40m, so 15 < 0.15m and m > 100. At exactly 100 miles both cost $65, so A is not cheaper there. The least whole number of miles is 101.",
+      "distractor_explanations": {
+        "A": "At 99 miles, A costs $64.75 and B costs $64.60, so B is cheaper.",
+        "B": "At 100 miles the costs are equal ($65); A is not yet cheaper.",
+        "D": "A is cheaper at 150 miles, but it is already cheaper at 101 miles."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Write an inequality comparing the two total costs.",
+        "Check what happens at exactly the break-even point."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 100: both $65 (tie). Test 101: A $65.25, B $65.40. So 101."
+      },
+      "remember": "'Cheaper than' is strict: the tie point does not count.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-09",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000197",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percents of an unknown whole",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 15% of a number is 27, what is 40% of the same number?",
+      "choices": {
+        "A": "10.8",
+        "B": "42",
+        "C": "54",
+        "D": "72"
+      },
+      "correct_answer": "D",
+      "explanation": "15% of n is 27, so n = 27 ÷ 0.15 = 180. Then 40% of 180 = 72.",
+      "distractor_explanations": {
+        "A": "10.8 is 40% of 27, not 40% of the number.",
+        "B": "This adds 15 to 27 instead of working with percents.",
+        "C": "This doubles 27, treating 40% as about twice 15%; 40/15 is about 2.67."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Find the whole number first.",
+        "Or scale: 40% is 40/15 times 15%."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "27 × 40/15 = 72."
+      },
+      "remember": "Find the whole, then take the new percent.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 20,
+      "draft_candidate": "B020-10",
+      "created_at": "2026-10-26T18:46:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-020.review.json",
+        "computation": "checks/act_math/batch_020.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
