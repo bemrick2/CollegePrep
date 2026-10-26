@@ -1,0 +1,289 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 21,
+  "reviewed_at": "2026-10-26T18:48:40+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 21
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000198",
+    "CLD-ACT-M-000199",
+    "CLD-ACT-M-000200",
+    "CLD-ACT-M-000201",
+    "CLD-ACT-M-000202",
+    "CLD-ACT-M-000203",
+    "CLD-ACT-M-000204",
+    "CLD-ACT-M-000205",
+    "CLD-ACT-M-000206",
+    "CLD-ACT-M-000207",
+    "CLD-ACT-M-000208"
+  ],
+  "results": [
+    {
+      "cand": "B021-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "floor(100/6)=16, floor(100/10)=10, lcm 30 -> 3; 16+10-3=23. Trap C=26 (no overlap subtraction), A=3 (overlap only).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "inclusion–exclusion with an LCM overlap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000198"
+    },
+    {
+      "cand": "B021-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "Add equations: 8x=16, x=2 (y=1/2, distractor A).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "the app fixture asks x + y for a different system; this asks x"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000199"
+    },
+    {
+      "cand": "B021-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "x ln3=(x+1)ln2 -> x=ln2/(ln3-ln2)=1.7095 -> 1.71. Distractors: 1.58=log2 3, 0.63=log3 2, 2.71=x+1. Calculator guess-and-check also works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "log both sides and collect x; several partial answers",
+        "taxonomy_note": "mapped to act_functions"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000200"
+    },
+    {
+      "cand": "B021-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "f(x+1)=(x+1)^2-2(x+1)=(x+1)(x-1)=0 -> {-1,1}. Trap A = zeros of f.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "two-layer reasoning; each wrong choice is a partial step"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000201"
+    },
+    {
+      "cand": "B021-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "f=(x+3)/((x-3)(x+3)) = 1/(x-3) for x != -3; hole at -3, asymptote x=3 only. Trap C (denominator zeros) catches many; borderline hard.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "hole-versus-asymptote distinction; strong 'both' trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000202"
+    },
+    {
+      "cand": "B021-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "4% decay per hour of current charge -> 100(0.96)^t. Trap A linear.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000203"
+    },
+    {
+      "cand": "B021-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "Height sqrt(169-25)=12; area 10*12/2=60. Trap D=120 (forgetting 1/2), C=65 (13*10/2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000204"
+    },
+    {
+      "cand": "B021-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "Simple random sample from full list; others convenience/self-selected.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "verification_note": "conceptual item: the scripted check restates the key, so independent verification rests on the blind solve"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000205"
+    },
+    {
+      "cand": "B021-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Closing speed 10 m/s, 400/10=40 s. D=200 is same-direction catch-up; B=400/6; C=400/4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "relative-speed insight on a loop; the same-direction trap",
+        "dup_note": "the bank's catch-up item (CLD-ACT-M-000078) is same-direction on a line; this is opposite directions on a loop"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000206"
+    },
+    {
+      "cand": "B021-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "62.5 g/serving * 30 = 1875 g = 1.875 kg. Two routine steps but very familiar; borderline medium.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000207"
+    },
+    {
+      "cand": "B021-11",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "B020-07",
+          "status": "REVISE",
+          "reason": "blind solver: with radii 2, 4, 6 the naive guesses (one of three regions; ring width 2/6) also give the key 1/3, so the item did not test area reasoning"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Area ratio (9-1)/36 = 8/36 = 2/9. Traps: 1/4 = 9/36 (whole disk r=3), 1/3 = linear (3-1)/6, 1/36 inner disk.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "area difference; naive region and width guesses now give wrong answers"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000208"
+    }
+  ]
+}

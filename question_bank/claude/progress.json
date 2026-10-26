@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:46:39+00:00",
+  "updated_at": "2026-10-26T18:49:17+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,18 +15,18 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 197,
+    "act_math": 208,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 197,
+      "PASS": 208,
       "REVISE": 2,
       "REJECT": 2,
-      "candidates": 201,
-      "passed_after_revision": 1
+      "candidates": 212,
+      "passed_after_revision": 2
     },
     "act_english": {
       "PASS": 0,
@@ -52,14 +52,14 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 197,
+      "accepted": 208,
       "by_skill": {
-        "Algebra": 37,
-        "Functions": 36,
-        "Geometry": 37,
-        "Integrating Essential Skills": 39,
-        "Number & Quantity": 22,
-        "Statistics & Probability": 26
+        "Algebra": 39,
+        "Functions": 39,
+        "Geometry": 38,
+        "Integrating Essential Skills": 41,
+        "Number & Quantity": 23,
+        "Statistics & Probability": 28
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -77,6 +77,7 @@
         "Area of a triangle by decomposition in the plane": 1,
         "Area of an equilateral triangle": 1,
         "Area of an isosceles trapezoid": 1,
+        "Area of an isosceles triangle": 1,
         "Area with unit conversion": 1,
         "Arithmetic sequences": 1,
         "Arithmetic series in context": 1,
@@ -136,14 +137,17 @@
         "Exponential decay models": 1,
         "Exponential equations by substitution": 1,
         "Exponential equations with a common base": 1,
+        "Exponential equations with different bases (logarithms)": 1,
         "Exponential function properties": 1,
         "Exponential growth models and logarithms": 1,
         "Exponential model from two points": 1,
         "Factored form: finding the leading coefficient": 1,
         "Function composition": 1,
         "Geometric probability": 1,
+        "Geometric probability with concentric circles": 1,
         "Geometric sequences in context": 1,
         "Incircle of a right triangle": 1,
+        "Inclusion–exclusion with divisibility": 1,
         "Independent events: exactly one": 1,
         "Inscribed angles and arcs": 1,
         "Inscribed figures: composite area": 1,
@@ -213,14 +217,17 @@
         "Reading vertex form": 1,
         "Recursively defined functions": 1,
         "Reflections to minimize a path": 1,
+        "Relative speed on a circular track": 1,
         "Repeated dilution": 1,
         "Repeating decimals as fractions": 1,
         "Residuals from a line of fit": 1,
         "Reverse percent (finding the original)": 1,
         "Right-triangle trigonometry in context": 1,
         "Rotation about a point": 1,
+        "Sampling methods and bias": 1,
         "Scale drawings and area cost": 1,
         "Scale drawings and proportions": 1,
+        "Scaling a recipe with unit conversion": 1,
         "Scientific notation in a rate conversion": 1,
         "Scientific notation operations": 1,
         "Scientific notation with negative exponents": 1,
@@ -230,6 +237,8 @@
         "Simplifying rational expressions": 1,
         "Sinusoidal models: time above a threshold": 1,
         "Solving a formula for a variable": 1,
+        "Solving a system by elimination": 1,
+        "Solving equations with a composition": 1,
         "Solving f(x) = k for a linear function": 1,
         "Solving for an inner function in a composition": 1,
         "Space diagonal of a cube": 1,
@@ -251,6 +260,7 @@
         "Units-digit cycles": 1,
         "Vector operations and magnitude": 1,
         "Vertical angles": 1,
+        "Vertical asymptotes versus holes": 1,
         "Volume and rates with unit conversion": 1,
         "Volume displacement": 1,
         "Volume of a composite solid": 1,
@@ -258,30 +268,31 @@
         "Volume scaling in cones (frustum)": 1,
         "Weighted mean": 1,
         "Work problems with a mid-job change": 1,
+        "Writing an exponential decay model": 1,
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 31,
-        "hard": 86,
-        "medium": 80
+        "easy": 32,
+        "hard": 92,
+        "medium": 84
       },
       "by_difficulty_calibrated": {
-        "easy": 48,
+        "easy": 52,
         "hard": 27,
-        "medium": 122
+        "medium": 129
       },
       "calibrated_share": {
-        "easy": 0.244,
-        "hard": 0.137,
-        "medium": 0.619
+        "easy": 0.25,
+        "hard": 0.13,
+        "medium": 0.62
       },
       "answer_key_balance": {
-        "A": 50,
-        "B": 49,
-        "C": 53,
-        "D": 45
+        "A": 53,
+        "B": 53,
+        "C": 55,
+        "D": 47
       },
-      "modeling_items": 60,
+      "modeling_items": 64,
       "passages": 0
     },
     "act_english": {
@@ -319,44 +330,52 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 20,
+    "act_math": 21,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 21,
+      "next_batch": 22,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
-        "Functions",
+        "Geometry",
         "Statistics & Probability",
         "Algebra",
-        "Geometry",
+        "Functions",
         "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 0.8,
+        "Number & Quantity": 1.0,
         "Algebra": 1.3,
-        "Functions": 2.3,
-        "Geometry": 1.3,
-        "Statistics & Probability": 1.9,
-        "Integrating Essential Skills": 2.4
+        "Functions": 1.3,
+        "Geometry": 2.3,
+        "Statistics & Probability": 1.4,
+        "Integrating Essential Skills": 2.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 3.8,
-        "medium": -18.5,
-        "hard": 24.8
+        "easy": 2.5,
+        "medium": -20.0,
+        "hard": 27.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 1.8,
-        "B": 2.8,
-        "C": -1.2,
-        "D": 6.8
+        "A": 1.5,
+        "B": 1.5,
+        "C": -0.5,
+        "D": 7.5
       }
     }
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 1,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 4.8,
+        "Craft and Structure": 2.9,
+        "Integration of Knowledge and Ideas": 2.2
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 1,
       "skill_gap_for_next_10": {
@@ -364,14 +383,6 @@
         "Information and Ideas": 2.6,
         "Standard English Conventions": 2.6,
         "Expression of Ideas": 2.0
-      }
-    },
-    "act_reading": {
-      "next_batch": 1,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 4.8,
-        "Craft and Structure": 2.9,
-        "Integration of Knowledge and Ideas": 2.2
       }
     },
     "act_english": {
@@ -386,8 +397,8 @@
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 197,
-      "share_of_target": 0.099
+      "accepted": 208,
+      "share_of_target": 0.104
     },
     "act_english": {
       "target": 700,
@@ -406,9 +417,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 197,
+  "total_accepted": 208,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_math",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -509,12 +520,90 @@
         "Skill balance at 118 is within about 1.5 items of the enhanced-ACT blueprint midpoints in every category.",
         "Action: write 6-7 hard items per batch until the calibrated hard share reaches 25%, and favor setups the raters consistently rated hardest (root-location conditions, multi-constraint counting, reflection or geometric insight, case analysis)."
       ]
+    },
+    {
+      "bank": "act_math",
+      "audited_at": "2026-10-26T18:48:41+00:00",
+      "accepted": 208,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-ACT-M-000021",
+          "b": "CLD-ACT-M-000122",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-ACT-M-000031",
+          "b": "CLD-ACT-M-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000031",
+          "b": "CLD-ACT-M-000181",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-ACT-M-000032",
+          "b": "CLD-ACT-M-000172",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-ACT-M-000041",
+          "b": "CLD-ACT-M-000080",
+          "similarity": 0.5
+        }
+      ],
+      "answer_key_balance": {
+        "A": 53,
+        "B": 53,
+        "C": 55,
+        "D": 47
+      },
+      "by_skill": {
+        "Algebra": 39,
+        "Functions": 39,
+        "Geometry": 38,
+        "Integrating Essential Skills": 41,
+        "Number & Quantity": 23,
+        "Statistics & Probability": 28
+      },
+      "by_difficulty_author": {
+        "easy": 32,
+        "hard": 92,
+        "medium": 84
+      },
+      "by_difficulty_calibrated": {
+        "easy": 52,
+        "hard": 27,
+        "medium": 129
+      },
+      "thin_explanations": [
+        "CLD-ACT-M-000004",
+        "CLD-ACT-M-000064",
+        "CLD-ACT-M-000079",
+        "CLD-ACT-M-000093",
+        "CLD-ACT-M-000095",
+        "CLD-ACT-M-000098",
+        "CLD-ACT-M-000100",
+        "CLD-ACT-M-000120",
+        "CLD-ACT-M-000121",
+        "CLD-ACT-M-000124",
+        "CLD-ACT-M-000136",
+        "CLD-ACT-M-000146",
+        "CLD-ACT-M-000169",
+        "CLD-ACT-M-000172",
+        "CLD-ACT-M-000184",
+        "CLD-ACT-M-000192",
+        "CLD-ACT-M-000197",
+        "CLD-ACT-M-000199"
+      ],
+      "subskills_used_more_than_twice": {},
+      "scope": "automatic audit at 208 accepted"
     }
   ],
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 20,
+      "bank_version": 21,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -558,7 +647,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:46:39+00:00",
+    "heartbeat_at": "2026-10-26T18:49:17+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

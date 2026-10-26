@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 20,
-  "updated_at": "2026-10-26T18:46:20+00:00",
+  "version": 21,
+  "updated_at": "2026-10-26T18:48:40+00:00",
   "passages": [],
   "questions": [
     {
@@ -13580,6 +13580,787 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-020.review.json",
         "computation": "checks/act_math/batch_020.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000198",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Inclusion–exclusion with divisibility",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many integers from 1 through 100, inclusive, are divisible by 6 or by 10 (or by both)?",
+      "choices": {
+        "A": "3",
+        "B": "23",
+        "C": "26",
+        "D": "30"
+      },
+      "correct_answer": "B",
+      "explanation": "Multiples of 6: ⌊100/6⌋ = 16. Multiples of 10: 10. Numbers divisible by both are multiples of lcm(6, 10) = 30: 30, 60, 90, so 3. By inclusion–exclusion, 16 + 10 − 3 = 23.",
+      "distractor_explanations": {
+        "A": "3 counts only the numbers divisible by both 6 and 10.",
+        "C": "This adds 16 and 10 without subtracting the 3 numbers counted twice.",
+        "D": "This uses 60 (6 × 10) as the common multiple and still mishandles the overlap; the least common multiple is 30, and the overlap must be subtracted."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Count the multiples of 6 and the multiples of 10 separately.",
+        "Some numbers were counted twice. Which ones?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "16 + 10 − 3 = 23."
+      },
+      "remember": "Or-counts: add the groups, subtract the overlap once.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-01",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000199",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Solving a system by elimination",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 3x + 2y = 7 and 5x − 2y = 9, what is the value of x ?",
+      "choices": {
+        "A": "1/2",
+        "B": "1",
+        "C": "2",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "Adding the equations eliminates y: 8x = 16, so x = 2. (Then y = 1/2.)",
+      "distractor_explanations": {
+        "A": "1/2 is the value of y.",
+        "B": "This subtracts the equations instead of adding them: −2x + 4y = −2, then guesses y = 0 to get x = 1; subtraction does not eliminate y here.",
+        "D": "This adds the equations but divides 16 by 4 instead of 8."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "The y-terms have opposite coefficients.",
+        "Add the two equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add: 8x = 16, x = 2."
+      },
+      "remember": "Opposite coefficients: add the equations to eliminate.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-02",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000200",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Exponential equations with different bases (logarithms)",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "To the nearest hundredth, what value of x satisfies 3^x = 2^(x + 1) ?",
+      "choices": {
+        "A": "0.63",
+        "B": "1.58",
+        "C": "1.71",
+        "D": "2.71"
+      },
+      "correct_answer": "C",
+      "explanation": "Take natural logarithms: x ln 3 = (x + 1) ln 2. Then x(ln 3 − ln 2) = ln 2, so x = ln 2/(ln 3 − ln 2) = 0.6931/0.4055 ≈ 1.71. Check: 3^1.71 ≈ 6.54 and 2^2.71 ≈ 6.54.",
+      "distractor_explanations": {
+        "A": "This solves 3^x = 2 (dropping the +1): x = ln 2/ln 3 ≈ 0.63.",
+        "B": "This computes ln 3/ln 2 ≈ 1.58, which solves 2^x = 3 instead.",
+        "D": "2.71 is x + 1, the exponent on 2, not x."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Take a logarithm of both sides.",
+        "Collect the terms with x on one side and factor out x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 1.71: 3^1.71 ≈ 6.54 and 2^2.71 ≈ 6.54. Test 1.58: 5.67 vs 5.98. So 1.71."
+      },
+      "remember": "Different bases: take logs, then solve the linear equation in x.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-03",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000201",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Solving equations with a composition",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Let f(x) = x² − 2x and g(x) = x + 1. What is the set of all real solutions of f(g(x)) = 0 ?",
+      "choices": {
+        "A": "{0, 2}",
+        "B": "{−1}",
+        "C": "{1}",
+        "D": "{−1, 1}"
+      },
+      "correct_answer": "D",
+      "explanation": "f(g(x)) = (x + 1)² − 2(x + 1) = (x + 1)(x + 1 − 2) = (x + 1)(x − 1). This is 0 when x = −1 or x = 1. (Equivalently, g(x) must be a zero of f, 0 or 2, so x + 1 = 0 or x + 1 = 2.)",
+      "distractor_explanations": {
+        "A": "0 and 2 are the zeros of f itself; they are the values g(x) must take, not the values of x.",
+        "B": "This finds only g(x) = 0 and misses g(x) = 2.",
+        "C": "This finds only g(x) = 2 and misses g(x) = 0."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "For f(g(x)) to be 0, g(x) must be a zero of f.",
+        "Find the zeros of f, then solve g(x) = each one."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "x = −1: g = 0, f(0) = 0. x = 1: g = 2, f(2) = 0. Both work."
+      },
+      "remember": "f(g(x)) = 0 means g(x) equals a zero of f.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-04",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000202",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Vertical asymptotes versus holes",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (x + 3)/(x² − 9). At which value(s) of x does the graph of f have a vertical asymptote?",
+      "choices": {
+        "A": "x = 3 only",
+        "B": "x = −3 only",
+        "C": "x = −3 and x = 3",
+        "D": "x = 9 only"
+      },
+      "correct_answer": "A",
+      "explanation": "Factor: f(x) = (x + 3)/[(x − 3)(x + 3)] = 1/(x − 3) for x ≠ −3. At x = −3 the factor cancels, so the graph has a hole there, not an asymptote. At x = 3 the denominator is 0 and the numerator is 6, so there is a vertical asymptote at x = 3 only.",
+      "distractor_explanations": {
+        "B": "At x = −3 the common factor cancels, giving a hole rather than an asymptote.",
+        "C": "Both values make the denominator 0, but only x = 3 gives an asymptote; x = −3 is a hole.",
+        "D": "This sets x² = 9 equal to x = 9 instead of solving x² = 9."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Factor the denominator.",
+        "Does any factor cancel with the numerator?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Near x = −3, f(−2.99) ≈ −0.17 (finite); near x = 3, f(2.99) ≈ −100. Only x = 3 blows up."
+      },
+      "remember": "A cancelled factor gives a hole; a remaining one gives an asymptote.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-05",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000203",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Writing an exponential decay model",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A phone's battery starts fully charged at 100%. Each hour, it loses 4% of the charge it had at the beginning of that hour. Which function gives the battery's charge, in percent, after t hours?",
+      "choices": {
+        "A": "B(t) = 100 − 4t",
+        "B": "B(t) = 100(0.96)^t",
+        "C": "B(t) = 100(0.04)^t",
+        "D": "B(t) = 100(1.04)^t"
+      },
+      "correct_answer": "B",
+      "explanation": "Losing 4% of the current charge leaves 96% of it each hour, so the charge is multiplied by 0.96 every hour: B(t) = 100(0.96)^t.",
+      "distractor_explanations": {
+        "A": "100 − 4t loses a fixed 4 percentage points each hour; the loss here is 4% of the current charge, which shrinks over time.",
+        "C": "0.04 is the fraction lost, not the fraction kept.",
+        "D": "1.04 would mean the charge grows by 4% each hour."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "sign_error"
+      },
+      "hints": [
+        "What fraction of the charge remains after one hour?",
+        "Losing a percent of the current amount each period means multiplying by the same factor."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "After 1 hour the charge is 96; only B(1) = 100(0.96) = 96 among the exponential forms."
+      },
+      "remember": "Lose r% each period: multiply by (1 − r).",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-06",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000204",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of an isosceles triangle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An isosceles triangle has two sides of length 13 and a base of length 10. What is the area of the triangle?",
+      "choices": {
+        "A": "30",
+        "B": "60",
+        "C": "65",
+        "D": "120"
+      },
+      "correct_answer": "B",
+      "explanation": "The altitude to the base bisects it into two segments of 5. By the Pythagorean theorem, the altitude is √(13² − 5²) = 12. Area = (1/2)(10)(12) = 60.",
+      "distractor_explanations": {
+        "A": "This uses half the base twice: (1/2)(5)(12) = 30 is the area of only one of the two right triangles.",
+        "C": "This uses the slanted side 13 as the height: (1/2)(10)(13) = 65.",
+        "D": "This omits the factor 1/2: 10 × 12 = 120."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Draw the altitude to the base; where does it meet the base?",
+        "Use the Pythagorean theorem to find the altitude."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "5-12-13 right triangles give height 12; area = 60."
+      },
+      "remember": "The altitude to the base of an isosceles triangle bisects it.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-07",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000205",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Sampling methods and bias",
+      "modeling": true,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A high school with 1,200 students wants to estimate the average number of hours its students sleep on school nights. Which of the following methods is most likely to produce an unbiased estimate?",
+      "choices": {
+        "A": "Survey 50 students chosen at random from a list of all 1,200 students",
+        "B": "Survey the students who are in the library at 7:00 a.m. on a Monday",
+        "C": "Post an online poll that any student may choose to answer",
+        "D": "Survey all 30 members of the debate team"
+      },
+      "correct_answer": "A",
+      "explanation": "A simple random sample from the full list gives every student the same chance of being chosen, so it is not systematically tilted toward any group. The other methods select groups whose sleep habits may differ from the school as a whole: early-morning library users, students who choose to respond, or one club.",
+      "distractor_explanations": {
+        "B": "Students in the library at 7:00 a.m. are likely to be early risers, a group that may sleep differently from others.",
+        "C": "A voluntary-response poll attracts students with particular interest or habits; it is not random.",
+        "D": "One club is not representative of the whole school, even if every member answers."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which method gives every student the same chance of being selected?",
+        "Look for groups that might differ systematically from the whole school."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out convenience, voluntary and single-group samples; the random sample remains."
+      },
+      "remember": "Random selection from the whole population avoids bias.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-08",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000206",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Relative speed on a circular track",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two runners start at the same point on a 400-meter circular track at the same time and run in opposite directions, one at 4 meters per second and the other at 6 meters per second. After how many seconds do they first meet?",
+      "choices": {
+        "A": "40",
+        "B": "66 2/3",
+        "C": "100",
+        "D": "200"
+      },
+      "correct_answer": "A",
+      "explanation": "Running in opposite directions, the runners close the gap between them at 4 + 6 = 10 meters per second. They first meet when together they have covered one full lap, 400 meters: 400 ÷ 10 = 40 seconds. (Then the runners have gone 160 m and 240 m.)",
+      "distractor_explanations": {
+        "B": "This is 400 ÷ 6, the time for the faster runner alone to complete a lap.",
+        "C": "This is 400 ÷ 4, the slower runner's lap time.",
+        "D": "This uses the difference of the speeds (6 − 4 = 2), which applies to runners going in the same direction."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Moving toward each other, how fast does the distance between them shrink?",
+        "How much total distance must they cover together to meet?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combined speed 10 m/s; one lap 400 m; 40 s."
+      },
+      "remember": "Opposite directions: add speeds; same direction: subtract.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-09",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000207",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Scaling a recipe with unit conversion",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A recipe uses 250 grams of flour for 4 servings. How many kilograms of flour are needed for 30 servings? (1 kilogram = 1,000 grams)",
+      "choices": {
+        "A": "0.1875",
+        "B": "0.9375",
+        "C": "1.25",
+        "D": "1.875"
+      },
+      "correct_answer": "D",
+      "explanation": "30 servings is 30 ÷ 4 = 7.5 times the recipe, so the flour is 250 × 7.5 = 1,875 grams, which is 1.875 kilograms.",
+      "distractor_explanations": {
+        "A": "This divides by 10,000 instead of 1,000 when converting grams to kilograms.",
+        "B": "This scales by 30/8 instead of 30/4, as if 250 grams made 8 servings.",
+        "C": "This scales by 5 instead of 7.5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How many times the recipe is 30 servings?",
+        "Convert grams to kilograms at the end."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "250 × 30/4 = 1,875 g = 1.875 kg."
+      },
+      "remember": "Scale by the serving ratio, then convert units.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-10",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000208",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Geometric probability with concentric circles",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circular target consists of three regions bounded by concentric circles with radii 1, 3 and 6 inches: an inner disk, a middle ring and an outer ring. A dart lands at a random point on the target, with every point equally likely. What is the probability that it lands in the middle ring?",
+      "choices": {
+        "A": "1/36",
+        "B": "2/9",
+        "C": "1/4",
+        "D": "1/3"
+      },
+      "correct_answer": "B",
+      "explanation": "The whole target has area π(6²) = 36π. The middle ring lies between radii 1 and 3: π(3²) − π(1²) = 9π − π = 8π. The probability is 8π/36π = 2/9.",
+      "distractor_explanations": {
+        "A": "1/36 = π/36π is the probability of the inner disk.",
+        "C": "1/4 = 9π/36π is the probability of landing within radius 3, which includes the inner disk.",
+        "D": "1/3 treats the three regions as equally likely, or compares the ring's width (2) with the radius (6); probability depends on area."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Probability = area of the region ÷ area of the whole target.",
+        "The ring's area is the difference of two circle areas."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(9π − π)/36π = 8/36 = 2/9."
+      },
+      "remember": "Ring area = π(R² − r²).",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 21,
+      "draft_candidate": "B021-11",
+      "created_at": "2026-10-26T18:48:40+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_math/batch-021.review.json",
+        "computation": "checks/act_math/batch_021.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

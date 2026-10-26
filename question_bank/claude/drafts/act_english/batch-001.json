@@ -1,0 +1,556 @@
+{
+  "bank": "act_english",
+  "batch": 1,
+  "plan": "First ACT English batch: one original informational passage (~330 words) with 10 underlined spans and 11 items. Mix: Conventions of Standard English 5, Production of Writing 4, Knowledge of Language 2. NO CHANGE appears as choice A where the question is about an underlined span, matching ACT convention.",
+  "passages": [
+    {
+      "passage_id": "CLD-P-ACT-E-000001",
+      "title": "The Weather in the Margins",
+      "genre": "informational (history of science)",
+      "word_count": 259,
+      "text": "For more than a century, the keepers of a lighthouse on the north shore of Lake Superior wrote down the weather every few hours. {{1|Their logbooks, now stored in a state archive,}} record wind direction, wave height, and the color of the sky at dawn. To the keepers, these notes were routine. {{2|Similarly,}} to climate scientists today they are treasures.\n\nHistorians first noticed the logbooks' value in the 1990s, when a graduate student {{3|digitizing}} old shipping records found that the keepers' entries matched storm reports from passing freighters. {{4|Unlike a freighter,}} the logs offered something the ships could not: an unbroken record from a single place. A ship passes through a storm in a few hours, but a lighthouse {{5|stays where it is, and it does not move,}} season after season.\n\nTurning handwritten notes into usable data {{6|has proven}} slow work. Each keeper had a personal shorthand. One wrote \"NW fr\" for a fresh northwest wind; another simply drew an arrow. Volunteers now transcribe the pages online, and each page {{7|is checked by at least two different people before its numbers are added to the database.}}\n\nThe effort is already paying off. Comparing the keepers' records with modern measurements, researchers {{8|have figured out}} that the lake now freezes, on average, about two weeks later than it did a century ago. {{9|The keepers, who never imagined their notes would be read this way, simply wanted to keep the light burning and the ships safe.}} {{10|Their careful habits have given scientists a rare gift: a long view of a changing lake.}}"
+    }
+  ],
+  "candidates": [
+    {
+      "cand": "E001-01",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 1,
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonessential phrase",
+      "repo_skill_key": "act_punctuation",
+      "difficulty": "easy",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Their logbooks now stored in a state archive,",
+        "C": "Their logbooks, now stored in a state archive",
+        "D": "Their logbooks; now stored in a state archive,"
+      },
+      "answer": "A",
+      "evidence": "Their logbooks, now stored in a state archive, record wind direction, wave height, and the color of the sky at dawn.",
+      "explanation": "The phrase \"now stored in a state archive\" adds extra information about the logbooks and could be removed without changing the sentence's core meaning (\"Their logbooks record wind direction…\"). Nonessential phrases are set off by a pair of commas, one before and one after, which is what the original does.",
+      "distractors": {
+        "B": {
+          "rationale": "Removing the first comma leaves only one comma, so the phrase is not properly set off and the comma splits the subject from its verb.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "Removing the closing comma leaves the nonessential phrase open, running it into the verb \"record.\"",
+          "trap": null
+        },
+        "D": {
+          "rationale": "A semicolon must join two complete sentences; \"Their logbooks\" is not a complete sentence.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Could the phrase between the commas be removed without breaking the sentence?",
+        "Nonessential information needs punctuation on both sides."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the sentence without the middle phrase; it still works, so the phrase needs a comma on each side."
+      },
+      "remember": "Nonessential phrases take a pair of commas.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-02",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 2,
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions: contrast",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "medium",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "However,",
+        "C": "For example,",
+        "D": "Therefore,"
+      },
+      "answer": "B",
+      "evidence": "To the keepers, these notes were routine.",
+      "explanation": "The previous sentence says the notes were routine to the keepers; this sentence says they are treasures to scientists. These ideas contrast, so \"However\" is the logical transition.",
+      "distractors": {
+        "A": {
+          "rationale": "\"Similarly\" signals that the second idea matches the first, but \"routine\" and \"treasures\" are opposites.",
+          "trap": "wrong_transition"
+        },
+        "C": {
+          "rationale": "\"For example\" introduces an instance of the previous idea, but scientists valuing the notes is not an example of the notes being routine.",
+          "trap": "wrong_transition"
+        },
+        "D": {
+          "rationale": "\"Therefore\" signals a result, but the notes being routine does not cause scientists to value them.",
+          "trap": "wrong_transition"
+        }
+      },
+      "hints": [
+        "How does \"routine\" compare with \"treasures\"?",
+        "Pick the transition that matches that relationship."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a contrast word (\"but,\" \"however\") before reading the choices."
+      },
+      "remember": "Name the relationship first, then choose the transition.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-03",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 3,
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Participial phrases and sentence boundaries",
+      "repo_skill_key": "act_sentence_structure",
+      "difficulty": "medium",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "digitized",
+        "C": "was digitizing",
+        "D": "who digitizing"
+      },
+      "answer": "A",
+      "evidence": "when a graduate student digitizing old shipping records found that the keepers' entries matched storm reports from passing freighters",
+      "explanation": "The clause's subject is \"a graduate student\" and its verb is \"found.\" The phrase \"digitizing old shipping records\" describes the student, so the participle \"digitizing\" is correct.",
+      "distractors": {
+        "B": {
+          "rationale": "\"digitized\" turns the phrase into a second main verb (\"a student digitized… found…\") with no conjunction joining the two verbs.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "\"was digitizing\" also creates a second verb for the same subject, leaving \"found\" without a connection.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "\"who digitizing\" is ungrammatical; a relative clause needs a full verb (\"who was digitizing\").",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the subject and main verb of the clause beginning with \"when.\"",
+        "The underlined word should describe the student, not act as a second main verb."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Each alternative adds a verb that collides with \"found\"; the participle keeps one main verb."
+      },
+      "remember": "One clause, one main verb; modifiers use -ing or -ed forms.",
+      "expected_time_seconds": 35,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-04",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 4,
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Logical comparison",
+      "repo_skill_key": "act_usage",
+      "difficulty": "hard",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Unlike the freighters' reports,",
+        "C": "Unlike freighters,",
+        "D": "Like the freighters' reports,"
+      },
+      "answer": "B",
+      "evidence": "the logs offered something the ships could not: an unbroken record from a single place",
+      "explanation": "The sentence compares the logs with something else. Logs must be compared with other records, the freighters' reports, not with the ships themselves. And because the logs offered something the ships' reports could not, the comparison is a contrast (\"Unlike\").",
+      "distractors": {
+        "A": {
+          "rationale": "This compares the logs with a ship, which is an illogical comparison of a record to a vessel.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This still compares logs with ships rather than with the ships' reports.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This compares the right things but says they are alike, contradicting the claim that the logs offered something the ships' reports could not.",
+          "trap": "wrong_transition"
+        }
+      },
+      "hints": [
+        "What exactly are the logs being compared with?",
+        "Should the comparison show a similarity or a difference?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out choices that compare logs with ships; then choose contrast over similarity."
+      },
+      "remember": "Compare like with like: records with records.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-05",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 5,
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision and redundancy",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "easy",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "stays put",
+        "C": "stays where it is and remains stationary",
+        "D": "stays where it is, never moving or changing its location,"
+      },
+      "answer": "B",
+      "evidence": "A ship passes through a storm in a few hours, but a lighthouse",
+      "explanation": "\"Stays where it is\" and \"does not move\" say the same thing. \"Stays put\" expresses the idea once, clearly and concisely.",
+      "distractors": {
+        "A": {
+          "rationale": "\"Stays where it is, and it does not move\" repeats the same idea twice.",
+          "trap": "wordy_redundant"
+        },
+        "C": {
+          "rationale": "\"Remains stationary\" again repeats \"stays where it is.\"",
+          "trap": "wordy_redundant"
+        },
+        "D": {
+          "rationale": "This repeats the idea three times.",
+          "trap": "wordy_redundant"
+        }
+      },
+      "hints": [
+        "Do any parts of the underlined portion mean the same thing?",
+        "Choose the version that says the idea once."
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "All choices are grammatical; the shortest one that keeps the meaning is best."
+      },
+      "remember": "Say it once.",
+      "expected_time_seconds": 25,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-06",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 6,
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement with a gerund subject",
+      "repo_skill_key": "act_usage",
+      "difficulty": "medium",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "have proven",
+        "C": "proving",
+        "D": "were proving"
+      },
+      "answer": "A",
+      "evidence": "Turning handwritten notes into usable data has proven slow work.",
+      "explanation": "The subject is the gerund phrase \"Turning handwritten notes into usable data,\" which names one activity and is singular. The singular verb \"has proven\" agrees with it.",
+      "distractors": {
+        "B": {
+          "rationale": "\"have proven\" agrees with the nearby plural noun \"notes,\" but \"notes\" is part of the subject phrase, not the subject itself.",
+          "trap": "nearest_noun_agreement"
+        },
+        "C": {
+          "rationale": "\"proving\" is not a complete verb, so the sentence becomes a fragment.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "\"were proving\" is plural and also shifts to an awkward past progressive.",
+          "trap": "nearest_noun_agreement"
+        }
+      },
+      "hints": [
+        "What is the subject: the notes, or the activity of turning them into data?",
+        "Is an activity singular or plural?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Strip the phrase to \"Turning … has proven\"; an -ing activity is singular."
+      },
+      "remember": "A gerund phrase subject is singular.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-07",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 7,
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Relevance to a stated purpose",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "easy",
+      "stem": "Which choice most effectively explains how the project protects the accuracy of the transcribed data?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "is uploaded to the website as a photograph.",
+        "C": "can be viewed by anyone with an internet connection.",
+        "D": "takes a volunteer about fifteen minutes to transcribe."
+      },
+      "answer": "A",
+      "evidence": "is checked by at least two different people before its numbers are added to the database.",
+      "explanation": "The question asks how accuracy is protected. Having each page checked by two different people before the numbers are used is a quality check. The other choices describe access, format or time, not accuracy.",
+      "distractors": {
+        "B": {
+          "rationale": "Uploading a photograph describes how pages are shared, not how errors are caught.",
+          "trap": "true_but_irrelevant"
+        },
+        "C": {
+          "rationale": "Public viewing is about access, not about checking the numbers.",
+          "trap": "true_but_irrelevant"
+        },
+        "D": {
+          "rationale": "Transcription time does not explain how accuracy is protected.",
+          "trap": "true_but_irrelevant"
+        }
+      },
+      "hints": [
+        "Read the question's goal carefully: accuracy.",
+        "Which choice describes a way to catch mistakes?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The stem names the purpose; only one choice serves it."
+      },
+      "remember": "Match the choice to the stated purpose.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-08",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 7,
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence: relevance and focus",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "medium",
+      "stem": "At the end of the third paragraph (after the underlined portion), the writer is considering adding the following sentence:\nThe lighthouse was built after a powerful storm wrecked more than two dozen ships nearby.\nShould the writer make this addition there?",
+      "choices": {
+        "A": "Yes, because it explains why the lighthouse's records are valuable to scientists.",
+        "B": "Yes, because it tells when the keepers' logbooks begin.",
+        "C": "No, because it interrupts the paragraph's focus on how the handwritten logs are turned into data.",
+        "D": "No, because it contradicts the claim that the logs cover more than a century."
+      },
+      "answer": "C",
+      "evidence": "Turning handwritten notes into usable data has proven slow work.",
+      "explanation": "The third paragraph explains the work of converting the keepers' shorthand into data. A sentence about why the lighthouse was built is off topic there, so it should not be added.",
+      "distractors": {
+        "A": {
+          "rationale": "The sentence explains why the lighthouse was built, not why its records matter to scientists.",
+          "trap": "out_of_scope"
+        },
+        "B": {
+          "rationale": "The sentence gives no date for the logbooks.",
+          "trap": "out_of_scope"
+        },
+        "D": {
+          "rationale": "Nothing in the sentence contradicts the century-long record; the problem is focus, not accuracy.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "What is the third paragraph mainly about?",
+        "Does the new sentence support that topic?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the paragraph's first sentence to identify its focus, then test the new sentence against it."
+      },
+      "remember": "Add a sentence only if it supports the paragraph's focus.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "shares underline 7 as its location marker"
+      }
+    },
+    {
+      "cand": "E001-09",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 8,
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise and register-appropriate word choice",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "medium",
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "have determined",
+        "C": "have guessed",
+        "D": "have hoped"
+      },
+      "answer": "B",
+      "evidence": "Comparing the keepers' records with modern measurements, researchers",
+      "explanation": "The researchers reached a conclusion by comparing measurements, so the verb should name a firm finding in the essay's formal register. \"Have determined\" does this. \"Figured out\" is too casual for the essay, and \"guessed\" and \"hoped\" misstate what the comparison produced.",
+      "distractors": {
+        "A": {
+          "rationale": "\"Figured out\" is informal and does not match the essay's measured, formal tone.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "\"Guessed\" contradicts the idea that the conclusion comes from comparing measurements.",
+          "trap": "familiar_meaning"
+        },
+        "D": {
+          "rationale": "\"Hoped\" describes a wish, not a finding from data.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How did the researchers reach their conclusion?",
+        "Which verb fits both that meaning and the essay's tone?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a word like \"found\" or \"established,\" then pick the closest formal match."
+      },
+      "remember": "Choose words that fit both meaning and tone.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-10",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 9,
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Keeping or deleting a sentence",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "medium",
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it contrasts the keepers' practical purpose with the scientific value their notes later gained.",
+        "B": "Kept, because it explains how researchers measured when the lake froze.",
+        "C": "Deleted, because it repeats information given in the first paragraph.",
+        "D": "Deleted, because it shifts the focus from the lake to the design of the lighthouse."
+      },
+      "answer": "A",
+      "evidence": "The keepers, who never imagined their notes would be read this way, simply wanted to keep the light burning and the ships safe.",
+      "explanation": "The sentence stresses that the keepers had a modest, practical goal. That sets up the final sentence's point that their careful habits became a gift to science, so the sentence should be kept.",
+      "distractors": {
+        "B": {
+          "rationale": "The sentence says nothing about how freezing dates were measured.",
+          "trap": "out_of_scope"
+        },
+        "C": {
+          "rationale": "The first paragraph says the notes were routine but does not describe the keepers' goals of keeping the light burning and ships safe.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "The sentence is about the keepers' purpose, not the lighthouse's design.",
+          "trap": "out_of_scope"
+        }
+      },
+      "hints": [
+        "What does the sentence add that the paragraph would lose without it?",
+        "How does it connect to the sentence that follows?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence with the final sentence; the contrast between purpose and later value is the key."
+      },
+      "remember": "Keep sentences that set up or support the conclusion.",
+      "expected_time_seconds": 45,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "E001-11",
+      "passage_id": "CLD-P-ACT-E-000001",
+      "underline": 10,
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Effective conclusions",
+      "repo_skill_key": "act_rhetorical_skills",
+      "difficulty": "easy",
+      "stem": "Which choice most effectively concludes the essay by returning to its main idea?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Lake Superior is the largest of the Great Lakes by surface area.",
+        "C": "Today, the lighthouse is a popular stop for tourists.",
+        "D": "Some keepers lived at the lighthouse with their families."
+      },
+      "answer": "A",
+      "evidence": "Their careful habits have given scientists a rare gift: a long view of a changing lake.",
+      "explanation": "The essay's main idea is that routine weather notes became valuable long-term climate data. The original sentence states exactly that. The other choices add unrelated facts about the lake, tourism or the keepers' families.",
+      "distractors": {
+        "B": {
+          "rationale": "A fact about the lake's size does not connect to the logs' scientific value.",
+          "trap": "true_but_irrelevant"
+        },
+        "C": {
+          "rationale": "Tourism is unrelated to the essay's focus on the weather records.",
+          "trap": "out_of_scope"
+        },
+        "D": {
+          "rationale": "The keepers' family life is not the essay's subject.",
+          "trap": "out_of_scope"
+        }
+      },
+      "hints": [
+        "State the essay's main idea in a sentence.",
+        "Which choice echoes that idea?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a closing line about the value of the long record, then match."
+      },
+      "remember": "A strong conclusion returns to the main idea.",
+      "expected_time_seconds": 30,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

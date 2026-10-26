@@ -1,0 +1,14 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 21},
+ "answers": {
+  "B021-01": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "floor(100/6)=16, floor(100/10)=10, lcm 30 -> 3; 16+10-3=23. Trap C=26 (no overlap subtraction), A=3 (overlap only)."},
+  "B021-02": {"answer": "C", "confidence": "high", "est_pct_correct": 88, "difficulty_opinion": "easy", "flags": [], "notes": "Add equations: 8x=16, x=2 (y=1/2, distractor A)."},
+  "B021-03": {"answer": "C", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "x ln3=(x+1)ln2 -> x=ln2/(ln3-ln2)=1.7095 -> 1.71. Distractors: 1.58=log2 3, 0.63=log3 2, 2.71=x+1. Calculator guess-and-check also works."},
+  "B021-04": {"answer": "D", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "f(x+1)=(x+1)^2-2(x+1)=(x+1)(x-1)=0 -> {-1,1}. Trap A = zeros of f."},
+  "B021-05": {"answer": "A", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "f=(x+3)/((x-3)(x+3)) = 1/(x-3) for x != -3; hole at -3, asymptote x=3 only. Trap C (denominator zeros) catches many; borderline hard."},
+  "B021-06": {"answer": "B", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy", "flags": [], "notes": "4% decay per hour of current charge -> 100(0.96)^t. Trap A linear."},
+  "B021-07": {"answer": "B", "confidence": "high", "est_pct_correct": 68, "difficulty_opinion": "medium", "flags": [], "notes": "Height sqrt(169-25)=12; area 10*12/2=60. Trap D=120 (forgetting 1/2), C=65 (13*10/2)."},
+  "B021-08": {"answer": "A", "confidence": "high", "est_pct_correct": 88, "difficulty_opinion": "easy", "flags": [], "notes": "Simple random sample from full list; others convenience/self-selected."},
+  "B021-09": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "Closing speed 10 m/s, 400/10=40 s. D=200 is same-direction catch-up; B=400/6; C=400/4."},
+  "B021-10": {"answer": "D", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "62.5 g/serving * 30 = 1875 g = 1.875 kg. Two routine steps but very familiar; borderline medium."},
+  "B021-11": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "Area ratio (9-1)/36 = 8/36 = 2/9. Traps: 1/4 = 9/36 (whole disk r=3), 1/3 = linear (3-1)/6, 1/36 inner disk."}
+ }}
