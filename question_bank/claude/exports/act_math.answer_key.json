@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 45,
+  "bank_version": 46,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -7818,6 +7818,178 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the right triangle formed by the vertical gap and the perpendicular."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000450",
+      "correct_answer": "B",
+      "explanation": "After 4 years the value has dropped by 4 × $1,500 = $6,000, so it is worth $18,000 - $6,000 = $12,000.",
+      "distractor_explanations": {
+        "A": "$6,000 is the total decrease, not the remaining value.",
+        "C": "$13,500 subtracts only 3 years of decrease.",
+        "D": "$16,500 subtracts only one year of decrease."
+      },
+      "hints": [
+        "How much value is lost in 4 years?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "V = 18,000 - 1,500t."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000451",
+      "correct_answer": "C",
+      "explanation": "A function assigns exactly one output to each input. In C, the input 4 is paired with both 1 and 3, so it is not a function.",
+      "distractor_explanations": {
+        "A": "Repeated outputs are allowed; each input 1, 2, 3 has one output.",
+        "B": "Each input has exactly one output.",
+        "D": "The output 0 repeats, which is allowed; each input has one output."
+      },
+      "hints": [
+        "Look for an input (first coordinate) that appears twice with different outputs."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each set's first coordinates for repeats."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000452",
+      "correct_answer": "A",
+      "explanation": "The lateral area of a cone is πrℓ = π(4)(10) = 40π.",
+      "distractor_explanations": {
+        "B": "56π adds the area of the opening, 16π, as if the hat had a base.",
+        "C": "80π uses 2πrℓ, doubling the lateral area.",
+        "D": "160π = π(4²)(10) uses r² instead of r."
+      },
+      "hints": [
+        "Lateral area of a cone = π × radius × slant height."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "π(4)(10)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000453",
+      "correct_answer": "D",
+      "explanation": "|-5| = 5, so the expression is |-3 - 5| = |-8| = 8.",
+      "distractor_explanations": {
+        "A": "-8 forgets that an absolute value is never negative.",
+        "B": "-2 adds instead of subtracting (-3 + 5 = 2) and then attaches a negative sign.",
+        "C": "2 treats -|-5| as +5: |-3 + 5| = 2."
+      },
+      "hints": [
+        "Evaluate the inner absolute value first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "|-5| = 5, then |-3 - 5|."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000454",
+      "correct_answer": "A",
+      "explanation": "The sample proportion is 18/60 = 0.3, and 0.3 × 900 = 270.",
+      "distractor_explanations": {
+        "B": "300 = 900 ÷ 3 treats 18 out of 60 as one-third.",
+        "C": "360 uses 40% instead of 30%.",
+        "D": "450 assumes half the students bike."
+      },
+      "hints": [
+        "What fraction of the sample bikes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(18/60) × 900."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000455",
+      "correct_answer": "C",
+      "explanation": "The trip uses 8 × 3.5 = 28 liters, which cost 28 × $1.50 = $42.00.",
+      "distractor_explanations": {
+        "A": "$12.00 is the cost of 8 liters, the fuel for only 100 kilometers.",
+        "B": "$28.00 is the number of liters, not their cost.",
+        "D": "$52.50 = 350 × 0.15 multiplies the distance by a misplaced rate."
+      },
+      "hints": [
+        "How many hundreds of kilometers is the trip?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(350 ÷ 100) × 8 × 1.50."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000456",
+      "correct_answer": "D",
+      "explanation": "f(x + 2) = 3ˣ⁺² = 3ˣ · 3² = 9 · f(x).",
+      "distractor_explanations": {
+        "A": "2 confuses the change in the exponent with the multiplier.",
+        "B": "5 adds 3 and 2.",
+        "C": "6 multiplies 3 by 2 instead of squaring 3."
+      },
+      "hints": [
+        "Use the rule aᵐ⁺ⁿ = aᵐ · aⁿ."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 0: f(2)/f(0) = 9/1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000457",
+      "correct_answer": "B",
+      "explanation": "If the original square has side 2, each side of the new square is the hypotenuse of a right triangle with legs 1 and 1, so it is √2. Its area is 2 compared with 4: a ratio of 1 : 2. (The four corner triangles together make up the other half.)",
+      "distractor_explanations": {
+        "A": "1 : 4 assumes the new square's side is half the original side.",
+        "C": "1 : √2 is the ratio of the side lengths, not the areas.",
+        "D": "3 : 4 removes only one corner triangle."
+      },
+      "hints": [
+        "Try a square with side 2. How long is each side of the inner square?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the side be 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000458",
+      "correct_answer": "C",
+      "explanation": "There are C(7, 3) = 35 equally likely groups of 3. Groups with exactly 2 red: C(4, 2) × C(3, 1) = 6 × 3 = 18. Probability = 18/35.",
+      "distractor_explanations": {
+        "A": "6/35 counts the pairs of red marbles but not the choice of the blue one.",
+        "B": "12/35 counts ordered red pairs (4 × 3) over 35 without choosing the blue marble.",
+        "D": "4/7 is the probability that one marble drawn is red."
+      },
+      "hints": [
+        "Count groups of 3, not ordered draws.",
+        "How many ways are there to choose 2 of the 4 red marbles and 1 of the 3 blue?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "C(4,2) × C(3,1) ÷ C(7,3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000459",
+      "correct_answer": "B",
+      "explanation": "The terms are 3 · 2⁰ through 3 · 2⁷ (since 384 = 3 · 128), so there are 8 terms. Sum = 3(2⁸ - 1)/(2 - 1) = 3 · 255 = 765.",
+      "distractor_explanations": {
+        "A": "384 is the last term, not the sum.",
+        "C": "768 = 2 × 384 uses 3 · 2⁸ without subtracting 3, an off-by-one in the formula.",
+        "D": "1,149 = 765 + 384 counts the last term twice."
+      },
+      "hints": [
+        "How many terms are there?",
+        "Each term is double the previous; how does the sum compare with the next term after 384?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "3 = 6 - 3, 3 + 6 = 12 - 3, 3 + 6 + 12 = 24 - 3, ..."
       }
     }
   ]
