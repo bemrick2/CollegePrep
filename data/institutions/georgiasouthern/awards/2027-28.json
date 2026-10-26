@@ -1,0 +1,39 @@
+{
+  "institution_key": "ipeds-139931",
+  "academic_year": "2027-28",
+  "records": [
+    {
+      "academic_year_basis": "labeled_entering_class",
+      "award_amount_text": "$1000 / $750 / $500 (one-time)",
+      "award_max": 1000,
+      "award_min": 500,
+      "award_name": "First-Year Merit Scholarships (Fall 2027)",
+      "award_tiers": [
+        {
+          "amount_text": "$1000",
+          "calculated admissions gpa": "4.00 +"
+        },
+        {
+          "amount_text": "$750",
+          "calculated admissions gpa": "3.80 – 3.99"
+        },
+        {
+          "amount_text": "$500",
+          "calculated admissions gpa": "3.50 – 3.79"
+        }
+      ],
+      "award_type": "institutional_merit",
+      "gpa_requirement": "Tiered by Calculated Admissions GPA: 4.00 + → $1000; 3.80 – 3.99 → $750; 3.50 – 3.79 → $500",
+      "last_verified_at": "2026-10-23",
+      "notes": "Extracted by merit_table/v1 from the table \"Merit-Based Aid \"; cells copied as printed. Reviewed 2026-10-03: GPA tiers and amounts checked against the merit table; the amount column says one-time, recorded as not renewable. Evidence: sources/pipeline/GA/2026-10-03/evidence.json#236dceaff67f2ce3. Re-read 2026-10-23: Fall 2027 entering class (2027-28), Georgia residents only, one-time; entering-class labels are held at partially_verified by the pipeline rule. Replaces the 2026-27 record in data/institutions/georgiasouthern/awards/2026-27.json (kept as unverified).",
+      "renewable": false,
+      "source_url": "https://www.georgiasouthern.edu/admissions-aid/tuition-and-scholarships/types-of-aid/scholarships",
+      "verification_status": "partially_verified",
+      "residency_requirement": "Georgia residents only (in-state tuition status required)",
+      "automatic_consideration": true,
+      "separate_application": false,
+      "deadline_text": "February 1st, 2027",
+      "eligibility_summary": "\"All incoming first-year Georgia residents applying for Fall 2027 are automatically evaluated for merit scholarships when they submit their completed admission application by February 1st, 2027.\" \"Eligible Term: Fall 2027 entry only (merit aid is not awarded for spring entry)\". \"Award Structure: One-time award for your first academic year (non-renewable)\". Below 3.50: \"Not eligible for automatic merit aid\"."
+    }
+  ]
+}
