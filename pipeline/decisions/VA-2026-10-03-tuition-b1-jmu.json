@@ -1,0 +1,13 @@
+{
+  "run": "pipeline/runs/VA/2026-10-03",
+  "reviewer": "Research session 2026-10-26 (current tuition b1, PR #285 review fixes)",
+  "reader_commit_note": "Candidate re-extracted locally from pipeline-run/va-2026-10-03 with the costs reader at commit 89e2406d5d (lead-line year for untitled tables). The lead rule was later narrowed to title-like leads; \"Undergraduate (2026-27) - Per year\" still qualifies.",
+  "approve": [
+    {
+      "candidate_id": "ea9d50f040045bea",
+      "supersede": "Re-read after the lead-line year fix: the reader now dates this table from its own title line, so the candidate is labeled_in_source with no open issues; it replaces the partially verified record from the same JMU page, whose academic_year_basis wrongly said the year came from the aid year in force at review.",
+      "reason": "JMU Admissions Facts table whose title line (the lead directly above a table with no heading or caption) reads \"Undergraduate (2026-27) - Per year\"; column \"Out-of-State\": Tuition and Fees $32,576, Housing and Food $15,220, TOTAL $47,796, copied as printed (the In-State column, $14,768, matches the verified in-state record already on file). Out-of-state undergraduate, per year; the year is printed in the table's own title."
+    }
+  ],
+  "reject": []
+}

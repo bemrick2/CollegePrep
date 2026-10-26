@@ -1,0 +1,57 @@
+{
+  "institution_key": "ipeds-224961",
+  "academic_year": "2026-27",
+  "records": [
+    {
+      "books_supplies": 2046,
+      "components": {
+        "* Books/Supplies": 2046,
+        "* Tuition/Fees": 2726,
+        "Housing/Food": 11274,
+        "Miscellaneous": 2826,
+        "Total": 21534,
+        "Transportation": 2662
+      },
+      "cost_period": "academic_year",
+      "currency": "USD",
+      "last_verified_at": "2026-10-04",
+      "living_arrangements": [
+        {
+          "arrangement": "off_campus_not_with_family",
+          "column_header": "Not Living with Parents (In District)",
+          "components": {
+            "* Books/Supplies": 2046,
+            "* Tuition/Fees": 2726,
+            "Housing/Food": 11274,
+            "Miscellaneous": 2826,
+            "Total": 21534,
+            "Transportation": 2662
+          },
+          "total_cost_of_attendance": 21534
+        },
+        {
+          "arrangement": "with_parents_or_family",
+          "column_header": "Dependent Living with Parents (In District)",
+          "components": {
+            "* Books/Supplies": 2046,
+            "* Tuition/Fees": 2726,
+            "Housing/Food": 5300,
+            "Miscellaneous": 2826,
+            "Total": 15560,
+            "Transportation": 2662
+          },
+          "total_cost_of_attendance": 15560
+        }
+      ],
+      "mandatory_fees": null,
+      "notes": "Extracted by cost_table/v2 from the table \" Cost of Attendance (COA) \"; printed rows copied, totals never recomputed. Reviewed 2026-10-23: Galveston College \"Cost of Attendance (COA)\" table whose header row prints \"2026-2027 | (In District) | (In District)\"; column \"Not Living with Parents\" prints Tuition/Fees $2,726, Books/Supplies $2,046, Housing/Food $11,274, Miscellaneous $2,826, Transportation $2,662, Total $21,534, and \"Dependent Living with Parents\" Housing/Food $5,300, Total $15,560, copied as printed. District residency, academic year. Open issue conflicting_sources accepted: the other two sources are copies of the same table on gc.edu (identical figures), rejected below as duplicates. Evidence: sources/pipeline/TX/2026-10-04/evidence.json#37829683775a577b.",
+      "on_campus_food_housing": null,
+      "residency": "district",
+      "source_url": "https://www.gc.edu/admissions/calculating-tuition-fees.php",
+      "total_cost_of_attendance": 21534,
+      "tuition": null,
+      "tuition_and_mandatory_fees": 2726,
+      "verification_status": "partially_verified"
+    }
+  ]
+}
