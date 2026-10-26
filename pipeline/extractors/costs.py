@@ -202,6 +202,24 @@ def stack_header(header, sub, n):
 PART_TIME = re.compile(r'less\s+than\s+half|half[- ]time|part[- ]time|three[- ]quarter[- ]time', re.I)
 
 
+LEAD_TITLE_WORD = re.compile(r'\b(?:undergraduate|graduate|tuition|fees?|per\s+(?:year|semester|term)|cost\s+of\s+attendance|costs?|'
+                             r'rates?|budget|expenses)\b', re.I)
+LEAD_SENTENCE_VERB = re.compile(r'\b(?:apply|applying|have|has|had|is|are|was|were|will|be|been|shows?|must|may|can|should|submit|'
+                                r'complete|approved|pending|due|subject)\b', re.I)
+
+
+def lead_title_year(lead):
+    """The year of a lead line that reads as the table's title ("Undergraduate (2026-27) - Per year"), else None. A sentence
+    ("Apply for 2026-27 aid by March 1.", "2026-27 rates have not been approved; ...") never dates a table (PR #285 review)."""
+    s = re.sub(r'\s+', ' ', lead or '').strip()
+    if not s or len(s) > 60 or re.search(r'[.;:!?](?:\s|$)', s) or LEAD_SENTENCE_VERB.search(s):
+        return None
+    years = T.year_labels(s)
+    if len(years) != 1 or not LEAD_TITLE_WORD.search(s):
+        return None
+    return next(iter(years))
+
+
 def parse_table(rows):
     """First logical segment (kept for callers and tests that expect one table)."""
     segs = parse_tables(rows)
@@ -244,8 +262,7 @@ def _candidates_from_segment(t, titles, headers, body, inst, entry, page, today_
     ctx = column_meaning(context, home, private)
     # VA (JMU): a table with no heading or caption is titled by its lead line ("Undergraduate (2026-27) - Per year").
     if not ctx['year'] and not ((t.get('year_heading') or '').strip() or (t.get('heading') or '').strip() or (t.get('caption') or '').strip()):
-        lead_years = T.year_labels((t.get('lead') or '')[:160])
-        if len(lead_years) == 1: ctx['year'] = next(iter(lead_years))
+        ctx['year'] = lead_title_year(t.get('lead'))
     # WA (Columbia Basin): a row-label header "One Quarter" names the period only when read on its own.
     ctx['period'] = ctx['period'] or next((column_meaning(x)['period'] for x in titles if column_meaning(x)['period']), None)
     # TX (Lubbock Christian): the lead "Fall and Spring Semesters Block Rate 2026-27 (per semester)" names the period
