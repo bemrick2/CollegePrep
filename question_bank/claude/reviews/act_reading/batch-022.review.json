@@ -1,0 +1,249 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 22,
+  "reviewed_at": "2026-10-26T23:31:44+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 22
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000173",
+    "CLD-ACT-R-000174",
+    "CLD-ACT-R-000175",
+    "CLD-ACT-R-000176",
+    "CLD-ACT-R-000177",
+    "CLD-ACT-R-000178",
+    "CLD-ACT-R-000179"
+  ],
+  "results": [
+    {
+      "cand": "R022-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Stated in para 1. B is the first camp; C/D invert or describe 'cribs' attributed to the first camp.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000173"
+    },
+    {
+      "cand": "R022-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Para 3 uses the example to show precisely what each choice loses. C ('always') and A overgeneralize; D unsupported (hypothetical 'Suppose').",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: overlaps with R022-04 (both rely on the wet-match example and para 3's analysis of what each version loses)"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000174"
+    },
+    {
+      "cand": "R022-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Literal version is 'vivid and strange' and 'adds a freshness the original did not have.'",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000175"
+    },
+    {
+      "cand": "R022-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Dead metaphor: image no longer noticed by native speakers; C is literal-meaning trap made tempting by 'brought back to life.'",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000176"
+    },
+    {
+      "cand": "R022-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: nearly verbatim lift of 'a stove that will not catch' from para 4, so locatable by word-matching"
+      ],
+      "blind_notes": "Para 4: if the poem returns to fire/stove, the poet uses the buried image, so keep the match. B supports 'I feel low'; D is the opposite condition.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: choice C closely echoes the passage ('a stove that will not catch' becomes 'a stove that will not light'), which makes the application easier",
+        "minor: overlaps with R022-07, since both test para 4"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Two distractors describe the opposite condition or a condition that sounds relevant but does not appear in the author's test; the student must apply paragraph 4's 'if' clause to a new case."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R022-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Para 3 shows both lose something; para 4 opens 'The way out' and gives a criterion for choosing.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000177"
+    },
+    {
+      "cand": "R022-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: overlaps with R022-01 main-idea item"
+      ],
+      "blind_notes": "'Each camp has mistaken a method for a principle.' A/C pick sides; D contradicts the author's careful engagement.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: choice B nearly repeats para 5 ('mistaken a method for a principle')"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Two distractors each take one camp's genuine strength from paragraph 3 and present it as the author's preference; only reading paragraph 5's judgment rules them out."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000178"
+    },
+    {
+      "cand": "R022-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: in A, 'checked against it' has an ambiguous antecedent (the poem vs. the translator's reading); passage says judged by 'returning to the evidence,' i.e., the poem. Suggest 'reflects the translator's reading of the poem and can be judged against the poem itself.'"
+      ],
+      "blind_notes": "Translation embodies an interpretation that can be made well or badly and judged by evidence. D tempting via 'the old argument never ends' but passage says arguments can be judged.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000179"
+    }
+  ]
+}

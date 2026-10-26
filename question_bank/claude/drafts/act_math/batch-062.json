@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 62,
+ "plan": "3 hard (perfect-square multiplier, external tangent, first blue on draw 3) / 4 medium / 3 easy; keys weighted to A and D after the 600 audit found B/C heavy.",
+ "candidates": [
+  {
+   "cand": "B062-01",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Solving a monthly bill for usage",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "A phone plan charges $30 per month plus $0.10 for each text message sent. One month's bill was $42.50. How many text messages were sent that month?",
+   "choices": {
+    "A": "125",
+    "B": "300",
+    "C": "425",
+    "D": "725"
+   },
+   "answer": "A",
+   "explanation": "The texts cost $42.50 − $30 = $12.50. At $0.10 each, that is 12.50 ÷ 0.10 = 125 texts.",
+   "distractors": {
+    "B": {
+     "rationale": "300 = 30 ÷ 0.10 divides the monthly fee by the text price.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "425 = 42.50 ÷ 0.10 ignores the $30 monthly fee.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "725 = (42.50 + 30) ÷ 0.10 adds the fee instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "How much of the bill was for texts?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "30 + 0.10t = 42.50."
+   },
+   "remember": "Subtract the fixed fee before dividing by the rate.",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a right triangle in the coordinate plane",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "What is the area of the triangle with vertices (0, 0), (8, 0) and (0, 15) in the standard (x, y) coordinate plane?",
+   "choices": {
+    "A": "17",
+    "B": "23",
+    "C": "40",
+    "D": "60"
+   },
+   "answer": "D",
+   "explanation": "The legs lie along the axes with lengths 8 and 15, so the area is (1/2)(8)(15) = 60.",
+   "distractors": {
+    "A": {
+     "rationale": "17 is the length of the hypotenuse.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "23 adds the two legs.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "40 is the perimeter, 8 + 15 + 17.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What are the lengths of the legs?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the three points."
+   },
+   "remember": "Area of a right triangle = half the product of the legs.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Linear equation with a fraction",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies (x − 4)/3 = 2 ?",
+   "choices": {
+    "A": "−2",
+    "B": "2",
+    "C": "6",
+    "D": "10"
+   },
+   "answer": "D",
+   "explanation": "Multiply both sides by 3: x − 4 = 6, so x = 10.",
+   "distractors": {
+    "A": {
+     "rationale": "−2 subtracts 4 from 6 and then changes the sign.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "2 subtracts 4 from 6 instead of adding it.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "6 forgets to add the 4 back.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Undo the division first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check (10 − 4)/3."
+   },
+   "remember": "Undo operations in reverse order.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Solving for an input from a quadratic output",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "If g(x) = 2x² − 5, what positive value of x satisfies g(x) = 27 ?",
+   "choices": {
+    "A": "4",
+    "B": "8",
+    "C": "11",
+    "D": "16"
+   },
+   "answer": "A",
+   "explanation": "2x² − 5 = 27 gives 2x² = 32, so x² = 16 and the positive solution is x = 4.",
+   "distractors": {
+    "B": {
+     "rationale": "8 solves 2x = 16, treating x² as x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "11 = (27 − 5)/2 subtracts 5 instead of adding it and stops before taking a root.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "16 is x², not x.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Isolate x² before taking a square root."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Compute g(4)."
+   },
+   "remember": "Solve for x², then take the square root.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Missing value from a mean",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "The mean of three numbers is 10. Two of the numbers are 4 and 9. What is the third number?",
+   "choices": {
+    "A": "7",
+    "B": "10",
+    "C": "13",
+    "D": "17"
+   },
+   "answer": "D",
+   "explanation": "The three numbers total 3 × 10 = 30, so the third number is 30 − 4 − 9 = 17.",
+   "distractors": {
+    "A": {
+     "rationale": "7 makes the mean of all three about 6.7, not 10.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "10 assumes the missing number equals the mean.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "13 is the sum of the two known numbers.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What must the three numbers add up to?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Mean × count = total."
+   },
+   "remember": "Use the total, not the mean, to find a missing value.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of a regular hexagon from its perimeter",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A regular hexagon has a perimeter of 36 centimeters. What is its area, in square centimeters?",
+   "choices": {
+    "A": "36√3",
+    "B": "54√3",
+    "C": "108√3",
+    "D": "216"
+   },
+   "answer": "B",
+   "explanation": "Each side is 36 ÷ 6 = 6. A regular hexagon is 6 equilateral triangles of side 6, each with area (√3/4)(36) = 9√3, so the total is 54√3.",
+   "distractors": {
+    "A": {
+     "rationale": "36√3 uses 4 triangles instead of 6.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "108√3 doubles the correct area, using (√3/2)s² for each triangle.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "216 = 6 × 36 multiplies the number of sides by the perimeter.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Split the hexagon into equilateral triangles."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw lines from the center to each vertex."
+   },
+   "remember": "A regular hexagon is six equilateral triangles.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Product of solutions of a simple system",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "If x + y = 10 and x − y = 4, what is the value of xy ?",
+   "choices": {
+    "A": "3",
+    "B": "7",
+    "C": "10",
+    "D": "21"
+   },
+   "answer": "D",
+   "explanation": "Adding the equations gives 2x = 14, so x = 7 and y = 3. Then xy = 21.",
+   "distractors": {
+    "A": {
+     "rationale": "3 is y.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "7 is x.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "10 is x + y.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Add the two equations to eliminate y."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve for x and y, then multiply."
+   },
+   "remember": "Answer the question asked: the product, not one variable.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B062-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Smallest multiplier that makes a perfect square",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "What is the smallest positive integer n for which 180n is a perfect square?",
+   "choices": {
+    "A": "5",
+    "B": "10",
+    "C": "20",
+    "D": "45"
+   },
+   "answer": "A",
+   "explanation": "180 = 2² × 3² × 5. Every prime must appear to an even power, so n must supply one more factor of 5: n = 5, and 180 × 5 = 900 = 30².",
+   "distractors": {
+    "B": {
+     "rationale": "10 adds an unneeded factor of 2: 1,800 is not a perfect square.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "20 = 2² × 5 also works, but it is not the smallest.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "45 = 3² × 5 also works, but it is not the smallest.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write 180 as a product of primes."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Make every exponent even."
+   },
+   "remember": "A perfect square has only even exponents in its prime factorization.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use prime factorization and the even-exponent condition; trying multipliers by guess often lands on 20 or 45, which work but are not smallest."
+   }
+  },
+  {
+   "cand": "B062-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Common external tangent of two circles",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "Two circles have radii 3 and 5, and their centers are 10 units apart. A line is tangent to both circles, and both circles lie on the same side of the line. What is the distance between the two points of tangency?",
+   "choices": {
+    "A": "6",
+    "B": "8",
+    "C": "4√6",
+    "D": "10"
+   },
+   "answer": "C",
+   "explanation": "The radii to the tangent points are both perpendicular to the tangent line. Sliding the tangent segment to the center of the smaller circle forms a right triangle with hypotenuse 10 and one leg 5 − 3 = 2. The other leg, which equals the tangent length, is √(10² − 2²) = √96 = 4√6.",
+   "distractors": {
+    "A": {
+     "rationale": "6 = √(10² − 8²) uses the sum of the radii, which is the case for a tangent that passes between the circles.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "8 is the sum of the radii, not a tangent length.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "10 is the distance between the centers.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What angle does a radius make with a tangent line?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw both radii to the tangent line and a segment parallel to it through one center."
+   },
+   "remember": "A radius to a point of tangency is perpendicular to the tangent.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build an auxiliary right triangle using the difference of the radii; using their sum (6) is the classic trap."
+   }
+  },
+  {
+   "cand": "B062-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability that the first success comes on a given draw",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "A bag contains 3 red marbles and 2 blue marbles. Marbles are drawn one at a time without replacement. What is the probability that the first blue marble is drawn on the third draw?",
+   "choices": {
+    "A": "1/5",
+    "B": "3/10",
+    "C": "2/5",
+    "D": "3/5"
+   },
+   "answer": "A",
+   "explanation": "The first two draws must be red and the third blue: (3/5)(2/4)(2/3) = 12/60 = 1/5.",
+   "distractors": {
+    "B": {
+     "rationale": "3/10 = (3/5)(1/2) is only the probability that the first two draws are red.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "2/5 is the probability that a single draw is blue.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3/5 is the probability that the first draw is red.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What must happen on each of the first three draws?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply red, red, then blue, adjusting counts after each draw."
+   },
+   "remember": "A specific sequence without replacement: multiply updated probabilities.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must model the full sequence red-red-blue with changing counts; stopping after two factors (3/10) is a strong trap."
+   }
+  }
+ ]
+}
