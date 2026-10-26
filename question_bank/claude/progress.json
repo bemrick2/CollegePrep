@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T18:24:53+00:00",
+  "updated_at": "2026-10-26T18:28:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 118,
+    "act_math": 127,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "review_totals": {
     "act_math": {
-      "PASS": 118,
-      "REVISE": 0,
+      "PASS": 127,
+      "REVISE": 1,
       "REJECT": 2,
-      "candidates": 120,
+      "candidates": 130,
       "passed_after_revision": 0
     },
     "act_english": {
@@ -52,21 +52,23 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 118,
+      "accepted": 127,
       "by_skill": {
-        "Algebra": 22,
-        "Functions": 22,
-        "Geometry": 22,
-        "Integrating Essential Skills": 23,
-        "Number & Quantity": 13,
-        "Statistics & Probability": 16
+        "Algebra": 23,
+        "Functions": 24,
+        "Geometry": 24,
+        "Integrating Essential Skills": 25,
+        "Number & Quantity": 14,
+        "Statistics & Probability": 17
       },
       "by_subskill": {
         "Absolute value of numerical expressions": 1,
         "Algebraic identities (square of a sum)": 1,
         "Altitude to the hypotenuse (geometric mean)": 1,
         "Altitude via area in the coordinate plane": 1,
+        "Amplitude and midline of a trigonometric function": 1,
         "Arc length and sector area": 1,
+        "Area modeling with a quadratic": 1,
         "Area of an equilateral triangle": 1,
         "Area of an isosceles trapezoid": 1,
         "Area with unit conversion": 1,
@@ -79,6 +81,7 @@
         "Chained unit conversions (currency)": 1,
         "Chords and distance from the center": 1,
         "Circle circumference and area": 1,
+        "Combined transformations": 1,
         "Combined work rates": 1,
         "Comparing numbers in different forms": 1,
         "Comparing rational numbers": 1,
@@ -92,6 +95,7 @@
         "Conditions on quadratic roots": 1,
         "Counting with restrictions": 1,
         "Difference of squares used structurally": 1,
+        "Dividing complex numbers": 1,
         "Division with whole-unit rounding": 1,
         "Divisors and primes": 1,
         "Domain of a function": 1,
@@ -108,6 +112,7 @@
         "Independent events: exactly one": 1,
         "Inscribed angles and arcs": 1,
         "Inscribed figures: composite area": 1,
+        "Interquartile range": 1,
         "Inverse functions and excluded values": 1,
         "Least common multiple in context": 1,
         "Linear equations with distribution": 1,
@@ -119,6 +124,7 @@
         "Linear models from two data points": 1,
         "Linear transformations of data": 1,
         "Logarithm properties": 1,
+        "Logarithmic equations": 1,
         "Mean and total": 1,
         "Mean equals median with an unknown": 1,
         "Mean, median and mode constraints": 1,
@@ -129,6 +135,7 @@
         "Negative rational exponents": 1,
         "Opposing rates (fill and drain)": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
+        "Percent decrease then recovery": 1,
         "Percent targets across parts": 1,
         "Period of a trigonometric function": 1,
         "Perpendicular lines in the coordinate plane": 1,
@@ -154,6 +161,7 @@
         "Reflections to minimize a path": 1,
         "Reverse percent (finding the original)": 1,
         "Right-triangle trigonometry in context": 1,
+        "Rotation about a point": 1,
         "Scale drawings and area cost": 1,
         "Scale drawings and proportions": 1,
         "Scientific notation operations": 1,
@@ -177,32 +185,33 @@
         "Vertical angles": 1,
         "Volume and rates with unit conversion": 1,
         "Volume of a composite solid": 1,
+        "Volume of a sphere": 1,
         "Volume scaling in cones (frustum)": 1,
         "Weighted mean": 1,
         "Work problems with a mid-job change": 1
       },
       "by_difficulty_author": {
-        "easy": 24,
-        "hard": 45,
-        "medium": 49
+        "easy": 26,
+        "hard": 49,
+        "medium": 52
       },
       "by_difficulty_calibrated": {
-        "easy": 31,
+        "easy": 34,
         "hard": 16,
-        "medium": 71
+        "medium": 77
       },
       "calibrated_share": {
-        "easy": 0.263,
-        "hard": 0.136,
-        "medium": 0.602
+        "easy": 0.268,
+        "hard": 0.126,
+        "medium": 0.606
       },
       "answer_key_balance": {
-        "A": 27,
-        "B": 33,
-        "C": 33,
-        "D": 25
+        "A": 29,
+        "B": 35,
+        "C": 36,
+        "D": 27
       },
-      "modeling_items": 36,
+      "modeling_items": 39,
       "passages": 0
     },
     "act_english": {
@@ -240,48 +249,48 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 12,
+    "act_math": 13,
     "act_english": 0,
     "act_reading": 0,
     "sat_reading_writing": 0
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 13,
+      "next_batch": 14,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Algebra",
+        "Statistics & Probability",
         "Functions",
         "Geometry",
-        "Statistics & Probability",
         "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
         "Number & Quantity": 1.1,
-        "Algebra": 1.7,
-        "Functions": 1.7,
-        "Geometry": 1.7,
-        "Statistics & Probability": 1.3,
-        "Integrating Essential Skills": 2.6
+        "Algebra": 2.3,
+        "Functions": 1.3,
+        "Geometry": 1.3,
+        "Statistics & Probability": 1.5,
+        "Integrating Essential Skills": 2.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 1.0,
-        "medium": -7.0,
-        "hard": 16.0
+        "easy": 0.2,
+        "medium": -8.5,
+        "hard": 18.2
       },
       "answer_key_gap_for_next_10": {
-        "A": 5.0,
-        "B": -1.0,
-        "C": -1.0,
-        "D": 7.0
+        "A": 5.2,
+        "B": -0.8,
+        "C": -1.8,
+        "D": 7.2
       }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 118,
-      "share_of_target": 0.059
+      "accepted": 127,
+      "share_of_target": 0.064
     },
     "act_english": {
       "target": 700,
@@ -300,7 +309,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 118,
+  "total_accepted": 127,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -408,7 +417,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 12,
+      "bank_version": 13,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -452,7 +461,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T18:24:53+00:00",
+    "heartbeat_at": "2026-10-26T18:28:10+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

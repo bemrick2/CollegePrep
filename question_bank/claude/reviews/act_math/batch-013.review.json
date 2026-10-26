@@ -1,0 +1,260 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 13,
+  "reviewed_at": "2026-10-26T18:26:22+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 13
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000119",
+    "CLD-ACT-M-000120",
+    "CLD-ACT-M-000121",
+    "CLD-ACT-M-000122",
+    "CLD-ACT-M-000123",
+    "CLD-ACT-M-000124",
+    "CLD-ACT-M-000125",
+    "CLD-ACT-M-000126",
+    "CLD-ACT-M-000127"
+  ],
+  "results": [
+    {
+      "cand": "B013-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Multiply by conjugate (2+3i): (10+15i+2i+3i^2)/13 = (7+17i)/13. B forgets i^2=-1; C uses 4-9 in denominator.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "conjugate technique plus two separate i² sign traps"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000119"
+    },
+    {
+      "cand": "B013-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "x+6 = 2^5 = 32, x = 26.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "taxonomy_note": "logarithms mapped to act_functions"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000120"
+    },
+    {
+      "cand": "B013-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: answer choices can be tested directly (only 36 reverses to a number 27 larger with digit sum 9), so this plays as easy"
+      ],
+      "blind_notes": "b-a=3, a+b=9 so a=3, b=6; 63-36=27. D (63) is the reversed number.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "place-value representation is an unfamiliar setup; the reversed number is a strong trap"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "B013-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "cos x min is -1, so 4(-1)-1 = -5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000121"
+    },
+    {
+      "cand": "B013-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x=1 gives f(2)=5, so y=-5+1=-4. Point (1,-4). A doubles x; B ignores the reflection; C negates after adding 1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "three transformations at once (compression, reflection, shift); each distractor fails one",
+        "dup_note": "related to CLD-ACT-M-000021 (single shift) but tests compression and reflection"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000122"
+    },
+    {
+      "cand": "B013-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Vector from center (2,-3); 90 deg CCW gives (3,2); add (1,1) to get (4,3). C is the rotated vector without translating back. Borderline medium/hard because of the non-origin center.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "non-origin center; each distractor drops one step"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000123"
+    },
+    {
+      "cand": "B013-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "(4/3)(27)pi = 36pi.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000124"
+    },
+    {
+      "cand": "B013-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: other quartile conventions (e.g., linear interpolation) give 9.75, which is not a choice, so the standard median-of-halves answer is the only defensible one"
+      ],
+      "blind_notes": "Q1 = (15+17)/2 = 16, Q3 = (25+30)/2 = 27.5, IQR = 11.5. A uses 30-20; C is Q1; D is range.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "with 8 values the common quartile conventions agree"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000125"
+    },
+    {
+      "cand": "B013-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(40-2w)(25-2w)=544 gives 4w^2-130w+456=0, so w=4 or 28.5 (28.5 is extraneous because it makes the dimensions negative). Check: 32*17=544. C is the 1w mistake.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "modeling a quadratic and rejecting an extraneous root"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000126"
+    },
+    {
+      "cand": "B013-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "0.8(1+p)=1 gives p=0.25. 20% is the classic trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000127"
+    }
+  ]
+}

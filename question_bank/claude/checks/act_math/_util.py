@@ -31,7 +31,10 @@ def pick(choices: dict, target, conv=num, tol=1e-9) -> str:
             val = conv(v)
         except Exception:  # noqa: BLE001
             continue
-        if isinstance(target, (int, float, Fraction)) and isinstance(val, (int, float, Fraction)):
+        if isinstance(target, complex) or isinstance(val, complex):
+            if abs(complex(val) - complex(target)) <= tol * max(1.0, abs(complex(target))):
+                hits.append(k)
+        elif isinstance(target, (int, float, Fraction)) and isinstance(val, (int, float, Fraction)):
             if abs(float(val) - float(target)) <= tol * max(1.0, abs(float(target))):
                 hits.append(k)
         elif val == target:

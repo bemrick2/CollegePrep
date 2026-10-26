@@ -11,20 +11,44 @@
       "repo_skill_key": "act_number_quantity",
       "difficulty": "hard",
       "stem": "For i = √(−1), which of the following is equal to (5 + i)/(2 − 3i) ?",
-      "choices": {"A": "(7 + 17i)/13", "B": "(13 + 17i)/13", "C": "(7 + 17i)/(−5)", "D": "5/2 − i/3"},
+      "choices": {
+        "A": "(7 + 17i)/13",
+        "B": "(13 + 17i)/13",
+        "C": "(7 + 17i)/(−5)",
+        "D": "5/2 − i/3"
+      },
       "answer": "A",
       "explanation": "Multiply numerator and denominator by the conjugate 2 + 3i. Numerator: (5 + i)(2 + 3i) = 10 + 15i + 2i + 3i² = 10 + 17i − 3 = 7 + 17i. Denominator: (2 − 3i)(2 + 3i) = 4 − 9i² = 4 + 9 = 13. The quotient is (7 + 17i)/13.",
       "distractors": {
-        "B": {"rationale": "This uses i² = +1 in the numerator, so 3i² becomes +3 and the real part is 13.", "trap": "sign_error"},
-        "C": {"rationale": "This computes the denominator as 4 − 9 = −5, forgetting that −9i² = +9.", "trap": "sign_error"},
-        "D": {"rationale": "This divides real part by real part and imaginary part by imaginary part, which is not how complex division works.", "trap": null}
+        "B": {
+          "rationale": "This uses i² = +1 in the numerator, so 3i² becomes +3 and the real part is 13.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "This computes the denominator as 4 − 9 = −5, forgetting that −9i² = +9.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "This divides real part by real part and imaginary part by imaginary part, which is not how complex division works.",
+          "trap": null
+        }
       },
-      "hints": ["Multiply the top and bottom by the conjugate of the denominator.", "What is (2 − 3i)(2 + 3i)?"],
-      "strategy": {"key": "translate_to_algebra", "explanation": "Use the conjugate 2 + 3i; the denominator becomes the real number 13."},
+      "hints": [
+        "Multiply the top and bottom by the conjugate of the denominator.",
+        "What is (2 − 3i)(2 + 3i)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the conjugate 2 + 3i; the denominator becomes the real number 13."
+      },
       "remember": "(a − bi)(a + bi) = a² + b².",
       "expected_time_seconds": 85,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "hardness": "conjugate technique plus two separate i² sign traps"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "conjugate technique plus two separate i² sign traps"
+      }
     },
     {
       "cand": "B013-02",
@@ -34,20 +58,44 @@
       "repo_skill_key": "act_functions",
       "difficulty": "medium",
       "stem": "What value of x satisfies the equation log₂(x + 6) = 5 ?",
-      "choices": {"A": "4", "B": "19", "C": "26", "D": "32"},
+      "choices": {
+        "A": "4",
+        "B": "19",
+        "C": "26",
+        "D": "32"
+      },
       "answer": "C",
       "explanation": "log₂(x + 6) = 5 means 2⁵ = x + 6, so 32 = x + 6 and x = 26.",
       "distractors": {
-        "A": {"rationale": "This multiplies 2 by 5 instead of raising 2 to the 5th power: x + 6 = 10.", "trap": null},
-        "B": {"rationale": "This computes 5² instead of 2⁵: x + 6 = 25.", "trap": null},
-        "D": {"rationale": "32 is x + 6; 6 still has to be subtracted.", "trap": "partial_answer"}
+        "A": {
+          "rationale": "This multiplies 2 by 5 instead of raising 2 to the 5th power: x + 6 = 10.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This computes 5² instead of 2⁵: x + 6 = 25.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "32 is x + 6; 6 still has to be subtracted.",
+          "trap": "partial_answer"
+        }
       },
-      "hints": ["Rewrite the logarithm as an exponential equation.", "log_b(y) = k means b^k = y."],
-      "strategy": {"key": "backsolve", "explanation": "Try 26: log₂(32) = 5. It works."},
+      "hints": [
+        "Rewrite the logarithm as an exponential equation.",
+        "log_b(y) = k means b^k = y."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 26: log₂(32) = 5. It works."
+      },
       "remember": "log_b(y) = k ⇔ b^k = y.",
       "expected_time_seconds": 45,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "taxonomy_note": "logarithms mapped to act_functions"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "taxonomy_note": "logarithms mapped to act_functions"
+      }
     },
     {
       "cand": "B013-03",
@@ -57,20 +105,44 @@
       "repo_skill_key": "act_algebra_linear",
       "difficulty": "hard",
       "stem": "The sum of the digits of a two-digit number is 9. When the digits are reversed, the new number is 27 greater than the original number. What is the original number?",
-      "choices": {"A": "27", "B": "36", "C": "45", "D": "63"},
+      "choices": {
+        "A": "27",
+        "B": "36",
+        "C": "45",
+        "D": "63"
+      },
       "answer": "B",
       "explanation": "Let the tens digit be t and the units digit be u, so the number is 10t + u. Then t + u = 9, and (10u + t) − (10t + u) = 27, so 9(u − t) = 27 and u − t = 3. Solving, t = 3 and u = 6: the number is 36. Check: 63 − 36 = 27.",
       "distractors": {
-        "A": {"rationale": "27 is the difference between the numbers, not the original number (and its digits sum to 9 but reversing gives 72).", "trap": "wrong_quantity"},
-        "C": {"rationale": "45 has digit sum 9, but reversing gives 54, which is only 9 greater.", "trap": null},
-        "D": {"rationale": "63 is the reversed number; the original is the smaller one.", "trap": "wrong_quantity"}
+        "A": {
+          "rationale": "27 is the difference between the numbers, not the original number (and its digits sum to 9 but reversing gives 72).",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "45 has digit sum 9, but reversing gives 54, which is only 9 greater.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "63 is the reversed number; the original is the smaller one.",
+          "trap": "wrong_quantity"
+        }
       },
-      "hints": ["Write the number as 10t + u, where t and u are its digits.", "Write the reversed number the same way and subtract."],
-      "strategy": {"key": "backsolve", "explanation": "Each choice has digit sum 9. Reverse each: only 36 → 63 increases by 27."},
+      "hints": [
+        "Write the number as 10t + u, where t and u are its digits.",
+        "Write the reversed number the same way and subtract."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Each choice has digit sum 9. Reverse each: only 36 → 63 increases by 27."
+      },
       "remember": "A two-digit number with digits t, u is 10t + u.",
       "expected_time_seconds": 80,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "hardness": "place-value representation is an unfamiliar setup; the reversed number is a strong trap"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "place-value representation is an unfamiliar setup; the reversed number is a strong trap"
+      }
     },
     {
       "cand": "B013-04",
@@ -80,20 +152,43 @@
       "repo_skill_key": "act_functions",
       "difficulty": "easy",
       "stem": "What is the minimum value of the function y = 4 cos x − 1 ?",
-      "choices": {"A": "−5", "B": "−4", "C": "−1", "D": "3"},
+      "choices": {
+        "A": "−5",
+        "B": "−4",
+        "C": "−1",
+        "D": "3"
+      },
       "answer": "A",
       "explanation": "cos x ranges from −1 to 1, so 4 cos x ranges from −4 to 4, and 4 cos x − 1 ranges from −5 to 3. The minimum is −5.",
       "distractors": {
-        "B": {"rationale": "−4 is the minimum of 4 cos x; the −1 shift was not applied.", "trap": "partial_answer"},
-        "C": {"rationale": "−1 is the midline value, not the minimum.", "trap": "wrong_quantity"},
-        "D": {"rationale": "3 is the maximum value.", "trap": "wrong_quantity"}
+        "B": {
+          "rationale": "−4 is the minimum of 4 cos x; the −1 shift was not applied.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "−1 is the midline value, not the minimum.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "3 is the maximum value.",
+          "trap": "wrong_quantity"
+        }
       },
-      "hints": ["What is the smallest value of cos x?", "Multiply by 4, then subtract 1."],
-      "strategy": {"key": "plug_in_numbers", "explanation": "Use cos x = −1: 4(−1) − 1 = −5."},
+      "hints": [
+        "What is the smallest value of cos x?",
+        "Multiply by 4, then subtract 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use cos x = −1: 4(−1) − 1 = −5."
+      },
       "remember": "y = A cos x + D ranges from D − |A| to D + |A|.",
       "expected_time_seconds": 35,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
     },
     {
       "cand": "B013-05",
@@ -103,20 +198,45 @@
       "repo_skill_key": "act_functions",
       "difficulty": "hard",
       "stem": "The point (2, 5) lies on the graph of y = f(x). Which of the following points must lie on the graph of y = −f(2x) + 1 ?",
-      "choices": {"A": "(4, −4)", "B": "(1, 6)", "C": "(1, −6)", "D": "(1, −4)"},
+      "choices": {
+        "A": "(4, −4)",
+        "B": "(1, 6)",
+        "C": "(1, −6)",
+        "D": "(1, −4)"
+      },
       "answer": "D",
       "explanation": "To use the known value f(2) = 5, the input of f must be 2: 2x = 2, so x = 1. Then y = −f(2) + 1 = −5 + 1 = −4. The point (1, −4) is on the graph.",
       "distractors": {
-        "A": {"rationale": "f(2x) compresses the graph horizontally (x is halved), not stretches it; x = 4 would need f(8).", "trap": null},
-        "B": {"rationale": "This ignores the negative sign in front of f: 5 + 1 = 6.", "trap": "sign_error"},
-        "C": {"rationale": "This applies the negative sign to f(2) + 1 instead of to f(2) alone: −(5 + 1) = −6.", "trap": "sign_error"}
+        "A": {
+          "rationale": "f(2x) compresses the graph horizontally (x is halved), not stretches it; x = 4 would need f(8).",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This ignores the negative sign in front of f: 5 + 1 = 6.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "This applies the negative sign to f(2) + 1 instead of to f(2) alone: −(5 + 1) = −6.",
+          "trap": "sign_error"
+        }
       },
-      "hints": ["Which x makes the input of f equal to 2?", "Then apply the negative sign to f(2) before adding 1."],
-      "strategy": {"key": "plug_in_numbers", "explanation": "x = 1 gives f(2) = 5; −5 + 1 = −4."},
+      "hints": [
+        "Which x makes the input of f equal to 2?",
+        "Then apply the negative sign to f(2) before adding 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 1 gives f(2) = 5; −5 + 1 = −4."
+      },
       "remember": "Inside changes act on x (inversely); outside changes act on y.",
       "expected_time_seconds": 80,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "hardness": "three transformations at once (compression, reflection, shift); each distractor fails one", "dup_note": "related to CLD-ACT-M-000021 (single shift) but tests compression and reflection"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "three transformations at once (compression, reflection, shift); each distractor fails one",
+        "dup_note": "related to CLD-ACT-M-000021 (single shift) but tests compression and reflection"
+      }
     },
     {
       "cand": "B013-06",
@@ -126,20 +246,44 @@
       "repo_skill_key": "act_geometry",
       "difficulty": "hard",
       "stem": "In the standard (x,y) coordinate plane, the point (3, −2) is rotated 90° counterclockwise about the point (1, 1). What are the coordinates of the image?",
-      "choices": {"A": "(−2, −1)", "B": "(2, 3)", "C": "(3, 2)", "D": "(4, 3)"},
+      "choices": {
+        "A": "(−2, −1)",
+        "B": "(2, 3)",
+        "C": "(3, 2)",
+        "D": "(4, 3)"
+      },
       "answer": "D",
       "explanation": "Relative to the center (1, 1), the point is at (3 − 1, −2 − 1) = (2, −3). A 90° counterclockwise rotation sends (a, b) to (−b, a), giving (3, 2). Translating back by adding the center: (3 + 1, 2 + 1) = (4, 3).",
       "distractors": {
-        "A": {"rationale": "This rotates clockwise instead of counterclockwise: (2, −3) → (−3, −2), then adds (1, 1).", "trap": "sign_error"},
-        "B": {"rationale": "This rotates about the origin instead of about (1, 1).", "trap": null},
-        "C": {"rationale": "This rotates the relative position correctly but forgets to translate back by adding (1, 1).", "trap": "partial_answer"}
+        "A": {
+          "rationale": "This rotates clockwise instead of counterclockwise: (2, −3) → (−3, −2), then adds (1, 1).",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "This rotates about the origin instead of about (1, 1).",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This rotates the relative position correctly but forgets to translate back by adding (1, 1).",
+          "trap": "partial_answer"
+        }
       },
-      "hints": ["Find the point's position relative to the center of rotation.", "Rotate that relative position, then shift back."],
-      "strategy": {"key": "draw_it_out", "explanation": "Plot the center and the point; the arrow (2, −3) turns 90° counterclockwise into (3, 2); add it to (1, 1)."},
+      "hints": [
+        "Find the point's position relative to the center of rotation.",
+        "Rotate that relative position, then shift back."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the center and the point; the arrow (2, −3) turns 90° counterclockwise into (3, 2); add it to (1, 1)."
+      },
       "remember": "Rotate about a point: shift to origin, rotate, shift back.",
       "expected_time_seconds": 90,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "hardness": "non-origin center; each distractor drops one step"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "non-origin center; each distractor drops one step"
+      }
     },
     {
       "cand": "B013-07",
@@ -149,20 +293,43 @@
       "repo_skill_key": "act_geometry",
       "difficulty": "easy",
       "stem": "A ball is a sphere with a radius of 3 inches. What is its volume, in cubic inches? (The volume of a sphere with radius r is (4/3)πr³.)",
-      "choices": {"A": "12π", "B": "27π", "C": "36π", "D": "108π"},
+      "choices": {
+        "A": "12π",
+        "B": "27π",
+        "C": "36π",
+        "D": "108π"
+      },
       "answer": "C",
       "explanation": "V = (4/3)π(3³) = (4/3)(27)π = 36π cubic inches.",
       "distractors": {
-        "A": {"rationale": "This uses r instead of r³: (4/3)π(3)(3) = 12π.", "trap": null},
-        "B": {"rationale": "27π is πr³; the factor 4/3 is missing.", "trap": "partial_answer"},
-        "D": {"rationale": "This multiplies 27 by 4 but forgets to divide by 3.", "trap": "partial_answer"}
+        "A": {
+          "rationale": "This uses r instead of r³: (4/3)π(3)(3) = 12π.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "27π is πr³; the factor 4/3 is missing.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This multiplies 27 by 4 but forgets to divide by 3.",
+          "trap": "partial_answer"
+        }
       },
-      "hints": ["Cube the radius first.", "Then multiply by 4/3 and π."],
-      "strategy": {"key": "translate_to_algebra", "explanation": "3³ = 27; 27 × 4/3 = 36; V = 36π."},
+      "hints": [
+        "Cube the radius first.",
+        "Then multiply by 4/3 and π."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3³ = 27; 27 × 4/3 = 36; V = 36π."
+      },
       "remember": "Sphere volume = (4/3)πr³.",
       "expected_time_seconds": 30,
       "modeling": true,
-      "author_checklist": {"solved_independently": true, "single_correct": true}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
     },
     {
       "cand": "B013-08",
@@ -172,20 +339,44 @@
       "repo_skill_key": "act_statistics_probability",
       "difficulty": "medium",
       "stem": "What is the interquartile range of the data set below?\n12, 15, 17, 20, 22, 25, 30, 31",
-      "choices": {"A": "10", "B": "11.5", "C": "16", "D": "19"},
+      "choices": {
+        "A": "10",
+        "B": "11.5",
+        "C": "16",
+        "D": "19"
+      },
       "answer": "B",
       "explanation": "The data are in order with 8 values. The lower half is 12, 15, 17, 20, with median Q1 = (15 + 17)/2 = 16. The upper half is 22, 25, 30, 31, with median Q3 = (25 + 30)/2 = 27.5. IQR = Q3 − Q1 = 27.5 − 16 = 11.5.",
       "distractors": {
-        "A": {"rationale": "This takes the 2nd and 7th values... rather the 2nd value (15) and 6th value (25) as quartiles instead of averaging the middle of each half.", "trap": null},
-        "C": {"rationale": "16 is Q1 itself, not the interquartile range.", "trap": "partial_answer"},
-        "D": {"rationale": "19 is the range, 31 − 12.", "trap": "wrong_quantity"}
+        "A": {
+          "rationale": "This takes the 2nd value (15) and the 6th value (25) as the quartiles instead of finding the median of each half.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "16 is Q1 itself, not the interquartile range.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "19 is the range, 31 − 12.",
+          "trap": "wrong_quantity"
+        }
       },
-      "hints": ["Split the ordered data into a lower half and an upper half.", "Find the median of each half, then subtract."],
-      "strategy": {"key": "translate_to_algebra", "explanation": "Q1 = 16, Q3 = 27.5, so IQR = 11.5."},
+      "hints": [
+        "Split the ordered data into a lower half and an upper half.",
+        "Find the median of each half, then subtract."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Q1 = 16, Q3 = 27.5, so IQR = 11.5."
+      },
       "remember": "IQR = Q3 − Q1, the spread of the middle half.",
       "expected_time_seconds": 60,
       "modeling": false,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "note": "with 8 values the common quartile conventions agree"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "with 8 values the common quartile conventions agree"
+      }
     },
     {
       "cand": "B013-09",
@@ -195,20 +386,44 @@
       "repo_skill_key": "act_geometry",
       "difficulty": "hard",
       "stem": "A rectangular garden measures 40 feet by 25 feet. A path of uniform width runs along the inside edge of all four sides, and the region inside the path has an area of 544 square feet. What is the width of the path, in feet?",
-      "choices": {"A": "2", "B": "4", "C": "8", "D": "28.5"},
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "8",
+        "D": "28.5"
+      },
       "answer": "B",
       "explanation": "If the path has width w, the inner region measures (40 − 2w) by (25 − 2w). So (40 − 2w)(25 − 2w) = 544, which simplifies to 4w² − 130w + 456 = 0, or 2w² − 65w + 228 = 0. Then (2w − 57)(w − 4) = 0, so w = 4 or w = 28.5. A width of 28.5 feet is impossible (25 − 57 < 0), so w = 4. Check: 32 × 17 = 544.",
       "distractors": {
-        "A": {"rationale": "This subtracts w only once from each dimension, (40 − w)(25 − w) = 544, ignoring that the path is on both sides.", "trap": null},
-        "C": {"rationale": "8 is 2w, the total amount taken off each dimension.", "trap": "partial_answer"},
-        "D": {"rationale": "28.5 is the other root of the quadratic, but it would make the inner dimensions negative.", "trap": null}
+        "A": {
+          "rationale": "This takes 2 feet off only one end of each dimension, or otherwise miscounts the border; with w = 2 the inner region is 36 × 21 = 756 square feet, not 544.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "8 is 2w, the total amount taken off each dimension.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "28.5 is the other root of the quadratic, but it would make the inner dimensions negative.",
+          "trap": null
+        }
       },
-      "hints": ["The path takes w off each end of both dimensions.", "After solving, check whether each solution makes physical sense."],
-      "strategy": {"key": "backsolve", "explanation": "Try w = 4: (40 − 8)(25 − 8) = 32 × 17 = 544. It works."},
+      "hints": [
+        "The path takes w off each end of both dimensions.",
+        "After solving, check whether each solution makes physical sense."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try w = 4: (40 − 8)(25 − 8) = 32 × 17 = 544. It works."
+      },
       "remember": "A border on both sides removes 2w from each dimension.",
       "expected_time_seconds": 100,
       "modeling": true,
-      "author_checklist": {"solved_independently": true, "single_correct": true, "hardness": "modeling a quadratic and rejecting an extraneous root", "check_note": "distractor A: (40 − w)(25 − w) = 544 gives w ≈ 7.0? verify in checks"}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "modeling a quadratic and rejecting an extraneous root"
+      }
     },
     {
       "cand": "B013-10",
@@ -218,20 +433,43 @@
       "repo_skill_key": "act_number_quantity",
       "difficulty": "medium",
       "stem": "The price of a stock drops by 20%. By what percent must the new price increase to return to the original price?",
-      "choices": {"A": "16 2/3%", "B": "20%", "C": "25%", "D": "120%"},
+      "choices": {
+        "A": "16 2/3%",
+        "B": "20%",
+        "C": "25%",
+        "D": "120%"
+      },
       "answer": "C",
       "explanation": "Suppose the original price is $100. After a 20% drop it is $80. Returning to $100 requires a $20 increase on a base of $80, which is 20/80 = 25%.",
       "distractors": {
-        "A": {"rationale": "This computes 20/120 instead of 20/80, using the wrong base.", "trap": null},
-        "B": {"rationale": "A 20% increase on the lower price $80 reaches only $96, not $100.", "trap": null},
-        "D": {"rationale": "120% treats the recovery as the new price being 120% of the dropped price; the needed increase is 25%.", "trap": null}
+        "A": {
+          "rationale": "This computes 20/120 instead of 20/80, using the wrong base.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "A 20% increase on the lower price $80 reaches only $96, not $100.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "120% treats the recovery as the new price being 120% of the dropped price; the needed increase is 25%.",
+          "trap": null
+        }
       },
-      "hints": ["Pick a starting price, such as $100.", "A percent increase is measured from the new, lower price."],
-      "strategy": {"key": "plug_in_numbers", "explanation": "$100 → $80; $80 → $100 is +$20 on $80, which is 25%."},
+      "hints": [
+        "Pick a starting price, such as $100.",
+        "A percent increase is measured from the new, lower price."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "$100 → $80; $80 → $100 is +$20 on $80, which is 25%."
+      },
       "remember": "Percent change uses the starting value of that change as the base.",
       "expected_time_seconds": 45,
       "modeling": true,
-      "author_checklist": {"solved_independently": true, "single_correct": true}
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
     }
   ]
 }

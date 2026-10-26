@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 12,
+  "bank_version": 13,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -2124,6 +2124,168 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "4,416 ÷ 160 ÷ 0.92 = 30."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000119",
+      "correct_answer": "A",
+      "explanation": "Multiply numerator and denominator by the conjugate 2 + 3i. Numerator: (5 + i)(2 + 3i) = 10 + 15i + 2i + 3i² = 10 + 17i − 3 = 7 + 17i. Denominator: (2 − 3i)(2 + 3i) = 4 − 9i² = 4 + 9 = 13. The quotient is (7 + 17i)/13.",
+      "distractor_explanations": {
+        "B": "This uses i² = +1 in the numerator, so 3i² becomes +3 and the real part is 13.",
+        "C": "This computes the denominator as 4 − 9 = −5, forgetting that −9i² = +9.",
+        "D": "This divides real part by real part and imaginary part by imaginary part, which is not how complex division works."
+      },
+      "hints": [
+        "Multiply the top and bottom by the conjugate of the denominator.",
+        "What is (2 − 3i)(2 + 3i)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the conjugate 2 + 3i; the denominator becomes the real number 13."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000120",
+      "correct_answer": "C",
+      "explanation": "log₂(x + 6) = 5 means 2⁵ = x + 6, so 32 = x + 6 and x = 26.",
+      "distractor_explanations": {
+        "A": "This multiplies 2 by 5 instead of raising 2 to the 5th power: x + 6 = 10.",
+        "B": "This computes 5² instead of 2⁵: x + 6 = 25.",
+        "D": "32 is x + 6; 6 still has to be subtracted."
+      },
+      "hints": [
+        "Rewrite the logarithm as an exponential equation.",
+        "log_b(y) = k means b^k = y."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 26: log₂(32) = 5. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000121",
+      "correct_answer": "A",
+      "explanation": "cos x ranges from −1 to 1, so 4 cos x ranges from −4 to 4, and 4 cos x − 1 ranges from −5 to 3. The minimum is −5.",
+      "distractor_explanations": {
+        "B": "−4 is the minimum of 4 cos x; the −1 shift was not applied.",
+        "C": "−1 is the midline value, not the minimum.",
+        "D": "3 is the maximum value."
+      },
+      "hints": [
+        "What is the smallest value of cos x?",
+        "Multiply by 4, then subtract 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use cos x = −1: 4(−1) − 1 = −5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000122",
+      "correct_answer": "D",
+      "explanation": "To use the known value f(2) = 5, the input of f must be 2: 2x = 2, so x = 1. Then y = −f(2) + 1 = −5 + 1 = −4. The point (1, −4) is on the graph.",
+      "distractor_explanations": {
+        "A": "f(2x) compresses the graph horizontally (x is halved), not stretches it; x = 4 would need f(8).",
+        "B": "This ignores the negative sign in front of f: 5 + 1 = 6.",
+        "C": "This applies the negative sign to f(2) + 1 instead of to f(2) alone: −(5 + 1) = −6."
+      },
+      "hints": [
+        "Which x makes the input of f equal to 2?",
+        "Then apply the negative sign to f(2) before adding 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 1 gives f(2) = 5; −5 + 1 = −4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000123",
+      "correct_answer": "D",
+      "explanation": "Relative to the center (1, 1), the point is at (3 − 1, −2 − 1) = (2, −3). A 90° counterclockwise rotation sends (a, b) to (−b, a), giving (3, 2). Translating back by adding the center: (3 + 1, 2 + 1) = (4, 3).",
+      "distractor_explanations": {
+        "A": "This rotates clockwise instead of counterclockwise: (2, −3) → (−3, −2), then adds (1, 1).",
+        "B": "This rotates about the origin instead of about (1, 1).",
+        "C": "This rotates the relative position correctly but forgets to translate back by adding (1, 1)."
+      },
+      "hints": [
+        "Find the point's position relative to the center of rotation.",
+        "Rotate that relative position, then shift back."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the center and the point; the arrow (2, −3) turns 90° counterclockwise into (3, 2); add it to (1, 1)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000124",
+      "correct_answer": "C",
+      "explanation": "V = (4/3)π(3³) = (4/3)(27)π = 36π cubic inches.",
+      "distractor_explanations": {
+        "A": "This uses r instead of r³: (4/3)π(3)(3) = 12π.",
+        "B": "27π is πr³; the factor 4/3 is missing.",
+        "D": "This multiplies 27 by 4 but forgets to divide by 3."
+      },
+      "hints": [
+        "Cube the radius first.",
+        "Then multiply by 4/3 and π."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3³ = 27; 27 × 4/3 = 36; V = 36π."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000125",
+      "correct_answer": "B",
+      "explanation": "The data are in order with 8 values. The lower half is 12, 15, 17, 20, with median Q1 = (15 + 17)/2 = 16. The upper half is 22, 25, 30, 31, with median Q3 = (25 + 30)/2 = 27.5. IQR = Q3 − Q1 = 27.5 − 16 = 11.5.",
+      "distractor_explanations": {
+        "A": "This takes the 2nd value (15) and the 6th value (25) as the quartiles instead of finding the median of each half.",
+        "C": "16 is Q1 itself, not the interquartile range.",
+        "D": "19 is the range, 31 − 12."
+      },
+      "hints": [
+        "Split the ordered data into a lower half and an upper half.",
+        "Find the median of each half, then subtract."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Q1 = 16, Q3 = 27.5, so IQR = 11.5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000126",
+      "correct_answer": "B",
+      "explanation": "If the path has width w, the inner region measures (40 − 2w) by (25 − 2w). So (40 − 2w)(25 − 2w) = 544, which simplifies to 4w² − 130w + 456 = 0, or 2w² − 65w + 228 = 0. Then (2w − 57)(w − 4) = 0, so w = 4 or w = 28.5. A width of 28.5 feet is impossible (25 − 57 < 0), so w = 4. Check: 32 × 17 = 544.",
+      "distractor_explanations": {
+        "A": "This takes 2 feet off only one end of each dimension, or otherwise miscounts the border; with w = 2 the inner region is 36 × 21 = 756 square feet, not 544.",
+        "C": "8 is 2w, the total amount taken off each dimension.",
+        "D": "28.5 is the other root of the quadratic, but it would make the inner dimensions negative."
+      },
+      "hints": [
+        "The path takes w off each end of both dimensions.",
+        "After solving, check whether each solution makes physical sense."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try w = 4: (40 − 8)(25 − 8) = 32 × 17 = 544. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000127",
+      "correct_answer": "C",
+      "explanation": "Suppose the original price is $100. After a 20% drop it is $80. Returning to $100 requires a $20 increase on a base of $80, which is 20/80 = 25%.",
+      "distractor_explanations": {
+        "A": "This computes 20/120 instead of 20/80, using the wrong base.",
+        "B": "A 20% increase on the lower price $80 reaches only $96, not $100.",
+        "D": "120% treats the recovery as the new price being 120% of the dropped price; the needed increase is 25%."
+      },
+      "hints": [
+        "Pick a starting price, such as $100.",
+        "A percent increase is measured from the new, lower price."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "$100 → $80; $80 → $100 is +$20 on $80, which is 25%."
       }
     }
   ]
