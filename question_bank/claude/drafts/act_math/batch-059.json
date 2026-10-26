@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 59,
+ "plan": "2 hard (self-composition equation, weighted percent) / 5 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B059-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Rounding to the nearest hundredth",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "What is 3.4672 rounded to the nearest hundredth?",
+   "choices": {
+    "A": "3.46",
+    "B": "3.467",
+    "C": "3.47",
+    "D": "3.5"
+   },
+   "answer": "C",
+   "explanation": "The hundredths digit is 6 and the next digit is 7, which is 5 or more, so round up: 3.47.",
+   "distractors": {
+    "A": {
+     "rationale": "3.46 drops the extra digits without rounding up.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3.467 rounds to the nearest thousandth.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3.5 rounds to the nearest tenth.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which digit is in the hundredths place?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Look at the thousandths digit to decide."
+   },
+   "remember": "Round up when the next digit is 5 or more.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Perimeter from area and one side",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "A rectangle has an area of 48 square inches and a length of 8 inches. What is the perimeter of the rectangle, in inches?",
+   "choices": {
+    "A": "6",
+    "B": "14",
+    "C": "16",
+    "D": "28"
+   },
+   "answer": "D",
+   "explanation": "The width is 48 ÷ 8 = 6 inches. The perimeter is 2(8 + 6) = 28 inches.",
+   "distractors": {
+    "A": {
+     "rationale": "6 is the width, not the perimeter.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "14 is the length plus the width, half the perimeter.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "16 doubles the length only.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find the width first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Width = area ÷ length; perimeter = 2(l + w)."
+   },
+   "remember": "Perimeter counts each side length twice.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Evaluating a linear expression at a negative value",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "If y = 3x − 2, what is the value of y when x = −4 ?",
+   "choices": {
+    "A": "−14",
+    "B": "−10",
+    "C": "10",
+    "D": "14"
+   },
+   "answer": "A",
+   "explanation": "y = 3(−4) − 2 = −12 − 2 = −14.",
+   "distractors": {
+    "B": {
+     "rationale": "−10 adds 2 instead of subtracting it.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "10 drops the negative sign of x and adds 2 incorrectly.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "14 has the right size but the wrong sign.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Substitute −4 for x with parentheses."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute 3(−4) first."
+   },
+   "remember": "A positive times a negative is negative.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Vertex after translating a parabola",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The graph of y = (x − 3)² + 2 is translated 4 units to the left and 5 units down. What is the vertex of the new graph?",
+   "choices": {
+    "A": "(7, −3)",
+    "B": "(−1, 7)",
+    "C": "(−1, −3)",
+    "D": "(7, 7)"
+   },
+   "answer": "C",
+   "explanation": "The original vertex is (3, 2). Moving 4 left gives x = 3 − 4 = −1, and moving 5 down gives y = 2 − 5 = −3. The new vertex is (−1, −3).",
+   "distractors": {
+    "A": {
+     "rationale": "(7, −3) moves right instead of left.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "(−1, 7) moves up instead of down.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "(7, 7) moves right and up, the opposite of both shifts.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "What is the vertex of the original graph?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Move the vertex (3, 2) left 4 and down 5."
+   },
+   "remember": "Left and down subtract from the vertex coordinates.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of at least one of two independent events",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "The probability of rain on Saturday is 0.3, and the probability of rain on Sunday is 0.4. If rain on the two days is independent, what is the probability that it rains on at least one of the two days?",
+   "choices": {
+    "A": "0.12",
+    "B": "0.42",
+    "C": "0.46",
+    "D": "0.58"
+   },
+   "answer": "D",
+   "explanation": "The probability of no rain on either day is 0.7 × 0.6 = 0.42, so the probability of rain on at least one day is 1 − 0.42 = 0.58.",
+   "distractors": {
+    "A": {
+     "rationale": "0.12 is the probability of rain on both days.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "0.42 is the probability of no rain on either day.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "0.46 is the probability of rain on exactly one day.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What is the probability that it does not rain at all?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use 1 − P(neither)."
+   },
+   "remember": "P(at least one) = 1 − P(none).",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-06",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Scaling a recipe ratio",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "A recipe uses flour and sugar in the ratio 5 : 2 by volume. If a baker uses 3.5 cups of sugar, how many cups of flour should the baker use?",
+   "choices": {
+    "A": "1.4",
+    "B": "6.5",
+    "C": "8.75",
+    "D": "17.5"
+   },
+   "answer": "C",
+   "explanation": "Flour/sugar = 5/2, so flour = 3.5 × 5/2 = 8.75 cups.",
+   "distractors": {
+    "A": {
+     "rationale": "1.4 = 3.5 × 2/5 inverts the ratio.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "6.5 adds the difference between the ratio's parts (3) to 3.5.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "17.5 = 3.5 × 5 forgets to divide by 2.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Write the ratio as a fraction: flour over sugar."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set up 5/2 = f/3.5."
+   },
+   "remember": "Keep the ratio's order the same on both sides of a proportion.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Translating \"at least\" into an inequality",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "A number x is at least 4 more than twice the number y. Which of the following inequalities represents this relationship?",
+   "choices": {
+    "A": "x > 2y + 4",
+    "B": "x ≥ 2y + 4",
+    "C": "x ≤ 2y + 4",
+    "D": "2x ≥ y + 4"
+   },
+   "answer": "B",
+   "explanation": "\"Twice y\" is 2y, \"4 more than\" that is 2y + 4, and \"x is at least\" that amount means x ≥ 2y + 4.",
+   "distractors": {
+    "A": {
+     "rationale": "> excludes the case where x equals 2y + 4, but \"at least\" includes it.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "≤ means \"at most,\" the opposite of \"at least.\"",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2x ≥ y + 4 doubles x instead of y.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Does \"at least\" include equality?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Translate each phrase in order."
+   },
+   "remember": "\"At least\" means ≥; \"at most\" means ≤.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of an isosceles trapezoid from its legs",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "An isosceles trapezoid has bases of lengths 10 and 20 and legs of length 13. What is the area of the trapezoid?",
+   "choices": {
+    "A": "156",
+    "B": "180",
+    "C": "195",
+    "D": "390"
+   },
+   "answer": "B",
+   "explanation": "Each leg extends past the shorter base by (20 − 10)/2 = 5, so the height is √(13² − 5²) = 12. Area = (1/2)(10 + 20)(12) = 180.",
+   "distractors": {
+    "A": {
+     "rationale": "156 = 13 × 12 multiplies the leg by the height.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "195 = (1/2)(30)(13) uses the leg as the height.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "390 = 30 × 13 uses the leg as the height and forgets the 1/2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "The leg is not the height. How can you find the height?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Drop perpendiculars from the short base to form right triangles."
+   },
+   "remember": "A trapezoid's height is perpendicular to its bases.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B059-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Solving an equation with a self-composition",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "If f(x) = 3x + 2, what value of x satisfies f(f(x)) = 32 ?",
+   "choices": {
+    "A": "8/3",
+    "B": "10",
+    "C": "30",
+    "D": "98"
+   },
+   "answer": "A",
+   "explanation": "f(f(x)) = 3(3x + 2) + 2 = 9x + 8. Setting 9x + 8 = 32 gives x = 24/9 = 8/3.",
+   "distractors": {
+    "B": {
+     "rationale": "10 solves f(x) = 32, undoing f only once.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "30 subtracts 2 from 32 and stops.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "98 = f(32) applies f instead of undoing it.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write f(f(x)) as a single expression."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check f(f(8/3)) = f(10) = 32."
+   },
+   "remember": "To undo two applications of f, undo f twice.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must either build 9x + 8 or invert f twice; stopping after one inversion (10) is the common error."
+   }
+  },
+  {
+   "cand": "B059-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Weighted percent of a whole group",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "In a class, 60% of the students are girls and 40% are boys. If 25% of the girls and 40% of the boys walk to school, what percent of the whole class walks to school?",
+   "choices": {
+    "A": "16%",
+    "B": "31%",
+    "C": "32.5%",
+    "D": "65%"
+   },
+   "answer": "B",
+   "explanation": "Girls who walk: 0.25 × 60% = 15% of the class. Boys who walk: 0.40 × 40% = 16% of the class. Total: 31%.",
+   "distractors": {
+    "A": {
+     "rationale": "16% counts only the boys who walk.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "32.5% averages 25% and 40% without weighting by group size.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "65% adds 25% and 40%.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What percent of the whole class are girls who walk?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Assume 100 students."
+   },
+   "remember": "Weight each group's rate by the group's share of the whole.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The simple average (32.5%) is very tempting; students must weight each rate by group size."
+   }
+  }
+ ]
+}
