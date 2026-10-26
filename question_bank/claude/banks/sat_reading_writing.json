@@ -4,8 +4,676 @@
   "exam": "SAT",
   "section": "Reading and Writing",
   "id_prefix": "CLD-SAT-RW-",
-  "version": 0,
-  "updated_at": null,
-  "passages": [],
-  "questions": []
+  "version": 1,
+  "updated_at": "2026-10-26T18:59:31+00:00",
+  "passages": [
+    {
+      "passage_id": "CLD-P-SAT-RW-000001",
+      "title": "Greenhouse (original fiction)",
+      "genre": "literature",
+      "word_count": 40,
+      "text": "The following text is from an original short story.\nMarisol had expected the abandoned greenhouse to be empty, but it was ______ with life: ferns crowded every bench, and vines had climbed all the way to the cracked glass roof.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000002",
+      "title": "Foundations",
+      "genre": "technology / argument",
+      "word_count": 49,
+      "text": "Bridges are usually admired for their spans, the distances between their supports. Engineer Tomás Reyes, however, argues that the most important part of a bridge is the part no one sees: its foundation. \"A long span on a weak foundation,\" he says, \"is simply a dramatic way to fail.\"",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000004",
+      "title": "Repair café",
+      "genre": "social science",
+      "word_count": 60,
+      "text": "Once a month, a community center in the town of Alder Creek hosts a \"repair café,\" where volunteers fix residents' broken lamps, toasters, and bicycles for free. Organizers say the event keeps hundreds of items out of the landfill each year. Just as important, they add, residents who watch the repairs often learn to fix similar problems on their own.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000005",
+      "title": "Feeder survey",
+      "genre": "science / data",
+      "word_count": 57,
+      "text": "A student counted the birds visiting three feeders in her yard over four weeks. Each feeder held a different food.\nFeeder | Food | Total visits\n1 | Sunflower seeds | 212\n2 | Thistle seeds | 87\n3 | Suet | 145\nThe student concluded that, of the three foods, sunflower seeds attracted the most visits.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000007",
+      "title": "Canal town",
+      "genre": "history",
+      "word_count": 19,
+      "text": "The town's first canal opened in ______ within ten years, the number of businesses along its route had tripled.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000008",
+      "title": "Letters",
+      "genre": "history",
+      "word_count": 27,
+      "text": "The collection of letters, which spans four decades and includes notes from dozens of correspondents, ______ historians a rare view of daily life in the port city.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000009",
+      "title": "Coquí frogs",
+      "genre": "science",
+      "word_count": 35,
+      "text": "Most frogs lay their eggs in water, where the young hatch as swimming tadpoles. The coquí frogs of Puerto Rico, ______ lay their eggs on land, and the young hatch as tiny, fully formed frogs.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000010",
+      "title": "Recycling notes",
+      "genre": "science / notes",
+      "word_count": 56,
+      "text": "While researching a topic, a student has taken the following notes:\n• Glass bottles and plastic bottles can both be recycled.\n• Glass can be recycled again and again without losing quality.\n• Most plastics can be recycled only a few times before the material degrades.\n• Recycled glass is often used to make new bottles.",
+      "batch": 1,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    }
+  ],
+  "questions": [
+    {
+      "id": "CLD-SAT-RW-000001",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Words in context",
+      "modeling": false,
+      "repo_skill_key": "sat_craft_structure",
+      "passage_id": "CLD-P-SAT-RW-000001",
+      "underline": null,
+      "evidence": "ferns crowded every bench, and vines had climbed all the way to the cracked glass roof",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": {
+        "A": "teeming",
+        "B": "devoid",
+        "C": "reminiscent",
+        "D": "wary"
+      },
+      "correct_answer": "A",
+      "explanation": "The colon introduces evidence that the greenhouse was full of plants. \"Teeming with life\" means crowded with living things, which matches ferns on every bench and vines up to the roof.",
+      "distractor_explanations": {
+        "B": "\"Devoid\" means completely lacking, the opposite of what the details describe.",
+        "C": "\"Reminiscent\" means suggestive of something else and is followed by \"of,\" not \"with\"; it does not describe abundance.",
+        "D": "\"Wary\" means cautious, a quality of people or animals, not of a greenhouse."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What do the details after the colon show about the greenhouse?",
+        "Predict a word meaning 'full of' before reading the choices."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"full,\" then choose the closest precise word."
+      },
+      "remember": "Let the text's evidence choose the word.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-01",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: distractors are weak; 'devoid' is the only tempting one and it contradicts both the 'but' contrast and the following preposition 'with'; 'reminiscent' and 'wary' are grammatically/semantically off ('reminiscent with', 'wary with'). Easier than typical SAT words-in-context."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000002",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a quotation",
+      "modeling": false,
+      "repo_skill_key": "sat_craft_structure",
+      "passage_id": "CLD-P-SAT-RW-000002",
+      "underline": null,
+      "evidence": "\"A long span on a weak foundation,\" he says, \"is simply a dramatic way to fail.\"",
+      "figure": null,
+      "stem": "Which choice best describes the function of the quotation in the text as a whole?",
+      "choices": {
+        "A": "It presents a counterargument that Reyes goes on to reject.",
+        "B": "It explains how engineers measure the span of a bridge.",
+        "C": "It illustrates, in memorable terms, why Reyes believes a bridge's foundation matters more than its span.",
+        "D": "It suggests that most existing bridges were built on weak foundations."
+      },
+      "correct_answer": "C",
+      "explanation": "Reyes claims the foundation is the most important part of a bridge. The quotation backs that claim with a vivid image: however impressive the span, a weak foundation means failure.",
+      "distractor_explanations": {
+        "A": "The quotation is Reyes's own statement supporting his view, not a counterargument.",
+        "B": "The quotation says nothing about how spans are measured.",
+        "D": "The quotation describes a hypothetical case and makes no claim about most existing bridges."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "out_of_scope",
+        "D": "extreme_language"
+      },
+      "hints": [
+        "What is Reyes's main claim?",
+        "How does the quotation relate to that claim?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Identify the claim first, then ask how the quotation serves it."
+      },
+      "remember": "Function questions ask what a part does for the whole.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-02",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: A is easily eliminated because the quotation is Reyes's own words, not a counterargument; D overreads 'weak foundation' as a claim about existing bridges. Distractors could be more competitive."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000003",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Central ideas",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000004",
+      "underline": null,
+      "evidence": "Organizers say the event keeps hundreds of items out of the landfill each year. Just as important, they add, residents who watch the repairs often learn to fix similar problems on their own.",
+      "figure": null,
+      "stem": "Which choice best states the main idea of the text?",
+      "choices": {
+        "A": "The repair café in Alder Creek mainly repairs bicycles.",
+        "B": "A monthly event in Alder Creek reduces waste and helps residents learn to fix things themselves.",
+        "C": "Volunteers in Alder Creek are paid to repair residents' household items.",
+        "D": "Residents of Alder Creek throw away fewer items than residents of other towns do."
+      },
+      "correct_answer": "B",
+      "explanation": "The text describes the repair café and its two benefits: keeping items out of the landfill and teaching residents repair skills. B captures both.",
+      "distractor_explanations": {
+        "A": "Bicycles are one example among several; the text does not say they are the main focus.",
+        "C": "The repairs are done for free by volunteers; nothing says the volunteers are paid.",
+        "D": "The text makes no comparison with other towns."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What is the whole text about?",
+        "Which choice includes both benefits the organizers mention?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Summarize in one sentence, then match."
+      },
+      "remember": "The main idea covers the whole text, not one example.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-04",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [
+          "minor: very easy; A, C, D are plainly contradicted or unsupported (C contradicts 'for free', D needs comparison to other towns)."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000004",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Command of evidence: quantitative",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000005",
+      "underline": null,
+      "evidence": "1 | Sunflower seeds | 212",
+      "figure": null,
+      "stem": "Which choice most effectively uses data from the table to support the student's conclusion?",
+      "choices": {
+        "A": "Feeder 1, which held sunflower seeds, had 212 visits, more than either the thistle feeder (87) or the suet feeder (145).",
+        "B": "Feeder 2, which held thistle seeds, had 87 visits, fewer than Feeder 3.",
+        "C": "Together, the three feeders received 444 visits.",
+        "D": "Feeder 3, which held suet, had 145 visits."
+      },
+      "correct_answer": "A",
+      "explanation": "The conclusion is that sunflower seeds attracted the most visits. Supporting it requires comparing the sunflower feeder with both others: 212 is greater than 87 and 145. Only A makes that full comparison.",
+      "distractor_explanations": {
+        "B": "This compares only the other two feeders and says nothing about sunflower seeds.",
+        "C": "The total does not show which food attracted the most visits.",
+        "D": "One feeder's count alone cannot show which food was most popular."
+      },
+      "distractor_traps": {
+        "B": "true_but_irrelevant",
+        "C": "true_but_irrelevant",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What exactly does the conclusion claim?",
+        "Which choice compares sunflower seeds with both other foods?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Restate the claim, then choose the data that compares all three."
+      },
+      "remember": "A 'most' claim needs a comparison with every other option.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-05",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [
+          "minor: very easy; A is the only choice that mentions sunflower seeds or compares all three. Real SAT items usually include a distractor that cites the right feeder but an incomplete/incorrect comparison."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000005",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Boundaries between independent clauses",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000007",
+      "underline": null,
+      "evidence": "within ten years, the number of businesses along its route had tripled.",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": {
+        "A": "1825,",
+        "B": "1825;",
+        "C": "1825",
+        "D": "1825, which"
+      },
+      "correct_answer": "B",
+      "explanation": "\"The town's first canal opened in 1825\" and \"within ten years, the number of businesses along its route had tripled\" are both independent clauses. A semicolon correctly joins two independent clauses.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "C": "With no punctuation, the two independent clauses run together.",
+        "D": "\"Which\" makes the second part a relative clause, but the rest of the sentence (\"within ten years, the number … had tripled\") cannot follow \"which\" grammatically."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "Is each part of the sentence a complete sentence on its own?",
+        "What punctuation can join two complete sentences without a conjunction?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Two independent clauses with no conjunction need a semicolon or a period."
+      },
+      "remember": "Semicolon: two complete sentences, no conjunction.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-07",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000006",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Subject-verb agreement",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000008",
+      "underline": null,
+      "evidence": "The collection of letters, which spans four decades and includes notes from dozens of correspondents,",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": {
+        "A": "offer",
+        "B": "have offered",
+        "C": "offers",
+        "D": "are offering"
+      },
+      "correct_answer": "C",
+      "explanation": "The subject is \"collection,\" which is singular; \"of letters\" and the clause between commas are modifiers. The singular verb \"offers\" agrees, and the clause's own verbs (\"spans,\" \"includes\") confirm the singular subject.",
+      "distractor_explanations": {
+        "A": "\"Offer\" is plural, agreeing with \"letters\" or \"correspondents\" rather than the subject \"collection.\"",
+        "B": "\"Have offered\" is plural.",
+        "D": "\"Are offering\" is plural."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Cross out the phrase and clause that describe the subject.",
+        "Is \"collection\" singular or plural?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Strip it down to \"The collection … ______ historians a rare view\"; only the singular verb fits."
+      },
+      "remember": "Find the true subject, then match the verb.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-08",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000007",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Transitions",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000009",
+      "underline": null,
+      "evidence": "Most frogs lay their eggs in water, where the young hatch as swimming tadpoles.",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical transition?",
+      "choices": {
+        "A": "for example,",
+        "B": "therefore,",
+        "C": "however,",
+        "D": "similarly,"
+      },
+      "correct_answer": "C",
+      "explanation": "The first sentence describes most frogs; the second describes coquí frogs doing the opposite (eggs on land, no tadpoles). \"However\" signals that contrast.",
+      "distractor_explanations": {
+        "A": "Coquí frogs are an exception to the pattern, not an example of it.",
+        "B": "The coquí's behavior is not a result of what most frogs do.",
+        "D": "\"Similarly\" signals likeness, but the coquí differs from most frogs."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Is the coquí like most frogs or different from them?",
+        "Choose the transition that signals that relationship."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a contrast word such as 'but,' then match."
+      },
+      "remember": "Name the relationship before choosing the transition.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-09",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000008",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Rhetorical synthesis",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000010",
+      "underline": null,
+      "evidence": "Glass can be recycled again and again without losing quality.",
+      "figure": null,
+      "stem": "The student wants to emphasize a difference between recycling glass and recycling plastic. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "choices": {
+        "A": "Glass bottles and plastic bottles can both be recycled.",
+        "B": "Recycled glass is often used to make new bottles.",
+        "C": "Both glass and plastic are commonly used to make bottles, and both can be recycled.",
+        "D": "Glass can be recycled again and again without losing quality, whereas most plastics can be recycled only a few times before the material degrades."
+      },
+      "correct_answer": "D",
+      "explanation": "The goal is a difference. D contrasts how many times each material can be recycled, using \"whereas\" to make the difference explicit.",
+      "distractor_explanations": {
+        "A": "This states a similarity, not a difference.",
+        "B": "This gives information about glass only, with no comparison to plastic.",
+        "C": "This states similarities between the materials."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "partial_answer",
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "The goal is to emphasize a difference.",
+        "Which choice mentions both materials and contrasts them?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Underline the goal (difference), then eliminate choices that state similarities or mention one material."
+      },
+      "remember": "Synthesis questions: the stated goal decides the answer.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "S001-10",
+      "created_at": "2026-10-26T18:59:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [
+          "minor: very easy; D is the only choice that mentions plastic's limitation, and A and C state a similarity outright. Consider a distractor that states a difference using irrelevant notes, or one that mentions only one material's property."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-001.review.json",
+        "computation": "checks/sat_reading_writing/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    }
+  ]
 }

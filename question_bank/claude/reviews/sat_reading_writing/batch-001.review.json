@@ -1,0 +1,304 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 1,
+  "reviewed_at": "2026-10-26T18:59:31+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver A (separate agent, answer-free packet)",
+    "batch": 1
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000001",
+    "CLD-SAT-RW-000002",
+    "CLD-SAT-RW-000003",
+    "CLD-SAT-RW-000004",
+    "CLD-SAT-RW-000005",
+    "CLD-SAT-RW-000006",
+    "CLD-SAT-RW-000007",
+    "CLD-SAT-RW-000008"
+  ],
+  "results": [
+    {
+      "cand": "S001-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: distractors are weak; 'devoid' is the only tempting one and it contradicts both the 'but' contrast and the following preposition 'with'; 'reminiscent' and 'wary' are grammatically/semantically off ('reminiscent with', 'wary with'). Easier than typical SAT words-in-context."
+      ],
+      "blind_notes": "'but' contrasts with 'expected... empty'; colon elaboration (ferns crowded, vines climbed) shows abundance. 'teeming with life' fits idiomatically.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: distractors are weak; 'devoid' is the only real trap (contrast with 'empty') and it fails grammatically with 'with life'; 'reminiscent' and 'wary' are clearly off-topic"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000001"
+    },
+    {
+      "cand": "S001-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: A is easily eliminated because the quotation is Reyes's own words, not a counterargument; D overreads 'weak foundation' as a claim about existing bridges. Distractors could be more competitive."
+      ],
+      "blind_notes": "Quotation vividly restates Reyes's claim that foundation outweighs span.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: C says the foundation 'matters more than its span'; the text says the foundation is 'the most important part', so that is a small inference, but a fair one"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "Reyes is an invented engineer; the claim is presented as his opinion"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000002"
+    },
+    {
+      "cand": "S001-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Text 2 implicitly concedes quiz gains ('memorized for a quiz') but says they fade within weeks. C is too absolute; D is about speed, which Text 2 never addresses (it addresses retention); A unsupported.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: Text 2 never explicitly grants that list memorization raises quiz scores. 'Definitions memorized for a quiz' implies it, so B holds up."
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "S001-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [
+        "minor: very easy; A, C, D are plainly contradicted or unsupported (C contradicts 'for free', D needs comparison to other towns)."
+      ],
+      "blind_notes": "Text covers two benefits: landfill diversion and residents learning repairs.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "chosen over a library-lending topic, which resembled an app fixture passage"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000003"
+    },
+    {
+      "cand": "S001-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [
+        "minor: very easy; A is the only choice that mentions sunflower seeds or compares all three. Real SAT items usually include a distractor that cites the right feeder but an incomplete/incorrect comparison."
+      ],
+      "blind_notes": "Conclusion requires showing 212 > 87 and 145; only A does so. Totals check: 212+87+145=444, so C is accurate but irrelevant.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: the key is the only choice that compares all three values and is much longer than the others, so the answer is easy to spot"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "check": "212 + 87 + 145 = 444"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000004"
+    },
+    {
+      "cand": "S001-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: wording 'an empty shell larger than any in a group' is slightly awkward ('larger than any shell in the group' would be clearer)."
+      ],
+      "blind_notes": "Chain of handoffs ('and so on down the line') means multiple crabs upgrade. B contradicted by chain; C contradicted by 'line up by size'; A unsupported.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "fact_note": "shell vacancy chains in hermit crabs are a well-documented behavior; no researcher is named"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "S001-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Two independent clauses: semicolon correct. A is a comma splice; C a run-on; D 'which within ten years, the number...' creates a garbled relative clause.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "no colon or period option is offered, so exactly one choice is correct"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000005"
+    },
+    {
+      "cand": "S001-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Singular subject 'collection' separated by a nonrestrictive clause containing plural nouns ('decades', 'correspondents'); singular 'offers' required. Other three are plural forms.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000006"
+    },
+    {
+      "cand": "S001-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Coquí behavior contrasts with 'most frogs' (land vs. water, froglets vs. tadpoles). 'however' signals contrast; 'for example' and 'similarly' imply sameness; 'therefore' implies causation.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "fact_note": "coquí frogs (Eleutherodactylus) lay eggs on land and develop directly without a tadpole stage"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000007"
+    },
+    {
+      "cand": "S001-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [
+        "minor: very easy; D is the only choice that mentions plastic's limitation, and A and C state a similarity outright. Consider a distractor that states a difference using irrelevant notes, or one that mentions only one material's property."
+      ],
+      "blind_notes": "Goal is a difference; D contrasts unlimited glass recycling with limited plastic recycling using 'whereas'.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: D is the only choice that mentions both materials with a contrast word; A and C state a similarity, which makes the item very easy"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000008"
+    }
+  ]
+}
