@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 22,
-  "updated_at": "2026-10-26T23:31:44+00:00",
+  "version": 23,
+  "updated_at": "2026-10-26T23:54:12+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -245,6 +245,17 @@
       "word_count": 481,
       "text": "Translators of poetry have argued for centuries, and the argument tends to divide them into two camps. The first camp holds that a translator's duty is to the words: render each phrase as closely as the new language allows, and let readers do the work of meeting a foreign poem on its own terms. The second camp holds that a translator's duty is to the effect: produce a poem that reads as naturally in English as the original did in its own language, so that the reader never stumbles over the fact of translation. Each camp accuses the other of betrayal. To the first, the second is rewriting; to the second, the first is producing cribs that no one would mistake for poems.\n\nConsider a simple case. Suppose a poem's speaker says, word for word, \"my heart is a wet match.\" In the poem's language, the phrase is a common idiom for discouragement, about as ordinary as \"feeling blue\" is in English. A translator in the first camp keeps the wet match. A translator in the second writes something like \"I feel low.\"\n\nBoth choices lose something, and it is worth being precise about what. The literal version gives English readers an image that is vivid and strange, a heart that will not light, when the poem's original readers would have heard only a familiar expression. It adds a freshness the original did not have. The natural version is faithful to that familiarity, but it removes an image that, although dead to native speakers, is still present in the words and may be waiting to be brought back to life. Neither version is simply faithful. Each is faithful to one thing at the expense of another.\n\nThe way out, I think, is to stop asking which camp is right and to ask instead what the phrase is doing in this particular poem. If the poem is about the flatness of ordinary speech, the dullness of the idiom is the point, and \"I feel low\" serves it better. If, however, the poem returns a few lines later to fire, to sparks or smoke or a stove that will not catch, then the poet has noticed the image buried in the idiom and is using it, and the translator who drops the match has dropped the poem's thread. The choice cannot be made phrase by phrase; it depends on a reading of the whole.\n\nThis is why the old argument never ends. Each camp has mistaken a method for a principle, as if one could decide in advance, for every poem, whether words or effects come first. But a translation is not a neutral transfer of content from one language to another. It is an argument about what a poem is, and like any argument, it can be made well or badly, and it can be judged only by returning to the evidence.",
       "batch": 22,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000023",
+      "title": "The Price of a Mug",
+      "genre": "social science",
+      "word_count": 443,
+      "text": "In a classic experiment, economists handed coffee mugs to half the students in a classroom and nothing to the other half. The students with mugs were asked the lowest price at which they would sell one; the students without mugs were asked the highest price they would pay. Standard economic theory predicted that the two prices would be about the same, since the mugs were identical and had been distributed at random. Instead, the sellers asked for roughly twice what the buyers were willing to pay. Simply owning the mug, it seemed, had made it more valuable to its owner.\n\nThe pattern already had a name, the endowment effect, coined by one of the economists a decade earlier, and the mug studies became its best-known demonstration. The researchers also offered an explanation for it. People, they argued, feel losses more sharply than equivalent gains. Giving up a mug registers as a loss, while acquiring one registers only as a gain, so an owner demands more to part with the mug than a non-owner will pay to get it. The idea was appealing because it seemed to explain a wide range of behavior, from homeowners who refuse reasonable offers to investors who hold falling stocks too long.\n\nLater studies complicated the picture. When researchers observed experienced traders at sports-card shows, people who bought and sold cards regularly, the gap between selling and buying prices was much smaller, and among the most active traders it nearly disappeared. Other experiments found that the effect shrank when participants were told that the object was intended for trade, or when the procedure was explained more carefully. Some researchers concluded that the original gap reflected confusion about the task as much as any deep feature of human nature.\n\nNone of this means that the endowment effect is an illusion. The gap has appeared in many settings, with many kinds of objects, and ordinary experience suggests that people do become attached to what they own. But the later findings show that the effect is not a fixed law. It is strongest for objects people intend to use rather than sell, and weakest for those who are used to thinking of goods as things to be exchanged.\n\nThe debate over the mugs is, in this sense, a debate about context. A person deciding whether to sell a grandmother's ring and a dealer deciding whether to sell the same ring are not facing the same choice, even if the ring and the price are identical. Economists who once hoped to find a single rule for how people value things have learned to ask a prior question: valued by whom, and for what?",
+      "batch": 23,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -13026,6 +13037,437 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-022.review.json",
         "computation": "checks/act_reading/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000180",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Central claim of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000023",
+      "underline": null,
+      "evidence": "the later findings show that the effect is not a fixed law",
+      "figure": null,
+      "stem": "Which statement best expresses the main idea of the passage?",
+      "choices": {
+        "A": "The endowment effect is real but varies with who owns an object and why.",
+        "B": "The endowment effect was disproved once experienced traders were studied.",
+        "C": "People always value objects they own at about twice their market price.",
+        "D": "The original mug experiment was poorly designed and should be ignored."
+      },
+      "correct_answer": "A",
+      "explanation": "The author accepts that the effect exists but stresses that later studies show it depends on context: who owns the object and how they think of it.",
+      "distractor_explanations": {
+        "B": "The author says the effect is not \"an illusion.\"",
+        "C": "The passage says the gap shrank or nearly vanished in some settings.",
+        "D": "The author treats the original finding as real, though incomplete."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What does the author conclude in paragraphs 4 and 5?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the author's own verdict, then match."
+      },
+      "remember": "The main idea often appears after the author weighs evidence.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "R023-01",
+      "created_at": "2026-10-26T23:54:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: overlaps conceptually with R023-07 (C 'valued differently by different owners') and R023-05; A here partially telegraphs those answers",
+          "minor: B and D are standard extreme distractors directly refuted by para 4 opening ('None of this means ... an illusion')"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-023.review.json",
+        "computation": "checks/act_reading/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000181",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (paraphrased)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000023",
+      "underline": null,
+      "evidence": "Standard economic theory predicted that the two prices would be about the same",
+      "figure": null,
+      "stem": "According to the passage, standard economic theory predicted that in the mug experiment:",
+      "choices": {
+        "A": "sellers would ask for about twice what buyers would pay.",
+        "B": "buyers would offer more than sellers asked.",
+        "C": "sellers' and buyers' prices would be roughly equal.",
+        "D": "students would refuse to name any price at all."
+      },
+      "correct_answer": "C",
+      "explanation": "The passage says theory predicted the two prices \"would be about the same.\"",
+      "distractor_explanations": {
+        "A": "This is what actually happened, contrary to the prediction.",
+        "B": "The theory predicted equal prices, not higher offers from buyers.",
+        "D": "Nothing like this is mentioned."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Find the sentence about what theory predicted."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread paragraph 1."
+      },
+      "remember": "Separate a prediction from the actual result.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "R023-02",
+      "created_at": "2026-10-26T23:54:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [
+          "minor: A (the actual result) is the only real trap; very direct locate-detail item"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-023.review.json",
+        "computation": "checks/act_reading/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000182",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Applying an explanation",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000023",
+      "underline": null,
+      "evidence": "People, they argued, feel losses more sharply than equivalent gains.",
+      "figure": null,
+      "stem": "Based on the explanation in paragraph 2, an owner demands more to sell a mug than a non-owner will pay because the owner:",
+      "choices": {
+        "A": "knows more about the mug's true market value than the non-owner does.",
+        "B": "experiences giving up the mug as a loss, which feels larger than an equal gain.",
+        "C": "plans to sell the mug later for a profit.",
+        "D": "received the mug as a gift and feels obligated to keep it."
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 2 explains that giving up a mug \"registers as a loss,\" and losses feel sharper than gains.",
+      "distractor_explanations": {
+        "A": "The mugs were identical and randomly given; the explanation concerns how losses feel.",
+        "C": "Nothing in paragraph 2 refers to resale plans.",
+        "D": "The explanation is about losses and gains, not obligation."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What do people feel more sharply, according to paragraph 2?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the researchers' explanation."
+      },
+      "remember": "Apply the explanation the passage gives, not one you supply.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "R023-03",
+      "created_at": "2026-10-26T23:54:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [
+          "minor: correct choice is a near-verbatim paraphrase of para 2; distractors A, C, D have no textual support, so item is very easy"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-023.review.json",
+        "computation": "checks/act_reading/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000183",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of examples",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000023",
+      "underline": null,
+      "evidence": "it seemed to explain a wide range of behavior",
+      "figure": null,
+      "stem": "The references to homeowners and investors in paragraph 2 mainly serve to:",
+      "choices": {
+        "A": "prove that the mug experiment was flawed.",
+        "B": "introduce the experienced traders discussed in paragraph 3.",
+        "C": "suggest that homeowners and investors are less rational than students.",
+        "D": "show why the researchers' explanation seemed widely useful."
+      },
+      "correct_answer": "D",
+      "explanation": "The author says the idea was appealing because it \"seemed to explain a wide range of behavior,\" and the homeowners and investors are examples of that range.",
+      "distractor_explanations": {
+        "A": "The examples support the explanation; they do not criticize the experiment.",
+        "B": "The traders are a different group, introduced later as a complication.",
+        "C": "No such comparison is made."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does the sentence say about the idea's appeal?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the whole sentence containing the examples."
+      },
+      "remember": "Examples often illustrate the claim in the same sentence.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "R023-04",
+      "created_at": "2026-10-26T23:54:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-023.review.json",
+        "computation": "checks/act_reading/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000184",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference from research findings",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000023",
+      "underline": null,
+      "evidence": "among the most active traders it nearly disappeared",
+      "figure": null,
+      "stem": "Based on paragraph 3, the findings about sports-card traders most strongly suggest that the endowment effect:",
+      "choices": {
+        "A": "becomes weaker for people who regularly buy and sell the kind of item involved.",
+        "B": "is caused mainly by the low value of items such as mugs.",
+        "C": "is stronger among experienced traders than among students.",
+        "D": "disappears completely for every kind of object once people are told to trade."
+      },
+      "correct_answer": "A",
+      "explanation": "The gap shrank with trading experience and nearly vanished for the most active traders, which suggests the effect fades for people used to exchanging goods. Paragraph 4 states this directly.",
+      "distractor_explanations": {
+        "B": "Paragraph 3 concerns the owners' experience, not the items' value.",
+        "C": "The gap was \"much smaller\" among experienced traders.",
+        "D": "The passage says the effect shrank, and nearly disappeared only among the most active traders."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "Which traders showed the smallest gap?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that reverse or overstate the finding."
+      },
+      "remember": "Watch for overstatements such as \"completely\" and \"every.\"",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "R023-05",
+      "created_at": "2026-10-26T23:54:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: D's 'disappears completely' vs passage 'nearly disappeared'/'shrank' is a clean absolute-word trap; item is close to a stated detail despite 'suggest' wording"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-023.review.json",
+        "computation": "checks/act_reading/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000185",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000023",
+      "underline": null,
+      "evidence": "Later studies complicated the picture.",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word \"complicated\" most nearly means:",
+      "choices": {
+        "A": "made more difficult to perform.",
+        "B": "made less simple.",
+        "C": "made less accurate.",
+        "D": "made more expensive."
+      },
+      "correct_answer": "B",
+      "explanation": "The later studies added findings that made the original, simple explanation less straightforward.",
+      "distractor_explanations": {
+        "A": "The studies did not make experiments harder to run.",
+        "C": "The later studies refined, not distorted, the picture.",
+        "D": "Cost is not discussed."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What did the later studies do to the earlier, simple explanation?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the word with \"added nuance to.\""
+      },
+      "remember": "Choose the meaning that fits the sentence's subject.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "R023-06",
+      "created_at": "2026-10-26T23:54:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: C 'made less accurate' is the most plausible distractor (later studies questioned the original account) but 'complicated the picture' = made less simple/clear-cut"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-023.review.json",
+        "computation": "checks/act_reading/batch_023.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
