@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 54,
+  "bank_version": 55,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -9308,6 +9308,176 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Set (3x − 2)/(x + 4) equal to each choice and solve."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000537",
+      "correct_answer": "B",
+      "explanation": "One notebook costs $4.50 ÷ 3 = $1.50, so 8 notebooks cost 8 × $1.50 = $12.00.",
+      "distractor_explanations": {
+        "A": "$9.00 doubles the price of 3 notebooks, which buys only 6.",
+        "C": "$13.50 triples the price of 3 notebooks, which buys 9.",
+        "D": "$36.00 multiplies the bundle price by 8 instead of the single-notebook price."
+      },
+      "hints": [
+        "What does one notebook cost?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the unit price first."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000538",
+      "correct_answer": "D",
+      "explanation": "Let the smaller angle be x. Then x + 4x = 180, so x = 36 and the larger angle is 4 × 36 = 144°.",
+      "distractor_explanations": {
+        "A": "36° is the smaller angle.",
+        "B": "72° is the larger angle for complementary angles (sum 90°).",
+        "C": "108° = 180° − 72° mixes the complementary result with the supplementary total."
+      },
+      "hints": [
+        "What do supplementary angles add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x + 4x = 180."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000539",
+      "correct_answer": "C",
+      "explanation": "Solve for y: −4y = −3x + 12, so y = (3/4)x − 3. The slope is 3/4.",
+      "distractor_explanations": {
+        "A": "−3 is the y-intercept.",
+        "B": "−3/4 drops the sign change when dividing by −4.",
+        "D": "4/3 inverts the slope."
+      },
+      "hints": [
+        "Solve the equation for y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite in y = mx + b form."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000540",
+      "correct_answer": "C",
+      "explanation": "The first card is even with probability 2/5. Then 1 even card remains among 4, so the probability is (2/5)(1/4) = 2/20 = 1/10.",
+      "distractor_explanations": {
+        "A": "1/25 multiplies 1/5 by 1/5, as if only one card were even.",
+        "B": "1/20 is the probability of one particular ordered pair, such as 2 then 4.",
+        "D": "4/25 = (2/5)(2/5) treats the draws as made with replacement."
+      },
+      "hints": [
+        "After an even card is drawn, how many even cards remain?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the probabilities for each draw."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000541",
+      "correct_answer": "A",
+      "explanation": "x + 3 = 7 or x + 3 = −7, so x = 4 or x = −10. Their sum is −6.",
+      "distractor_explanations": {
+        "B": "0 assumes the two solutions are opposites, as they would be for x² = 49.",
+        "C": "4 is only the positive solution; it ignores x + 3 = −7.",
+        "D": "46 subtracts 3 from 49 without taking a square root."
+      },
+      "hints": [
+        "A square equals 49 when the base is 7 or −7."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x + 3 = ±7."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000542",
+      "correct_answer": "D",
+      "explanation": "For (5, 3): (5 − 2)² + (3 + 1)² = 9 + 16 = 25, so the point is on the circle.",
+      "distractor_explanations": {
+        "A": "(−3 − 2)² + (4 + 1)² = 50, which is not 25.",
+        "B": "(−2 − 2)² + (1 + 1)² = 20, which is not 25.",
+        "C": "(2, −1) is the center, not a point on the circle."
+      },
+      "hints": [
+        "Substitute each point into the equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each point."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000543",
+      "correct_answer": "B",
+      "explanation": "√50 = 5√2 and √18 = 3√2, so the sum is 8√2.",
+      "distractor_explanations": {
+        "A": "2√17 = √68 adds the numbers under the radicals.",
+        "C": "15√2 multiplies the coefficients 5 and 3 instead of adding them.",
+        "D": "68 adds the radicands and drops the radical."
+      },
+      "hints": [
+        "Simplify each radical first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor out perfect squares: 25 · 2 and 9 · 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000544",
+      "correct_answer": "A",
+      "explanation": "No solution requires parallel lines: equal slopes and different intercepts. The slopes are −k/2 and −3/6 = −1/2, so k = 1. Then the equations are x + 2y = 5 and x + 2y = 7/3, which are parallel and distinct.",
+      "distractor_explanations": {
+        "B": "2 matches the y-coefficient of the first equation, not the slope condition.",
+        "C": "3 copies the x-coefficient of the second equation without scaling for the y-coefficients.",
+        "D": "6 copies the second equation's y-coefficient."
+      },
+      "hints": [
+        "When does a system of two lines have no solution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the slopes equal: −k/2 = −1/2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000545",
+      "correct_answer": "C",
+      "explanation": "The water's volume is π(3²)(8) = 72π. The ball's volume is (4/3)π(3³) = 36π. Together they need 108π, but the glass holds π(3²)(10) = 90π, so 108π − 90π = 18π overflows.",
+      "distractor_explanations": {
+        "A": "0 assumes the empty 2 cm at the top (18π) holds the ball's whole volume.",
+        "B": "9π is the volume of just 1 cm of the glass's height.",
+        "D": "36π is the ball's entire volume, ignoring the empty space at the top."
+      },
+      "hints": [
+        "How much empty space is above the water before the ball goes in?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Overflow = water + ball − capacity."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000546",
+      "correct_answer": "B",
+      "explanation": "Let the one-way distance be d. The total time is d/60 + d/40 = d/24 hours, and the total distance is 2d, so the average speed is 2d ÷ (d/24) = 48 miles per hour.",
+      "distractor_explanations": {
+        "A": "45 has no basis in the setup; it may come from guessing a value below 50.",
+        "C": "50 averages the two speeds, ignoring that more time is spent at 40 mph.",
+        "D": "52 weights the faster speed more heavily, the reverse of what happens."
+      },
+      "hints": [
+        "Is more time spent going 60 mph or going 40 mph?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Pick a distance such as 120 miles each way."
       }
     }
   ]
