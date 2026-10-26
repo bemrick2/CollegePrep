@@ -6,17 +6,19 @@
  * "test-only-". Passing tests on this batch says nothing about the real banks, which have not been delivered.
  */
 import { QUESTIONS } from '../data/demo/fixtures'
-import { IMPORT_CONTRACT, type ImportedQuestion } from '../questionImport'
+import { IMPORT_CONTRACT_V2, type ImportedQuestion } from '../questionImport'
 
 export function testOnlyBatch(n = 4, extra: (i: number) => Partial<ImportedQuestion> = () => ({})): ImportedQuestion[] {
   return QUESTIONS.slice(0, n).map((q, i) => {
     const { id, ...content } = q
     return {
       ...content,
-      contract: IMPORT_CONTRACT,
+      contract: IMPORT_CONTRACT_V2,
       import_id: `test-only-${id}`,
       origin: 'human_original',
       author: 'Jo Writer',
+      // TEST ONLY identity (testIdentities in testReviewers.ts); the real identities.json is empty.
+      author_identity: { kind: 'person', identity_id: 'au-test-jo-writer' },
       license: 'original-owned',
       source_attribution: null,
       source_url: null,
