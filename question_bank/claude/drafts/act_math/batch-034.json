@@ -1,0 +1,508 @@
+{
+ "bank": "act_math",
+ "batch": 34,
+ "plan": "Eleven new items with subskills checked against the bank. 3 hard (trailing zeros, bouncing-ball series, shared birth month) / 4 medium / 4 easy.",
+ "candidates": [
+  {
+   "cand": "B034-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Tangent line to a circle at a point",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "The point (3, 4) lies on the circle x² + y² = 25. The line tangent to the circle at (3, 4) crosses the x-axis at which of the following points?",
+   "choices": {
+    "A": "(5, 0)",
+    "B": "(6, 0)",
+    "C": "(25/4, 0)",
+    "D": "(25/3, 0)"
+   },
+   "answer": "D",
+   "explanation": "A tangent line is perpendicular to the radius at the point of tangency. The radius from (0, 0) to (3, 4) has slope 4/3, so the tangent has slope -3/4: y - 4 = -(3/4)(x - 3). Setting y = 0 gives x - 3 = 16/3, so x = 25/3.",
+   "distractors": {
+    "A": {
+     "rationale": "(5, 0) is where the circle itself crosses the x-axis.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "(6, 0) uses slope -4/3, the negative of the radius's slope instead of its negative reciprocal.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "25/4 is the tangent line's y-intercept, not its x-intercept.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How is a tangent line related to the radius drawn to the point of tangency?",
+    "Find the radius's slope, then take the negative reciprocal."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the radius and the perpendicular tangent."
+   },
+   "remember": "A tangent is perpendicular to the radius at the point of tangency.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Minimum of a quadratic in intercept form",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = (x - 2)(x - 8). What is the minimum value of f(x) ?",
+   "choices": {
+    "A": "-9",
+    "B": "0",
+    "C": "5",
+    "D": "16"
+   },
+   "answer": "A",
+   "explanation": "The zeros are 2 and 8, so the vertex is halfway between them at x = 5. The minimum value is f(5) = (3)(-3) = -9.",
+   "distractors": {
+    "B": {
+     "rationale": "0 is the value of f at its zeros, not its minimum.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "5 is the x-coordinate of the vertex, not the minimum value.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "16 is f(0), the y-intercept.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Where is the vertex relative to the two zeros?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "The vertex sits midway between the x-intercepts."
+   },
+   "remember": "The vertex of a parabola is midway between its zeros.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Least integer exponent exceeding a bound",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "easy",
+   "stem": "What is the least integer n for which 3ⁿ > 1,000 ?",
+   "choices": {
+    "A": "3",
+    "B": "6",
+    "C": "7",
+    "D": "333"
+   },
+   "answer": "C",
+   "explanation": "3⁶ = 729, which is less than 1,000, and 3⁷ = 2,187, which is greater. So the least such integer is 7.",
+   "distractors": {
+    "A": {
+     "rationale": "3 confuses 3ⁿ with 10ⁿ, since 10³ = 1,000.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "6 is the greatest n with 3ⁿ < 1,000.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "333 divides 1,000 by 3, treating the power as a product.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "List powers of 3: 3, 9, 27, ..."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test the choices in 3ⁿ."
+   },
+   "remember": "Check the boundary: the power just below and just above the target.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Trailing zeros of a factorial",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "The integer 25! is the product 1 × 2 × 3 × ... × 25. How many zeros are at the end of 25! when it is written in standard form?",
+   "choices": {
+    "A": "2",
+    "B": "5",
+    "C": "6",
+    "D": "12"
+   },
+   "answer": "C",
+   "explanation": "Each trailing zero comes from a factor of 10 = 2 × 5, and factors of 2 are plentiful, so count factors of 5. The multiples of 5 up to 25 are 5, 10, 15, 20 and 25, and 25 = 5 × 5 contributes two. That is 6 factors of 5, so there are 6 trailing zeros.",
+   "distractors": {
+    "A": {
+     "rationale": "2 counts only the factors 10 and 20 that visibly end in 0.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "5 counts each multiple of 5 once and misses the second 5 in 25.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "12 counts the even factors, but factors of 2 are not the limiting factor.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Each zero at the end comes from a factor of 10. Which prime factor of 10 is scarcer?",
+    "How many factors of 5 does 25 contribute?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Count factors of 5, including the extra one in 25."
+   },
+   "remember": "Trailing zeros = number of factors of 5 (count 25, 125, ... more than once).",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires the insight that zeros come from paired 2s and 5s, plus the trap that 25 contributes two 5s; most quick solvers answer 5 or 2."
+   }
+  },
+  {
+   "cand": "B034-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Midsegment (median) of a trapezoid",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "The bases of a trapezoid are 10 inches and x inches long. The segment joining the midpoints of the trapezoid's legs is 16 inches long. What is the value of x ?",
+   "choices": {
+    "A": "6",
+    "B": "13",
+    "C": "16",
+    "D": "22"
+   },
+   "answer": "D",
+   "explanation": "The segment joining the midpoints of the legs has length equal to the average of the bases: (10 + x)/2 = 16, so x = 22.",
+   "distractors": {
+    "A": {
+     "rationale": "6 is 16 - 10, the difference rather than the base.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "13 averages 10 and 16 instead of solving for the base.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "16 assumes the midsegment equals the unknown base.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "The midsegment is the average of the two bases."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "(10 + x)/2 = 16."
+   },
+   "remember": "Trapezoid midsegment = average of the bases.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "End behavior of a polynomial",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "For the function f(x) = -2x³ + 5x² + 1, which of the following describes the values of f(x) as x increases without bound and as x decreases without bound?",
+   "choices": {
+    "A": "f(x) increases without bound in both cases.",
+    "B": "f(x) decreases without bound as x increases, and increases without bound as x decreases.",
+    "C": "f(x) increases without bound as x increases, and decreases without bound as x decreases.",
+    "D": "f(x) decreases without bound in both cases."
+   },
+   "answer": "B",
+   "explanation": "The leading term -2x³ controls the end behavior. For large positive x it is very negative, and for large negative x it is very positive.",
+   "distractors": {
+    "A": {
+     "rationale": "Both ends rising describes an even-degree polynomial with a positive leading coefficient.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This is the end behavior of a cubic with a positive leading coefficient; it ignores the negative sign.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "Both ends falling describes an even-degree polynomial with a negative leading coefficient.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which term dominates when |x| is large?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 100 and x = -100 in -2x³."
+   },
+   "remember": "End behavior follows the leading term's degree and sign.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Ordered selections (permutations)",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "A club with 8 members will choose a president, a vice president, and a treasurer. No member can hold more than one office. In how many different ways can the three offices be filled?",
+   "choices": {
+    "A": "24",
+    "B": "56",
+    "C": "336",
+    "D": "512"
+   },
+   "answer": "C",
+   "explanation": "There are 8 choices for president, then 7 for vice president, then 6 for treasurer: 8 × 7 × 6 = 336.",
+   "distractors": {
+    "A": {
+     "rationale": "24 multiplies 8 members by 3 offices.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "56 counts unordered groups of 3, but the offices are different.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "512 = 8³ lets one member hold several offices.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Fill the offices one at a time."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Count choices for each office in turn."
+   },
+   "remember": "Different roles mean order matters: multiply the shrinking choices.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-08",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Comparing yearly fuel costs",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Kai drives 12,000 miles per year. Kai's current car gets 25 miles per gallon, and a new car would get 40 miles per gallon. If gasoline costs $3.50 per gallon, how much less would Kai spend on gasoline in one year with the new car?",
+   "choices": {
+    "A": "$630",
+    "B": "$1,050",
+    "C": "$1,680",
+    "D": "$2,800"
+   },
+   "answer": "A",
+   "explanation": "Current car: 12,000/25 = 480 gallons, costing $1,680. New car: 12,000/40 = 300 gallons, costing $1,050. The savings are $1,680 - $1,050 = $630.",
+   "distractors": {
+    "B": {
+     "rationale": "$1,050 is the new car's yearly fuel cost.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "$1,680 is the current car's yearly fuel cost.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "$2,800 divides 12,000 by the 15 mpg difference, but miles per gallon cannot be subtracted that way.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find the gallons each car would use in a year."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Cost = (miles ÷ mpg) × price."
+   },
+   "remember": "Compare costs, not miles per gallon.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B034-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Total distance of a bouncing ball (infinite geometric series)",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "A ball is dropped from a height of 10 feet. Each time it hits the ground, it bounces back up to 3/5 of the height from which it last fell. If the ball continues bouncing indefinitely, what is the total vertical distance, in feet, that the ball travels?",
+   "choices": {
+    "A": "16",
+    "B": "25",
+    "C": "30",
+    "D": "40"
+   },
+   "answer": "D",
+   "explanation": "The ball falls 10 feet once. The rises are 6 + 3.6 + 2.16 + ... = 6/(1 - 3/5) = 15 feet, and it falls the same 15 feet after them. Total: 10 + 15 + 15 = 40 feet.",
+   "distractors": {
+    "A": {
+     "rationale": "16 counts only the first fall and the first rise.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "25 = 10/(1 - 3/5) counts only the falls.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "30 counts each bounce up and down but leaves out the first 10-foot drop.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Separate the first drop from the bounces.",
+    "Each bounce height is traveled twice, up and down."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the up-and-down path."
+   },
+   "remember": "Infinite geometric sum = first term ÷ (1 - ratio).",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Needs the infinite geometric series formula plus careful accounting: the first drop is traveled once and every bounce twice. Most solvers stop at 25."
+   }
+  },
+  {
+   "cand": "B034-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability that at least two share a category",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "hard",
+   "stem": "Three people are chosen at random. Assume each person is equally likely to have been born in any of the 12 months, independently of the others. What is the probability that at least two of the three were born in the same month?",
+   "choices": {
+    "A": "1/144",
+    "B": "17/72",
+    "C": "1/4",
+    "D": "55/72"
+   },
+   "answer": "B",
+   "explanation": "Use the complement. The probability that all three months differ is (12/12)(11/12)(10/12) = 55/72. So the probability that at least two share a month is 1 - 55/72 = 17/72.",
+   "distractors": {
+    "A": {
+     "rationale": "1/144 is the probability that all three share one month.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "1/4 adds 1/12 for each of the 3 pairs, double-counting cases where pairs overlap.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "55/72 is the probability that all three months are different, the complement.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What is the opposite of 'at least two share a month'?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Find P(all different) and subtract from 1."
+   },
+   "remember": "For 'at least two match', compute 1 - P(all different).",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires choosing the complement and computing a sequential product; the pair-counting shortcut (1/4) is a tempting trap."
+   }
+  },
+  {
+   "cand": "B034-11",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Inscribed and circumscribed circles of a square",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A circle is inscribed in a square, and a second circle is circumscribed about the same square. What is the ratio of the area of the inscribed circle to the area of the circumscribed circle?",
+   "choices": {
+    "A": "1 : 4",
+    "B": "1 : 2",
+    "C": "1 : √2",
+    "D": "π : 4"
+   },
+   "answer": "B",
+   "explanation": "If the square has side s, the inscribed circle has radius s/2 and the circumscribed circle has radius s√2/2 (half the diagonal). The radii are in ratio 1 : √2, so the areas are in ratio 1 : 2.",
+   "distractors": {
+    "A": {
+     "rationale": "1 : 4 squares a radius ratio of 1 : 2, treating the diagonal as twice the side.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1 : √2 is the ratio of the radii, not the areas.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "π : 4 is the ratio of the inscribed circle's area to the square's area.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "The inscribed circle's diameter is the side; the circumscribed circle's diameter is the diagonal."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let the side be 2."
+   },
+   "remember": "Area ratio = (radius ratio)².",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

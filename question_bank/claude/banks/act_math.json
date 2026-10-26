@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 33,
-  "updated_at": "2026-10-26T20:48:27+00:00",
+  "version": 34,
+  "updated_at": "2026-10-26T20:52:18+00:00",
   "passages": [],
   "questions": [
     {
@@ -22838,6 +22838,781 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_math/batch-033.review.json",
         "computation": "checks/act_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000329",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Tangent line to a circle at a point",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The point (3, 4) lies on the circle x² + y² = 25. The line tangent to the circle at (3, 4) crosses the x-axis at which of the following points?",
+      "choices": {
+        "A": "(5, 0)",
+        "B": "(6, 0)",
+        "C": "(25/4, 0)",
+        "D": "(25/3, 0)"
+      },
+      "correct_answer": "D",
+      "explanation": "A tangent line is perpendicular to the radius at the point of tangency. The radius from (0, 0) to (3, 4) has slope 4/3, so the tangent has slope -3/4: y - 4 = -(3/4)(x - 3). Setting y = 0 gives x - 3 = 16/3, so x = 25/3.",
+      "distractor_explanations": {
+        "A": "(5, 0) is where the circle itself crosses the x-axis.",
+        "B": "(6, 0) uses slope -4/3, the negative of the radius's slope instead of its negative reciprocal.",
+        "C": "25/4 is the tangent line's y-intercept, not its x-intercept."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "How is a tangent line related to the radius drawn to the point of tangency?",
+        "Find the radius's slope, then take the negative reciprocal."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the radius and the perpendicular tangent."
+      },
+      "remember": "A tangent is perpendicular to the radius at the point of tangency.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-01",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000330",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Minimum of a quadratic in intercept form",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (x - 2)(x - 8). What is the minimum value of f(x) ?",
+      "choices": {
+        "A": "-9",
+        "B": "0",
+        "C": "5",
+        "D": "16"
+      },
+      "correct_answer": "A",
+      "explanation": "The zeros are 2 and 8, so the vertex is halfway between them at x = 5. The minimum value is f(5) = (3)(-3) = -9.",
+      "distractor_explanations": {
+        "B": "0 is the value of f at its zeros, not its minimum.",
+        "C": "5 is the x-coordinate of the vertex, not the minimum value.",
+        "D": "16 is f(0), the y-intercept."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Where is the vertex relative to the two zeros?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The vertex sits midway between the x-intercepts."
+      },
+      "remember": "The vertex of a parabola is midway between its zeros.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-02",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000331",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Least integer exponent exceeding a bound",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the least integer n for which 3ⁿ > 1,000 ?",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "7",
+        "D": "333"
+      },
+      "correct_answer": "C",
+      "explanation": "3⁶ = 729, which is less than 1,000, and 3⁷ = 2,187, which is greater. So the least such integer is 7.",
+      "distractor_explanations": {
+        "A": "3 confuses 3ⁿ with 10ⁿ, since 10³ = 1,000.",
+        "B": "6 is the greatest n with 3ⁿ < 1,000.",
+        "D": "333 divides 1,000 by 3, treating the power as a product."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "List powers of 3: 3, 9, 27, ..."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test the choices in 3ⁿ."
+      },
+      "remember": "Check the boundary: the power just below and just above the target.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-03",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000332",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Trailing zeros of a factorial",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The integer 25! is the product 1 × 2 × 3 × ... × 25. How many zeros are at the end of 25! when it is written in standard form?",
+      "choices": {
+        "A": "2",
+        "B": "5",
+        "C": "6",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "explanation": "Each trailing zero comes from a factor of 10 = 2 × 5, and factors of 2 are plentiful, so count factors of 5. The multiples of 5 up to 25 are 5, 10, 15, 20 and 25, and 25 = 5 × 5 contributes two. That is 6 factors of 5, so there are 6 trailing zeros.",
+      "distractor_explanations": {
+        "A": "2 counts only the factors 10 and 20 that visibly end in 0.",
+        "B": "5 counts each multiple of 5 once and misses the second 5 in 25.",
+        "D": "12 counts the even factors, but factors of 2 are not the limiting factor."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Each zero at the end comes from a factor of 10. Which prime factor of 10 is scarcer?",
+        "How many factors of 5 does 25 contribute?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count factors of 5, including the extra one in 25."
+      },
+      "remember": "Trailing zeros = number of factors of 5 (count 25, 125, ... more than once).",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-04",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000333",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Midsegment (median) of a trapezoid",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The bases of a trapezoid are 10 inches and x inches long. The segment joining the midpoints of the trapezoid's legs is 16 inches long. What is the value of x ?",
+      "choices": {
+        "A": "6",
+        "B": "13",
+        "C": "16",
+        "D": "22"
+      },
+      "correct_answer": "D",
+      "explanation": "The segment joining the midpoints of the legs has length equal to the average of the bases: (10 + x)/2 = 16, so x = 22.",
+      "distractor_explanations": {
+        "A": "6 is 16 - 10, the difference rather than the base.",
+        "B": "13 averages 10 and 16 instead of solving for the base.",
+        "C": "16 assumes the midsegment equals the unknown base."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "The midsegment is the average of the two bases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(10 + x)/2 = 16."
+      },
+      "remember": "Trapezoid midsegment = average of the bases.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-05",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000334",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "End behavior of a polynomial",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the function f(x) = -2x³ + 5x² + 1, which of the following describes the values of f(x) as x increases without bound and as x decreases without bound?",
+      "choices": {
+        "A": "f(x) increases without bound in both cases.",
+        "B": "f(x) decreases without bound as x increases, and increases without bound as x decreases.",
+        "C": "f(x) increases without bound as x increases, and decreases without bound as x decreases.",
+        "D": "f(x) decreases without bound in both cases."
+      },
+      "correct_answer": "B",
+      "explanation": "The leading term -2x³ controls the end behavior. For large positive x it is very negative, and for large negative x it is very positive.",
+      "distractor_explanations": {
+        "A": "Both ends rising describes an even-degree polynomial with a positive leading coefficient.",
+        "C": "This is the end behavior of a cubic with a positive leading coefficient; it ignores the negative sign.",
+        "D": "Both ends falling describes an even-degree polynomial with a negative leading coefficient."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Which term dominates when |x| is large?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 100 and x = -100 in -2x³."
+      },
+      "remember": "End behavior follows the leading term's degree and sign.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-06",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000335",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Ordered selections (permutations)",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A club with 8 members will choose a president, a vice president, and a treasurer. No member can hold more than one office. In how many different ways can the three offices be filled?",
+      "choices": {
+        "A": "24",
+        "B": "56",
+        "C": "336",
+        "D": "512"
+      },
+      "correct_answer": "C",
+      "explanation": "There are 8 choices for president, then 7 for vice president, then 6 for treasurer: 8 × 7 × 6 = 336.",
+      "distractor_explanations": {
+        "A": "24 multiplies 8 members by 3 offices.",
+        "B": "56 counts unordered groups of 3, but the offices are different.",
+        "D": "512 = 8³ lets one member hold several offices."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Fill the offices one at a time."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count choices for each office in turn."
+      },
+      "remember": "Different roles mean order matters: multiply the shrinking choices.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-07",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000336",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Comparing yearly fuel costs",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Kai drives 12,000 miles per year. Kai's current car gets 25 miles per gallon, and a new car would get 40 miles per gallon. If gasoline costs $3.50 per gallon, how much less would Kai spend on gasoline in one year with the new car?",
+      "choices": {
+        "A": "$630",
+        "B": "$1,050",
+        "C": "$1,680",
+        "D": "$2,800"
+      },
+      "correct_answer": "A",
+      "explanation": "Current car: 12,000/25 = 480 gallons, costing $1,680. New car: 12,000/40 = 300 gallons, costing $1,050. The savings are $1,680 - $1,050 = $630.",
+      "distractor_explanations": {
+        "B": "$1,050 is the new car's yearly fuel cost.",
+        "C": "$1,680 is the current car's yearly fuel cost.",
+        "D": "$2,800 divides 12,000 by the 15 mpg difference, but miles per gallon cannot be subtracted that way."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Find the gallons each car would use in a year."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cost = (miles ÷ mpg) × price."
+      },
+      "remember": "Compare costs, not miles per gallon.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-08",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000337",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Total distance of a bouncing ball (infinite geometric series)",
+      "modeling": true,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A ball is dropped from a height of 10 feet. Each time it hits the ground, it bounces back up to 3/5 of the height from which it last fell. If the ball continues bouncing indefinitely, what is the total vertical distance, in feet, that the ball travels?",
+      "choices": {
+        "A": "16",
+        "B": "25",
+        "C": "30",
+        "D": "40"
+      },
+      "correct_answer": "D",
+      "explanation": "The ball falls 10 feet once. The rises are 6 + 3.6 + 2.16 + ... = 6/(1 - 3/5) = 15 feet, and it falls the same 15 feet after them. Total: 10 + 15 + 15 = 40 feet.",
+      "distractor_explanations": {
+        "A": "16 counts only the first fall and the first rise.",
+        "B": "25 = 10/(1 - 3/5) counts only the falls.",
+        "C": "30 counts each bounce up and down but leaves out the first 10-foot drop."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Separate the first drop from the bounces.",
+        "Each bounce height is traveled twice, up and down."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the up-and-down path."
+      },
+      "remember": "Infinite geometric sum = first term ÷ (1 - ratio).",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-09",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [
+          "minor: 'bounces indefinitely' is an idealization; acceptable for a geometric-series item"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000338",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability that at least two share a category",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Three people are chosen at random. Assume each person is equally likely to have been born in any of the 12 months, independently of the others. What is the probability that at least two of the three were born in the same month?",
+      "choices": {
+        "A": "1/144",
+        "B": "17/72",
+        "C": "1/4",
+        "D": "55/72"
+      },
+      "correct_answer": "B",
+      "explanation": "Use the complement. The probability that all three months differ is (12/12)(11/12)(10/12) = 55/72. So the probability that at least two share a month is 1 - 55/72 = 17/72.",
+      "distractor_explanations": {
+        "A": "1/144 is the probability that all three share one month.",
+        "C": "1/4 adds 1/12 for each of the 3 pairs, double-counting cases where pairs overlap.",
+        "D": "55/72 is the probability that all three months are different, the complement."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the opposite of 'at least two share a month'?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find P(all different) and subtract from 1."
+      },
+      "remember": "For 'at least two match', compute 1 - P(all different).",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-10",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000339",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Inscribed and circumscribed circles of a square",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circle is inscribed in a square, and a second circle is circumscribed about the same square. What is the ratio of the area of the inscribed circle to the area of the circumscribed circle?",
+      "choices": {
+        "A": "1 : 4",
+        "B": "1 : 2",
+        "C": "1 : √2",
+        "D": "π : 4"
+      },
+      "correct_answer": "B",
+      "explanation": "If the square has side s, the inscribed circle has radius s/2 and the circumscribed circle has radius s√2/2 (half the diagonal). The radii are in ratio 1 : √2, so the areas are in ratio 1 : 2.",
+      "distractor_explanations": {
+        "A": "1 : 4 squares a radius ratio of 1 : 2, treating the diagonal as twice the side.",
+        "C": "1 : √2 is the ratio of the radii, not the areas.",
+        "D": "π : 4 is the ratio of the inscribed circle's area to the square's area."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "The inscribed circle's diameter is the side; the circumscribed circle's diameter is the diagonal."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the side be 2."
+      },
+      "remember": "Area ratio = (radius ratio)².",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "B034-11",
+      "created_at": "2026-10-26T20:52:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-034.review.json",
+        "computation": "checks/act_math/batch_034.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

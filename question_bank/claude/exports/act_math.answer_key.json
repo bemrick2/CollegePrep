@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 33,
+  "bank_version": 34,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -5726,6 +5726,196 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "200 ÷ 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000329",
+      "correct_answer": "D",
+      "explanation": "A tangent line is perpendicular to the radius at the point of tangency. The radius from (0, 0) to (3, 4) has slope 4/3, so the tangent has slope -3/4: y - 4 = -(3/4)(x - 3). Setting y = 0 gives x - 3 = 16/3, so x = 25/3.",
+      "distractor_explanations": {
+        "A": "(5, 0) is where the circle itself crosses the x-axis.",
+        "B": "(6, 0) uses slope -4/3, the negative of the radius's slope instead of its negative reciprocal.",
+        "C": "25/4 is the tangent line's y-intercept, not its x-intercept."
+      },
+      "hints": [
+        "How is a tangent line related to the radius drawn to the point of tangency?",
+        "Find the radius's slope, then take the negative reciprocal."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the radius and the perpendicular tangent."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000330",
+      "correct_answer": "A",
+      "explanation": "The zeros are 2 and 8, so the vertex is halfway between them at x = 5. The minimum value is f(5) = (3)(-3) = -9.",
+      "distractor_explanations": {
+        "B": "0 is the value of f at its zeros, not its minimum.",
+        "C": "5 is the x-coordinate of the vertex, not the minimum value.",
+        "D": "16 is f(0), the y-intercept."
+      },
+      "hints": [
+        "Where is the vertex relative to the two zeros?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The vertex sits midway between the x-intercepts."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000331",
+      "correct_answer": "C",
+      "explanation": "3⁶ = 729, which is less than 1,000, and 3⁷ = 2,187, which is greater. So the least such integer is 7.",
+      "distractor_explanations": {
+        "A": "3 confuses 3ⁿ with 10ⁿ, since 10³ = 1,000.",
+        "B": "6 is the greatest n with 3ⁿ < 1,000.",
+        "D": "333 divides 1,000 by 3, treating the power as a product."
+      },
+      "hints": [
+        "List powers of 3: 3, 9, 27, ..."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test the choices in 3ⁿ."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000332",
+      "correct_answer": "C",
+      "explanation": "Each trailing zero comes from a factor of 10 = 2 × 5, and factors of 2 are plentiful, so count factors of 5. The multiples of 5 up to 25 are 5, 10, 15, 20 and 25, and 25 = 5 × 5 contributes two. That is 6 factors of 5, so there are 6 trailing zeros.",
+      "distractor_explanations": {
+        "A": "2 counts only the factors 10 and 20 that visibly end in 0.",
+        "B": "5 counts each multiple of 5 once and misses the second 5 in 25.",
+        "D": "12 counts the even factors, but factors of 2 are not the limiting factor."
+      },
+      "hints": [
+        "Each zero at the end comes from a factor of 10. Which prime factor of 10 is scarcer?",
+        "How many factors of 5 does 25 contribute?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count factors of 5, including the extra one in 25."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000333",
+      "correct_answer": "D",
+      "explanation": "The segment joining the midpoints of the legs has length equal to the average of the bases: (10 + x)/2 = 16, so x = 22.",
+      "distractor_explanations": {
+        "A": "6 is 16 - 10, the difference rather than the base.",
+        "B": "13 averages 10 and 16 instead of solving for the base.",
+        "C": "16 assumes the midsegment equals the unknown base."
+      },
+      "hints": [
+        "The midsegment is the average of the two bases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(10 + x)/2 = 16."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000334",
+      "correct_answer": "B",
+      "explanation": "The leading term -2x³ controls the end behavior. For large positive x it is very negative, and for large negative x it is very positive.",
+      "distractor_explanations": {
+        "A": "Both ends rising describes an even-degree polynomial with a positive leading coefficient.",
+        "C": "This is the end behavior of a cubic with a positive leading coefficient; it ignores the negative sign.",
+        "D": "Both ends falling describes an even-degree polynomial with a negative leading coefficient."
+      },
+      "hints": [
+        "Which term dominates when |x| is large?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 100 and x = -100 in -2x³."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000335",
+      "correct_answer": "C",
+      "explanation": "There are 8 choices for president, then 7 for vice president, then 6 for treasurer: 8 × 7 × 6 = 336.",
+      "distractor_explanations": {
+        "A": "24 multiplies 8 members by 3 offices.",
+        "B": "56 counts unordered groups of 3, but the offices are different.",
+        "D": "512 = 8³ lets one member hold several offices."
+      },
+      "hints": [
+        "Fill the offices one at a time."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count choices for each office in turn."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000336",
+      "correct_answer": "A",
+      "explanation": "Current car: 12,000/25 = 480 gallons, costing $1,680. New car: 12,000/40 = 300 gallons, costing $1,050. The savings are $1,680 - $1,050 = $630.",
+      "distractor_explanations": {
+        "B": "$1,050 is the new car's yearly fuel cost.",
+        "C": "$1,680 is the current car's yearly fuel cost.",
+        "D": "$2,800 divides 12,000 by the 15 mpg difference, but miles per gallon cannot be subtracted that way."
+      },
+      "hints": [
+        "Find the gallons each car would use in a year."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cost = (miles ÷ mpg) × price."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000337",
+      "correct_answer": "D",
+      "explanation": "The ball falls 10 feet once. The rises are 6 + 3.6 + 2.16 + ... = 6/(1 - 3/5) = 15 feet, and it falls the same 15 feet after them. Total: 10 + 15 + 15 = 40 feet.",
+      "distractor_explanations": {
+        "A": "16 counts only the first fall and the first rise.",
+        "B": "25 = 10/(1 - 3/5) counts only the falls.",
+        "C": "30 counts each bounce up and down but leaves out the first 10-foot drop."
+      },
+      "hints": [
+        "Separate the first drop from the bounces.",
+        "Each bounce height is traveled twice, up and down."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the up-and-down path."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000338",
+      "correct_answer": "B",
+      "explanation": "Use the complement. The probability that all three months differ is (12/12)(11/12)(10/12) = 55/72. So the probability that at least two share a month is 1 - 55/72 = 17/72.",
+      "distractor_explanations": {
+        "A": "1/144 is the probability that all three share one month.",
+        "C": "1/4 adds 1/12 for each of the 3 pairs, double-counting cases where pairs overlap.",
+        "D": "55/72 is the probability that all three months are different, the complement."
+      },
+      "hints": [
+        "What is the opposite of 'at least two share a month'?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find P(all different) and subtract from 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000339",
+      "correct_answer": "B",
+      "explanation": "If the square has side s, the inscribed circle has radius s/2 and the circumscribed circle has radius s√2/2 (half the diagonal). The radii are in ratio 1 : √2, so the areas are in ratio 1 : 2.",
+      "distractor_explanations": {
+        "A": "1 : 4 squares a radius ratio of 1 : 2, treating the diagonal as twice the side.",
+        "C": "1 : √2 is the ratio of the radii, not the areas.",
+        "D": "π : 4 is the ratio of the inscribed circle's area to the square's area."
+      },
+      "hints": [
+        "The inscribed circle's diameter is the side; the circumscribed circle's diameter is the diagonal."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the side be 2."
       }
     }
   ]
