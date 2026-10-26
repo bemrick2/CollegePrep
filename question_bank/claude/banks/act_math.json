@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 34,
-  "updated_at": "2026-10-26T20:52:18+00:00",
+  "version": 35,
+  "updated_at": "2026-10-26T20:59:04+00:00",
   "passages": [],
   "questions": [
     {
@@ -23613,6 +23613,710 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-034.review.json",
         "computation": "checks/act_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000340",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Triangle proportionality (parallel segment)",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC so that segment DE is parallel to side BC. If AD = 4, DB = 6, and DE = 5, what is the length of BC ?",
+      "choices": {
+        "A": "15/2",
+        "B": "25/3",
+        "C": "11",
+        "D": "25/2"
+      },
+      "correct_answer": "D",
+      "explanation": "Because DE ∥ BC, triangle ADE is similar to triangle ABC with ratio AD/AB = 4/10. So BC = 5 × 10/4 = 25/2.",
+      "distractor_explanations": {
+        "A": "15/2 = 5 × 6/4 uses DB/AD instead of AB/AD.",
+        "B": "25/3 = 5 × 10/6 compares AB with DB instead of AD.",
+        "C": "11 adds DB to DE, treating the lengths as additive."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "Which two triangles are similar?",
+        "Compare AD with the whole side AB."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the small triangle inside the large one."
+      },
+      "remember": "Use whole sides in the ratio: AD/AB = DE/BC.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-01",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000341",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Coefficient in a polynomial product",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "When (2x - 3)(x² + 4x - 1) is expanded and like terms are combined, what is the coefficient of x ?",
+      "choices": {
+        "A": "-14",
+        "B": "-12",
+        "C": "-2",
+        "D": "10"
+      },
+      "correct_answer": "A",
+      "explanation": "The x-terms come from 2x × (-1) = -2x and -3 × 4x = -12x, for a total of -14x.",
+      "distractor_explanations": {
+        "B": "-12 counts only -3 × 4x.",
+        "C": "-2 counts only 2x × (-1).",
+        "D": "10 drops the negative sign on -3 × 4x."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Which pairs of terms multiply to give an x-term?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Collect only the products that give x¹."
+      },
+      "remember": "Find a single coefficient by listing only the products that produce it.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-02",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000342",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Evaluating a function at an expression",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² - 3x. Which of the following is equivalent to f(a + 2) ?",
+      "choices": {
+        "A": "a² + a - 2",
+        "B": "a² - 3a + 2",
+        "C": "a² - 3a - 2",
+        "D": "a² + 7a + 10"
+      },
+      "correct_answer": "A",
+      "explanation": "f(a + 2) = (a + 2)² - 3(a + 2) = a² + 4a + 4 - 3a - 6 = a² + a - 2.",
+      "distractor_explanations": {
+        "B": "a² - 3a + 2 is f(a) + 2, adding 2 to the output instead of the input.",
+        "C": "a² - 3a - 2 squares a + 2 as a² + 4, dropping the middle term 4a.",
+        "D": "a² + 7a + 10 subtracts -3(a + 2) as if it were +3(a + 2)."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Replace every x with (a + 2)."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let a = 1: f(3) = 0. Which choice gives 0 at a = 1?"
+      },
+      "remember": "Substitute the whole expression, in parentheses, for x.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-03",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000343",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Comparing powers with different bases",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following lists 2³⁰, 3²⁰, and 5¹⁰ in order from least to greatest?",
+      "choices": {
+        "A": "2³⁰, 3²⁰, 5¹⁰",
+        "B": "5¹⁰, 2³⁰, 3²⁰",
+        "C": "5¹⁰, 3²⁰, 2³⁰",
+        "D": "3²⁰, 2³⁰, 5¹⁰"
+      },
+      "correct_answer": "B",
+      "explanation": "Write each as a 10th power: 2³⁰ = 8¹⁰, 3²⁰ = 9¹⁰, and 5¹⁰. Since 5 < 8 < 9, the order is 5¹⁰, 2³⁰, 3²⁰.",
+      "distractor_explanations": {
+        "A": "This orders the numbers by their exponents, largest exponent first.",
+        "C": "This orders by base alone, ignoring that 2 is raised to the largest power.",
+        "D": "This reverses the correct order."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each number be written with the same exponent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite as 8¹⁰, 9¹⁰, 5¹⁰."
+      },
+      "remember": "To compare powers, rewrite them with a common exponent or a common base.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-04",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: calculator makes direct evaluation trivial (2^30~1.07e9, 3^20~3.49e9, 5^10~9.77e6), so the intended exponent-rewrite insight is bypassable"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000344",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Independent draws with replacement",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bag contains 5 red marbles and 3 blue marbles. A marble is drawn at random, its color is recorded, and it is put back. Then a second marble is drawn at random. What is the probability that both marbles drawn are red?",
+      "choices": {
+        "A": "5/14",
+        "B": "25/64",
+        "C": "15/32",
+        "D": "5/8"
+      },
+      "correct_answer": "B",
+      "explanation": "With replacement the draws are independent: (5/8)(5/8) = 25/64.",
+      "distractor_explanations": {
+        "A": "5/14 = (5/8)(4/7) is the probability without replacement.",
+        "C": "15/32 is the probability of one red and one blue, in either order.",
+        "D": "5/8 is the probability for one draw only."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Does putting the marble back change the second draw?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the two probabilities."
+      },
+      "remember": "With replacement, multiply the same probability.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-05",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000345",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Consecutive angles of a parallelogram",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two consecutive angles of a parallelogram measure (3x + 20)° and (5x)°. What is the measure of the larger of these two angles?",
+      "choices": {
+        "A": "20°",
+        "B": "50°",
+        "C": "80°",
+        "D": "100°"
+      },
+      "correct_answer": "D",
+      "explanation": "Consecutive angles of a parallelogram are supplementary: 3x + 20 + 5x = 180, so x = 20. The angles are 80° and 100°, and the larger is 100°.",
+      "distractor_explanations": {
+        "A": "20 is the value of x.",
+        "B": "50° sets the angles equal (x = 10), which is true of opposite angles, not consecutive ones.",
+        "C": "80° is the smaller angle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Are consecutive angles of a parallelogram equal or supplementary?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8x + 20 = 180."
+      },
+      "remember": "Parallelogram: consecutive angles sum to 180°, opposite angles are equal.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-06",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000346",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Objects moving toward each other",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two towns are 330 miles apart. At the same moment, one car leaves each town and drives toward the other town on the same road, one at 50 miles per hour and the other at 60 miles per hour. When the cars meet, how many miles will the faster car have traveled?",
+      "choices": {
+        "A": "3",
+        "B": "150",
+        "C": "165",
+        "D": "180"
+      },
+      "correct_answer": "D",
+      "explanation": "The gap closes at 50 + 60 = 110 miles per hour, so they meet after 330/110 = 3 hours. The faster car has gone 60 × 3 = 180 miles.",
+      "distractor_explanations": {
+        "A": "3 is the number of hours until they meet.",
+        "B": "150 is the slower car's distance.",
+        "C": "165 is half of 330, as if the cars traveled at equal speeds."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "How fast is the distance between the cars shrinking?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the two cars closing a 330-mile gap."
+      },
+      "remember": "Toward each other: add the speeds to get the closing rate.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-07",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000347",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Finding a linear function from its self-composition",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = ax + b, where a and b are constants and a > 0. If f(f(x)) = 4x + 9 for all values of x, what is the value of f(1) ?",
+      "choices": {
+        "A": "-11",
+        "B": "3",
+        "C": "5",
+        "D": "13"
+      },
+      "correct_answer": "C",
+      "explanation": "f(f(x)) = a(ax + b) + b = a²x + ab + b. Matching gives a² = 4, so a = 2 (since a > 0), and 2b + b = 9, so b = 3. Then f(1) = 2 + 3 = 5.",
+      "distractor_explanations": {
+        "A": "-11 uses a = -2 (so b = -9), which the condition a > 0 rules out.",
+        "B": "3 is the value of b, not f(1).",
+        "D": "13 = 4(1) + 9 is f(f(1)), not f(1)."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write f(f(x)) in terms of a and b, then match coefficients."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "a² = 4 and ab + b = 9."
+      },
+      "remember": "Match coefficients after composing a general form.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-08",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000348",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Painted cube counting",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A 5 × 5 × 5 cube is painted on all six faces and then cut into 125 unit cubes. How many of the unit cubes have paint on exactly two faces?",
+      "choices": {
+        "A": "8",
+        "B": "36",
+        "C": "54",
+        "D": "60"
+      },
+      "correct_answer": "B",
+      "explanation": "Unit cubes with exactly two painted faces lie along the cube's 12 edges but not at the corners. Each edge has 5 cubes, 2 of which are corners, leaving 3. So 12 × 3 = 36.",
+      "distractor_explanations": {
+        "A": "8 counts the corner cubes, which have three painted faces.",
+        "C": "54 = 6 × 9 counts cubes with exactly one painted face.",
+        "D": "60 = 12 × 5 includes the corner cubes on each edge."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Where on the big cube are the unit cubes with exactly two painted faces?",
+        "How many cubes on each edge are not corners?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Picture one edge of the big cube."
+      },
+      "remember": "Exactly two painted faces: edge cubes minus the corners.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-09",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000349",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Shortest path on the surface of a cylinder",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A cylindrical column is 12 feet tall and has a circumference of 16 feet. A stripe is painted along the shortest path that winds exactly once around the column, from a point on the bottom edge to the point directly above it on the top edge. What is the length of the stripe, in feet?",
+      "choices": {
+        "A": "12",
+        "B": "4√13",
+        "C": "20",
+        "D": "28"
+      },
+      "correct_answer": "C",
+      "explanation": "Unroll the column's side into a 16-by-12 rectangle. The stripe becomes the rectangle's diagonal: √(16² + 12²) = 20.",
+      "distractor_explanations": {
+        "A": "12 is the height, the path that does not wind around at all.",
+        "B": "4√13 = √(8² + 12²) uses half the circumference.",
+        "D": "28 = 16 + 12 goes around and then up instead of along the diagonal."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What shape does the side of a cylinder become when it is unrolled?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Unroll the cylinder into a rectangle."
+      },
+      "remember": "Paths on a cylinder: unroll it and use the Pythagorean theorem.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "B035-10",
+      "created_at": "2026-10-26T20:59:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-035.review.json",
+        "computation": "checks/act_math/batch_035.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

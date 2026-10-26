@@ -27,10 +27,9 @@ def c02(ch):
 
 def c03(ch):
     f = lambda x: x * x - 3 * x
-    sup = str.maketrans('²', '2')
     hits = []
     for k, v in ch.items():
-        expr = v.replace('a²', 'a**2').replace(' ', '')
+        expr = re.sub(r'(\d)a', r'\1*a', v.replace('a²', 'a**2').replace(' ', ''))
         if all(eval(expr, {'a': a}) == f(a + 2) for a in range(-5, 6)):
             hits.append(k)
     assert len(hits) == 1

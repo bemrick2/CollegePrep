@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 35},
+ "answers": {
+  "B035-01": {"answer": "D", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "AD/AB = 4/10 = DE/BC, so BC = 5*10/4 = 25/2. Trap A (using AD/DB = 4/6 gives 15/2)."},
+  "B035-02": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "x terms: 2x*(-1) + (-3)(4x) = -2x - 12x = -14x."},
+  "B035-03": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "(a+2)^2 - 3(a+2) = a^2+4a+4-3a-6 = a^2+a-2."},
+  "B035-04": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": ["minor: calculator makes direct evaluation trivial (2^30~1.07e9, 3^20~3.49e9, 5^10~9.77e6), so the intended exponent-rewrite insight is bypassable"], "notes": "2^30 = 8^10, 3^20 = 9^10, so 5^10 < 2^30 < 3^20."},
+  "B035-05": {"answer": "B", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy", "flags": [], "notes": "With replacement: (5/8)^2 = 25/64."},
+  "B035-06": {"answer": "D", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "Consecutive angles supplementary: 8x+20=180, x=20; angles 80 and 100; larger 100. Trap A (x value), C (smaller angle)."},
+  "B035-07": {"answer": "D", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy", "flags": [], "notes": "Closing speed 110 mph, t = 3 h, faster car 60*3 = 180."},
+  "B035-08": {"answer": "C", "confidence": "high", "est_pct_correct": 35, "difficulty_opinion": "hard", "flags": [], "notes": "f(f(x)) = a^2 x + ab + b; a^2=4, a=2 (a>0); 3b=9, b=3; f(1)=5. Without a>0, a=-2,b=-9 gives -11 (choice A), correctly excluded."},
+  "B035-09": {"answer": "B", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "12 edges x (5-2)=3 interior edge cubes = 36."},
+  "B035-10": {"answer": "C", "confidence": "high", "est_pct_correct": 35, "difficulty_opinion": "hard", "flags": [], "notes": "Unroll lateral surface: rectangle 16 x 12, diagonal = sqrt(256+144) = 20."}
+ }}
