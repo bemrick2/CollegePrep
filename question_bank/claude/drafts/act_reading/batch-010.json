@@ -1,0 +1,508 @@
+{
+ "bank": "act_reading",
+ "batch": 10,
+ "plan": "Social-science passage (CLD-P-ACT-R-000010) on the decoy effect, written to the anti-tell checklist: paraphrased keys, moderate wrong choices, model-prediction vs result trap, evidence-for-a-qualification item; R009-04 resubmitted relabelled easy.",
+ "passages": [
+  {
+   "passage_id": "CLD-P-ACT-R-000010",
+   "title": "The Option Nobody Wants",
+   "genre": "social science",
+   "word_count": 310,
+   "text": "Imagine choosing between two subscriptions to a news site: an online-only plan for $59 a year and a print-and-online plan for $125. Many people pick the cheaper plan. Now add a third option, print only, also for $125, and something strange happens. Almost no one chooses print only, yet far more people now choose print-and-online. An option that almost nobody wants has changed what people pick.\n\nResearchers call this the decoy effect. The decoy is designed to be clearly worse than one option (print-and-online gives everything print-only gives, plus more, at the same price) but not clearly worse than the other. Faced with a comparison that is easy to make, people seem to lean toward the option that wins it, even though the decoy tells them nothing new about whether that option is worth its price.\n\nThe effect is troubling for a simple model of choice in which people assign each option a value and pick the highest. Under that model, adding an option nobody chooses should not change which of the remaining options is preferred. That it does suggests that people often evaluate options by comparing them with one another rather than judging each on its own merits.\n\nNot every study has found the effect, however. When options are described by many attributes, or when people already hold strong preferences, decoys often have little influence. Some researchers have argued that the effect appears most reliably in laboratory tasks with simple, numerical descriptions, and that its importance in everyday decisions may have been overstated.\n\nEven so, businesses appear to have taken the lesson to heart. Menus, software plans, and appliance lineups often include an option whose main purpose seems to be making a neighbor look attractive. Whether those decoys work as well in the store as they do in the laboratory is a question the research has not yet settled."
+  },
+  {
+   "passage_id": "CLD-P-ACT-R-000009",
+   "title": "A Compass in the Eye",
+   "genre": "natural science",
+   "word_count": 405,
+   "text": "Each autumn, a young European robin that has never made the journey before leaves its breeding ground and flies hundreds of kilometers south, often at night and often alone. How it finds its way has puzzled biologists for more than a century. Young birds raised in isolation still orient in roughly the right direction when the season arrives, which suggests that at least part of the ability is inborn rather than learned.\n\nBirds are now known to use several cues. They can read the position of the sun, correcting for its movement across the sky during the day; they can use patterns of stars, learning as nestlings which part of the night sky rotates least; and they can sense Earth's magnetic field. The last of these has proved the most difficult to explain. Magnetic fields pass through living tissue almost without effect, so a sense that detects them needs some special mechanism, and for decades no one could say what it was.\n\nOne early proposal held that birds carry tiny crystals of magnetite, a magnetic iron mineral, that act like compass needles. Clusters of iron-rich cells were in fact found in the upper beaks of pigeons, and for a time the case seemed strong. Later work showed that many of those cells were not nerve cells at all but immune cells that had accumulated iron for unrelated reasons. The magnetite idea has not been entirely abandoned, but it no longer dominates the field.\n\nThe leading alternative is stranger. In the bird's eye, a light-sensitive protein called cryptochrome may form pairs of molecules whose chemical behavior depends slightly on the direction of a magnetic field. If so, a robin might literally see the field, perhaps as a faint pattern laid over its ordinary vision. The hypothesis fits two puzzling observations: in experiments, robins could orient magnetically only when some light was present, and very weak radio-frequency noise, far too weak to move a compass needle, was enough to disrupt their orientation.\n\nNone of this has been confirmed in a living bird's eye, and the chemistry involved operates at a scale where measurements are extraordinarily difficult. What researchers can say is that the robin's magnetic sense, whatever its mechanism, appears to be a compass rather than a map: it tells the bird which way is north, not where the bird is. Knowing where to go, and recognizing when it has arrived, may depend on other senses entirely."
+  }
+ ],
+ "candidates": [
+  {
+   "cand": "R010-01",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Main purpose of a passage",
+   "repo_skill_key": "act_main_idea",
+   "difficulty": "medium",
+   "stem": "The passage is primarily concerned with:",
+   "choices": {
+    "A": "explaining why most consumers choose the cheaper of two subscription plans.",
+    "B": "arguing that businesses should stop adding decoy options to their product lineups.",
+    "C": "showing that a simple model of choice accurately predicts how people decide.",
+    "D": "describing a pattern in decision-making and weighing how far it holds outside the laboratory."
+   },
+   "answer": "D",
+   "evidence": "Whether those decoys work as well in the store as they do in the laboratory is a question the research has not yet settled.",
+   "explanation": "The passage introduces the decoy effect, explains it, notes doubts about its strength in everyday life, and ends on that open question.",
+   "distractors": {
+    "A": {
+     "rationale": "The cheaper plan appears only in the opening example.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "The author describes businesses' use of decoys but never urges them to stop.",
+     "trap": "out_of_scope"
+    },
+    "C": {
+     "rationale": "Paragraph 3 says the effect is \"troubling\" for that model.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does the last paragraph leave unresolved?"
+   ],
+   "strategy": {
+    "key": "predict_then_match",
+    "explanation": "Summarize each paragraph in a phrase first."
+   },
+   "remember": "The main purpose must include the passage's qualifications.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-02",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Inference about a mechanism",
+   "repo_skill_key": "act_inference",
+   "difficulty": "medium",
+   "stem": "In the opening example, adding the print-only plan most likely made the print-and-online plan more attractive because the new plan:",
+   "choices": {
+    "A": "gave people an easy comparison that print-and-online clearly won.",
+    "B": "lowered the effective price of the print-and-online plan for readers.",
+    "C": "gave readers new information about how valuable a print edition is.",
+    "D": "made the online-only plan seem more expensive than it really was."
+   },
+   "answer": "A",
+   "evidence": "Faced with a comparison that is easy to make, people seem to lean toward the option that wins it",
+   "explanation": "Print-only costs the same as print-and-online but offers less, so print-and-online plainly beats it; that easy win draws people toward print-and-online.",
+   "distractors": {
+    "B": {
+     "rationale": "The price of print-and-online stayed $125.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Paragraph 2 says the decoy tells people \"nothing new.\"",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Nothing suggests online-only's price seemed to change.",
+     "trap": "out_of_scope"
+    }
+   },
+   "hints": [
+    "Which plan does print-only lose to, and how clearly?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Use paragraph 2's explanation."
+   },
+   "remember": "A decoy works by losing clearly to its target.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-03",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Craft and Structure",
+   "skill": "Craft and Structure",
+   "subskill": "Function of a parenthetical remark",
+   "repo_skill_key": "act_author_purpose",
+   "difficulty": "medium",
+   "stem": "The parenthetical remark in paragraph 2 primarily serves to:",
+   "choices": {
+    "A": "suggest that print subscriptions are more valuable than online ones.",
+    "B": "explain why almost no one chooses the online-only subscription plan.",
+    "C": "clarify why the decoy is clearly worse than one of the other options.",
+    "D": "show that the print-and-online plan is the cheapest of the options."
+   },
+   "answer": "C",
+   "evidence": "print-and-online gives everything print-only gives, plus more, at the same price",
+   "explanation": "The sentence says the decoy is \"clearly worse than one option\"; the parenthetical shows how, using the example.",
+   "distractors": {
+    "A": {
+     "rationale": "The remark compares two plans' contents, not the value of print itself.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "Many people choose online-only; the remark concerns print-only.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Print-and-online costs $125, more than online-only.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What claim does the parenthetical follow?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Read the clause just before the parentheses."
+   },
+   "remember": "Parenthetical remarks often illustrate the claim they interrupt.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-04",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Applying a model",
+   "repo_skill_key": "act_inference",
+   "difficulty": "hard",
+   "stem": "According to the simple model of choice described in paragraph 3, adding the print-only plan should have:",
+   "choices": {
+    "A": "increased the share of people choosing the print-and-online plan.",
+    "B": "left people's preferences between the other two plans unchanged.",
+    "C": "caused many people to switch to the new print-only plan instead.",
+    "D": "made people judge each plan by comparing it with the other plans."
+   },
+   "answer": "B",
+   "evidence": "adding an option nobody chooses should not change which of the remaining options is preferred",
+   "explanation": "The simple model scores each option independently, so an unchosen option should not shift preferences among the others.",
+   "distractors": {
+    "A": {
+     "rationale": "That is what actually happened, which is why the effect troubles the model.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "The model predicts no change among the others; it says nothing about print-only being popular.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Comparing options is what the passage contrasts with the simple model.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What does the simple model say about adding an unchosen option?",
+    "Is that what happened?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Separate what the model predicts from what actually occurred."
+   },
+   "remember": "Keep a model's prediction separate from the observed result.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-05",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Craft and Structure",
+   "skill": "Craft and Structure",
+   "subskill": "Meaning of a word in context",
+   "repo_skill_key": "act_vocabulary_in_context",
+   "difficulty": "medium",
+   "stem": "As it is used in paragraph 3, the word \"troubling\" most nearly means:",
+   "choices": {
+    "A": "distressing.",
+    "B": "problematic.",
+    "C": "annoying.",
+    "D": "dangerous."
+   },
+   "answer": "B",
+   "evidence": "That it does suggests that people often evaluate options by comparing them",
+   "explanation": "The effect conflicts with the simple model's prediction, so it is \"problematic\" for that model.",
+   "distractors": {
+    "A": {
+     "rationale": "The effect does not upset the model emotionally; it challenges it.",
+     "trap": "familiar_meaning"
+    },
+    "C": {
+     "rationale": "\"Annoying\" describes irritation, not a challenge to a theory.",
+     "trap": "familiar_meaning"
+    },
+    "D": {
+     "rationale": "Nothing harmful is involved.",
+     "trap": "familiar_meaning"
+    }
+   },
+   "hints": [
+    "How does the effect relate to the model's prediction?"
+   ],
+   "strategy": {
+    "key": "predict_then_match",
+    "explanation": "Predict \"hard to explain for.\""
+   },
+   "remember": "Words about feelings can describe ideas in academic writing.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-06",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Detail (paraphrased)",
+   "repo_skill_key": "act_main_idea",
+   "difficulty": "easy",
+   "stem": "According to the passage, decoys often have little influence when:",
+   "choices": {
+    "A": "choices involve many features or people already have firm preferences.",
+    "B": "the decoy is priced far below every other option offered.",
+    "C": "people make their choices in a controlled laboratory setting.",
+    "D": "only two options are available rather than three or more."
+   },
+   "answer": "A",
+   "evidence": "When options are described by many attributes, or when people already hold strong preferences, decoys often have little influence.",
+   "explanation": "Paragraph 4 names two conditions: many attributes and strong prior preferences.",
+   "distractors": {
+    "B": {
+     "rationale": "Decoy pricing below the others is never discussed.",
+     "trap": "out_of_scope"
+    },
+    "C": {
+     "rationale": "Paragraph 4 says the effect appears most reliably in the laboratory.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "With only two options there is no decoy at all.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Look for \"little influence\" in paragraph 4."
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Find the sentence and match its paraphrase."
+   },
+   "remember": "Correct detail answers are often paraphrases.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-07",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Craft and Structure",
+   "skill": "Craft and Structure",
+   "subskill": "Author's view",
+   "repo_skill_key": "act_author_purpose",
+   "difficulty": "medium",
+   "stem": "The author's view of how much the decoy effect matters in everyday shopping is best described as:",
+   "choices": {
+    "A": "open, since the research has not settled how well decoys work in stores.",
+    "B": "confident that decoys are the main force shaping most shoppers' choices.",
+    "C": "skeptical that the effect has ever been observed in any setting at all.",
+    "D": "sure that businesses are wasting money when they include decoy options."
+   },
+   "answer": "A",
+   "evidence": "is a question the research has not yet settled",
+   "explanation": "The final sentence leaves the real-world strength of decoys as an open question.",
+   "distractors": {
+    "B": {
+     "rationale": "The author notes studies where decoys had little influence.",
+     "trap": "extreme_language"
+    },
+    "C": {
+     "rationale": "The author describes the effect as found in many studies, especially laboratory ones.",
+     "trap": "extreme_language"
+    },
+    "D": {
+     "rationale": "The author says the question is unsettled.",
+     "trap": "extreme_language"
+    }
+   },
+   "hints": [
+    "How does the passage end?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate choices that claim more certainty than the author does."
+   },
+   "remember": "Match the author's level of certainty.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-08",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Evaluating evidence for a claim",
+   "repo_skill_key": "act_inference",
+   "difficulty": "hard",
+   "stem": "Which finding, if true, would most directly support the researchers in paragraph 4 who think the effect's everyday importance has been overstated?",
+   "choices": {
+    "A": "Laboratory volunteers given simple price tables reliably chose the option a decoy favored.",
+    "B": "A restaurant that added a decoy dish saw orders of the dish it favored rise sharply.",
+    "C": "Most shoppers say in surveys that they compare products carefully before buying.",
+    "D": "Shoppers comparing real appliances with many listed features ignored added decoys."
+   },
+   "answer": "D",
+   "evidence": "its importance in everyday decisions may have been overstated",
+   "explanation": "Their claim is that the effect weakens outside simple lab tasks. A real-world, many-attribute setting where decoys had no effect supports exactly that.",
+   "distractors": {
+    "A": {
+     "rationale": "This shows the effect in the lab, which those researchers already accept; it says nothing about everyday life.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "This shows the effect working in a real setting, which cuts against their claim.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "What shoppers say about themselves does not test whether decoys affect them.",
+     "trap": "true_but_irrelevant"
+    }
+   },
+   "hints": [
+    "What exactly do these researchers claim?",
+    "Which finding shows the effect failing in an everyday setting?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Ask whether each finding concerns everyday choices and whether it shows the effect failing."
+   },
+   "remember": "Support a claim with evidence from the setting the claim is about.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-09",
+   "passage_id": "CLD-P-ACT-R-000010",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Relationship between paragraphs",
+   "repo_skill_key": "act_inference",
+   "difficulty": "medium",
+   "stem": "How does paragraph 5 relate to paragraph 4?",
+   "choices": {
+    "A": "It notes that businesses use decoys despite the doubts that paragraph 4 raises.",
+    "B": "It provides experimental evidence that resolves the doubts raised in paragraph 4.",
+    "C": "It repeats paragraph 4's claim that the decoy effect appears only in laboratories.",
+    "D": "It argues that the researchers in paragraph 4 misunderstood the decoy effect."
+   },
+   "answer": "A",
+   "evidence": "Even so, businesses appear to have taken the lesson to heart.",
+   "explanation": "\"Even so\" signals that despite paragraph 4's doubts, businesses still use decoys, and the question of whether they work remains open.",
+   "distractors": {
+    "B": {
+     "rationale": "Paragraph 5 says the question \"has not yet settled.\"",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Paragraph 4 says the effect is most reliable in labs, not only there; paragraph 5 adds business practice.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Paragraph 5 does not criticize those researchers.",
+     "trap": "out_of_scope"
+    }
+   },
+   "hints": [
+    "What does \"Even so\" respond to?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Use the transition at the start of paragraph 5."
+   },
+   "remember": "Opening transitions reveal how paragraphs relate.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R010-10",
+   "passage_id": "CLD-P-ACT-R-000009",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Inference about evidence",
+   "repo_skill_key": "act_inference",
+   "difficulty": "easy",
+   "stem": "Based on paragraph 3, the later findings about the iron-rich cells weakened the magnetite proposal mainly because they suggested that:",
+   "choices": {
+    "A": "pigeons do not actually migrate and so cannot reveal how robins navigate.",
+    "B": "magnetite cannot exist inside the body of any living animal at all.",
+    "C": "the cells thought to detect magnetism may serve an unrelated function.",
+    "D": "a bird's upper beak is too small to contain crystals of magnetite."
+   },
+   "answer": "C",
+   "evidence": "were not nerve cells at all but immune cells that had accumulated iron for unrelated reasons",
+   "explanation": "The proposal depended on iron-rich cells acting as sensors. Finding that they were immune cells that held iron for other reasons removed that support.",
+   "distractors": {
+    "A": {
+     "rationale": "The passage never questions whether pigeons are useful to study.",
+     "trap": "out_of_scope"
+    },
+    "B": {
+     "rationale": "The passage says only that these cells were not nerve cells.",
+     "trap": "extreme_language"
+    },
+    "D": {
+     "rationale": "Size is never mentioned.",
+     "trap": "out_of_scope"
+    }
+   },
+   "hints": [
+    "What were the iron-rich cells supposed to be doing?",
+    "What did they turn out to be?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate choices that go beyond the passage."
+   },
+   "remember": "Evidence weakens a claim when it removes what the claim depends on.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_note": "R009-04 resubmitted unchanged in content and relabelled easy after both blind solvers rated it easy (75%)."
+  }
+ ]
+}

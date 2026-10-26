@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 26,
-  "updated_at": "2026-10-26T20:18:32+00:00",
+  "version": 27,
+  "updated_at": "2026-10-26T20:25:09+00:00",
   "passages": [],
   "questions": [
     {
@@ -17904,6 +17904,710 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-026.review.json",
         "computation": "checks/act_math/batch_026.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000259",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Upstream and downstream rates",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A boat travels 24 kilometers downstream in 2 hours and returns the same 24 kilometers upstream in 3 hours. If the boat's speed in still water and the speed of the current are both constant, what is the speed of the current, in kilometers per hour?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "4",
+        "D": "10"
+      },
+      "correct_answer": "B",
+      "explanation": "Downstream speed = 12 = b + c; upstream speed = 8 = b − c. Subtracting gives 2c = 4, so c = 2 (and the boat's speed is 10).",
+      "distractor_explanations": {
+        "A": "1 halves the current again, dividing 2 by 2.",
+        "C": "4 is the difference between the two speeds, which equals twice the current.",
+        "D": "10 is the boat's speed in still water, not the current's."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find the speed in each direction.",
+        "Downstream adds the current; upstream subtracts it."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "b + c = 12, b − c = 8."
+      },
+      "remember": "Downstream = boat + current; upstream = boat − current.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-01",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000260",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Zeros of a product of functions",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Let f(x) = x − 3 and g(x) = x² − 4. For how many different real values of x is f(x) · g(x) = 0 ?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "The product is 0 when either factor is 0: x = 3 from f, and x = 2 or x = −2 from g. That is 3 values.",
+      "distractor_explanations": {
+        "A": "1 counts only the zero of f.",
+        "B": "2 counts only the zeros of g, or forgets x = −2.",
+        "D": "4 counts a repeated value or treats x² − 4 as giving 3 zeros."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "When is a product equal to 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x − 3 = 0 or x² − 4 = 0."
+      },
+      "remember": "A product is zero when any factor is zero.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-02",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000261",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Exterior angle theorem with algebra",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a triangle, an exterior angle measures (5x − 10)°, and the two remote interior angles measure (2x + 5)° and (x + 25)°. What is the measure of the exterior angle?",
+      "choices": {
+        "A": "20°",
+        "B": "45°",
+        "C": "90°",
+        "D": "135°"
+      },
+      "correct_answer": "C",
+      "explanation": "An exterior angle equals the sum of the two remote interior angles: 5x − 10 = 3x + 30, so x = 20 and the exterior angle is 5(20) − 10 = 90°.",
+      "distractor_explanations": {
+        "A": "20 is the value of x, not the angle.",
+        "B": "45° is one of the remote interior angles, 2(20) + 5.",
+        "D": "135° is 180° minus the remote angle 45°, the interior angle at that vertex is confused with the exterior angle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How does an exterior angle relate to the two remote interior angles?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5x − 10 = (2x + 5) + (x + 25)."
+      },
+      "remember": "Exterior angle = sum of the two remote interior angles.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-03",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000262",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Surface area of a cube from its volume",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A cube has a volume of 64 cubic inches. What is the total surface area of the cube, in square inches?",
+      "choices": {
+        "A": "96",
+        "B": "128",
+        "C": "256",
+        "D": "384"
+      },
+      "correct_answer": "A",
+      "explanation": "The edge length is ∛64 = 4, so each face has area 16 and the 6 faces total 96 square inches.",
+      "distractor_explanations": {
+        "B": "128 doubles the volume.",
+        "C": "256 multiplies the volume by 4.",
+        "D": "384 multiplies the volume by 6 instead of using the face area."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the edge length first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "s = 4; 6s² = 96."
+      },
+      "remember": "Volume gives the edge; the edge gives the surface area.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-04",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000263",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability that a sum of two dice is prime",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two fair six-sided dice are rolled. What is the probability that the sum of the two numbers rolled is a prime number?",
+      "choices": {
+        "A": "13/36",
+        "B": "5/12",
+        "C": "5/11",
+        "D": "1/2"
+      },
+      "correct_answer": "B",
+      "explanation": "Prime sums are 2, 3, 5, 7 and 11, with 1, 2, 4, 6 and 2 outcomes respectively: 15 of 36, which is 5/12.",
+      "distractor_explanations": {
+        "A": "13/36 leaves out the sum 11.",
+        "C": "5/11 treats the 11 possible sums as equally likely.",
+        "D": "1/2 assumes prime and non-prime sums are equally common."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "List the prime sums from 2 to 12.",
+        "How many outcomes give each one?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make the 6 × 6 table of sums."
+      },
+      "remember": "Sums of two dice are not equally likely.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-05",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000264",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Mean from a frequency table",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a survey, 20 students reported how many pets they have: 4 students have 1 pet, 6 have 2 pets, 8 have 3 pets, and 2 have 4 pets. What is the mean number of pets per student?",
+      "choices": {
+        "A": "2.4",
+        "B": "2.5",
+        "C": "3",
+        "D": "12"
+      },
+      "correct_answer": "A",
+      "explanation": "Total pets = 4(1) + 6(2) + 8(3) + 2(4) = 48. Mean = 48 ÷ 20 = 2.4.",
+      "distractor_explanations": {
+        "B": "2.5 averages the pet values 1, 2, 3 and 4 without weighting by frequency.",
+        "C": "3 is the mode (the most common number of pets).",
+        "D": "12 divides the 48 pets by the 4 categories."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Multiply each value by its frequency."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "48 ÷ 20."
+      },
+      "remember": "Frequency tables: weight each value by its count.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-06",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000265",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Fraction of a fraction",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a club, 2/5 of the members are seniors, and 3/4 of the seniors voted in the club election. What fraction of all the club's members are seniors who voted?",
+      "choices": {
+        "A": "3/20",
+        "B": "3/10",
+        "C": "2/5",
+        "D": "23/20"
+      },
+      "correct_answer": "B",
+      "explanation": "(3/4)(2/5) = 6/20 = 3/10.",
+      "distractor_explanations": {
+        "A": "3/20 multiplies 3/4 by 1/5 instead of 2/5.",
+        "C": "2/5 is the fraction who are seniors, voting or not.",
+        "D": "23/20 adds the fractions."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "\"3/4 of the seniors\" means multiply."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(3/4)(2/5)."
+      },
+      "remember": "\"Of\" a fraction means multiply.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-07",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000266",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percent change in unit price",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A box of cereal that cost $4.00 for 20 ounces is changed to a 16-ounce box, still priced at $4.00. By what percent did the price per ounce increase?",
+      "choices": {
+        "A": "16%",
+        "B": "20%",
+        "C": "25%",
+        "D": "80%"
+      },
+      "correct_answer": "C",
+      "explanation": "The price per ounce rose from 4/20 = $0.20 to 4/16 = $0.25. The increase is 0.05/0.20 = 25%.",
+      "distractor_explanations": {
+        "A": "16% uses the new size, 16, as if it were the percent.",
+        "B": "20% is the percent decrease in size (4/20), not the percent increase in unit price.",
+        "D": "80% is the new size as a percent of the old size."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find the price per ounce before and after.",
+        "Percent increase is the change divided by the original."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(0.25 − 0.20)/0.20."
+      },
+      "remember": "A 20% smaller package raises the unit price by 25%.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-08",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000267",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Ratios substituted into an expression",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If a/b = 3/4 and b ≠ 0, what is the value of (a + b)/(a − b) ?",
+      "choices": {
+        "A": "−7",
+        "B": "−1/7",
+        "C": "1/7",
+        "D": "7"
+      },
+      "correct_answer": "A",
+      "explanation": "Let a = 3k and b = 4k. Then (a + b)/(a − b) = 7k/(−k) = −7.",
+      "distractor_explanations": {
+        "B": "−1/7 inverts the fraction.",
+        "C": "1/7 inverts the fraction and drops the sign.",
+        "D": "7 drops the sign: a − b is negative because a < b."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Choose numbers with a/b = 3/4."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "a = 3, b = 4: 7/(−1)."
+      },
+      "remember": "Ratios can be replaced with convenient numbers.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-09",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000268",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Angle between clock hands",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the measure of the smaller angle formed by the hour hand and the minute hand of a clock at 2:50 ?",
+      "choices": {
+        "A": "120°",
+        "B": "125°",
+        "C": "135°",
+        "D": "145°"
+      },
+      "correct_answer": "D",
+      "explanation": "The minute hand is at 50 × 6° = 300°. The hour hand moves 0.5° per minute, so it is at 2 × 30° + 50 × 0.5° = 85°. The difference is 215°, so the smaller angle is 360° − 215° = 145°.",
+      "distractor_explanations": {
+        "A": "120° keeps the hour hand fixed on the 2 (60°).",
+        "B": "125° moves the hour hand only 5° past the 2.",
+        "C": "135° moves the hour hand only 15° past the 2."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where is the hour hand at 2:50? (It is not on the 2.)",
+        "How many degrees per minute does the hour hand move?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Hour hand 85°, minute hand 300°."
+      },
+      "remember": "The hour hand moves too: 0.5° per minute.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "B027-10",
+      "created_at": "2026-10-26T20:25:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-027.review.json",
+        "computation": "checks/act_math/batch_027.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

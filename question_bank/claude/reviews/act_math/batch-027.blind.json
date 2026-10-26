@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 27},
+ "answers": {
+  "B027-01": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Downstream 12 km/h, upstream 8 km/h; current = (12-8)/2 = 2. Trap: 4 (difference not halved), 10 (still-water speed)."},
+  "B027-02": {"answer": "C", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "Zeros x=3, x=2, x=-2 -> 3 distinct values. Trap: 2 (forgetting -2)."},
+  "B027-03": {"answer": "C", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "5x-10 = 3x+30 -> x=20; exterior = 90. Choice A = x trap."},
+  "B027-04": {"answer": "A", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "Edge 4, SA = 6*16 = 96."},
+  "B027-05": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "Prime sums 2,3,5,7,11: 1+2+4+6+2 = 15 outcomes; 15/36 = 5/12. 5/11 trap counts sums 2-12 as equally likely."},
+  "B027-06": {"answer": "A", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy", "flags": [], "notes": "(4+12+24+8)/20 = 48/20 = 2.4."},
+  "B027-07": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "2/5 * 3/4 = 6/20 = 3/10."},
+  "B027-08": {"answer": "C", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "$0.20/oz -> $0.25/oz; increase 0.05/0.20 = 25%. Trap: 20% (size decrease)."},
+  "B027-09": {"answer": "A", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "a=3k, b=4k: 7k/(-k) = -7."},
+  "B027-10": {"answer": "D", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "Minute hand 300 deg, hour hand 60+25 = 85 deg; difference 215, smaller angle 145. Trap: 120 / 160-type answers that ignore hour-hand drift; 135 if hand drift miscomputed."}
+ }}

@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 26,
+  "bank_version": 27,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -4518,6 +4518,180 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "(3/5)(2/4)(2/3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000259",
+      "correct_answer": "B",
+      "explanation": "Downstream speed = 12 = b + c; upstream speed = 8 = b − c. Subtracting gives 2c = 4, so c = 2 (and the boat's speed is 10).",
+      "distractor_explanations": {
+        "A": "1 halves the current again, dividing 2 by 2.",
+        "C": "4 is the difference between the two speeds, which equals twice the current.",
+        "D": "10 is the boat's speed in still water, not the current's."
+      },
+      "hints": [
+        "Find the speed in each direction.",
+        "Downstream adds the current; upstream subtracts it."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "b + c = 12, b − c = 8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000260",
+      "correct_answer": "C",
+      "explanation": "The product is 0 when either factor is 0: x = 3 from f, and x = 2 or x = −2 from g. That is 3 values.",
+      "distractor_explanations": {
+        "A": "1 counts only the zero of f.",
+        "B": "2 counts only the zeros of g, or forgets x = −2.",
+        "D": "4 counts a repeated value or treats x² − 4 as giving 3 zeros."
+      },
+      "hints": [
+        "When is a product equal to 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "x − 3 = 0 or x² − 4 = 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000261",
+      "correct_answer": "C",
+      "explanation": "An exterior angle equals the sum of the two remote interior angles: 5x − 10 = 3x + 30, so x = 20 and the exterior angle is 5(20) − 10 = 90°.",
+      "distractor_explanations": {
+        "A": "20 is the value of x, not the angle.",
+        "B": "45° is one of the remote interior angles, 2(20) + 5.",
+        "D": "135° is 180° minus the remote angle 45°, the interior angle at that vertex is confused with the exterior angle."
+      },
+      "hints": [
+        "How does an exterior angle relate to the two remote interior angles?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5x − 10 = (2x + 5) + (x + 25)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000262",
+      "correct_answer": "A",
+      "explanation": "The edge length is ∛64 = 4, so each face has area 16 and the 6 faces total 96 square inches.",
+      "distractor_explanations": {
+        "B": "128 doubles the volume.",
+        "C": "256 multiplies the volume by 4.",
+        "D": "384 multiplies the volume by 6 instead of using the face area."
+      },
+      "hints": [
+        "Find the edge length first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "s = 4; 6s² = 96."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000263",
+      "correct_answer": "B",
+      "explanation": "Prime sums are 2, 3, 5, 7 and 11, with 1, 2, 4, 6 and 2 outcomes respectively: 15 of 36, which is 5/12.",
+      "distractor_explanations": {
+        "A": "13/36 leaves out the sum 11.",
+        "C": "5/11 treats the 11 possible sums as equally likely.",
+        "D": "1/2 assumes prime and non-prime sums are equally common."
+      },
+      "hints": [
+        "List the prime sums from 2 to 12.",
+        "How many outcomes give each one?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make the 6 × 6 table of sums."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000264",
+      "correct_answer": "A",
+      "explanation": "Total pets = 4(1) + 6(2) + 8(3) + 2(4) = 48. Mean = 48 ÷ 20 = 2.4.",
+      "distractor_explanations": {
+        "B": "2.5 averages the pet values 1, 2, 3 and 4 without weighting by frequency.",
+        "C": "3 is the mode (the most common number of pets).",
+        "D": "12 divides the 48 pets by the 4 categories."
+      },
+      "hints": [
+        "Multiply each value by its frequency."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "48 ÷ 20."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000265",
+      "correct_answer": "B",
+      "explanation": "(3/4)(2/5) = 6/20 = 3/10.",
+      "distractor_explanations": {
+        "A": "3/20 multiplies 3/4 by 1/5 instead of 2/5.",
+        "C": "2/5 is the fraction who are seniors, voting or not.",
+        "D": "23/20 adds the fractions."
+      },
+      "hints": [
+        "\"3/4 of the seniors\" means multiply."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(3/4)(2/5)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000266",
+      "correct_answer": "C",
+      "explanation": "The price per ounce rose from 4/20 = $0.20 to 4/16 = $0.25. The increase is 0.05/0.20 = 25%.",
+      "distractor_explanations": {
+        "A": "16% uses the new size, 16, as if it were the percent.",
+        "B": "20% is the percent decrease in size (4/20), not the percent increase in unit price.",
+        "D": "80% is the new size as a percent of the old size."
+      },
+      "hints": [
+        "Find the price per ounce before and after.",
+        "Percent increase is the change divided by the original."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(0.25 − 0.20)/0.20."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000267",
+      "correct_answer": "A",
+      "explanation": "Let a = 3k and b = 4k. Then (a + b)/(a − b) = 7k/(−k) = −7.",
+      "distractor_explanations": {
+        "B": "−1/7 inverts the fraction.",
+        "C": "1/7 inverts the fraction and drops the sign.",
+        "D": "7 drops the sign: a − b is negative because a < b."
+      },
+      "hints": [
+        "Choose numbers with a/b = 3/4."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "a = 3, b = 4: 7/(−1)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000268",
+      "correct_answer": "D",
+      "explanation": "The minute hand is at 50 × 6° = 300°. The hour hand moves 0.5° per minute, so it is at 2 × 30° + 50 × 0.5° = 85°. The difference is 215°, so the smaller angle is 360° − 215° = 145°.",
+      "distractor_explanations": {
+        "A": "120° keeps the hour hand fixed on the 2 (60°).",
+        "B": "125° moves the hour hand only 5° past the 2.",
+        "C": "135° moves the hour hand only 15° past the 2."
+      },
+      "hints": [
+        "Where is the hour hand at 2:50? (It is not on the 2.)",
+        "How many degrees per minute does the hour hand move?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Hour hand 85°, minute hand 300°."
       }
     }
   ]

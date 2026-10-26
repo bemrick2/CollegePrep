@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:23:37+00:00",
+  "updated_at": "2026-10-26T20:25:11+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 252,
+    "act_math": 262,
     "act_english": 98,
     "act_reading": 81,
     "sat_reading_writing": 95
   },
   "review_totals": {
     "act_math": {
-      "PASS": 258,
+      "PASS": 268,
       "REVISE": 2,
       "REJECT": 2,
-      "candidates": 262,
+      "candidates": 272,
       "passed_after_revision": 2
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 252,
+      "accepted": 262,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 46,
-        "Functions": 44,
-        "Geometry": 50,
-        "Integrating Essential Skills": 48,
-        "Number & Quantity": 28,
-        "Statistics & Probability": 36
+        "Algebra": 48,
+        "Functions": 45,
+        "Geometry": 53,
+        "Integrating Essential Skills": 49,
+        "Number & Quantity": 29,
+        "Statistics & Probability": 38
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -74,6 +74,7 @@
         "Altitude to the hypotenuse (geometric mean)": 1,
         "Altitude via area in the coordinate plane": 1,
         "Amplitude and midline of a trigonometric function": 1,
+        "Angle between clock hands": 1,
         "Angle bisector theorem": 1,
         "Arc length and sector area": 1,
         "Area modeling with a quadratic": 1,
@@ -160,8 +161,10 @@
         "Exponential function properties": 1,
         "Exponential growth models and logarithms": 1,
         "Exponential model from two points": 1,
+        "Exterior angle theorem with algebra": 1,
         "Factored form: finding the leading coefficient": 1,
         "Fencepost counting on a closed perimeter": 1,
+        "Fraction of a fraction": 1,
         "Function composition": 1,
         "Geometric probability": 1,
         "Geometric probability with concentric circles": 1,
@@ -201,6 +204,7 @@
         "Matrix multiplication": 1,
         "Mean and total": 1,
         "Mean equals median with an unknown": 1,
+        "Mean from a frequency table": 1,
         "Mean, median and mode constraints": 1,
         "Median from a frequency table": 1,
         "Midpoint: finding an endpoint": 1,
@@ -218,6 +222,7 @@
         "Order of operations with negative signs": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
         "Percent change in area from a change in length": 1,
+        "Percent change in unit price": 1,
         "Percent decrease then recovery": 1,
         "Percent error": 1,
         "Percent targets across parts": 1,
@@ -235,6 +240,7 @@
         "Probability of 'at least one' with combinations": 1,
         "Probability of an ordered sequence without replacement": 1,
         "Probability of first success on a given trial": 1,
+        "Probability that a sum of two dice is prime": 1,
         "Profit as a percent of selling price": 1,
         "Pythagorean theorem with a moving ladder": 1,
         "Quadratic equations: solutions": 1,
@@ -249,6 +255,7 @@
         "Rational and irrational numbers": 1,
         "Rational equations and extraneous solutions": 1,
         "Rational equations from work rates": 1,
+        "Ratios substituted into an expression": 1,
         "Ratios that change": 1,
         "Reading vertex form": 1,
         "Recursively defined functions": 1,
@@ -284,6 +291,7 @@
         "Space diagonal of a cube": 1,
         "Square-unit conversion": 1,
         "Successive percent change": 1,
+        "Surface area of a cube from its volume": 1,
         "Surface area with whole-unit purchase": 1,
         "Systems of linear equations in context": 1,
         "Systems of linear equations: number of solutions": 1,
@@ -301,6 +309,7 @@
         "Unit price comparison": 1,
         "Unit price with unit conversion": 1,
         "Units-digit cycles": 1,
+        "Upstream and downstream rates": 1,
         "Values of a periodic function": 1,
         "Vector operations and magnitude": 1,
         "Vertical angles": 1,
@@ -314,30 +323,31 @@
         "Weighted mean": 1,
         "Work problems with a mid-job change": 1,
         "Writing an exponential decay model": 1,
+        "Zeros of a product of functions": 1,
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 38,
-        "hard": 103,
-        "medium": 111
+        "easy": 40,
+        "hard": 106,
+        "medium": 116
       },
       "by_difficulty_calibrated": {
-        "easy": 65,
+        "easy": 68,
         "hard": 39,
-        "medium": 148
+        "medium": 155
       },
       "calibrated_share": {
-        "easy": 0.258,
-        "hard": 0.155,
-        "medium": 0.587
+        "easy": 0.26,
+        "hard": 0.149,
+        "medium": 0.592
       },
       "answer_key_balance": {
-        "A": 61,
-        "B": 67,
-        "C": 68,
-        "D": 56
+        "A": 64,
+        "B": 70,
+        "C": 71,
+        "D": 57
       },
-      "modeling_items": 72,
+      "modeling_items": 73,
       "passages": 0
     },
     "act_english": {
@@ -639,50 +649,42 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 26,
+    "act_math": 27,
     "act_english": 9,
     "act_reading": 9,
     "sat_reading_writing": 10
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 27,
+      "next_batch": 28,
       "underrepresented_skills_vs_blueprint": [
-        "Functions",
         "Integrating Essential Skills",
+        "Functions",
         "Algebra",
         "Number & Quantity"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 0.8,
-        "Algebra": 2.5,
-        "Functions": 4.5,
-        "Geometry": -1.5,
-        "Statistics & Probability": -0.6,
-        "Integrating Essential Skills": 4.4
+        "Number & Quantity": 0.9,
+        "Algebra": 2.3,
+        "Functions": 5.3,
+        "Geometry": -2.7,
+        "Statistics & Probability": -1.3,
+        "Integrating Essential Skills": 5.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 0.5,
-        "medium": -17.0,
-        "hard": 26.5
+        "easy": 0.0,
+        "medium": -19.0,
+        "hard": 29.0
       },
       "answer_key_gap_for_next_10": {
-        "A": 4.5,
-        "B": -1.5,
-        "C": -2.5,
-        "D": 9.5
+        "A": 4.0,
+        "B": -2.0,
+        "C": -3.0,
+        "D": 11.0
       }
     }
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 10,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 6.7,
-        "Craft and Structure": 0.8,
-        "Integration of Knowledge and Ideas": 2.5
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 11,
       "skill_gap_for_next_10": {
@@ -690,6 +692,14 @@
         "Information and Ideas": 3.3,
         "Standard English Conventions": 2.3,
         "Expression of Ideas": 0.0
+      }
+    },
+    "act_reading": {
+      "next_batch": 10,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 6.7,
+        "Craft and Structure": 0.8,
+        "Integration of Knowledge and Ideas": 2.5
       }
     },
     "act_english": {
@@ -704,8 +714,8 @@
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 252,
-      "share_of_target": 0.126
+      "accepted": 262,
+      "share_of_target": 0.131
     },
     "act_english": {
       "target": 700,
@@ -724,7 +734,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 526,
+  "total_accepted": 536,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -923,7 +933,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 26,
+      "bank_version": 27,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -983,7 +993,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:23:36+00:00",
+    "heartbeat_at": "2026-10-26T20:25:11+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
