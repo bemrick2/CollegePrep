@@ -1,0 +1,464 @@
+{
+ "bank": "act_reading",
+ "batch": 16,
+ "plan": "Natural-science passage of about 600 words (CLD-P-ACT-R-000016) on octopus camouflage without color vision; two hard items require combining paragraph 2's requirement with paragraphs 3-4; R015-01 and R015-02 resubmitted relabelled easy.",
+ "passages": [
+  {
+   "passage_id": "CLD-P-ACT-R-000016",
+   "title": "Camouflage Without Color",
+   "genre": "natural science",
+   "word_count": 536,
+   "text": "Octopuses are among the most skilled camouflage artists in the ocean. In less than a second, an octopus can change the color, pattern, and even the texture of its skin to match a patch of coral, a sandy bottom, or a rock covered in algae. Some species can even raise small bumps on their skin, called papillae, to imitate the rough surface of a sponge or a clump of seaweed. The speed is remarkable. What puzzles biologists is something else: by the standard tests of vision, octopuses appear to be colorblind.\n\nColor vision usually depends on having several kinds of light-sensitive cells in the eye, each tuned to a different range of wavelengths; the brain compares their signals to tell colors apart. Octopus eyes contain only one kind. In experiments that ask animals to distinguish between colors of equal brightness, octopuses perform no better than chance. How, then, does an animal that cannot tell red from green manage to turn itself the right shade of reddish brown?\n\nOne proposal looks at the skin rather than the eyes. Researchers have found that octopus skin contains some of the same light-sensitive proteins that are found in eyes, which suggests that the skin itself might respond to light directly. In one study, small patches of skin removed from an octopus changed color when light was shone on them, which lends the idea some support. Skin that could sense its surroundings would not need to wait for instructions from the brain. But the proteins found so far appear to be of a single type, like those in the eye, so even if the skin senses light, it is not clear that it could sense color.\n\nA second, more unusual proposal concerns the shape of the octopus's pupil. Octopus pupils are often U-shaped or dumbbell-shaped rather than round. A lens focuses different wavelengths of light at slightly different distances, an effect that makes inexpensive cameras produce colored fringes around objects. In most eyes, a small, round pupil limits this blurring. An unusually shaped pupil does the opposite: it exaggerates it. Two researchers have argued that an octopus, by shifting its focus slightly, could use these differences in blur to infer the color of an object, recovering through optics what its retina cannot detect.\n\nNeither proposal has been confirmed, and the two are not mutually exclusive. Some biologists also point out that an octopus may not need to match colors exactly. Many of the animals that hunt octopuses see color poorly or not at all, so matching the brightness and texture of a background may be enough to stay hidden from the predators that matter most. Others note that the octopus may simply be matching the patterns of light and dark that it can see, with colors that happen to follow along.\n\nWhat makes the question compelling is that it overturns an easy assumption. We tend to think of camouflage as a copy of what the animal sees. The octopus suggests that a creature can match a world it does not perceive in the way we do, and that the explanation may lie in places, such as skin or the geometry of a pupil, where we would not have thought to look."
+  },
+  {
+   "passage_id": "CLD-P-ACT-R-000015",
+   "title": "The Length of a Wait",
+   "genre": "social science",
+   "word_count": 534,
+   "text": "Anyone who has waited in line knows that ten minutes can feel like five or like thirty. Operations researchers, who study how to make systems run efficiently, spent much of the twentieth century trying to shorten actual waits: adding servers, smoothing the flow of arrivals, predicting busy periods. The mathematics they developed, known as queueing theory, is still used to decide how many agents a call center needs or how many booths a toll plaza should open. Their work was valuable, but it rested on an assumption that turned out to be only half true: that what people mind about waiting is the time itself.\n\nIn the 1980s a business scholar named David Maister proposed that the experience of waiting depends at least as much on how a wait feels as on how long it lasts. Unoccupied time, he argued, feels longer than occupied time. Uncertain waits feel longer than waits of known length, and unexplained waits feel longer than explained ones. People waiting alone notice the time more than people waiting in groups, and a wait that seems unfair, with someone who arrived later being served first, feels longer than an equal wait that seems fair.\n\nSome of the most cited applications of these ideas cost almost nothing. When passengers at one airport complained about long waits for their luggage, the airport moved arriving flights to gates farther from the baggage claim. Passengers now spent most of the interval walking instead of standing, and complaints dropped, although the total time from plane to bag stayed about the same. Mirrors in elevator lobbies, which give waiting people something to look at, are often explained in the same way. So are restaurants that hand waiting diners a menu before a table is free: a wait that feels as though service has already begun seems to pass more quickly than one that does not.\n\nNot everyone is comfortable with this approach. Critics point out that a company can use the psychology of waiting to avoid fixing the underlying problem: a theme park that entertains people in a ninety-minute line has made the wait more bearable without making it any shorter. In their view, distraction manages customers' perceptions instead of respecting their time.\n\nDefenders reply that the two goals are not in competition. Shortening a wait often requires expensive changes, such as hiring staff or building new facilities, that take years to complete; making a wait feel shorter can be done tomorrow. A hospital that posts estimated waiting times in its emergency room, they note, has not reduced those times, but it has removed one of the main sources of distress for patients who must wait regardless.\n\nPerhaps the most intriguing finding is how little the clock seems to matter in memory. Studies of people leaving lines suggest that their satisfaction depends heavily on how the wait ended and on whether it moved steadily, rather than on its total length. A line that advances a little at a time can be remembered more kindly than a shorter one that stalls and then lurches forward. If waiting is partly a story we tell ourselves afterward, then the people who design lines are, in a sense, also its authors."
+  }
+ ],
+ "candidates": [
+  {
+   "cand": "R016-01",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Connecting a proposal to an earlier constraint",
+   "repo_skill_key": "act_inference",
+   "difficulty": "hard",
+   "stem": "In light of paragraph 2, the pupil proposal described in paragraph 4 is notable mainly because it suggests that the octopus could:",
+   "choices": {
+    "A": "gain information about color without having more than one kind of light-sensitive cell.",
+    "B": "have more kinds of light-sensitive cells than the standard tests of vision revealed.",
+    "C": "see colors more accurately than animals whose pupils are small and round.",
+    "D": "use its skin to focus light in the same way that the lens of an eye does."
+   },
+   "answer": "A",
+   "evidence": "recovering through optics what its retina cannot detect",
+   "explanation": "Paragraph 2 says color vision normally needs several kinds of cells, and octopuses have one. The pupil proposal gets around that limit by using wavelength-dependent blur instead.",
+   "distractors": {
+    "B": {
+     "rationale": "The proposal accepts that the retina has one kind of cell and works around it.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The passage says round pupils limit blur; it does not compare color accuracy.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "This mixes the skin proposal with the pupil proposal.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does paragraph 2 say color vision normally requires?",
+    "How does the pupil proposal get around that requirement?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Connect paragraph 2's requirement to paragraph 4's last sentence."
+   },
+   "remember": "A proposal is notable when it escapes a constraint stated earlier.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced",
+    "hardness": "Requires linking paragraph 2's requirement (several cell types) to how paragraph 4 bypasses it; B and D blend details from different paragraphs."
+   }
+  },
+  {
+   "cand": "R016-02",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Craft and Structure",
+   "skill": "Craft and Structure",
+   "subskill": "Function of a comparison",
+   "repo_skill_key": "act_author_purpose",
+   "difficulty": "medium",
+   "stem": "The reference to inexpensive cameras that produce \"colored fringes around objects\" (paragraph 4) mainly serves to:",
+   "choices": {
+    "A": "argue that an octopus's eyes are less sophisticated than modern camera lenses.",
+    "B": "explain why round pupils are so rare among the animals that live in the ocean.",
+    "C": "suggest that photographers first noticed octopuses using blur to judge color.",
+    "D": "illustrate a familiar effect that the pupil proposal says the octopus could make use of."
+   },
+   "answer": "D",
+   "evidence": "an effect that makes inexpensive cameras produce colored fringes around objects",
+   "explanation": "The camera example makes chromatic blur concrete; the proposal says the octopus could use that same blur to infer color.",
+   "distractors": {
+    "A": {
+     "rationale": "The comparison explains an optical effect; it does not rank eyes against cameras.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "The passage never says round pupils are rare in the ocean.",
+     "trap": "out_of_scope"
+    },
+    "C": {
+     "rationale": "Nothing links photographers to the discovery.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What effect do the cameras show, and how does the proposal use it?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Ask why the example is there."
+   },
+   "remember": "Comparisons often make an unfamiliar mechanism concrete.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R016-03",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Evaluating evidence for a proposal",
+   "repo_skill_key": "act_inference",
+   "difficulty": "hard",
+   "stem": "Which new finding would most strengthen the skin proposal as an explanation of how octopuses match colors?",
+   "choices": {
+    "A": "Octopus skin responds to changes in light more quickly than octopus eyes respond to the same changes.",
+    "B": "Octopus skin contains several types of light-sensitive proteins, each tuned to a different range of wavelengths.",
+    "C": "Octopus pupils change shape whenever an octopus moves close to a brightly colored patch of coral.",
+    "D": "Octopuses can match the texture of nearby rocks even when they are kept in complete darkness."
+   },
+   "answer": "B",
+   "evidence": "the proteins found so far appear to be of a single type",
+   "explanation": "Paragraph 3's weakness is that the skin proteins seem to be of one type, and paragraph 2 says color vision needs several types tuned to different wavelengths. Finding several types would remove that weakness.",
+   "distractors": {
+    "A": {
+     "rationale": "Faster responses show the skin senses light, not that it can tell colors apart.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "This concerns the pupil proposal, not the skin proposal.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Matching texture in darkness says nothing about color sensing by the skin.",
+     "trap": "out_of_scope"
+    }
+   },
+   "hints": [
+    "What is the skin proposal's stated weakness?",
+    "According to paragraph 2, what does sensing color require?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Combine paragraph 3's limitation with paragraph 2's requirement."
+   },
+   "remember": "To strengthen a proposal, remove the weakness the passage names.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced",
+    "hardness": "Requires combining the weakness in paragraph 3 with the requirement in paragraph 2; choice A shows light sensing but not color sensing."
+   }
+  },
+  {
+   "cand": "R016-04",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Inferring the significance of a point",
+   "repo_skill_key": "act_inference",
+   "difficulty": "medium",
+   "stem": "The point in paragraph 5 that many of the animals that hunt octopuses \"see color poorly or not at all\" mainly suggests that:",
+   "choices": {
+    "A": "octopuses are not nearly as skilled at camouflage as the first paragraph claims they are.",
+    "B": "the predators of octopuses rely mainly on their sense of smell rather than their sight.",
+    "C": "the puzzle may matter less for survival, since such predators cannot see color mismatches.",
+    "D": "the pupil proposal has been shown to be wrong by recent studies of predators."
+   },
+   "answer": "C",
+   "evidence": "matching the brightness and texture of a background may be enough",
+   "explanation": "If key predators cannot see color well, exact color matching may be unnecessary for staying hidden, which softens the puzzle's practical stakes.",
+   "distractors": {
+    "A": {
+     "rationale": "The point concerns what predators can detect, not the octopus's skill.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "The passage does not discuss predators' sense of smell.",
+     "trap": "out_of_scope"
+    },
+    "D": {
+     "rationale": "Neither proposal has been confirmed or disproved.",
+     "trap": "extreme_language"
+    }
+   },
+   "hints": [
+    "What would a colorblind predator notice and not notice?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate choices the passage does not support."
+   },
+   "remember": "Ask how a new point changes the size of the problem.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R016-05",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Locating a stated detail",
+   "repo_skill_key": "act_main_idea",
+   "difficulty": "easy",
+   "stem": "According to the passage, when octopuses are asked to distinguish between colors of equal brightness, they:",
+   "choices": {
+    "A": "succeed only when the colors are red and green.",
+    "B": "succeed more often than most other animals do.",
+    "C": "perform well only after many training sessions.",
+    "D": "perform no better than they would by guessing."
+   },
+   "answer": "D",
+   "evidence": "octopuses perform no better than chance",
+   "explanation": "Paragraph 2 says they \"perform no better than chance,\" the same as guessing.",
+   "distractors": {
+    "A": {
+     "rationale": "The passage says they cannot tell red from green.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "They perform no better than chance.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Training is not mentioned.",
+     "trap": "out_of_scope"
+    }
+   },
+   "hints": [
+    "Reread paragraph 2."
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Scan for \"equal brightness.\""
+   },
+   "remember": "Detail questions: the answer is restated in different words.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R016-06",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Craft and Structure",
+   "skill": "Craft and Structure",
+   "subskill": "Meaning of a word in context",
+   "repo_skill_key": "act_vocabulary_in_context",
+   "difficulty": "medium",
+   "stem": "As it is used in paragraph 4, the word \"exaggerates\" most nearly means:",
+   "choices": {
+    "A": "increases.",
+    "B": "misrepresents.",
+    "C": "conceals.",
+    "D": "praises."
+   },
+   "answer": "A",
+   "evidence": "In most eyes, a small, round pupil limits this blurring",
+   "explanation": "A round pupil limits the blurring; an unusual pupil \"does the opposite,\" making it greater.",
+   "distractors": {
+    "B": {
+     "rationale": "This is the familiar sense of overstating a claim, which does not fit an optical effect.",
+     "trap": "familiar_meaning"
+    },
+    "C": {
+     "rationale": "The pupil makes the blurring greater, not hidden.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Praise has nothing to do with blurring.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does a round pupil do to the blurring, and what is \"the opposite\"?"
+   ],
+   "strategy": {
+    "key": "predict_then_match",
+    "explanation": "Predict \"increases.\""
+   },
+   "remember": "Use a stated contrast (\"the opposite\") to define a word.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R016-07",
+   "passage_id": "CLD-P-ACT-R-000016",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Main purpose of a passage",
+   "repo_skill_key": "act_main_idea",
+   "difficulty": "medium",
+   "stem": "The main purpose of the passage is to:",
+   "choices": {
+    "A": "argue that the pupil proposal has been proven to explain how octopuses match colors.",
+    "B": "present a puzzle about octopus camouflage and consider possible explanations for it.",
+    "C": "describe the methods octopuses use to hunt prey on the ocean floor.",
+    "D": "compare octopus vision with human vision across a wide range of tasks."
+   },
+   "answer": "B",
+   "evidence": "What puzzles biologists is something else",
+   "explanation": "The passage poses the colorblind-camouflage puzzle, weighs two proposals and a third consideration, and reflects on what the puzzle shows.",
+   "distractors": {
+    "A": {
+     "rationale": "The passage says neither proposal has been confirmed.",
+     "trap": "extreme_language"
+    },
+    "C": {
+     "rationale": "Hunting is not discussed.",
+     "trap": "out_of_scope"
+    },
+    "D": {
+     "rationale": "Human vision is not compared in detail.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What question does the passage raise, and what does it do with it?"
+   ],
+   "strategy": {
+    "key": "predict_then_match",
+    "explanation": "Summarize the passage's arc first."
+   },
+   "remember": "Main purpose covers the whole passage, not one proposal.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   }
+  },
+  {
+   "cand": "R016-08",
+   "passage_id": "CLD-P-ACT-R-000015",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Inferring an author's reasoning",
+   "repo_skill_key": "act_inference",
+   "difficulty": "easy",
+   "stem": "The author most likely calls the operations researchers' assumption \"only half true\" (paragraph 1) because:",
+   "choices": {
+    "A": "operations researchers seldom managed to make the waits they studied any shorter.",
+    "B": "people care more about the fairness of a wait than about any other feature of it.",
+    "C": "the length of a wait matters, but so do features such as uncertainty and fairness.",
+    "D": "most people greatly overestimate how long they have actually spent waiting."
+   },
+   "answer": "C",
+   "evidence": "depends at least as much on how a wait feels as on how long it lasts",
+   "explanation": "\"Half true\" means time matters but is not all that matters. Paragraph 2 supplies the other half: how a wait feels, shaped by uncertainty, fairness, company and occupation.",
+   "distractors": {
+    "A": {
+     "rationale": "The author calls their work \"valuable\"; the problem was the assumption, not failure.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "Fairness is one of several features listed; nothing ranks it above the rest.",
+     "trap": "extreme_language"
+    },
+    "D": {
+     "rationale": "The passage never says people misjudge the length of their waits.",
+     "trap": "out_of_scope"
+    }
+   },
+   "hints": [
+    "What does paragraph 2 add to the idea that people mind the time itself?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Connect paragraph 1's phrase to paragraph 2."
+   },
+   "remember": "\"Half true\": find what the passage keeps and what it adds.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_note": "R015-01 resubmitted unchanged in content and relabelled easy: both blind solvers judged it easy (about 72-78%)."
+  },
+  {
+   "cand": "R016-09",
+   "passage_id": "CLD-P-ACT-R-000015",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Applying one group's view to an example",
+   "repo_skill_key": "act_inference",
+   "difficulty": "easy",
+   "stem": "The critics described in paragraph 4 would most likely regard the airport's change described in paragraph 3 as:",
+   "choices": {
+    "A": "a way of improving how the wait felt without dealing with how long it actually took.",
+    "B": "an unfair practice, because it made passengers' total waiting time noticeably longer.",
+    "C": "a good example of a company that chose to respect its customers' time.",
+    "D": "an irrelevant case, because passengers who are walking are not really waiting."
+   },
+   "answer": "A",
+   "evidence": "distraction manages customers' perceptions instead of respecting their time",
+   "explanation": "The critics object to making a wait more bearable without shortening it, which is exactly what the airport did: the time stayed the same while complaints dropped.",
+   "distractors": {
+    "B": {
+     "rationale": "The total time from plane to bag \"stayed about the same.\"",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The critics argue that such changes manage perceptions instead of respecting time.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The critics' objection concerns perceptions versus actual time, not whether walking counts as waiting.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What did the airport change, and what stayed the same?",
+    "What do the critics object to?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Apply paragraph 4's view to paragraph 3's example."
+   },
+   "remember": "Applying a viewpoint: match the example to the group's stated objection.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_note": "R015-02 resubmitted unchanged in content and relabelled easy: both blind solvers judged it easy (about 72-78%)."
+  }
+ ]
+}
