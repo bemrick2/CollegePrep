@@ -11,6 +11,7 @@ import { basename } from 'node:path'
 import { QUESTIONS, SKILLS } from '../src/lib/data/demo/fixtures'
 import { questionKey, validateImport, type ImportedQuestion } from '../src/lib/questionImport'
 import { emptyRegistry, intake, summary, type Registry } from '../src/lib/questionCandidates'
+import { IDENTITIES } from '../src/lib/data/demo/authorIdentity'
 
 const args = process.argv.slice(2)
 let batch: string | undefined
@@ -42,7 +43,8 @@ readFileSync(batch, 'utf8').split('\n').forEach((l, i) => {
 })
 // Duplicates of the app's bank and of earlier batches are recorded as retired by intake, not refused here, so the
 // validator checks only within this batch.
-const problems = validateImport(items, SKILLS)
+// The identity registry: a v2 line may name only identities recorded there (it never creates one).
+const problems = validateImport(items, SKILLS, new Set(), IDENTITIES)
 for (const p of problems) console.log(`${p.import_id}\t${p.field}\t${p.problem}`)
 if (problems.length || bad) {
   console.error(`${items.length} items read; ${problems.length + bad} problems. Nothing recorded: fix or return the batch.`)

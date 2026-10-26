@@ -1,4 +1,4 @@
-# Question import contract (`question_import/v1`)
+# Question import contract (`question_import/v2`; `v1` still read)
 
 This is for the separate question-bank workstream. It defines how original questions enter Prep & Price's review pipeline. It doesn't generate questions, and nothing here generates any. The app's own bank is not being replaced.
 
@@ -8,6 +8,21 @@ This is for the separate question-bank workstream. It defines how original quest
 3. the review approval (`approve_practice_question`, CR-21).
 
 Generating a question, by a person or an AI, confers nothing. Passing the validator below only means the item is well-formed enough to start stage 3.
+
+## Version 2: author identities (owner decision, 2026-10-26)
+
+`question_import/v2` adds one required field, `author_identity`. It links every author to a stable identity:
+
+| `author_identity` | `author` | `origin` | Meaning |
+|---|---|---|---|
+| `{"kind": "ai", "model": "<model>"}` | `ai:<model>` | `ai_drafted` | An AI draft, recorded explicitly as AI authorship. |
+| `{"kind": "person", "identity_id": "au-…"}` | the person's name (display only) | any other origin | A person with a recorded identity in `web/src/lib/data/demo/identities.json`. |
+
+- **Identities aren't created by a batch.** The owner, or an active content lead, records each person in `identities.json`. That file ships **empty**, so until someone is recorded, every human-authored v2 line fails validation. Nothing invents an identity.
+- **Reviewers are linked by id.** When the author is also a reviewer, their identity carries `reviewer_id`. They are then excluded from stages 4, 6 and 8 by id, under any name. The names in the identity and the import are still matched as well; that can only block.
+- **v1 lines are legacy.** They are still read, but a human author named in v1 is a **name only** and never counts as a verified identity. Such an item is never publication-eligible. That holds for every version of it, even after a v2 revision. A v1 AI draft (`ai:<model>`, `ai_drafted`) is explicit AI authorship and is resolved.
+- **The app's own bank** works the same way. "AI (Claude)" is the bank's recorded AI drafting, so it is resolved. A human author recorded later at stage 2 needs an identity (`au-…`) or an explicit `ai:<model>`, never a bare name. A human name already in the ledger without an identity record stays unresolved, and the item is never approved.
+- **An identity change is a rights change.** `author_identity` is one of the rights fields, so changing it makes a new rights version, and stage 3 must be signed again.
 
 ## Provisional planning target
 
@@ -52,7 +67,8 @@ At 0% planned review the total is 605 (552 practice + 53 reserved). `bankSize()`
 | `primary_skill_key` | yes | Must exist in the skill taxonomy | `practice_question_skills` |
 | `strategies` | optional | `{strategy_key, role, is_fastest, explanation}` | `practice_question_strategies` |
 | `origin` | yes | `human_original`, `ai_drafted`, `adapted_public_domain`, `adapted_cc_by`, `licensed` | `origin` (CR-24): `ai_drafted` → `generated`, `licensed` → `licensed`, the rest → `authored`. A `generated` item is served only after a `human:` review |
-| `author` | yes | A named person, or `ai:<model>` for an AI draft. Every later reviewer must differ from the author | ledger `author` |
+| `author` | yes | A named person, or `ai:<model>` for an AI draft. Display only; every later reviewer must differ from the author | ledger `author` |
+| `author_identity` | v2: yes; v1: not allowed | `{"kind": "ai", "model"}` or `{"kind": "person", "identity_id": "au-…"}` naming a recorded identity (see Version 2) | ledger `author_records` |
 | `license` | yes | One of CR-24's set (#245): `original-owned`, `us-federal-pd`, `public-domain`, `cc-by-4.0`, `cc-by-sa-4.0`, `licensed:<vendor>` | `license` |
 | `source_attribution` | when the license needs it | Required for `cc-by-4.0`, `cc-by-sa-4.0` and `licensed:*` (the server's rule), and here also for `public-domain` and `us-federal-pd` so stage 3 can check the source. Official ACT or College Board material is refused without written permission | `source_attribution` |
 | `source_url` | optional | Where an adapted source came from | ledger |

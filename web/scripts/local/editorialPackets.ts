@@ -18,10 +18,11 @@ import type { Ledger } from '../../src/lib/data/demo/editorialLedger'
 import { registryProblems, type ReviewerRegistry } from '../../src/lib/data/demo/reviewerRegistry'
 import { itemsFromBank, itemsFromRegistry, packetFiles, selectItems, stateOf } from '../../src/lib/editorialReview'
 import type { Registry } from '../../src/lib/questionCandidates'
+import { identityProblems, type IdentityRegistry } from '../../src/lib/data/demo/authorIdentity'
 import { parseArgs } from './reviewArgs'
 
-const usage = 'usage: editorialPackets.ts <out-dir> [--ids id1,id2,...] [--registry candidates.json] [--ledger path] [--reviewers path]'
-const { positional, opts } = parseArgs(process.argv.slice(2), ['--ids', '--registry', '--ledger', '--reviewers'], usage)
+const usage = 'usage: editorialPackets.ts <out-dir> [--ids id1,id2,...] [--registry candidates.json] [--ledger path] [--reviewers path] [--identities path]'
+const { positional, opts } = parseArgs(process.argv.slice(2), ['--ids', '--registry', '--ledger', '--reviewers', '--identities'], usage)
 if (positional.length !== 1) throw new Error(usage)
 const out = positional[0]!
 // The same ledger and reviewers the recorder uses, so status.csv agrees with what was recorded.
@@ -29,9 +30,13 @@ const ledger = JSON.parse(readFileSync(opts['--ledger'] ?? new URL('../../src/li
 const REVIEWERS = JSON.parse(readFileSync(opts['--reviewers'] ?? new URL('../../src/lib/data/demo/reviewers.json', import.meta.url).pathname, 'utf8')) as ReviewerRegistry
 const bad = registryProblems(REVIEWERS)
 if (bad.length) console.error(`The reviewer registry has problems, so status.csv shows no sign-off as counting:\n${bad.join('\n')}`)
+const identitiesPath = opts['--identities'] ?? new URL('../../src/lib/data/demo/identities.json', import.meta.url).pathname
+const identities = JSON.parse(readFileSync(identitiesPath, 'utf8')) as IdentityRegistry
+const badIds = identityProblems(identities, REVIEWERS)
+if (badIds.length) console.error(`${identitiesPath} has problems:\n${badIds.join('\n')}`)
 const all = opts['--registry']
-  ? itemsFromRegistry(JSON.parse(readFileSync(opts['--registry'], 'utf8')) as Registry)
-  : itemsFromBank(QUESTIONS, new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)]), ledger)
+  ? itemsFromRegistry(JSON.parse(readFileSync(opts['--registry'], 'utf8')) as Registry, identities, REVIEWERS)
+  : itemsFromBank(QUESTIONS, new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)]), ledger, identities, REVIEWERS)
 const items = selectItems(all, opts['--ids'] ? opts['--ids'].split(',').map((s) => s.trim()).filter(Boolean) : null)
 const label = opts['--registry'] ? 'Imported batch' : 'App bank'
 mkdirSync(out, { recursive: true })

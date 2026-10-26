@@ -6,8 +6,13 @@
  * 3–8 in the editorial ledger, the CR-24 rights gate and approve_practice_question (CR-21). Generation confers nothing.
  */
 import type { FixtureQuestion } from './data/demo/fixtures'
+import { AI_MODEL, IDENTITIES, type AuthorIdentity, type IdentityRegistry } from './data/demo/authorIdentity'
 
+/** The legacy contract: authors are names only, so a human author is never a resolved identity. Still read. */
 export const IMPORT_CONTRACT = 'question_import/v1'
+/** The current contract: every line names its author's identity (an AI model, or a recorded person). */
+export const IMPORT_CONTRACT_V2 = 'question_import/v2'
+export const IMPORT_CONTRACTS = [IMPORT_CONTRACT, IMPORT_CONTRACT_V2] as const
 
 /** CR-24's set (Research, #245). `licensed:<vendor>` needs a signed license on file before stage 3 can pass. */
 export const ALLOWED_LICENSES = /^(original-owned|us-federal-pd|public-domain|cc-by-4\.0|cc-by-sa-4\.0|licensed:[a-z0-9][a-z0-9-]{0,62})$/
@@ -27,7 +32,12 @@ export const DB_ORIGIN: Record<Origin, 'authored' | 'generated' | 'licensed'> = 
 export type Origin = 'human_original' | 'ai_drafted' | 'adapted_public_domain' | 'adapted_cc_by' | 'licensed'
 
 export interface ImportedQuestion extends Omit<FixtureQuestion, 'id'> {
-  contract: typeof IMPORT_CONTRACT
+  contract: (typeof IMPORT_CONTRACTS)[number]
+  /**
+   * v2 only, required there: who wrote it. `{kind: 'ai', model}` for an AI draft (author "ai:<model>"), or
+   * `{kind: 'person', identity_id}` naming a recorded identity (identities.json). A batch never creates an identity.
+   */
+  author_identity?: AuthorIdentity
   /** Stable id from the workstream; becomes the fixture id / import key. Never reused for different content. */
   import_id: string
   origin: Origin
@@ -46,7 +56,7 @@ export interface ImportedQuestion extends Omit<FixtureQuestion, 'id'> {
 const ALLOWED_KEYS = new Set([
   'contract', 'import_id', 'exam_family', 'section', 'difficulty', 'stem', 'passage', 'choices', 'answer_format', 'accepted_answers',
   'expected_time_seconds', 'primary_skill_key', 'hints', 'teaching_explanation', 'strategy_explanation', 'remember', 'distractors',
-  'strategies', 'origin', 'author', 'license', 'source_attribution', 'source_url', 'requested_pool', 'status',
+  'strategies', 'origin', 'author', 'author_identity', 'license', 'source_attribution', 'source_url', 'requested_pool', 'status',
 ])
 /** Which licenses each origin may carry. */
 const ORIGIN_LICENSES: Record<Origin, RegExp> = {
@@ -79,7 +89,7 @@ export const questionKey = (q: Partial<Pick<FixtureQuestion, 'stem' | 'passage' 
  * Validates a batch. `skillKeys`: the taxonomy's skill keys; `existingStems`: stemKey of every item already in the
  * bank (any status), from questionKey. Returns every problem found; an empty list means each item may enter the pipeline as a draft.
  */
-export function validateImport(items: unknown[], skills: { skill_key: string; exam_family: string }[], existingStems: Set<string> = new Set()): ImportProblem[] {
+export function validateImport(items: unknown[], skills: { skill_key: string; exam_family: string }[], existingStems: Set<string> = new Set(), identities: IdentityRegistry = IDENTITIES): ImportProblem[] {
   const skillExam = new Map(skills.map((k) => [k.skill_key, k.exam_family]))
   const out: ImportProblem[] = []
   const ids = new Set<string>()
@@ -90,7 +100,7 @@ export function validateImport(items: unknown[], skills: { skill_key: string; ex
     const bad = (field: string, problem: string) => out.push({ import_id: id, field, problem })
     for (const k of Object.keys(q)) if (!ALLOWED_KEYS.has(k)) bad(k, 'not a field of the contract; remove it (ids, pools, approvals and hashes are assigned in review)')
     const nonEmpty = (v: unknown) => typeof v === 'string' && v.trim() !== ''
-    if (q.contract !== IMPORT_CONTRACT) bad('contract', `must be "${IMPORT_CONTRACT}"`)
+    if (!IMPORT_CONTRACTS.includes(q.contract as never)) bad('contract', `must be "${IMPORT_CONTRACT_V2}" (or the legacy "${IMPORT_CONTRACT}")`)
     if (!/^[a-z0-9][a-z0-9_-]{2,80}$/.test(q.import_id ?? '')) bad('import_id', 'lowercase letters, digits, - or _, 3–81 characters')
     else if (ids.has(q.import_id!)) bad('import_id', 'duplicated in this batch')
     else ids.add(q.import_id!)
@@ -137,6 +147,23 @@ export function validateImport(items: unknown[], skills: { skill_key: string; ex
     if (typeof q.author !== 'string' || !q.author.trim()) bad('author', 'a named person, or "ai:<model>"')
     if (q.origin === 'ai_drafted' && !/^ai:\S{2,}/.test(q.author ?? '')) bad('author', 'an AI draft names its model as "ai:<model>"')
     if (q.origin !== 'ai_drafted' && /^ai:/i.test(q.author ?? '')) bad('origin', 'an "ai:" author means origin ai_drafted')
+
+    // Author identity (v2). v1 lines carry none: their human authors stay unresolved and their items ineligible.
+    const ai = q.author_identity as AuthorIdentity | undefined
+    if (q.contract === IMPORT_CONTRACT && ai !== undefined) bad('author_identity', `not a field of ${IMPORT_CONTRACT}; use ${IMPORT_CONTRACT_V2}`)
+    if (q.contract === IMPORT_CONTRACT_V2) {
+      if (!ai || typeof ai !== 'object' || (ai.kind !== 'ai' && ai.kind !== 'person')) bad('author_identity', 'required: {"kind": "ai", "model": "<model>"} or {"kind": "person", "identity_id": "au-…"}')
+      else if (ai.kind === 'ai') {
+        if (Object.keys(ai).some((k) => k !== 'kind' && k !== 'model')) bad('author_identity', 'an AI identity has only kind and model')
+        if (!AI_MODEL.test(ai.model ?? '')) bad('author_identity', 'an AI author names its model')
+        else if (q.author !== `ai:${ai.model}`) bad('author', `an AI author is written "ai:${ai.model}"`)
+        if (q.origin !== 'ai_drafted') bad('author_identity', 'an AI author means origin ai_drafted')
+      } else {
+        if (Object.keys(ai).some((k) => k !== 'kind' && k !== 'identity_id')) bad('author_identity', 'a person identity has only kind and identity_id')
+        if (q.origin === 'ai_drafted') bad('author_identity', 'an AI draft has an AI author identity')
+        if (!identities.identities?.[ai.identity_id]) bad('author_identity', `${ai.identity_id || '(blank)'} is not a recorded identity; identities are recorded by the owner or a content lead (identities.json), never by a batch`)
+      }
+    }
     if (ORIGINS.includes(q.origin as Origin) && ALLOWED_LICENSES.test(q.license ?? '') && !ORIGIN_LICENSES[q.origin as Origin].test(q.license!))
       bad('license', `${q.license} doesn't fit origin ${q.origin}`)
     if (!ALLOWED_LICENSES.test(q.license ?? '')) bad('license', 'one of original-owned, us-federal-pd, public-domain, cc-by-4.0, cc-by-sa-4.0, licensed:<vendor>')

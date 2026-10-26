@@ -3,7 +3,8 @@ import { QUESTIONS } from './fixtures'
 import { contentHash, REVIEW_RECORD } from './questionReview'
 import { editorialState, type Ledger, type SignOff } from './editorialLedger'
 import { authorized, REVIEWERS, registryProblems, type ReviewerRegistry } from './reviewerRegistry'
-import { testId, testReviewers } from './testReviewers'
+import { testId, testIdentities, testIdentityId, testReviewers } from './testReviewers'
+import { IDENTITIES } from './authorIdentity'
 
 const q = QUESTIONS[0]!
 const h = contentHash(q)
@@ -11,10 +12,13 @@ const key = q.accepted_answers[0]!
 const R = testReviewers()
 /** A sign-off by the TEST reviewer with this display name. */
 const so = (stage: SignOff['stage'], by: string, extra: Partial<SignOff> = {}): SignOff => ({ stage, reviewer_id: testId(by), by, date: '2026-10-08', result: 'pass', hash: h, ...extra })
-const full = (author = 'Dana Author'): Ledger => ({
+const TI = testIdentities()
+/** A complete review; the author is recorded with a TEST identity (by default the one for that name). */
+const full = (author = 'Dana Author', identityId = testIdentityId(author)): Ledger => ({
   items: {
     [q.id]: {
       author,
+      author_records: [{ name: author, identity: { kind: 'person', identity_id: identityId } }],
       signoffs: [
         so(3, 'Lee Rights', { license: 'original' }),
         so(4, 'Sam Solver', { answer: key, seconds: 50 }),
@@ -27,7 +31,7 @@ const full = (author = 'Dana Author'): Ledger => ({
     },
   },
 })
-const state = (l: Ledger, reviewers: ReviewerRegistry = R, extra = {}) => editorialState(q, l, { reviewers, ...extra })
+const state = (l: Ledger, reviewers: ReviewerRegistry = R, extra = {}) => editorialState(q, l, { reviewers, identities: TI, ...extra })
 
 describe('human editorial ledger (CONTENT_PLAN §5)', () => {
   it('today: the real reviewer registry is empty, no item is human-approved and every item enters at stage 3', () => {
@@ -93,14 +97,12 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
   it('the author can’t solve, review fairness or approve, under any recorded name of theirs', () => {
     expect(state(full('Pat Lead'))).toMatchObject({ next: 8, humanApproved: false })
     // Author recorded as an alias of the registered reviewer, or as a variant of the display name.
-    for (const author of ['J. Writer', 'writer, jo', 'JO  WRITER​']) {
-      const l = full(author)
-      l.items[q.id]!.signoffs[6] = so(8, 'Jo Writer')
-      expect(state(l), author).toMatchObject({ next: 8, humanApproved: false })
+    // Each author has a recorded identity NOT linked to Jo's reviewer id, so only the (fail-closed) name match blocks.
+    for (const author of ['J. Writer', 'writer, jo', 'JO  WRITER\u200b', 'Jose Writer']) {
+      const l = full(author, 'au-test-variant')
+      l.items[q.id]!.signoffs[6] = so(8, author === 'Jose Writer' ? 'José Writer' : 'Jo Writer')
+      expect(editorialState(q, l, { reviewers: R, identities: testIdentities({ 'au-test-variant': { display_name: author } }) }), author).toMatchObject({ next: 8, humanApproved: false })
     }
-    const accent = full('Jose Writer')
-    accent.items[q.id]!.signoffs[6] = so(8, 'José Writer')
-    expect(state(accent)).toMatchObject({ next: 8, humanApproved: false })
   })
 
   it('rights check needs an allowed license', () => {
@@ -196,7 +198,10 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
   it('every author ever recorded stays excluded: replacing the author does not let the earlier one approve', () => {
     const l = full('Someone Else')
     l.items[q.id]!.authors = ['Pat Lead', 'Someone Else']
-    expect(state(l)).toMatchObject({ next: 8, humanApproved: false })
+    l.items[q.id]!.author_records!.push({ name: 'Pat Lead', identity: { kind: 'person', identity_id: testIdentityId('Pat Lead') } })
+    const r = state(l)
+    expect(r).toMatchObject({ next: 8, humanApproved: false })
+    expect(r.problems).toContain('needs approval by an authorized approver who is not the author')
   })
 
   it('authorized() alone refuses anyone below a revoked link or inside a loop', () => {
@@ -215,6 +220,30 @@ describe('human editorial ledger (CONTENT_PLAN §5)', () => {
     const l = full()
     l.items[q.id]!.signoffs[2] = { ...so(4, 'Ana Solver', { answer: key }), reviewer_id: 'rv-test-ana-solver-2' }
     expect(state(l, rehired)).toMatchObject({ humanApproved: true })
+  })
+
+  it('author identity: an author who is also a reviewer is excluded by id, whatever name either is recorded under', () => {
+    // "Jordan Smith" writes; the same person reviews as "Pat Lead" with no alias. Only the identity link catches it.
+    const l = full('Jordan Smith', 'au-test-jordan')
+    const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Pat Lead') } })
+    ids.identities[testIdentityId('Pat Lead')]!.reviewer_id = undefined // one reviewer, one identity
+    expect(editorialState(q, l, { reviewers: R, identities: ids })).toMatchObject({ next: 8, humanApproved: false })
+    // Without the link the names don't match, and the approval counts.
+    expect(editorialState(q, l, { reviewers: R, identities: testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith' } }) })).toMatchObject({ humanApproved: true })
+  })
+
+  it('a human author known only by name (legacy) is unresolved: never approved, even with every stage passed', () => {
+    const legacy = full()
+    delete legacy.items[q.id]!.author_records
+    expect(state(legacy)).toMatchObject({ passed: 8, next: 2, humanApproved: false, problems: expect.arrayContaining([expect.stringMatching(/a name only, with no recorded identity/)]) })
+    // An identity that isn't in the registry is unresolved too; with the real (empty) registry, nothing resolves.
+    expect(state(full('Dana Author', 'au-test-missing'))).toMatchObject({ next: 2, humanApproved: false })
+    expect(editorialState(q, full(), { reviewers: R, identities: IDENTITIES })).toMatchObject({ next: 2, humanApproved: false })
+    // The app bank's recorded AI drafting is explicit AI authorship: resolved.
+    const ai = full()
+    ai.items[q.id]!.author = 'AI (Claude)'
+    delete ai.items[q.id]!.author_records
+    expect(state(ai)).toMatchObject({ humanApproved: true })
   })
 })
 

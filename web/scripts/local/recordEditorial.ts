@@ -17,10 +17,11 @@ import type { Ledger } from '../../src/lib/data/demo/editorialLedger'
 import { registryProblems, type ReviewerRegistry } from '../../src/lib/data/demo/reviewerRegistry'
 import { csvRows, itemsFromBank, itemsFromRegistry, recordSignoffs, stateOf } from '../../src/lib/editorialReview'
 import type { Registry } from '../../src/lib/questionCandidates'
+import { identityProblems, type IdentityRegistry } from '../../src/lib/data/demo/authorIdentity'
 import { parseArgs } from './reviewArgs'
 
-const usage = 'usage: recordEditorial.ts <signoffs.csv> [...] [--registry candidates.json] [--ledger path] [--reviewers path]'
-const { positional: files, opts } = parseArgs(process.argv.slice(2), ['--registry', '--ledger', '--reviewers'], usage)
+const usage = 'usage: recordEditorial.ts <signoffs.csv> [...] [--registry candidates.json] [--ledger path] [--reviewers path] [--identities path]'
+const { positional: files, opts } = parseArgs(process.argv.slice(2), ['--registry', '--ledger', '--reviewers', '--identities'], usage)
 if (!files.length) throw new Error(usage)
 const ledgerPath = opts['--ledger'] ?? new URL('../../src/lib/data/demo/editorialLedger.json', import.meta.url).pathname
 const reviewersPath = opts['--reviewers'] ?? new URL('../../src/lib/data/demo/reviewers.json', import.meta.url).pathname
@@ -28,16 +29,20 @@ const ledger = JSON.parse(readFileSync(ledgerPath, 'utf8')) as Ledger
 const reviewers = JSON.parse(readFileSync(reviewersPath, 'utf8')) as ReviewerRegistry
 const bad = registryProblems(reviewers)
 if (bad.length) throw new Error(`${reviewersPath} has problems; nothing recorded:\n${bad.join('\n')}`)
+const identitiesPath = opts['--identities'] ?? new URL('../../src/lib/data/demo/identities.json', import.meta.url).pathname
+const identities = JSON.parse(readFileSync(identitiesPath, 'utf8')) as IdentityRegistry
+const badIds = identityProblems(identities, reviewers)
+if (badIds.length) throw new Error(`${identitiesPath} has problems:\n${badIds.join('\n')}`)
 const items = opts['--registry']
-  ? itemsFromRegistry(JSON.parse(readFileSync(opts['--registry'], 'utf8')) as Registry)
-  : itemsFromBank(QUESTIONS, new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)]), ledger)
+  ? itemsFromRegistry(JSON.parse(readFileSync(opts['--registry'], 'utf8')) as Registry, identities, reviewers)
+  : itemsFromBank(QUESTIONS, new Set([...practiceExclusions('act', QUESTIONS), ...practiceExclusions('sat', QUESTIONS)]), ledger, identities, reviewers)
 
 let current = ledger
 let added = 0
 const refused: string[] = []
 const today = new Date().toISOString().slice(0, 10)
 for (const f of files) {
-  const r = recordSignoffs(current, items, csvRows(readFileSync(f, 'utf8')), reviewers, today, f)
+  const r = recordSignoffs(current, items, csvRows(readFileSync(f, 'utf8')), reviewers, today, f, identities)
   current = r.ledger
   added += r.added
   refused.push(...r.refused)
