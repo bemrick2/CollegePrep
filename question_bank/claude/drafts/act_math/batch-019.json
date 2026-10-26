@@ -1,0 +1,476 @@
+{
+  "bank": "act_math",
+  "batch": 19,
+  "plan": "Gaps at 178: N&Q 2, Algebra 2, Functions 2, Geometry 2, S&P 1, IES 1; 5 hard / 4 medium / 1 easy. New subskills: complex modulus, units-digit cycles, absolute-value equations with an extraneous branch, parallel lines, sinusoidal model thresholds, exponential model from two points, polygon area by decomposition, interior angles, probability of independent unions, square-unit conversion.",
+  "candidates": [
+    {
+      "cand": "B019-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Modulus of complex numbers",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "For i = √(−1), the absolute value of a complex number a + bi is √(a² + b²). What is the value of |3 − 4i| · |1 + i| ?",
+      "choices": {
+        "A": "5",
+        "B": "5√2",
+        "C": "7",
+        "D": "10"
+      },
+      "answer": "B",
+      "explanation": "|3 − 4i| = √(9 + 16) = 5 and |1 + i| = √(1 + 1) = √2. The product is 5√2 ≈ 7.07.",
+      "distractors": {
+        "A": {
+          "rationale": "5 is |3 − 4i| alone; it still must be multiplied by |1 + i| = √2.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This adds the parts of 3 − 4i as 3 + 4 = 7 instead of using the square root formula.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This takes |1 + i| as 2 (adding 1 + 1) instead of √2.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find each absolute value separately using the formula.",
+        "Multiply the two results."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5 × √2 = 5√2."
+      },
+      "remember": "|a + bi| = √(a² + b²).",
+      "expected_time_seconds": 45,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "format_note": "definition supplied"
+      }
+    },
+    {
+      "cand": "B019-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Units-digit cycles",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "What is the units digit of 7¹⁰⁰ ?",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "7",
+        "D": "9"
+      },
+      "answer": "A",
+      "explanation": "The units digits of powers of 7 repeat in a cycle of 4: 7¹ → 7, 7² → 9, 7³ → 3, 7⁴ → 1, then 7, 9, 3, 1 again. Since 100 is a multiple of 4, 7¹⁰⁰ has the same units digit as 7⁴, which is 1.",
+      "distractors": {
+        "B": {
+          "rationale": "3 is the units digit of 7³, the third term of the cycle; 100 leaves remainder 0 when divided by 4, which matches the 4th term.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This assumes every power of 7 ends in 7.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "9 is the units digit of 7², which would correspond to a remainder of 2.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the units digits of 7, 7², 7³, 7⁴ and 7⁵.",
+        "Where does 100 fall in the repeating cycle?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Cycle 7, 9, 3, 1 of length 4; 100 ÷ 4 has remainder 0, so the digit is the last in the cycle: 1."
+      },
+      "remember": "Units digits of powers repeat; use the remainder.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "pattern plus remainder mapping (remainder 0 ↔ 4th term)",
+        "dup_note": "related to the powers-of-i cycle item (CLD-ACT-M-000069) but a different object"
+      }
+    },
+    {
+      "cand": "B019-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Absolute value equations with an extraneous branch",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "hard",
+      "stem": "What is the set of all real solutions of the equation |x − 4| = 2x + 1 ?",
+      "choices": {
+        "A": "{1}",
+        "B": "{−5}",
+        "C": "{−5, 1}",
+        "D": "The empty set"
+      },
+      "answer": "A",
+      "explanation": "Case 1: x − 4 = 2x + 1 gives x = −5, but then the right side is 2(−5) + 1 = −9, and an absolute value cannot equal a negative number, so −5 is rejected. Case 2: −(x − 4) = 2x + 1 gives 4 − x = 2x + 1, so x = 1; check: |1 − 4| = 3 and 2(1) + 1 = 3. The only solution is x = 1.",
+      "distractors": {
+        "B": {
+          "rationale": "−5 comes from the first case, but it makes the right side negative (−9), which an absolute value can never equal.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "These are the solutions of both cases before checking; −5 is extraneous.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "x = 1 does satisfy the equation, so the solution set is not empty.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Split into the two cases x − 4 = 2x + 1 and x − 4 = −(2x + 1).",
+        "Check each result in the original equation; the right side must not be negative."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 1: |−3| = 3 = 3. Test −5: |−9| = 9 but 2(−5) + 1 = −9. Only {1}."
+      },
+      "remember": "If the other side has a variable, check for extraneous solutions.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "case split plus rejection of an extraneous solution"
+      }
+    },
+    {
+      "cand": "B019-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Parallel lines and intercepts",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "medium",
+      "stem": "In the standard (x,y) coordinate plane, line m passes through the point (2, −1) and is parallel to the line 3x − y = 4. What is the x-intercept of line m ?",
+      "choices": {
+        "A": "−7",
+        "B": "1/3",
+        "C": "7/3",
+        "D": "4"
+      },
+      "answer": "C",
+      "explanation": "3x − y = 4 can be written y = 3x − 4, with slope 3. Line m: y − (−1) = 3(x − 2), so y = 3x − 7. Setting y = 0: 3x = 7, x = 7/3.",
+      "distractors": {
+        "A": {
+          "rationale": "−7 is the y-intercept of line m, not the x-intercept.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "This uses the perpendicular slope −1/3 instead of the parallel slope.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "4 relates to the given line 3x − y = 4, not to line m.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Parallel lines have equal slopes.",
+        "The x-intercept is where y = 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "y = 3x − 7; set y = 0 to get x = 7/3."
+      },
+      "remember": "Parallel: same slope. x-intercept: set y = 0.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "dup_note": "the bank has a perpendicular-line item (CLD-ACT-M-000034) with y-intercept; this uses parallel lines and the x-intercept"
+      }
+    },
+    {
+      "cand": "B019-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Sinusoidal models: time above a threshold",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The water depth, in meters, at a pier t hours after midnight is modeled by h(t) = 3 sin(πt/6) + 5 for 0 ≤ t ≤ 12. According to the model, for how many hours during this period is the depth greater than 6.5 meters?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "8"
+      },
+      "answer": "B",
+      "explanation": "h(t) > 6.5 means 3 sin(πt/6) > 1.5, so sin(πt/6) > 1/2. On 0 ≤ πt/6 ≤ 2π, sine exceeds 1/2 for π/6 < πt/6 < 5π/6, that is, 1 < t < 5. That is 4 hours.",
+      "distractors": {
+        "A": {
+          "rationale": "This finds only the time from t = 1 to the peak at t = 3, forgetting the symmetric time after the peak.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "6 hours is the time the depth is above the midline, 5 meters (0 < t < 6), not above 6.5 meters.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This counts the time the depth is NOT above 6.5 m within the 12-hour period.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Rewrite h(t) > 6.5 as an inequality about sin(πt/6).",
+        "For which angles between 0 and 2π is the sine greater than 1/2?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch one period (12 hours) peaking at t = 3; the depth exceeds 6.5 between t = 1 and t = 5."
+      },
+      "remember": "sin θ > 1/2 for π/6 < θ < 5π/6 in one cycle.",
+      "expected_time_seconds": 110,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "unit-circle reasoning inside a model; symmetric-interval traps"
+      }
+    },
+    {
+      "cand": "B019-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential model from two points",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "A population is modeled by P(t) = 200b^t, where t is in years and b is a positive constant. If P(3) = 1,600, what is the value of b ?",
+      "choices": {
+        "A": "2",
+        "B": "8/3",
+        "C": "3",
+        "D": "8"
+      },
+      "answer": "A",
+      "explanation": "200b³ = 1,600, so b³ = 8 and b = 2. Check: 200 × 2³ = 1,600.",
+      "distractors": {
+        "B": {
+          "rationale": "This divides 8 by 3 instead of taking the cube root.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This confuses the exponent 3 with the base b.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "8 is b³, not b.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Substitute t = 3 and P = 1,600.",
+        "After dividing by 200, take a cube root."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "b = 2: 200 × 8 = 1,600."
+      },
+      "remember": "Solve b^n = k with the nth root.",
+      "expected_time_seconds": 45,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B019-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of a triangle by decomposition in the plane",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "In the standard (x,y) coordinate plane, what is the area, in square units, of the triangle with vertices (1, 1), (5, 4) and (−2, 6) ?",
+      "choices": {
+        "A": "14.5",
+        "B": "20.5",
+        "C": "29",
+        "D": "35"
+      },
+      "answer": "A",
+      "explanation": "Enclose the triangle in the rectangle from x = −2 to 5 and y = 1 to 6: area 7 × 5 = 35. Subtract the three right triangles around it: (1/2)(4)(3) = 6 [between (1, 1) and (5, 4)], (1/2)(7)(2) = 7 [between (5, 4) and (−2, 6)], and (1/2)(3)(5) = 7.5 [between (−2, 6) and (1, 1)]. Area = 35 − 20.5 = 14.5.",
+      "distractors": {
+        "B": {
+          "rationale": "20.5 is the total area of the three corner triangles that are cut away, not the triangle itself.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "29 is twice the area (the shoelace sum before halving).",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "35 is the area of the enclosing rectangle.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "None of the sides is horizontal or vertical. Try enclosing the triangle in a rectangle.",
+        "Subtract the right triangles that lie inside the rectangle but outside the triangle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Box method: 35 − (6 + 7 + 7.5) = 14.5."
+      },
+      "remember": "Slanted triangle: enclose in a box and subtract corners.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "no side is on a grid line; requires decomposition",
+        "dup_note": "the bank's altitude item (CLD-ACT-M-000073) has a side on the x-axis; this does not"
+      }
+    },
+    {
+      "cand": "B019-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Interior angles of regular polygons",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "easy",
+      "stem": "What is the measure of each interior angle of a regular octagon?",
+      "choices": {
+        "A": "108°",
+        "B": "120°",
+        "C": "135°",
+        "D": "140°"
+      },
+      "answer": "C",
+      "explanation": "The interior angles of an n-sided polygon sum to (n − 2) × 180°. For an octagon, (8 − 2) × 180° = 1,080°, and each of the 8 equal angles is 1,080° ÷ 8 = 135°.",
+      "distractors": {
+        "A": {
+          "rationale": "108° is the interior angle of a regular pentagon.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "120° is the interior angle of a regular hexagon.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "140° is the interior angle of a regular nonagon (9 sides).",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many triangles can an octagon be split into from one vertex?",
+        "Divide the angle sum by 8."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Exterior angle 360° ÷ 8 = 45°, so the interior angle is 180° − 45° = 135°."
+      },
+      "remember": "Interior angle sum: (n − 2) × 180°.",
+      "expected_time_seconds": 35,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B019-09",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Union of independent events",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "Events A and B are independent. P(A) = 0.4 and P(A or B) = 0.7. What is P(B) ?",
+      "choices": {
+        "A": "0.28",
+        "B": "0.3",
+        "C": "0.5",
+        "D": "0.75"
+      },
+      "answer": "C",
+      "explanation": "P(A or B) = P(A) + P(B) − P(A and B), and for independent events P(A and B) = P(A)P(B). So 0.7 = 0.4 + p − 0.4p = 0.4 + 0.6p, giving 0.6p = 0.3 and p = 0.5.",
+      "distractors": {
+        "A": {
+          "rationale": "0.28 = 0.4 × 0.7 multiplies the two given probabilities, which is not P(B).",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This subtracts 0.4 from 0.7, ignoring the overlap P(A and B).",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This divides 0.3 by 0.4 instead of by 0.6.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Write P(A or B) using the addition rule.",
+        "For independent events, P(A and B) = P(A) × P(B)."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 0.5: 0.4 + 0.5 − 0.2 = 0.7. It works."
+      },
+      "remember": "P(A or B) = P(A) + P(B) − P(A and B).",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "addition rule plus independence, solved backward"
+      }
+    },
+    {
+      "cand": "B019-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Square-unit conversion",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "A floor tile has an area of 2.5 square meters. What is its area in square centimeters? (1 meter = 100 centimeters)",
+      "choices": {
+        "A": "250",
+        "B": "2,500",
+        "C": "25,000",
+        "D": "250,000"
+      },
+      "answer": "C",
+      "explanation": "1 square meter = 100 cm × 100 cm = 10,000 square centimeters. So 2.5 square meters = 2.5 × 10,000 = 25,000 square centimeters.",
+      "distractors": {
+        "A": {
+          "rationale": "This multiplies by 100, converting as if the units were lengths, not areas.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This multiplies by 1,000, which is neither the length factor nor the area factor.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This multiplies by 100,000, one zero too many.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many square centimeters are in one square meter?",
+        "Square the length conversion factor."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2.5 × 100² = 25,000."
+      },
+      "remember": "Area conversion uses the length factor squared.",
+      "expected_time_seconds": 35,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

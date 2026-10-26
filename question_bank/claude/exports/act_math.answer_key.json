@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 17,
+  "bank_version": 18,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -3024,6 +3024,186 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "The range clearly grows (rule out C); compute the means to rule out B and D."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000169",
+      "correct_answer": "D",
+      "explanation": "Multiply both sides by 2/n: 2S/n = a + l. Subtract a: l = 2S/n − a.",
+      "distractor_explanations": {
+        "A": "This multiplies S by 2 but divides only a by n.",
+        "B": "This subtracts a before undoing the multiplication by n/2, but a is inside the parentheses being multiplied.",
+        "C": "This treats n − a as a single factor, which mixes up the order of operations."
+      },
+      "hints": [
+        "Undo the multiplication by n/2 first.",
+        "Then isolate l inside the parentheses."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try n = 2, a = 1, l = 3: S = 4. Only 2S/n − a = 4 − 1 = 3 returns l."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000170",
+      "correct_answer": "D",
+      "explanation": "Factor: x² − 4 = (x − 2)(x + 2) and x² − 4x + 4 = (x − 2)². The product is [(x − 2)(x + 2)/(x − 2)²] · [(x − 2)/(x + 2)] = (x − 2)²(x + 2)/[(x − 2)²(x + 2)] = 1.",
+      "distractor_explanations": {
+        "A": "This simplifies the first fraction to (x + 2)/(x − 2) and then forgets to multiply by the second fraction.",
+        "B": "This is the second fraction alone; the first fraction does not simplify to 1.",
+        "C": "This factors x² − 4x + 4 as (x − 2)(x + 2), leaving an extra factor of x − 2."
+      },
+      "hints": [
+        "Factor every numerator and denominator completely.",
+        "Cancel common factors across the whole product."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 3: (5/1)(1/5) = 1. Let x = 4: (12/4)(2/6) = 1. Only D gives 1 both times."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000171",
+      "correct_answer": "D",
+      "explanation": "The rows have 20, 22, 24, …, seats; the 15th row has 20 + 14(2) = 48 seats. The total is the number of rows times the average of the first and last rows: 15 × (20 + 48)/2 = 15 × 34 = 510.",
+      "distractor_explanations": {
+        "A": "48 is the number of seats in the 15th row only.",
+        "B": "This multiplies 20 seats by 15 rows, ignoring the extra seats in later rows.",
+        "C": "This adds up only 14 rows (from 20 to 46 seats), one row short."
+      },
+      "hints": [
+        "How many seats are in the 15th row?",
+        "The average row has the average of the first and last rows' seats."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Last row 48; total = 15(20 + 48)/2 = 510."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000172",
+      "correct_answer": "A",
+      "explanation": "f(x + 1) − f(x) = 3^(x + 1) − 3^x = 3 · 3^x − 3^x = (3 − 1)3^x = 2 · 3^x.",
+      "distractor_explanations": {
+        "B": "This treats the exponential like a linear function with a constant difference.",
+        "C": "This subtracts the exponents, (x + 1) − x = 1, instead of the values.",
+        "D": "3^(x + 1) is f(x + 1) alone; f(x) was not subtracted."
+      },
+      "hints": [
+        "Write 3^(x + 1) as 3 · 3^x.",
+        "Factor out 3^x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 0: 3 − 1 = 2 = 2 · 3⁰; x = 1: 9 − 3 = 6 = 2 · 3¹. Only A matches both."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000173",
+      "correct_answer": "A",
+      "explanation": "The water rises by the sphere's volume divided by the cylinder's cross-sectional area. Sphere: (4/3)π(27) = 36π cm³. Cross-section: π(6²) = 36π cm². Rise = 36π ÷ 36π = 1 cm.",
+      "distractor_explanations": {
+        "B": "3 is the sphere's radius, not the rise in water level.",
+        "C": "This divides by π(3²) = 9π, using the sphere's radius for the cylinder's cross-section.",
+        "D": "6 is the sphere's diameter; the water rises far less because the cylinder is wide."
+      },
+      "hints": [
+        "The water rises by a volume equal to the sphere's volume.",
+        "Divide that volume by the area of the cylinder's circular base."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "36π ÷ 36π = 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000174",
+      "correct_answer": "D",
+      "explanation": "The sides of a 30°-60°-90° triangle are in the ratio 1 : √3 : 2. The hypotenuse is 10, so the shorter leg (opposite 30°) is 5 and the longer leg (opposite 60°) is 5√3 ≈ 8.66.",
+      "distractor_explanations": {
+        "A": "5 is the side opposite the 30° angle.",
+        "B": "This divides 10 by √3 instead of multiplying the short leg by √3.",
+        "C": "5√2 belongs to a 45°-45°-90° triangle with hypotenuse 10."
+      },
+      "hints": [
+        "The side opposite 30° is half the hypotenuse.",
+        "The side opposite 60° is √3 times the side opposite 30°."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Short leg 5; long leg 5√3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000175",
+      "correct_answer": "C",
+      "explanation": "The new radius is 1.5r, so the new area is π(1.5r)² = 2.25πr². The area is multiplied by 2.25, an increase of 125%.",
+      "distractor_explanations": {
+        "A": "This assumes area changes by the same percent as the radius.",
+        "B": "This doubles the 50% instead of squaring the factor 1.5.",
+        "D": "225% is the new area as a percent of the old area, not the increase."
+      },
+      "hints": [
+        "Write the new radius as a multiple of the old one.",
+        "Area depends on the square of the radius; then subtract the original 100%."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "r = 2 → area 4π; r = 3 → area 9π; increase 5π is 125% of 4π."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000176",
+      "correct_answer": "D",
+      "explanation": "Make the nickel parts match: 2:3 = 8:12 and 4:5 = 12:15, so pennies : nickels : dimes = 8 : 12 : 15, a total of 35 parts. Each part is 210 ÷ 35 = 6 coins, so there are 15 × 6 = 90 dimes.",
+      "distractor_explanations": {
+        "A": "This splits 210 coins equally among the three kinds.",
+        "B": "72 is the number of nickels (12 parts × 6), not dimes.",
+        "C": "This strings the ratios together as 2 : 3 : 5 without making the nickel numbers match (3 and 4), giving 210 × 5/14 = 75."
+      },
+      "hints": [
+        "The nickels appear in both ratios; rewrite both ratios so the nickel number is the same.",
+        "Then find the value of one part."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "8 : 12 : 15 = 35 parts; 210/35 = 6; dimes = 90."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000177",
+      "correct_answer": "A",
+      "explanation": "Compound: 2,000(1.05)³ = 2,000(1.157625) = $2,315.25, so the interest is $315.25. Simple: 2,000 × 0.05 × 3 = $300.00. The difference is $15.25.",
+      "distractor_explanations": {
+        "B": "$100.00 is one year of simple interest.",
+        "C": "$300.00 is the simple interest itself, not the difference.",
+        "D": "$315.25 is the compound interest itself, not the difference."
+      },
+      "hints": [
+        "Compute the compound interest and the simple interest separately.",
+        "The question asks for the difference between them."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "315.25 − 300.00 = 15.25."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000178",
+      "correct_answer": "D",
+      "explanation": "Each person owns only one kind of pet, so dog owners and bird owners do not overlap: 18 + 6 = 24 people. The probability is 24/40 = 3/5.",
+      "distractor_explanations": {
+        "A": "3/20 = 6/40 counts only bird owners.",
+        "B": "9/20 = 18/40 counts only dog owners.",
+        "C": "This assumes two of the four categories make half; the categories have different sizes."
+      },
+      "hints": [
+        "How many people own a dog or a bird?",
+        "Divide by the total number surveyed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(18 + 6)/40 = 24/40."
       }
     }
   ]
