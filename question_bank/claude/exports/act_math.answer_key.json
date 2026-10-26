@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 7,
+  "bank_version": 8,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -1224,6 +1224,186 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Times: 1.5 h and 0.5 h. 24 km ÷ 2 h = 12 km/h."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000069",
+      "correct_answer": "D",
+      "explanation": "Powers of i repeat in a cycle of 4: i, −1, −i, 1, and each full cycle sums to 0. The 50 terms contain 12 full cycles (48 terms), which sum to 0, followed by i⁴⁹ = i and i⁵⁰ = −1. So the sum is i + (−1) = −1 + i.",
+      "distractor_explanations": {
+        "A": "This assumes the terms cancel completely, but 50 is not a multiple of 4; two terms are left over.",
+        "B": "−1 is the last term, i⁵⁰, not the sum of all the terms.",
+        "C": "This stops after i⁴⁹, leaving out the final term i⁵⁰ = −1."
+      },
+      "hints": [
+        "Write out i, i², i³ and i⁴. What do these four add up to?",
+        "How many complete groups of 4 are there in 50 terms, and which terms are left over?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Each block of four powers sums to 0; after 48 terms, add the leftover i⁴⁹ + i⁵⁰ = i − 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000070",
+      "correct_answer": "B",
+      "explanation": "By the remainder theorem, the remainder on division by x − 2 is p(2): 8 + 4k − 8 + 6 = 4k + 6 = 18, so k = 3. The remainder on division by x + 1 is p(−1) = (−1)³ + 3(−1)² − 4(−1) + 6 = −1 + 3 + 4 + 6 = 12.",
+      "distractor_explanations": {
+        "A": "6 is the constant term, which would be the remainder on division by x, not by x + 1.",
+        "C": "This evaluates (−1)³ as +1: 1 + 3 + 4 + 6 = 14.",
+        "D": "This assumes the remainder is the same for every divisor; the remainder depends on where the polynomial is evaluated."
+      },
+      "hints": [
+        "The remainder when p(x) is divided by x − a equals p(a).",
+        "Use the first fact to find k, then evaluate p at the right value for x + 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "p(2) = 18 gives k = 3; then p(−1) = 12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000071",
+      "correct_answer": "D",
+      "explanation": "Because π < θ < 3π/2, θ is in Quadrant III, where cosine is negative. From sin²θ + cos²θ = 1, cos²θ = 1 − 9/25 = 16/25, so cos θ = −4/5. Then sin(2θ) = 2(−3/5)(−4/5) = 24/25.",
+      "distractor_explanations": {
+        "A": "This takes cos θ = +4/5, ignoring that cosine is negative in Quadrant III.",
+        "B": "This doubles sin θ, as if sin(2θ) were 2 sin θ; the factor cos θ is missing.",
+        "C": "7/25 is cos(2θ) = 1 − 2 sin²θ, not sin(2θ)."
+      },
+      "hints": [
+        "Use sin²θ + cos²θ = 1 to find the size of cos θ.",
+        "In which quadrant is θ, and what sign does cosine have there?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch a 3-4-5 reference triangle in Quadrant III: both sine and cosine are negative, so their product is positive."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000072",
+      "correct_answer": "D",
+      "explanation": "Check each x. x = 1: f(g(1)) = f(2) = 4 and g(f(1)) = g(3) = 4. x = 2: f(1) = 3 and g(4) = 3. x = 3: f(4) = 2 and g(1) = 2. x = 4: f(3) = 1 and g(2) = 1. The two compositions agree for all 4 values.",
+      "distractor_explanations": {
+        "A": "This assumes composition never commutes; here it happens to agree everywhere, which must be checked rather than assumed.",
+        "B": "1 results from checking only x = 1 and stopping, or from misreading table entries so that three of the four cases appear to fail; computed correctly, every case agrees.",
+        "C": "2 results from reading the f row where the g row is needed (or the reverse) in some cases; each of the four cases agrees when both compositions are computed from the inside out."
+      },
+      "hints": [
+        "For each x, work from the inside out on both sides.",
+        "Read the inner function's row first, then use that output as the input of the outer function."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compute both compositions for x = 1 to 4 in a small table; all four match."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000073",
+      "correct_answer": "B",
+      "explanation": "Using base PQ = 8 on the x-axis and height 6 (the y-coordinate of R), the area is (1/2)(8)(6) = 24. Side PR has length √(2² + 6²) = √40 = 2√10. If h is the altitude from Q to PR, then (1/2)(2√10)h = 24, so h = 24/√10 = 12√10/5 ≈ 7.6.",
+      "distractor_explanations": {
+        "A": "6 is the altitude from R to side PQ, not the altitude from Q to side PR.",
+        "C": "2√10 is the length of side PR itself, not the altitude to it.",
+        "D": "8 is the length of side PQ, the distance from Q to P, which is not perpendicular to PR."
+      },
+      "hints": [
+        "Find the area of the triangle using the side on the x-axis.",
+        "Write the area again using PR as the base, and solve for the height."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Area = 24 from base PQ; then 24 = (1/2)(PR)(h) with PR = 2√10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000074",
+      "correct_answer": "A",
+      "explanation": "For a cube with edge s, the face diagonal is s√2, and the space diagonal is √(s² + (s√2)²) = √(3s²) = s√3. So s√3 = 6√3 gives s = 6, and the volume is 6³ = 216 cubic centimeters.",
+      "distractor_explanations": {
+        "B": "This finds s = 6 but then multiplies the volume by √3, carrying the diagonal's factor into the volume.",
+        "C": "This uses the face diagonal formula s√2 = 6√3, giving s = 3√6 and volume 162√6.",
+        "D": "This treats 6√3 as the edge length: (6√3)³ = 648√3."
+      },
+      "hints": [
+        "Relate the space diagonal to the edge length using the Pythagorean theorem twice.",
+        "Once you know the edge, cube it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Space diagonal = s√3; so s = 6 and V = 216."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000075",
+      "correct_answer": "D",
+      "explanation": "Given a sum of 8, the equally likely outcomes are (2, 6), (3, 5), (4, 4), (5, 3) and (6, 2): 5 outcomes. Two of them include a 6. The probability is 2/5.",
+      "distractor_explanations": {
+        "A": "1/18 = 2/36 is the probability of rolling a sum of 8 AND a 6, measured out of all 36 outcomes rather than the 5 that sum to 8.",
+        "B": "5/36 is the probability that the sum is 8, the condition itself.",
+        "C": "11/36 is the probability of at least one 6 without using the condition."
+      },
+      "hints": [
+        "'Given that' shrinks the set of possible outcomes.",
+        "List every ordered pair of dice that sums to 8."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List the 5 ordered pairs with sum 8 and count those containing a 6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000076",
+      "correct_answer": "A",
+      "explanation": "Multiplying every value by 3 multiplies both the mean and the standard deviation by 3: mean 36, standard deviation 12. Adding 5 to every value shifts the mean to 41 but does not change the spread, so the standard deviation stays 12.",
+      "distractor_explanations": {
+        "B": "This adds 5 to the standard deviation; shifting every value by the same amount does not change spread.",
+        "C": "This forgets to add 5 to the mean.",
+        "D": "This leaves the standard deviation unchanged, but multiplying by 3 triples the spread."
+      },
+      "hints": [
+        "How does multiplying every value by 3 change the spread?",
+        "How does adding the same number to every value change the spread?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try the data set {8, 16} (mean 12, SD 4): it becomes {29, 53}, with mean 41 and SD 12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000077",
+      "correct_answer": "C",
+      "explanation": "The amount of salt stays the same: 0.15 × 40 = 6 liters. After evaporation, 6 liters is 25% of the solution, so the solution is 6 ÷ 0.25 = 24 liters. The water that evaporated is 40 − 24 = 16 liters.",
+      "distractor_explanations": {
+        "A": "This takes 10 percentage points of 40 liters (0.10 × 40 = 4); the salt amount, not the percent, stays fixed.",
+        "B": "10 liters is 25% of the original 40 liters; the final volume is not 40 liters.",
+        "D": "24 liters is the volume remaining after evaporation, not the amount that evaporated."
+      },
+      "hints": [
+        "Which quantity does not change when water evaporates?",
+        "Find the new total volume, then compare it with 40 liters."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Salt = 6 L; 6 = 0.25V gives V = 24; evaporated = 16."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000078",
+      "correct_answer": "C",
+      "explanation": "By 9:30 Ana has walked 4 × 0.5 = 2 miles. Ben closes the gap at 10 − 4 = 6 miles per hour, so he needs 2 ÷ 6 = 1/3 hour = 20 minutes. He catches Ana at 9:50 a.m. (Check: both have gone 3 1/3 miles.)",
+      "distractor_explanations": {
+        "A": "This adds the speeds (2 ÷ 14 hour ≈ 9 minutes), which applies to people moving toward each other, not in the same direction.",
+        "B": "This finds when Ben reaches Ana's 9:30 position (2 ÷ 10 hour = 12 minutes), ignoring that Ana keeps walking.",
+        "D": "This assumes Ben needs as long as Ana's 30-minute head start."
+      },
+      "hints": [
+        "How far ahead is Ana when Ben starts?",
+        "How fast does the gap between them shrink?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 9:50: Ana has walked 50 minutes (3 1/3 mi) and Ben has biked 20 minutes (3 1/3 mi). They meet."
       }
     }
   ]

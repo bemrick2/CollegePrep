@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 8},
+ "answers": {
+  "B008-01": {"answer": "D", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "Powers of i cycle with period 4 and sum to 0; i^1..i^48 = 0, leaving i^49 + i^50 = i - 1. Trap: A (0) for assuming whole cycles."},
+  "B008-02": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "p(2) = 4k + 6 = 18 so k = 3; p(-1) = -1 + 3 + 4 + 6 = 12."},
+  "B008-03": {"answer": "D", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": ["minor: the parenthetical identity hint makes this easier than a typical ACT double-angle item"], "notes": "Quadrant III so cos = -4/5; sin 2θ = 2(-3/5)(-4/5) = 24/25. Trap: A if the cosine sign is taken as positive."},
+  "B008-04": {"answer": "D", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": ["minor: the table is given as inline text lists; render it as a real table"], "notes": "f(g(x)) = 4,3,2,1 and g(f(x)) = 4,3,2,1 for x = 1..4; all 4 match."},
+  "B008-05": {"answer": "B", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "Area = 24; PR = 2√10; altitude = 48/(2√10) = 24/√10 = 12√10/5. Equivalently, the distance from (8,0) to 3x - y = 0. Trap: A (6), the altitude from R."},
+  "B008-06": {"answer": "A", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Space diagonal s√3 = 6√3, so s = 6 and V = 216."},
+  "B008-07": {"answer": "D", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "Sum 8 has 5 outcomes: (2,6),(3,5),(4,4),(5,3),(6,2). 2 contain a 6, so 2/5. Trap: A (1/18), the unconditional probability."},
+  "B008-08": {"answer": "A", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "Mean 3(12) + 5 = 41; SD 3(4) = 12, since adding a constant does not change spread. Trap: B (17)."},
+  "B008-09": {"answer": "C", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Salt = 6 L; 6/0.25 = 24 L remains; 40 - 24 = 16 L evaporated. Trap: D (24), the remaining volume."},
+  "B008-10": {"answer": "C", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Ana is 2 mi ahead at 9:30; closing rate 6 mph gives 1/3 h = 20 min, so 9:50."}
+ }}

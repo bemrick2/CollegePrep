@@ -53,6 +53,12 @@ Read `progress.json`:
 7. **Checkpoint.** Run `qb.py lock checkpoint <HOLDER> "question bank: <bank> batch NNN (<n> accepted total)"`. This commits, renews the lease and pushes.
 8. **Continue** straight to the next batch. Do not wait for approval.
 
+**Difficulty calibration.** Ratings vary a lot from one blind-solver instance to another. In batches 6–8, items of similar depth were rated 25–38% correct by one solver and 40–55% by another. So:
+
+- Treat each batch's rating as **provisional**.
+- At every 100-item audit, have a single rater re-rate the **whole bank** with the rubric in one sitting (answer-free packet, chunks of about 50 if needed). Store the result as `calibration/<bank>_rater_<date>.json` and merge it into `calibration/<bank>.json`.
+- The re-rated labels drive targeting and the import difficulty. Accepted records stay unchanged.
+
 At every 100 accepted items in a bank, `review` records an automatic audit in `progress.json`. Read it, act on what it finds (duplicates, answer-letter balance, difficulty, thin explanations), and add a written summary to `progress.json` `audits` at the next checkpoint.
 
 ### Blind-solver prompt (use verbatim, with the paths filled in)
