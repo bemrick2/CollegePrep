@@ -1,0 +1,460 @@
+{
+ "bank": "act_math",
+ "batch": 55,
+ "plan": "3 hard (no-solution system, overflow volume, round-trip average speed) / 4 medium / 3 easy.",
+ "candidates": [
+  {
+   "cand": "B055-01",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Unit rate from a bundle price",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A store sells 3 notebooks for $4.50. At this rate, how much do 8 notebooks cost?",
+   "choices": {
+    "A": "$9.00",
+    "B": "$12.00",
+    "C": "$13.50",
+    "D": "$36.00"
+   },
+   "answer": "B",
+   "explanation": "One notebook costs $4.50 ÷ 3 = $1.50, so 8 notebooks cost 8 × $1.50 = $12.00.",
+   "distractors": {
+    "A": {
+     "rationale": "$9.00 doubles the price of 3 notebooks, which buys only 6.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$13.50 triples the price of 3 notebooks, which buys 9.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$36.00 multiplies the bundle price by 8 instead of the single-notebook price.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does one notebook cost?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the unit price first."
+   },
+   "remember": "Find the price of one, then multiply.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Supplementary angles in a given ratio",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "Two angles are supplementary, and the measure of one angle is 4 times the measure of the other. What is the measure of the larger angle?",
+   "choices": {
+    "A": "36°",
+    "B": "72°",
+    "C": "108°",
+    "D": "144°"
+   },
+   "answer": "D",
+   "explanation": "Let the smaller angle be x. Then x + 4x = 180, so x = 36 and the larger angle is 4 × 36 = 144°.",
+   "distractors": {
+    "A": {
+     "rationale": "36° is the smaller angle.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "72° is the larger angle for complementary angles (sum 90°).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "108° = 180° − 72° mixes the complementary result with the supplementary total.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What do supplementary angles add up to?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "x + 4x = 180."
+   },
+   "remember": "Supplementary angles sum to 180°; complementary angles sum to 90°.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Slope from standard form",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "What is the slope of the line with equation 3x − 4y = 12 ?",
+   "choices": {
+    "A": "−3",
+    "B": "−3/4",
+    "C": "3/4",
+    "D": "4/3"
+   },
+   "answer": "C",
+   "explanation": "Solve for y: −4y = −3x + 12, so y = (3/4)x − 3. The slope is 3/4.",
+   "distractors": {
+    "A": {
+     "rationale": "−3 is the y-intercept.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "−3/4 drops the sign change when dividing by −4.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "4/3 inverts the slope.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Solve the equation for y."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite in y = mx + b form."
+   },
+   "remember": "For Ax + By = C, the slope is −A/B.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Probability of two draws without replacement",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "Five cards are numbered 1 through 5. Two cards are drawn at random without replacement. What is the probability that both cards show even numbers?",
+   "choices": {
+    "A": "1/25",
+    "B": "1/20",
+    "C": "1/10",
+    "D": "4/25"
+   },
+   "answer": "C",
+   "explanation": "The first card is even with probability 2/5. Then 1 even card remains among 4, so the probability is (2/5)(1/4) = 2/20 = 1/10.",
+   "distractors": {
+    "A": {
+     "rationale": "1/25 multiplies 1/5 by 1/5, as if only one card were even.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1/20 is the probability of one particular ordered pair, such as 2 then 4.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4/25 = (2/5)(2/5) treats the draws as made with replacement.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "After an even card is drawn, how many even cards remain?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the probabilities for each draw."
+   },
+   "remember": "Without replacement, the second probability changes.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Sum of solutions of a squared equation",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "What is the sum of all values of x that satisfy (x + 3)² = 49 ?",
+   "choices": {
+    "A": "−6",
+    "B": "0",
+    "C": "4",
+    "D": "46"
+   },
+   "answer": "A",
+   "explanation": "x + 3 = 7 or x + 3 = −7, so x = 4 or x = −10. Their sum is −6.",
+   "distractors": {
+    "B": {
+     "rationale": "0 assumes the two solutions are opposites, as they would be for x² = 49.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4 is only the positive solution; it ignores x + 3 = −7.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "46 subtracts 3 from 49 without taking a square root.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "A square equals 49 when the base is 7 or −7."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set x + 3 = ±7."
+   },
+   "remember": "Taking a square root gives two cases: positive and negative.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Point on a circle from its equation",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Which of the following points lies on the circle with equation (x − 2)² + (y + 1)² = 25 ?",
+   "choices": {
+    "A": "(−3, 4)",
+    "B": "(−2, 1)",
+    "C": "(2, −1)",
+    "D": "(5, 3)"
+   },
+   "answer": "D",
+   "explanation": "For (5, 3): (5 − 2)² + (3 + 1)² = 9 + 16 = 25, so the point is on the circle.",
+   "distractors": {
+    "A": {
+     "rationale": "(−3 − 2)² + (4 + 1)² = 50, which is not 25.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "(−2 − 2)² + (1 + 1)² = 20, which is not 25.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "(2, −1) is the center, not a point on the circle.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Substitute each point into the equation."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each point."
+   },
+   "remember": "A point is on a circle when it satisfies the circle's equation.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Adding radicals after simplifying",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Which of the following is equal to √50 + √18 ?",
+   "choices": {
+    "A": "2√17",
+    "B": "8√2",
+    "C": "15√2",
+    "D": "68"
+   },
+   "answer": "B",
+   "explanation": "√50 = 5√2 and √18 = 3√2, so the sum is 8√2.",
+   "distractors": {
+    "A": {
+     "rationale": "2√17 = √68 adds the numbers under the radicals.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "15√2 multiplies the coefficients 5 and 3 instead of adding them.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "68 adds the radicands and drops the radical.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Simplify each radical first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor out perfect squares: 25 · 2 and 9 · 2."
+   },
+   "remember": "Only like radicals can be added.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B055-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "System with no solution",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "For what value of k does the system of equations kx + 2y = 5 and 3x + 6y = 7 have no solution?",
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "6"
+   },
+   "answer": "A",
+   "explanation": "No solution requires parallel lines: equal slopes and different intercepts. The slopes are −k/2 and −3/6 = −1/2, so k = 1. Then the equations are x + 2y = 5 and x + 2y = 7/3, which are parallel and distinct.",
+   "distractors": {
+    "B": {
+     "rationale": "2 matches the y-coefficient of the first equation, not the slope condition.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "3 copies the x-coefficient of the second equation without scaling for the y-coefficients.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6 copies the second equation's y-coefficient.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "When does a system of two lines have no solution?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the slopes equal: −k/2 = −1/2."
+   },
+   "remember": "No solution means parallel lines: same slope, different intercepts.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must translate 'no solution' into a slope condition and scale the coefficients; matching coefficients (3) is the common error."
+   }
+  },
+  {
+   "cand": "B055-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Overflow from a submerged sphere",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "A cylindrical glass with radius 3 centimeters and height 10 centimeters is filled with water to a height of 8 centimeters. A solid metal ball with radius 3 centimeters is dropped into the glass and sinks to the bottom. How many cubic centimeters of water overflow?",
+   "choices": {
+    "A": "0",
+    "B": "9π",
+    "C": "18π",
+    "D": "36π"
+   },
+   "answer": "C",
+   "explanation": "The water's volume is π(3²)(8) = 72π. The ball's volume is (4/3)π(3³) = 36π. Together they need 108π, but the glass holds π(3²)(10) = 90π, so 108π − 90π = 18π overflows.",
+   "distractors": {
+    "A": {
+     "rationale": "0 assumes the empty 2 cm at the top (18π) holds the ball's whole volume.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "9π is the volume of just 1 cm of the glass's height.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "36π is the ball's entire volume, ignoring the empty space at the top.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How much empty space is above the water before the ball goes in?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Overflow = water + ball − capacity."
+   },
+   "remember": "Displaced volume first fills empty space, then overflows.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must combine sphere and cylinder volumes and account for the empty space above the water; the full ball volume (36π) is the common answer."
+   }
+  },
+  {
+   "cand": "B055-10",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Average speed for a round trip",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "A driver travels from Town A to Town B at an average speed of 60 miles per hour and returns along the same road at an average speed of 40 miles per hour. What is the driver's average speed for the entire round trip, in miles per hour?",
+   "choices": {
+    "A": "45",
+    "B": "48",
+    "C": "50",
+    "D": "52"
+   },
+   "answer": "B",
+   "explanation": "Let the one-way distance be d. The total time is d/60 + d/40 = d/24 hours, and the total distance is 2d, so the average speed is 2d ÷ (d/24) = 48 miles per hour.",
+   "distractors": {
+    "A": {
+     "rationale": "45 has no basis in the setup; it may come from guessing a value below 50.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "50 averages the two speeds, ignoring that more time is spent at 40 mph.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "52 weights the faster speed more heavily, the reverse of what happens.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is more time spent going 60 mph or going 40 mph?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Pick a distance such as 120 miles each way."
+   },
+   "remember": "Average speed = total distance ÷ total time, not the average of the speeds.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The intuitive answer 50 is wrong because the slower leg takes longer; the student must compute total distance over total time."
+   }
+  }
+ ]
+}
