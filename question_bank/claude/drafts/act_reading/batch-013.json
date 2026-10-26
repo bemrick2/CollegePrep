@@ -13,54 +13,6 @@
  ],
  "candidates": [
   {
-   "cand": "R013-01",
-   "passage_id": "CLD-P-ACT-R-000013",
-   "reporting_category": "Key Ideas and Details",
-   "skill": "Key Ideas and Details",
-   "subskill": "Central claim of a passage",
-   "repo_skill_key": "act_main_idea",
-   "difficulty": "medium",
-   "stem": "The main purpose of the passage is to argue that mast years are best explained by:",
-   "choices": {
-    "A": "seed predators alone, since weather has little real effect on crop size.",
-    "B": "several factors acting together, with weather often setting the timing.",
-    "C": "the need of wind-pollinated trees to improve the efficiency of pollination.",
-    "D": "the quality of each tree's growing season, as earlier ecologists believed."
-   },
-   "answer": "B",
-   "evidence": "a division of labor between them",
-   "explanation": "The final paragraph sums up: stored resources, weather as a timing cue, and the benefits of predator satiation and pollination together explain masting.",
-   "distractors": {
-    "A": {
-     "rationale": "The author says weather \"does affect seed production\" and gives it a role in timing.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "Pollination is one of several factors, not the whole explanation.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "The author calls this view incomplete and argues against relying on it alone.",
-     "trap": null
-    }
-   },
-   "hints": [
-    "Read the final paragraph: how many factors does it name?"
-   ],
-   "strategy": {
-    "key": "predict_then_match",
-    "explanation": "Summarize the conclusion before reading the choices."
-   },
-   "remember": "A main claim usually appears in summary form near the end.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced"
-   }
-  },
-  {
    "cand": "R013-02",
    "passage_id": "CLD-P-ACT-R-000013",
    "reporting_category": "Integration of Knowledge and Ideas",
@@ -446,6 +398,60 @@
     "solved_independently": true,
     "single_correct": true,
     "choice_lengths": "balanced"
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "R013-01",
+   "reason": "Both blind solvers flagged that its key (several factors, weather sets the timing) restates the answers to R013-02 and R013-09. Per the anti-tell checklist, the hub of the overlapping set is withdrawn after the blind solve and before review.",
+   "item": {
+    "cand": "R013-01",
+    "passage_id": "CLD-P-ACT-R-000013",
+    "reporting_category": "Key Ideas and Details",
+    "skill": "Key Ideas and Details",
+    "subskill": "Central claim of a passage",
+    "repo_skill_key": "act_main_idea",
+    "difficulty": "medium",
+    "stem": "The main purpose of the passage is to argue that mast years are best explained by:",
+    "choices": {
+     "A": "seed predators alone, since weather has little real effect on crop size.",
+     "B": "several factors acting together, with weather often setting the timing.",
+     "C": "the need of wind-pollinated trees to improve the efficiency of pollination.",
+     "D": "the quality of each tree's growing season, as earlier ecologists believed."
+    },
+    "answer": "B",
+    "evidence": "a division of labor between them",
+    "explanation": "The final paragraph sums up: stored resources, weather as a timing cue, and the benefits of predator satiation and pollination together explain masting.",
+    "distractors": {
+     "A": {
+      "rationale": "The author says weather \"does affect seed production\" and gives it a role in timing.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "Pollination is one of several factors, not the whole explanation.",
+      "trap": "partial_answer"
+     },
+     "D": {
+      "rationale": "The author calls this view incomplete and argues against relying on it alone.",
+      "trap": null
+     }
+    },
+    "hints": [
+     "Read the final paragraph: how many factors does it name?"
+    ],
+    "strategy": {
+     "key": "predict_then_match",
+     "explanation": "Summarize the conclusion before reading the choices."
+    },
+    "remember": "A main claim usually appears in summary form near the end.",
+    "expected_time_seconds": 60,
+    "modeling": false,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "choice_lengths": "balanced"
+    }
    }
   }
  ]
