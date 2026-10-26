@@ -838,6 +838,60 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "15d5526831f88b58": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "15d5526831f88b58",
+   "reason": "LIU Tuition & Fees page: the table labelled \"2026-2027\" / \"Annual Undergraduate Tuition\" prints Undergraduate Tuition (24-36 credits) $41,874, Full-Time University Fee $2,116, University Dining Dollars $150, Standard Double Room $12,384, Residential Meal Plan One $6,554, Student Health Insurance $2,158, copied as printed (the per-credit row is excluded). Annual, undergraduate, private (residency not applicable); no total printed, none computed. Open issue conflicting_sources accepted: the other source is LIU's NYS aid page, whose 2026-27 undergraduate COA is a different table (rejected below to keep one record per key). Conflict stated: LIU's NYS aid page prints 2026-27 undergraduate \"Tuition and fees\" $44,139, while this bursar table gives tuition $41,874 plus Full-Time University Fee $2,116 = $43,990 (the $150 dining dollars would make $44,140); the bursar table's printed rows are recorded and no combined tuition-and-fees figure is stored."
+  },
+  "evidence": [
+   {
+    "field": "column:Undergraduate Tuition (24-36 credits)",
+    "snippet": "Undergraduate Tuition (24-36 credits) | $41,874",
+    "value": 41874
+   },
+   {
+    "field": "column:Full-Time University Fee",
+    "snippet": "Full-Time University Fee | $2,116",
+    "value": 2116
+   },
+   {
+    "field": "column:University Dining Dollars",
+    "snippet": "University Dining Dollars | $150",
+    "value": 150
+   },
+   {
+    "field": "column:Standard Double Room",
+    "snippet": "Standard Double Room | $12,384",
+    "value": 12384
+   },
+   {
+    "field": "column:Residential Meal Plan One (Unlimited Meals)",
+    "snippet": "Residential Meal Plan One (Unlimited Meals) | $6,554",
+    "value": 6554
+   },
+   {
+    "field": "column:Student Health Insurance",
+    "snippet": "Student Health Insurance | $2,158",
+    "value": 2158
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "conflicting_sources:https://www.liu.edu/registration-and-financial-aid/financial-aid/nys-financial-aid-award-information"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T18:04:58+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "ae73a642d04a4043df70.json.gz",
+   "requested_url": "https://www.liu.edu/registration-and-financial-aid/tuition-fees",
+   "sha256": "ae73a642d04a4043df70e9cbbd50c9999f6463698d7ecd3a5924e6df84f593ca",
+   "title": "Tuition & Fees | Long Island University",
+   "url": "https://www.liu.edu/registration-and-financial-aid/tuition-fees"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "160a4f7c7931f63a": {
   "decision": {
    "candidate_id": "160a4f7c7931f63a",
@@ -8381,6 +8435,50 @@
    "sha256": "5a2f174cbcc5e7815c95f813498ad0e235afe085416c02784250fa42540c393d",
    "title": "Undergraduate Scholarships & Grants | Niagara University",
    "url": "https://www.niagara.edu/tuition-aid/scholarships-grants/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "d37b06b9b029d125": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "d37b06b9b029d125",
+   "reason": "CIA table under heading \"2026–2027 Tuition Information\", titled \"Tuition and Fees—Associate and Bachelor’s Degree Programs\" for the Hyde Park, NY campus (effective July 1, 2026): Tuition $19,755, Board/Meal Plan—Residential $2,595, General Fee $885, \"Total per Semester\" $23,235, copied as printed. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. Private, residency not applicable. The St. Helena, Napa and San Antonio campus tables were not used."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition*",
+    "snippet": "Tuition* | $19,755",
+    "value": 19755
+   },
+   {
+    "field": "column:Board/Meal Plan—Residential**#",
+    "snippet": "Board/Meal Plan—Residential**# | $2,595",
+    "value": 2595
+   },
+   {
+    "field": "column:General Fee+",
+    "snippet": "General Fee+ | $885",
+    "value": 885
+   },
+   {
+    "field": "column:Total per Semester",
+    "snippet": "Total per Semester | $23,235",
+    "value": 23235
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "cost_period_semester"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T17:24:58+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "af59b05273c29609cb1b.json.gz",
+   "requested_url": "https://www.ciachef.edu/cia-tuition/",
+   "sha256": "af59b05273c29609cb1b6b2b41ddacd902ab052ccb2912b4ab837a1b76fc445e",
+   "title": "CIA Tuition and Fees | Culinary Institute of America",
+   "url": "https://www.ciachef.edu/cia-tuition/"
   },
   "year_basis": "labeled_in_source"
  },

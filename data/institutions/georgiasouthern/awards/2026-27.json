@@ -24,11 +24,12 @@
       ],
       "award_type": "institutional_merit",
       "gpa_requirement": "Tiered by Calculated Admissions GPA: 4.00 + → $1000; 3.80 – 3.99 → $750; 3.50 – 3.79 → $500",
-      "last_verified_at": "2026-10-03",
-      "notes": "Extracted by merit_table/v1 from the table \"Merit-Based Aid \"; cells copied as printed. Reviewed 2026-10-03: GPA tiers and amounts checked against the merit table; the amount column says one-time, recorded as not renewable. Evidence: sources/pipeline/GA/2026-10-03/evidence.json#236dceaff67f2ce3.",
+      "last_verified_at": "2026-10-23",
+      "notes": "Extracted by merit_table/v1 from the table \"Merit-Based Aid \"; cells copied as printed. Reviewed 2026-10-03: GPA tiers and amounts checked against the merit table; the amount column says one-time, recorded as not renewable. Evidence: sources/pipeline/GA/2026-10-03/evidence.json#236dceaff67f2ce3. Corrected 2026-10-23 (owner-approved): Wrong academic year and missing conditions: the official page (georgiasouthern.edu Scholarships, archived 2026-10-03) prints these as \"Fall 2027 Award Tiers\" under \"First-Year Merit Scholarships (Fall 2027)\", with \"Eligible Term: Fall 2027 entry only\" and \"Residency Requirement: Georgia residents only (in-state tuition status required)\", so they are 2027-28 awards for Georgia residents, not 2026-27 awards for everyone; the stored amount text was the column header. Superseded, not deleted: the corrected record is data/institutions/georgiasouthern/awards/2027-28.json.",
       "renewable": false,
       "source_url": "https://www.georgiasouthern.edu/admissions-aid/tuition-and-scholarships/types-of-aid/scholarships",
-      "verification_status": "partially_verified"
+      "verification_status": "unverified",
+      "verification_correction_reason": "Wrong academic year and missing conditions: the official page (georgiasouthern.edu Scholarships, archived 2026-10-03) prints these as \"Fall 2027 Award Tiers\" under \"First-Year Merit Scholarships (Fall 2027)\", with \"Eligible Term: Fall 2027 entry only\" and \"Residency Requirement: Georgia residents only (in-state tuition status required)\", so they are 2027-28 awards for Georgia residents, not 2026-27 awards for everyone; the stored amount text was the column header. Superseded, not deleted: the corrected record is data/institutions/georgiasouthern/awards/2027-28.json."
     }
   ]
 }

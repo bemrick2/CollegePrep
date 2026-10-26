@@ -113,9 +113,13 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/assessment_pool.sql
       - name: Progress-check item assignment and exposure (#263)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/assessment_assignment.sql
-      - name: Generated reserve migrations mark only qualifying items, or nothing (CR-23 release)
+      - name: Generated reserve scripts mark only qualifying items, or nothing (CR-23 release)
         shell: bash  # implies -o pipefail so a generator failure cannot pass as empty input
         run: python scripts/test_reserve_migration.py | psql -v ON_ERROR_STOP=1
+      - name: Reserve release applies the pool, check assignment and reserve in one transaction, or nothing
+        run: python scripts/test_reserve_release.py
+      - name: Two concurrent progress-check starts give one check and one assignment (#263)
+        run: python scripts/test_benchmark_concurrency.py
       - name: CR-14 program-depth fields
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/program_depth.sql
       - name: Front-end contract tests (issue #37)

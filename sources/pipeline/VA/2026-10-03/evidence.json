@@ -2705,6 +2705,58 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "49256121271ce417": {
+  "decision": {
+   "candidate_id": "49256121271ce417",
+   "reason": "VCU out-of-state first-year scholarship by minimum high-school GPA (5 tiers, $10,000 to $15,000): 'Simply apply for fall admission as a first-year, full-time student to automatically be considered for the above out-of-state scholarships.' No academic year printed, so partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "Minimum High School GPA | Annual Scholarship || 3.00 | $10,000 || 3.25 | $11,000 || 3.50 | $12,000 || 3.75 | $14,000 || 4.00 | $15,000",
+    "value": [
+     {
+      "amount_text": "$10,000",
+      "minimum high school gpa": "3.00"
+     },
+     {
+      "amount_text": "$11,000",
+      "minimum high school gpa": "3.25"
+     },
+     {
+      "amount_text": "$12,000",
+      "minimum high school gpa": "3.50"
+     },
+     {
+      "amount_text": "$14,000",
+      "minimum high school gpa": "3.75"
+     },
+     {
+      "amount_text": "$15,000",
+      "minimum high school gpa": "4.00"
+     }
+    ]
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Minimum High School GPA | Annual Scholarship || 3.00 | $10,000 || 3.25 | $11,000 || 3.50 | $12,000 || 3.75 | $14,000 || 4.00 | $15,000",
+    "value": "Tiered by Minimum High School GPA: 3.00 → $10,000; 3.25 → $11,000; 3.50 → $12,000; 3.75 → $14,000; 4.00 → $15,000"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T10:33:06+00:00",
+   "kind": "html",
+   "last_modified": "Thu, 17 Sep 2026 16:35:39 GMT",
+   "page_file": "89d864a73f72e011592a.json.gz",
+   "requested_url": "https://admissions.vcu.edu/cost-aid/scholarships-funding/out-of-state-scholarships/",
+   "sha256": "89d864a73f72e011592af809301d2a62ef4a28dae85403ea86a37e233f54fb83",
+   "title": "Out-of-state scholarships - Admissions - Virginia Commonwealth University",
+   "url": "https://admissions.vcu.edu/cost-aid/scholarships-funding/out-of-state-scholarships/"
+  },
+  "year_basis": "source_unlabeled"
+ },
  "4b4d25553cbcc1c6": {
   "decision": {
    "candidate_id": "4b4d25553cbcc1c6",
@@ -9270,6 +9322,84 @@
    "title": "Interdisciplinary Studies, Bachelor of Science with a Concentration in Special Education (B.S.) | Virginia State University Catalog",
    "url": "https://catalog.vsu.edu/undergraduate/college-education/department-teaching-learning/interdisciplinary-studies-minor-special-education-bs/"
   },
+  "year_basis": "labeled_in_source"
+ },
+ "ea9d50f040045bea": {
+  "decision": {
+   "candidate_id": "ea9d50f040045bea",
+   "reason": "JMU Admissions Facts table whose title line (the lead directly above a table with no heading or caption) reads \"Undergraduate (2026-27) - Per year\"; column \"Out-of-State\": Tuition and Fees $32,576, Housing and Food $15,220, TOTAL $47,796, copied as printed (the In-State column, $14,768, matches the verified in-state record already on file). Out-of-state undergraduate, per year; the year is printed in the table's own title.",
+   "supersede": "Re-read after the lead-line year fix: the reader now dates this table from its own title line, so the candidate is labeled_in_source with no open issues; it replaces the partially verified record from the same JMU page, whose academic_year_basis wrongly said the year came from the aid year in force at review."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition and Fees*",
+    "snippet": "Tuition and Fees* | $14,768 | $32,576",
+    "value": 32576
+   },
+   {
+    "field": "column:Housing and Food",
+    "snippet": "Housing and Food | $15,220 | $15,220",
+    "value": 15220
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $29,988 | $47,796",
+    "value": 47796
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [],
+  "source": {
+   "fetched_at": "2026-10-03T10:17:58+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "bcfaaf6d991c0700fdfe.json.gz",
+   "requested_url": "https://www.jmu.edu/admissions/fastfacts.shtml",
+   "sha256": "bcfaaf6d991c0700fdfeccd373784828455f5a07bcc3d54cb297b3d4d91c3ae8",
+   "title": "Admissions Facts - JMU",
+   "url": "https://www.jmu.edu/admissions/fastfacts.shtml"
+  },
+  "superseded": [
+   {
+    "decision": {
+     "accept_issues": true,
+     "candidate_id": "ea9d50f040045bea",
+     "reason": "JMU Admissions Facts table titled \"Undergraduate (2026-27) - Per year\" (the label line directly above the table); column \"Out-of-State\": Tuition and Fees $32,576, Housing and Food $15,220, TOTAL $47,796, copied as printed (the In-State column, $14,768, matches the verified in-state record already on file). Out-of-state undergraduate, per year. The reader did not capture the title line, so the candidate is source_unlabeled with ambiguous_year_labels (the page also mentions 2025-26); accepted because the year is printed in the table's own title, and the record stays partially_verified."
+    },
+    "evidence": [
+     {
+      "field": "column:Tuition and Fees*",
+      "snippet": "Tuition and Fees* | $14,768 | $32,576",
+      "value": 32576
+     },
+     {
+      "field": "column:Housing and Food",
+      "snippet": "Housing and Food | $15,220 | $15,220",
+      "value": 15220
+     },
+     {
+      "field": "column:TOTAL",
+      "snippet": "TOTAL | $29,988 | $47,796",
+      "value": 47796
+     }
+    ],
+    "extractor": "cost_table/v2",
+    "issues": [
+     "ambiguous_year_labels"
+    ],
+    "source": {
+     "fetched_at": "2026-10-03T10:17:58+00:00",
+     "kind": "html",
+     "last_modified": null,
+     "page_file": "bcfaaf6d991c0700fdfe.json.gz",
+     "requested_url": "https://www.jmu.edu/admissions/fastfacts.shtml",
+     "sha256": "bcfaaf6d991c0700fdfeccd373784828455f5a07bcc3d54cb297b3d4d91c3ae8",
+     "title": "Admissions Facts - JMU",
+     "url": "https://www.jmu.edu/admissions/fastfacts.shtml"
+    },
+    "year_basis": "source_unlabeled"
+   }
+  ],
   "year_basis": "labeled_in_source"
  },
  "ebdcf120baeed02a": {

@@ -12,9 +12,16 @@ newer than the newest live version (older pending files are refused by the histo
   DATABASE_URL=... python scripts/apply_migrations.py --until 20261022040000 [--dry-run]
       # apply (or list) pending files up to and including that version, then stop; later files stay pending.
       # The version must be a repository migration; an unknown version is refused before anything is applied.
+  DATABASE_URL=... python scripts/apply_migrations.py --until 20261023010000 --reserve supabase/reserve/<file>.sql [--dry-run]
+      # CR-23 reserve release: the selected pending migrations and the reserve script (scripts/make_reserve_migration.py)
+      # run in ONE transaction, so the assessment pool, check assignment and reserve commit together or not at all.
+
+The assessment-pool migration (20261022050000) is refused without --reserve: applying it alone would leave every
+progress check unmeasured, and a push-triggered run must never apply it early. A reserve script must live outside
+supabase/migrations/, start with the generator's marker, and needs 20261023010000 live or in the same run.
 """
 from __future__ import annotations
-import argparse, os, re, secrets, subprocess, sys, tempfile
+import argparse, hashlib, os, re, secrets, subprocess, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -22,19 +29,68 @@ import check_migration_history as h
 from live_write_guard import require_live_writes
 
 
-TRANSACTION_CONTROL = re.compile(r'^\s*(begin|commit|rollback|start\s+transaction|end)\s*;', re.I | re.M)
+_TRANSACTION_CONTROL = re.compile(
+    r'^\s*(begin|commit|rollback|abort|end)(\s+(work|transaction))?(\s+and\s+(no\s+)?chain)?\s*;'
+    r'|^\s*(start|begin)\s+transaction\b|^\s*(prepare\s+transaction|commit\s+prepared|rollback\s+prepared)\b'
+    r'|^\s*(savepoint|release(\s+savepoint)?|rollback(\s+(work|transaction))?\s+to(\s+savepoint)?)\s+\w+\s*;', re.I | re.M)
+_COMMENTS = re.compile(r'/\*.*?\*/|--[^\n]*', re.S)
 
 
-def transaction_sql(path: Path, version: str, name: str) -> str:
+class _TransactionControl:
+    """Matches statement-level transaction control (BEGIN/COMMIT/ROLLBACK/ABORT/END [WORK|TRANSACTION] [AND [NO] CHAIN],
+    START TRANSACTION, PREPARE TRANSACTION, COMMIT/ROLLBACK PREPARED, SAVEPOINT, RELEASE, ROLLBACK TO) outside comments."""
+    def search(self, text: str):
+        return _TRANSACTION_CONTROL.search(_COMMENTS.sub('', text))
+
+
+TRANSACTION_CONTROL = _TransactionControl()
+
+
+def migration_block(path: Path, version: str, name: str) -> str:
+    """One migration and its schema_migrations row, for use inside a transaction."""
     text = path.read_text(encoding='utf-8').replace('\r', '')
     if TRANSACTION_CONTROL.search(text):
         raise ValueError(f'{path.name} controls its own transaction; the applier wraps each migration in one')
     tag = 'm' + secrets.token_hex(8)
     while f'${tag}$' in text:
         tag = 'm' + secrets.token_hex(8)
-    return (f"begin;\n\\i '{path.as_posix()}'\n"
+    return (f"\\i '{path.as_posix()}'\n"
             f"insert into supabase_migrations.schema_migrations(version, name, statements)\n"
-            f"values ('{version}', '{name}', array[${tag}${text}${tag}$]);\ncommit;\n")
+            f"values ('{version}', '{name}', array[${tag}${text}${tag}$]);\n")
+
+
+def transaction_sql(path: Path, version: str, name: str) -> str:
+    return 'begin;\n' + migration_block(path, version, name) + 'commit;\n'
+
+
+# Migrations that may only be applied together with a reserve script (CR-23 paired release).
+REQUIRES_RESERVE = {'20261022050000'}
+# The reserve script reads tables this migration creates.
+RESERVE_NEEDS = '20261023010000'
+
+
+def check_reserve(path: Path) -> list[str]:
+    """Errors for a --reserve script: outside supabase/migrations/, and byte-for-byte what make_reserve_migration.py
+    generates from the version key and items embedded in it (so nothing was added, such as transaction control)."""
+    from make_reserve_migration import MARKER, inside_migrations, verify_script
+    if inside_migrations(path, h.MIGRATIONS):
+        return [f'--reserve {path}: a reserve script must not live under supabase/migrations/']
+    try:
+        raw = path.read_bytes()
+    except OSError as e:
+        return [f'--reserve {path}: {e}']
+    if not raw.startswith(MARKER.encode()):
+        return [f'--reserve {path}: not a reserve script from scripts/make_reserve_migration.py']
+    return [f'--reserve {path}: {e}' for e in verify_script(raw)]
+
+
+def combined_transaction_sql(blocks: list[tuple[Path, str, str]], reserve: Path, rehearsal: bool = False) -> str:
+    """The selected migrations and the reserve script in one transaction: all commit, or none does. A rehearsal runs
+    the same statements and rolls back, so the reserve's eligibility checks run against the live data."""
+    sha = hashlib.sha256(reserve.read_bytes()).hexdigest()
+    return ('begin;\n' + ''.join(migration_block(p, v, n) for p, v, n in blocks)
+            + f"select set_config('collegeprep.reserve_file_sha256', '{sha}', true);\n"
+            + f"\\i '{reserve.resolve().as_posix()}'\n" + ('rollback;\n' if rehearsal else 'commit;\n'))
 
 
 VERSION = re.compile(r'^\d{14}$')
@@ -63,36 +119,68 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument('--dry-run', action='store_true')
     p.add_argument('--until', metavar='VERSION', help='apply pending migrations up to and including this version, then stop')
+    p.add_argument('--reserve', metavar='FILE', type=Path,
+                   help='CR-23 reserve script to run in the same single transaction as the selected migrations')
     a = p.parse_args(argv)
     local, errors = h.local_migrations()
-    until_errors = check_until(a.until, local)
-    if until_errors:
-        print('\n'.join(until_errors)); return 1
-    if not a.dry_run:
-        require_live_writes()
+    pre = check_until(a.until, local) + (check_reserve(a.reserve) if a.reserve else [])
+    if pre:
+        print('\n'.join(pre)); return 1
+    if not a.dry_run or a.reserve:
+        require_live_writes()  # a reserve dry run is a rollback-only rehearsal on the live database
     url = os.environ.get('DATABASE_URL') or sys.exit('DATABASE_URL is required')
     errors += h.offline_errors(local)
     if not errors:
         more, pending_files = h.live_errors(local, h.live_rows()); errors += more
     if errors:
         print('\n'.join(errors)); return 1
+    all_pending = list(pending_files)
     later = []
     if a.until is not None:
         chosen = select_until(pending_files, local, a.until)
         later = pending_files[len(chosen):]
         pending_files = chosen
-    if not pending_files:
-        print('No pending migrations' + (f' up to {a.until}' if a.until else '')); return 0
     by_file = {v['file']: (k, v['name']) for k, v in local.items()}
-    for f in pending_files:
-        version, name = by_file[f]
-        if a.dry_run:
-            print('pending', f); continue
+    chosen_versions = {by_file[f][0] for f in pending_files}
+    if chosen_versions & REQUIRES_RESERVE and not a.reserve:
+        print('Refused, nothing applied: ' + ', '.join(sorted(chosen_versions & REQUIRES_RESERVE))
+              + ' (assessment pool) applies only with --reserve, in one transaction with the reserve script'
+              + ' (docs/DEPLOYING.md, CR-23 reserve release). Use --until to stop before it.')
+        return 1
+    if a.reserve:
+        live = {k for k, v in local.items() if v['file'] not in all_pending}
+        if RESERVE_NEEDS not in live | chosen_versions:
+            print(f'Refused, nothing applied: the reserve script needs {RESERVE_NEEDS} live or in this run'); return 1
+    if not pending_files and not a.reserve:
+        print('No pending migrations' + (f' up to {a.until}' if a.until else '')); return 0
+    if a.reserve:
+        for f in pending_files:
+            print('pending', f, '(same transaction as the reserve)' if a.dry_run else '')
+        print('reserve', a.reserve, '(one transaction with the migrations above)')
+        sql = combined_transaction_sql([(h.MIGRATIONS / f, *by_file[f]) for f in pending_files], a.reserve, rehearsal=a.dry_run)
         with tempfile.NamedTemporaryFile('w', suffix='.sql', delete=False) as tmp:
-            tmp.write(transaction_sql(h.MIGRATIONS / f, version, name))
-        if subprocess.run(['psql', url, '-X', '-q', '-v', 'ON_ERROR_STOP=1', '-f', tmp.name]).returncode:
-            print(f'{f} failed and was rolled back; nothing after it was applied'); return 1
-        print('applied', f)
+            tmp.write(sql)
+        failed = subprocess.run(['psql', url, '-X', '-q', '-v', 'ON_ERROR_STOP=1', '-f', tmp.name]).returncode
+        if a.dry_run:
+            print('Rehearsal ' + ('FAILED' if failed else 'passed') + ' (rolled back: nothing was applied or marked)')
+            if failed:
+                return 1
+        elif failed:
+            print('The transaction failed and was rolled back: no migration was applied and nothing was marked'); return 1
+        else:
+            for f in pending_files:
+                print('applied', f)
+            print('applied reserve', a.reserve)
+    else:
+        for f in pending_files:
+            version, name = by_file[f]
+            if a.dry_run:
+                print('pending', f); continue
+            with tempfile.NamedTemporaryFile('w', suffix='.sql', delete=False) as tmp:
+                tmp.write(transaction_sql(h.MIGRATIONS / f, version, name))
+            if subprocess.run(['psql', url, '-X', '-q', '-v', 'ON_ERROR_STOP=1', '-f', tmp.name]).returncode:
+                print(f'{f} failed and was rolled back; nothing after it was applied'); return 1
+            print('applied', f)
     for f in later:
         print('not applied (after --until):', f)
     if not a.dry_run:

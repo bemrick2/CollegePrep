@@ -42,6 +42,8 @@ export interface Evidence {
   academicYearBasis?: string | null
   method?: string
   missing?: string
+  /** The record's notes_capture: 'incomplete' when notes printed with it aren't captured and reviewed yet. */
+  notesCapture?: string | null
 }
 
 export interface Line<T> {
