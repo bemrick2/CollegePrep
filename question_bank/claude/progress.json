@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:11:43+00:00",
+  "updated_at": "2026-10-26T20:12:46+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 222,
+    "act_math": 232,
     "act_english": 88,
     "act_reading": 72,
     "sat_reading_writing": 86
   },
   "review_totals": {
     "act_math": {
-      "PASS": 228,
+      "PASS": 238,
       "REVISE": 2,
       "REJECT": 2,
-      "candidates": 232,
+      "candidates": 242,
       "passed_after_revision": 2
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 222,
+      "accepted": 232,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 41,
-        "Functions": 41,
-        "Geometry": 42,
-        "Integrating Essential Skills": 44,
-        "Number & Quantity": 24,
-        "Statistics & Probability": 30
+        "Algebra": 43,
+        "Functions": 42,
+        "Geometry": 45,
+        "Integrating Essential Skills": 45,
+        "Number & Quantity": 25,
+        "Statistics & Probability": 32
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -117,10 +117,13 @@
         "Conditional probability with a reduced sample space": 1,
         "Conditions on quadratic roots": 1,
         "Cone volume from slant height": 1,
+        "Consecutive integer word problems": 1,
         "Continuous uniform probability": 1,
+        "Converting degrees to radians": 1,
         "Counting divisors (perfect squares)": 1,
         "Counting lattice paths through a point": 1,
         "Counting with restrictions": 1,
+        "Determinant of a 2 × 2 matrix": 1,
         "Diagonal of a rectangular box": 1,
         "Diagonals of a trapezoid (similar triangles)": 1,
         "Difference of consecutive function values": 1,
@@ -136,6 +139,7 @@
         "Effect of added values on summary statistics": 1,
         "Effect of an added value on standard deviation": 1,
         "Elapsed time across time zones": 1,
+        "Empirical rule for normal distributions": 1,
         "Equation of a circle": 1,
         "Equations with rational exponents": 1,
         "Expected count from a probability": 1,
@@ -164,11 +168,14 @@
         "Integer roots from coefficients": 1,
         "Interior angles of regular polygons": 1,
         "Interpreting a correlation coefficient": 1,
+        "Interpreting a margin of error": 1,
         "Interquartile range": 1,
         "Inverse functions and excluded values": 1,
         "Inverse of a linear function": 1,
+        "Inverse of a rational function": 1,
         "Inverse variation with a square": 1,
         "Law of cosines": 1,
+        "Law of sines": 1,
         "Least common multiple in context": 1,
         "Linear equations with distribution": 1,
         "Linear equations with fractions": 1,
@@ -196,9 +203,11 @@
         "Negative rational exponents": 1,
         "Odd and even functions": 1,
         "Opposing rates (fill and drain)": 1,
+        "Optimization with constraints in context": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
         "Percent change in area from a change in length": 1,
         "Percent decrease then recovery": 1,
+        "Percent error": 1,
         "Percent targets across parts": 1,
         "Percents of an unknown whole": 1,
         "Percents of subgroups (reversed condition)": 1,
@@ -277,6 +286,7 @@
         "Vertical angles": 1,
         "Vertical asymptotes versus holes": 1,
         "Volume and rates with unit conversion": 1,
+        "Volume change when dimensions change unequally": 1,
         "Volume displacement": 1,
         "Volume of a composite solid": 1,
         "Volume of a sphere": 1,
@@ -287,27 +297,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 32,
-        "hard": 96,
-        "medium": 94
+        "easy": 34,
+        "hard": 99,
+        "medium": 99
       },
       "by_difficulty_calibrated": {
-        "easy": 55,
-        "hard": 37,
-        "medium": 130
+        "easy": 58,
+        "hard": 38,
+        "medium": 136
       },
       "calibrated_share": {
-        "easy": 0.248,
-        "hard": 0.167,
+        "easy": 0.25,
+        "hard": 0.164,
         "medium": 0.586
       },
       "answer_key_balance": {
-        "A": 56,
-        "B": 59,
-        "C": 59,
-        "D": 48
+        "A": 57,
+        "B": 62,
+        "C": 62,
+        "D": 51
       },
-      "modeling_items": 67,
+      "modeling_items": 68,
       "passages": 0
     },
     "act_english": {
@@ -595,40 +605,39 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 23,
+    "act_math": 24,
     "act_english": 8,
     "act_reading": 8,
     "sat_reading_writing": 9
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 24,
+      "next_batch": 25,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
-        "Algebra",
         "Functions",
+        "Algebra",
         "Number & Quantity",
-        "Statistics & Probability",
-        "Geometry"
+        "Statistics & Probability"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 1.5,
-        "Algebra": 1.9,
-        "Functions": 1.9,
-        "Geometry": 0.9,
-        "Statistics & Probability": 1.3,
-        "Integrating Essential Skills": 2.4
+        "Number & Quantity": 1.6,
+        "Algebra": 1.8,
+        "Functions": 2.8,
+        "Geometry": -0.2,
+        "Statistics & Probability": 0.7,
+        "Integrating Essential Skills": 3.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": 3.0,
-        "medium": -14.0,
-        "hard": 21.0
+        "easy": 2.5,
+        "medium": -15.0,
+        "hard": 22.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 2.0,
-        "B": -1.0,
-        "C": -1.0,
-        "D": 10.0
+        "A": 3.5,
+        "B": -1.5,
+        "C": -1.5,
+        "D": 9.5
       }
     }
   },
@@ -662,8 +671,8 @@
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 222,
-      "share_of_target": 0.111
+      "accepted": 232,
+      "share_of_target": 0.116
     },
     "act_english": {
       "target": 700,
@@ -682,7 +691,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 468,
+  "total_accepted": 478,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_math",
   "audits": [
@@ -881,7 +890,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 23,
+      "bank_version": 24,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -941,7 +950,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:11:43+00:00",
+    "heartbeat_at": "2026-10-26T20:12:46+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

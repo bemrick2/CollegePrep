@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 23,
+  "bank_version": 24,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -3993,6 +3993,182 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "10:40 p.m. + 7:35 = 6:15 a.m.; − 3 h = 3:15 a.m."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000229",
+      "correct_answer": "D",
+      "explanation": "Write y = (2x + 1)/(x − 3) and swap: x = (2y + 1)/(y − 3). Then xy − 3x = 2y + 1, so y(x − 2) = 3x + 1 and y = (3x + 1)/(x − 2).",
+      "distractor_explanations": {
+        "A": "This is the reciprocal 1/f(x), not the inverse.",
+        "B": "This makes sign errors when collecting terms (−1 and +2).",
+        "C": "This swaps the roles of the constants without solving for y."
+      },
+      "hints": [
+        "Swap x and y, then solve for y.",
+        "Collect the y terms on one side and factor out y."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "f(4) = 9, so f⁻¹(9) should be 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000230",
+      "correct_answer": "B",
+      "explanation": "Let the integers be n, n + 2, n + 4. Then 3n + 6 = 2(n + 4) + 8, so 3n + 6 = 2n + 16 and n = 10.",
+      "distractor_explanations": {
+        "A": "8 sets the sum equal to twice the smallest plus 8.",
+        "C": "12 is the middle integer.",
+        "D": "14 is the largest integer."
+      },
+      "hints": [
+        "Name the integers n, n + 2, n + 4.",
+        "Translate \"8 more than twice the largest.\""
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 10: 10 + 12 + 14 = 36 = 2(14) + 8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000231",
+      "correct_answer": "C",
+      "explanation": "By the law of sines, b/sin 45° = 10/sin 30°, so b = 10 · (√2/2)/(1/2) = 10√2.",
+      "distractor_explanations": {
+        "A": "5√2 multiplies by sin 45° instead of dividing by sin 30°.",
+        "B": "10 assumes the two sides are equal, as if the angles were equal.",
+        "D": "20 divides 10 by sin 30° but forgets to multiply by sin 45°."
+      },
+      "hints": [
+        "Which law relates sides to the sines of opposite angles?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "b = 10 sin 45° / sin 30°."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000232",
+      "correct_answer": "B",
+      "explanation": "V = πr²h. New volume = π(r/2)²(2h) = πr²h · (1/4)(2) = (1/2)πr²h.",
+      "distractor_explanations": {
+        "A": "1/4 squares the radius change but ignores the doubled height.",
+        "C": "1 assumes halving and doubling cancel, forgetting that r is squared.",
+        "D": "2 applies only the height change."
+      },
+      "hints": [
+        "Which dimension is squared in the volume formula?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try r = 2, h = 1, then r = 1, h = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000233",
+      "correct_answer": "B",
+      "explanation": "62 is 1 standard deviation below the mean and 86 is 2 above. From the mean down 1 SD is about 34%; up 2 SDs is about 47.5%. Total: about 81.5%.",
+      "distractor_explanations": {
+        "A": "68% covers only ±1 standard deviation.",
+        "C": "95% covers ±2 standard deviations, but the interval is not symmetric.",
+        "D": "97.5% is the percent below 2 standard deviations above the mean."
+      },
+      "hints": [
+        "How many standard deviations from 70 are 62 and 86?",
+        "Add the two pieces separately."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the curve: 34% + 47.5%."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000234",
+      "correct_answer": "A",
+      "explanation": "The margin of error gives a plausible range of 49% to 55% for the whole population. Because the range includes values below 50%, a minority is plausible.",
+      "distractor_explanations": {
+        "B": "The plausible range dips below 50%, so a majority is not certain.",
+        "C": "52% is an estimate; the margin of error expresses uncertainty about it.",
+        "D": "Exactly 52% of the people polled support it; the range describes the whole population."
+      },
+      "hints": [
+        "What range does a 3-point margin give?",
+        "Does that range include values under 50%?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate statements of certainty."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000235",
+      "correct_answer": "D",
+      "explanation": "For a matrix with rows (a, b) and (c, d), the determinant is ad − bc = (3)(1) − (−2)(4) = 3 + 8 = 11.",
+      "distractor_explanations": {
+        "A": "−11 computes bc − ad, reversing the order.",
+        "B": "−5 treats −(−2)(4) as −8, a sign error.",
+        "C": "5 adds the entries 3 + (−2) + 4 + 1 − 1."
+      },
+      "hints": [
+        "Use ad − bc."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3·1 − (−2)·4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000236",
+      "correct_answer": "C",
+      "explanation": "Percent error = |estimate − actual| ÷ actual × 100% = 50 ÷ 200 × 100% = 25%.",
+      "distractor_explanations": {
+        "A": "12.5% divides the error by the sum, 400.",
+        "B": "20% divides the error by the estimate, 250, instead of the actual value.",
+        "D": "50% is the error in marbles, not a percent."
+      },
+      "hints": [
+        "What is the size of the error?",
+        "Divide by the actual value, not the estimate."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "50 ÷ 200."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000237",
+      "correct_answer": "D",
+      "explanation": "Per minute, muffins earn $2/5 = $0.40 and cakes earn $9/40 = $0.225, so muffins are the better use of time. Making 96 muffins and no cakes uses all 480 minutes and earns $192, which is more than any mix that includes cakes.",
+      "distractor_explanations": {
+        "A": "$108 makes only cakes (12 of them) and ignores the 30-muffin minimum.",
+        "B": "$132 makes the minimum 30 muffins and fills the rest with cakes, assuming the higher-profit item is better.",
+        "C": "$150 splits the time evenly: 48 muffins and 6 cakes."
+      },
+      "hints": [
+        "Compare profit per minute, not profit per item.",
+        "Does the higher-profit item use time efficiently?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "$0.40/min vs $0.225/min → all muffins."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000238",
+      "correct_answer": "C",
+      "explanation": "Multiply by π/180: 225 × π/180 = 5π/4.",
+      "distractor_explanations": {
+        "A": "3π/4 is 135°.",
+        "B": "7π/6 is 210°.",
+        "D": "4π/3 is 240°."
+      },
+      "hints": [
+        "Multiply degrees by π/180."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "225/180 = 5/4."
       }
     }
   ]

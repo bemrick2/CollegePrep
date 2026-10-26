@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 23,
-  "updated_at": "2026-10-26T19:47:22+00:00",
+  "version": 24,
+  "updated_at": "2026-10-26T20:12:44+00:00",
   "passages": [],
   "questions": [
     {
@@ -15780,6 +15780,717 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-023.review.json",
         "computation": "checks/act_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000229",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Inverse of a rational function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If f(x) = (2x + 1)/(x − 3) for x ≠ 3, which of the following is f⁻¹(x) ?",
+      "choices": {
+        "A": "(x − 3)/(2x + 1)",
+        "B": "(3x − 1)/(x + 2)",
+        "C": "(x + 3)/(2x − 1)",
+        "D": "(3x + 1)/(x − 2)"
+      },
+      "correct_answer": "D",
+      "explanation": "Write y = (2x + 1)/(x − 3) and swap: x = (2y + 1)/(y − 3). Then xy − 3x = 2y + 1, so y(x − 2) = 3x + 1 and y = (3x + 1)/(x − 2).",
+      "distractor_explanations": {
+        "A": "This is the reciprocal 1/f(x), not the inverse.",
+        "B": "This makes sign errors when collecting terms (−1 and +2).",
+        "C": "This swaps the roles of the constants without solving for y."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Swap x and y, then solve for y.",
+        "Collect the y terms on one side and factor out y."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "f(4) = 9, so f⁻¹(9) should be 4."
+      },
+      "remember": "Inverse: swap x and y, then solve; the reciprocal is not the inverse.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-01",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000230",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Consecutive integer word problems",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The sum of three consecutive even integers is 8 more than twice the largest of the three. What is the smallest of the three integers?",
+      "choices": {
+        "A": "8",
+        "B": "10",
+        "C": "12",
+        "D": "14"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the integers be n, n + 2, n + 4. Then 3n + 6 = 2(n + 4) + 8, so 3n + 6 = 2n + 16 and n = 10.",
+      "distractor_explanations": {
+        "A": "8 sets the sum equal to twice the smallest plus 8.",
+        "C": "12 is the middle integer.",
+        "D": "14 is the largest integer."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Name the integers n, n + 2, n + 4.",
+        "Translate \"8 more than twice the largest.\""
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 10: 10 + 12 + 14 = 36 = 2(14) + 8."
+      },
+      "remember": "Consecutive even integers: n, n + 2, n + 4.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-02",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000231",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Law of sines",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, the measure of angle A is 30°, the measure of angle B is 45°, and the side opposite angle A has length 10. What is the length of the side opposite angle B?",
+      "choices": {
+        "A": "5√2",
+        "B": "10",
+        "C": "10√2",
+        "D": "20"
+      },
+      "correct_answer": "C",
+      "explanation": "By the law of sines, b/sin 45° = 10/sin 30°, so b = 10 · (√2/2)/(1/2) = 10√2.",
+      "distractor_explanations": {
+        "A": "5√2 multiplies by sin 45° instead of dividing by sin 30°.",
+        "B": "10 assumes the two sides are equal, as if the angles were equal.",
+        "D": "20 divides 10 by sin 30° but forgets to multiply by sin 45°."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which law relates sides to the sines of opposite angles?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "b = 10 sin 45° / sin 30°."
+      },
+      "remember": "Law of sines: a/sin A = b/sin B.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-03",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000232",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume change when dimensions change unequally",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The radius of a right circular cylinder is halved and its height is doubled. The new volume is how many times the original volume?",
+      "choices": {
+        "A": "1/4",
+        "B": "1/2",
+        "C": "1",
+        "D": "2"
+      },
+      "correct_answer": "B",
+      "explanation": "V = πr²h. New volume = π(r/2)²(2h) = πr²h · (1/4)(2) = (1/2)πr²h.",
+      "distractor_explanations": {
+        "A": "1/4 squares the radius change but ignores the doubled height.",
+        "C": "1 assumes halving and doubling cancel, forgetting that r is squared.",
+        "D": "2 applies only the height change."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which dimension is squared in the volume formula?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try r = 2, h = 1, then r = 1, h = 2."
+      },
+      "remember": "Squared dimensions change volume by the square of the factor.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-04",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000233",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Empirical rule for normal distributions",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Test scores are approximately normally distributed with a mean of 70 and a standard deviation of 8. Approximately what percent of scores are between 62 and 86?",
+      "choices": {
+        "A": "68%",
+        "B": "81.5%",
+        "C": "95%",
+        "D": "97.5%"
+      },
+      "correct_answer": "B",
+      "explanation": "62 is 1 standard deviation below the mean and 86 is 2 above. From the mean down 1 SD is about 34%; up 2 SDs is about 47.5%. Total: about 81.5%.",
+      "distractor_explanations": {
+        "A": "68% covers only ±1 standard deviation.",
+        "C": "95% covers ±2 standard deviations, but the interval is not symmetric.",
+        "D": "97.5% is the percent below 2 standard deviations above the mean."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many standard deviations from 70 are 62 and 86?",
+        "Add the two pieces separately."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the curve: 34% + 47.5%."
+      },
+      "remember": "Split an asymmetric interval at the mean.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-05",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000234",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Interpreting a margin of error",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A poll of likely voters found that 52% support a ballot measure, with a margin of error of 3 percentage points. Which conclusion is best supported?",
+      "choices": {
+        "A": "It is plausible that fewer than half of all likely voters support the measure.",
+        "B": "A majority of all likely voters definitely supports the measure.",
+        "C": "Exactly 52% of all likely voters support the measure.",
+        "D": "Between 49% and 55% of the people polled support the measure."
+      },
+      "correct_answer": "A",
+      "explanation": "The margin of error gives a plausible range of 49% to 55% for the whole population. Because the range includes values below 50%, a minority is plausible.",
+      "distractor_explanations": {
+        "B": "The plausible range dips below 50%, so a majority is not certain.",
+        "C": "52% is an estimate; the margin of error expresses uncertainty about it.",
+        "D": "Exactly 52% of the people polled support it; the range describes the whole population."
+      },
+      "distractor_traps": {
+        "B": "overextend_trend",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What range does a 3-point margin give?",
+        "Does that range include values under 50%?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate statements of certainty."
+      },
+      "remember": "A margin of error describes the population, not the sample.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-06",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000235",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Determinant of a 2 × 2 matrix",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the determinant of the matrix with first row 3, −2 and second row 4, 1 ?",
+      "choices": {
+        "A": "−11",
+        "B": "−5",
+        "C": "5",
+        "D": "11"
+      },
+      "correct_answer": "D",
+      "explanation": "For a matrix with rows (a, b) and (c, d), the determinant is ad − bc = (3)(1) − (−2)(4) = 3 + 8 = 11.",
+      "distractor_explanations": {
+        "A": "−11 computes bc − ad, reversing the order.",
+        "B": "−5 treats −(−2)(4) as −8, a sign error.",
+        "C": "5 adds the entries 3 + (−2) + 4 + 1 − 1."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Use ad − bc."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "3·1 − (−2)·4."
+      },
+      "remember": "Watch the sign when subtracting a negative product.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-07",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: matrix described in words; consider displaying as a 2x2 matrix"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000236",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percent error",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A student estimated that a jar contained 250 marbles. The jar actually contained 200 marbles. What was the percent error of the estimate?",
+      "choices": {
+        "A": "12.5%",
+        "B": "20%",
+        "C": "25%",
+        "D": "50%"
+      },
+      "correct_answer": "C",
+      "explanation": "Percent error = |estimate − actual| ÷ actual × 100% = 50 ÷ 200 × 100% = 25%.",
+      "distractor_explanations": {
+        "A": "12.5% divides the error by the sum, 400.",
+        "B": "20% divides the error by the estimate, 250, instead of the actual value.",
+        "D": "50% is the error in marbles, not a percent."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the size of the error?",
+        "Divide by the actual value, not the estimate."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "50 ÷ 200."
+      },
+      "remember": "Percent error divides by the actual value.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-08",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000237",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Optimization with constraints in context",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A baker earns $2 profit on each muffin and $9 profit on each cake. Each muffin takes 5 minutes to make and each cake takes 40 minutes, and the baker has 480 minutes available. The baker must make at least 30 muffins. What is the greatest possible total profit?",
+      "choices": {
+        "A": "$108",
+        "B": "$132",
+        "C": "$150",
+        "D": "$192"
+      },
+      "correct_answer": "D",
+      "explanation": "Per minute, muffins earn $2/5 = $0.40 and cakes earn $9/40 = $0.225, so muffins are the better use of time. Making 96 muffins and no cakes uses all 480 minutes and earns $192, which is more than any mix that includes cakes.",
+      "distractor_explanations": {
+        "A": "$108 makes only cakes (12 of them) and ignores the 30-muffin minimum.",
+        "B": "$132 makes the minimum 30 muffins and fills the rest with cakes, assuming the higher-profit item is better.",
+        "C": "$150 splits the time evenly: 48 muffins and 6 cakes."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Compare profit per minute, not profit per item.",
+        "Does the higher-profit item use time efficiently?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "$0.40/min vs $0.225/min → all muffins."
+      },
+      "remember": "When time is limited, compare profit per unit of time.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-09",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [
+          "minor: stem should state whole numbers of muffins and cakes (implied)",
+          "minor: the at-least-30-muffins constraint never binds; it only acts as a distractor, which is fine"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000238",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Converting degrees to radians",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the radian measure of an angle of 225° ?",
+      "choices": {
+        "A": "3π/4",
+        "B": "7π/6",
+        "C": "5π/4",
+        "D": "4π/3"
+      },
+      "correct_answer": "C",
+      "explanation": "Multiply by π/180: 225 × π/180 = 5π/4.",
+      "distractor_explanations": {
+        "A": "3π/4 is 135°.",
+        "B": "7π/6 is 210°.",
+        "D": "4π/3 is 240°."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Multiply degrees by π/180."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "225/180 = 5/4."
+      },
+      "remember": "Degrees × π/180 = radians.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "B024-10",
+      "created_at": "2026-10-26T20:12:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-024.review.json",
+        "computation": "checks/act_math/batch_024.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
