@@ -29,11 +29,8 @@ def c05(ch):
 
 
 def c06(ch):
-    x, y = 3, -5
-    want = f"({y}, {x})".replace('-', '\u2212')
-    hits = [k for k, v in ch.items() if v == want]
-    assert len(hits) == 1
-    return hits[0]
+    r = math.isqrt(100 // 4)
+    return pick(ch, F(4, 3) * r ** 3, conv=lambda t: F(t.replace('π', '') or 1) if '/' not in t else F(t.replace('π', '')))
 
 
 def c07(ch):
@@ -42,11 +39,11 @@ def c07(ch):
 
 
 def c08(ch):
-    return pick(ch, next(n for n in range(1, 1000) if math.isqrt(180 * n) ** 2 == 180 * n))
+    return pick(ch, sum(n for n in range(1, 100) if n % 3 == 0))
 
 
 def c09(ch):
-    return pick(ch, math.sqrt(4 * 9))
+    return pick(ch, next(s for s in range(1, 200) if 12 * 72 + 81 * s == 78 * (12 + s)))
 
 
 def c10(ch):

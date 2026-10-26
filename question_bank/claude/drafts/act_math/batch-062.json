@@ -1,7 +1,7 @@
 {
  "bank": "act_math",
  "batch": 62,
- "plan": "3 hard (perfect-square multiplier, altitude geometric mean, at least 4 of 5 guesses) / 4 medium / 3 easy; keys weighted to A and D after the 600 audit found B/C heavy.",
+ "plan": "2 hard (group size from a combined mean, at least 4 of 5 guesses) / 4 medium / 3 easy; keys weighted to A and D after the 600 audit found B/C heavy.",
  "candidates": [
   {
    "cand": "B062-01",
@@ -232,41 +232,41 @@
    "cand": "B062-06",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Geometry",
-   "subskill": "Reflection across the line y = x",
+   "subskill": "Volume of a sphere from its surface area",
    "repo_skill_key": "act_geometry",
    "difficulty": "medium",
-   "stem": "In the standard (x, y) coordinate plane, the point (3, −5) is reflected across the line y = x. What are the coordinates of its image?",
+   "stem": "A sphere has a surface area of 100π square centimeters. What is the volume of the sphere, in cubic centimeters? (The surface area of a sphere is 4πr², and its volume is (4/3)πr³.)",
    "choices": {
-    "A": "(−5, 3)",
-    "B": "(5, −3)",
-    "C": "(−3, 5)",
-    "D": "(3, 5)"
+    "A": "25π",
+    "B": "100π",
+    "C": "125π",
+    "D": "500π/3"
    },
-   "answer": "A",
-   "explanation": "Reflecting across y = x swaps the coordinates: (x, y) → (y, x). So (3, −5) → (−5, 3).",
+   "answer": "D",
+   "explanation": "4πr² = 100π gives r² = 25 and r = 5. The volume is (4/3)π(125) = 500π/3.",
    "distractors": {
-    "B": {
-     "rationale": "(5, −3) swaps the numbers but keeps the signs in place, effectively reflecting across y = −x and then the origin.",
+    "A": {
+     "rationale": "25π = πr² is the area of a circle with radius 5.",
      "trap": null
+    },
+    "B": {
+     "rationale": "100π is the surface area, not the volume.",
+     "trap": "wrong_quantity"
     },
     "C": {
-     "rationale": "(−3, 5) is the reflection through the origin.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "(3, 5) is the reflection across the x-axis.",
-     "trap": null
+     "rationale": "125π = πr³ forgets the factor 4/3.",
+     "trap": "partial_answer"
     }
    },
    "hints": [
-    "What happens to the coordinates when a point is reflected across y = x ?"
+    "Find the radius from the surface area first."
    ],
    "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Plot the point and the line y = x."
+    "key": "translate_to_algebra",
+    "explanation": "4πr² = 100π, then (4/3)πr³."
    },
-   "remember": "Reflection across y = x swaps x and y.",
-   "expected_time_seconds": 40,
+   "remember": "Find the radius, then use the volume formula.",
+   "expected_time_seconds": 50,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -322,92 +322,91 @@
    "cand": "B062-08",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Number & Quantity",
-   "subskill": "Smallest multiplier that makes a perfect square",
+   "subskill": "Sum of the multiples of 3 up to 100",
    "repo_skill_key": "act_number_quantity",
-   "difficulty": "hard",
-   "stem": "What is the smallest positive integer n for which 180n is a perfect square?",
+   "difficulty": "medium",
+   "stem": "What is the sum of all positive integers less than 100 that are multiples of 3 ?",
    "choices": {
-    "A": "5",
-    "B": "10",
-    "C": "20",
-    "D": "45"
+    "A": "1,650",
+    "B": "1,683",
+    "C": "1,700",
+    "D": "3,366"
    },
-   "answer": "A",
-   "explanation": "180 = 2² × 3² × 5. Every prime must appear to an even power, so n must supply one more factor of 5: n = 5, and 180 × 5 = 900 = 30².",
+   "answer": "B",
+   "explanation": "The multiples are 3, 6, …, 99: 33 terms. Their sum is (number of terms) × (first + last)/2 = 33 × 102/2 = 1,683.",
    "distractors": {
-    "B": {
-     "rationale": "10 adds an unneeded factor of 2: 1,800 is not a perfect square.",
+    "A": {
+     "rationale": "1,650 = 33 × 50 uses 50 as the average term instead of (3 + 99)/2 = 51.",
      "trap": null
     },
     "C": {
-     "rationale": "20 = 2² × 5 also works, but it is not the smallest.",
+     "rationale": "1,700 = 34 × 50 counts 34 terms and uses the wrong average.",
      "trap": null
     },
     "D": {
-     "rationale": "45 = 3² × 5 also works, but it is not the smallest.",
-     "trap": null
+     "rationale": "3,366 = 33 × 102 forgets to divide by 2.",
+     "trap": "partial_answer"
     }
    },
    "hints": [
-    "Write 180 as a product of primes."
+    "How many multiples of 3 are there, and what is their average?"
    ],
    "strategy": {
     "key": "translate_to_algebra",
-    "explanation": "Make every exponent even."
+    "explanation": "Sum = n × (first + last)/2."
    },
-   "remember": "A perfect square has only even exponents in its prime factorization.",
-   "expected_time_seconds": 60,
+   "remember": "An arithmetic series sums to the number of terms times the average of the first and last terms.",
+   "expected_time_seconds": 55,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must use prime factorization and the even-exponent condition; trying multipliers by guess often lands on 20 or 45, which work but are not smallest."
+    "single_correct": true
    }
   },
   {
    "cand": "B062-09",
    "reporting_category": "Preparing for Higher Math",
-   "skill": "Geometry",
-   "subskill": "Altitude to the hypotenuse from its segments",
-   "repo_skill_key": "act_geometry",
+   "skill": "Statistics & Probability",
+   "subskill": "Group size from a combined mean",
+   "repo_skill_key": "act_statistics_probability",
    "difficulty": "hard",
-   "stem": "In right triangle ABC, the altitude from the right angle C meets hypotenuse AB at D. If AD = 4 and DB = 9, what is the length of CD ?",
+   "stem": "A team has 12 junior members, whose mean score on a test was 72, and some senior members, whose mean score was 81. The mean score of the whole team was 78. How many senior members are on the team?",
    "choices": {
-    "A": "5",
-    "B": "6",
-    "C": "6.5",
-    "D": "13"
+    "A": "12",
+    "B": "18",
+    "C": "24",
+    "D": "36"
    },
-   "answer": "B",
-   "explanation": "Triangles ADC and CDB are similar, so AD/CD = CD/DB, giving CD² = 4 × 9 = 36 and CD = 6.",
+   "answer": "C",
+   "explanation": "Let s be the number of seniors. Then 12(72) + 81s = 78(12 + s), so 864 + 81s = 936 + 78s, 3s = 72 and s = 24. (Equivalently, the team mean is twice as far from 72 as from 81, so there are twice as many seniors as juniors.)",
    "distractors": {
     "A": {
-     "rationale": "5 is the difference DB − AD.",
+     "rationale": "12 assumes equal groups, which would give a mean of 76.5, not 78.",
      "trap": null
     },
-    "C": {
-     "rationale": "6.5 is the average of 4 and 9, not their geometric mean.",
+    "B": {
+     "rationale": "18 gives a team mean of 77.4.",
      "trap": null
     },
     "D": {
-     "rationale": "13 is the length of the hypotenuse AB.",
-     "trap": "wrong_quantity"
+     "rationale": "36 gives a team mean of about 78.75.",
+     "trap": null
     }
    },
    "hints": [
-    "Which two smaller triangles are similar?"
+    "Write the total of all scores two ways."
    ],
    "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw the altitude and label the similar triangles."
+    "key": "backsolve",
+    "explanation": "Test each choice in the weighted-mean formula."
    },
-   "remember": "The altitude to the hypotenuse is the geometric mean of the two segments.",
+   "remember": "A combined mean lies closer to the larger group's mean.",
    "expected_time_seconds": 70,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "hardness": "Requires recognizing the similar triangles formed by the altitude (or knowing the geometric-mean relation); the arithmetic mean 6.5 is a strong trap."
+    "hardness": "Students must set up a weighted-mean equation in reverse (unknown group size) or reason with distances to each mean; plugging in is slow without the setup."
    }
   },
   {
