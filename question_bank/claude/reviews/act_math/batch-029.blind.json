@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 29},
+"answers": {
+"B029-01": {"answer": "C", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy", "flags": [], "notes": "Factor out common (x-3): (x+4)(x-3)."},
+"B029-02": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "(x-4)(x+3)<0 -> -3<x<4; integers -2..3 = 6. Trap: 8 (inclusive) or 7."},
+"B029-03": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "sqrt >= 0 so f >= 2. Trap B confuses domain with range."},
+"B029-04": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "s^2/2=18 -> s=6; hyp 6*sqrt2."},
+"B029-05": {"answer": "D", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "Midpoint (4,4), slope 2/3, perp slope -3/2: y=-3/2 x+10."},
+"B029-06": {"answer": "C", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "(13+12-3)/52=22/52=11/26. Trap D 25/52 double counts."},
+"B029-07": {"answer": "D", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "5/40=50/N -> N=400."},
+"B029-08": {"answer": "D", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy", "flags": ["minor: calculator makes this a direct computation (128*64/512=16)"], "notes": "2^7*2^6/2^9=2^4=16."},
+"B029-09": {"answer": "B", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": [], "notes": "Scale 2.5; 6*2.5=15."},
+"B029-10": {"answer": "C", "confidence": "high", "est_pct_correct": 35, "difficulty_opinion": "hard", "flags": [], "notes": "2x in [0,4pi): 2 solutions per cycle x 2 cycles = 4 (x=pi/12,5pi/12,13pi/12,17pi/12). Trap B=2 catches quick solvers."}
+}}

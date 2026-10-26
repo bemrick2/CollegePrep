@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-26T20:31:00+00:00",
+  "updated_at": "2026-10-26T20:32:59+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 272,
+    "act_math": 282,
     "act_english": 98,
     "act_reading": 90,
     "sat_reading_writing": 103
   },
   "review_totals": {
     "act_math": {
-      "PASS": 278,
+      "PASS": 288,
       "REVISE": 2,
       "REJECT": 2,
-      "candidates": 282,
+      "candidates": 292,
       "passed_after_revision": 2
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 272,
+      "accepted": 282,
       "retired_after_audit": 6,
       "by_skill": {
-        "Algebra": 51,
-        "Functions": 46,
-        "Geometry": 55,
-        "Integrating Essential Skills": 50,
-        "Number & Quantity": 30,
-        "Statistics & Probability": 40
+        "Algebra": 53,
+        "Functions": 48,
+        "Geometry": 57,
+        "Integrating Essential Skills": 51,
+        "Number & Quantity": 31,
+        "Statistics & Probability": 42
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -127,8 +127,10 @@
         "Counting committees with at least one from each group": 1,
         "Counting diagonals of a polygon": 1,
         "Counting divisors (perfect squares)": 1,
+        "Counting integers in a quadratic inequality": 1,
         "Counting lattice paths through a point": 1,
         "Counting perfect squares in a range": 1,
+        "Counting solutions of a trigonometric equation": 1,
         "Counting tiles with a border": 1,
         "Counting with restrictions": 1,
         "Density from dimensions": 1,
@@ -151,10 +153,13 @@
         "Effect of correcting a data value on mean and median": 1,
         "Elapsed time across time zones": 1,
         "Empirical rule for normal distributions": 1,
+        "Enlarging a photo proportionally": 1,
         "Equation of a circle": 1,
         "Equations with rational exponents": 1,
+        "Estimating a population by capture and recapture": 1,
         "Expected count from a probability": 1,
         "Expected value": 1,
+        "Exponent rules with different bases": 1,
         "Exponent substitution": 1,
         "Exponential decay models": 1,
         "Exponential equations by substitution": 1,
@@ -165,6 +170,7 @@
         "Exponential model from two points": 1,
         "Exterior angle theorem with algebra": 1,
         "Factored form: finding the leading coefficient": 1,
+        "Factoring out a common binomial": 1,
         "Fencepost counting on a closed perimeter": 1,
         "Fraction of a fraction": 1,
         "Function composition": 1,
@@ -190,6 +196,7 @@
         "Inverse of a linear function": 1,
         "Inverse of a rational function": 1,
         "Inverse variation with a square": 1,
+        "Isosceles right triangle from its area": 1,
         "Law of cosines": 1,
         "Law of sines": 1,
         "Least common multiple in context": 1,
@@ -235,6 +242,7 @@
         "Percents of subgroups (reversed condition)": 1,
         "Perimeter of a sector": 1,
         "Period of a trigonometric function": 1,
+        "Perpendicular bisector of a segment": 1,
         "Perpendicular lines in the coordinate plane": 1,
         "Piecewise functions": 1,
         "Point dividing a segment in a ratio": 1,
@@ -243,6 +251,7 @@
         "Prime factorization and perfect powers": 1,
         "Probability from category counts": 1,
         "Probability of 'at least one' with combinations": 1,
+        "Probability of A or B with overlap (cards)": 1,
         "Probability of an ordered sequence without replacement": 1,
         "Probability of first success on a given trial": 1,
         "Probability that a sum of two dice is prime": 1,
@@ -256,6 +265,7 @@
         "Quadratic inequalities in context": 1,
         "Quadratic optimization in context": 1,
         "Radical equations and extraneous solutions": 1,
+        "Range of a square-root function": 1,
         "Range on a restricted domain": 1,
         "Rate unit conversion": 1,
         "Rates per worker per day": 1,
@@ -337,27 +347,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 42,
-        "hard": 107,
-        "medium": 123
+        "easy": 45,
+        "hard": 110,
+        "medium": 127
       },
       "by_difficulty_calibrated": {
-        "easy": 71,
-        "hard": 39,
-        "medium": 162
+        "easy": 74,
+        "hard": 40,
+        "medium": 168
       },
       "calibrated_share": {
-        "easy": 0.261,
-        "hard": 0.143,
+        "easy": 0.262,
+        "hard": 0.142,
         "medium": 0.596
       },
       "answer_key_balance": {
-        "A": 65,
-        "B": 73,
-        "C": 74,
-        "D": 60
+        "A": 66,
+        "B": 76,
+        "C": 77,
+        "D": 63
       },
-      "modeling_items": 74,
+      "modeling_items": 76,
       "passages": 0
     },
     "act_english": {
@@ -670,50 +680,42 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 28,
+    "act_math": 29,
     "act_english": 9,
     "act_reading": 10,
     "sat_reading_writing": 11
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 29,
+      "next_batch": 30,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
-        "Algebra",
-        "Number & Quantity"
+        "Number & Quantity",
+        "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": 1.0,
-        "Algebra": 1.2,
-        "Functions": 6.2,
-        "Geometry": -2.8,
-        "Statistics & Probability": -1.9,
-        "Integrating Essential Skills": 6.4
+        "Number & Quantity": 1.1,
+        "Algebra": 1.0,
+        "Functions": 6.0,
+        "Geometry": -3.0,
+        "Statistics & Probability": -2.6,
+        "Integrating Essential Skills": 7.4
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -0.5,
-        "medium": -21.0,
-        "hard": 31.5
+        "easy": -1.0,
+        "medium": -22.0,
+        "hard": 33.0
       },
       "answer_key_gap_for_next_10": {
-        "A": 5.5,
-        "B": -2.5,
-        "C": -3.5,
-        "D": 10.5
+        "A": 7.0,
+        "B": -3.0,
+        "C": -4.0,
+        "D": 10.0
       }
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 10,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 4.7,
-        "Knowledge of Language": 7.1,
-        "Conventions of Standard English": -0.3
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 12,
       "skill_gap_for_next_10": {
@@ -730,13 +732,21 @@
         "Craft and Structure": 0.5,
         "Integration of Knowledge and Ideas": 2.5
       }
+    },
+    "act_english": {
+      "next_batch": 10,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 4.7,
+        "Knowledge of Language": 7.1,
+        "Conventions of Standard English": -0.3
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 272,
-      "share_of_target": 0.136
+      "accepted": 282,
+      "share_of_target": 0.141
     },
     "act_english": {
       "target": 700,
@@ -755,9 +765,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 563,
+  "total_accepted": 573,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_math",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -2990,7 +3000,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 28,
+      "bank_version": 29,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -3045,12 +3055,24 @@
         "Hard labels on verbal items are now assigned only to items with a specific trap that the author expects to catch most students; the hard gate keeps them honest.",
         "At each 100-item verbal audit, add a second whole-bank rater so calibration is a median rather than one opinion."
       ]
+    },
+    {
+      "date": "2026-10-26",
+      "topic": "SAT 100-item audit",
+      "finding": "A whole-bank AI rater re-rated all 103 SAT items: 31 easy / 63 medium / 9 hard, with no flawed items. Under the median rule (two ratings, so the lower middle value is used), the calibrated mix is 47 easy / 55 medium / 1 hard.",
+      "contested_items": [
+        {
+          "id": "CLD-SAT-RW-000100",
+          "issue": "Restrictive vs nonrestrictive title ('Her book Silent Spring,'). The key (A, restrictive) follows the passage's cue that Carson wrote several books; 2 of 3 AI solvers agreed and the whole-bank rater chose B. Keep it, but flag it for human review before publication."
+        }
+      ],
+      "note": "The lower-middle median rule is deliberately conservative: an item is calibrated hard only when every rating so far agrees."
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T18:02:34+00:00",
-    "heartbeat_at": "2026-10-26T20:30:59+00:00",
+    "heartbeat_at": "2026-10-26T20:32:59+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 28,
-  "updated_at": "2026-10-26T20:29:15+00:00",
+  "version": 29,
+  "updated_at": "2026-10-26T20:32:55+00:00",
   "passages": [],
   "questions": [
     {
@@ -19311,6 +19311,712 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-028.review.json",
         "computation": "checks/act_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000279",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Factoring out a common binomial",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to x(x − 3) + 4(x − 3) ?",
+      "choices": {
+        "A": "(x − 3)²",
+        "B": "(x + 4)(x + 3)",
+        "C": "(x + 4)(x − 3)",
+        "D": "4x(x − 3)"
+      },
+      "correct_answer": "C",
+      "explanation": "Both terms share the factor (x − 3): x(x − 3) + 4(x − 3) = (x + 4)(x − 3).",
+      "distractor_explanations": {
+        "A": "(x − 3)² treats the 4 as if it were x − 3.",
+        "B": "This changes the sign inside the common factor.",
+        "D": "This multiplies x and 4 instead of adding them."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "What factor do both terms share?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 0: 0 + 4(−3) = −12 = (4)(−3)."
+      },
+      "remember": "Factor out a common binomial just like a common number.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-01",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000280",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Counting integers in a quadratic inequality",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many integers x satisfy x² − x − 12 < 0 ?",
+      "choices": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "explanation": "x² − x − 12 = (x − 4)(x + 3) < 0 when −3 < x < 4. The integers are −2, −1, 0, 1, 2, 3: six of them.",
+      "distractor_explanations": {
+        "A": "5 drops one of the integers, such as 0.",
+        "C": "7 includes one endpoint, where the expression equals 0.",
+        "D": "8 includes both endpoints, −3 and 4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Factor, then find where the product is negative.",
+        "Are the endpoints included in a strict inequality?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0 and x = 5."
+      },
+      "remember": "Strict inequalities exclude the roots.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-02",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000281",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Range of a square-root function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the range of the function f(x) = √(x − 3) + 2 ?",
+      "choices": {
+        "A": "All real numbers y ≥ 2",
+        "B": "All real numbers y ≥ 3",
+        "C": "All real numbers y ≥ 0",
+        "D": "All real numbers"
+      },
+      "correct_answer": "A",
+      "explanation": "The square root is never negative, so its smallest value is 0 (at x = 3). Adding 2 makes the smallest output 2: the range is y ≥ 2.",
+      "distractor_explanations": {
+        "B": "3 is the boundary of the domain (x ≥ 3), not the range.",
+        "C": "This ignores the + 2 shift.",
+        "D": "A square root cannot produce outputs below its minimum."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What is the smallest value of a square root?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "f(3) = 2; outputs only increase from there."
+      },
+      "remember": "Domain limits x; range limits y.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-03",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000282",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Isosceles right triangle from its area",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An isosceles right triangle has an area of 18 square units. What is the length of its hypotenuse?",
+      "choices": {
+        "A": "6",
+        "B": "6√2",
+        "C": "9",
+        "D": "12"
+      },
+      "correct_answer": "B",
+      "explanation": "If each leg is s, the area is s²/2 = 18, so s = 6. The hypotenuse is s√2 = 6√2.",
+      "distractor_explanations": {
+        "A": "6 is the length of each leg.",
+        "C": "9 is half the area.",
+        "D": "12 doubles a leg instead of multiplying by √2."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write the area in terms of a leg."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "s²/2 = 18."
+      },
+      "remember": "In a 45-45-90 triangle, the hypotenuse is leg × √2.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-04",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000283",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Perpendicular bisector of a segment",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x, y) coordinate plane, what is the y-intercept of the perpendicular bisector of the segment with endpoints (1, 2) and (7, 6) ?",
+      "choices": {
+        "A": "4/3",
+        "B": "4",
+        "C": "20/3",
+        "D": "10"
+      },
+      "correct_answer": "D",
+      "explanation": "The midpoint is (4, 4). The segment's slope is 4/6 = 2/3, so the perpendicular slope is −3/2. The line y − 4 = −(3/2)(x − 4) gives y = −(3/2)x + 10, so the y-intercept is 10.",
+      "distractor_explanations": {
+        "A": "4/3 uses the segment's own slope, 2/3, through the midpoint.",
+        "B": "4 is the y-coordinate of the midpoint.",
+        "C": "20/3 uses −2/3 (the negative but not the reciprocal) as the slope."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "C": "sign_error"
+      },
+      "hints": [
+        "Find the midpoint and the segment's slope.",
+        "The perpendicular slope is the negative reciprocal."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Midpoint (4, 4), slope −3/2."
+      },
+      "remember": "Perpendicular bisector: midpoint + negative reciprocal slope.",
+      "expected_time_seconds": 105,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-05",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000284",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of A or B with overlap (cards)",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "One card is drawn at random from a standard 52-card deck. What is the probability that the card is a heart or a face card (jack, queen, or king)?",
+      "choices": {
+        "A": "3/13",
+        "B": "1/4",
+        "C": "11/26",
+        "D": "25/52"
+      },
+      "correct_answer": "C",
+      "explanation": "There are 13 hearts and 12 face cards, but 3 cards are both. So 13 + 12 − 3 = 22 cards qualify: 22/52 = 11/26.",
+      "distractor_explanations": {
+        "A": "3/13 is the probability of a face card alone.",
+        "B": "1/4 is the probability of a heart alone.",
+        "D": "25/52 adds 13 and 12 without removing the 3 cards counted twice."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which cards are both hearts and face cards?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(13 + 12 − 3)/52."
+      },
+      "remember": "\"Or\" with overlap: add, then subtract the overlap.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-06",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000285",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Statistics & Probability",
+      "subskill": "Estimating a population by capture and recapture",
+      "modeling": true,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "To estimate the number of fish in a pond, biologists catch, tag, and release 50 fish. A week later they catch 40 fish and find that 5 of them are tagged. Assuming the tagged fish have mixed evenly through the pond, what is the best estimate of the number of fish in the pond?",
+      "choices": {
+        "A": "80",
+        "B": "200",
+        "C": "250",
+        "D": "400"
+      },
+      "correct_answer": "D",
+      "explanation": "The proportion tagged in the sample, 5/40 = 1/8, should match the proportion tagged in the pond, 50/N. So N = 50 × 8 = 400.",
+      "distractor_explanations": {
+        "A": "80 multiplies 40 by 2 without using the tagged proportion.",
+        "B": "200 is 40 × 5, multiplying the sample size by the number tagged.",
+        "C": "250 is 50 × 5, multiplying the tagged count by the recaptured tagged count."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What fraction of the second catch is tagged?",
+        "Set that equal to 50 out of the whole population."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5/40 = 50/N."
+      },
+      "remember": "Sample proportion estimates population proportion.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-07",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000286",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Exponent rules with different bases",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of (2⁷ · 4³) / 8³ ?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "8",
+        "D": "16"
+      },
+      "correct_answer": "D",
+      "explanation": "Write everything as powers of 2: 4³ = 2⁶ and 8³ = 2⁹. Then 2⁷ · 2⁶ / 2⁹ = 2⁴ = 16.",
+      "distractor_explanations": {
+        "A": "2 subtracts the exponents 7 + 3 − 9 without converting the bases (2¹).",
+        "B": "4 = 2² treats 4³ as 2⁴.",
+        "C": "8 = 2³ treats 4³ as 2⁵."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Rewrite 4 and 8 as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2^(7 + 6 − 9)."
+      },
+      "remember": "Use a common base before combining exponents.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-08",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: calculator makes this a direct computation (128*64/512=16)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000287",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Enlarging a photo proportionally",
+      "modeling": true,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A photo measures 4 inches by 6 inches. It is enlarged proportionally so that its shorter side is 10 inches. How long is the longer side of the enlargement, in inches?",
+      "choices": {
+        "A": "12",
+        "B": "15",
+        "C": "16",
+        "D": "24"
+      },
+      "correct_answer": "B",
+      "explanation": "The scale factor is 10/4 = 2.5, so the longer side is 6 × 2.5 = 15 inches.",
+      "distractor_explanations": {
+        "A": "12 adds 6 to the original longer side.",
+        "C": "16 adds the 6-inch increase (10 − 4) to the longer side, 6 + 10.",
+        "D": "24 multiplies 6 by 4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the scale factor?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "6 × 10/4."
+      },
+      "remember": "Proportional enlargement multiplies every length by the same factor.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-09",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000288",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Counting solutions of a trigonometric equation",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many solutions does the equation sin(2x) = 1/2 have for 0 ≤ x < 2π ?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "4",
+        "D": "8"
+      },
+      "correct_answer": "C",
+      "explanation": "As x runs from 0 to 2π, 2x runs from 0 to 4π, which is two full cycles of sine. sin θ = 1/2 has 2 solutions in each cycle, so there are 4.",
+      "distractor_explanations": {
+        "A": "1 gives only the first solution, x = π/12.",
+        "B": "2 counts solutions of sin x = 1/2, ignoring that 2x covers two cycles.",
+        "D": "8 doubles the count twice."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What interval does 2x cover?",
+        "How many solutions are there per cycle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch sin(2x): two waves on [0, 2π)."
+      },
+      "remember": "Changing the period changes the number of solutions.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "B029-10",
+      "created_at": "2026-10-26T20:32:55+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-029.review.json",
+        "computation": "checks/act_math/batch_029.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

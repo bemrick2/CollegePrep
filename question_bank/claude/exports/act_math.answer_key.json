@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 28,
+  "bank_version": 29,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -4863,6 +4863,180 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "The V opens up from (2, −3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000279",
+      "correct_answer": "C",
+      "explanation": "Both terms share the factor (x − 3): x(x − 3) + 4(x − 3) = (x + 4)(x − 3).",
+      "distractor_explanations": {
+        "A": "(x − 3)² treats the 4 as if it were x − 3.",
+        "B": "This changes the sign inside the common factor.",
+        "D": "This multiplies x and 4 instead of adding them."
+      },
+      "hints": [
+        "What factor do both terms share?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 0: 0 + 4(−3) = −12 = (4)(−3)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000280",
+      "correct_answer": "B",
+      "explanation": "x² − x − 12 = (x − 4)(x + 3) < 0 when −3 < x < 4. The integers are −2, −1, 0, 1, 2, 3: six of them.",
+      "distractor_explanations": {
+        "A": "5 drops one of the integers, such as 0.",
+        "C": "7 includes one endpoint, where the expression equals 0.",
+        "D": "8 includes both endpoints, −3 and 4."
+      },
+      "hints": [
+        "Factor, then find where the product is negative.",
+        "Are the endpoints included in a strict inequality?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0 and x = 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000281",
+      "correct_answer": "A",
+      "explanation": "The square root is never negative, so its smallest value is 0 (at x = 3). Adding 2 makes the smallest output 2: the range is y ≥ 2.",
+      "distractor_explanations": {
+        "B": "3 is the boundary of the domain (x ≥ 3), not the range.",
+        "C": "This ignores the + 2 shift.",
+        "D": "A square root cannot produce outputs below its minimum."
+      },
+      "hints": [
+        "What is the smallest value of a square root?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "f(3) = 2; outputs only increase from there."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000282",
+      "correct_answer": "B",
+      "explanation": "If each leg is s, the area is s²/2 = 18, so s = 6. The hypotenuse is s√2 = 6√2.",
+      "distractor_explanations": {
+        "A": "6 is the length of each leg.",
+        "C": "9 is half the area.",
+        "D": "12 doubles a leg instead of multiplying by √2."
+      },
+      "hints": [
+        "Write the area in terms of a leg."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "s²/2 = 18."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000283",
+      "correct_answer": "D",
+      "explanation": "The midpoint is (4, 4). The segment's slope is 4/6 = 2/3, so the perpendicular slope is −3/2. The line y − 4 = −(3/2)(x − 4) gives y = −(3/2)x + 10, so the y-intercept is 10.",
+      "distractor_explanations": {
+        "A": "4/3 uses the segment's own slope, 2/3, through the midpoint.",
+        "B": "4 is the y-coordinate of the midpoint.",
+        "C": "20/3 uses −2/3 (the negative but not the reciprocal) as the slope."
+      },
+      "hints": [
+        "Find the midpoint and the segment's slope.",
+        "The perpendicular slope is the negative reciprocal."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Midpoint (4, 4), slope −3/2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000284",
+      "correct_answer": "C",
+      "explanation": "There are 13 hearts and 12 face cards, but 3 cards are both. So 13 + 12 − 3 = 22 cards qualify: 22/52 = 11/26.",
+      "distractor_explanations": {
+        "A": "3/13 is the probability of a face card alone.",
+        "B": "1/4 is the probability of a heart alone.",
+        "D": "25/52 adds 13 and 12 without removing the 3 cards counted twice."
+      },
+      "hints": [
+        "Which cards are both hearts and face cards?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(13 + 12 − 3)/52."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000285",
+      "correct_answer": "D",
+      "explanation": "The proportion tagged in the sample, 5/40 = 1/8, should match the proportion tagged in the pond, 50/N. So N = 50 × 8 = 400.",
+      "distractor_explanations": {
+        "A": "80 multiplies 40 by 2 without using the tagged proportion.",
+        "B": "200 is 40 × 5, multiplying the sample size by the number tagged.",
+        "C": "250 is 50 × 5, multiplying the tagged count by the recaptured tagged count."
+      },
+      "hints": [
+        "What fraction of the second catch is tagged?",
+        "Set that equal to 50 out of the whole population."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "5/40 = 50/N."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000286",
+      "correct_answer": "D",
+      "explanation": "Write everything as powers of 2: 4³ = 2⁶ and 8³ = 2⁹. Then 2⁷ · 2⁶ / 2⁹ = 2⁴ = 16.",
+      "distractor_explanations": {
+        "A": "2 subtracts the exponents 7 + 3 − 9 without converting the bases (2¹).",
+        "B": "4 = 2² treats 4³ as 2⁴.",
+        "C": "8 = 2³ treats 4³ as 2⁵."
+      },
+      "hints": [
+        "Rewrite 4 and 8 as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "2^(7 + 6 − 9)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000287",
+      "correct_answer": "B",
+      "explanation": "The scale factor is 10/4 = 2.5, so the longer side is 6 × 2.5 = 15 inches.",
+      "distractor_explanations": {
+        "A": "12 adds 6 to the original longer side.",
+        "C": "16 adds the 6-inch increase (10 − 4) to the longer side, 6 + 10.",
+        "D": "24 multiplies 6 by 4."
+      },
+      "hints": [
+        "What is the scale factor?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "6 × 10/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000288",
+      "correct_answer": "C",
+      "explanation": "As x runs from 0 to 2π, 2x runs from 0 to 4π, which is two full cycles of sine. sin θ = 1/2 has 2 solutions in each cycle, so there are 4.",
+      "distractor_explanations": {
+        "A": "1 gives only the first solution, x = π/12.",
+        "B": "2 counts solutions of sin x = 1/2, ignoring that 2x covers two cycles.",
+        "D": "8 doubles the count twice."
+      },
+      "hints": [
+        "What interval does 2x cover?",
+        "How many solutions are there per cycle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch sin(2x): two waves on [0, 2π)."
       }
     }
   ]

@@ -15,8 +15,14 @@ def _lin(t):
 
 
 def c01(ch):
-    f = lambda x: 3 * (2 * x - 4) - 2 * (x - 5)
-    return pick(ch, (f(1) - f(0), f(0)), conv=_lin)
+    pts = (-2, 0, 1, 5)
+    target = tuple(x * (x - 3) + 4 * (x - 3) for x in pts)
+
+    def conv(t):
+        e = t.replace('−', '-').replace('²', '**2').replace(')(', ')*(')
+        e = re.sub(r'(\d)(x|\()', r'\1*\2', e)
+        return tuple(eval(e, {'__builtins__': {}}, {'x': x}) for x in pts)  # noqa: S307 (author-written choice text)
+    return pick(ch, target, conv=conv)
 
 
 def c02(ch):

@@ -1,0 +1,255 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_math",
+  "batch": 29,
+  "reviewed_at": "2026-10-26T20:32:55+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 29
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-M-000279",
+    "CLD-ACT-M-000280",
+    "CLD-ACT-M-000281",
+    "CLD-ACT-M-000282",
+    "CLD-ACT-M-000283",
+    "CLD-ACT-M-000284",
+    "CLD-ACT-M-000285",
+    "CLD-ACT-M-000286",
+    "CLD-ACT-M-000287",
+    "CLD-ACT-M-000288"
+  ],
+  "results": [
+    {
+      "cand": "B029-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Factor out common (x-3): (x+4)(x-3).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000279"
+    },
+    {
+      "cand": "B029-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(x-4)(x+3)<0 -> -3<x<4; integers -2..3 = 6. Trap: 8 (inclusive) or 7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000280"
+    },
+    {
+      "cand": "B029-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "sqrt >= 0 so f >= 2. Trap B confuses domain with range.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000281"
+    },
+    {
+      "cand": "B029-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "s^2/2=18 -> s=6; hyp 6*sqrt2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000282"
+    },
+    {
+      "cand": "B029-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Midpoint (4,4), slope 2/3, perp slope -3/2: y=-3/2 x+10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "three steps (midpoint, negative reciprocal, intercept) with a trap at each"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000283"
+    },
+    {
+      "cand": "B029-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(13+12-3)/52=22/52=11/26. Trap D 25/52 double counts.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000284"
+    },
+    {
+      "cand": "B029-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "5/40=50/N -> N=400.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "setting up a proportion from an unfamiliar sampling method"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000285"
+    },
+    {
+      "cand": "B029-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: calculator makes this a direct computation (128*64/512=16)"
+      ],
+      "blind_notes": "2^7*2^6/2^9=2^4=16.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000286"
+    },
+    {
+      "cand": "B029-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Scale 2.5; 6*2.5=15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000287"
+    },
+    {
+      "cand": "B029-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "2x in [0,4pi): 2 solutions per cycle x 2 cycles = 4 (x=pi/12,5pi/12,13pi/12,17pi/12). Trap B=2 catches quick solvers.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "doubled frequency doubles the solutions; most answer 2"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-M-000288"
+    }
+  ]
+}
