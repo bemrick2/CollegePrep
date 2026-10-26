@@ -1,0 +1,474 @@
+{
+  "bank": "act_math",
+  "batch": 8,
+  "plan": "Batch 6 showed single-insight items read as medium (45-55%). Hard items here use late-section ACT content with two linked steps: cyclic powers of i, remainder theorem, double-angle with quadrant signs, altitude by area two ways, conditional sample space. Gaps: N&Q 1, Algebra 1, Functions 2, Geometry 2, S&P 2, IES 2; 5 hard / 5 medium.",
+  "candidates": [
+    {
+      "cand": "B008-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Powers of i",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "hard",
+      "stem": "For i = √(−1), what is the value of the sum i + i² + i³ + i⁴ + … + i⁵⁰ ?",
+      "choices": {
+        "A": "0",
+        "B": "−1",
+        "C": "i",
+        "D": "−1 + i"
+      },
+      "answer": "D",
+      "explanation": "Powers of i repeat in a cycle of 4: i, −1, −i, 1, and each full cycle sums to 0. The 50 terms contain 12 full cycles (48 terms), which sum to 0, followed by i⁴⁹ = i and i⁵⁰ = −1. So the sum is i + (−1) = −1 + i.",
+      "distractors": {
+        "A": {
+          "rationale": "This assumes the terms cancel completely, but 50 is not a multiple of 4; two terms are left over.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "−1 is the last term, i⁵⁰, not the sum of all the terms.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This stops after i⁴⁹, leaving out the final term i⁵⁰ = −1.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "Write out i, i², i³ and i⁴. What do these four add up to?",
+        "How many complete groups of 4 are there in 50 terms, and which terms are left over?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Each block of four powers sums to 0; after 48 terms, add the leftover i⁴⁹ + i⁵⁰ = i − 1."
+      },
+      "remember": "Powers of i cycle every 4: i, −1, −i, 1.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "cycle insight plus remainder bookkeeping; two plausible partial answers"
+      }
+    },
+    {
+      "cand": "B008-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Polynomial remainder theorem",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The polynomial p(x) = x³ + kx² − 4x + 6, where k is a constant, leaves a remainder of 18 when it is divided by x − 2. What is the remainder when p(x) is divided by x + 1 ?",
+      "choices": {
+        "A": "6",
+        "B": "12",
+        "C": "14",
+        "D": "18"
+      },
+      "answer": "B",
+      "explanation": "By the remainder theorem, the remainder on division by x − 2 is p(2): 8 + 4k − 8 + 6 = 4k + 6 = 18, so k = 3. The remainder on division by x + 1 is p(−1) = (−1)³ + 3(−1)² − 4(−1) + 6 = −1 + 3 + 4 + 6 = 12.",
+      "distractors": {
+        "A": {
+          "rationale": "6 is the constant term, which would be the remainder on division by x, not by x + 1.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This evaluates (−1)³ as +1: 1 + 3 + 4 + 6 = 14.",
+          "trap": "sign_error"
+        },
+        "D": {
+          "rationale": "This assumes the remainder is the same for every divisor; the remainder depends on where the polynomial is evaluated.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The remainder when p(x) is divided by x − a equals p(a).",
+        "Use the first fact to find k, then evaluate p at the right value for x + 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "p(2) = 18 gives k = 3; then p(−1) = 12."
+      },
+      "remember": "Dividing by x − a leaves remainder p(a); x + 1 means a = −1.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "remainder theorem used twice, with the sign of a in x + 1",
+        "taxonomy_note": "polynomial algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B008-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Trigonometric identities and quadrant signs",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "Angle θ satisfies π < θ < 3π/2, and sin θ = −3/5. What is the value of sin(2θ) ? (Use the identity sin(2θ) = 2 sin θ cos θ.)",
+      "choices": {
+        "A": "−24/25",
+        "B": "−6/5",
+        "C": "7/25",
+        "D": "24/25"
+      },
+      "answer": "D",
+      "explanation": "Because π < θ < 3π/2, θ is in Quadrant III, where cosine is negative. From sin²θ + cos²θ = 1, cos²θ = 1 − 9/25 = 16/25, so cos θ = −4/5. Then sin(2θ) = 2(−3/5)(−4/5) = 24/25.",
+      "distractors": {
+        "A": {
+          "rationale": "This takes cos θ = +4/5, ignoring that cosine is negative in Quadrant III.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "This doubles sin θ, as if sin(2θ) were 2 sin θ; the factor cos θ is missing.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "7/25 is cos(2θ) = 1 − 2 sin²θ, not sin(2θ).",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Use sin²θ + cos²θ = 1 to find the size of cos θ.",
+        "In which quadrant is θ, and what sign does cosine have there?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch a 3-4-5 reference triangle in Quadrant III: both sine and cosine are negative, so their product is positive."
+      },
+      "remember": "Quadrant III: sine and cosine are both negative.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Pythagorean identity, quadrant sign and double angle combined; identity supplied as ACT does"
+      }
+    },
+    {
+      "cand": "B008-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Composition from tables",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "The functions f and g are defined only for x = 1, 2, 3 and 4, as shown below.\nx: 1, 2, 3, 4\nf(x): 3, 4, 1, 2\ng(x): 2, 1, 4, 3\nFor how many of these 4 values of x is f(g(x)) = g(f(x)) ?",
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "4"
+      },
+      "answer": "D",
+      "explanation": "Check each x. x = 1: f(g(1)) = f(2) = 4 and g(f(1)) = g(3) = 4. x = 2: f(1) = 3 and g(4) = 3. x = 3: f(4) = 2 and g(1) = 2. x = 4: f(3) = 1 and g(2) = 1. The two compositions agree for all 4 values.",
+      "distractors": {
+        "A": {
+          "rationale": "This assumes composition never commutes; here it happens to agree everywhere, which must be checked rather than assumed.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "1 results from checking only x = 1 and stopping, or from misreading table entries so that three of the four cases appear to fail; computed correctly, every case agrees.",
+          "trap": "misread_graph"
+        },
+        "C": {
+          "rationale": "2 results from reading the f row where the g row is needed (or the reverse) in some cases; each of the four cases agrees when both compositions are computed from the inside out.",
+          "trap": "misread_graph"
+        }
+      },
+      "hints": [
+        "For each x, work from the inside out on both sides.",
+        "Read the inner function's row first, then use that output as the input of the outer function."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compute both compositions for x = 1 to 4 in a small table; all four match."
+      },
+      "remember": "For f(g(x)), evaluate g first, then f.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B008-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Altitude via area in the coordinate plane",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "In the standard (x,y) coordinate plane, triangle PQR has vertices P(0, 0), Q(8, 0) and R(2, 6). What is the length of the altitude from Q to side PR ?",
+      "choices": {
+        "A": "6",
+        "B": "12√10/5",
+        "C": "2√10",
+        "D": "8"
+      },
+      "answer": "B",
+      "explanation": "Using base PQ = 8 on the x-axis and height 6 (the y-coordinate of R), the area is (1/2)(8)(6) = 24. Side PR has length √(2² + 6²) = √40 = 2√10. If h is the altitude from Q to PR, then (1/2)(2√10)h = 24, so h = 24/√10 = 12√10/5 ≈ 7.6.",
+      "distractors": {
+        "A": {
+          "rationale": "6 is the altitude from R to side PQ, not the altitude from Q to side PR.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "2√10 is the length of side PR itself, not the altitude to it.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "8 is the length of side PQ, the distance from Q to P, which is not perpendicular to PR.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Find the area of the triangle using the side on the x-axis.",
+        "Write the area again using PR as the base, and solve for the height."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Area = 24 from base PQ; then 24 = (1/2)(PR)(h) with PR = 2√10."
+      },
+      "remember": "One triangle, one area: any side can serve as the base.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "requires computing area two ways; the easy altitude (6) is the trap"
+      }
+    },
+    {
+      "cand": "B008-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Space diagonal of a cube",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "medium",
+      "stem": "The distance between opposite corners of a cube, measured through the inside of the cube, is 6√3 centimeters. What is the volume of the cube, in cubic centimeters?",
+      "choices": {
+        "A": "216",
+        "B": "216√3",
+        "C": "162√6",
+        "D": "648√3"
+      },
+      "answer": "A",
+      "explanation": "For a cube with edge s, the face diagonal is s√2, and the space diagonal is √(s² + (s√2)²) = √(3s²) = s√3. So s√3 = 6√3 gives s = 6, and the volume is 6³ = 216 cubic centimeters.",
+      "distractors": {
+        "B": {
+          "rationale": "This finds s = 6 but then multiplies the volume by √3, carrying the diagonal's factor into the volume.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This uses the face diagonal formula s√2 = 6√3, giving s = 3√6 and volume 162√6.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "This treats 6√3 as the edge length: (6√3)³ = 648√3.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Relate the space diagonal to the edge length using the Pythagorean theorem twice.",
+        "Once you know the edge, cube it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Space diagonal = s√3; so s = 6 and V = 216."
+      },
+      "remember": "Cube: face diagonal s√2, space diagonal s√3.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B008-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Conditional probability with a reduced sample space",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "Two fair six-sided dice, each numbered 1 through 6, are rolled. Given that the sum of the two numbers rolled is 8, what is the probability that at least one of the dice shows a 6 ?",
+      "choices": {
+        "A": "1/18",
+        "B": "5/36",
+        "C": "11/36",
+        "D": "2/5"
+      },
+      "answer": "D",
+      "explanation": "Given a sum of 8, the equally likely outcomes are (2, 6), (3, 5), (4, 4), (5, 3) and (6, 2): 5 outcomes. Two of them include a 6. The probability is 2/5.",
+      "distractors": {
+        "A": {
+          "rationale": "1/18 = 2/36 is the probability of rolling a sum of 8 AND a 6, measured out of all 36 outcomes rather than the 5 that sum to 8.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "5/36 is the probability that the sum is 8, the condition itself.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "11/36 is the probability of at least one 6 without using the condition.",
+          "trap": "partial_answer"
+        }
+      },
+      "hints": [
+        "'Given that' shrinks the set of possible outcomes.",
+        "List every ordered pair of dice that sums to 8."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List the 5 ordered pairs with sum 8 and count those containing a 6."
+      },
+      "remember": "Conditional probability: count within the condition only.",
+      "expected_time_seconds": 75,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "reduced sample space; three distractors are probabilities of related events over 36"
+      }
+    },
+    {
+      "cand": "B008-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Linear transformations of data",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "medium",
+      "stem": "A data set has a mean of 12 and a standard deviation of 4. Each value in the data set is multiplied by 3, and then 5 is added to each result. What are the mean and the standard deviation of the new data set?",
+      "choices": {
+        "A": "Mean 41, standard deviation 12",
+        "B": "Mean 41, standard deviation 17",
+        "C": "Mean 36, standard deviation 12",
+        "D": "Mean 41, standard deviation 4"
+      },
+      "answer": "A",
+      "explanation": "Multiplying every value by 3 multiplies both the mean and the standard deviation by 3: mean 36, standard deviation 12. Adding 5 to every value shifts the mean to 41 but does not change the spread, so the standard deviation stays 12.",
+      "distractors": {
+        "B": {
+          "rationale": "This adds 5 to the standard deviation; shifting every value by the same amount does not change spread.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This forgets to add 5 to the mean.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This leaves the standard deviation unchanged, but multiplying by 3 triples the spread.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How does multiplying every value by 3 change the spread?",
+        "How does adding the same number to every value change the spread?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try the data set {8, 16} (mean 12, SD 4): it becomes {29, 53}, with mean 41 and SD 12."
+      },
+      "remember": "Adding shifts the mean only; multiplying scales both mean and spread.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "population SD of {8,16} is 4"
+      }
+    },
+    {
+      "cand": "B008-09",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Concentration after evaporation",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "A tank holds 40 liters of salt water that is 15% salt by volume. Water (but no salt) evaporates until the solution is 25% salt by volume. How many liters of water evaporated?",
+      "choices": {
+        "A": "4",
+        "B": "10",
+        "C": "16",
+        "D": "24"
+      },
+      "answer": "C",
+      "explanation": "The amount of salt stays the same: 0.15 × 40 = 6 liters. After evaporation, 6 liters is 25% of the solution, so the solution is 6 ÷ 0.25 = 24 liters. The water that evaporated is 40 − 24 = 16 liters.",
+      "distractors": {
+        "A": {
+          "rationale": "This takes 10 percentage points of 40 liters (0.10 × 40 = 4); the salt amount, not the percent, stays fixed.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "10 liters is 25% of the original 40 liters; the final volume is not 40 liters.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "24 liters is the volume remaining after evaporation, not the amount that evaporated.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Which quantity does not change when water evaporates?",
+        "Find the new total volume, then compare it with 40 liters."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Salt = 6 L; 6 = 0.25V gives V = 24; evaporated = 16."
+      },
+      "remember": "Track the quantity that stays constant.",
+      "expected_time_seconds": 60,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B008-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Catch-up rate problems",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "Ana starts walking along a trail at 9:00 a.m. at a constant 4 miles per hour. Ben starts from the same point at 9:30 a.m. and bikes along the same trail in the same direction at a constant 10 miles per hour. At what time does Ben catch up to Ana?",
+      "choices": {
+        "A": "9:39 a.m.",
+        "B": "9:42 a.m.",
+        "C": "9:50 a.m.",
+        "D": "10:00 a.m."
+      },
+      "answer": "C",
+      "explanation": "By 9:30 Ana has walked 4 × 0.5 = 2 miles. Ben closes the gap at 10 − 4 = 6 miles per hour, so he needs 2 ÷ 6 = 1/3 hour = 20 minutes. He catches Ana at 9:50 a.m. (Check: both have gone 3 1/3 miles.)",
+      "distractors": {
+        "A": {
+          "rationale": "This adds the speeds (2 ÷ 14 hour ≈ 9 minutes), which applies to people moving toward each other, not in the same direction.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "This finds when Ben reaches Ana's 9:30 position (2 ÷ 10 hour = 12 minutes), ignoring that Ana keeps walking.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This assumes Ben needs as long as Ana's 30-minute head start.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How far ahead is Ana when Ben starts?",
+        "How fast does the gap between them shrink?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 9:50: Ana has walked 50 minutes (3 1/3 mi) and Ben has biked 20 minutes (3 1/3 mi). They meet."
+      },
+      "remember": "Same direction: the gap closes at the difference of the speeds.",
+      "expected_time_seconds": 70,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}

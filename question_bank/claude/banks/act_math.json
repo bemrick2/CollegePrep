@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 6,
-  "updated_at": "2026-10-26T18:10:38+00:00",
+  "version": 7,
+  "updated_at": "2026-10-26T18:13:15+00:00",
   "passages": [],
   "questions": [
     {
@@ -3874,6 +3874,698 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-006.review.json",
         "computation": "checks/act_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000059",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Divisors and primes",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Consider the positive integers n from 1 through 9 for which n² has exactly 3 positive divisors. What is the sum of all such values of n ?",
+      "choices": {
+        "A": "17",
+        "B": "18",
+        "C": "26",
+        "D": "45"
+      },
+      "correct_answer": "A",
+      "explanation": "If n is prime, the divisors of n² are exactly 1, n and n², which is 3 divisors. If n = 1, n² = 1 has only 1 divisor. If n is composite, n has another divisor d with 1 < d < n, and d also divides n², giving more than 3 divisors (for example, 4² = 16 has 5). So n must be prime: 2, 3, 5 or 7, and the sum is 17.",
+      "distractor_explanations": {
+        "B": "This includes n = 1, but 1² = 1 has only one positive divisor.",
+        "C": "This also includes n = 9, but 81 has five divisors (1, 3, 9, 27, 81), not three.",
+        "D": "This assumes every n² has exactly the divisors 1, n and n², so it adds 1 through 9; composite n give more divisors."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "List the divisors of n² for a prime n and for a composite n such as 4 or 6.",
+        "Which kind of number n makes 1, n and n² the only divisors of n²?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test n = 2, 4 and 9: 4 has divisors 1, 2, 4 (three), 16 has five, 81 has five. Only primes work."
+      },
+      "remember": "n² has exactly 3 divisors exactly when n is prime.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-01",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: 'positive integers n from 1 through 9' is slightly wordy; 'integers n with 1 ≤ n ≤ 9' is cleaner"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000060",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Negative rational exponents",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "What is the value of 27^(−2/3) ?",
+      "choices": {
+        "A": "1/9",
+        "B": "1/18",
+        "C": "−9",
+        "D": "9"
+      },
+      "correct_answer": "A",
+      "explanation": "27^(1/3) = 3 (the cube root), so 27^(2/3) = 3² = 9. A negative exponent means a reciprocal: 27^(−2/3) = 1/9.",
+      "distractor_explanations": {
+        "B": "This multiplies 27 by 2/3 to get 18; a fractional exponent is a root and a power, not a multiplier.",
+        "C": "A negative exponent gives a reciprocal, not a negative number.",
+        "D": "9 is 27^(2/3); the negative sign in the exponent was ignored."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "The denominator 3 in the exponent means a cube root.",
+        "What does a negative exponent do to a number?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cube root of 27 is 3, squared is 9, reciprocal is 1/9."
+      },
+      "remember": "a^(−m/n) = 1 ÷ (nth root of a)^m.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-02",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000061",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Conditions on quadratic roots",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The equation x² − 6x + c = 0, where c is a constant, has two different real solutions, and both solutions are greater than 1. Which of the following describes all possible values of c ?",
+      "choices": {
+        "A": "c < 9",
+        "B": "c > 5",
+        "C": "1 < c < 9",
+        "D": "5 < c < 9"
+      },
+      "correct_answer": "D",
+      "explanation": "Two different real solutions require a positive discriminant: 36 − 4c > 0, so c < 9. The parabola y = x² − 6x + c has its axis at x = 3, which is greater than 1, so both roots exceed 1 exactly when the value at x = 1 is positive: 1 − 6 + c > 0, so c > 5. Together, 5 < c < 9. (For example, c = 2 gives roots 3 ± √7, and 3 − √7 ≈ 0.35 is less than 1.)",
+      "distractor_explanations": {
+        "A": "This uses only the discriminant condition; it allows values such as c = 2, which gives a root less than 1.",
+        "B": "This uses only the condition at x = 1; values c ≥ 9 give a repeated root or no real roots.",
+        "C": "A product of roots greater than 1 is necessary but not sufficient; c = 2 has product 2 but one root is about 0.35."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "What condition guarantees two different real solutions?",
+        "Think of the graph y = x² − 6x + c: where is its vertex, and what must be true of its value at x = 1?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test c = 2 (roots 3 ± √7; one is below 1, so eliminate A and C) and c = 10 (no real roots; eliminate B)."
+      },
+      "remember": "Root-location questions: check the discriminant, the vertex and the value at the boundary.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-03",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000062",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear models from two data points",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A candle burns down at a constant rate. Two hours after it is lit, the candle is 17 centimeters tall. Five hours after it is lit, it is 9.5 centimeters tall. How many hours after it is lit will the candle burn down completely?",
+      "choices": {
+        "A": "3.8",
+        "B": "6.8",
+        "C": "8.8",
+        "D": "11.8"
+      },
+      "correct_answer": "C",
+      "explanation": "The candle loses (17 − 9.5) ÷ (5 − 2) = 2.5 centimeters per hour. Its height when lit was 17 + 2(2.5) = 22 centimeters. It burns out when 22 − 2.5t = 0, so t = 8.8 hours.",
+      "distractor_explanations": {
+        "A": "3.8 hours is the time remaining after the 5-hour mark (9.5 ÷ 2.5), not the time since the candle was lit.",
+        "B": "6.8 hours is the time remaining after the 2-hour mark (17 ÷ 2.5); the first 2 hours must be added.",
+        "D": "This adds 5 hours to the time remaining after the 2-hour mark, mixing the two reference times."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Find the rate at which the height decreases.",
+        "Find the starting height, or add the time already elapsed to the time remaining."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Height h = 22 − 2.5t; set h = 0 and solve: t = 8.8."
+      },
+      "remember": "Measure time from the event the question names.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-04",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000063",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Inverse functions and excluded values",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (3x + 1)/(x − 2) for all x ≠ 2. The function f has an inverse function, f⁻¹. For which value of x is f⁻¹(x) undefined?",
+      "choices": {
+        "A": "−1/3",
+        "B": "2",
+        "C": "3",
+        "D": "−1/2"
+      },
+      "correct_answer": "C",
+      "explanation": "Solve y = (3x + 1)/(x − 2) for x: y(x − 2) = 3x + 1, so yx − 3x = 2y + 1 and x = (2y + 1)/(y − 3). So f⁻¹(x) = (2x + 1)/(x − 3), which is undefined at x = 3. (Equivalently, f never outputs 3, its horizontal asymptote, so 3 is not in the domain of f⁻¹.)",
+      "distractor_explanations": {
+        "A": "−1/3 is the zero of f (where 3x + 1 = 0), which is a value in the domain of f⁻¹ (f⁻¹(0) = −1/2).",
+        "B": "2 is excluded from the domain of f, so it is excluded from the range of f⁻¹, not its domain.",
+        "D": "−1/2 is where f⁻¹ equals 0; f⁻¹ is defined there."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "The inputs of f⁻¹ are the outputs of f.",
+        "Solve y = (3x + 1)/(x − 2) for x, or ask which output f can never produce."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Swap and solve to get f⁻¹(x) = (2x + 1)/(x − 3); its denominator is zero at x = 3."
+      },
+      "remember": "The domain of f⁻¹ is the range of f.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-05",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000064",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential function properties",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "figure": null,
+      "stem": "The function g is defined by g(x) = 2^x. Which of the following is equal to g(x + 3) for all real numbers x ?",
+      "choices": {
+        "A": "g(x) + 3",
+        "B": "g(x) + 8",
+        "C": "3g(x)",
+        "D": "8g(x)"
+      },
+      "correct_answer": "D",
+      "explanation": "g(x + 3) = 2^(x + 3) = 2^x · 2³ = 8 · 2^x = 8g(x).",
+      "distractor_explanations": {
+        "A": "Adding 3 to the input of an exponential function does not add 3 to the output.",
+        "B": "2³ = 8 multiplies the output; it is not added to it.",
+        "C": "This multiplies by the exponent 3 instead of by 2³."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Write g(x + 3) as a power of 2 and use the product rule for exponents.",
+        "What is 2³?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let x = 1: g(4) = 16 and g(1) = 2. Only 8g(1) = 16."
+      },
+      "remember": "Adding to an exponent multiplies the power.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-06",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000065",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Inscribed angles and arcs",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "Triangle ABC is inscribed in a circle, and side AB is a diameter of the circle. The measure of ∠BAC is 28°. What is the measure of minor arc BC ?",
+      "choices": {
+        "A": "28°",
+        "B": "56°",
+        "C": "62°",
+        "D": "124°"
+      },
+      "correct_answer": "B",
+      "explanation": "∠BAC is an inscribed angle that intercepts arc BC, and an inscribed angle measures half its intercepted arc. So arc BC = 2(28°) = 56°. (Because AB is a diameter, ∠ACB = 90° and ∠ABC = 62°, which intercepts arc AC = 124°; the arcs BC and AC together make the 180° semicircle.)",
+      "distractor_explanations": {
+        "A": "28° is the inscribed angle itself; the intercepted arc is twice as large.",
+        "C": "62° is the measure of ∠ABC, an angle, not arc BC.",
+        "D": "124° is arc AC, the arc intercepted by ∠ABC, not arc BC."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which arc does ∠BAC intercept?",
+        "How does an inscribed angle compare with its intercepted arc?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle with diameter AB and point C; the angle at A opens onto arc BC, so double 28°."
+      },
+      "remember": "Inscribed angle = half its intercepted arc.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-07",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000066",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Mean, median and mode constraints",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A list of 5 positive integers has a median of 8, a mean of 7, and a mode of 10. No other value appears in the list as often as 10 does. How many different lists of 5 numbers, written in order from least to greatest, satisfy all of these conditions?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "In order, the list is a, b, 8, d, e. The mode 10 must appear at least twice, and it must be greater than the median, so d = e = 10. The sum is 5 × 7 = 35, so a + b = 35 − 8 − 20 = 7. If a = b, or if b = 8, another value would appear twice and tie with 10, so a < b ≤ 7 with a ≥ 1. The pairs (1, 6), (2, 5) and (3, 4) work, giving 3 lists.",
+      "distractor_explanations": {
+        "A": "This misses one valid pair, typically (1, 6) or (3, 4).",
+        "C": "This also counts (0, 7), but the numbers must be positive integers.",
+        "D": "This counts ordered pairs such as (1, 6) and (6, 1) separately, but the list is written in increasing order."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where in the ordered list must the two 10s go?",
+        "Use the mean to find the sum of the two smallest numbers, then check the mode condition."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write five blanks: _, _, 8, 10, 10. The first two sum to 7, must differ, and must be positive."
+      },
+      "remember": "Sum = mean × count; a unique mode cannot be tied.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-08",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000067",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Area with unit conversion",
+      "modeling": true,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A rectangular lawn measures 30 feet by 45 feet. It will be covered completely with sod sold in rolls that each cover 10 square yards. What is the least number of rolls needed? (1 yard = 3 feet)",
+      "choices": {
+        "A": "15",
+        "B": "45",
+        "C": "135",
+        "D": "405"
+      },
+      "correct_answer": "A",
+      "explanation": "The lawn's area is 30 × 45 = 1,350 square feet. One square yard is 3 × 3 = 9 square feet, so the lawn is 1,350 ÷ 9 = 150 square yards. At 10 square yards per roll, 15 rolls are needed.",
+      "distractor_explanations": {
+        "B": "This divides the square feet by 3 instead of 9; a square yard is 3 feet by 3 feet.",
+        "C": "This ignores the unit conversion and divides 1,350 square feet by 10.",
+        "D": "This multiplies by 3 instead of dividing when converting, then divides by 10."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Find the area in square feet first.",
+        "How many square feet are in one square yard?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the sides first: 10 yd by 15 yd = 150 square yards; 150 ÷ 10 = 15."
+      },
+      "remember": "Square units convert by the square of the length factor.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-09",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000068",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Average speed over unequal times",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "figure": null,
+      "stem": "A cyclist rides 12 kilometers up a hill at an average speed of 8 kilometers per hour and then rides the same 12 kilometers back down at an average speed of 24 kilometers per hour. What is the cyclist's average speed, in kilometers per hour, for the entire 24-kilometer trip?",
+      "choices": {
+        "A": "6",
+        "B": "12",
+        "C": "16",
+        "D": "32"
+      },
+      "correct_answer": "B",
+      "explanation": "Average speed = total distance ÷ total time. Uphill takes 12 ÷ 8 = 1.5 hours, and downhill takes 12 ÷ 24 = 0.5 hour. The total time is 2 hours for 24 kilometers, so the average speed is 12 kilometers per hour.",
+      "distractor_explanations": {
+        "A": "6 divides only one leg's distance, 12 km, by the total time of 2 hours.",
+        "C": "16 is the plain average of 8 and 24, which would be right only if equal TIME were spent at each speed; more time is spent at the slower speed.",
+        "D": "This adds the two speeds; speeds on separate legs do not add."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Average speed is total distance divided by total time.",
+        "Find how long each leg takes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Times: 1.5 h and 0.5 h. 24 km ÷ 2 h = 12 km/h."
+      },
+      "remember": "Average speed = total distance ÷ total time, not the average of speeds.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 7,
+      "draft_candidate": "B007-10",
+      "created_at": "2026-10-26T18:13:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-007.review.json",
+        "computation": "checks/act_math/batch_007.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
