@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 52,
+ "plan": "First batch toward the raised stop point (1,000 live). 2 hard (discriminant integer count, difference from two means) / 5 medium / 3 easy; D keys favoured to rebalance recent batches.",
+ "candidates": [
+  {
+   "cand": "B052-01",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Multiplying a mixed number in context",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A recipe calls for 2 1/4 cups of flour per batch. How many cups of flour are needed for 6 batches?",
+   "choices": {
+    "A": "12 1/4",
+    "B": "12 1/2",
+    "C": "13",
+    "D": "13 1/2"
+   },
+   "answer": "D",
+   "explanation": "6 × 2 1/4 = 6 × 2 + 6 × 1/4 = 12 + 1 1/2 = 13 1/2.",
+   "distractors": {
+    "A": {
+     "rationale": "12 1/4 multiplies only the whole number by 6 and keeps the 1/4 unchanged.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "12 1/2 treats 6 × 1/4 as 1/2.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "13 treats 6 × 1/4 as 1.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Multiply the whole number and the fraction separately."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write 2 1/4 as 9/4 and multiply by 6."
+   },
+   "remember": "Multiply every part of a mixed number.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Rectangle with a length-to-width ratio and a perimeter",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "The length of a rectangle is 3 times its width, and the perimeter of the rectangle is 48 centimeters. What is the area of the rectangle, in square centimeters?",
+   "choices": {
+    "A": "36",
+    "B": "108",
+    "C": "144",
+    "D": "432"
+   },
+   "answer": "B",
+   "explanation": "Let the width be w. Then 2(w + 3w) = 48, so 8w = 48 and w = 6. The length is 18, and the area is 6 × 18 = 108.",
+   "distractors": {
+    "A": {
+     "rationale": "36 squares the width instead of multiplying width by length.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "144 is the area of a square with the same perimeter (side 12).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "432 sets w + 3w = 48, forgetting that the perimeter counts each side twice.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Write the perimeter in terms of the width."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "2(w + 3w) = 48."
+   },
+   "remember": "Perimeter is twice the sum of length and width.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Evaluating a quadratic at a negative input",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "If f(x) = x² − 3x, what is the value of f(−2) ?",
+   "choices": {
+    "A": "−10",
+    "B": "−2",
+    "C": "2",
+    "D": "10"
+   },
+   "answer": "D",
+   "explanation": "f(−2) = (−2)² − 3(−2) = 4 + 6 = 10.",
+   "distractors": {
+    "A": {
+     "rationale": "−10 squares −2 as −4 and then subtracts 6.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "−2 computes −3(−2) as −6.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "2 squares −2 as −4 but handles −3(−2) correctly.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Put −2 in parentheses everywhere x appears."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Substitute −2 with parentheses."
+   },
+   "remember": "(−2)² is positive; −3(−2) is positive.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Mean after dropping the lowest score",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "A student's mean score on 6 quizzes is 80. The teacher drops the student's lowest score, which is 50. What is the mean of the remaining 5 scores?",
+   "choices": {
+    "A": "71 2/3",
+    "B": "85",
+    "C": "86",
+    "D": "96"
+   },
+   "answer": "C",
+   "explanation": "The total of the 6 scores is 6 × 80 = 480. Without the 50, the total is 430, and the mean is 430 ÷ 5 = 86.",
+   "distractors": {
+    "A": {
+     "rationale": "71 2/3 removes the 50 but still divides by 6.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "85 adds 30/6 = 5 to the old mean, dividing the change by 6 instead of recomputing with 5 scores.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "96 divides the original total of 480 by 5 without removing the 50.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What is the total of all 6 scores?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Mean × count = total."
+   },
+   "remember": "To change a mean, work with the total.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Radius from a chord and its distance to the center",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In a circle, a chord of length 16 inches is 6 inches from the center of the circle. What is the radius of the circle, in inches?",
+   "choices": {
+    "A": "8",
+    "B": "10",
+    "C": "14",
+    "D": "2√73"
+   },
+   "answer": "B",
+   "explanation": "The perpendicular from the center bisects the chord, forming a right triangle with legs 8 and 6. The radius is the hypotenuse: √(64 + 36) = 10.",
+   "distractors": {
+    "A": {
+     "rationale": "8 is half the chord, not the radius.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "14 adds half the chord and the distance instead of using the Pythagorean theorem.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2√73 = √(16² + 6²) uses the whole chord instead of half of it.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "The perpendicular from the center to a chord cuts the chord in half."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the radius to an endpoint of the chord."
+   },
+   "remember": "A perpendicular from the center bisects a chord.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Absolute value inequality as an interval",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "Which of the following describes all values of x that satisfy |2x − 5| < 7 ?",
+   "choices": {
+    "A": "−1 < x < 6",
+    "B": "−6 < x < 1",
+    "C": "x < −1 or x > 6",
+    "D": "x < 6"
+   },
+   "answer": "A",
+   "explanation": "|2x − 5| < 7 means −7 < 2x − 5 < 7. Adding 5 gives −2 < 2x < 12, so −1 < x < 6.",
+   "distractors": {
+    "B": {
+     "rationale": "−6 < x < 1 solves |2x + 5| < 7, flipping the sign of 5.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "x < −1 or x > 6 is the solution of |2x − 5| > 7.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x < 6 solves only 2x − 5 < 7 and ignores the lower bound.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "\"Less than\" absolute value inequalities give a single interval."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = 0 and x = −2."
+   },
+   "remember": "|A| < k means −k < A < k.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Ratio change after adding items",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "A bag contains red and blue marbles in the ratio 3 : 5. After 6 red marbles are added, the ratio of red to blue marbles is 3 : 4. How many blue marbles are in the bag?",
+   "choices": {
+    "A": "24",
+    "B": "32",
+    "C": "40",
+    "D": "48"
+   },
+   "answer": "C",
+   "explanation": "Let there be 3k red and 5k blue marbles. Then (3k + 6)/(5k) = 3/4, so 12k + 24 = 15k and k = 8. There are 5 × 8 = 40 blue marbles.",
+   "distractors": {
+    "A": {
+     "rationale": "24 is the number of red marbles at the start.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "32 is 4k, the blue count read from the new ratio's 4 instead of the 5 parts.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "48 is 6k, using the 6 added marbles as the number of parts.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write the starting counts as 3k and 5k."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set up (3k + 6)/(5k) = 3/4."
+   },
+   "remember": "Use a multiplier k for each part of a ratio.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-08",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Comparing unit prices in cents",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "A 12-ounce bottle of juice costs $3.00, and a 20-ounce bottle of the same juice costs $4.40. How many cents less per ounce does the 20-ounce bottle cost than the 12-ounce bottle?",
+   "choices": {
+    "A": "3",
+    "B": "22",
+    "C": "25",
+    "D": "140"
+   },
+   "answer": "A",
+   "explanation": "The 12-ounce bottle costs 300 ÷ 12 = 25 cents per ounce, and the 20-ounce bottle costs 440 ÷ 20 = 22 cents per ounce. The difference is 3 cents per ounce.",
+   "distractors": {
+    "B": {
+     "rationale": "22 is the unit price of the 20-ounce bottle, not the difference.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "25 is the unit price of the 12-ounce bottle, not the difference.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "140 is the difference in total price, in cents, not per ounce.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Find each bottle's price per ounce first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Price ÷ ounces for each bottle."
+   },
+   "remember": "Compare unit prices, not total prices.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B052-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Counting integer coefficients that give no real roots",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "For how many integer values of k does the equation x² + kx + 9 = 0 have no real solutions?",
+   "choices": {
+    "A": "5",
+    "B": "6",
+    "C": "10",
+    "D": "11"
+   },
+   "answer": "D",
+   "explanation": "No real solutions means the discriminant is negative: k² − 36 < 0, so −6 < k < 6. The integers −5 through 5 number 11.",
+   "distractors": {
+    "A": {
+     "rationale": "5 counts only the positive values 1 through 5.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "6 counts 0 through 5, leaving out the negative values.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "10 leaves out k = 0, but x² + 9 = 0 also has no real solutions.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "When does a quadratic have no real solutions?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Require b² − 4ac < 0."
+   },
+   "remember": "Negative k values work too: k is squared in the discriminant.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must turn 'no real solutions' into a discriminant inequality, then count integers on both sides of 0, including 0 itself."
+   }
+  },
+  {
+   "cand": "B052-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Difference of variables from two means",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "hard",
+   "stem": "The average of x and y is 20, and the average of y and z is 30. What is the value of z − x ?",
+   "choices": {
+    "A": "10",
+    "B": "20",
+    "C": "50",
+    "D": "Cannot be determined from the given information"
+   },
+   "answer": "B",
+   "explanation": "x + y = 40 and y + z = 60. Subtracting the first equation from the second gives z − x = 20, even though x, y and z are not determined individually.",
+   "distractors": {
+    "A": {
+     "rationale": "10 subtracts the averages (30 − 20) instead of the sums.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "50 adds the averages.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The individual values cannot be found, but their difference can, by subtracting the two sum equations.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Convert each average to a sum."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write x + y = 40 and y + z = 60, then subtract."
+   },
+   "remember": "You can sometimes find a combination of unknowns without finding each one.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The trap is 'cannot be determined': three unknowns and two equations, but subtracting the equations eliminates y. The averaging trap (10) also catches quick solvers."
+   }
+  }
+ ]
+}
