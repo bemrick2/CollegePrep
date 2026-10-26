@@ -56,4 +56,17 @@ describe('author identities (question_import/v2)', () => {
     expect(identityProblems(twin, R)).toEqual([])
     expect(identityProblems(testIdentities({ 'au-test-jo-two': { display_name: 'Jo Writer' } }), R).join(' ')).toMatch(/has a name matching this identity/)
   })
+
+  it('(#290 confirm) alias-only matches, distinct_from entries and built-in reviewer ids are checked, without throwing', () => {
+    // Jo's identity carries an alias of Ana's; Ana isn't linked to it.
+    expect(identityProblems(testIdentities({ 'au-test-x': { display_name: 'Someone', aliases: ['Ana Solver'] } }), R).join(' ')).toMatch(new RegExp(`reviewer ${testId('Ana Solver')} has a name matching`))
+    expect(identityProblems(testIdentities({ 'au-test-x': { distinct_from: 'rv-test-jo-writer' as never } }), R).join(' ')).toMatch(/distinct_from must be a list/)
+    expect(identityProblems(testIdentities({ 'au-test-x': { distinct_from: ['rv-nobody', 42 as never] } }), R).join(' ')).toMatch(/distinct_from rv-nobody is not a reviewer id[\s\S]*distinct_from 42/)
+    expect(identityProblems(testIdentities({ [`au-test-jo-writer`]: { distinct_from: [testId('Jo Writer')] } }), R).join(' ')).toMatch(/own reviewer, not a different person/)
+    for (const k of ['constructor', '__proto__', 'toString']) {
+      expect(identityProblems(testIdentities({ 'au-test-x': { reviewer_id: k } }), R).join(' '), k).toMatch(/is not in the reviewer registry/)
+      expect(() => identityProblems(testIdentities({ 'au-test-x': { recorded_by: k } }), R), k).not.toThrow()
+      expect(identityProblems(testIdentities({ 'au-test-x': { recorded_by: k } }), R).join(' '), k).toMatch(/recorded_by must be/)
+    }
+  })
 })

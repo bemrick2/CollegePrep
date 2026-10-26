@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './data/demo/fixtures'
 import { EDITORIAL_LEDGER, type Ledger } from './data/demo/editorialLedger'
 import { REVIEWERS } from './data/demo/reviewerRegistry'
+import { IDENTITIES } from './data/demo/authorIdentity'
 import { testId, testIdentities, testIdentityId, testReviewers } from './data/demo/testReviewers'
 import { testOnlyBatch } from './__fixtures__/TEST_ONLY_importBatch'
 import { csvRows, itemsFromBank, itemsFromRegistry, packetFiles, recordSignoffs, selectItems, SIGNOFF_COLUMNS, stateOf, type ReviewItem } from './editorialReview'
@@ -110,7 +111,8 @@ describe('recording sign-offs', () => {
   })
 
   it('with the real reviewer registry (empty) every row is refused: no appointment is assumed', () => {
-    const r = recordSignoffs(EMPTY, items, fullRows(it0), REVIEWERS, TODAY, 'sheet', TI)
+    // The real registries, both empty: the test identities link test reviewers, so they'd make the identities unusable.
+    const r = recordSignoffs(EMPTY, items, fullRows(it0), REVIEWERS, TODAY, 'sheet', IDENTITIES)
     expect(r.added).toBe(0)
     expect(r.refused).toHaveLength(7)
     expect(r.refused[0]).toMatch(/is not an active reviewer authorized for rights/)
@@ -317,6 +319,22 @@ describe('recording authorship for the app’s bank (stage 2)', () => {
     const r = recWith(ids, EMPTY, [author('Pat Lead', 'au-test-other'), author('Pat Lead', testIdentityId('Sam Solver'))])
     expect(r.refused).toEqual([])
     expect(recWith(ids, r.ledger, [row(b0, 4, 'Sam Solver')]).refused.join(' ')).toMatch(/is an author of this item and can’t sign stage 4/)
+  })
+
+  it('(#290 confirm) stateOf and packets use the identities passed; a broken identity registry records nothing; packets show names beside keys', () => {
+    const jo = testIdentityId('Jo Writer')
+    const authored = rec(EMPTY, [author('Pat Lead', jo)]).ledger
+    const item = itemsFromBank(QUESTIONS.slice(0, 1), new Set(), authored, TI, R)[0]!
+    const done = rec(authored, fullRows(item).map((r) => (r.stage === '8' ? { ...r, reviewer_id: testId('Claude Debussy'), by: 'Claude Debussy' } : r))).ledger
+    expect(stateOf(item, done, R, TI).humanApproved).toBe(true)
+    expect(stateOf(item, done, R).humanApproved).toBe(false) // the shipped identities.json is empty: Jo is unresolved
+    expect(packetFiles([item], done, R, 'App bank', TI)['status.csv']).toMatch(/,"approved",/)
+    expect(packetFiles([item], done, R, 'App bank')['status.csv']).not.toMatch(/,"approved",/)
+    expect(Object.entries(packetFiles([item], done, R, 'App bank', TI)).find(([k]) => k.startsWith('review-'))![1]).toContain(`Jo Writer (${jo})`)
+    const broken = testIdentities({ 'au-test-x': { reviewer_id: 'rv-nobody' } })
+    const r = recordSignoffs(authored, [item], [row(item, 8, 'Jo Writer')], R, TODAY, 'sheet', broken)
+    expect(r).toMatchObject({ added: 0 })
+    expect(r.refused.join(' ')).toMatch(/identity registry has problems/)
   })
 
   it('a legacy name stays unresolved even when a recorded identity has the same display name; a mislabelled AI record is unresolved', () => {

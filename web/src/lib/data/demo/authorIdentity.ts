@@ -64,13 +64,17 @@ export function identityProblems(reg: IdentityRegistry, reviewers: ReviewerRegis
     const names = [x.display_name ?? '', ...(Array.isArray(x.aliases) ? x.aliases : [])]
     if (names.some((n) => canonicalPerson(n) && canonicalPerson(n) === canonicalPerson(AI_NAME))) out.push(`${key}: "${AI_NAME}" is the bank's AI drafting name, not a person's`)
     if (x.distinct_from !== undefined && !Array.isArray(x.distinct_from)) out.push(`${key}: distinct_from must be a list of reviewer ids`)
+    for (const d of Array.isArray(x.distinct_from) ? x.distinct_from : []) {
+      if (typeof d !== 'string' || !Object.hasOwn(reviewers?.reviewers ?? {}, d)) out.push(`${key}: distinct_from ${String(d)} is not a reviewer id in the registry`)
+      else if (d === x.reviewer_id) out.push(`${key}: ${d} is this identity's own reviewer, not a different person`)
+    }
     for (const rv of Object.values(reviewers?.reviewers ?? {}))
       if (!rv.revoked && rv.id !== x.reviewer_id && !(x.distinct_from ?? []).includes(rv.id) && isAuthor(rv, names.filter(Boolean)))
         out.push(`${key}: reviewer ${rv.id} has a name matching this identity but isn't linked to it; link it (reviewer_id), or record them as different people (distinct_from)`)
     if (!x.recorded_on?.trim()) out.push(`${key}: recorded_on required`)
     if (x.recorded_by !== 'owner' && !authorized(reviewers, x.recorded_by, 'content_lead')) out.push(`${key}: recorded_by must be "owner" or an active content lead's reviewer id`)
     if (x.reviewer_id !== undefined) {
-      if (!reviewers.reviewers[x.reviewer_id]) out.push(`${key}: reviewer_id ${x.reviewer_id} is not in the reviewer registry`)
+      if (!Object.hasOwn(reviewers?.reviewers ?? {}, x.reviewer_id)) out.push(`${key}: reviewer_id ${x.reviewer_id} is not in the reviewer registry`)
       const other = linked.get(x.reviewer_id)
       if (other) out.push(`${key}: reviewer ${x.reviewer_id} is already linked to ${other}; one reviewer, one identity`)
       linked.set(x.reviewer_id, key)

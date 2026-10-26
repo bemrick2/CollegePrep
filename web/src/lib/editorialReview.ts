@@ -8,7 +8,7 @@
 import type { FixtureQuestion } from './data/demo/fixtures'
 import { contentHash } from './data/demo/questionReview'
 import { AI_AUTHOR, editorialState, isIsoDate, ledgerAuthors, ledgerAuthorship, STAGE_NAME, type Ledger, type SignOff, type Stage } from './data/demo/editorialLedger'
-import { AI_MODEL, IDENTITIES, type AuthorIdentity, type IdentityRegistry, type ResolvedAuthors } from './data/demo/authorIdentity'
+import { AI_MODEL, IDENTITIES, identityOf, identityProblems, type AuthorIdentity, type IdentityRegistry, type ResolvedAuthors } from './data/demo/authorIdentity'
 import { authorized, isAuthor, registryProblems, STAGE_ROLE, type ReviewerRegistry } from './data/demo/reviewerRegistry'
 import { asQuestion, authorshipOf, latest, rightsHash, sameClaimsHashes, type Registry, type Track } from './questionCandidates'
 
@@ -98,6 +98,8 @@ export const SIGNOFF_COLUMNS = ['id', 'stage', 'reviewer_id', 'by', 'date', 'res
 
 /** Every packet file, by file name. Blind packets carry no key, hints or explanations. */
 export function packetFiles(items: ReviewItem[], ledger: Ledger, reviewers: ReviewerRegistry, label: string, identities: IdentityRegistry = IDENTITIES): Record<string, string> {
+  // A recorded identity key is shown with its display name (the key decides; the name is for people).
+  const shown = (a: string) => (identityOf(identities, a) ? `${identityOf(identities, a)!.display_name} (${a})` : a)
   const files: Record<string, string> = {}
   const groups = new Map<string, ReviewItem[]>()
   for (const i of items) groups.set(`${i.question.exam_family}-${i.question.section}`, [...(groups.get(`${i.question.exam_family}-${i.question.section}`) ?? []), i])
@@ -110,7 +112,7 @@ ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<l
       .join('\n')
     files[`blind-${g}.html`] = page(`${label} blind solve: ${g} (${list.length} items). No key, hints or explanations.`, blind)
     const full = list
-      .map(({ question: q, content_hash, rights_hash, authors, source }) => `<article><div class="id">${esc(q.id)} · ${source} · difficulty ${q.difficulty} · skill ${esc(q.primary_skill_key)} · hash ${content_hash}${rights_hash ? ` · rights ${rights_hash}` : ''} · author ${esc(authors.join(' / '))}</div>
+      .map(({ question: q, content_hash, rights_hash, authors, source }) => `<article><div class="id">${esc(q.id)} · ${source} · difficulty ${q.difficulty} · skill ${esc(q.primary_skill_key)} · hash ${content_hash}${rights_hash ? ` · rights ${rights_hash}` : ''} · author ${esc(authors.map(shown).join(' / '))}</div>
 ${q.passage ? `<div class="passage">${esc(q.passage)}</div>` : ''}<p>${esc(q.stem)}</p>
 ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<li><b>${esc(c.key)}.</b> ${esc(c.text)}${q.accepted_answers.includes(c.key) ? ' <span class="key">(key)</span>' : ''}</li>`).join('')}</ul>` : `<p class="key">Accepted: ${esc(q.accepted_answers.join(', '))}</p>`}
 <p><b>Explanation.</b> ${esc(q.teaching_explanation)}</p><p><b>Strategy.</b> ${esc(q.strategy_explanation)}</p>
@@ -190,6 +192,7 @@ export function recordSignoffs(ledger: Ledger, items: ReviewItem[], rows: Record
   let added = 0
   const tomorrow = new Date(Date.parse(`${today}T00:00:00Z`) + 86400000).toISOString().slice(0, 10)
   const registryBad = registryProblems(reviewers)
+  const identitiesBad = identityProblems(identities, reviewers)
   const FILLABLE = ['reviewer_id', 'by', 'date', 'result', 'answer', 'seconds', 'license', 'note', 'author_identity'] as const
   rows.forEach((r, n) => {
     const at = `${where} row ${n + 2}`
@@ -203,6 +206,7 @@ export function recordSignoffs(ledger: Ledger, items: ReviewItem[], rows: Record
     if (![2, 3, 4, 5, 6, 7, 8].includes(stage) || !/^[2-8]$/.test(stageRaw)) return refuse(`bad stage "${stageRaw}"`)
     if (FILLABLE.every((k) => !(r[k] ?? '').trim())) return // an unfilled template row
     if (registryBad.length) return refuse(`the reviewer registry has problems; nothing can be recorded: ${registryBad[0]}`)
+    if (identitiesBad.length) return refuse(`the identity registry has problems; nothing can be recorded: ${identitiesBad[0]}`)
     if (r.hash !== item.content_hash) return refuse(`hash ${r.hash || '(blank)'} is not the current content (${item.content_hash}); re-issue the packet`)
     const date = r.date || today
     if (!isIsoDate(date) || date > tomorrow) return refuse(`date "${date}" must be YYYY-MM-DD and not in the future`)
