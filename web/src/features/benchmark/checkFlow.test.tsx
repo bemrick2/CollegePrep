@@ -384,4 +384,28 @@ describe('check error path', () => {
     expect(screen.queryByText('No progress check can be started right now')).not.toBeInTheDocument()
     vi.useRealTimers()
   }, 30_000)
+
+  it('(#291 review) no reserve for the exam: the check page and home say so, and nothing starts', async () => {
+    class NoReserve extends DemoSource {
+      override async benchmarkOptions(...a: Parameters<DemoSource['benchmarkOptions']>) {
+        return { ...(await super.benchmarkOptions(...a)), initialAllowed: false, miniAllowed: false, fullAllowed: false, miniOpensAt: null, reserveAvailable: false }
+      }
+    }
+    const store = emptyStore()
+    await riley(store)
+    const src = new NoReserve(store)
+    show(src)
+    expect(await screen.findByText('No ACT progress-check questions yet', {}, { timeout: 8000 })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^Start / })).toBeDisabled()
+    cleanup()
+    render(
+      <MemoryRouter initialEntries={['/student']}>
+        <AppProvider source={src}>
+          <App />
+        </AppProvider>
+      </MemoryRouter>,
+    )
+    expect(await screen.findByText('No ACT progress-check questions yet', {}, { timeout: 8000 })).toBeInTheDocument()
+    expect(screen.queryByText(/Checks are spaced out/)).not.toBeInTheDocument()
+  }, 30_000)
 })

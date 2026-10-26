@@ -83,6 +83,10 @@ describe('LiveSource contracts (issue #37)', () => {
     expect(await opts({ ...base, allowed_kinds: [] })).toMatchObject({ miniAllowed: false, miniOpensAt: '2026-11-23T12:00:00Z' })
     expect(await opts({ ...base, allowed_kinds: ['initial'], next_mini_at: null })).toMatchObject({ initialAllowed: true, miniOpensAt: null })
     expect(await opts({ ...base, allowed_kinds: [], reserve_available: false })).toMatchObject({ reserveAvailable: false, miniOpensAt: null })
+    // No row is an error, not "no reserve"; no assignment rows (not visible, or not this student's) is refused, not "finished".
+    const { sb } = fakeClient({ exam_versions: [{ id: 'ev1', effective_from: '2026-01-01', effective_to: null }], benchmark_allowed_kinds: [], practice_benchmark_items: [], practice_attempts: [] })
+    await expect(new LiveSource(sb).benchmarkOptions('s1', 'act')).rejects.toThrow(/didn't say/)
+    await expect(new LiveSource(sb).benchmarkProgress('bm-x', 's1')).rejects.toMatchObject({ code: 'forbidden' })
   })
 
   it('CR-1: planning preferences read from and written to student_planning_preferences', async () => {

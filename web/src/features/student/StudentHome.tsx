@@ -65,7 +65,7 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
   const openCheck = co?.open ?? null
   const checkDue = o.benchmarks.length > 0 && schedule.inDays === 0 && (co ? co.miniAllowed || co.fullAllowed : true)
   const startingBlocked = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.miniAllowed && !co.fullAllowed && !co.open
-  // No completed check, but the server offers a mini (an abandoned starting check, a week later).
+  // No completed check, but the server offers a mini (an abandoned starting check, 28 days later).
   const miniInstead = o.benchmarks.length === 0 && !!co && !co.initialAllowed && !co.open && (co.miniAllowed || co.fullAllowed)
   const lastWeekStart = addDays(o.weekStart, -7)
   const recap = o.lastWeek && showRecap(o.today, o.weekStart) ? weekRecap({ weekStart: lastWeekStart, tz: o.tz, plan: o.plan, week: o.lastWeek, history: o.history, benchmarks: o.benchmarks, estimates: o.estimates }) : null
@@ -91,8 +91,8 @@ function HomeBody({ name, o, studentId, onRefresh, canSetGoals }: { name: string
         }
       : startingBlocked
       ? {
-          title: co!.miniOpensAt ? `Your next progress check opens on ${formatShortDate(localDate(co!.miniOpensAt, o.tz))}` : 'No progress check can be started right now',
-          length: 'Checks are spaced out so each one measures fresh questions',
+          title: !co!.reserveAvailable ? `No ${EXAM_NAME[exam]} progress-check questions yet` : co!.miniOpensAt ? `Your next progress check opens on ${formatShortDate(localDate(co!.miniOpensAt, o.tz))}` : 'No progress check can be started right now',
+          length: !co!.reserveAvailable ? 'Progress checks use their own questions, kept out of practice, and none are available for this test yet' : 'Checks are spaced out so each one measures fresh questions',
           cta: 'Practice',
           to: '/student/practice',
           detail: null,

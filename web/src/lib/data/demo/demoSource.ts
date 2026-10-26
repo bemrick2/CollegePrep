@@ -738,7 +738,7 @@ export class DemoSource implements DataSource {
   }
 
   /**
-   * Mirrors benchmark_options (#279, proposed contract): one live check per student and exam, resumed, never replaced;
+   * Mirrors benchmark_allowed_kinds (#279, 20261023010000): one live check per student and exam, resumed, never replaced;
    * `full` refused until a held-out form exists; `initial` once (any earlier assigned check counts); a `mini` needs an
    * earlier check and MIN_DAYS_BETWEEN_CHECKS since the last one started.
    */
@@ -765,10 +765,14 @@ export class DemoSource implements DataSource {
 
   async benchmarkOptions(studentId: string, exam: ExamFamily): Promise<CheckOptions> {
     this.requireLinked(studentId)
-    return delay(this.checkRules(studentId, exam))
+    const rules = this.checkRules(studentId, exam)
+    // As the server's reserve_available: no reserved item for this exam, so nothing can start.
+    const F = await loadFixtures()
+    if (practiceExclusions(exam, F.QUESTIONS).size === 0) return delay({ ...rules, initialAllowed: false, miniAllowed: false, fullAllowed: false, miniOpensAt: null, reserveAvailable: false })
+    return delay(rules)
   }
 
-  /** Mirrors benchmark_progress (#279): per assigned section, items assigned and items used (answered or skipped). */
+  /** What the client reads from practice_benchmark_items and the check's attempts (#279): per assigned section, items assigned and items used (answered or skipped). */
   async benchmarkProgress(benchmarkId: string, studentId: string): Promise<CheckProgress[]> {
     this.requireLinked(studentId)
     const c = this.liveCheck(benchmarkId, studentId)
@@ -833,6 +837,8 @@ export class DemoSource implements DataSource {
       const repeats = pool.filter((q) => last.has(q.id)).sort((a, b) => last.get(a.id)!.localeCompare(last.get(b.id)!) || mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
       for (const q of [...unseen, ...repeats].slice(0, Math.min(want, pool.length))) assigned.push({ id: q.id, seen: last.has(q.id) })
     }
+    // As the server: a check with nothing to measure isn't opened, so it doesn't use up the student's check.
+    if (!assigned.length) throw new DataError('Not measured: no reserved questions for this exam', 'invalid')
     const exposure = ((this.s.checkExposure ??= {})[studentId] ??= {})
     for (const a of assigned) exposure[a.id] = startedAt
     this.commit()

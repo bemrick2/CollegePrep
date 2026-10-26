@@ -620,7 +620,7 @@ export class LiveSource implements DataSource {
       { p_student: studentId, p_exam_version: version },
     )
     const r = (Array.isArray(rows) ? rows[0] : rows) ?? null
-    if (!r) return { initialAllowed: false, miniAllowed: false, miniOpensAt: null, fullAllowed: false, open: null, reserveAvailable: false }
+    if (!r) throw new DataError("The server didn't say which progress checks can start", 'unknown')
     const live = r.live_benchmark && r.live_kind ? r.live_benchmark : null
     const allowed = new Set(live ? [] : (r.allowed_kinds ?? []))
     return {
@@ -636,13 +636,18 @@ export class LiveSource implements DataSource {
   }
 
   /** Per section: the check's assigned items (practice_benchmark_items) and how many have an attempt in it. */
-  async benchmarkProgress(benchmarkId: string, _studentId?: string): Promise<CheckProgress[]> {
+  async benchmarkProgress(benchmarkId: string, studentId?: string): Promise<CheckProgress[]> {
+    let itemsQ = this.sb.from('practice_benchmark_items').select('section, question_id').eq('benchmark_id', benchmarkId)
+    if (studentId) itemsQ = itemsQ.eq('student_id', studentId)
     const [items, used] = await Promise.all([
-      this.sb.from('practice_benchmark_items').select('section, question_id').eq('benchmark_id', benchmarkId),
+      itemsQ,
       this.sb.from('practice_attempts').select('question_id').eq('benchmark_id', benchmarkId),
     ])
     if (items.error) fail(items.error)
     if (used.error) fail(used.error)
+    // The server never keeps a check without items (it rolls the start back), so no rows means this caller can't see
+    // the check (row security) or it isn't this student's: refuse, rather than report an empty, "finished" check.
+    if (!(items.data ?? []).length) throw new DataError("This progress check isn't one you can see", 'forbidden')
     const done = new Set(((used.data ?? []) as { question_id: string }[]).map((a) => a.question_id))
     const by = new Map<string, CheckProgress>()
     for (const i of (items.data ?? []) as { section: string; question_id: string }[]) {
