@@ -142,40 +142,40 @@
    "cand": "B060-04",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Statistics & Probability",
-   "subskill": "Probability of exactly two heads in four flips",
+   "subskill": "Missing value from the median of an even-sized list",
    "repo_skill_key": "act_statistics_probability",
    "difficulty": "medium",
-   "stem": "A fair coin is flipped 4 times. What is the probability of getting exactly 2 heads?",
+   "stem": "A student's four test scores are 78, 85, 92 and x. The median of the four scores is 86. What is the value of x ?",
    "choices": {
-    "A": "1/16",
-    "B": "1/8",
-    "C": "1/4",
-    "D": "3/8"
+    "A": "80",
+    "B": "85",
+    "C": "86",
+    "D": "87"
    },
    "answer": "D",
-   "explanation": "There are 2⁴ = 16 equally likely sequences, and C(4, 2) = 6 of them have exactly 2 heads. 6/16 = 3/8.",
+   "explanation": "With 4 values, the median is the mean of the middle two. If x is between 85 and 92, the middle values are 85 and x, so (85 + x)/2 = 86 and x = 87, which is indeed between 85 and 92.",
    "distractors": {
     "A": {
-     "rationale": "1/16 counts only one sequence, such as HHTT.",
-     "trap": "partial_answer"
+     "rationale": "80 pairs x with 92 as the middle values, but then x would not be in the middle.",
+     "trap": null
     },
     "B": {
-     "rationale": "1/8 counts only two sequences.",
-     "trap": "partial_answer"
+     "rationale": "85 assumes the median must be one of the listed scores.",
+     "trap": null
     },
     "C": {
-     "rationale": "1/4 = 4/16 counts only four of the six sequences.",
-     "trap": "partial_answer"
+     "rationale": "86 sets x equal to the median.",
+     "trap": null
     }
    },
    "hints": [
-    "How many ways can 2 of the 4 flips be heads?"
+    "With four values, which values determine the median?"
    ],
    "strategy": {
-    "key": "draw_it_out",
-    "explanation": "List the sequences with exactly two H's."
+    "key": "backsolve",
+    "explanation": "Try each choice and find the median."
    },
-   "remember": "Count arrangements with combinations, then divide by all outcomes.",
+   "remember": "For an even number of values, the median is the mean of the middle two.",
    "expected_time_seconds": 50,
    "modeling": false,
    "author_checklist": {

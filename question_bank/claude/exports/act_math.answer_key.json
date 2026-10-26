@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 59,
+  "bank_version": 60,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -10158,6 +10158,176 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Assume 100 students."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000587",
+      "correct_answer": "C",
+      "explanation": "51 = 3 × 17, 57 = 3 × 19 and 91 = 7 × 13. 59 has no factors other than 1 and itself, so it is prime.",
+      "distractor_explanations": {
+        "A": "51 = 3 × 17.",
+        "B": "57 = 3 × 19.",
+        "D": "91 = 7 × 13."
+      },
+      "hints": [
+        "Test small primes such as 3 and 7 as factors."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find a factor of each composite choice."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000588",
+      "correct_answer": "A",
+      "explanation": "Multiplying adds exponents: x³ · x⁴ = x⁷. Dividing subtracts: x⁷/x² = x⁵.",
+      "distractor_explanations": {
+        "B": "x⁶ divides 12 by 2 after multiplying the exponents 3 and 4.",
+        "C": "x¹⁰ multiplies 3 and 4 to get 12, then subtracts 2.",
+        "D": "x¹⁴ adds 3 and 4 and then multiplies by 2 instead of subtracting."
+      },
+      "hints": [
+        "What happens to exponents when you multiply powers with the same base?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 2."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000589",
+      "correct_answer": "B",
+      "explanation": "In a 45°-45°-90° triangle, the hypotenuse is √2 times a leg, so each leg is 10/√2 = 5√2.",
+      "distractor_explanations": {
+        "A": "5 halves the hypotenuse, which works only for the short leg of a 30°-60°-90° triangle.",
+        "C": "10√2 multiplies by √2 instead of dividing.",
+        "D": "20 doubles the hypotenuse."
+      },
+      "hints": [
+        "How does the hypotenuse compare with a leg in this triangle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "leg × √2 = 10."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000590",
+      "correct_answer": "D",
+      "explanation": "With 4 values, the median is the mean of the middle two. If x is between 85 and 92, the middle values are 85 and x, so (85 + x)/2 = 86 and x = 87, which is indeed between 85 and 92.",
+      "distractor_explanations": {
+        "A": "80 pairs x with 92 as the middle values, but then x would not be in the middle.",
+        "B": "85 assumes the median must be one of the listed scores.",
+        "C": "86 sets x equal to the median."
+      },
+      "hints": [
+        "With four values, which values determine the median?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try each choice and find the median."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000591",
+      "correct_answer": "D",
+      "explanation": "A circle tangent to both axes in the first quadrant has center (r, r) and radius r. Requiring (2 − r)² + (1 − r)² = r² gives r² − 6r + 5 = 0, so r = 1 or r = 5. Both circles work, and the sum is 6.",
+      "distractor_explanations": {
+        "A": "1 is only one of the two possible radii.",
+        "B": "3 averages the two radii instead of adding them.",
+        "C": "5 is only one of the two possible radii."
+      },
+      "hints": [
+        "Where is the center of a circle tangent to both axes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use center (r, r) and the distance formula."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000592",
+      "correct_answer": "A",
+      "explanation": "The solutions add to −6. If they differ by 4, they are −5 and −1. Their product is c = (−5)(−1) = 5.",
+      "distractor_explanations": {
+        "B": "8 is the product of −4 and −2, solutions that differ by only 2.",
+        "C": "9 makes the solutions equal (a double root at −3), a difference of 0.",
+        "D": "13 = 9 + 4 adds the difference to the double-root value."
+      },
+      "hints": [
+        "What is the sum of the two solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let the roots be r and r + 4 with sum −6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000593",
+      "correct_answer": "B",
+      "explanation": "The clock shows the correct time again when it has gained a full 12 hours, or 720 minutes. At 3 minutes per hour, that takes 720 ÷ 3 = 240 hours, which is 10 days.",
+      "distractor_explanations": {
+        "A": "5 days is when the clock has gained only 6 hours.",
+        "C": "20 days assumes the clock must gain a full 24 hours, but a 12-hour face repeats every 12 hours.",
+        "D": "240 is the number of hours, not days."
+      },
+      "hints": [
+        "How far ahead must the clock be to look correct again?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "720 minutes ÷ 3 minutes per hour."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000594",
+      "correct_answer": "C",
+      "explanation": "The vertex is (1, 5), and the parabola opens downward because the leading coefficient is negative. So the greatest value is 5, and the range is y ≤ 5.",
+      "distractor_explanations": {
+        "A": "y ≥ 5 would be the range if the parabola opened upward.",
+        "B": "y ≤ 1 uses the x-coordinate of the vertex.",
+        "D": "A quadratic's outputs are bounded on one side, so its range is not all real numbers."
+      },
+      "hints": [
+        "Which way does the parabola open, and where is its vertex?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola from its vertex."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000595",
+      "correct_answer": "B",
+      "explanation": "The wall's area is 12 × 40 = 480 square feet; two coats cover 960 square feet. 960 ÷ 350 ≈ 2.74, so 3 gallons are needed.",
+      "distractor_explanations": {
+        "A": "2 rounds 2.74 down, which would not cover the wall.",
+        "C": "4 rounds up twice or adds an extra gallon unnecessarily.",
+        "D": "6 rounds 480/350 up to 2 for one coat and then triples it."
+      },
+      "hints": [
+        "What total area must be covered?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area × coats ÷ coverage, then round up."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000596",
+      "correct_answer": "C",
+      "explanation": "The total is 30. With median 7 and a unique mode of 8, the list is a, b, 7, 8, 8 with a + b = 7. To keep 8 the only mode, a and b must differ from each other and from 7, so b ≤ 6 and a < b. The pairs (1, 6), (2, 5) and (3, 4) work; the greatest a is 3.",
+      "distractor_explanations": {
+        "A": "1 is the smallest possible value, not the greatest.",
+        "B": "2 works but is not the greatest possible.",
+        "D": "4 would force b = 3 < a, putting the list out of order, or would require a = b = 3.5."
+      },
+      "hints": [
+        "What must the two largest values be?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write a, b, 7, 8, 8 and use the sum."
       }
     }
   ]

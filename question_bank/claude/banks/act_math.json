@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 59,
-  "updated_at": "2026-10-26T23:19:54+00:00",
+  "version": 60,
+  "updated_at": "2026-10-26T23:23:08+00:00",
   "passages": [],
   "questions": [
     {
@@ -40986,6 +40986,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-059.review.json",
         "computation": "checks/act_math/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000587",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Identifying a prime number",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following numbers is prime?",
+      "choices": {
+        "A": "51",
+        "B": "57",
+        "C": "59",
+        "D": "91"
+      },
+      "correct_answer": "C",
+      "explanation": "51 = 3 × 17, 57 = 3 × 19 and 91 = 7 × 13. 59 has no factors other than 1 and itself, so it is prime.",
+      "distractor_explanations": {
+        "A": "51 = 3 × 17.",
+        "B": "57 = 3 × 19.",
+        "D": "91 = 7 × 13."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Test small primes such as 3 and 7 as factors."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find a factor of each composite choice."
+      },
+      "remember": "Check divisibility by primes up to the square root.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-01",
+      "created_at": "2026-10-26T23:23:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000588",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Combining exponent rules",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to (x³)(x⁴)/x² for x ≠ 0 ?",
+      "choices": {
+        "A": "x⁵",
+        "B": "x⁶",
+        "C": "x¹⁰",
+        "D": "x¹⁴"
+      },
+      "correct_answer": "A",
+      "explanation": "Multiplying adds exponents: x³ · x⁴ = x⁷. Dividing subtracts: x⁷/x² = x⁵.",
+      "distractor_explanations": {
+        "B": "x⁶ divides 12 by 2 after multiplying the exponents 3 and 4.",
+        "C": "x¹⁰ multiplies 3 and 4 to get 12, then subtracts 2.",
+        "D": "x¹⁴ adds 3 and 4 and then multiplies by 2 instead of subtracting."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What happens to exponents when you multiply powers with the same base?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 2."
+      },
+      "remember": "Multiply → add exponents; divide → subtract exponents.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-02",
+      "created_at": "2026-10-26T23:23:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000589",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Leg of a 45°-45°-90° triangle from its hypotenuse",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The hypotenuse of a 45°-45°-90° triangle is 10 units long. How long is each leg?",
+      "choices": {
+        "A": "5",
+        "B": "5√2",
+        "C": "10√2",
+        "D": "20"
+      },
+      "correct_answer": "B",
+      "explanation": "In a 45°-45°-90° triangle, the hypotenuse is √2 times a leg, so each leg is 10/√2 = 5√2.",
+      "distractor_explanations": {
+        "A": "5 halves the hypotenuse, which works only for the short leg of a 30°-60°-90° triangle.",
+        "C": "10√2 multiplies by √2 instead of dividing.",
+        "D": "20 doubles the hypotenuse."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How does the hypotenuse compare with a leg in this triangle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "leg × √2 = 10."
+      },
+      "remember": "45°-45°-90° sides are in the ratio 1 : 1 : √2.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-03",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000590",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Missing value from the median of an even-sized list",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A student's four test scores are 78, 85, 92 and x. The median of the four scores is 86. What is the value of x ?",
+      "choices": {
+        "A": "80",
+        "B": "85",
+        "C": "86",
+        "D": "87"
+      },
+      "correct_answer": "D",
+      "explanation": "With 4 values, the median is the mean of the middle two. If x is between 85 and 92, the middle values are 85 and x, so (85 + x)/2 = 86 and x = 87, which is indeed between 85 and 92.",
+      "distractor_explanations": {
+        "A": "80 pairs x with 92 as the middle values, but then x would not be in the middle.",
+        "B": "85 assumes the median must be one of the listed scores.",
+        "C": "86 sets x equal to the median."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "With four values, which values determine the median?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try each choice and find the median."
+      },
+      "remember": "For an even number of values, the median is the mean of the middle two.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-04",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000591",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Circle tangent to both axes through a point",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circle in the first quadrant is tangent to both the x-axis and the y-axis and passes through the point (2, 1). What is the sum of all possible values of the radius of the circle?",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "D",
+      "explanation": "A circle tangent to both axes in the first quadrant has center (r, r) and radius r. Requiring (2 − r)² + (1 − r)² = r² gives r² − 6r + 5 = 0, so r = 1 or r = 5. Both circles work, and the sum is 6.",
+      "distractor_explanations": {
+        "A": "1 is only one of the two possible radii.",
+        "B": "3 averages the two radii instead of adding them.",
+        "C": "5 is only one of the two possible radii."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Where is the center of a circle tangent to both axes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use center (r, r) and the distance formula."
+      },
+      "remember": "Tangent to both axes means the center is (r, r).",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-05",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000592",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Coefficient from roots that differ by a given amount",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For what value of c do the two solutions of x² + 6x + c = 0 differ by exactly 4 ?",
+      "choices": {
+        "A": "5",
+        "B": "8",
+        "C": "9",
+        "D": "13"
+      },
+      "correct_answer": "A",
+      "explanation": "The solutions add to −6. If they differ by 4, they are −5 and −1. Their product is c = (−5)(−1) = 5.",
+      "distractor_explanations": {
+        "B": "8 is the product of −4 and −2, solutions that differ by only 2.",
+        "C": "9 makes the solutions equal (a double root at −3), a difference of 0.",
+        "D": "13 = 9 + 4 adds the difference to the double-root value."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the sum of the two solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let the roots be r and r + 4 with sum −6."
+      },
+      "remember": "For x² + bx + c, the roots sum to −b and multiply to c.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-06",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000593",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Clock that gains time",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A clock with a standard 12-hour face gains 3 minutes every hour. It is set to the correct time at noon. After how many days will it next show the correct time?",
+      "choices": {
+        "A": "5",
+        "B": "10",
+        "C": "20",
+        "D": "240"
+      },
+      "correct_answer": "B",
+      "explanation": "The clock shows the correct time again when it has gained a full 12 hours, or 720 minutes. At 3 minutes per hour, that takes 720 ÷ 3 = 240 hours, which is 10 days.",
+      "distractor_explanations": {
+        "A": "5 days is when the clock has gained only 6 hours.",
+        "C": "20 days assumes the clock must gain a full 24 hours, but a 12-hour face repeats every 12 hours.",
+        "D": "240 is the number of hours, not days."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How far ahead must the clock be to look correct again?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "720 minutes ÷ 3 minutes per hour."
+      },
+      "remember": "A 12-hour clock looks correct when it is off by a multiple of 12 hours.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-07",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000594",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Range of a downward-opening quadratic",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the range of the function f(x) = −2(x − 1)² + 5 ?",
+      "choices": {
+        "A": "y ≥ 5",
+        "B": "y ≤ 1",
+        "C": "y ≤ 5",
+        "D": "All real numbers"
+      },
+      "correct_answer": "C",
+      "explanation": "The vertex is (1, 5), and the parabola opens downward because the leading coefficient is negative. So the greatest value is 5, and the range is y ≤ 5.",
+      "distractor_explanations": {
+        "A": "y ≥ 5 would be the range if the parabola opened upward.",
+        "B": "y ≤ 1 uses the x-coordinate of the vertex.",
+        "D": "A quadratic's outputs are bounded on one side, so its range is not all real numbers."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which way does the parabola open, and where is its vertex?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola from its vertex."
+      },
+      "remember": "Range of a quadratic: from the vertex's y-value in the direction the parabola opens.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-08",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000595",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Whole cans of paint for two coats",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "One gallon of paint covers 350 square feet. A wall is 12 feet high and 40 feet long, and it needs two coats. If paint is sold only in whole gallons, what is the least number of gallons needed?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "The wall's area is 12 × 40 = 480 square feet; two coats cover 960 square feet. 960 ÷ 350 ≈ 2.74, so 3 gallons are needed.",
+      "distractor_explanations": {
+        "A": "2 rounds 2.74 down, which would not cover the wall.",
+        "C": "4 rounds up twice or adds an extra gallon unnecessarily.",
+        "D": "6 rounds 480/350 up to 2 for one coat and then triples it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What total area must be covered?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area × coats ÷ coverage, then round up."
+      },
+      "remember": "When buying whole units, round up.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-09",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: assumes no windows/doors; fine"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000596",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Greatest least value under mean, median and mode constraints",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A list of 5 positive integers has a mean of 6, a median of 7 and a unique mode of 8. What is the greatest possible value of the smallest integer in the list?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "The total is 30. With median 7 and a unique mode of 8, the list is a, b, 7, 8, 8 with a + b = 7. To keep 8 the only mode, a and b must differ from each other and from 7, so b ≤ 6 and a < b. The pairs (1, 6), (2, 5) and (3, 4) work; the greatest a is 3.",
+      "distractor_explanations": {
+        "A": "1 is the smallest possible value, not the greatest.",
+        "B": "2 works but is not the greatest possible.",
+        "D": "4 would force b = 3 < a, putting the list out of order, or would require a = b = 3.5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What must the two largest values be?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write a, b, 7, 8, 8 and use the sum."
+      },
+      "remember": "Unique mode means no other value can repeat as often.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "B060-10",
+      "created_at": "2026-10-26T23:23:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-060.review.json",
+        "computation": "checks/act_math/batch_060.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -27,8 +27,9 @@ def c03(ch):
 
 
 def c04(ch):
-    seqs = list(itertools.product('HT', repeat=4))
-    return pick(ch, F(sum(1 for s in seqs if s.count('H') == 2), len(seqs)))
+    xs = [x for x in range(0, 101) if statistics.median([78, 85, 92, x]) == 86]
+    assert len(xs) == 1
+    return pick(ch, xs[0])
 
 
 def c05(ch):
