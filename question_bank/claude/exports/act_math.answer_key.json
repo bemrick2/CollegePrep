@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 42,
+  "bank_version": 43,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -7303,6 +7303,178 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "1/20 - 1/60 = 1/30."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000420",
+      "correct_answer": "C",
+      "explanation": "Point-slope form y - y₁ = m(x - x₁) gives m = -2 and the point (x₁, y₁) = (-1, 3), since x + 1 = x - (-1).",
+      "distractor_explanations": {
+        "A": "(1, -3) flips the signs of both coordinates.",
+        "B": "Slope 2 drops the negative sign of the slope.",
+        "D": "(1, 3) reads x + 1 as x - 1."
+      },
+      "hints": [
+        "Rewrite x + 1 as x - (-1)."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check that the point makes both sides 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000421",
+      "correct_answer": "D",
+      "explanation": "Each increase of 1 in x doubles f(x) (3, 6, 12, 24), so f is exponential with growth factor 2: f(x) = 3 · 2ˣ.",
+      "distractor_explanations": {
+        "A": "The first difference is 3, but the differences grow (3, 6, 12), so f is not linear.",
+        "B": "A linear function would have constant differences; these differences are not constant.",
+        "C": "3 is the starting value, f(0), not the growth factor."
+      },
+      "hints": [
+        "Are the differences constant, or are the ratios constant?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Divide each output by the one before it."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000422",
+      "correct_answer": "C",
+      "explanation": "The scale factor is 9/3 = 3, so the perimeter is 3 × (3 + 4 + 5) = 36.",
+      "distractor_explanations": {
+        "A": "18 adds 6, the difference 9 - 3, to the smaller perimeter instead of multiplying.",
+        "B": "27 = 9 × 3 multiplies the new shortest side by the scale factor.",
+        "D": "108 multiplies the perimeter by the square of the scale factor, which applies to area."
+      },
+      "hints": [
+        "What is the scale factor from the smaller to the larger triangle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Perimeter scales by the same factor as the sides."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000423",
+      "correct_answer": "A",
+      "explanation": "40% of 500 is 200, and 30% of 200 is 60.",
+      "distractor_explanations": {
+        "B": "70 adds the two percents and drops the 500.",
+        "C": "150 is 30% of 500, ignoring the 40%.",
+        "D": "350 is 70% of 500, adding the percents."
+      },
+      "hints": [
+        "Work from the inside out: what is 40% of 500?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "0.30 × 0.40 × 500."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000424",
+      "correct_answer": "B",
+      "explanation": "90 is the value of C when h = 0: a fixed charge that applies to every job, before any hours of work are added.",
+      "distractor_explanations": {
+        "A": "The hourly rate is 65, the coefficient of h.",
+        "C": "This reverses the roles of the numbers and the variables.",
+        "D": "The charge increases by $65, not $90, per additional hour."
+      },
+      "hints": [
+        "What is C when h = 0?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Set h = 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000425",
+      "correct_answer": "C",
+      "explanation": "25 minutes = 25/60 hour, and 72 × 25/60 = 30 kilometers.",
+      "distractor_explanations": {
+        "A": "2.88 = 72 ÷ 25 divides the speed by the minutes.",
+        "B": "18 = 72 × 0.25 treats 25 minutes as a quarter of an hour.",
+        "D": "1,800 = 72 × 25 multiplies by minutes without converting."
+      },
+      "hints": [
+        "Convert 25 minutes to hours."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "72 × (25/60)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000426",
+      "correct_answer": "A",
+      "explanation": "Let u = 1/x and v = 1/y. Then u + v = 5 and u - v = 1, so u = 3 and v = 2. Since u = 1/x, x = 1/3.",
+      "distractor_explanations": {
+        "B": "1/2 is the value of y, not x.",
+        "C": "2 is the value of 1/y.",
+        "D": "3 is the value of 1/x; x is its reciprocal."
+      },
+      "hints": [
+        "Treat 1/x and 1/y as the unknowns.",
+        "After finding 1/x, take its reciprocal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the equations: 2/x = 6."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000427",
+      "correct_answer": "D",
+      "explanation": "For intersecting chords, AE · EB = CE · ED. So 4 · 6 = 3 · ED, and ED = 8.",
+      "distractor_explanations": {
+        "A": "4.5 = 3 · 6/4 sets up the proportion with the segments in the wrong positions.",
+        "B": "5 averages EA and EB instead of using products.",
+        "C": "7 assumes the chords have equal lengths: 4 + 6 = 3 + ED."
+      },
+      "hints": [
+        "What is true of the products of the two pieces of each chord?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "4 · 6 = 3 · ED."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000428",
+      "correct_answer": "C",
+      "explanation": "A point is closer to the midpoint than to an endpoint when it lies within 2.5 units of the midpoint (halfway between the midpoint and each end). That region is 5 units long, so the probability is 5/10 = 1/2.",
+      "distractor_explanations": {
+        "A": "1/4 uses only one side of the midpoint.",
+        "B": "1/3 divides the segment into three equal parts.",
+        "D": "2/3 treats the middle region as two of three equal parts."
+      },
+      "hints": [
+        "Where are the points that are exactly as close to the midpoint as to an endpoint?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the midpoint and the halfway points to each end."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000429",
+      "correct_answer": "B",
+      "explanation": "Each interior angle of a regular pentagon is 108°. Triangle ABC is isosceles with AB = BC, so angle BAC = (180° - 108°)/2 = 36°; by symmetry angle DAE = 36°. Then angle CAD = 108° - 36° - 36° = 36°.",
+      "distractor_explanations": {
+        "A": "30° assumes the three angles at A are each one-third of 90°.",
+        "C": "54° is half of an interior angle, 108°/2.",
+        "D": "72° is the central angle of the pentagon, 360°/5."
+      },
+      "hints": [
+        "What is each interior angle of a regular pentagon?",
+        "Triangle ABC is isosceles. What are its base angles?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the pentagon and the two diagonals."
       }
     }
   ]
