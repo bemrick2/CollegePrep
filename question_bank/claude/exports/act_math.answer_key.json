@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 10,
+  "bank_version": 11,
   "answers": [
     {
       "id": "CLD-ACT-M-000001",
@@ -1764,6 +1764,186 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "As decimals: 0.300, 0.320, 0.330, 0.333…; the last is greatest."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000099",
+      "correct_answer": "C",
+      "explanation": "12 = 2² · 3. A perfect cube needs every prime exponent to be a multiple of 3, so 12n needs at least one more 2 and two more 3s: n = 2 · 3² = 18. Then 12 · 18 = 216 = 6³.",
+      "distractor_explanations": {
+        "A": "12 · 3 = 36 = 6², a perfect square but not a perfect cube.",
+        "B": "12 · 12 = 144 = 12², again a square, not a cube.",
+        "D": "12 · 144 = 1,728 = 12³ is a cube, but 144 is not the smallest such n."
+      },
+      "hints": [
+        "Write 12 as a product of primes.",
+        "In a perfect cube, each prime's exponent is a multiple of 3."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test from the smallest: 36 and 144 are not cubes; 12 · 18 = 216 = 6³ is."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000100",
+      "correct_answer": "D",
+      "explanation": "Let the smaller number be s. Then the larger is 2s + 3, and s + (2s + 3) = 30, so 3s = 27 and s = 9. The larger number is 2(9) + 3 = 21.",
+      "distractor_explanations": {
+        "A": "9 is the smaller number.",
+        "B": "15 splits 30 evenly, ignoring the relationship between the numbers.",
+        "C": "This reads '3 more than' as 'minus 3': s + (2s − 3) = 30 gives s = 11 and a larger number of 19."
+      },
+      "hints": [
+        "Write the larger number in terms of the smaller one.",
+        "Use the sum to form one equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "If the larger is 21, the smaller is 9; and 2(9) + 3 = 21. It works."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000101",
+      "correct_answer": "A",
+      "explanation": "Substitute 3 = 2^a into 3^b = 16: (2^a)^b = 16, so 2^(ab) = 2⁴ and ab = 4. (Numerically a ≈ 1.585 and b ≈ 2.524, and their product is 4.)",
+      "distractor_explanations": {
+        "B": "This takes b = log₂ 16 = 4 instead of log₃ 16, giving ab = 4 log₂ 3 ≈ 6.34.",
+        "C": "This reads 2^a = 3 as a = 3 and 3^b = 16 as b = 4.",
+        "D": "This multiplies the right sides, 3 × 16."
+      },
+      "hints": [
+        "Replace the 3 in 3^b = 16 with an expression involving a.",
+        "Write 16 as a power of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(2^a)^b = 2^(ab) = 16 = 2⁴, so ab = 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000102",
+      "correct_answer": "A",
+      "explanation": "In vertex form a(x − h)² + k, the vertex is (h, k). Here x + 1 = x − (−1), so h = −1 and k = 5. Because a = −2 is negative, the parabola opens downward, so the vertex is a maximum: 5 at x = −1.",
+      "distractor_explanations": {
+        "B": "x + 1 corresponds to h = −1, not h = 1.",
+        "C": "A negative leading coefficient makes the parabola open downward, so the vertex is a maximum, not a minimum.",
+        "D": "This mixes up the roles of the numbers: −2 is the leading coefficient, not the maximum value."
+      },
+      "hints": [
+        "Compare the function with a(x − h)² + k.",
+        "What does the sign of a tell you about the vertex?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "a < 0 rules out a minimum (C); the vertex x-value is −1, ruling out B and D."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000103",
+      "correct_answer": "D",
+      "explanation": "f(g(x)) = 2g(x) + 3. Setting 2g(x) + 3 = 6x − 5 gives 2g(x) = 6x − 8, so g(x) = 3x − 4. Check: f(3x − 4) = 6x − 8 + 3 = 6x − 5.",
+      "distractor_explanations": {
+        "A": "This adds 3 instead of subtracting it: 2g(x) = 6x − 2.",
+        "B": "6x − 8 is 2g(x); it still has to be divided by 2.",
+        "C": "12x − 7 is f(6x − 5), which applies f to the given output instead of solving for g."
+      },
+      "hints": [
+        "Write f(g(x)) using the rule for f: double the input and add 3.",
+        "Set that equal to 6x − 5 and solve for g(x)."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute each choice into f: only f(3x − 4) = 2(3x − 4) + 3 = 6x − 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000104",
+      "correct_answer": "A",
+      "explanation": "Dropping heights from the ends of the shorter base cuts off two right triangles, each with horizontal leg (16 − 10)/2 = 3 and hypotenuse 5, so the height is 4. Area = (1/2)(10 + 16)(4) = 52 square inches.",
+      "distractor_explanations": {
+        "B": "This uses the slanted side, 5, as the height: (1/2)(26)(5) = 65.",
+        "C": "This multiplies the longer base by the slanted side: 16 × 5 = 80.",
+        "D": "This omits the 1/2 in the trapezoid formula: (10 + 16)(4) = 104."
+      },
+      "hints": [
+        "The slanted sides are not the height.",
+        "Each overhang on the longer base is (16 − 10) ÷ 2; use the Pythagorean theorem."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trapezoid with heights dropped: 3-4-5 triangles give height 4; then average the bases and multiply by 4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000105",
+      "correct_answer": "D",
+      "explanation": "The small top cone is similar to the original with scale factor 1/2 (its height and radius are each half). Volumes scale by the cube, (1/2)³ = 1/8. The bottom piece is the rest: 1 − 1/8 = 7/8 of the original volume.",
+      "distractor_explanations": {
+        "A": "1/8 is the fraction for the small top cone, not the bottom piece.",
+        "B": "This assumes volume splits in the same ratio as height.",
+        "C": "This scales by the square of 1/2 (an area ratio) and subtracts: 1 − 1/4."
+      },
+      "hints": [
+        "The top piece is a smaller cone similar to the original. What is the scale factor?",
+        "How does volume change when every length is halved?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Top cone: (1/2)³ = 1/8 of the volume; bottom: 7/8."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000106",
+      "correct_answer": "B",
+      "explanation": "Exactly one red happens in two ways: A red and B not red, (1/3)(3/4) = 3/12, or A not red and B red, (2/3)(1/4) = 2/12. Total: 5/12.",
+      "distractor_explanations": {
+        "A": "1/12 is the probability that both land on red.",
+        "C": "1/2 is the probability that at least one lands on red, 1 − (2/3)(3/4), which includes both red.",
+        "D": "This adds the two probabilities, 1/3 + 1/4, double counting the both-red case and ignoring the other spinner's result."
+      },
+      "hints": [
+        "List the two ways exactly one spinner can be red.",
+        "For each way, multiply the probabilities of what each spinner does."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(1/3)(3/4) + (2/3)(1/4) = 3/12 + 2/12."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000107",
+      "correct_answer": "A",
+      "explanation": "The known values sum to 67, so the mean is (67 + x)/9, and the median is the 5th value in order. Case 1, x ≤ 7: the median is 7, so (67 + x)/9 = 7 and x = −4, which satisfies x ≤ 7. Case 2, 7 < x < 8: the median is x, so 67 + x = 9x and x = 8.375, which is not an integer. Case 3, x ≥ 8: the median is 8, so x = 5, which contradicts x ≥ 8. Only x = −4 works: the list −4, 3, 5, 7, 7, 8, 10, 12, 15 has mean 63/9 = 7 and median 7.",
+      "distractor_explanations": {
+        "B": "This assumes the median is 8 and solves (67 + x)/9 = 8, but x = 5 would make the median 7, not 8.",
+        "C": "7 is the common value of the mean and median, not x; with x = 7 the mean is 74/9.",
+        "D": "With x = 8 the median is 8, but the mean is 75/9 ≈ 8.3, so they are not equal."
+      },
+      "hints": [
+        "The median depends on where x falls when the list is sorted.",
+        "Try each case for the median, and check that the x you find is consistent with that case."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice: only x = −4 gives mean 7 and median 7."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000108",
+      "correct_answer": "B",
+      "explanation": "18 inches per second × 60 seconds per minute = 1,080 inches per minute. 1,080 ÷ 12 = 90 feet per minute.",
+      "distractor_explanations": {
+        "A": "1.5 is the speed in feet per second; it has not been converted to minutes.",
+        "C": "This multiplies by 12 instead of dividing when converting inches to feet.",
+        "D": "1,080 is the speed in inches per minute; it has not been converted to feet."
+      },
+      "hints": [
+        "Convert seconds to minutes and inches to feet one at a time.",
+        "Should the number of feet be larger or smaller than the number of inches?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "18 × 60 ÷ 12 = 90."
       }
     }
   ]

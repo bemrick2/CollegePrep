@@ -1,0 +1,477 @@
+{
+  "bank": "act_math",
+  "batch": 12,
+  "plan": "Gaps: Algebra 2, Functions 2, Geometry 2, IES 2, N&Q 1, S&P 1; 2 easy / 4 medium / 4 hard. Hard: work-rate rational equation, piecewise solution count with domain checks, parallel chords on opposite sides, complement probability without replacement.",
+  "candidates": [
+    {
+      "cand": "B012-01",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Arithmetic sequences",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "In an arithmetic sequence, the 5th term is 17 and the 12th term is 45. What is the 20th term?",
+      "choices": {
+        "A": "77",
+        "B": "80",
+        "C": "81",
+        "D": "93"
+      },
+      "answer": "A",
+      "explanation": "From the 5th term to the 12th term is 7 steps, and the terms increase by 45 − 17 = 28, so the common difference is 4. From the 12th term to the 20th term is 8 more steps: 45 + 8(4) = 77.",
+      "distractors": {
+        "B": {
+          "rationale": "This multiplies 20 by the common difference, 4, ignoring the starting value.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This uses 5 as the first term instead of 17 as the fifth: 5 + 19(4) = 81.",
+          "trap": "misread_graph"
+        },
+        "D": {
+          "rationale": "This counts 12 steps from the 12th term to the 20th instead of 8: 45 + 12(4) = 93.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many steps are there from the 5th term to the 12th term?",
+        "Use the common difference to step from the 12th term to the 20th."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "d = 28 ÷ 7 = 4; a₂₀ = a₁₂ + 8d = 45 + 32."
+      },
+      "remember": "Between term m and term n there are n − m steps.",
+      "expected_time_seconds": 55,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B012-02",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Rational equations from work rates",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "Working alone, pipe A takes 3 hours longer than pipe B to fill a tank. Working together, the two pipes fill the tank in 2 hours. How many hours does pipe B take to fill the tank alone?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "answer": "B",
+      "explanation": "Let B take b hours, so A takes b + 3 hours. Their rates add: 1/b + 1/(b + 3) = 1/2. Multiply by 2b(b + 3): 2(b + 3) + 2b = b(b + 3), so b² − b − 6 = 0 and (b − 3)(b + 2) = 0. Since time is positive, b = 3. Check: 1/3 + 1/6 = 1/2.",
+      "distractors": {
+        "A": {
+          "rationale": "2 hours is the time for both pipes together, not pipe B alone.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This splits the 2 hours as if each pipe did half: 2 × 2 = 4, ignoring the 3-hour difference.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "6 hours is pipe A's time alone (b + 3), not pipe B's.",
+          "trap": "wrong_quantity"
+        }
+      },
+      "hints": [
+        "Write each pipe's rate as a fraction of the tank per hour.",
+        "Rates add when the pipes work together."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try b = 3: A takes 6; 1/3 + 1/6 = 1/2, so together they take 2 hours. It works."
+      },
+      "remember": "Together: add rates (1/time), never times.",
+      "expected_time_seconds": 110,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "rational equation leading to a quadratic; negative root rejected",
+        "taxonomy_note": "nonlinear algebra mapped to act_functions"
+      }
+    },
+    {
+      "cand": "B012-03",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Linear inequalities with a negative coefficient",
+      "repo_skill_key": "act_algebra_linear",
+      "difficulty": "easy",
+      "stem": "Which of the following values of x satisfies the inequality 2x − 5 > 3x + 1 ?",
+      "choices": {
+        "A": "−8",
+        "B": "−6",
+        "C": "0",
+        "D": "7"
+      },
+      "answer": "A",
+      "explanation": "Subtract 3x from both sides: −x − 5 > 1, so −x > 6. Multiplying by −1 reverses the inequality: x < −6. Of the choices, only −8 is less than −6. (Check: 2(−8) − 5 = −21 and 3(−8) + 1 = −23, and −21 > −23.)",
+      "distractors": {
+        "B": {
+          "rationale": "x = −6 makes the two sides equal (−17 = −17); the inequality is strict.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "0 gives −5 > 1, which is false.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This forgets to reverse the inequality when dividing by −1, getting x > −6.",
+          "trap": "sign_error"
+        }
+      },
+      "hints": [
+        "Collect the x-terms on one side.",
+        "What happens to an inequality when you multiply or divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Plug in each choice; only −8 makes the left side larger."
+      },
+      "remember": "Multiplying or dividing by a negative flips the inequality.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B012-04",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Piecewise functions",
+      "repo_skill_key": "act_functions",
+      "difficulty": "hard",
+      "stem": "The function f is defined by f(x) = x² for x < 2 and f(x) = 3x − 2 for x ≥ 2. How many real numbers x satisfy f(x) = 4 ?",
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "answer": "C",
+      "explanation": "For x < 2: x² = 4 gives x = 2 or x = −2, but only x = −2 satisfies x < 2. For x ≥ 2: 3x − 2 = 4 gives x = 2, which satisfies x ≥ 2. So the solutions are x = −2 and x = 2: two numbers.",
+      "distractors": {
+        "A": {
+          "rationale": "Both pieces produce a valid solution; checking the domain removes only x = 2 from the first piece.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This uses only one piece of the function, typically the linear piece, and misses x = −2.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This counts x = 2 from the first piece as well, but that piece applies only for x < 2 (and x = 2 is counted once anyway).",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Solve f(x) = 4 separately on each piece.",
+        "Keep a solution only if it lies in the domain of the piece that produced it."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both pieces and the line y = 4: it meets the parabola piece at x = −2 and the linear piece at x = 2."
+      },
+      "remember": "Piecewise: solve each piece, then check its domain.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "domain checks per piece; double counting x = 2 is tempting"
+      }
+    },
+    {
+      "cand": "B012-05",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Exponential decay models",
+      "repo_skill_key": "act_functions",
+      "difficulty": "medium",
+      "stem": "The value, in dollars, of a car t years after purchase is modeled by V(t) = 24,000(0.85)^t. To the nearest dollar, what is the car's value 3 years after purchase, according to the model?",
+      "choices": {
+        "A": "$13,200",
+        "B": "$14,739",
+        "C": "$20,400",
+        "D": "$36,501"
+      },
+      "answer": "B",
+      "explanation": "V(3) = 24,000(0.85)³ = 24,000(0.614125) = 14,739. The car loses 15% of its value each year, compounded.",
+      "distractors": {
+        "A": {
+          "rationale": "This subtracts 15% of the original value three times (45% in all), which is linear, not exponential, decay.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "$20,400 is the value after 1 year, V(1).",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This uses a growth factor of 1.15 instead of 0.85.",
+          "trap": "sign_error"
+        }
+      },
+      "hints": [
+        "Substitute t = 3 into the model.",
+        "Raise 0.85 to the third power before multiplying."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute 0.85³ = 0.614125, then multiply by 24,000."
+      },
+      "remember": "Exponential decay: multiply by the same factor each period.",
+      "expected_time_seconds": 50,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B012-06",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Chords and distance from the center",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "hard",
+      "stem": "A circle has a radius of 10 centimeters. Two parallel chords of the circle have lengths 16 centimeters and 12 centimeters, and the center of the circle lies between the two chords. What is the distance, in centimeters, between the two chords?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "14",
+        "D": "28"
+      },
+      "answer": "C",
+      "explanation": "The perpendicular from the center bisects each chord. For the 16 cm chord, half is 8, so its distance from the center is √(10² − 8²) = 6. For the 12 cm chord, half is 6, so its distance is √(10² − 6²) = 8. The center lies between the chords, so the distance between them is 6 + 8 = 14 cm.",
+      "distractors": {
+        "A": {
+          "rationale": "8 − 6 = 2 would be the distance if both chords were on the same side of the center.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This subtracts the chord lengths, 16 − 12, which does not measure the distance between them.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This doubles 14, as if each distance from the center were counted twice.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "The perpendicular from the center to a chord cuts the chord in half.",
+        "Find each chord's distance from the center, then decide whether to add or subtract."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both chords on opposite sides of the center; each forms a right triangle with the radius: 6-8-10 and 8-6-10."
+      },
+      "remember": "Distance to a chord: √(r² − (half chord)²).",
+      "expected_time_seconds": 95,
+      "modeling": false,
+      "figure": {
+        "description": "Circle radius 10 with two parallel chords on opposite sides of the center, lengths 16 and 12. Optional for production."
+      },
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "two right triangles and an add-versus-subtract decision"
+      }
+    },
+    {
+      "cand": "B012-07",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Midpoint: finding an endpoint",
+      "repo_skill_key": "act_geometry",
+      "difficulty": "easy",
+      "stem": "In the standard (x,y) coordinate plane, segment AB has midpoint M(3, −1). Point A is at (−2, 4). What are the coordinates of point B ?",
+      "choices": {
+        "A": "(0.5, 1.5)",
+        "B": "(8, −6)",
+        "C": "(5, −5)",
+        "D": "(−7, 9)"
+      },
+      "answer": "B",
+      "explanation": "From A to M, x increases by 5 and y decreases by 5. B is the same distance beyond M: (3 + 5, −1 − 5) = (8, −6). Check: the midpoint of (−2, 4) and (8, −6) is (3, −1).",
+      "distractors": {
+        "A": {
+          "rationale": "(0.5, 1.5) is the midpoint of A and M, not the other endpoint.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "(5, −5) is the change from A to M, not a point on the segment.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This steps from A away from M instead of from M away from A.",
+          "trap": "sign_error"
+        }
+      },
+      "hints": [
+        "How do you get from A to M?",
+        "Make the same move again, starting from M."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Step from A to M is (+5, −5); repeat it from M to reach (8, −6)."
+      },
+      "remember": "Endpoint = 2 × midpoint − other endpoint.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    },
+    {
+      "cand": "B012-08",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Complement probability without replacement",
+      "repo_skill_key": "act_statistics_probability",
+      "difficulty": "hard",
+      "stem": "Two different numbers are selected at random from the integers 1 through 10. What is the probability that the product of the two numbers is even?",
+      "choices": {
+        "A": "1/2",
+        "B": "2/9",
+        "C": "3/4",
+        "D": "7/9"
+      },
+      "answer": "D",
+      "explanation": "A product is odd only if both numbers are odd. There are 5 odd numbers, so P(both odd) = (5/10)(4/9) = 2/9. Therefore P(product even) = 1 − 2/9 = 7/9.",
+      "distractors": {
+        "A": {
+          "rationale": "This assumes the product is even exactly when one particular number is even; a product is even if either number is even.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "2/9 is the probability that the product is odd, the complement.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This computes 1 − (1/2)², as if the second number could repeat the first (with replacement).",
+          "trap": null
+        }
+      },
+      "hints": [
+        "When is a product of two integers odd?",
+        "Find the probability of the opposite event and subtract from 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "P(even) = 1 − P(both odd) = 1 − (5/10)(4/9)."
+      },
+      "remember": "A product is odd only when every factor is odd.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "parity insight, complement, and without replacement; distractor 3/4 is the with-replacement answer",
+        "dup_note": "uses the complement idea like CLD-ACT-M-000016 (committee) but the parity condition is new"
+      }
+    },
+    {
+      "cand": "B012-09",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Percent targets across parts",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "A test has 40 questions. Maya answered 75% of the first 20 questions correctly. How many of the last 20 questions must she answer correctly to answer 85% of all 40 questions correctly?",
+      "choices": {
+        "A": "17",
+        "B": "18",
+        "C": "19",
+        "D": "20"
+      },
+      "answer": "C",
+      "explanation": "85% of 40 is 34 correct answers in all. She got 75% of 20 = 15 correct on the first part, so she needs 34 − 15 = 19 correct on the last 20.",
+      "distractors": {
+        "A": {
+          "rationale": "17 is 85% of 20; it ignores the shortfall from the first part.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This averages percents: it assumes 90% on the second half (18 of 20) balances 75% to reach 85%, but (75% + 90%)/2 is 82.5%.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "20 would give 35 correct (87.5%), more than needed; the question asks for the minimum.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "How many questions out of 40 is 85%?",
+        "How many has she already answered correctly?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Need 34 total; have 15; need 19 more."
+      },
+      "remember": "Convert percent goals into counts.",
+      "expected_time_seconds": 50,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "note": "stem asks 'how many must' = minimum; D explained"
+      }
+    },
+    {
+      "cand": "B012-10",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Chained unit conversions (currency)",
+      "repo_skill_key": "act_number_quantity",
+      "difficulty": "medium",
+      "stem": "Suppose 1 U.S. dollar can be exchanged for 0.92 euro, and 1 euro can be exchanged for 160 yen. A souvenir costs 4,416 yen. Using these rates, what is its cost in U.S. dollars?",
+      "choices": {
+        "A": "$25.39",
+        "B": "$27.60",
+        "C": "$30.00",
+        "D": "$4,062.72"
+      },
+      "answer": "C",
+      "explanation": "4,416 yen ÷ 160 yen per euro = 27.60 euros. 27.60 euros ÷ 0.92 euro per dollar = 30.00 dollars.",
+      "distractors": {
+        "A": {
+          "rationale": "This multiplies 27.60 euros by 0.92 instead of dividing; a dollar buys less than a euro, so the dollar price must be larger.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "27.60 is the cost in euros; it still must be converted to dollars.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This multiplies the yen price by 0.92 and skips the yen-to-euro step entirely.",
+          "trap": null
+        }
+      },
+      "hints": [
+        "Convert yen to euros first.",
+        "Since 1 dollar buys less than 1 euro, should the dollar amount be larger or smaller than the euro amount?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "4,416 ÷ 160 ÷ 0.92 = 30."
+      },
+      "remember": "Chain conversions so the units cancel.",
+      "expected_time_seconds": 55,
+      "modeling": true,
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      }
+    }
+  ]
+}
