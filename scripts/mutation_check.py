@@ -7,6 +7,13 @@ A surviving mutant means a safety rule has no test. Run: python scripts/mutation
 import ast, concurrent.futures, os, queue, shutil, subprocess, sys, tempfile
 
 MUTS = [
+    ('pipeline/extractors/merit.py', "        return y, b, found + [f'year_label_only_in_other_aid:{year}']", "        return y, b, found"),
+    ('pipeline/extractors/merit.py', "    if basis == 'labeled_in_source' and not merit_text_labels(page):", "    if False:"),
+    ('pipeline/extractors/merit.py', "        if re.match(r'\\s*(?:prior\\s+to|before)\\s+", "        if re.match(r'\\s*(?:prior\\s+to|before|until)\\s+"),
+    ('pipeline/extractors/merit.py', " and not (hits <= {'transfer'} and STATEMENT_FRESHMAN.search(s))", ""),
+    ('pipeline/extractors/merit.py', " + [f'conflicting_year_statement:{o}' for o in other]", ""),
+    ('pipeline/extractors/merit.py', r"(?:or|and)\s+(higher|above|up))?\s*$'", r"or\s+(higher|above|up))?\s*$'"),
+    ('pipeline/extractors/merit.py', '            continue  # MI (Andrews): a table headed "Prior to Fall 2023"', '            pass  # MI (Andrews): a table headed "Prior to Fall 2023"'),
     ('pipeline/promote.py', "    if any(i.startswith(NEVER_ACCEPTED) for i in c['issues']): return None\n", ''),
     ('pipeline/promote.py', "    if verified_on_main and not (isinstance(decision.get('owner_approval'), str) and decision['owner_approval'].strip()):\n        return False\n", ''),
     ('pipeline/promote.py', "            return True  # main cannot be read: assume the record is protected", "            return False"),

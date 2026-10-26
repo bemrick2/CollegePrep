@@ -40,7 +40,7 @@ NOT_MERIT_PAGE = re.compile(r'tuition[- ](?:and|&)[- ]fees|international[- ]bacc
                             # (Bright Futures, TEACH Grant) are not institutional merit awards.
                             r'emerit|retirees|bright[- ]futures|/teach\b|teach[- ]grant|\bpell\b', re.I)  # Hampton IB credit table
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
-THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]\s*\d{1,4}(\.\d{1,2})?|or\s+(higher|above))?\s*$', re.I)
+THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]\s*\d{1,4}(\.\d{1,2})?|(?:or|and)\s+(higher|above|up))?\s*$', re.I)
 
 
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—|–)\W*$', re.I)  # ND (Lake Region): an en dash is an empty cell
@@ -129,13 +129,46 @@ def current_terms(page, today_year):
     return out
 
 
+CLASS_STATEMENT = re.compile(r'\b(?:new|incoming|entering|first[- ]time)\s+(?:\w+\s+){0,3}?(?:students?|freshm[ae]n|first[- ]years?)\s+'
+                             r'(?:\w+\s+){0,2}?in\s+(?:the\s+)?(?:fall\s+(20\d{2})\b|(' + _YEAR + r')\s+academic\s+year)|'
+                             r'\bbegin\s+attendance\s+in\s+(?:the\s+)?(?:fall\s+(20\d{2})\b|(' + _YEAR + r')\s+academic\s+year)', re.I)
+
+
+def class_statements(page):
+    """Academic years that sentences about the merit awards name for the entering class ("For new incoming students in Fall 2025,
+    we offer these awards"; "The above scholarships apply to first-time freshmen ... who begin attendance in the 2025-2026
+    academic year"), read even where the sentence also names transfer students. Used only to detect disagreement."""
+    out = set()
+    for s in re.split(r'(?<=[.!?])\s+|\n+', page.text[:60000]):
+        if not STATEMENT_MERIT.search(s) or re.search(r'previous|prior\s+cohort|averages?\b', s, re.I): continue
+        for m in CLASS_STATEMENT.finditer(s):
+            fall = m.group(1) or m.group(3)
+            out |= {T.academic_year(int(fall))} if fall else set(T.year_labels(m.group(2) or m.group(4)))
+    return out
+
+
+def merit_text_labels(page):
+    """Year labels in the page's text outside sentences and table lines about other aid (FAFSA, Pell, federal or state grants,
+    loans, athletics; STATEMENT_OTHER_AID)."""
+    def other(s):
+        s = re.sub(r'free\s+application\s+for\s+federal\s+student\s+aid', 'FAFSA', s, flags=re.I)
+        hits = {m.group(0).lower() for m in STATEMENT_OTHER_AID.finditer(s)}
+        # MO (SBU): "Freshman & Transfer Scholarships for Fall 2027/Spring 2028" and AL (Stillman) "incoming first-year students,
+        # transfers, and current students ... during the 2024-2025 academic year" date first-year awards too
+        return bool(hits) and not (hits <= {'transfer'} and STATEMENT_FRESHMAN.search(s))
+    return T.year_labels(' '.join(s for s in re.split(r'(?<=[.!?])\s+|\n+', page.text[:60000]) if not other(s)))
+
+
 def record_year(page, t, year, basis, issues, today_year):
     """(academic_year, basis, issues) for one merit table, by the precedence above."""
     own = ' '.join([t.get('heading') or '', t.get('caption') or '', t.get('lead') or ''])
     clean = [i for i in issues if i != 'ambiguous_year_labels' and not i.startswith('stale_year_label')]
     def done(y, b):
         if b in ('labeled_entering_class', 'labeled_in_heading') and y == year and basis in LABELED: b = basis  # agrees with the page's own label
-        return y, b, clean + ([f'stale_year_label:{y}'] if y < today_year else [])
+        # TX (HSUTX): a table led "New Freshmen in Fall 2026" on a page saying the awards are for students who "begin attendance in
+        # the 2025-2026 academic year": the page disagrees with itself, so the year is held for review
+        other = sorted(class_statements(page) - {y})
+        return y, b, clean + ([f'stale_year_label:{y}'] if y < today_year else []) + [f'conflicting_year_statement:{o}' for o in other]
     labels = T.year_labels(own)
     since = {l for m in re.finditer(r'\b(?:effective|beginning|starting|since|as\s+of)\s+(?:in\s+)?(?:the\s+)?(' + _YEAR + ')', own, re.I) for l in T.year_labels(m.group(1))}
     if basis in LABELED and labels and set(labels) <= since and max(labels) < year:
@@ -151,6 +184,12 @@ def record_year(page, t, year, basis, issues, today_year):
     if stated and not (basis in LABELED and stated < year): return done(stated, stated_basis)
     under = T.year_labels(t.get('year_heading') or '')
     if len(under) == 1: return done(next(iter(under)), 'labeled_in_heading')
+    if basis == 'labeled_in_source' and not merit_text_labels(page):
+        # OH (JCU): the page's only year label is a federal-grant table's "maximum award amounts for 2025-2026", which may not date
+        # the merit table. Held for review with the year kept as found: never verified on that label, and never re-dated as
+        # current without evidence (#278 review); a FAFSA year beside an award is held the same way
+        y, b, found = done(year, basis)
+        return y, b, found + [f'year_label_only_in_other_aid:{year}']
     if basis in LABELED and year < today_year and current_terms(page, today_year):
         # VA (Regent): "Aid for 2023-24" statistics and FAFSA notes beside a current chart (Fall 2026 dates) do not date the chart.
         return today_year, 'source_unlabeled', clean + [f'stale_page_label_beside_current_terms:{year}']
@@ -613,6 +652,9 @@ def extract(inst, entry, page, today_year):
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
         if NOT_MERIT.search(context): continue
+        if re.match(r'\s*(?:prior\s+to|before)\s+(?:the\s+)?(?:fall|spring|summer)?\s*(?:semester\s+)?(?:of\s+)?20\d{2}\b', ' '.join([t.get('heading') or '', t.get('lead') or '']).strip(), re.I) \
+                and not re.search(r'current', ' '.join(rows[0]), re.I):
+            continue  # MI (Andrews): a table headed "Prior to Fall 2023" lists superseded amounts, never a current award
         scope_test = None
         if len(rows) > 3 and _filled(rows[0]) == 1 and (len(rows[0]) == 1 or t.get('spans')) and re.search(r'\d{2}', rows[0][0]) and re.search(r'\b(act|sat)\b', rows[0][0], re.I) and len(rows[0][0]) <= 80:
             scope_test, rows = rows[0][0], rows[1:]  # AL (JSU): "26-28 ACT or 1230-1320 SAT" above a GPA | amount table applies to every row
