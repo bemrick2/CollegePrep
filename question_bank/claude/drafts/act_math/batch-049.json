@@ -147,15 +147,15 @@
    "difficulty": "medium",
    "stem": "What is the value of (2/3)⁻² ?",
    "choices": {
-    "A": "-4/9",
+    "A": "9/4",
     "B": "4/9",
-    "C": "9/4",
+    "C": "-4/9",
     "D": "-9/4"
    },
-   "answer": "C",
+   "answer": "A",
    "explanation": "A negative exponent means the reciprocal: (2/3)⁻² = (3/2)² = 9/4.",
    "distractors": {
-    "A": {
+    "C": {
      "rationale": "-4/9 treats the negative exponent as making the result negative.",
      "trap": "sign_error"
     },
@@ -238,11 +238,11 @@
    "stem": "A baseball player has 30 hits in 100 at-bats. If the player gets a hit in every one of the next n at-bats, what is the least value of n that will raise the player's batting average (hits ÷ at-bats) to at least 0.350 ?",
    "choices": {
     "A": "5",
-    "B": "7",
-    "C": "8",
-    "D": "18"
+    "B": "6",
+    "C": "7",
+    "D": "8"
    },
-   "answer": "C",
+   "answer": "D",
    "explanation": "(30 + n)/(100 + n) ≥ 0.35 gives 30 + n ≥ 35 + 0.35n, so 0.65n ≥ 5 and n ≥ 7.69. The least whole number is 8.",
    "distractors": {
     "A": {
@@ -250,11 +250,11 @@
      "trap": "partial_answer"
     },
     "B": {
-     "rationale": "7 rounds 7.69 down, which falls just short: 37/107 ≈ 0.346.",
+     "rationale": "6 assumes each hit raises the average by about 0.01.",
      "trap": null
     },
-    "D": {
-     "rationale": "18 sets (30 + n)/(100 + n) equal to 0.4 instead of 0.35, overshooting.",
+    "C": {
+     "rationale": "7 rounds 7.69 down, which falls just short: 37/107 ≈ 0.346.",
      "trap": null
     }
    },
@@ -324,46 +324,47 @@
    "cand": "B049-08",
    "reporting_category": "Preparing for Higher Math",
    "skill": "Functions",
-   "subskill": "Evaluating a self-inverse function",
+   "subskill": "Equal compositions in either order",
    "repo_skill_key": "act_functions",
    "difficulty": "hard",
-   "stem": "The function f is defined by f(x) = (x + 3)/(x - 1) for x ≠ 1. What is the value of f(f(2)) ?",
+   "stem": "The functions f and g are defined by f(x) = 2x - 3 and g(x) = x². What is the sum of all values of x for which f(g(x)) = g(f(x)) ?",
    "choices": {
-    "A": "2",
-    "B": "5",
-    "C": "8/3",
-    "D": "5/4"
+    "A": "-6",
+    "B": "0",
+    "C": "3",
+    "D": "6"
    },
-   "answer": "A",
-   "explanation": "f(2) = 5/1 = 5, and f(5) = 8/4 = 2. So f(f(2)) = 2. (In fact, f(f(x)) = x for every x ≠ 1: f is its own inverse.)",
+   "answer": "D",
+   "explanation": "f(g(x)) = 2x² - 3 and g(f(x)) = (2x - 3)² = 4x² - 12x + 9. Setting them equal: 2x² - 12x + 12 = 0, or x² - 6x + 6 = 0. The sum of the solutions is 6.",
    "distractors": {
+    "A": {
+     "rationale": "-6 takes the sum of the roots with the wrong sign.",
+     "trap": "sign_error"
+    },
     "B": {
-     "rationale": "5 is f(2), only one application of f.",
-     "trap": "partial_answer"
+     "rationale": "0 assumes the two compositions are always equal, or that the solutions cancel.",
+     "trap": null
     },
     "C": {
-     "rationale": "8/3 evaluates f(5) as 8/3, subtracting 2 instead of 1 in the denominator.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "5/4 computes (2 + 3)/4, mixing the steps.",
-     "trap": null
+     "rationale": "3 is one-half the sum, the x-coordinate of the parabola's vertex.",
+     "trap": "partial_answer"
     }
    },
    "hints": [
-    "Find f(2) first, then apply f to that result."
+    "Write both compositions as polynomials.",
+    "For x² + bx + c = 0, what is the sum of the roots?"
    ],
    "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Compute step by step."
+    "key": "translate_to_algebra",
+    "explanation": "Set 2x² - 3 = (2x - 3)² and simplify."
    },
-   "remember": "Evaluate nested functions from the inside out.",
-   "expected_time_seconds": 60,
+   "remember": "Composition order matters; build both, then solve.",
+   "expected_time_seconds": 90,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "hardness": "Two careful substitutions with fractions; the result returning to 2 surprises solvers who expect a new number."
+    "hardness": "Requires composing in both orders, expanding a square correctly and using the sum of roots; the roots themselves are irrational."
    }
   },
   {
@@ -375,20 +376,20 @@
    "difficulty": "hard",
    "stem": "If 2ˣ⁺¹ + 2ˣ = 48, what is the value of x ?",
    "choices": {
-    "A": "3",
-    "B": "4",
-    "C": "5",
+    "A": "4",
+    "B": "5",
+    "C": "6",
     "D": "24"
    },
-   "answer": "B",
+   "answer": "A",
    "explanation": "2ˣ⁺¹ = 2 · 2ˣ, so the left side is 3 · 2ˣ = 48. Then 2ˣ = 16 and x = 4.",
    "distractors": {
-    "A": {
-     "rationale": "3 solves 2ˣ = 8, dividing 48 by 6 instead of by 3.",
+    "B": {
+     "rationale": "5 adds the exponents, treating the sum as 2²ˣ⁺¹ = 48 and rounding.",
      "trap": null
     },
     "C": {
-     "rationale": "5 adds the exponents, treating the sum as 2²ˣ⁺¹ = 48 and rounding.",
+     "rationale": "6 = 48 ÷ 8 divides by 2³ instead of solving for the exponent.",
      "trap": null
     },
     "D": {
