@@ -1,4 +1,5 @@
 import { poolStatusOf, practiceExclusions } from '../../engine/freshness'
+import { PER_SECTION } from '../../engine/benchmark'
 import { projectCosts } from '../../engine/costProjection'
 import type { InterestProfile } from '../../engine/interests'
 import { readInterests, writeInterests } from '../../interestStore'
@@ -590,6 +591,7 @@ export class DemoSource implements DataSource {
     if (benchmarkId) {
       const c = this.liveCheck(benchmarkId, studentId)
       if (c.exam !== q.exam_family) throw new DataError('A progress check uses reserved questions of its own exam version', 'invalid')
+      if (!c.assigned.some((x) => x.id === questionId)) throw new DataError('This question is not part of this progress check', 'invalid')
       if (c.used.has(questionId)) throw new DataError('A question is used once per progress check', 'invalid')
       c.used.add(questionId)
     }
@@ -721,8 +723,25 @@ export class DemoSource implements DataSource {
     return delay(this.s.benchmarks[studentId] ?? [])
   }
 
-  /** Open checks in this page session: when each started, and the items already used in it. */
-  private checks = new Map<string, { studentId: string; exam: ExamFamily; kind: BenchmarkSummary['kind']; startedAt: string; used: Set<string> }>()
+  /**
+   * Open checks in this page session: when each started, the items assigned to it at start (#263) with whether each
+   * was seen at assignment, and the items already used in it.
+   */
+  private checks = new Map<string, { studentId: string; exam: ExamFamily; kind: BenchmarkSummary['kind']; startedAt: string; assigned: { id: string; seen: boolean }[]; used: Set<string> }>()
+  /**
+   * When each reserved item was last seen by a student: an attempt, or an assignment to any of their checks (#263:
+   * assignment counts as seen, answered or not). Assignments are kept in the saved demo store, so they survive a reload,
+   * as the server's assignment rows do.
+   */
+  private lastSeen(studentId: string): Map<string, string> {
+    const last = new Map<string, string>()
+    const note = (id: string, at: string) => {
+      if (!last.has(id) || at > last.get(id)!) last.set(id, at)
+    }
+    for (const a of this.attemptsOf(studentId)) note(a.question_id, a.presented_at)
+    for (const [id, at] of Object.entries(this.s.checkExposure?.[studentId] ?? {})) note(id, at)
+    return last
+  }
 
   /** Mirrors the server: a check is live while open and within 4 hours of its start. */
   private liveCheck(benchmarkId: string, studentId: string) {
@@ -737,8 +756,26 @@ export class DemoSource implements DataSource {
     // Like start_benchmark: a live open check of the same exam and kind with nothing answered yet is resumed, not duplicated.
     for (const [id, c] of this.checks)
       if (c.studentId === studentId && c.exam === exam && c.kind === kind && c.used.size === 0 && Date.now() - Date.parse(c.startedAt) < CHECK_LIVE_MS) return delay(id)
+    // Mirrors start_benchmark (#263): the items are assigned once, here, per section: the plan size (PER_SECTION, as
+    // practice_benchmark_plan) or the section's reserve if smaller; unseen first (mid difficulty), then repeats
+    // (least recently seen first). Assignment counts as exposure at once.
+    const F = await loadFixtures()
+    const reserved = practiceExclusions(exam, F.QUESTIONS)
+    const startedAt = new Date().toISOString()
+    const last = this.lastSeen(studentId)
+    const mid = (d: number) => Math.abs(d - 3)
+    const assigned: { id: string; seen: boolean }[] = []
+    for (const [section, want] of Object.entries(PER_SECTION[exam][kind]).sort(([a], [b]) => a.localeCompare(b))) {
+      const pool = F.QUESTIONS.filter((q) => q.exam_family === exam && q.section === section && reserved.has(q.id))
+      const unseen = pool.filter((q) => !last.has(q.id)).sort((a, b) => mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
+      const repeats = pool.filter((q) => last.has(q.id)).sort((a, b) => last.get(a.id)!.localeCompare(last.get(b.id)!) || mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
+      for (const q of [...unseen, ...repeats].slice(0, Math.min(want, pool.length))) assigned.push({ id: q.id, seen: last.has(q.id) })
+    }
+    const exposure = ((this.s.checkExposure ??= {})[studentId] ??= {})
+    for (const a of assigned) exposure[a.id] = startedAt
+    this.commit()
     const id = uid('bm-')
-    this.checks.set(id, { studentId, exam, kind, startedAt: new Date().toISOString(), used: new Set() })
+    this.checks.set(id, { studentId, exam, kind, startedAt, assigned, used: new Set() })
     return delay(id)
   }
 
@@ -746,25 +783,18 @@ export class DemoSource implements DataSource {
   async assessmentPoolStatus(studentId: string, examFamily: ExamFamily): Promise<PoolStatus[] | null> {
     this.requireView(studentId)
     const F = await loadFixtures()
-    return delay(poolStatusOf(examFamily, F.QUESTIONS, new Set(this.attemptsOf(studentId).map((a) => a.question_id))))
+    return delay(poolStatusOf(examFamily, F.QUESTIONS, new Set(this.lastSeen(studentId).keys())))
   }
 
-  /** Mirrors benchmark_questions (CR-23): the open check's reserved items, unseen first (mid difficulty), then repeats
-   *  (least recently shown first); items already used in this check are left out. */
+  /** Mirrors benchmark_questions (#263): the open check's assigned items not yet used in it, in assignment order,
+   *  each with whether it had been seen when it was assigned. Nothing else in the reserve is listed. */
   async benchmarkQuestions(benchmarkId: string, studentId: string): Promise<CheckItem[]> {
     this.requireLinked(studentId)
     const c = this.checks.get(benchmarkId)
     if (!c || c.studentId !== studentId) throw new DataError('No open benchmark of yours with that id', 'forbidden')
     this.liveCheck(benchmarkId, studentId)
     const F = await loadFixtures()
-    const reserved = practiceExclusions(c.exam, F.QUESTIONS)
-    const last = new Map<string, string>()
-    for (const a of this.attemptsOf(studentId)) if (a.presented_at < c.startedAt && (!last.has(a.question_id) || a.presented_at > last.get(a.question_id)!)) last.set(a.question_id, a.presented_at)
-    const mid = (d: number) => Math.abs(d - 3)
-    const items = F.QUESTIONS.filter((q) => reserved.has(q.id) && !c.used.has(q.id))
-      .sort((a, b) => a.section.localeCompare(b.section) || Number(last.has(a.id)) - Number(last.has(b.id)) || (last.get(a.id) ?? '').localeCompare(last.get(b.id) ?? '') || mid(a.difficulty) - mid(b.difficulty) || a.id.localeCompare(b.id))
-      .map((q) => ({ question: toPublic(q), seen_before: last.has(q.id) }))
-    return delay(items)
+    return delay(c.assigned.filter((a) => !c.used.has(a.id)).map((a) => ({ question: toPublic(F.byId.get(a.id)!), seen_before: a.seen })))
   }
 
   async completeBenchmark(studentId: string, benchmarkId: string, client: BenchmarkSummary) {

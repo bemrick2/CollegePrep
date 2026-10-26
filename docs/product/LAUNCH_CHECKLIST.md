@@ -60,7 +60,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 
 | # | Item | Owner | Status | Concrete blocker |
 |---|---|---|---|---|
-| B1 | CR-23: server holds check items out of practice; `seen_before` and first-answer metrics | Research | ⏳ | Part 1 built and tested locally (#248: migration and the client that reads `pool`; #244 added the client-side reserve and insufficient-pool rules); unapplied on hosted (A5). Part 2 (`seen_before` on practice items, first-answer fields) open. **Hosted acceptance after applying:** (1) `supabase/tests/assessment_pool.sql` passes on a branch copy; (2) `select count(*) from practice_questions where pool = 'assessment' and status = 'published' and review_current` per exam version and section matches the chosen reserve, spread across difficulties; (3) with a real student token, `publishedQuestions` returns no reserved item before a check, `start_benchmark` without a version is refused, a check serves only reserved items and a second start before any answer resumes it; (4) a guardian sees `assessment_pool_status` counts and no unattempted reserved item; (5) only then deploy the client (`docs/DEPLOYING.md` gate). **Before a bank larger than one check goes live:** #263 (an open check exposes the whole reserve; reading without attempting isn’t counted as seen). |
+| B1 | CR-23: server holds check items out of practice; `seen_before` and first-answer metrics | Research | ⏳ | Part 1 built and tested locally (#248: migration and the client that reads `pool`; #244 added the client-side reserve and insufficient-pool rules); unapplied on hosted (A5). Part 2 (`seen_before` on practice items, first-answer fields) open. **Hosted acceptance after applying:** (1) `supabase/tests/assessment_pool.sql` passes on a branch copy; (2) `select count(*) from practice_questions where pool = 'assessment' and status = 'published' and review_current` per exam version and section matches the chosen reserve, spread across difficulties; (3) with a real student token, `publishedQuestions` returns no reserved item before a check, `start_benchmark` without a version is refused, a check serves only reserved items and a second start resumes the live check, answered in or not; (4) a guardian sees `assessment_pool_status` counts and no unattempted reserved item; (5) only then deploy the client (`docs/DEPLOYING.md` gate). **#263** (a check exposed the whole reserve; reading without attempting wasn't counted as seen): built in #279 (`20261023010000`: server-assigned items, assignment counts as seen) and tested locally (`supabase/tests/assessment_assignment.sql`; `checkAssignment.local.test.ts` T1–T11 and T5b (T12 arrives with #291): T1, T2, T4 and T10 detect the pre-#279 behaviour; T7 and T9 held already under CR-23); the two server gaps are closed in #279 (`5d237a7e3`, not merged): a partly answered check is resumed with its assignment, and the kind rules (initial once, mini 28 UTC days after the last check started, full refused) are enforced by `start_benchmark` for every caller; unapplied on hosted, released with the pool in H2. |
 | B2 | CR-22: parent email opt-in, digest and inactivity payloads, delivery log, as a real migration | Research | ⏳ | Reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`. Then the Owner deploys `send-weekly-digest`, adds the schedules and sets `VITE_WEEKLY_DIGEST=true` (after A5 and A7). |
 | B3 | "Full" progress check falls back to a mini until a held-out full-length form exists | Design | 🚧 #167 | Done in code (`FULL_FORM_READY = false`); switch on only when Content delivers a held-out full-length form per exam. |
 | B4 | CR-24 rights gate and CR-25 "report a problem" | Research, then Design (UI) | 🚧 | CR-24 merged (#245, unapplied). CR-25 open. Imported questions follow `QUESTION_IMPORT_CONTRACT.md`; batches arrive on #254 (none yet). |
@@ -100,10 +100,10 @@ Nothing here runs until the owner lifts the hold. **Record the evidence:** for e
 1. **Disposable copy first, never production first.** Supabase branching needs a paid plan, and the project is on Free. So either restore a `pg_dump` of the live project into local PostgreSQL, or upgrade the plan for branching.
 2. On the copy, apply every pending migration in filename order. Then run what the `database` job in `.github/workflows/validate-data.yml` runs, in the same order: every `supabase/tests/*.sql` file it lists, plus `scripts/test_program_import.py | psql`.
 3. On production, explicitly dispatch `deploy-migrations.yml`. Don't assume deferred pushes replay.
-   - `scripts/apply_migrations.py` applies **every** pending file in filename order, each in its own transaction. It has no option to stop early.
-   - So don't dispatch it until the reserve migration from H2 step 2 exists. The applier then runs `20261022050000` and the reserve straight after it in the same run.
-   - The workflow also runs on every push to main that touches `supabase/migrations/**`. Keep that push trigger off (or the job gate in place) until H2 is ready. Otherwise any other migration merged first, such as CR-27 or CR-22, would apply `20261022050000` without its reserve.
-   - The other route is a reviewed `--until <version>` option on the applier (Research), used to stop at `20261022040000`.
+   - `scripts/apply_migrations.py` applies pending files in filename order, each in its own transaction. Since #279 it takes `--until <version>`: it applies up to and including that version, stops, and lists what stays pending. `--dry-run` prints the same split first; an unknown or malformed version is refused before anything runs.
+   - **Before lifting the job gate** (`if: ${{ false }}` on the job, which also skips manual dispatches; H0 step 4): remove the workflow's `push:` trigger, or gate the job on `github.event_name == 'workflow_dispatch'`. Otherwise any migration merged to main afterwards, such as CR-27 or CR-22, would apply `20261022050000` without its reserve.
+   - **Dry run first, locally:** `python scripts/apply_migrations.py --until 20261022040000 --dry-run` with the production `DATABASE_URL` (the workflow has no dry-run input). It lists what would apply and what stays pending.
+   - **Stop before the pool:** dispatch *Deploy Supabase migrations* with `until = 20261022040000`. `20261022050000` (pool) and `20261023010000` (#263 item assignment) stay pending for H2.
    - Record the applier's printed `applied <file>` lines, and once at the end `select version from supabase_migrations.schema_migrations order by version desc limit 5`.
 4. Then dispatch `deploy-functions.yml`, then `live-import.yml`. Run reconciliation and the idempotence pass (`SUPABASE_PAUSE.md` step 4).
 5. Validate staging Auth, invitations and sandbox billing (`SUPABASE_PAUSE.md` step 6).
@@ -124,13 +124,14 @@ This step is **blocked by A2.** The reserve must come from human-reviewed items,
      and exists (select 1 from practice_attempts a where a.question_id = q.id and a.benchmark_id is null)
    ```
    **Pass:** no rows.
-2. **Apply in one window, migration first.**
-   - The reserve is its own reviewed migration (Research), named after `20261022050000`, so the applier runs it in the same dispatch right after the pool column.
-   - It sets `pool = 'assessment'` for the listed candidate ids, and fails if any id isn't published, human-reviewed and unseen in practice.
-   - No such migration exists yet; it can only be written once A2 has reviewed items.
-   - The pool column and the reserve commit in separate transactions. If the reserve fails, `20261022050000` is live with no reserve: no check can be taken, and practice is unaffected. Fix the reserve migration and dispatch again before step 4. Don't deploy the client until the reserve is in.
+2. **Generate the reserve, then apply it with the pool and #263 in one transaction** (`docs/DEPLOYING.md`, CR-23 reserve release). H1 step 3 must already have applied everything up to `20261022040000` (`--until`), so this dispatch carries only the pool, #263 and the reserve.
+   - Each candidate is approved individually by the content lead (`approve_practice_question(id, 'human: <reviewer>')`). There is no bulk eligibility, and no fixture or generated item qualifies.
+   - **The reserve is a script, not a migration** (`docs/DEPLOYING.md`, CR-23 reserve release). Generate it from the approved ids, review it, and commit it under `supabase/reserve/`: `python scripts/make_reserve_migration.py --exam-version <version_key> --items <file of "uuid section" lines> --out supabase/reserve/<date>_<exam>.sql`. Commit only a reserve built from real approved items.
+   - At apply time it marks nothing unless every id exists in that exam version and section, is published, passes the rights gate, has a current approved review with a `human:` method, has never been attempted, planned into a practice session or assigned to a check, and is the only question on its passage.
+   - **Rehearse, then one dispatch:** `--dry-run` first (with `--reserve` it runs the whole transaction and rolls it back, so it needs the hold lifted and takes the same locks as the real run), then `until = 20261023010000` with `reserve = supabase/reserve/<file>.sql`. The applier runs `20261022050000_assessment_pool`, `20261023010000_benchmark_item_assignment` and the reserve script in one transaction, and refuses the pool migration without `--reserve`. If anything fails, nothing is applied. Each applied reserve is recorded in `practice_reserve_releases`, and the same script refuses to run twice.
+   - No reserve script exists yet; it can only be generated once A2 has reviewed items.
 3. **Check at the database and REST level, before any client changes:**
-   - **(a)** `supabase/tests/assessment_pool.sql` passes on the H1 copy with the same migrations, and `scripts/local/live_stack.sh test` passes on main.
+   - **(a)** `supabase/tests/assessment_pool.sql` and `supabase/tests/assessment_assignment.sql` pass on the H1 copy with the same migrations, and `scripts/local/live_stack.sh test` passes on main (including `checkAssignment.local.test.ts`, #263 T1–T11 and T5b (T12 arrives with #291)).
    - **(b)** The reserve is planned per exam version and difficulty:
      ```sql
      select exam_version_id, section, difficulty, count(*)
@@ -141,15 +142,22 @@ This step is **blocked by A2.** The reserve must come from human-reviewed items,
      It shows the planned reserve.
    - **(c)** Use a real student token, for a student with no live check and no reserved attempts:
      - a `practice_questions?pool=eq.assessment` read returns no rows;
-     - `start_benchmark` without `p_exam_version` returns 22023.
+     - `start_benchmark` without `p_exam_version` returns 22023;
+     - **#263 kind rules and resume (one student, real tokens; record each response):**
+       - a fresh student: `benchmark_allowed_kinds` returns `allowed_kinds = {initial}` and `reserve_available = true`; a direct `start_benchmark` of `mini` and of `full` returns 22023, and creates no `practice_benchmarks` row;
+       - start `initial`, answer one item, then start `initial` again: the same id, and `benchmark_questions` no longer lists the answered item; a start of `mini` while it is live returns 22023 "already open … resume it";
+       - `benchmark_allowed_kinds` as a guardian with view-progress returns the same live check; as a guardian without it, 42501;
+       - after the check expires (wait the 4 hours, or use a second test student whose check is left to expire), `initial` returns 22023 and `mini` returns 22023 with the date 28 days after that start; `benchmark_allowed_kinds.next_mini_at` gives the same time;
+       - an exam version with no reserve: `reserve_available = false`, and a start returns 22023 "Not measured: no reserved questions for this exam".
+     - **#263:** start a mini check (for a student allowed one). `benchmark_questions` lists exactly the plan size per section (`select * from practice_benchmark_plan`, capped at each section's reserve), and the same `pool=eq.assessment` read now returns exactly those ids and no other reserved item. A reserved id not in the list is refused in that check with 22023 "This question is not part of this progress check". Starting again returns the same check id. Right away, with nothing answered, `assessment_pool_status` already counts the assigned items as seen (no need to wait for the check to expire).
 4. **Deploy the client in the same window.**
    - Run `scripts/deploy/netlify_export.sh staging origin/main <outdir>`, then upload `<outdir>` to the canonical staging site as `DEPLOYING.md` describes.
    - Then run `scripts/deploy/verify_deploy.sh https://college-optimizer-staging.netlify.app <merge sha of #248>`.
    - **Don't redeploy staging from main before step 2.** Main's client selects `pool`, so against today's hosted schema every practice read fails with 42703.
 5. Run H3 step 5.
-6. **Before a reserve larger than one check's worth goes live:** resolve #263.
-   - While any check is open, the whole reserve is readable.
-   - Reading an item without attempting it isn't counted as seen.
+6. **#263 ships in this same window** (`20261023010000`): a check exposes only its server-assigned items, and assignment counts as seen. Without it, a reserve larger than one check must not go live.
+   - **The two server gaps are closed in #279** (`5d237a7e3`): `start_benchmark` resumes a live check of the same kind (answered in or not, with its assignment) and applies the kind rules for every caller, including direct calls; `benchmark_allowed_kinds` reports what a start would do. Covered locally by `supabase/tests/assessment_assignment.sql` and `checkAssignment.local.test.ts`; not yet run on hosted.
+   - **Client (#291, stacked on #284):** resumes an open check after a reload, offers only the kinds the server allows, and fails closed when it can't read them.
 
 **Other pairings:**
 - **`20261022010000` role rules:** release with #247, already on main.
