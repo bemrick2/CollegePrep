@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 16,
-  "updated_at": "2026-10-26T22:00:42+00:00",
+  "version": 17,
+  "updated_at": "2026-10-26T22:11:14+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -179,6 +179,17 @@
       "word_count": 301,
       "text": "In August 1861, readers of The Times in London found something new in their newspaper: a forecast of the next day's weather. The prediction was the work of Robert FitzRoy, a naval officer who had once commanded HMS Beagle on Charles Darwin's famous voyage. FitzRoy had grown alarmed by the {{1|amount of}} ships lost in storms along the British coast, and he believed that many could be saved if sailors had some warning. A storm in 1859 that sank more than a hundred vessels, including a passenger ship off the coast of Wales, convinced him that the problem could no longer be ignored.\n\nFitzRoy's method relied on a newer technology: the telegraph. Each morning, observers at stations around the coast sent {{2|they're}} readings of air pressure, temperature, and wind to London. By comparing the readings, FitzRoy could see a storm approaching before it arrived. He called his predictions \"forecasts,\" {{3|a word that he chose and selected because}} it suggested a reasoned estimate rather than a prophecy. He also arranged for warning signals, made of canvas cones and drums, to be hoisted at harbors when a gale was expected.\n\nThe forecasts were popular with the public, but scientists {{4|were less impressed, many of them}} dismissed FitzRoy's work as guesswork. {{5|In contrast,}} the forecasts were often wrong, and newspapers sometimes printed the errors with amusement. FitzRoy, who took the criticism personally, worked {{6|ceaselessly, and tirelessly}} to improve them.\n\nAfter FitzRoy's death in 1865, the forecasts were halted. Ships' captains and ordinary readers {{7|complained, and}} within two years storm warnings had returned; printed daily forecasts followed in 1879. {{8|Today, weather forecasts are produced by computer models that process millions of observations every day.}} The basic idea, however, remains {{9|FitzRoys gather}} observations from many places at once and look for the pattern they make together.",
       "batch": 16,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000017",
+      "title": "The Millbrook Carousel",
+      "genre": "informational essay",
+      "word_count": 274,
+      "text": "When the town of Millbrook bought its carousel in 1921, the ride {{1|costed}} more than the town's new fire truck. For decades it turned every summer in Riverside Park, its forty-two wooden horses carved by hand and {{2|it's}} brass poles polished each spring by volunteers. Children chose their favorite horses by name, and some families took the same horses year after year, as if they owned them.\n\nBy 1990, however, the carousel had fallen silent. Its motor {{3|had broke}}, several horses had cracked, and the town could not afford repairs. A plan to sell the horses to a collector was proposed twice and voted down twice. The horses were stored in a barn {{4|where they waited, unused and idle, for nearly twenty years without being used}}.\n\nIn 2009 a retired shop teacher named Walter Okafor offered to restore them. He had never carved a horse, {{5|but he}} had spent forty years teaching students to work with wood. {{6|Working in his garage, the horses were repaired by Okafor one at a time.}} He replaced missing ears and tails, filled cracks with matching wood, and {{7|repainting}} each horse in the colors shown in a 1925 photograph.\n\nThe work took six years, partly because Okafor insisted on using only wood from trees that had fallen naturally in the county. {{8|Okafor did not finish the job alone, though.}} Volunteers raised money for a new motor, and a local electrician rewired the ride without charge. {{9|In contrast,}} in the summer of 2015, the carousel reopened, and more than two thousand people lined up to ride it. {{10|Tickets cost two dollars, and the line stretched past the park's main gate.}}",
+      "batch": 17,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -11934,6 +11945,640 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-016.review.json",
         "computation": "checks/act_english/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000167",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Irregular past tense",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 1,
+      "evidence": "When the town of Millbrook bought its carousel in 1921",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "cost",
+        "C": "has cost",
+        "D": "costing"
+      },
+      "correct_answer": "B",
+      "explanation": "The past tense of \"cost\" is \"cost.\"",
+      "distractor_explanations": {
+        "A": "\"Costed\" is not the standard past tense of \"cost\" in this sense.",
+        "C": "The present perfect does not fit an event in 1921.",
+        "D": "\"Costing\" leaves the clause without a main verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"costed\" a standard verb form here?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check verb form and tense."
+      },
+      "remember": "Some verbs keep the same form in the past tense: cost, cut, put.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-01",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000168",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Past participle (had + verb)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 3,
+      "evidence": "several horses had cracked",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "has broke",
+        "C": "had breaked",
+        "D": "had broken"
+      },
+      "correct_answer": "D",
+      "explanation": "The past perfect uses \"had\" plus the past participle: \"had broken,\" parallel to \"had cracked.\"",
+      "distractor_explanations": {
+        "A": "\"Had\" requires the past participle \"broken,\" not the simple past \"broke.\"",
+        "B": "\"Has\" also requires \"broken,\" and the present perfect does not fit 1990.",
+        "C": "\"Breaked\" is not a word."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What form of \"break\" follows \"had\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the form of \"had cracked.\""
+      },
+      "remember": "Had + past participle: had broken, had gone, had written.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-03",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000169",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 4,
+      "evidence": "The horses were stored in a barn",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "where they waited for nearly twenty years",
+        "C": "where they waited, idle and unused, for nearly twenty years",
+        "D": "where, without being used, they waited unused for nearly twenty years"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Stored\" already says the horses were not in use, so the extra words are redundant.",
+      "distractor_explanations": {
+        "A": "\"Unused,\" \"idle\" and \"without being used\" all repeat the same idea.",
+        "C": "\"Idle\" and \"unused\" still repeat each other, and \"stored\" already implies both.",
+        "D": "This repeats the idea of not being used twice."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Does \"stored\" already tell you they were not being used?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest clear version."
+      },
+      "remember": "Cut words the context already supplies.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-04",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: correct answer is the shortest choice, a common test-wise tell on concision items"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000170",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma before a coordinating conjunction",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 5,
+      "evidence": "had spent forty years teaching students to work with wood",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "but, he",
+        "C": "he",
+        "D": "; but he"
+      },
+      "correct_answer": "A",
+      "explanation": "Two independent clauses are correctly joined by a comma and \"but.\"",
+      "distractor_explanations": {
+        "B": "The comma belongs before \"but,\" not after it.",
+        "C": "Without \"but\" or other punctuation, the two clauses form a comma splice.",
+        "D": "A semicolon should not be followed by \"but\" here; a comma is standard."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "Is the original already correct?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Comma + but joins two independent clauses."
+      },
+      "remember": "Independent clause, comma, coordinating conjunction, independent clause.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-05",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000171",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 6,
+      "evidence": "In 2009 a retired shop teacher named Walter Okafor offered to restore them",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Working in his garage, the horses were each repaired by Okafor in turn.",
+        "C": "Working in his garage, one at a time, the horses were repaired.",
+        "D": "Working in his garage, Okafor repaired the horses one at a time."
+      },
+      "correct_answer": "D",
+      "explanation": "The person working in the garage must be the subject right after the opening phrase: \"Okafor repaired the horses.\"",
+      "distractor_explanations": {
+        "A": "The opening phrase says the horses were working in his garage.",
+        "B": "The phrase still modifies \"the horses.\"",
+        "C": "This removes Okafor entirely and still makes the horses the ones working."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "C": "misplaced_modifier"
+      },
+      "hints": [
+        "Who was working in the garage?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "The noun after the comma must be doing the action."
+      },
+      "remember": "An opening modifier describes the subject that immediately follows it.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-06",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000172",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel structure in a series",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 7,
+      "evidence": "He replaced missing ears and tails, filled cracks with matching wood",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "repainted",
+        "C": "had repainted",
+        "D": "was repainting"
+      },
+      "correct_answer": "B",
+      "explanation": "The series of past-tense verbs, replaced and filled, needs a third past-tense verb: \"repainted.\"",
+      "distractor_explanations": {
+        "A": "\"Repainting\" breaks the series \"replaced ... filled ... and ___.\"",
+        "C": "\"Had repainted\" shifts tense and breaks the parallel series.",
+        "D": "\"Was repainting\" is not parallel with \"replaced\" and \"filled.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What form are the other verbs in the series?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the form of \"replaced\" and \"filled.\""
+      },
+      "remember": "Items in a series take the same grammatical form.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-07",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 76,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000173",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deciding whether to keep a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 8,
+      "evidence": "Volunteers raised money for a new motor",
+      "figure": null,
+      "stem": "The writer is considering deleting the underlined sentence. Should the sentence be kept or deleted?",
+      "choices": {
+        "A": "Kept, because it explains why the restoration of the horses took six years to complete.",
+        "B": "Deleted, because it contradicts the earlier statement that Okafor restored the horses himself.",
+        "C": "Kept, because it introduces the contributions of other people that the next sentence describes.",
+        "D": "Deleted, because it repeats information already given in the third paragraph about Okafor."
+      },
+      "correct_answer": "C",
+      "explanation": "The sentence signals a shift from Okafor's work to the help of volunteers and an electrician, which the next sentence describes.",
+      "distractor_explanations": {
+        "A": "The sentence is about help from others, not the length of the work.",
+        "B": "Okafor restored the horses; others helped with other parts of the project.",
+        "D": "The third paragraph says nothing about others helping."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does the next sentence describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the paragraph without the sentence."
+      },
+      "remember": "Keep sentences that introduce what follows.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-08",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000174",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (sequence)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 9,
+      "evidence": "The work took six years",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "For example,",
+        "C": "Nevertheless,",
+        "D": "Finally,"
+      },
+      "correct_answer": "D",
+      "explanation": "After six years of work and help from others, the carousel reopened: the end of a sequence, so \"Finally.\"",
+      "distractor_explanations": {
+        "A": "The reopening does not contrast with the help the project received.",
+        "B": "The reopening is not an example of the volunteers' help.",
+        "C": "\"Nevertheless\" implies the reopening happened despite the help, which makes no sense."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "C": "wrong_transition"
+      },
+      "hints": [
+        "How does the reopening relate to the events before it?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"at last.\""
+      },
+      "remember": "Sequence transitions mark the end of a process.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-09",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000175",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that echoes the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000017",
+      "underline": 10,
+      "evidence": "For decades it turned every summer in Riverside Park",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by connecting the carousel's return to its history described in the first paragraph?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Some were grandchildren of the riders who had climbed onto the same horses in the 1920s.",
+        "C": "The town has since bought a new fire truck to replace the one it purchased back in 1921.",
+        "D": "Okafor now teaches a weekend woodcarving class at the town's community center."
+      },
+      "correct_answer": "B",
+      "explanation": "The first paragraph describes the carousel's early decades. Riders whose grandparents rode the same horses link the reopening to that history.",
+      "distractor_explanations": {
+        "A": "Ticket prices and the length of the line do not connect to the carousel's history.",
+        "C": "This mentions the fire truck but says nothing about the carousel's return.",
+        "D": "This shifts the focus to Okafor's teaching, not the carousel's history."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What does the first paragraph describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the first paragraph before choosing."
+      },
+      "remember": "An echoing conclusion links the ending to the opening.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 17,
+      "draft_candidate": "E017-10",
+      "created_at": "2026-10-26T22:11:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: C is a deliberate distractor echoing the fire truck from paragraph 1; it connects to paragraph 1 superficially but not to the carousel's return, so it is still clearly worse"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-017.review.json",
+        "computation": "checks/act_english/batch_017.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
