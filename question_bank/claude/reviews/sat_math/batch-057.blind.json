@@ -1,0 +1,84 @@
+{
+  "solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 57
+  },
+  "answers": {
+    "Q057-01": {
+      "answer": "B",
+      "confidence": "high",
+      "est_pct_correct": 55,
+      "difficulty_opinion": "medium",
+      "flags": [
+        "minor: choice D (A(t)+3) is implausible and easily eliminated, leaving effectively three live options"
+      ],
+      "notes": "B(t) = A(value 2 hours earlier) + 5 = A(t-2)+5. Main trap is A(t+2)+5 (horizontal-shift sign)."
+    },
+    "Q057-02": {
+      "answer": "B",
+      "confidence": "high",
+      "est_pct_correct": 50,
+      "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "sqrt(1.1h*1.1w/3600)=1.1*sqrt(hw/3600): 10%. Distractors: 21% (forget root), 20% (add), 4.9% (sqrt(1.1)-1). Constant 3600 is irrelevant by design."
+    },
+    "Q057-03": {
+      "answer": "A",
+      "confidence": "high",
+      "est_pct_correct": 60,
+      "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "x-intercepts 3\u00b14 -> -1, 7, base 8; y-intercept 9-16=-7, height 7; area 28. Distractors 56 (no 1/2), 64 (height 16 from vertex)."
+    },
+    "Q057-04": {
+      "answer": "25",
+      "confidence": "high",
+      "est_pct_correct": 45,
+      "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "V=324/2.7=120 cm^3; L=120/(30*0.0016)=2500 cm = 25 m. Values realistic (16-micron foil, 7.5 m^2 roll ~324 g)."
+    },
+    "Q057-05": {
+      "answer": "A",
+      "confidence": "high",
+      "est_pct_correct": 50,
+      "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "1.68F=1008 -> F=600, water 390. Distractors: 397.1 (ignores salt/yeast), 408 (1008-600), 655.2 (65% of total)."
+    },
+    "Q057-06": {
+      "answer": "C",
+      "confidence": "high",
+      "est_pct_correct": 45,
+      "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Increase 1.5 mg/L x 40000 L = 60,000 mg = 60 g chlorine; product = 60/0.75 = 80 g. Distractors 60 (ignore 75%), 45 (multiply by 0.75), 160 (use 3 ppm full)."
+    },
+    "Q057-07": {
+      "answer": "D",
+      "confidence": "high",
+      "est_pct_correct": 55,
+      "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Students 40+60+60=160; in 30-student classes 60; 60/160=3/8. Trap 2/9 (class count)."
+    },
+    "Q057-08": {
+      "answer": "132",
+      "confidence": "high",
+      "est_pct_correct": 35,
+      "difficulty_opinion": "hard",
+      "flags": [],
+      "notes": "4:3 -> 40x30=1200. 16:9 -> k^2=2500/337, area=144k^2=360000/337\u22481068.25. Diff\u2248131.75 -> 132. Requires recognizing 16:9 diagonal factor sqrt(337)."
+    },
+    "Q057-09": {
+      "answer": "3.54",
+      "confidence": "high",
+      "est_pct_correct": 40,
+      "difficulty_opinion": "medium",
+      "flags": [
+        "minor: pipe length not stated; it cancels, but stem could say 'for any length' or give a length"
+      ],
+      "notes": "\u03c0(25-r^2)=\u03c0r^2 -> r^2=12.5 -> r\u22483.5355 -> 3.54. Trap: 2.5 (half radius)."
+    }
+  }
+}

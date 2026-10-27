@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 56,
-  "updated_at": "2026-10-27T07:10:01+00:00",
+  "version": 57,
+  "updated_at": "2026-10-27T07:33:04+00:00",
   "passages": [],
   "questions": [
     {
@@ -38682,6 +38682,655 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-056.review.json",
         "computation": "checks/sat_math/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000537",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Writing a time-lagged relation between two functions",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At every moment, the temperature in Town B is 5 degrees higher than the temperature in Town A was 2 hours earlier. If A(t) gives the temperature in Town A t hours after midnight, which expression gives the temperature in Town B t hours after midnight?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A(t + 2) + 5",
+        "B": "A(t − 2) + 5",
+        "C": "A(t + 2) − 5",
+        "D": "A(t) + 3"
+      },
+      "correct_answer": "B",
+      "explanation": "Two hours before time t is time t − 2, when Town A's temperature was A(t − 2). Town B's temperature is 5 degrees higher than that, so it is A(t − 2) + 5.",
+      "distractor_explanations": {
+        "A": "A(t + 2) + 5 uses Town A's temperature 2 hours later, not earlier.",
+        "C": "A(t + 2) − 5 writes Town A's temperature in terms of Town B's, reversing the relation.",
+        "D": "A(t) + 3 applies the 2-hour lag to the output instead of the input."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What time was it 2 hours before time t?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test a time such as t = 10: Town B at 10:00 matches Town A at 8:00."
+      },
+      "remember": "A lag of k units in time replaces t with t − k inside the function.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-01",
+      "created_at": "2026-10-27T07:33:03+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: choice D (A(t)+3) is implausible and easily eliminated, leaving effectively three live options"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000538",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Percent change of a square-root formula when two inputs grow",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A formula estimates a person's body surface area, in square meters, as √(hw/3,600), where h is height in centimeters and w is mass in kilograms. If a growing child's height and mass each increase by 10%, by what percent does the estimated body surface area increase?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4.9%",
+        "B": "10%",
+        "C": "20%",
+        "D": "21%"
+      },
+      "correct_answer": "B",
+      "explanation": "The new value is √((1.1h)(1.1w)/3,600) = √(1.21) × √(hw/3,600) = 1.1 × the old value, so the estimate increases by 10%.",
+      "distractor_explanations": {
+        "A": "4.9% applies only one of the increases: √1.1 ≈ 1.049.",
+        "C": "20% adds the two percent increases.",
+        "D": "21% forgets the square root: 1.1 × 1.1 = 1.21."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What factor multiplies hw?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try h = 100 and w = 36, then increase both by 10%."
+      },
+      "remember": "Scale factors multiply inside the root, then the root applies to their product.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-02",
+      "created_at": "2026-10-27T07:33:03+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000539",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Area of a triangle formed by a parabola's intercepts",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of y = (x − 3)² − 16 crosses the x-axis at points A and B and crosses the y-axis at point C. What is the area of triangle ABC?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "28",
+        "B": "36",
+        "C": "56",
+        "D": "64"
+      },
+      "correct_answer": "A",
+      "explanation": "Setting y = 0 gives (x − 3)² = 16, so x = −1 or x = 7 and AB = 8. At x = 0, y = 9 − 16 = −7, so C = (0, −7) is 7 units from the x-axis. The area is (1/2)(8)(7) = 28.",
+      "distractor_explanations": {
+        "B": "36 takes C's distance from the x-axis as (0 − 3)² = 9.",
+        "C": "56 forgets the factor 1/2.",
+        "D": "64 uses the vertex's depth, 16, instead of point C."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find the x-intercepts and the y-intercept."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola and the triangle."
+      },
+      "remember": "With a base on the x-axis, the height is the third vertex's distance from it.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-03",
+      "created_at": "2026-10-27T07:33:03+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000540",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Length of a thin sheet from mass, density, and cross section",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A roll of aluminum foil has a mass of 324 grams. The foil is 30 centimeters wide and 0.0016 centimeter thick, and aluminum has a density of 2.7 grams per cubic centimeter. How many meters long is the foil on the roll? (1 meter = 100 centimeters)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "2500",
+          "rationale": "2,500 is the length in centimeters, not meters.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0.25",
+          "rationale": "0.25 divides by 10,000 instead of 100.",
+          "trap": null
+        }
+      ],
+      "explanation": "The foil's volume is 324 ÷ 2.7 = 120 cubic centimeters. Its cross section is 30 × 0.0016 = 0.048 square centimeter, so its length is 120 ÷ 0.048 = 2,500 centimeters, or 25 meters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the foil's volume?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Volume = width × thickness × length."
+      },
+      "remember": "Volume = mass ÷ density; length = volume ÷ cross-sectional area.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-04",
+      "created_at": "2026-10-27T07:33:03+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "25",
+        "blind_answer": "25",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000541",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Total from percents all based on one ingredient",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a bread recipe, the masses of water, salt, and yeast are 65%, 2%, and 1% of the mass of the flour, respectively. A batch of dough made of only these four ingredients has a mass of 1,008 grams. What is the mass, in grams, of the water?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "390",
+        "B": "397.1",
+        "C": "408",
+        "D": "655.2"
+      },
+      "correct_answer": "A",
+      "explanation": "If the flour has mass f, the dough has mass f(1 + 0.65 + 0.02 + 0.01) = 1.68f = 1,008, so f = 600 grams. The water is 0.65 × 600 = 390 grams.",
+      "distractor_explanations": {
+        "B": "397.1 ignores the salt and yeast: 1,008 × 0.65/1.65.",
+        "C": "408 finds the flour and then treats all the rest as water: 1,008 − 600.",
+        "D": "655.2 takes 65% of the whole dough instead of the flour."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is each ingredient a percent of?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the total in terms of the flour's mass."
+      },
+      "remember": "When every percent is of one part, add 100% for that part to get the total.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-05",
+      "created_at": "2026-10-27T07:33:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000542",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Mass of a product needed to raise a concentration",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A swimming pool holds 40,000 liters of water, and a chlorine level of 1 part per million (ppm) means 1 milligram of chlorine per liter of water. A chlorine product is 75% chlorine by mass. How many grams of the product must be added to raise the pool's chlorine level from 1.5 ppm to 3 ppm? (1 gram = 1,000 milligrams)",
+      "answer_format": "choice",
+      "choices": {
+        "A": "45",
+        "B": "60",
+        "C": "80",
+        "D": "160"
+      },
+      "correct_answer": "C",
+      "explanation": "The level must rise by 1.5 milligrams per liter, so 1.5 × 40,000 = 60,000 milligrams = 60 grams of chlorine is needed. The product is 75% chlorine, so 60 ÷ 0.75 = 80 grams of product.",
+      "distractor_explanations": {
+        "A": "45 multiplies by 0.75 instead of dividing.",
+        "B": "60 is the chlorine needed, forgetting that the product is only 75% chlorine.",
+        "D": "160 uses the full 3 ppm target instead of the 1.5 ppm increase: 120 ÷ 0.75."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many milligrams of chlorine must be added per liter?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the chlorine needed, then the product."
+      },
+      "remember": "To get an amount of pure substance from a mixture, divide by its percent.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-06",
+      "created_at": "2026-10-27T07:33:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000543",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Probability for a randomly chosen person when counts are given by group",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a school, every student is in exactly one of 9 classes: 4 classes have 10 students each, 3 classes have 20 students each, and 2 classes have 30 students each. If one student at the school is chosen at random, what is the probability that the student is in a class of 30 students?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3/16",
+        "B": "2/9",
+        "C": "1/3",
+        "D": "3/8"
+      },
+      "correct_answer": "D",
+      "explanation": "The school has 4(10) + 3(20) + 2(30) = 40 + 60 + 60 = 160 students, and 60 of them are in classes of 30. The probability is 60/160 = 3/8.",
+      "distractor_explanations": {
+        "A": "3/16 counts only one class of 30: 30/160.",
+        "B": "2/9 is the fraction of classes, not of students.",
+        "C": "1/3 treats the three class sizes as equally likely."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "Is a class or a student being chosen?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Count the students in each group."
+      },
+      "remember": "Weight each group by its size when a person is chosen at random.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-07",
+      "created_at": "2026-10-27T07:33:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000544",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Areas of two rectangles with equal diagonals and different ratios",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two television screens each have a 50-inch diagonal. One has a width-to-height ratio of 4 : 3, and the other has a width-to-height ratio of 16 : 9. To the nearest square inch, how much greater is the area of the 4 : 3 screen than the area of the 16 : 9 screen?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "132",
+      "accepted_answers": [
+        "132"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 assumes that equal diagonals give equal areas.",
+          "trap": null
+        },
+        {
+          "value": "1068",
+          "rationale": "1,068 is the area of the 16 : 9 screen, not the difference.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The 4 : 3 screen is 4k by 3k with 5k = 50, so it is 40 by 30, with area 1,200. The 16 : 9 screen is 16m by 9m with 337m² = 2,500, so its area is 144m² = 360,000/337 ≈ 1,068.25. The difference is about 131.75, or 132 square inches.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each screen's sides with a scale factor."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Use the Pythagorean theorem with the diagonal."
+      },
+      "remember": "For a rectangle with sides ak and bk, the diagonal is k√(a² + b²).",
+      "expected_time_seconds": 95,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-08",
+      "created_at": "2026-10-27T07:33:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "132",
+        "blind_answer": "132",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000545",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inner radius when a ring and the hole have equal areas",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A metal pipe is a hollow cylinder with an outer radius of 5 centimeters. The volume of metal in the pipe equals the volume of the hollow space inside it. To the nearest hundredth of a centimeter, what is the inner radius of the pipe?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3.54",
+      "accepted_answers": [
+        "3.54"
+      ],
+      "common_errors": [
+        {
+          "value": "2.5",
+          "rationale": "2.5 halves the radius instead of halving the area.",
+          "trap": null
+        },
+        {
+          "value": "1.46",
+          "rationale": "1.46 is the thickness of the pipe's wall, not the inner radius.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With the same length for both, the cross sections must have equal areas: π(5² − r²) = πr², so 2r² = 25, r² = 12.5, and r = √12.5 ≈ 3.536, or 3.54 centimeters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Compare the cross-sectional areas."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the ring's area equal to the hole's area."
+      },
+      "remember": "Equal-length cylinders have volumes in the ratio of their cross-sectional areas.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 57,
+      "draft_candidate": "Q057-09",
+      "created_at": "2026-10-27T07:33:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3.54",
+        "blind_answer": "3.54",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [
+          "minor: pipe length not stated; it cancels, but stem could say 'for any length' or give a length"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-057.review.json",
+        "computation": "checks/sat_math/batch_057.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
