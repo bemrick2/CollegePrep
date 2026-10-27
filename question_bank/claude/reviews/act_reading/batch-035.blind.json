@@ -1,0 +1,36 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 35},
+  "answers": {
+    "R035-01": {"answer": "D", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy",
+      "flags": ["minor: B ('only a single purpose') and C ('correlations are useless') are extreme absolutes that few would pick; effectively a two-way choice between A and D, and A is contradicted by paragraph 2"],
+      "notes": "Passage surveys explanations, undercuts camouflage, and presents the fly hypothesis as the one with experimental support (P5). B contradicts P5; C overstates P4; A is the view the passage undercuts."},
+    "R035-02": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Sentence sets up the rest of the passage, which is about studies that discriminate among hypotheses. B is the main trap (untested is not disproved); C and D are unsupported."},
+    "R035-03": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "'Took that reply seriously' = put the predator-vision argument to a real test rather than dismissing it. A is opposite of the finding; C opposite of the defenders' reply; D misreads the hearing/smell detail as something measured."},
+    "R035-04": {"answer": "C", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Even inside the range where stripes are visible, the lion would already have detected the zebra by other senses, so stripes add no concealment there; beyond it they blur to gray. A ('every situation') and B (dusk/hearing link) are unsupported; D shifts to zebras' detection of lions."},
+    "R035-05": {"answer": "A", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy",
+      "flags": ["minor: key closely paraphrases the topic sentence of P4 ('Correlation, though, could not show that the stripes did anything'), making it near-lookup", "minor: B, C, D are each directly contradicted by P3 ('dozens of environmental factors', striping associated with fly regions not predators), so weak distractors"],
+      "notes": "The 2014 study was correlational: stripes associated with fly-active regions, no demonstration that stripes reduce bites."},
+    "R035-06": {"answer": "D", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy",
+      "flags": ["minor: key restates the very next sentence ('But they landed on the zebras far less often'), so the 'disrupt their landings' half is a lookup", "minor: overlaps somewhat with R035-07 (both test the 2019 experiment's logic), though they target different details"],
+      "notes": "Equal circling means flies find zebras just as readily (rules out A, B); far fewer landings rules out C."},
+    "R035-07": {"answer": "A", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium",
+      "flags": ["minor: key wording 'the fewer landings came from the coats' pattern, not the horses' is slightly awkward; 'the drop in landings was due to the coats' pattern rather than to the horses themselves' would read more cleanly"],
+      "notes": "Uncovered heads act as a built-in control: same horses, same flies, landings unchanged where no pattern is present, so the reduction on the body is attributable to the stripes. B unsupported; C contradicted (heads not protected); D irrelevant."},
+    "R035-08": {"answer": "C", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy",
+      "flags": ["minor: A 'winners' is the only plausible trap (primary meaning); B and D are antonyms of the key and almost nobody will pick them"],
+      "notes": "'Each idea has had its champions' = advocates/supporters."},
+    "R035-09": {"answer": "D", "confidence": "medium", "est_pct_correct": 50, "difficulty_opinion": "medium",
+      "flags": ["minor: D directly weakens only the 2014 correlational evidence, not the 2019 experiments the passage treats as the hypothesis's main strength; still clearly the best of the four, but a stem like 'would most directly challenge the evidence for' would be tighter", "minor: C is a plausible near-trap but 'slightly more' circling does not bear on landings, which is the key result"],
+      "notes": "A weakens camouflage, not the fly idea. B is compatible with the fly hypothesis (P5: a trait can serve more than one purpose). C concerns circling, not landing. D reverses the fly/stripe association reported in P3, undercutting a pillar of the fly hypothesis."}
+  },
+  "passage_notes": {
+    "factual_check": "Claims match the published literature as best I can verify: Caro et al. 2014 (Nature Communications) found biting-fly annoyance the strongest correlate of striping across equid ranges; Melin et al. 2016 (PLoS ONE / Caro co-author) estimated lions resolve stripes only within ~50 m in daylight, less at dusk; Caro et al. 2019 (PLoS ONE) at a livery farm in Britain found similar approach rates, fewer landings on zebras with failure to decelerate, fewer landings on striped coats, and no difference on uncovered heads. 'Dozens of environmental factors' is a mild rounding but acceptable.",
+    "cross_item": "No item's choices give away another's answer. Mild overlap: R035-05 and R035-09 both hinge on the 2014 correlation; R035-06 and R035-07 both on the 2019 experiment. Set skews easy (5 of 9 easy, no hard items)."
+  }
+}
