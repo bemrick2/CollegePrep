@@ -1,0 +1,108 @@
+{
+  "ideas": "batch 19",
+  "results": {
+    "I01": [
+      {
+        "other_id": "CLD-ACT-M-000007",
+        "severity": "close",
+        "why": "Successive percent increase then decrease of a price, compared via the product of multipliers; idea adds the order comparison (commutativity) and asks which is higher instead of the final percent."
+      },
+      {
+        "other_id": "CLD-ACT-M-000469",
+        "severity": "close",
+        "why": "Equal percent increase then decrease giving a net loss (1+p)(1-p)<1; ACT item solves for p from the net change, idea compares two orders at p=10%."
+      }
+    ],
+    "I04": [
+      {
+        "other_id": "CLD-SAT-M-000064",
+        "severity": "close",
+        "why": "Unknown marble count recovered from a given probability; SAT item uses a single draw (linear), idea uses two draws without replacement (quadratic)."
+      },
+      {
+        "other_id": "fixture-19",
+        "severity": "close",
+        "why": "Demo fixture computes P(both same color) for two draws without replacement from a marble bag; idea runs the same model in reverse (given P, find count)."
+      }
+    ],
+    "I09": [],
+    "I11": [
+      {
+        "other_id": "CLD-SAT-M-000047",
+        "severity": "close",
+        "why": "Right triangle with legs in a fixed ratio linked by Pythagoras to area/hypotenuse; SAT item gives area and asks hypotenuse, idea gives hypotenuse and asks area."
+      },
+      {
+        "other_id": "CLD-SAT-M-000123",
+        "severity": "close",
+        "why": "Legs expressed in one variable plus given hypotenuse, asked for area; SAT item uses an additive relation (x, x+7) needing a quadratic, idea uses a ratio."
+      }
+    ],
+    "I15": [
+      {
+        "other_id": "CLD-ACT-M-000011",
+        "severity": "template",
+        "why": "Same rational-equation template: x/(x-2) on one side, constant/(x-2) plus a constant term, clear the common denominator x-2 and check for the excluded value; only numbers (and whether the root is extraneous) change."
+      }
+    ],
+    "I16": [
+      {
+        "other_id": "CLD-SAT-M-000072",
+        "severity": "close",
+        "why": "Solving an exponential equation by rewriting as a power of 2 (2^x = 8); SAT item adds a coefficient and shifted exponent."
+      }
+    ],
+    "I18": [
+      {
+        "other_id": "CLD-ACT-M-000312",
+        "severity": "template",
+        "why": "Same template: exponential model with exponent t/k, given a target value whose ratio to the initial value is an exact power of the base, solve for t (50*2^(t/3)=400 vs 18000*0.75^(t/2)=10125); idea differs only by decay vs growth."
+      },
+      {
+        "other_id": "CLD-ACT-M-000013",
+        "severity": "close",
+        "why": "Exponential model with exponent t/5 solved for t at a target value, but ACT item needs logarithms (non-integer power)."
+      }
+    ],
+    "I20": [],
+    "I22": [
+      {
+        "other_id": "b018-Q018-04",
+        "severity": "close",
+        "why": "Pending draft: unknown slope of a line found from a condition on its intersection with a given line (x-coordinate = 2); idea uses the condition x = y on the line through the origin."
+      }
+    ],
+    "I23": [],
+    "I25": [],
+    "I26": [],
+    "I28": [],
+    "I31": [
+      {
+        "other_id": "CLD-ACT-M-000076",
+        "severity": "template",
+        "why": "Each data value multiplied by a constant; asked for the new standard deviation (scales by the factor). ACT item adds a shift and also asks the mean, but the idea's whole question is contained in it."
+      }
+    ],
+    "I32": [
+      {
+        "other_id": "CLD-ACT-M-000564",
+        "severity": "close",
+        "why": "90-degree rotation of a point about the origin; ACT item rotates clockwise and then reflects, idea is a single counterclockwise rotation."
+      },
+      {
+        "other_id": "CLD-ACT-M-000123",
+        "severity": "close",
+        "why": "90-degree counterclockwise rotation of a point; ACT item rotates about (1, 1) rather than the origin."
+      }
+    ],
+    "I33": [],
+    "I34": [],
+    "I35": [
+      {
+        "other_id": "CLD-ACT-M-000308",
+        "severity": "close",
+        "why": "Greatest number of complete recipe batches from a supply (floor of a quotient); ACT item adds a second limiting ingredient, idea divides by a fraction."
+      }
+    ]
+  }
+}
