@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 88,
+  "bank_version": 89,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -20988,6 +20988,243 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Work with total time, not with averaged speeds."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000988",
+      "correct_answer": "B",
+      "explanation": "f(x + h) = 3(x² + 2xh + h²) − 2 = 3x² + 6xh + 3h² − 2. Subtracting f(x) = 3x² − 2 leaves 6xh + 3h².",
+      "distractor_explanations": {
+        "A": "Squares x + h as x² + h², losing the cross term.",
+        "C": "Treats f(x + h) as f(x) + f(h).",
+        "D": "Subtracts 3x² − 2 without distributing the negative to −2."
+      },
+      "hints": [
+        "Write f(x + h) by substituting x + h for x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check with x = 1 and h = 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000989",
+      "correct_answer": "A",
+      "explanation": "(2t − 1)² + 2(2t − 1) = 4t² − 4t + 1 + 4t − 2 = 4t² − 1. Alternatively, x² + 2x = (x + 1)² − 1 = (2t)² − 1. Check t = 2: x = 3 and x² + 2x = 15 = 4(4) − 1.",
+      "distractor_explanations": {
+        "B": "Squares 2t − 1 as 4t² − 1.",
+        "C": "Squares 2t − 1 as 4t² + 1.",
+        "D": "Multiplies only the first term of 2t − 1 by 2."
+      },
+      "hints": [
+        "Substitute 2t − 1 for every x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check with t = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000990",
+      "correct_answer": "54",
+      "accepted_answers": [
+        "54"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 expands (x + 1)(x + 3) as x² + 4x + 4.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "18",
+          "rationale": "18 multiplies 6 by 3 instead of by 6 + 3.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Pair the outer and inner factors: x(x + 4) = x² + 4x = 6 and (x + 1)(x + 3) = x² + 4x + 3 = 9. The product is 6 × 9 = 54. Both solutions x = −2 ± √10 give 54.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which pairs of factors share x² + 4x?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Group the factors so each product contains x² + 4x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000991",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 makes the denominator 4 − k equal to 0, so the expression is undefined at x = 4.",
+          "trap": null
+        },
+        {
+          "value": "-6",
+          "rationale": "−6 simplifies the expression to x − k.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "For x ≠ k, the expression equals x + k, so 4 + k = 10 and k = 6. Solving (16 − k²)/(4 − k) = 10 directly gives k² − 10k + 24 = 0, so k = 4 or k = 6, but k = 4 makes the denominator 0. Check: (16 − 36)/(4 − 6) = 10.",
+      "distractor_explanations": {},
+      "hints": [
+        "Factor the numerator."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify, then check for a zero denominator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000992",
+      "correct_answer": "C",
+      "explanation": "The graph is below the x-axis between the zeros, 1 < x < 5. It opens upward with axis x = 3, halfway between the zeros, so it falls for x < 3. Both hold for 1 < x < 3.",
+      "distractor_explanations": {
+        "A": "Uses only the falling condition.",
+        "B": "Uses only the below-the-axis condition.",
+        "D": "Below the axis but rising; mixes up which side of the vertex falls."
+      },
+      "hints": [
+        "Where is the vertex?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola from its zeros."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000993",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 writes a(a − 3) as a² − 3.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-4",
+          "rationale": "−4 makes a sign error in the sum of the roots.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "(a + 1)/(a − 3) = a gives a + 1 = a² − 3a, so a² − 4a − 1 = 0 and a = 2 ± √5. Neither value is 3, so both count, and their sum is 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Clear the denominator."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write a quadratic in a and use the sum of its roots."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000994",
+      "correct_answer": "C",
+      "explanation": "AB = √(8² + 15²) = 17. The midpoint of the hypotenuse is equidistant from all three vertices (it is the center of the circle through A, B, and C), so CM = 17/2 = 8.5.",
+      "distractor_explanations": {
+        "A": "Gives the altitude from C to AB, 8 × 15/17.",
+        "B": "Takes half of the longer leg.",
+        "D": "Computes the median from A to the midpoint of BC."
+      },
+      "hints": [
+        "Where is the center of the circle through A, B, and C?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Place the triangle on coordinate axes."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000995",
+      "correct_answer": "A",
+      "explanation": "The center is (4, 4), and the vector from the center to (7, 6) is (3, 2). The other diagonal is perpendicular with the same length, so the other vertices are (4, 4) ± (−2, 3), which gives (2, 7) and (6, 1). Check: (2, 7) is √26 from both given points.",
+      "distractor_explanations": {
+        "B": "Treats the given segment as a side and turns it 90° at (1, 2).",
+        "C": "Takes a corner of the axis-parallel rectangle; its sides are 4 and 6.",
+        "D": "Turns (3, 2) into (2, 3) without changing a sign."
+      },
+      "hints": [
+        "Find the center of the square."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Rotate the half-diagonal by 90°."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000996",
+      "correct_answer": "C",
+      "explanation": "Arc length s = rθ when θ is in radians. Here the arc equals the diameter, so rθ = 2r and θ = 2 radians, which is about 114.6°.",
+      "distractor_explanations": {
+        "A": "Confuses this arc with one whose length equals the radius.",
+        "B": "Thinks a diameter-length arc is a quarter circle.",
+        "D": "Thinks the arc spans a semicircle because the diameter does."
+      },
+      "hints": [
+        "Use s = rθ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the arc length in terms of r."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000997",
+      "correct_answer": "C",
+      "explanation": "Half of the curved surface is (1/2)(2π × 3 × 10) = 30π. The two half-disk ends total 2 × (1/2)π(3²) = 9π. The new flat face is a rectangle 6 by 10, or 60. The total is 39π + 60.",
+      "distractor_explanations": {
+        "A": "Uses the radius 3 instead of the diameter 6 for the cut face.",
+        "B": "Forgets the two half-disk ends.",
+        "D": "Counts both ends as full disks."
+      },
+      "hints": [
+        "What faces does one piece have?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List every face of the half cylinder."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000998",
+      "correct_answer": "D",
+      "explanation": "AD is parallel to BC, so ∠DAE = ∠AEB (alternate interior angles). In right triangle ABE, AE = √(64 + 36) = 10, and sin(∠AEB) = AB/AE = 8/10 = 0.8.",
+      "distractor_explanations": {
+        "A": "Uses BE/AE, the sine of ∠BAE.",
+        "B": "Assumes ∠DAE is 45°, as for a diagonal.",
+        "C": "Uses BE/AB, the tangent of ∠BAE."
+      },
+      "hints": [
+        "Which angle in triangle ABE equals ∠DAE?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the alternate interior angles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000999",
+      "correct_answer": "D",
+      "explanation": "The removed piece is a pyramid whose base is a right triangle with legs 6 and 6 (area 18) and whose height is 6, so its volume is (1/3)(18)(6) = 36. The remaining volume is 216 − 36 = 180.",
+      "distractor_explanations": {
+        "A": "Gives the volume of the removed piece.",
+        "B": "Removes half of a 6-by-6-by-6 prism, forgetting the 1/3.",
+        "C": "Uses a whole 6-by-6 face as the pyramid's base."
+      },
+      "hints": [
+        "What shape is the removed piece?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Identify the removed pyramid's base and height."
       }
     }
   ]
