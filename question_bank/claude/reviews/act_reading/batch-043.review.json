@@ -1,0 +1,310 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 43,
+  "reviewed_at": "2026-10-27T09:57:56+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 43
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000352",
+    "CLD-ACT-R-000353",
+    "CLD-ACT-R-000354",
+    "CLD-ACT-R-000355",
+    "CLD-ACT-R-000356",
+    "CLD-ACT-R-000357",
+    "CLD-ACT-R-000358",
+    "CLD-ACT-R-000359",
+    "CLD-ACT-R-000360",
+    "CLD-ACT-R-000361"
+  ],
+  "results": [
+    {
+      "cand": "R043-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        "minor: distractor D ('P waves cause more damage than S waves') previews the P/S contrast tested in R043-02; a student eliminating D here is effectively cued for R043-02"
+      ],
+      "blind_notes": "A covers the mechanism (P/S speed gap), the seconds of notice, and the limits in paragraph 5. B is contradicted (warning, not prediction; seconds, not days). C is an unsupported 'only'. D reverses the passage. Choice lengths are balanced, so there is no length cue.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: distractor D (P waves cause more damage) duplicates the misconception tested by R043-02 choice D; A's 'speed gap between seismic waves' slightly previews R043-02"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000352"
+    },
+    {
+      "cand": "R043-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [],
+      "blind_notes": "Paragraph 1: P waves travel ~6 km/s and cause only mild shaking; S waves travel ~3.5 km/s and do most of the damage. A and D each get one half wrong, which makes them reasonable distractors. B is contradicted. The speeds are accurate.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000353"
+    },
+    {
+      "cand": "R043-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 93,
+      "blind_flags": [
+        "minor: the key is a near-verbatim lift of the last sentence of paragraph 2, so it can be matched without inference"
+      ],
+      "blind_notes": "A, C, and D are unsupported or contradicted. D reverses the relationship between wave speed and electronic signals.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: key is a near-verbatim lift of para 2's last sentence, making it very easy"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000354"
+    },
+    {
+      "cand": "R043-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "Paragraph 3 says warning time grows with distance: 100 km gets 15-20 s, 30 km gets a few seconds, and the area closest to the source is the blind zone. The farthest choice (150 km) gets the longest warning. It is a reasonable extrapolation, and it fits the S-P difference (about 18 s at 150 km before processing time). A is in the blind zone, and B is likely in or near it. This item partly overlaps R043-09 on the distance and blind-zone concept, but they test different points.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: 150 km is an extrapolation beyond the 100 km example, but the distance-dependence principle in para 3 (and Mexico City at 300 km) clearly supports it"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000355"
+    },
+    {
+      "cand": "R043-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "'The uses are concrete', followed by the specific examples, means specific and practical. A is the literal-meaning trap. B and D do not fit the context.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000356"
+    },
+    {
+      "cand": "R043-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "The examples support 'A few seconds may not sound like much, but...'. B tries to borrow the Mexico City sentence that follows the examples. C ('only') and D (the blind zone eliminated) are contradicted; paragraph 5 says no system can eliminate the blind zone.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: overlaps conceptually with R043-10 (value of a few seconds lies in actions taken)"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000357"
+    },
+    {
+      "cand": "R043-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 94,
+      "blind_flags": [
+        "minor: the key copies the passage nearly word for word ('roughly 300 kilometers from the ... faults'), which makes the item very easy"
+      ],
+      "blind_notes": "A and D are unsupported superlatives. C wrongly takes the delivery channels from the sentence about Japan. The facts are accurate: the Mexico City alert system dates from 1991 and went public in 1993 ('early 1990s'), and the coastal subduction faults are about 300 km away.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: key is a verbatim lift; D plays on 'since early 1990s' but passage makes no comparison claim"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000358"
+    },
+    {
+      "cand": "R043-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "Paragraph 5: the system estimates from the first few seconds, and the largest quakes can keep growing for a minute or more. A, B, and C are unsupported. C wrongly links false alarms to underestimation. This is accurate science: magnitude saturation in early estimates of great earthquakes, for example Tohoku 2011.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: stem says 'Based on' but answer is directly stated; key is near-verbatim"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000359"
+    },
+    {
+      "cand": "R043-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "The blind zone is defined as the area where 'the damaging waves arrive before any alert can be issued'. B describes a place about 100 km away. C is absurd. D contradicts the definition.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000360"
+    },
+    {
+      "cand": "R043-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "'in what people manage to do with them' means the value depends on readiness to act in those seconds. 'and machines' is a small extension, but it is supported by the alerts sent 'directly to machinery' and by the train and elevator examples. A: the passage never mentions cost. C contradicts 'not in minutes but in seconds' and the blind-zone limit. D reverses the passage, since the people closest to the source get the least warning.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: key adds 'and machines' although the final sentence names only people; still supported by para 2/4 (alerts to machinery, trains, elevators)"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000361"
+    }
+  ]
+}
