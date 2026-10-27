@@ -1,0 +1,13 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 13},
+ "answers": {
+  "Q013-01": {"answer": "-1", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "Equal nonzero intercepts a: x/a + y/a = 1, slope -1 (a=7). Line through origin (both intercepts 0) has slope 5/2, excluded by 'negative slope' clause, so answer is unique."},
+  "Q013-02": {"answer": "A", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": [], "notes": "2x > 12 -> x > 6; only 5 fails."},
+  "Q013-03": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "Slope -12/6 = -2; y = -2x + 8; 4 = -2c + 8 -> c = 2."},
+  "Q013-04": {"answer": "B", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "(x+4) - (x+2) = 2."},
+  "Q013-05": {"answer": "A", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "3*2^(x+k) = 12*2^x -> 2^k = 4 -> k = 2. Choice B (4) is the 2^k trap."},
+  "Q013-06": {"answer": "12/17", "confidence": "high", "est_pct_correct": 30, "difficulty_opinion": "hard", "flags": ["minor: key should accept 12/17, .7058, .7059 (and 0.705/0.706 per SPR rules)"], "notes": "P(club & sport) = 0.6*0.4 = 0.24; P(no club & sport) = 0.4*0.25 = 0.10; 0.24/0.34 = 12/17 ~ 0.7059. Reverse-conditional; common error answers 0.4 or 0.24."},
+  "Q013-07": {"answer": "C", "confidence": "high", "est_pct_correct": 88, "difficulty_opinion": "easy", "flags": [], "notes": "240*1.15 = 276."},
+  "Q013-08": {"answer": "C", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Altitude from A bisects BC: half-base 6, height 8; sin B = 8/10 = 4/5. A (3/5) is cos B trap."},
+  "Q013-09": {"answer": "30", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "x^2 + (x+7)^2 = 169 -> x^2 + 7x - 60 = 0 -> x = 5; legs 5, 12; area 30."},
+  "Q013-10": {"answer": "D", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy", "flags": [], "notes": "f(0) = 2*9 + 1 = 19. A (0,1) is vertex-y trap."}
+ }}

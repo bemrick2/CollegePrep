@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 12,
+  "bank_version": 13,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -2168,6 +2168,164 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Subtract the two known angles from 180°."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000117",
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "5/2",
+          "rationale": "5/2 is the other slope that makes the intercepts equal, but it is positive (both intercepts are 0).",
+          "trap": null
+        },
+        {
+          "value": "7",
+          "rationale": "7 is the value of each intercept, not the slope.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "A line with equal nonzero intercepts a has the form x/a + y/a = 1, or x + y = a, so its slope is −1. Through (2, 5), a = 7, giving x + y = 7 with both intercepts equal to 7. (The only other line through (2, 5) with equal intercepts is y = (5/2)x through the origin, which has a positive slope.)",
+      "distractor_explanations": {},
+      "hints": [
+        "What does a line look like if its two intercepts are equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the intercepts in terms of the slope m and set them equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000118",
+      "correct_answer": "B",
+      "explanation": "The slope is (−2 − 10)/(5 − (−1)) = −12/6 = −2. Using (−1, 10): y − 10 = −2(x + 1), so y = −2x + 8. Setting y = 4 gives 4 = −2c + 8, so c = 2.",
+      "distractor_explanations": {
+        "A": "−2 is the slope, or comes from 4 = 2c + 8 with the wrong sign.",
+        "C": "3 uses 10 as the y-intercept: 4 = −2c + 10.",
+        "D": "4 is the y-coordinate of the point, not c."
+      },
+      "hints": [
+        "Find the slope first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the equation of the line, then substitute y = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000119",
+      "correct_answer": "B",
+      "explanation": "Factor each numerator as a difference of squares: (x − 4)(x + 4)/(x − 4) = x + 4 and (x − 2)(x + 2)/(x − 2) = x + 2. Then (x + 4) − (x + 2) = 2, a constant.",
+      "distractor_explanations": {
+        "A": "−2 subtracts in the wrong order.",
+        "C": "6 adds the constants 4 and 2 after cancelling.",
+        "D": "2x + 6 adds the two simplified expressions."
+      },
+      "hints": [
+        "Factor each numerator."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0: 4 − 2 = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000120",
+      "correct_answer": "A",
+      "explanation": "f(x + k) = 3 · 2ˣ⁺ᵏ = 3 · 2ᵏ · 2ˣ. For this to equal 12 · 2ˣ, 3 · 2ᵏ = 12, so 2ᵏ = 4 and k = 2.",
+      "distractor_explanations": {
+        "B": "4 is the value of 2ᵏ, not k.",
+        "C": "9 subtracts the coefficients: 12 − 3.",
+        "D": "36 multiplies the coefficients."
+      },
+      "hints": [
+        "Rewrite 2ˣ⁺ᵏ as 2ᵏ · 2ˣ."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check x = 0: g(0) = 12 and f(2) = 12."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000121",
+      "correct_answer": "C",
+      "explanation": "15% of 240 is 0.15 × 240 = 36, so on Tuesday the bakery sold 240 + 36 = 276 rolls. Equivalently, 1.15 × 240 = 276.",
+      "distractor_explanations": {
+        "A": "36 is the increase, not Tuesday's total.",
+        "B": "255 adds 15 instead of 15%.",
+        "D": "2,760 misplaces the decimal point."
+      },
+      "hints": [
+        "Find 15% of 240."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply 240 by 1.15."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000122",
+      "correct_answer": "C",
+      "explanation": "Drop the altitude from A to BC. In an isosceles triangle it bisects BC, so it meets BC 6 units from B. The altitude has length √(10² − 6²) = 8. In the right triangle with hypotenuse AB = 10, sin B = 8/10 = 4/5.",
+      "distractor_explanations": {
+        "A": "3/5 is cos B = 6/10.",
+        "B": "3/4 is 6/8, the reciprocal of tan B.",
+        "D": "4/3 is tan B = 8/6."
+      },
+      "hints": [
+        "Draw the altitude from A to BC."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The altitude splits the triangle into two 6-8-10 right triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000123",
+      "correct_answer": "30",
+      "accepted_answers": [
+        "30"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the value of x, the shorter leg.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "60",
+          "rationale": "60 omits the 1/2 in the area formula.",
+          "trap": null
+        }
+      ],
+      "explanation": "By the Pythagorean theorem, x² + (x + 7)² = 169, so 2x² + 14x − 120 = 0, or x² + 7x − 60 = 0, which factors as (x + 12)(x − 5) = 0. Since x > 0, x = 5 and the legs are 5 and 12. The area is (1/2)(5)(12) = 30.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the Pythagorean theorem with x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try a familiar right triangle with hypotenuse 13."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000124",
+      "correct_answer": "D",
+      "explanation": "The y-intercept occurs at x = 0: f(0) = 2(0 − 3)² + 1 = 2(9) + 1 = 19, so the y-intercept is (0, 19). The point (3, 1) is the vertex, not the y-intercept.",
+      "distractor_explanations": {
+        "A": "1 is the y-coordinate of the vertex.",
+        "B": "7 computes 2(3) + 1, forgetting to square.",
+        "C": "10 computes (0 − 3)² + 1 without the factor 2."
+      },
+      "hints": [
+        "Substitute x = 0."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate f(0)."
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 13,
- "plan": "SAT Math batch 13: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: integer roots (ACT 190), f(2x) transformations (122/303), y-intercept from factored form (155), point on a line (559).",
+ "plan": "SAT Math batch 13: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: integer roots (ACT 190), f(2x) transformations (122/303), y-intercept from factored form (155), point on a line (559). After the 100-item audit, a distributed linear equation that repeated SAT 012 was replaced. Q013-01, Q013-04, Q013-05 and Q013-08 relabelled medium after the blind solver rated them medium; Q013-06 rated hard. Q013-02 and Q013-06 withdrawn before review after the per-batch repeat check (reviews/sat_math/batch-013.repeats.json).",
  "candidates": [
   {
    "cand": "Q013-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Line with equal intercepts through a given point",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the xy-plane, a line with a negative slope passes through the point (2, 5). The line's x-intercept and y-intercept are equal. What is the slope of the line?",
    "explanation": "A line with equal nonzero intercepts a has the form x/a + y/a = 1, or x + y = a, so its slope is −1. Through (2, 5), a = 7, giving x + y = 7 with both intercepts equal to 7. (The only other line through (2, 5) with equal intercepts is y = (5/2)x through the origin, which has a positive slope.)",
    "hints": [
@@ -25,8 +25,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must translate 'equal intercepts' into a condition on the slope; algebraically it produces a quadratic in m with an extra root that the negative-slope condition rules out."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "-1",
@@ -45,52 +44,6 @@
      "trap": "wrong_quantity"
     }
    ]
-  },
-  {
-   "cand": "Q013-02",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Solving a linear equation with parentheses on both sides",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "easy",
-   "stem": "What value of x satisfies the equation 3(x + 4) = 2(x − 1) ?",
-   "explanation": "Distributing gives 3x + 12 = 2x − 2. Subtracting 2x and 12 from both sides gives x = −14. Check: 3(−10) = −30 and 2(−15) = −30.",
-   "hints": [
-    "Distribute on both sides first."
-   ],
-   "strategy": {
-    "key": "backsolve",
-    "explanation": "Test x = −14 in both sides."
-   },
-   "remember": "Distribute to every term inside each set of parentheses.",
-   "expected_time_seconds": 35,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "−14",
-    "B": "−13",
-    "C": "−10",
-    "D": "14"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "−13 distributes the 2 only to x, writing 2x − 1.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "−10 writes 2(x − 1) as 2x + 2.",
-     "trap": "sign_error"
-    },
-    "D": {
-     "rationale": "14 makes a sign error when moving 12 to the other side.",
-     "trap": "sign_error"
-    }
-   }
   },
   {
    "cand": "Q013-03",
@@ -144,8 +97,8 @@
    "skill": "Advanced Math",
    "subskill": "Simplifying a difference of rational expressions",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "For x ≠ 2 and x ≠ 4, which of the following is equivalent to (x² − 16)/(x − 4) − (x² − 4)/(x − 2) ?",
+   "difficulty": "medium",
+   "stem": "The expression (x² − 16)/(x − 4) − (x² − 4)/(x − 2) is defined for all x except 2 and 4. For those values of x, the expression is equal to which of the following?",
    "explanation": "Factor each numerator as a difference of squares: (x − 4)(x + 4)/(x − 4) = x + 4 and (x − 2)(x + 2)/(x − 2) = x + 2. Then (x + 4) − (x + 2) = 2, a constant.",
    "hints": [
     "Factor each numerator."
@@ -160,8 +113,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must recognise two differences of squares and cancel before combining; many try a common denominator and get lost."
+    "single_correct": true
    },
    "choices": {
     "A": "−2",
@@ -191,7 +143,7 @@
    "skill": "Advanced Math",
    "subskill": "Horizontal shift that matches an exponential function",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The functions f and g are defined by f(x) = 3 · 2ˣ and g(x) = 12 · 2ˣ. For all x, g(x) = f(x + k), where k is a constant. What is the value of k ?",
    "explanation": "f(x + k) = 3 · 2ˣ⁺ᵏ = 3 · 2ᵏ · 2ˣ. For this to equal 12 · 2ˣ, 3 · 2ᵏ = 12, so 2ᵏ = 4 and k = 2.",
    "hints": [
@@ -207,8 +159,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must see that shifting an exponential's input is the same as scaling its output, then solve 2ᵏ = 4; 4 is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "2",
@@ -231,51 +182,6 @@
      "trap": null
     }
    }
-  },
-  {
-   "cand": "Q013-06",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Conditional probability from percents",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "At a school, 60% of the students belong to at least one club. Of the students who belong to a club, 40% play a sport. Of the students who do not belong to a club, 25% play a sport. If a student who plays a sport is selected at random, what is the probability that the student belongs to a club?",
-   "explanation": "Imagine 100 students: 60 are in a club, and 40% of them, 24, play a sport. Of the 40 not in a club, 25%, or 10, play a sport. So 34 students play a sport, and 24 of them are in a club. The probability is 24/34 = 12/17.",
-   "hints": [
-    "Imagine 100 students and count each group."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Use 100 students to turn the percents into counts."
-   },
-   "remember": "For \"given\" questions, the denominator is the given group.",
-   "expected_time_seconds": 80,
-   "modeling": true,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must reverse a conditional probability built from percents of different groups; 0.4 and 0.24 are strong traps."
-   },
-   "format": "spr",
-   "answer": "12/17",
-   "accepted_answers": [
-    "12/17",
-    ".7058",
-    ".7059"
-   ],
-   "common_errors": [
-    {
-     "value": "0.4",
-     "rationale": "0.4 is the probability that a club member plays a sport, not the reverse.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "0.24",
-     "rationale": "0.24 is the fraction of all students who are in a club and play a sport.",
-     "trap": "partial_answer"
-    }
-   ]
   },
   {
    "cand": "Q013-07",
@@ -329,7 +235,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Sine of a base angle in an isosceles triangle",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In triangle ABC, AB = AC = 10 and BC = 12. What is the value of sin B ?",
    "explanation": "Drop the altitude from A to BC. In an isosceles triangle it bisects BC, so it meets BC 6 units from B. The altitude has length √(10² − 6²) = 8. In the right triangle with hypotenuse AB = 10, sin B = 8/10 = 4/5.",
    "hints": [
@@ -345,8 +251,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must construct an altitude to create a right triangle before any trigonometry applies."
+    "single_correct": true
    },
    "choices": {
     "A": "3/5",
@@ -456,6 +361,107 @@
      "rationale": "10 computes (0 − 3)² + 1 without the factor 2.",
      "trap": null
     }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q013-02",
+   "reason": "per-batch repeat check: template of CLD-SAT-M-000024 (one-step linear inequality, pick the value that is / is not a solution)",
+   "item": {
+    "cand": "Q013-02",
+    "reporting_category": "Algebra",
+    "skill": "Algebra",
+    "subskill": "Testing values against a linear inequality",
+    "repo_skill_key": "sat_algebra",
+    "difficulty": "easy",
+    "stem": "Which of the following values of x is NOT a solution to the inequality 2x − 5 > 7 ?",
+    "explanation": "Adding 5 to both sides gives 2x > 12, so x > 6. Of the choices, only 5 is not greater than 6; check: 2(5) − 5 = 5, which is not greater than 7.",
+    "hints": [
+     "Solve the inequality for x."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "Substitute each choice into 2x − 5."
+    },
+    "remember": "Read NOT carefully: find the value that fails.",
+    "expected_time_seconds": 30,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "5",
+     "B": "6.5",
+     "C": "7",
+     "D": "10"
+    },
+    "answer": "A",
+    "distractors": {
+     "B": {
+      "rationale": "6.5 is greater than 6, so it is a solution: 2(6.5) − 5 = 8 > 7.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "7 is a solution: 2(7) − 5 = 9 > 7.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "10 is a solution: 2(10) − 5 = 15 > 7.",
+      "trap": null
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q013-06",
+   "reason": "per-batch repeat check: template of CLD-ACT-M-000295 (reverse conditional probability from a base rate and two conditional percents)",
+   "item": {
+    "cand": "Q013-06",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Conditional probability from percents",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "hard",
+    "stem": "At a school, 60% of the students belong to at least one club. Of the students who belong to a club, 40% play a sport. Of the students who do not belong to a club, 25% play a sport. If a student who plays a sport is selected at random, what is the probability that the student belongs to a club?",
+    "explanation": "Imagine 100 students: 60 are in a club, and 40% of them, 24, play a sport. Of the 40 not in a club, 25%, or 10, play a sport. So 34 students play a sport, and 24 of them are in a club. The probability is 24/34 = 12/17.",
+    "hints": [
+     "Imagine 100 students and count each group."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "Use 100 students to turn the percents into counts."
+    },
+    "remember": "For \"given\" questions, the denominator is the given group.",
+    "expected_time_seconds": 80,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students must reverse a conditional probability built from percents of different groups; 0.4 and 0.24 are strong traps."
+    },
+    "format": "spr",
+    "answer": "12/17",
+    "accepted_answers": [
+     "12/17",
+     ".7058",
+     ".7059"
+    ],
+    "common_errors": [
+     {
+      "value": "0.4",
+      "rationale": "0.4 is the probability that a club member plays a sport, not the reverse.",
+      "trap": "wrong_quantity"
+     },
+     {
+      "value": "0.24",
+      "rationale": "0.24 is the fraction of all students who are in a club and play a sport.",
+      "trap": "partial_answer"
+     }
+    ]
    }
   }
  ]

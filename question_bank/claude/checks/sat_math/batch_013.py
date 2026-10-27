@@ -23,7 +23,10 @@ def c01(_):
 
 
 def c02(ch):
-    return pick(ch, next(x for x in range(-50, 51) if 3 * (x + 4) == 2 * (x - 1)))
+    opts = {k: F(v) for k, v in ch.items()}
+    bad = [k for k, x in opts.items() if not 2 * x - 5 > 7]
+    assert len(bad) == 1
+    return bad[0]
 
 
 def c03(ch):

@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:16:22+00:00",
+  "updated_at": "2026-10-27T02:18:17+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 106
+    "sat_math": 114
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 116,
+      "PASS": 124,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 117,
+      "candidates": 125,
       "passed_after_revision": 1
     }
   },
@@ -1401,17 +1401,18 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 106,
+      "accepted": 114,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 33,
-        "Algebra": 32,
-        "Geometry and Trigonometry": 20,
-        "Problem-Solving and Data Analysis": 21
+        "Advanced Math": 36,
+        "Algebra": 34,
+        "Geometry and Trigonometry": 22,
+        "Problem-Solving and Data Analysis": 22
       },
       "by_subskill": {
         "Angle sum of a quadrilateral": 1,
         "Applying a part-to-whole rate": 1,
+        "Applying a percent increase": 1,
         "Arc length with a radian measure": 1,
         "Area of a triangle that is a right triangle": 1,
         "Chained percent relationships": 1,
@@ -1440,9 +1441,11 @@
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
         "Finding a constant from a given solution": 1,
+        "Finding a coordinate on a line through two points": 1,
         "Finding a percent of a group": 1,
         "Finding a whole from a percent": 1,
         "Height of a rectangular prism from its volume": 1,
+        "Horizontal shift that matches an exponential function": 1,
         "Hypotenuse from area and a leg ratio": 1,
         "Identifying a quadratic equation with no real solutions": 1,
         "Identifying the solution of a linear system": 1,
@@ -1456,6 +1459,7 @@
         "Intersection of a line with a perpendicular line through the origin": 1,
         "Intersection of two lines": 1,
         "Leading coefficient from a maximum value": 1,
+        "Line with equal intercepts through a given point": 1,
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
         "Lines that avoid a quadrant": 1,
@@ -1481,11 +1485,14 @@
         "Remainder of a polynomial from its division form": 1,
         "Rewriting a product of exponential expressions with one base": 1,
         "Rewriting exponential expressions with a common base": 1,
+        "Right triangle with algebraic legs": 1,
         "Right-triangle trigonometry with a given ratio": 1,
         "Same-side interior angles with algebra": 1,
         "Similar triangles with an algebraic side length": 1,
+        "Simplifying a difference of rational expressions": 1,
         "Simplifying a rational expression": 1,
         "Simplifying an expression with negative exponents": 1,
+        "Sine of a base angle in an isosceles triangle": 1,
         "Solutions of a linear inequality": 1,
         "Solving a linear equation in a pricing context": 1,
         "Solving a linear equation in one variable": 1,
@@ -1515,24 +1522,26 @@
         "Writing an exponential growth model": 1,
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
-        "y-intercept from a slope and a point": 1
+        "y-intercept from a slope and a point": 1,
+        "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 18,
+        "easy": 20,
         "hard": 8,
-        "medium": 80
+        "medium": 86
       },
       "by_difficulty_calibrated": {
-        "easy": 45,
+        "easy": 48,
         "hard": 3,
-        "medium": 58
+        "medium": 63
       },
       "calibrated_share": {
-        "easy": 0.425,
-        "hard": 0.028,
-        "medium": 0.547
+        "easy": 0.421,
+        "hard": 0.026,
+        "medium": 0.553
       },
       "answer_key_balance": {
+        "-1": 1,
         "-9": 2,
         "1.5": 1,
         "11": 2,
@@ -1545,7 +1554,7 @@
         "2": 3,
         "240": 1,
         "3": 2,
-        "30": 1,
+        "30": 2,
         "4": 1,
         "44": 2,
         "5": 2,
@@ -1555,13 +1564,13 @@
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 19,
-        "B": 20,
-        "C": 19,
-        "D": 15
+        "A": 20,
+        "B": 22,
+        "C": 21,
+        "D": 16
       },
-      "modeling_items": 29,
-      "spr_items": 33,
+      "modeling_items": 30,
+      "spr_items": 35,
       "passages": 0
     }
   },
@@ -1570,7 +1579,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 12
+    "sat_math": 13
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1602,43 +1611,43 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 13,
+    "next_batch": 14,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 8.6,
-      "Advanced Math": 7.6,
-      "Problem-Solving and Data Analysis": -3.6,
-      "Geometry and Trigonometry": -2.6
+      "Algebra": 9.4,
+      "Advanced Math": 7.4,
+      "Problem-Solving and Data Analysis": -3.4,
+      "Geometry and Trigonometry": -3.4
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -16.0,
-      "medium": 0.0,
-      "hard": 26.0
+      "easy": -17.0,
+      "medium": -1.0,
+      "hard": 28.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 2.8,
-      "B": 1.8,
-      "C": 2.8,
-      "D": 6.8
+      "A": 3.2,
+      "B": 1.2,
+      "C": 2.2,
+      "D": 7.2
     },
-    "spr_items": 33,
+    "spr_items": 35,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "act_english": {
       "next_batch": 27,
       "skill_gap_for_next_10": {
         "Production of Writing": 29.2,
         "Knowledge of Language": 18.8,
         "Conventions of Standard English": -33.8
+      }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     },
     "sat_reading_writing": {
@@ -1674,12 +1683,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 106,
-      "share_of_target": 0.151
+      "accepted": 114,
+      "share_of_target": 0.163
     }
   },
   "total_target": 4700,
-  "total_accepted": 1624,
+  "total_accepted": 1632,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48634,7 +48643,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 12,
+      "bank_version": 13,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48760,7 +48769,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:16:22+00:00",
+    "heartbeat_at": "2026-10-27T02:18:17+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

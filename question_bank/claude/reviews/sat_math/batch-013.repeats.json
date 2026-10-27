@@ -1,0 +1,62 @@
+{
+  "batch": 13,
+  "checked_against": "sat_math (live), act_math (live), fixtures",
+  "results": {
+    "Q013-01": [],
+    "Q013-02": [
+      {
+        "other_id": "CLD-SAT-M-000024",
+        "severity": "template",
+        "why": "Both give a one-step-solve linear inequality in x and ask which listed value of x is (or, here, is NOT) a solution; same solve-then-check-choices reasoning, only the polarity of the ask flips."
+      },
+      {
+        "other_id": "CLD-ACT-M-000111",
+        "severity": "close",
+        "why": "Also 'which value of x satisfies 2x − 5 > ...', but x appears on both sides and the coefficient flip/negative division is the point of that item."
+      }
+    ],
+    "Q013-03": [
+      {
+        "other_id": "CLD-ACT-M-000305",
+        "severity": "close",
+        "why": "Unknown coordinate of a point on a line, but there the slope is given; here slope must be found from two points first."
+      }
+    ],
+    "Q013-04": [],
+    "Q013-05": [
+      {
+        "other_id": "CLD-ACT-M-000064",
+        "severity": "close",
+        "why": "Both use 2^(x+k) = 2^k·2^x; ACT item goes forward (g(x+3) = 8g(x)), this one goes in reverse to find the shift k."
+      }
+    ],
+    "Q013-06": [
+      {
+        "other_id": "CLD-ACT-M-000295",
+        "severity": "template",
+        "why": "Same Bayes/reverse-conditional template: base-rate percent for a group, percent with a trait in that group and in its complement, then P(group | trait). Only the context (screening test vs club/sport) and numbers change."
+      },
+      {
+        "other_id": "CLD-ACT-M-000560",
+        "severity": "close",
+        "why": "Same reverse-conditional ask from two groups, but subgroup counts are given directly rather than as percents of a percent base."
+      }
+    ],
+    "Q013-07": [],
+    "Q013-08": [
+      {
+        "other_id": "CLD-ACT-M-000204",
+        "severity": "close",
+        "why": "Both drop the altitude in an isosceles triangle with given equal sides and base, but ACT asks for area while this asks for sin of a base angle."
+      }
+    ],
+    "Q013-09": [
+      {
+        "other_id": "CLD-SAT-M-000047",
+        "severity": "close",
+        "why": "Right triangle with algebraic legs and Pythagorean/area link, but the given and asked quantities are reversed (area->hypotenuse vs hypotenuse->area) and setup differs (3x,4x vs x, x+7 quadratic)."
+      }
+    ],
+    "Q013-10": []
+  }
+}
