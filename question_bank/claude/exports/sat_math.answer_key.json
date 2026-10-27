@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 33,
+  "bank_version": 34,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -5635,6 +5635,205 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Add 200(0.8)⁵ and 200(0.8)²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000289",
+      "correct_answer": "B",
+      "explanation": "The parabola y = x² − 4x is symmetric about x = 2. Two inputs give the same output when they are equally far from 2, so a and a + 2 must be 1 and 3. Algebraically, a² − 4a = (a + 2)² − 4(a + 2) = a² − 4, so −4a = −4 and a = 1.",
+      "distractor_explanations": {
+        "A": "−1 makes a sign error when simplifying (a + 2)² − 4(a + 2).",
+        "C": "2 is the axis of symmetry, not a.",
+        "D": "3 is the value of a + 2."
+      },
+      "hints": [
+        "Where is the axis of symmetry of y = x² − 4x?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Equal outputs occur at inputs symmetric about the axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000290",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 is the excluded value of x, not a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 makes a sign error in x = 4 − a.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Multiplying by x − 1 gives a + 3(x − 1) = 2x + 1, so x = 4 − a. This candidate fails only if it is the excluded value x = 1, which happens when 4 − a = 1, or a = 3. For any other a, x = 4 − a is a valid solution.",
+      "distractor_explanations": {},
+      "hints": [
+        "Clear the denominator and solve for x in terms of a."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find when the only candidate equals the excluded value."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000291",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 is f(t), the value found before solving for t.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3",
+          "rationale": "3 comes from 3^t = 9 by dividing 9 by 3 instead of finding the exponent.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "f(t + 2) = 5(3)^(t + 2) = 9 · 5(3)^t = 9f(t). So f(t + 2) − f(t) = 8f(t) = 360, which gives f(t) = 45. Then 5(3)^t = 45, so 3^t = 9 and t = 2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use an exponent rule to rewrite the shifted term."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite the shifted term using exponent rules, then factor."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000292",
+      "correct_answer": "B",
+      "explanation": "The field is 0.75 × 43,560 = 32,670 square feet. At 2.5 pounds per 1,000 square feet, it needs 32.67 × 2.5 = 81.675 pounds. That is 81.675 ÷ 20 ≈ 4.08 bags, so 5 bags are needed (4 bags hold only 80 pounds).",
+      "distractor_explanations": {
+        "A": "4 rounds 4.08 down; 4 bags leave the field short.",
+        "C": "41 divides the pounds needed by 2 instead of 20.",
+        "D": "82 is the number of pounds (rounded), not bags."
+      },
+      "hints": [
+        "Convert the area to square feet first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area → pounds → bags, then round up."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000293",
+      "correct_answer": "B",
+      "explanation": "The data set has 20 + x values, and 11 values are 1 or 2. If x = 2, there are 22 values; the median is the mean of the 11th and 12th values, (2 + 3)/2 = 2.5. If x = 3, there are 23 values, and the 12th value is 3, so the median is 3. (Smaller x gives a median of 2 or 2.5.) The least x is 3.",
+      "distractor_explanations": {
+        "A": "With x = 2 there are 22 values and the median is 2.5.",
+        "C": "x = 4 works, but it is not the least value.",
+        "D": "x = 5 works, but it is not the least value."
+      },
+      "hints": [
+        "How many values are 1 or 2?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice and find the median position."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000294",
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the change in percentage points, not the percent increase.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 adds the 20% growth to the 10-point change.",
+          "trap": null
+        }
+      ],
+      "explanation": "Suppose 1,000 people lived in the town in 2020; 400 recycled. In 2025 there were 1,200 people, and 50% of them, 600, recycled. The increase from 400 to 600 is 200/400 = 50%. Equivalently, 1.2 × (50/40) = 1.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Pick a starting population."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use 1,000 residents in 2020."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000295",
+      "correct_answer": "24/7",
+      "accepted_answers": [
+        "24/7",
+        "3.428",
+        "3.429"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the radius of the inscribed circle, not the square's side.",
+          "trap": null
+        },
+        {
+          "value": "4.8",
+          "rationale": "4.8 is the altitude to the hypotenuse.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Place the right angle at the origin with legs along the axes, so the hypotenuse is x/8 + y/6 = 1. The square's far vertex is (s, s), so s/8 + s/6 = 1, which gives s(7/24) = 1 and s = 24/7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the hypotenuse as a line in coordinates."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Put the right angle at the origin and use (s, s) on the hypotenuse."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000296",
+      "correct_answer": "C",
+      "explanation": "sin θ = 3 cos θ means tan θ = 3, so the leg opposite θ is 3 times the leg adjacent to θ. With the shorter leg 2, the legs are 2 and 6, and the hypotenuse is √(2² + 6²) = √40 = 2√10.",
+      "distractor_explanations": {
+        "A": "2√2 assumes the legs are equal (tan θ = 1).",
+        "B": "6 is the longer leg, not the hypotenuse.",
+        "D": "4√10 doubles the hypotenuse."
+      },
+      "hints": [
+        "What is tan θ?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide sin θ = 3 cos θ by cos θ."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000297",
+      "correct_answer": "C",
+      "explanation": "Angles B and C sum to 180° − 50° = 130°, so their halves sum to 65°. In triangle BPC, angle BPC = 180° − 65° = 115°. The individual measures of B and C are not needed.",
+      "distractor_explanations": {
+        "A": "50° is the measure of angle A.",
+        "B": "65° is the sum of the half-angles at B and C.",
+        "D": "130° is the sum of angles B and C."
+      },
+      "hints": [
+        "What is the sum of angles B and C?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and the two bisectors."
       }
     }
   ]

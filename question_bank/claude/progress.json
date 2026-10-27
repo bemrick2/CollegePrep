@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:43:38+00:00",
+  "updated_at": "2026-10-27T03:43:56+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 278
+    "sat_math": 287
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 288,
+      "PASS": 297,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 290,
+      "candidates": 299,
       "passed_after_revision": 2
     }
   },
@@ -1397,16 +1397,17 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 278,
+      "accepted": 287,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 100,
+        "Advanced Math": 103,
         "Algebra": 87,
-        "Geometry and Trigonometry": 50,
-        "Problem-Solving and Data Analysis": 41
+        "Geometry and Trigonometry": 53,
+        "Problem-Solving and Data Analysis": 44
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
+        "Angle formed by two angle bisectors in a triangle": 1,
         "Angle sum of a quadrilateral": 1,
         "Angles of an isosceles triangle from a ratio": 1,
         "Annual percent growth from two values two years apart": 1,
@@ -1422,6 +1423,7 @@
         "Area of an isosceles triangle with 30° base angles": 1,
         "Center of a circle from a point and its radius": 1,
         "Chained percent relationships": 1,
+        "Chained unit conversion with rounding up": 1,
         "Change in a linear function over different intervals": 1,
         "Choosing a line of best fit for data": 1,
         "Coefficient that makes two lines parallel": 1,
@@ -1465,6 +1467,7 @@
         "Effect of sample size on the margin of error": 1,
         "Effect of scaling the input of a quadratic": 1,
         "Equal earnings at two hourly rates": 1,
+        "Equal outputs at inputs two units apart": 1,
         "Equation of a circle with an unknown constant": 1,
         "Equation of a proportional line from its slope": 1,
         "Equation that is quadratic in a square root": 1,
@@ -1498,6 +1501,7 @@
         "Greatest whole number under a budget with equal quantities": 1,
         "Height of a rectangular prism from its volume": 1,
         "Horizontal shift that matches an exponential function": 1,
+        "Hypotenuse from a sine-cosine relationship": 1,
         "Hypotenuse from area and a leg ratio": 1,
         "Hypotenuse when it exceeds a leg by a given amount": 1,
         "Identifying a decreasing exponential function": 1,
@@ -1536,6 +1540,7 @@
         "Maximum value from the range and the minimum": 1,
         "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
+        "Median from a frequency table with an unknown frequency": 1,
         "Minimum count to meet a score under a count limit": 1,
         "Minimum of a horizontally shifted quadratic": 1,
         "Minimum of a sum of absolute values": 1,
@@ -1545,8 +1550,10 @@
         "Number of solutions of a circle-parabola system": 1,
         "Overlapping groups from two conditional percents": 1,
         "Parameter that makes a linear equation an identity": 1,
+        "Parameter that makes a rational equation have no solution": 1,
         "Part from a part-to-part ratio and a difference": 1,
         "Percent change in area from changes in two dimensions": 1,
+        "Percent change of a subgroup when the whole and the share both change": 1,
         "Percent growth over a multi-year period": 1,
         "Percent of a group after new members join": 1,
         "Percent of a percent": 1,
@@ -1617,7 +1624,9 @@
         "Solving an equation with two rational exponents": 1,
         "Solving an equation with two square roots": 1,
         "Solving an exponential equation": 1,
+        "Solving an exponential equation by factoring out a common power": 1,
         "Solving for a coordinate from a given slope": 1,
+        "Square inscribed in a right triangle": 1,
         "Square on the radius of a circle with a given area": 1,
         "Square with a perimeter equal to a circle's circumference": 1,
         "Square with the same perimeter as an equilateral triangle": 1,
@@ -1687,18 +1696,18 @@
       },
       "by_difficulty_author": {
         "easy": 71,
-        "hard": 12,
-        "medium": 195
+        "hard": 14,
+        "medium": 202
       },
       "by_difficulty_calibrated": {
         "easy": 115,
-        "hard": 7,
-        "medium": 156
+        "hard": 9,
+        "medium": 163
       },
       "calibrated_share": {
-        "easy": 0.414,
-        "hard": 0.025,
-        "medium": 0.561
+        "easy": 0.401,
+        "hard": 0.031,
+        "medium": 0.568
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1718,14 +1727,15 @@
         "18": 1,
         "18/13": 1,
         "193.5": 1,
-        "2": 4,
+        "2": 5,
         "20": 1,
         "20/3": 1,
         "200": 1,
         "24": 1,
+        "24/7": 1,
         "240": 1,
         "26": 1,
-        "3": 6,
+        "3": 7,
         "30": 2,
         "36": 2,
         "4": 3,
@@ -1733,7 +1743,7 @@
         "44": 2,
         "5": 3,
         "5.4": 1,
-        "50": 2,
+        "50": 3,
         "6": 5,
         "60": 1,
         "63": 1,
@@ -1743,12 +1753,12 @@
         "9": 2,
         "90": 1,
         "A": 40,
-        "B": 62,
-        "C": 61,
+        "B": 65,
+        "C": 63,
         "D": 33
       },
-      "modeling_items": 73,
-      "spr_items": 82,
+      "modeling_items": 76,
+      "spr_items": 86,
       "passages": 0
     }
   },
@@ -1757,7 +1767,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 33
+    "sat_math": 34
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1789,27 +1799,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 34,
+    "next_batch": 35,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 13.8,
-      "Advanced Math": 0.8,
-      "Problem-Solving and Data Analysis": 2.2,
-      "Geometry and Trigonometry": -6.8
+      "Algebra": 16.9,
+      "Advanced Math": 0.9,
+      "Problem-Solving and Data Analysis": 0.5,
+      "Geometry and Trigonometry": -8.5
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -43.0,
-      "medium": -12.0,
-      "hard": 65.0
+      "easy": -40.8,
+      "medium": -14.5,
+      "hard": 65.2
     },
     "answer_key_gap_for_next_10": {
-      "A": 14.0,
-      "B": -8.0,
-      "C": -7.0,
-      "D": 21.0
+      "A": 15.7,
+      "B": -9.3,
+      "C": -7.3,
+      "D": 22.7
     },
-    "spr_items": 82,
+    "spr_items": 86,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1862,12 +1872,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 278,
-      "share_of_target": 0.278
+      "accepted": 287,
+      "share_of_target": 0.287
     }
   },
   "total_target": 3841,
-  "total_accepted": 1789,
+  "total_accepted": 1798,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49039,7 +49049,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 33,
+      "bank_version": 34,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49165,7 +49175,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:43:38+00:00",
+    "heartbeat_at": "2026-10-27T03:43:56+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

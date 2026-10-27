@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 34,
- "plan": "SAT Math batch 34: Advanced Math 3, Problem-Solving and Data Analysis 4, Geometry and Trigonometry 3; 3 student-produced responses; 6 items labelled hard. Ideas from the generator list (G20–G28, G30), independently pre-checked with no copy or template matches; G25's poll percents were changed away from ACT 234's 52%; G29 deferred to a later batch so it does not sit beside G27.",
+ "plan": "SAT Math batch 34: Advanced Math 3, Problem-Solving and Data Analysis 4, Geometry and Trigonometry 3; 3 student-produced responses; 6 items labelled hard. Ideas from the generator list (G20–G28, G30), independently pre-checked with no copy or template matches; G25's poll percents were changed away from ACT 234's 52%; G29 deferred to a later batch so it does not sit beside G27. Relabelled to the blind solver's rating where it was lower: Q034-05 hard→medium, Q034-07 hard→medium.",
  "candidates": [
   {
    "cand": "Q034-01",
@@ -187,7 +187,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Median from a frequency table with an unknown frequency",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The frequency table shows how many times each value occurs in a data set.\nValue | 1 | 2 | 3 | 4 | 5\nFrequency | 4 | 7 | x | 6 | 3\nWhat is the least value of x for which the median of the data set is 3 ?",
    "explanation": "The data set has 20 + x values, and 11 values are 1 or 2. If x = 2, there are 22 values; the median is the mean of the 11th and 12th values, (2 + 3)/2 = 2.5. If x = 3, there are 23 values, and the 12th value is 3, so the median is 3. (Smaller x gives a median of 2 or 2.5.) The least x is 3.",
    "hints": [
@@ -203,8 +203,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must handle the parity of the total count; x = 2 looks enough but gives a median of 2.5."
+    "single_correct": true
    },
    "choices": {
     "A": "2",
@@ -229,59 +228,12 @@
    }
   },
   {
-   "cand": "Q034-06",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Comparing two estimates with margins of error",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "Independent random polls estimated the percent of voters who support a measure in two cities. In City A the estimate was 54% with a margin of error of 4 percentage points. In City B the estimate was 46% with a margin of error of 5 percentage points. Which conclusion is best supported by the polls?",
-   "explanation": "The plausible ranges are 50% to 58% for City A and 41% to 51% for City B. The ranges overlap (50% to 51%), so the polls do not establish that the cities differ; it is plausible that the true percents are equal.",
-   "hints": [
-    "Write each poll's plausible range."
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Eliminate conclusions that treat estimates as exact."
-   },
-   "remember": "Overlapping intervals: the difference is not established.",
-   "expected_time_seconds": 60,
-   "modeling": true,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must convert two margins of error into intervals and reason about overlap; treating the estimates as exact is a strong trap."
-   },
-   "choices": {
-    "A": "It is plausible that the true percents of supporters in the two cities are equal.",
-    "B": "The true percent of supporters in City A is definitely higher than in City B.",
-    "C": "The true percent of supporters in City A is exactly 8 percentage points higher than in City B.",
-    "D": "A majority of voters in City B definitely do not support the measure."
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "The intervals overlap, so a difference is not established.",
-     "trap": "overextend_trend"
-    },
-    "C": {
-     "rationale": "8 points is the difference in the estimates, not a known difference in the true values.",
-     "trap": "overextend_trend"
-    },
-    "D": {
-     "rationale": "City B's interval reaches 51%, so a majority of supporters is plausible.",
-     "trap": null
-    }
-   }
-  },
-  {
    "cand": "Q034-07",
    "reporting_category": "Problem-Solving and Data Analysis",
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Percent change of a subgroup when the whole and the share both change",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "From 2020 to 2025, a town's population increased by 20%, and the percent of residents who recycle rose from 40% to 50%. By what percent did the number of residents who recycle increase from 2020 to 2025? (Disregard the % sign when entering your answer.)",
    "explanation": "Suppose 1,000 people lived in the town in 2020; 400 recycled. In 2025 there were 1,200 people, and 50% of them, 600, recycled. The increase from 400 to 600 is 200/400 = 50%. Equivalently, 1.2 × (50/40) = 1.5.",
    "hints": [
@@ -297,8 +249,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must combine population growth with a change in share; adding percent changes (30) or using percentage points (10) are strong traps."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "50",
@@ -503,6 +454,57 @@
      },
      "D": {
       "rationale": "3 includes x = 2, where p(2) = 0, not greater than 0.",
+      "trap": null
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q034-06",
+   "reason": "blind solve: answer cue - the key is the only hedged choice; B, C, D say \"definitely\"/\"exactly\", so wording alone eliminates them. Rewrite distractors and resubmit as a new candidate.",
+   "item": {
+    "cand": "Q034-06",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Comparing two estimates with margins of error",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "hard",
+    "stem": "Independent random polls estimated the percent of voters who support a measure in two cities. In City A the estimate was 54% with a margin of error of 4 percentage points. In City B the estimate was 46% with a margin of error of 5 percentage points. Which conclusion is best supported by the polls?",
+    "explanation": "The plausible ranges are 50% to 58% for City A and 41% to 51% for City B. The ranges overlap (50% to 51%), so the polls do not establish that the cities differ; it is plausible that the true percents are equal.",
+    "hints": [
+     "Write each poll's plausible range."
+    ],
+    "strategy": {
+     "key": "process_of_elimination",
+     "explanation": "Eliminate conclusions that treat estimates as exact."
+    },
+    "remember": "Overlapping intervals: the difference is not established.",
+    "expected_time_seconds": 60,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students must convert two margins of error into intervals and reason about overlap; treating the estimates as exact is a strong trap."
+    },
+    "choices": {
+     "A": "It is plausible that the true percents of supporters in the two cities are equal.",
+     "B": "The true percent of supporters in City A is definitely higher than in City B.",
+     "C": "The true percent of supporters in City A is exactly 8 percentage points higher than in City B.",
+     "D": "A majority of voters in City B definitely do not support the measure."
+    },
+    "answer": "A",
+    "distractors": {
+     "B": {
+      "rationale": "The intervals overlap, so a difference is not established.",
+      "trap": "overextend_trend"
+     },
+     "C": {
+      "rationale": "8 points is the difference in the estimates, not a known difference in the true values.",
+      "trap": "overextend_trend"
+     },
+     "D": {
+      "rationale": "City B's interval reaches 51%, so a majority of supporters is plausible.",
       "trap": null
      }
     }

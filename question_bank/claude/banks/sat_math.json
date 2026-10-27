@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 33,
-  "updated_at": "2026-10-27T03:40:44+00:00",
+  "version": 34,
+  "updated_at": "2026-10-27T03:43:49+00:00",
   "passages": [],
   "questions": [
     {
@@ -20738,6 +20738,662 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-033.review.json",
         "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000289",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Equal outputs at inputs two units apart",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the function f(x) = x² − 4x, the output at x = a equals the output at x = a + 2. What is the value of a ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−1",
+        "B": "1",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answer": "B",
+      "explanation": "The parabola y = x² − 4x is symmetric about x = 2. Two inputs give the same output when they are equally far from 2, so a and a + 2 must be 1 and 3. Algebraically, a² − 4a = (a + 2)² − 4(a + 2) = a² − 4, so −4a = −4 and a = 1.",
+      "distractor_explanations": {
+        "A": "−1 makes a sign error when simplifying (a + 2)² − 4(a + 2).",
+        "C": "2 is the axis of symmetry, not a.",
+        "D": "3 is the value of a + 2."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Where is the axis of symmetry of y = x² − 4x?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Equal outputs occur at inputs symmetric about the axis."
+      },
+      "remember": "Equal outputs of a quadratic: inputs symmetric about the vertex.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-01",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: choices can be checked by plugging in (f(1)=f(3)=-3), which reduces the symmetry insight to quick substitution"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000290",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Parameter that makes a rational equation have no solution",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation a/(x − 1) + 3 = (2x + 1)/(x − 1), a is a constant. For what value of a does the equation have no solution?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 is the excluded value of x, not a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 makes a sign error in x = 4 − a.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Multiplying by x − 1 gives a + 3(x − 1) = 2x + 1, so x = 4 − a. This candidate fails only if it is the excluded value x = 1, which happens when 4 − a = 1, or a = 3. For any other a, x = 4 − a is a valid solution.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Clear the denominator and solve for x in terms of a."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find when the only candidate equals the excluded value."
+      },
+      "remember": "A rational equation can lose its only solution to an excluded value.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-02",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000291",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving an exponential equation by factoring out a common power",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = 5(3)^x. If f(t + 2) − f(t) = 360, what is the value of t ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 is f(t), the value found before solving for t.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3",
+          "rationale": "3 comes from 3^t = 9 by dividing 9 by 3 instead of finding the exponent.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "f(t + 2) = 5(3)^(t + 2) = 9 · 5(3)^t = 9f(t). So f(t + 2) − f(t) = 8f(t) = 360, which gives f(t) = 45. Then 5(3)^t = 45, so 3^t = 9 and t = 2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use an exponent rule to rewrite the shifted term."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite the shifted term using exponent rules, then factor."
+      },
+      "remember": "Adding 2 to the exponent multiplies the power by b².",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-03",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000292",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Chained unit conversion with rounding up",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A lawn fertilizer is applied at a rate of 2.5 pounds per 1,000 square feet and is sold only in 20-pound bags. What is the least number of bags needed to fertilize a field of 0.75 acre? (1 acre = 43,560 square feet)",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "41",
+        "D": "82"
+      },
+      "correct_answer": "B",
+      "explanation": "The field is 0.75 × 43,560 = 32,670 square feet. At 2.5 pounds per 1,000 square feet, it needs 32.67 × 2.5 = 81.675 pounds. That is 81.675 ÷ 20 ≈ 4.08 bags, so 5 bags are needed (4 bags hold only 80 pounds).",
+      "distractor_explanations": {
+        "A": "4 rounds 4.08 down; 4 bags leave the field short.",
+        "C": "41 divides the pounds needed by 2 instead of 20.",
+        "D": "82 is the number of pounds (rounded), not bags."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Convert the area to square feet first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area → pounds → bags, then round up."
+      },
+      "remember": "Round up when partial units cannot be bought.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-04",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000293",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Median from a frequency table with an unknown frequency",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The frequency table shows how many times each value occurs in a data set.\nValue | 1 | 2 | 3 | 4 | 5\nFrequency | 4 | 7 | x | 6 | 3\nWhat is the least value of x for which the median of the data set is 3 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": "The data set has 20 + x values, and 11 values are 1 or 2. If x = 2, there are 22 values; the median is the mean of the 11th and 12th values, (2 + 3)/2 = 2.5. If x = 3, there are 23 values, and the 12th value is 3, so the median is 3. (Smaller x gives a median of 2 or 2.5.) The least x is 3.",
+      "distractor_explanations": {
+        "A": "With x = 2 there are 22 values and the median is 2.5.",
+        "C": "x = 4 works, but it is not the least value.",
+        "D": "x = 5 works, but it is not the least value."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many values are 1 or 2?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice and find the median position."
+      },
+      "remember": "With an even count, the median averages the two middle values.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-05",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000294",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent change of a subgroup when the whole and the share both change",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "From 2020 to 2025, a town's population increased by 20%, and the percent of residents who recycle rose from 40% to 50%. By what percent did the number of residents who recycle increase from 2020 to 2025? (Disregard the % sign when entering your answer.)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the change in percentage points, not the percent increase.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 adds the 20% growth to the 10-point change.",
+          "trap": null
+        }
+      ],
+      "explanation": "Suppose 1,000 people lived in the town in 2020; 400 recycled. In 2025 there were 1,200 people, and 50% of them, 600, recycled. The increase from 400 to 600 is 200/400 = 50%. Equivalently, 1.2 × (50/40) = 1.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Pick a starting population."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use 1,000 residents in 2020."
+      },
+      "remember": "Combine changes by multiplying factors.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-07",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "50",
+        "blind_answer": "50",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000295",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Square inscribed in a right triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right triangle has legs of lengths 6 and 8. A square is drawn inside the triangle so that two of its sides lie along the legs and the vertex of the square opposite the right angle lies on the hypotenuse. What is the side length of the square?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "24/7",
+      "accepted_answers": [
+        "24/7",
+        "3.428",
+        "3.429"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the radius of the inscribed circle, not the square's side.",
+          "trap": null
+        },
+        {
+          "value": "4.8",
+          "rationale": "4.8 is the altitude to the hypotenuse.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Place the right angle at the origin with legs along the axes, so the hypotenuse is x/8 + y/6 = 1. The square's far vertex is (s, s), so s/8 + s/6 = 1, which gives s(7/24) = 1 and s = 24/7.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the hypotenuse as a line in coordinates."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Put the right angle at the origin and use (s, s) on the hypotenuse."
+      },
+      "remember": "A point on the hypotenuse satisfies its line equation.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-08",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "24/7",
+        "blind_answer": "24/7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [
+          "minor: no figure is given; acceptable, but the SPR key should also accept 3.428 and 3.429",
+          "minor: this is a classic inscribed-square problem (s=ab/(a+b)) seen widely in contest prep"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000296",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Hypotenuse from a sine-cosine relationship",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a right triangle, the sine of one acute angle θ is 3 times the cosine of θ, and the shorter leg has length 2. What is the length of the hypotenuse?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2√2",
+        "B": "6",
+        "C": "2√10",
+        "D": "4√10"
+      },
+      "correct_answer": "C",
+      "explanation": "sin θ = 3 cos θ means tan θ = 3, so the leg opposite θ is 3 times the leg adjacent to θ. With the shorter leg 2, the legs are 2 and 6, and the hypotenuse is √(2² + 6²) = √40 = 2√10.",
+      "distractor_explanations": {
+        "A": "2√2 assumes the legs are equal (tan θ = 1).",
+        "B": "6 is the longer leg, not the hypotenuse.",
+        "D": "4√10 doubles the hypotenuse."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What is tan θ?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide sin θ = 3 cos θ by cos θ."
+      },
+      "remember": "tan θ = sin θ / cos θ.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-09",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000297",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle formed by two angle bisectors in a triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, the measure of angle A is 50°. The bisectors of angles B and C intersect at point P. What is the measure of angle BPC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "50°",
+        "B": "65°",
+        "C": "115°",
+        "D": "130°"
+      },
+      "correct_answer": "C",
+      "explanation": "Angles B and C sum to 180° − 50° = 130°, so their halves sum to 65°. In triangle BPC, angle BPC = 180° − 65° = 115°. The individual measures of B and C are not needed.",
+      "distractor_explanations": {
+        "A": "50° is the measure of angle A.",
+        "B": "65° is the sum of the half-angles at B and C.",
+        "D": "130° is the sum of angles B and C."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is the sum of angles B and C?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and the two bisectors."
+      },
+      "remember": "You may need only a sum, not each angle.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "Q034-10",
+      "created_at": "2026-10-27T03:43:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: the standard fact (angle BPC = 90 + A/2) is well known; no figure is provided"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-034.review.json",
+        "computation": "checks/sat_math/batch_034.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
