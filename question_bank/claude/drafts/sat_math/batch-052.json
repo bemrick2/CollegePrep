@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 52,
- "plan": "SAT Math batch 52: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 7 student-produced responses. Ideas BA10-BA13, BB10-BB12, BC06, BC07, BD06, BD07 from generated set 7 (independently pre-checked: no copy or template matches). BD07's trap 64 replaced with 48 (DB = 8); BB11's choice A changed to a false statement about the yearly increase.",
+ "plan": "SAT Math batch 52: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 7 student-produced responses. Ideas BA10-BA13, BB10-BB12, BC06, BC07, BD06, BD07 from generated set 7 (independently pre-checked: no copy or template matches). BD07's trap 64 replaced with 48 (DB = 8); BB11's choice A changed to a false statement about the yearly increase. Relabelled to the blind solver's rating where it was lower: Q052-01 hard→medium, Q052-03 hard→medium, Q052-06 medium→easy.",
  "candidates": [
   {
    "cand": "Q052-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Solving a linear inequality with a negative literal coefficient",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the inequality ax − 6 > 2a, a is a constant and a < 0. Which of the following is equivalent to the inequality?",
    "explanation": "Adding 6 gives ax > 2a + 6. Dividing by a, which is negative, reverses the inequality: x < (2a + 6)/a = 2 + 6/a.",
    "hints": [
@@ -25,8 +25,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The coefficient is a letter known only to be negative, so the reversal must be reasoned rather than seen."
+    "single_correct": true
    },
    "choices": {
     "A": "x < 2 + 6/a",
@@ -99,7 +98,7 @@
    "skill": "Algebra",
    "subskill": "Least production level for profit to reach a percent of cost",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A company's cost to make n phone cases is 2,000 + 8n dollars, and it sells every case for $18. Profit is revenue minus cost. What is the least number of cases the company must make and sell for its profit to be at least 25% of its cost?",
    "explanation": "Profit is 18n − (2,000 + 8n) = 10n − 2,000. The condition is 10n − 2,000 ≥ 0.25(2,000 + 8n) = 500 + 2n, so 8n ≥ 2,500 and n ≥ 312.5. The least whole number is 313.",
    "hints": [
@@ -115,8 +114,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Both sides of the inequality depend on n; taking 25% of revenue or of the fixed cost only are strong traps."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "313",
@@ -186,7 +184,7 @@
    "skill": "Advanced Math",
    "subskill": "Interpreting the compounding frequency in an exponential model",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The balance, in dollars, of an account t years after it is opened is modeled by B(t) = 2,500(1 + 0.04/4)^(4t). What is the best interpretation of the 4 that multiplies t in the exponent?",
    "explanation": "The exponent 4t counts how many times the factor 1 + 0.04/4 = 1.01 is applied in t years, so interest is added 4 times each year, raising the balance by 1% each time.",
    "hints": [
@@ -267,52 +265,6 @@
      "trap": null
     }
    ]
-  },
-  {
-   "cand": "Q052-08",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Pace per mile from a metric race time",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A runner finished a 5-kilometer race in 22 minutes 30 seconds. Using 1 mile = 1.6 kilometers, what was her average pace, in minutes per mile?",
-   "explanation": "5 kilometers is 5 ÷ 1.6 = 3.125 miles. Her pace is 22.5 minutes ÷ 3.125 miles = 7.2 minutes per mile.",
-   "hints": [
-    "How many miles is 5 kilometers?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Pace = time ÷ distance."
-   },
-   "remember": "Pace is time per distance; speed is distance per time.",
-   "expected_time_seconds": 65,
-   "modeling": true,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "0.14",
-    "B": "2.8",
-    "C": "4.5",
-    "D": "7.2"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "0.14 is her speed in miles per minute, not her pace.",
-     "trap": "wrong_quantity"
-    },
-    "B": {
-     "rationale": "2.8 converts kilometers to miles by multiplying by 1.6.",
-     "trap": "sign_error"
-    },
-    "C": {
-     "rationale": "4.5 is her pace in minutes per kilometer.",
-     "trap": "partial_answer"
-    }
-   }
   },
   {
    "cand": "Q052-09",
@@ -493,6 +445,56 @@
      "D": {
       "rationale": "−11 subtracts 2x² − 4x − 2, with the wrong sign on the constant.",
       "trap": "sign_error"
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q052-08",
+   "reason": "blind solve: answer cue - three choices are physically impossible or elite-only paces, so 7.2 can be picked by real-world sense; resubmitted as a student-produced response.",
+   "item": {
+    "cand": "Q052-08",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Pace per mile from a metric race time",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "medium",
+    "stem": "A runner finished a 5-kilometer race in 22 minutes 30 seconds. Using 1 mile = 1.6 kilometers, what was her average pace, in minutes per mile?",
+    "explanation": "5 kilometers is 5 ÷ 1.6 = 3.125 miles. Her pace is 22.5 minutes ÷ 3.125 miles = 7.2 minutes per mile.",
+    "hints": [
+     "How many miles is 5 kilometers?"
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Pace = time ÷ distance."
+    },
+    "remember": "Pace is time per distance; speed is distance per time.",
+    "expected_time_seconds": 65,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "0.14",
+     "B": "2.8",
+     "C": "4.5",
+     "D": "7.2"
+    },
+    "answer": "D",
+    "distractors": {
+     "A": {
+      "rationale": "0.14 is her speed in miles per minute, not her pace.",
+      "trap": "wrong_quantity"
+     },
+     "B": {
+      "rationale": "2.8 converts kilometers to miles by multiplying by 1.6.",
+      "trap": "sign_error"
+     },
+     "C": {
+      "rationale": "4.5 is her pace in minutes per kilometer.",
+      "trap": "partial_answer"
      }
     }
    }

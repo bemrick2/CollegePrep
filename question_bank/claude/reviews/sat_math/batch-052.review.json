@@ -1,0 +1,236 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 52,
+  "reviewed_at": "2026-10-27T06:22:41+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 52
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000482",
+    "CLD-SAT-M-000483",
+    "CLD-SAT-M-000484",
+    "CLD-SAT-M-000485",
+    "CLD-SAT-M-000486",
+    "CLD-SAT-M-000487",
+    "CLD-SAT-M-000488",
+    "CLD-SAT-M-000489",
+    "CLD-SAT-M-000490"
+  ],
+  "results": [
+    {
+      "cand": "Q052-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: packet numbering skips Q052-05"
+      ],
+      "blind_notes": "ax > 2a + 6; divide by a<0 and flip: x < 2 + 6/a. B is the no-flip trap; C/D are sign errors on 6/a. Distractors well-balanced.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000482"
+    },
+    {
+      "cand": "Q052-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7",
+      "computed_answer": "7",
+      "blind_answer": "7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [],
+      "blind_notes": "Need 3 - x <= x + k for some x <= -2, i.e. k >= 3 - 2x. 3 - 2x is minimized at x = -2 (value 7), so least k = 7 (boundary point (-2,5) satisfies all three). Graphing with slider also works but needs the setup insight.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must reason about where two boundaries can be ordered within a restricted strip; checking a convenient point gives the trap 3."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000483"
+    },
+    {
+      "cand": "Q052-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "313",
+      "computed_answer": "313",
+      "blind_answer": "313",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Profit 10n - 2000 >= 0.25(2000 + 8n) = 500 + 2n -> 8n >= 2500 -> n >= 312.5 -> 313. Check n=313: profit 1130 >= 1126. Rounding-up trap (312) present.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000484"
+    },
+    {
+      "cand": "Q052-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "17.5",
+      "computed_answer": "17.5",
+      "blind_answer": "17.5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [
+        "minor: accepted forms should include 17.5 and 35/2"
+      ],
+      "blind_notes": "f(5) = 2f(5) -> f(5) = 0. Slope (0-7)/(5-3) = -7/2; f(0) = 7 + 3(7/2) = 17.5. Key insight (intersection forces f(5)=0) is non-obvious.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The insight that y = f(x) and y = 2f(x) can meet only on the x-axis is not obvious."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000485"
+    },
+    {
+      "cand": "Q052-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: very standard compound-interest interpretation item, closely resembles common official/practice SAT items of this type"
+      ],
+      "blind_notes": "Exponent 4t = number of compounding periods; 4 = compoundings per year. A describes 0.04 (nominal annual rate), C misstates 1% per period, B misreads.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000486"
+    },
+    {
+      "cand": "Q052-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "40",
+      "computed_answer": "40",
+      "blind_answer": "40",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "0.5x + 10 + 200/x <= 35 -> x^2 - 50x + 400 <= 0 -> 10 <= x <= 40. Greatest 40 (C(40)=1400, avg 35). Graphing makes it routine.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000487"
+    },
+    {
+      "cand": "Q052-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "748",
+      "computed_answer": "748",
+      "blind_answer": "748",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "0.6 in = 0.05 ft; 2000 * 0.05 = 100 ft^3/hr; *7.48 = 748 gal/hr. Inches-to-feet step is the trap. Magnitudes realistic.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000488"
+    },
+    {
+      "cand": "Q052-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Sides 14cos30 = 7*sqrt3, 14sin30 = 7; area 49*sqrt3. A is the triangle-area (half) trap, C/D other slips.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000489"
+    },
+    {
+      "cand": "Q052-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "80",
+      "computed_answer": "80",
+      "blind_answer": "80",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 33,
+      "blind_flags": [],
+      "blind_notes": "Triangle ACD right at D: 16 = (1/2)(4)(CD) -> CD = 8. Geometric mean: CD^2 = AD*DB -> DB = 16, AB = 20. Area = (1/2)(20)(8) = 80. Requires altitude-on-hypotenuse similarity insight.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must chain an area, the geometric-mean relation and a second area."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000490"
+    }
+  ]
+}

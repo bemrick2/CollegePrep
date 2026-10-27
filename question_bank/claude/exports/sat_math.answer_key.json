@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 51,
+  "bank_version": 52,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -9526,6 +9526,226 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Compute each new mean, or compare the moved value with each mean."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000482",
+      "correct_answer": "A",
+      "explanation": "Adding 6 gives ax > 2a + 6. Dividing by a, which is negative, reverses the inequality: x < (2a + 6)/a = 2 + 6/a.",
+      "distractor_explanations": {
+        "B": "x > 2 + 6/a does not reverse the inequality when dividing by the negative number a.",
+        "C": "x < 2 − 6/a moves −6 to the right side without changing its sign.",
+        "D": "x > 2 − 6/a makes both errors."
+      },
+      "hints": [
+        "What happens to an inequality when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = −2 and check each choice."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000483",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 checks only the point where x = 0, ignoring x ≤ −2.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 uses the lower boundary's value at x = −2 but drops the −2 on the upper line.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "A solution needs 3 − x ≤ x + k for some x ≤ −2, that is, k ≥ 3 − 2x for some x ≤ −2. The right side 3 − 2x is smallest at x = −2, where it equals 7. So the least possible k is 7; then (−2, 5) satisfies all three inequalities.",
+      "distractor_explanations": {},
+      "hints": [
+        "For a fixed x, when is there a y between the two lines?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the region to the left of x = −2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000484",
+      "correct_answer": "313",
+      "accepted_answers": [
+        "313"
+      ],
+      "common_errors": [
+        {
+          "value": "312",
+          "rationale": "312 rounds 312.5 down, which gives a profit below 25% of cost.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "200",
+          "rationale": "200 is the break-even number, where profit is 0.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Profit is 18n − (2,000 + 8n) = 10n − 2,000. The condition is 10n − 2,000 ≥ 0.25(2,000 + 8n) = 500 + 2n, so 8n ≥ 2,500 and n ≥ 312.5. The least whole number is 313.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write profit and 25% of cost in terms of n."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the inequality, then round up."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000485",
+      "correct_answer": "17.5",
+      "accepted_answers": [
+        "17.5",
+        "35/2"
+      ],
+      "common_errors": [
+        {
+          "value": "-3.5",
+          "rationale": "−3.5 assumes the intersection is at y = 14.",
+          "trap": null
+        },
+        {
+          "value": "7",
+          "rationale": "7 is f(3), not f(0).",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "At x = 5, f(5) = 2f(5), so f(5) = 0. The slope is (0 − 7)/(5 − 3) = −7/2, so f(0) = f(3) + 3(7/2) = 7 + 10.5 = 17.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "If f(5) = 2f(5), what is f(5)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find f(5), then the slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000486",
+      "correct_answer": "D",
+      "explanation": "The exponent 4t counts how many times the factor 1 + 0.04/4 = 1.01 is applied in t years, so interest is added 4 times each year, raising the balance by 1% each time.",
+      "distractor_explanations": {
+        "A": "The balance grows by a factor of 1.01⁴ ≈ 1.0406 each year, slightly more than 4%.",
+        "B": "t is any number of years; the 4 does not limit it.",
+        "C": "Each addition raises the balance by 0.04/4 = 1%, not 4%."
+      },
+      "hints": [
+        "How many times per year is the factor 1.01 applied?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Read the exponent as a count of compounding periods."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000487",
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the least number of cakes with an average cost of at most $35.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "50",
+          "rationale": "50 is the sum of the two boundary values.",
+          "trap": null
+        }
+      ],
+      "explanation": "C(x)/x = 0.5x + 10 + 200/x ≤ 35. Multiplying by 2x (x > 0) gives x² + 20x + 400 ≤ 70x, so x² − 50x + 400 ≤ 0 and (x − 10)(x − 40) ≤ 0. So 10 ≤ x ≤ 40, and the greatest number is 40.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the average cost as a function of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply through by x and solve the quadratic inequality."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000488",
+      "correct_answer": "748",
+      "accepted_answers": [
+        "748"
+      ],
+      "common_errors": [
+        {
+          "value": "8976",
+          "rationale": "8976 uses 0.6 foot instead of 0.6 inch.",
+          "trap": null
+        },
+        {
+          "value": "100",
+          "rationale": "100 is the volume in cubic feet, not gallons.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "0.6 inch is 0.6/12 = 0.05 foot. Each hour the system delivers 0.05 × 2,000 = 100 cubic feet, which is 100 × 7.48 = 748 gallons.",
+      "distractor_explanations": {},
+      "hints": [
+        "Convert the depth to feet."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Volume = area × depth, then convert."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000489",
+      "correct_answer": "B",
+      "explanation": "The diagonal is the hypotenuse of a 30°-60°-90° triangle. The shorter side, opposite 30°, is 14/2 = 7, and the longer side is 7√3. The area is 7 × 7√3 = 49√3.",
+      "distractor_explanations": {
+        "A": "(49√3)/2 is the area of one of the two triangles.",
+        "C": "98 multiplies the diagonal by the shorter side.",
+        "D": "98√3 multiplies the diagonal by the longer side."
+      },
+      "hints": [
+        "What kind of triangle does the diagonal form?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the 30°-60°-90° triangle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000490",
+      "correct_answer": "80",
+      "accepted_answers": [
+        "80"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 doubles the area of triangle ACD.",
+          "trap": null
+        },
+        {
+          "value": "48",
+          "rationale": "48 takes DB = 8, the same as CD.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The area of triangle ACD is (1/2)(AD)(CD) = 2CD = 16, so CD = 8. In a right triangle, the altitude to the hypotenuse satisfies CD² = AD · DB, so DB = 64/4 = 16. Then AB = 20 and the area of triangle ABC is (1/2)(20)(8) = 80.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find CD from the area of triangle ACD."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use CD² = AD · DB."
       }
     }
   ]

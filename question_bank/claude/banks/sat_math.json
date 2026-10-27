@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 51,
-  "updated_at": "2026-10-27T06:20:45+00:00",
+  "version": 52,
+  "updated_at": "2026-10-27T06:22:41+00:00",
   "passages": [],
   "questions": [
     {
@@ -34690,6 +34690,664 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_math/batch-051.review.json",
         "computation": "checks/sat_math/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000482",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving a linear inequality with a negative literal coefficient",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the inequality ax − 6 > 2a, a is a constant and a < 0. Which of the following is equivalent to the inequality?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x < 2 + 6/a",
+        "B": "x > 2 + 6/a",
+        "C": "x < 2 − 6/a",
+        "D": "x > 2 − 6/a"
+      },
+      "correct_answer": "A",
+      "explanation": "Adding 6 gives ax > 2a + 6. Dividing by a, which is negative, reverses the inequality: x < (2a + 6)/a = 2 + 6/a.",
+      "distractor_explanations": {
+        "B": "x > 2 + 6/a does not reverse the inequality when dividing by the negative number a.",
+        "C": "x < 2 − 6/a moves −6 to the right side without changing its sign.",
+        "D": "x > 2 − 6/a makes both errors."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What happens to an inequality when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = −2 and check each choice."
+      },
+      "remember": "Dividing by a negative reverses the inequality, even when it is a letter.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-01",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: packet numbering skips Q052-05"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000483",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Least parameter that makes a system of three inequalities nonempty",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the system of inequalities y ≤ x + k, y ≥ 3 − x, and x ≤ −2, where k is a constant, has at least one solution. What is the least possible value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 checks only the point where x = 0, ignoring x ≤ −2.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 uses the lower boundary's value at x = −2 but drops the −2 on the upper line.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "A solution needs 3 − x ≤ x + k for some x ≤ −2, that is, k ≥ 3 − 2x for some x ≤ −2. The right side 3 − 2x is smallest at x = −2, where it equals 7. So the least possible k is 7; then (−2, 5) satisfies all three inequalities.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "For a fixed x, when is there a y between the two lines?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the region to the left of x = −2."
+      },
+      "remember": "A region is nonempty when the lower boundary is below the upper one somewhere.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-02",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000484",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Least production level for profit to reach a percent of cost",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A company's cost to make n phone cases is 2,000 + 8n dollars, and it sells every case for $18. Profit is revenue minus cost. What is the least number of cases the company must make and sell for its profit to be at least 25% of its cost?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "313",
+      "accepted_answers": [
+        "313"
+      ],
+      "common_errors": [
+        {
+          "value": "312",
+          "rationale": "312 rounds 312.5 down, which gives a profit below 25% of cost.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "200",
+          "rationale": "200 is the break-even number, where profit is 0.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Profit is 18n − (2,000 + 8n) = 10n − 2,000. The condition is 10n − 2,000 ≥ 0.25(2,000 + 8n) = 500 + 2n, so 8n ≥ 2,500 and n ≥ 312.5. The least whole number is 313.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write profit and 25% of cost in terms of n."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the inequality, then round up."
+      },
+      "remember": "Round up when a count must meet a minimum.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-03",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "313",
+        "blind_answer": "313",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000485",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear function where y = f(x) and y = 2f(x) intersect",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The graph of the linear function f in the xy-plane passes through the point (3, 7). The graphs of y = f(x) and y = 2f(x) intersect at a point with x-coordinate 5. What is the value of f(0) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "17.5",
+      "accepted_answers": [
+        "17.5",
+        "35/2"
+      ],
+      "common_errors": [
+        {
+          "value": "-3.5",
+          "rationale": "−3.5 assumes the intersection is at y = 14.",
+          "trap": null
+        },
+        {
+          "value": "7",
+          "rationale": "7 is f(3), not f(0).",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "At x = 5, f(5) = 2f(5), so f(5) = 0. The slope is (0 − 7)/(5 − 3) = −7/2, so f(0) = f(3) + 3(7/2) = 7 + 10.5 = 17.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "If f(5) = 2f(5), what is f(5)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find f(5), then the slope."
+      },
+      "remember": "A number equals twice itself only if it is 0.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-04",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "17.5",
+        "blind_answer": "17.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [
+          "minor: accepted forms should include 17.5 and 35/2"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000486",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Interpreting the compounding frequency in an exponential model",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The balance, in dollars, of an account t years after it is opened is modeled by B(t) = 2,500(1 + 0.04/4)^(4t). What is the best interpretation of the 4 that multiplies t in the exponent?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The balance increases by 4% each year.",
+        "B": "The balance is modeled for 4 years.",
+        "C": "Each time interest is added, the balance increases by 4%.",
+        "D": "Interest is added to the account 4 times each year."
+      },
+      "correct_answer": "D",
+      "explanation": "The exponent 4t counts how many times the factor 1 + 0.04/4 = 1.01 is applied in t years, so interest is added 4 times each year, raising the balance by 1% each time.",
+      "distractor_explanations": {
+        "A": "The balance grows by a factor of 1.01⁴ ≈ 1.0406 each year, slightly more than 4%.",
+        "B": "t is any number of years; the 4 does not limit it.",
+        "C": "Each addition raises the balance by 0.04/4 = 1%, not 4%."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "How many times per year is the factor 1.01 applied?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Read the exponent as a count of compounding periods."
+      },
+      "remember": "In (1 + r/n)^(nt), n is the number of compounding periods per year.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-06",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: very standard compound-interest interpretation item, closely resembles common official/practice SAT items of this type"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000487",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Greatest production level with average cost at most a value",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bakery's cost, in dollars, to make x cakes is C(x) = 0.5x² + 10x + 200. What is the greatest number of cakes for which the average cost per cake, C(x)/x, is at most $35 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the least number of cakes with an average cost of at most $35.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "50",
+          "rationale": "50 is the sum of the two boundary values.",
+          "trap": null
+        }
+      ],
+      "explanation": "C(x)/x = 0.5x + 10 + 200/x ≤ 35. Multiplying by 2x (x > 0) gives x² + 20x + 400 ≤ 70x, so x² − 50x + 400 ≤ 0 and (x − 10)(x − 40) ≤ 0. So 10 ≤ x ≤ 40, and the greatest number is 40.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the average cost as a function of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply through by x and solve the quadratic inequality."
+      },
+      "remember": "Average cost = total cost ÷ number made.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-07",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "40",
+        "blind_answer": "40",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000488",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Volume rate in gallons from a depth rate over an area",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sprinkler system waters a 2,000-square-foot lawn at a rate equal to 0.6 inch of water depth per hour. Using 1 cubic foot = 7.48 gallons, how many gallons of water per hour does the system deliver?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "748",
+      "accepted_answers": [
+        "748"
+      ],
+      "common_errors": [
+        {
+          "value": "8976",
+          "rationale": "8976 uses 0.6 foot instead of 0.6 inch.",
+          "trap": null
+        },
+        {
+          "value": "100",
+          "rationale": "100 is the volume in cubic feet, not gallons.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "0.6 inch is 0.6/12 = 0.05 foot. Each hour the system delivers 0.05 × 2,000 = 100 cubic feet, which is 100 × 7.48 = 748 gallons.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Convert the depth to feet."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Volume = area × depth, then convert."
+      },
+      "remember": "Convert all lengths to the same unit first.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-09",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "748",
+        "blind_answer": "748",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000489",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Rectangle area from a diagonal and its angle with a side",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A diagonal of a rectangle has a length of 14 and makes a 30° angle with the longer side of the rectangle. What is the area of the rectangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(49√3)/2",
+        "B": "49√3",
+        "C": "98",
+        "D": "98√3"
+      },
+      "correct_answer": "B",
+      "explanation": "The diagonal is the hypotenuse of a 30°-60°-90° triangle. The shorter side, opposite 30°, is 14/2 = 7, and the longer side is 7√3. The area is 7 × 7√3 = 49√3.",
+      "distractor_explanations": {
+        "A": "(49√3)/2 is the area of one of the two triangles.",
+        "C": "98 multiplies the diagonal by the shorter side.",
+        "D": "98√3 multiplies the diagonal by the longer side."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What kind of triangle does the diagonal form?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the 30°-60°-90° triangle."
+      },
+      "remember": "In a 30°-60°-90° triangle, the short leg is half the hypotenuse.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-10",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000490",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Whole-triangle area from a sub-triangle area and the altitude relation",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle, and CD is the altitude to hypotenuse AB. If AD = 4 and the area of triangle ACD is 16, what is the area of triangle ABC ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "80",
+      "accepted_answers": [
+        "80"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 doubles the area of triangle ACD.",
+          "trap": null
+        },
+        {
+          "value": "48",
+          "rationale": "48 takes DB = 8, the same as CD.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The area of triangle ACD is (1/2)(AD)(CD) = 2CD = 16, so CD = 8. In a right triangle, the altitude to the hypotenuse satisfies CD² = AD · DB, so DB = 64/4 = 16. Then AB = 20 and the area of triangle ABC is (1/2)(20)(8) = 80.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find CD from the area of triangle ACD."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use CD² = AD · DB."
+      },
+      "remember": "Altitude to the hypotenuse: CD² = AD · DB.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "Q052-11",
+      "created_at": "2026-10-27T06:22:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "80",
+        "blind_answer": "80",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 33,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-052.review.json",
+        "computation": "checks/sat_math/batch_052.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
