@@ -1,10 +1,10 @@
 # Reconciled combined bank
 
-Generated 2026-10-27T15:19:45+00:00. Baseline: user-supplied combined screening ZIP (sha256 5e97823b612c5765...), 3345 records. Claude current banks: 2599 records. Records are matched by question ID and a normalized content hash (stem, choices, key, passage text). Claude items already in the baseline are not counted twice.
+Generated 2026-10-27T15:37:13+00:00. Baseline: user-supplied combined screening ZIP (sha256 5e97823b612c5765...), 3345 records. Claude current banks: 2643 records. Records are matched by question ID and a normalized content hash (stem, choices, key, passage text). Claude items already in the baseline are not counted twice.
 
 | Section | Reviewed drafts | Pending review | Active retained (reviewed + pending) | Holds | Reserved/duplicate | Retired | By source |
 |---|---:|---:|---:|---:|---:|---:|---|
-| SAT Math | 563 | 0 | 563 | 0 | 30 | 0 | Claude 593 |
+| SAT Math | 607 | 0 | 607 | 0 | 30 | 0 | Claude 637 |
 | SAT Reading and Writing | 691 | 0 | 691 | 2 | 22 | 6 | ChatGPT 315, Claude 406 |
 | ACT English | 681 | 0 | 681 | 0 | 33 | 1 | ChatGPT 311, Claude 404 |
 | ACT Reading | 683 | 0 | 683 | 0 | 39 | 0 | ChatGPT 321, Claude 401 |
@@ -12,4 +12,4 @@ Generated 2026-10-27T15:19:45+00:00. Baseline: user-supplied combined screening 
 
 "Reviewed" means a separate AI agent answered the current version without the key and agreed with it (verbal: two solvers for Claude items). It is not human approval; no record is human-approved, rights-cleared, or student-calibrated.
 
-Notes: {"resolved_by_fresh_review": 986, "claude_retired_after_baseline": 63, "claude_new_since_baseline": 1081}
+Notes: {"resolved_by_fresh_review": 986, "claude_retired_after_baseline": 63, "claude_new_since_baseline": 1125}

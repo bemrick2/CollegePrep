@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 60,
+  "bank_version": 61,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -12229,6 +12229,613 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Evaluate S(0)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000612",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the value of a, not b.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "5",
+          "rationale": "5 reads the x-coefficient as b.",
+          "trap": null
+        },
+        {
+          "value": "9",
+          "rationale": "9 comes from the sign error 2a + b = 1 when matching constant terms.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Since x² + x − 2 = (x − 1)(x + 2), combining the left side gives a(x + 2) + b(x − 1) = 5x + 1 for all x. Substituting x = −2 gives −3b = −9, so b = 3. (Substituting x = 1 gives 3a = 6, so a = 2.)",
+      "distractor_explanations": {},
+      "hints": [
+        "Factor the denominator on the right."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear denominators, then substitute convenient values of x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000613",
+      "correct_answer": "A",
+      "explanation": "Multiply the numerator and denominator by the conjugate √(x + 9) + 3. The denominator becomes (x + 9) − 9 = x, so the expression is x(√(x + 9) + 3)/x = √(x + 9) + 3.",
+      "distractor_explanations": {
+        "B": "√(x + 9) − 3 keeps the sign of the original denominator instead of using the conjugate's sign.",
+        "C": "This computes (√(x + 9))² − 3² as x + 9 − 3 instead of x + 9 − 9.",
+        "D": "This splits the fraction over the subtraction in its denominator, which is not allowed."
+      },
+      "hints": [
+        "Multiply by the conjugate of the denominator."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 16: 16/(5 − 3) = 8, and √25 + 3 = 8."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000614",
+      "correct_answer": "25/3",
+      "accepted_answers": [
+        "25/3",
+        "8.333",
+        "8.334"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 finds only the case where x² + kx + 4 has a double root.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "13/3",
+          "rationale": "13/3 finds only the case where x² + kx + 4 shares the root −3 with x² − 9.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "p has the zeros 3 and −3 from x² − 9. It has exactly three distinct zeros if x² + kx + 4 has a double root (k² = 16, so k = 4, giving the zero −2) or if it shares a root with x² − 9 (x = −3 gives 13 − 3k = 0, so k = 13/3, giving the other zero −4/3). These are the only positive values, so the sum is 4 + 13/3 = 25/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "In how many ways can a fourth zero fail to be new?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Consider a double root and a shared root separately."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000615",
+      "correct_answer": "22",
+      "accepted_answers": [
+        "22"
+      ],
+      "common_errors": [
+        {
+          "value": "24",
+          "rationale": "24 sets the height equal to half the base, which gives a right isosceles triangle, not an equilateral one.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 makes the triangle degenerate (the two intercepts coincide).",
+          "trap": null
+        }
+      ],
+      "explanation": "The vertex is (5, k − 25), and the intercepts are 5 ± √(25 − k). Half the base is √(25 − k) and the height is 25 − k. For an equilateral triangle, height = √3 × (half the base), so 25 − k = √3 √(25 − k), which gives √(25 − k) = √3 and k = 22. Check: the intercepts are 5 ± √3 and the vertex is (5, −3).",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the half-base and the height in terms of k."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola and the triangle; split it into two 30°-60°-90° triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000616",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 keeps only the solutions of x² − 8x = 16.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "16",
+          "rationale": "16 counts the repeated solution x = 4 twice.",
+          "trap": null
+        },
+        {
+          "value": "4",
+          "rationale": "4 keeps only the solution of x² − 8x = −16.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Either x² − 8x = 16, which gives x = 4 ± 4√2 (sum 8), or x² − 8x = −16, which gives (x − 4)² = 0 and the single solution x = 4. The three distinct solutions add to 8 + 4 = 12.",
+      "distractor_explanations": {},
+      "hints": [
+        "Split the absolute value into two cases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve both cases and count each distinct solution once."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000617",
+      "correct_answer": "D",
+      "explanation": "Setting the expressions equal gives 2x² − 4x − 16 = 0, so x² − 2x − 8 = 0 and x = 4 or x = −2. The points are (4, 19) and (−2, −5), so the slope is 24/6 = 4. (Adding the two equations eliminates x² and gives the line y = 4x + 3.)",
+      "distractor_explanations": {
+        "A": "0 factors x² − 2x − 8 with the signs reversed (x = −4 and x = 2), which gives two points with y = 3.",
+        "B": "1/4 computes run over rise: 6/24.",
+        "C": "3 is the y-intercept of the line y = 4x + 3, not its slope."
+      },
+      "hints": [
+        "Find the x-coordinates where the graphs meet."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the expressions equal, solve, then compute the slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000618",
+      "correct_answer": "A",
+      "explanation": "Adding 2, squaring, and then subtracting 9 gives f(x) = (x + 2)² − 9 = x² + 4x + 4 − 9 = x² + 4x − 5, which factors as (x − 1)(x + 5).",
+      "distractor_explanations": {
+        "B": "(x + 1)(x − 5) makes a sign slip when factoring x² + 4x − 5.",
+        "C": "(x − 7)² subtracts 9 before squaring.",
+        "D": "x² − 7 squares the input before adding 2."
+      },
+      "hints": [
+        "Write the operations in order as an expression."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build (x + 2)² − 9, expand, then factor."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000619",
+      "correct_answer": "B",
+      "explanation": "Multiply the numerator and denominator by x²: (x² − x)/(x² − 1) = x(x − 1)/((x − 1)(x + 1)) = x/(x + 1).",
+      "distractor_explanations": {
+        "A": "x cancels the 1s and divides −1/x by −1/x², which is not valid.",
+        "C": "x/(x − 1) factors 1 − 1/x² as (1 − 1/x)².",
+        "D": "(x + 1)/x inverts the correct result."
+      },
+      "hints": [
+        "Multiply the top and bottom by x²."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 2: (1/2)/(3/4) = 2/3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000620",
+      "correct_answer": "C",
+      "explanation": "As x increases, a(0.5)ˣ approaches 0, so f(x) approaches c; thus c = 6. Then f(0) = a + 6 = 20 gives a = 14, and f(2) = 14(0.25) + 6 = 9.5.",
+      "distractor_explanations": {
+        "A": "3.5 finds a = 14 but drops c.",
+        "B": "5 uses a = 20 and ignores c.",
+        "D": "11 uses a = 20 and then adds c = 6."
+      },
+      "hints": [
+        "What does a(0.5)ˣ approach as x grows?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find c from the long-run value, then a from the intercept."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000621",
+      "correct_answer": "B",
+      "explanation": "If 2x − 3 is a factor, the polynomial is 0 at x = 3/2: 6(9/4) + (3/2)k − 6 = 0, so 7.5 + 1.5k = 0 and k = −5. Check: 6x² − 5x − 6 = (2x − 3)(3x + 2).",
+      "distractor_explanations": {
+        "A": "−16 substitutes x = 3, the constant in the factor, instead of x = 3/2.",
+        "C": "2.5 substitutes x = 3/2 but uses x² = 9/4 without the coefficient 6.",
+        "D": "5 substitutes x = −3/2, a sign error on the root."
+      },
+      "hints": [
+        "What value of x makes 2x − 3 equal 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute the root of the factor and solve for k."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000622",
+      "correct_answer": "A",
+      "explanation": "f(3)/f(1) = b² = 0.75. Then f(5)/f(1) = b⁴ = 0.75² = 0.5625, so f(5) is 1 − 0.5625 = 0.4375, or 43.75%, less than f(1).",
+      "distractor_explanations": {
+        "B": "50% doubles 25% as if the decrease were linear.",
+        "C": "56.25% is the remaining fraction, 0.5625, not the percent decrease.",
+        "D": "68.4% treats 25% as the change per unit of x, so b = 0.75 and b⁴ ≈ 0.316."
+      },
+      "hints": [
+        "What is f(3)/f(1) in terms of b?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each ratio as a power of b."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000623",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "16",
+          "rationale": "16 is (a − b)², not a − b.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "10",
+          "rationale": "10 is a + b.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "21",
+          "rationale": "21 is ab.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Expanding the left side gives 2x² − 2(a + b)x + a² + b². Matching coefficients: a + b = 10 and a² + b² = 58. Then 2ab = (a + b)² − (a² + b²) = 100 − 58 = 42, so ab = 21, and (a − b)² = a² + b² − 2ab = 58 − 42 = 16. Since a > b, a − b = 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Expand the left side and match coefficients."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use (a − b)² = a² + b² − 2ab."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000624",
+      "correct_answer": "C",
+      "explanation": "Using x = 0, 1 and 2: f(1) = 2 + 6 = 8, f(2) = 8 + 10 = 18, and f(3) = 18 + 14 = 32.",
+      "distractor_explanations": {
+        "A": "18 is f(2); it stops one step early.",
+        "B": "20 treats the change as 6 for every step.",
+        "D": "44 uses the differences at x = 1, 2 and 3 instead of 0, 1 and 2."
+      },
+      "hints": [
+        "What does the rule give when x = 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply the rule step by step from f(0)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000625",
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 uses 5, the distance from the center to the y-axis, as the radius.",
+          "trap": null
+        },
+        {
+          "value": "31",
+          "rationale": "31 sets 34 − c equal to the radius 3 instead of its square.",
+          "trap": null
+        },
+        {
+          "value": "34",
+          "rationale": "34 makes the radius 0.",
+          "trap": null
+        }
+      ],
+      "explanation": "Completing the square gives (x − 5)² + (y + 3)² = 34 − c, so the center is (5, −3). A circle that touches the x-axis at exactly one point has a radius equal to the center's distance from the x-axis, 3. So 34 − c = 9 and c = 25.",
+      "distractor_explanations": {},
+      "hints": [
+        "Complete the square to find the center."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the center and the x-axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000626",
+      "correct_answer": "B",
+      "explanation": "Sector A's area is (1/2)(5²)(1.6) = 20. For sector B, (1/2)r²(0.4) = 20 gives r² = 100, so r = 10, and its arc length is 10 × 0.4 = 4.",
+      "distractor_explanations": {
+        "A": "2 keeps the radius 5 for sector B: 5 × 0.4.",
+        "C": "8 assumes equal areas mean equal arcs and uses sector A's arc, 5 × 1.6.",
+        "D": "10 is sector B's radius, not its arc length."
+      },
+      "hints": [
+        "Find sector A's area first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use A = (1/2)r²θ and s = rθ."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000627",
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 uses 108° as the measure of angle DAG.",
+          "trap": null
+        },
+        {
+          "value": "45",
+          "rationale": "45 treats angle DAG as 90°.",
+          "trap": null
+        },
+        {
+          "value": "18",
+          "rationale": "18 does not halve 180° − 162°.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Each interior angle of a regular pentagon is 540°/5 = 108°. Around point A, angle DAG = 360° − 90° − 108° = 162°. Since AD = AB = AG, triangle ADG is isosceles, so angle ADG = (180° − 162°)/2 = 9°.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the interior angle of a regular pentagon?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the square and pentagon on opposite sides of AB."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000628",
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 is the area of triangle ABP.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 is half the rectangle.",
+          "trap": null
+        },
+        {
+          "value": "22.5",
+          "rationale": "22.5 places P at the midpoint of BD.",
+          "trap": null
+        }
+      ],
+      "explanation": "Triangles ABP and EDP are similar with ratio AB : ED = 10 : 5 = 2 : 1, so DP : PB = 1 : 2. Then P is 2 units from side CD. Triangle BCD has area (1/2)(10)(6) = 30, and triangle DPE has area (1/2)(5)(2) = 5, so the area of BCEP is 30 − 5 = 25.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which triangles formed at P are similar?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the rectangle, the diagonal and segment AE."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000629",
+      "correct_answer": "D",
+      "explanation": "Triangles ABC and ADC are congruent by SSS (they share side AC), so angle ABC = angle ADC. The quadrilateral's angles add to 360°, so these two angles share 360° − 70° − 50° = 240°, and angle ABC = 120°.",
+      "distractor_explanations": {
+        "A": "55° is a base angle of isosceles triangle ABD, not angle ABC.",
+        "B": "60° uses the triangle angle sum: 180° − 70° − 50°.",
+        "C": "110° treats the figure as a parallelogram: 180° − 70°."
+      },
+      "hints": [
+        "Which two triangles are congruent?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw diagonal AC."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000630",
+      "correct_answer": "C",
+      "explanation": "The cube's surface area is 6(36) = 216. Drilling removes two circles of area 4π each (−8π) and adds the inside wall of the hole, 2π(2)(6) = 24π. The total is 216 − 8π + 24π = 216 + 16π.",
+      "distractor_explanations": {
+        "A": "216 − 8π removes the two circles but forgets the inside wall.",
+        "B": "216 + 4π uses πrh = 12π for the wall.",
+        "D": "216 + 24π adds the wall but does not remove the two circles."
+      },
+      "hints": [
+        "What surfaces are lost and gained when the hole is drilled?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "List each face and the inside wall."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000631",
+      "correct_answer": "B",
+      "explanation": "Dropping altitudes from D and C to AB creates a 45°-45°-90° triangle with horizontal leg 6 and a 30°-60°-90° triangle with horizontal leg 6/√3 = 2√3. So AB = 10 + 6 + 2√3 = 16 + 2√3, and the area is (6/2)(10 + 16 + 2√3) = 78 + 6√3.",
+      "distractor_explanations": {
+        "A": "60 + 6√3 omits the 6 added at the 45° corner.",
+        "C": "78 + 18√3 uses 6√3 as the horizontal leg at the 60° corner, swapping the legs.",
+        "D": "156 + 12√3 forgets the 1/2 in the trapezoid area formula."
+      },
+      "hints": [
+        "Drop altitudes from C and D."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trapezoid and the two right triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000632",
+      "correct_answer": "8/9",
+      "accepted_answers": [
+        "8/9",
+        ".8888",
+        ".8889"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 uses a water radius of 6 at depth 6.",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 uses the volume of the full cone.",
+          "trap": null
+        },
+        {
+          "value": "4/3",
+          "rationale": "4/3 scales the full cone's volume by (2/3)² instead of (2/3)³.",
+          "trap": null
+        }
+      ],
+      "explanation": "By similar triangles, the water's surface radius is 6 × 6/9 = 4. The water's volume is (1/3)π(4²)(6) = 32π. In the cylinder, 36πh = 32π, so h = 8/9.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the radius of the water's surface?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the cone's cross section and the water level."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000633",
+      "correct_answer": "C",
+      "explanation": "The height of triangle ABC from C to line ℓ is 2(35)/10 = 7, which is the distance between the lines. Triangle ACD has base CD = 14 on line m and height 7, so its area is (1/2)(14)(7) = 49.",
+      "distractor_explanations": {
+        "A": "24.5 forgets the 2 when finding the height, using 3.5.",
+        "B": "35 assumes triangles between the same parallel lines have equal areas regardless of base.",
+        "D": "98 forgets the 1/2 in the second area."
+      },
+      "hints": [
+        "What does the first triangle tell you about the distance between the lines?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the two parallel lines and both triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000634",
+      "correct_answer": "447",
+      "accepted_answers": [
+        "447"
+      ],
+      "common_errors": [
+        {
+          "value": "392",
+          "rationale": "392 marks up the needed $290 by 35%, treating the gallery's share as 35% of the artist's amount.",
+          "trap": null
+        },
+        {
+          "value": "829",
+          "rationale": "829 uses 35% of the price as the artist's share.",
+          "trap": null
+        },
+        {
+          "value": "446",
+          "rationale": "446 rounds 446.15 down; at $446 the profit is $249.90.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The artist receives 0.65p, so the profit is 0.65p − 40. Then 0.65p − 40 ≥ 250 gives p ≥ 290/0.65 ≈ 446.15, so the least whole-dollar price is $447.",
+      "distractor_explanations": {},
+      "hints": [
+        "What fraction of the sale price does the artist receive?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the profit in terms of the price and solve the inequality."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000635",
+      "correct_answer": "30.24",
+      "accepted_answers": [
+        "30.24"
+      ],
+      "common_errors": [
+        {
+          "value": "3.36",
+          "rationale": "3.36 uses the inverted gear ratio, 16/48.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "10.08",
+          "rationale": "10.08 ignores the gears, using 80 wheel turns per minute.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Each turn of the front gear moves 48 teeth, which turns the rear gear 48/16 = 3 times. So the wheel turns 240 times per minute, covering 240 × 2.1 = 504 meters per minute, or 504 × 60/1,000 = 30.24 kilometers per hour.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many times does the rear gear turn for one turn of the front gear?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Chain the rates: turns per minute, meters per turn, then convert units."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000636",
+      "correct_answer": "B",
+      "explanation": "Cement is 1/(1 + 2 + 3) = 1/6 of the mix, or 0.75 cubic meter. Then 0.75/0.035 ≈ 21.4, so 22 bags are needed.",
+      "distractor_explanations": {
+        "A": "21 rounds 21.4 down, which leaves too little cement.",
+        "C": "43 takes cement as 1/3 of the mix, adding only two ratio terms.",
+        "D": "129 treats all 4.5 cubic meters as cement."
+      },
+      "hints": [
+        "What fraction of the mix is cement?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the cement volume, divide by the bag size, round up."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000637",
+      "correct_answer": "D",
+      "explanation": "Although the 2,000 households were chosen at random, only 340 returned the survey. The households that chose to respond may differ systematically from those that did not, so the results may not represent the city.",
+      "distractor_explanations": {
+        "A": "Random selection does not protect against bias when most selected households do not respond.",
+        "B": "A larger sample does not remove bias from who chose to respond.",
+        "C": "The size of the sample relative to the city is not the problem; nonresponse is."
+      },
+      "hints": [
+        "Who actually answered the survey?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate reasons that do not address who actually responded."
       }
     }
   ]

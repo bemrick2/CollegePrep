@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 61,
- "plan": "SAT Math batch 61: 22 items from generated idea set 13 (Advanced Math and Geometry/Trig; pre-checked in ideas-061.repeats.json) plus four batch-60 items resubmitted as revision 2 (remember length, strategy key). Dropped from set 13: HB03 and HB14 (templates of CLD-ACT-M-000081 and CLD-ACT-M-000701), HD08 (mirrors a released SAT complementary-angle item), HB13 and HB16 (one test value eliminates every distractor), HB11 (no exponent rules needed; close to CLD-ACT-M-000456), HD04 (key is half of a distractor), HD07 (key and a distractor sum to 100%). Fixes: HB02 choice-B rationale corrected; HD06 says convex; HB04 and HD11 accept 4-digit decimals; HB06 and HB17 labeled medium (Desmos or quick guessing); HB18 no longer says the function is quadratic.",
+ "plan": "SAT Math batch 61: 22 items from generated idea set 13 (Advanced Math and Geometry/Trig; pre-checked in ideas-061.repeats.json) plus four batch-60 items resubmitted as revision 2 (remember length, strategy key). Dropped from set 13: HB03 and HB14 (templates of CLD-ACT-M-000081 and CLD-ACT-M-000701), HD08 (mirrors a released SAT complementary-angle item), HB13 and HB16 (one test value eliminates every distractor), HB11 (no exponent rules needed; close to CLD-ACT-M-000456), HD04 (key is half of a distractor), HD07 (key and a distractor sum to 100%). Fixes: HB02 choice-B rationale corrected; HD06 says convex; HB04 and HD11 accept 4-digit decimals; HB06 and HB17 labeled medium (Desmos or quick guessing); HB18 no longer says the function is quadratic. Relabelled to the lower of authored and blind difficulty: Q061-01 hard→medium, Q061-07 medium→easy, Q061-11 hard→medium, Q061-15 hard→medium, Q061-19 hard→medium, Q061-20 hard→medium, Q061-26 medium→easy.",
  "candidates": [
   {
    "cand": "Q061-01",
@@ -9,7 +9,7 @@
    "skill": "Advanced Math",
    "subskill": "Matching numerators over a factored quadratic denominator",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "For all x other than 1 and −2, a/(x − 1) + b/(x + 2) = (5x + 1)/(x² + x − 2), where a and b are constants. What is the value of b ?",
    "explanation": "Since x² + x − 2 = (x − 1)(x + 2), combining the left side gives a(x + 2) + b(x − 1) = 5x + 1 for all x. Substituting x = −2 gives −3b = −9, so b = 3. (Substituting x = 1 gives 3a = 6, so a = 2.)",
    "hints": [
@@ -284,7 +284,7 @@
    "skill": "Advanced Math",
    "subskill": "Building a function from a verbal chain of operations",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A function f takes an input, adds 2 to it, squares the result, and then subtracts 9. Which of the following defines f ?",
    "explanation": "Adding 2, squaring, and then subtracting 9 gives f(x) = (x + 2)² − 9 = x² + 4x + 4 − 9 = x² + 4x − 5, which factors as (x − 1)(x + 5).",
    "hints": [
@@ -468,7 +468,7 @@
    "skill": "Advanced Math",
    "subskill": "Compounding a percent change over a longer span",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The function f is defined by f(x) = a · bˣ, where a and b are positive constants. The value of f(3) is 25% less than the value of f(1). The value of f(5) is what percent less than the value of f(1) ?",
    "explanation": "f(3)/f(1) = b² = 0.75. Then f(5)/f(1) = b⁴ = 0.75² = 0.5625, so f(5) is 1 − 0.5625 = 0.4375, or 43.75%, less than f(1).",
    "hints": [
@@ -656,7 +656,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Arc length of one sector from equal sector areas",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Two sectors have equal areas. Sector A has a radius of 5 and a central angle of 1.6 radians. Sector B has a central angle of 0.4 radian. What is the arc length of sector B ?",
    "explanation": "Sector A's area is (1/2)(5²)(1.6) = 20. For sector B, (1/2)r²(0.4) = 20 gives r² = 100, so r = 10, and its arc length is 10 × 0.4 = 4.",
    "hints": [
@@ -845,7 +845,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Surface area of a cube with a cylindrical hole",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A solid cube with edges of length 6 centimeters has a cylindrical hole with a radius of 2 centimeters drilled straight through it, from the center of one face to the center of the opposite face. What is the total surface area, in square centimeters, of the remaining solid, including the inside of the hole?",
    "explanation": "The cube's surface area is 6(36) = 216. Drilling removes two circles of area 4π each (−8π) and adds the inside wall of the hole, 2π(2)(6) = 24π. The total is 216 − 8π + 24π = 216 + 16π.",
    "hints": [
@@ -892,7 +892,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Area of a non-isosceles trapezoid from two special right triangles",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In trapezoid ABCD, side AB is parallel to side CD, CD = 10, and the distance between AB and CD is 6. Angle A measures 45° and angle B measures 60°, and AB is the longer base. What is the area of the trapezoid?",
    "explanation": "Dropping altitudes from D and C to AB creates a 45°-45°-90° triangle with horizontal leg 6 and a 30°-60°-90° triangle with horizontal leg 6/√3 = 2√3. So AB = 10 + 6 + 2√3 = 16 + 2√3, and the area is (6/2)(10 + 16 + 2√3) = 78 + 6√3.",
    "hints": [
@@ -1195,7 +1195,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Nonresponse in a random-sample survey",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A city mailed a survey about a proposed bike lane to 2,000 households selected at random from all the households in the city. Of these, 340 households returned the survey, and most of the returned surveys opposed the bike lane. Which statement is most appropriate?",
    "explanation": "Although the 2,000 households were chosen at random, only 340 returned the survey. The households that chose to respond may differ systematically from those that did not, so the results may not represent the city.",
    "hints": [
