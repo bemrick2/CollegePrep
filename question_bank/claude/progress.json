@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T10:24:39+00:00",
+  "updated_at": "2026-10-27T10:24:56+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 348,
-    "act_reading": 336,
+    "act_reading": 346,
     "sat_reading_writing": 342,
     "sat_math": 518
   },
@@ -39,10 +39,10 @@
       "passed_after_revision": 7
     },
     "act_reading": {
-      "PASS": 371,
+      "PASS": 381,
       "REVISE": 28,
       "REJECT": 0,
-      "candidates": 399,
+      "candidates": 409,
       "passed_after_revision": 20
     },
     "sat_reading_writing": {
@@ -1158,15 +1158,16 @@
       "passages": 38
     },
     "act_reading": {
-      "accepted": 336,
+      "accepted": 346,
       "retired_after_audit": 35,
       "by_skill": {
-        "Craft and Structure": 118,
-        "Integration of Knowledge and Ideas": 102,
-        "Key Ideas and Details": 116
+        "Craft and Structure": 121,
+        "Integration of Knowledge and Ideas": 103,
+        "Key Ideas and Details": 122
       },
       "by_subskill": {
         "Applying a character's standard": 1,
+        "Applying a claim to a case": 1,
         "Applying a mechanism to explain a difference": 1,
         "Applying a model": 1,
         "Applying a qualified claim to choose a setting": 1,
@@ -1213,13 +1214,15 @@
         "Connecting the opening to the conclusion": 1,
         "Contrasting the passages' approaches": 1,
         "Contrasting two policies across passages": 1,
-        "Detail": 11,
+        "Detail": 13,
         "Detail (cause)": 2,
+        "Detail (causes)": 1,
         "Detail (comparison)": 1,
         "Detail (cross-passage trap)": 1,
+        "Detail (definition)": 1,
         "Detail (paraphrased)": 6,
         "Detail (quantity)": 1,
-        "Detail (reason)": 1,
+        "Detail (reason)": 2,
         "Detail (sequence)": 1,
         "Effect of a narrative detail": 1,
         "Effect of a short sentence": 1,
@@ -1235,7 +1238,7 @@
         "Function of a closing sentence": 1,
         "Function of a comparison": 4,
         "Function of a description": 1,
-        "Function of a detail": 7,
+        "Function of a detail": 8,
         "Function of a figurative comparison": 1,
         "Function of a final sentence": 1,
         "Function of a paragraph": 14,
@@ -1247,6 +1250,7 @@
         "Function of a simile": 1,
         "Function of a statement": 1,
         "Function of an early detail": 1,
+        "Function of an example": 1,
         "Function of an opening paragraph": 4,
         "Function of an opening statement": 1,
         "Function of dialogue": 1,
@@ -1318,7 +1322,7 @@
         "Main claim of one passage": 1,
         "Main focus of a passage": 1,
         "Main idea of a narrative": 4,
-        "Main idea of a passage": 7,
+        "Main idea of a passage": 8,
         "Main purpose of a passage": 8,
         "Main purpose of one passage": 1,
         "Meaning of a claim in context": 1,
@@ -1355,33 +1359,33 @@
         "Synthesizing details about a character": 1,
         "Synthesizing the central claim": 1,
         "Synthesizing the passage": 1,
-        "Vocabulary in context": 5,
+        "Vocabulary in context": 6,
         "What an experiment adds to a correlation": 1
       },
       "by_difficulty_author": {
-        "easy": 133,
+        "easy": 142,
         "hard": 32,
-        "medium": 171
+        "medium": 172
       },
       "by_difficulty_calibrated": {
-        "easy": 203,
+        "easy": 211,
         "hard": 1,
-        "medium": 132
+        "medium": 134
       },
       "calibrated_share": {
-        "easy": 0.604,
+        "easy": 0.61,
         "hard": 0.003,
-        "medium": 0.393
+        "medium": 0.387
       },
       "answer_key_balance": {
-        "A": 97,
-        "B": 81,
-        "C": 78,
-        "D": 80
+        "A": 99,
+        "B": 84,
+        "C": 80,
+        "D": 83
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 44
+      "passages": 45
     },
     "sat_reading_writing": {
       "accepted": 342,
@@ -2215,7 +2219,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 38,
-    "act_reading": 44,
+    "act_reading": 45,
     "sat_reading_writing": 39,
     "sat_math": 57
   },
@@ -2291,11 +2295,11 @@
       }
     },
     "act_reading": {
-      "next_batch": 45,
+      "next_batch": 46,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 50.1,
-        "Craft and Structure": -15.9,
-        "Integration of Knowledge and Ideas": -24.1
+        "Key Ideas and Details": 48.9,
+        "Craft and Structure": -16.0,
+        "Integration of Knowledge and Ideas": -22.9
       }
     }
   },
@@ -2312,8 +2316,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 336,
-      "share_of_target": 0.491
+      "accepted": 346,
+      "share_of_target": 0.506
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2327,9 +2331,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2318,
+  "total_accepted": 2328,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_reading",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -143055,7 +143059,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 44,
+      "bank_version": 45,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -143195,7 +143199,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T10:24:38+00:00",
+    "heartbeat_at": "2026-10-27T10:24:55+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
