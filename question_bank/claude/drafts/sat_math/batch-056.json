@@ -1,0 +1,458 @@
+{
+ "bank": "sat_math",
+ "batch": 56,
+ "plan": "SAT Math batch 56: Algebra 6, Advanced Math 3, Geometry and Trigonometry 1; 3 student-produced responses. Ideas DA02, DA03, DA07-DA10, DB03, DB05, DB06, DD04 from generated set 9 (independently pre-checked: no copy or template matches; templates DA04, DA06, DB01, DB08 dropped; DD01, DB10, DC03 dropped as well-known sources; DA01, DA05, DD03, DB04 dropped for cues). DA02's trap corrected; DA09's choices balanced.",
+ "candidates": [
+  {
+   "cand": "Q056-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Input where a miscalibrated linear reading is a stated percent of the truth",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A kitchen scale is miscalibrated: when an object with a true mass of m grams is placed on it, the scale reads 0.96m + 12 grams. For an object of what true mass, in grams, is the reading exactly 2% less than the true mass?",
+   "explanation": "A reading 2% less than the true mass is 0.98m. Setting 0.96m + 12 = 0.98m gives 0.02m = 12, so m = 600 grams. Check: the reading is 0.96(600) + 12 = 588 = 0.98 × 600.",
+   "hints": [
+    "Write '2% less than the true mass' in terms of m."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the reading equal to 0.98m."
+   },
+   "remember": "'p% less than x' means (1 − p/100)x.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must translate a percent relation between the input and output; setting the reading equal to the true mass is a strong trap."
+   },
+   "format": "spr",
+   "answer": "600",
+   "accepted_answers": [
+    "600"
+   ],
+   "common_errors": [
+    {
+     "value": "300",
+     "rationale": "300 sets the reading equal to the true mass: 0.04m = 12.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "588",
+     "rationale": "588 is the reading for that object, not its true mass.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q056-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Re-expressing a linear model with a new base year",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The number of electric vehicles registered in a county, in thousands, is modeled by y = 3.2(x − 2010) + 45, where x is the year and 2010 ≤ x ≤ 2024. Which equation gives the same model in terms of t, the number of years since 2015?",
+   "explanation": "The year is x = t + 2015, so x − 2010 = t + 5. Then y = 3.2(t + 5) + 45 = 3.2t + 16 + 45 = 3.2t + 61. Check: in 2015 (t = 0), both models give 61.",
+   "hints": [
+    "Write x in terms of t."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check the year 2015 in both models."
+   },
+   "remember": "Changing the starting year changes the intercept, not the slope.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "y = 3.2t + 29",
+    "B": "y = 3.2t + 45",
+    "C": "y = 3.2t + 50",
+    "D": "y = 3.2t + 61"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "y = 3.2t + 29 shifts the wrong way: 3.2(t − 5) + 45.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "y = 3.2t + 45 keeps the old intercept.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "y = 3.2t + 50 adds the 5-year shift to the constant instead of 3.2 × 5.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q056-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Equal estimated times for two routes under a two-variable rule",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A hiking guide estimates the time T, in hours, of a hike as T = d/5 + a/600, where d is the distance in kilometers and a is the total ascent in meters. Route A to a summit is 10 kilometers long with 900 meters of ascent, and route B is 7 kilometers long. For what total ascent, in meters, would route B have the same estimated time as route A?",
+   "explanation": "Route A takes 10/5 + 900/600 = 2 + 1.5 = 3.5 hours. Route B's distance takes 7/5 = 1.4 hours, so its ascent must account for 3.5 − 1.4 = 2.1 hours: a/600 = 2.1 and a = 1,260 meters.",
+   "hints": [
+    "Find route A's estimated time first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set route B's time equal to 3.5 hours."
+   },
+   "remember": "Hold one quantity equal and solve for the unknown input.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "1260",
+   "accepted_answers": [
+    "1260"
+   ],
+   "common_errors": [
+    {
+     "value": "900",
+     "rationale": "900 gives route B the same ascent as route A.",
+     "trap": null
+    },
+    {
+     "value": "360",
+     "rationale": "360 is only the extra ascent route B needs.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q056-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Balance condition summing products on one side",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A seesaw balances when, on each side, the sum of each person's mass times that person's distance from the pivot is the same. A 30-kilogram child sits 2 meters from the pivot, and a 20-kilogram child sits 1.2 meters from the pivot on the same side. How far from the pivot, in meters, must a 48-kilogram adult sit on the other side to balance them?",
+   "explanation": "The children's side gives 30(2) + 20(1.2) = 60 + 24 = 84. The adult must give 48d = 84, so d = 1.75 meters.",
+   "hints": [
+    "Compute each child's mass times distance."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the two sides' sums equal."
+   },
+   "remember": "Each person contributes mass × distance.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1.25",
+    "B": "1.67",
+    "C": "1.75",
+    "D": "2.08"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "1.25 uses only the first child: 60/48.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1.67 puts the 50 kilograms at the average distance 1.6 meters: 80/48.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2.08 uses 2 meters for both children: 100/48.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q056-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting a simplified coefficient when the total is fixed",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A juice bar makes a 12-liter blend from x liters of juice A, which costs $2.40 per liter, and the rest juice B, which costs $1.50 per liter. The cost of the blend, in dollars, is C = 0.9x + 18. What is the best interpretation of 0.9 in this context?",
+   "explanation": "The cost is 2.40x + 1.50(12 − x) = 0.9x + 18. Increasing x by 1 adds a liter of juice A and removes a liter of juice B, so the cost rises by 2.40 − 1.50 = 0.9 dollar.",
+   "hints": [
+    "Write the cost before simplifying."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Expand 2.40x + 1.50(12 − x)."
+   },
+   "remember": "With a fixed total, a coefficient can be a difference of rates.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognize that the coefficient is a difference of two prices because the total is fixed."
+   },
+   "choices": {
+    "A": "The increase, in dollars, in the cost of the blend for each liter of juice B replaced by a liter of juice A",
+    "B": "The increase, in dollars, in the cost of the blend for each additional liter added to the blend",
+    "C": "The cost, in dollars, of each liter of juice A that is used in the blend",
+    "D": "The cost, in dollars, of the 12-liter blend if it contains only juice B"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The blend is always 12 liters; x is the amount of juice A, not the blend's size.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Juice A costs $2.40 per liter; 0.9 is a difference of prices.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "The cost of a blend of only juice B is 18, the constant term.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q056-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Time for one leg when two leg speeds are linked by a ratio",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In a triathlon practice, Lee swam 1 kilometer and then biked 30 kilometers. Lee's average biking speed was 10 times Lee's average swimming speed, and the swim and the bike ride together took 2 hours. How many minutes did the bike ride take?",
+   "explanation": "Let s be the swimming speed in kilometers per hour. The total time is 1/s + 30/(10s) = 1/s + 3/s = 4/s = 2, so s = 2. The bike ride took 30/20 = 1.5 hours, or 90 minutes.",
+   "hints": [
+    "Write each leg's time in terms of the swimming speed."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the two times and set the sum to 2."
+   },
+   "remember": "Time = distance ÷ speed for each leg.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "60",
+    "B": "90",
+    "C": "109",
+    "D": "116"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "60 splits the 2 hours equally between the legs.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "109 splits the time in the ratio of the speeds, 10 : 1.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "116 splits the time in the ratio of the distances, 30 : 1.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q056-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Height of a parabolic cable built from a vertex and two equal points",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A suspension-bridge cable hangs in the shape of a parabola between two towers 100 meters apart. The cable is attached 30 meters above the road at each tower, and its lowest point, midway between the towers, is 10 meters above the road. How many meters above the road is the cable at a point 20 meters horizontally from one tower?",
+   "explanation": "Put one tower at x = 0, so the vertex is (50, 10) and y = a(x − 50)² + 10. At x = 0, 2,500a + 10 = 30, so a = 0.008. At x = 20, y = 0.008(900) + 10 = 17.2 meters.",
+   "hints": [
+    "Where is the vertex if one tower is at x = 0?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the towers and the cable on axes."
+   },
+   "remember": "Use vertex form when the lowest point is known.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "7.2",
+    "B": "13.2",
+    "C": "17.2",
+    "D": "22.0"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "7.2 forgets the + 10: 0.008 × 900.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "13.2 measures the 20 meters from the middle: 0.008 × 400 + 10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "22.0 interpolates linearly from the tower top toward the lowest point.",
+     "trap": "overextend_trend"
+    }
+   }
+  },
+  {
+   "cand": "Q056-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Speed at which a quadratic consumption model reaches a percent above its minimum",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For speeds v from 40 to 80 miles per hour, the fuel a car uses, in gallons per mile, is modeled by g(v) = 0.00005(v − 55)² + 0.03. To the nearest whole number, at what speed greater than 55 miles per hour does the car use 25% more fuel per mile than it uses at 55 miles per hour?",
+   "explanation": "At 55 mph, g = 0.03. 25% more is 0.0375, so 0.00005(v − 55)² = 0.0075 and (v − 55)² = 150. Then v = 55 + √150 ≈ 67.25, which rounds to 67.",
+   "hints": [
+    "What is the fuel use at 55 miles per hour?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set g(v) equal to 1.25 × 0.03."
+   },
+   "remember": "Solve the vertex form by taking a square root.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "67",
+   "accepted_answers": [
+    "67"
+   ],
+   "common_errors": [
+    {
+     "value": "205",
+     "rationale": "205 forgets the square root: 55 + 150.",
+     "trap": null
+    },
+    {
+     "value": "55",
+     "rationale": "55 is the speed of least fuel use.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q056-09",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Base perimeter from dividing a volume polynomial by the height",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A closed box has a volume of V(x) = x³ + 7x² + 14x + 8 cubic inches and a height of x + 1 inches, where x > 0. Its base is a rectangle whose length and width are x + a and x + b inches, where a and b are constants. Which expression gives the perimeter, in inches, of the base?",
+   "explanation": "The base area is V(x) ÷ (x + 1) = x² + 6x + 8, which factors as (x + 2)(x + 4). The perimeter is 2(x + 2) + 2(x + 4) = 4x + 12.",
+   "hints": [
+    "Divide the volume by the height."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor the quotient to find the base's sides."
+   },
+   "remember": "Volume ÷ height = base area.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must divide a cubic by a linear factor and factor the quotient before using the perimeter formula."
+   },
+   "choices": {
+    "A": "2x + 6",
+    "B": "4x + 6",
+    "C": "4x + 10",
+    "D": "4x + 12"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "2x + 6 adds the two side lengths only once.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "4x + 6 uses a face with the height: x + 1 and x + 2.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4x + 10 uses a face with the height: x + 1 and x + 4.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q056-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Height of a rotating point using cosine and a raised center",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A Ferris wheel has a diameter of 50 meters, and its lowest point is 2 meters above the ground. As the wheel turns, a car moves from the lowest point through an angle of 60° about the center of the wheel. How many meters above the ground is the car then?",
+   "explanation": "The center is 2 + 25 = 27 meters above the ground. After turning 60° from the bottom, the car is 25 cos 60° = 12.5 meters below the center, so its height is 27 − 12.5 = 14.5 meters.",
+   "hints": [
+    "How high is the center of the wheel?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the wheel and the 60° angle from the bottom."
+   },
+   "remember": "The vertical distance from the center is r cos θ, measured from the bottom.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "12.5",
+    "B": "14.5",
+    "C": "23.7",
+    "D": "39.5"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "12.5 forgets the 2 meters below the wheel.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "23.7 uses sine instead of cosine: 2 + 25 sin 60°.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "39.5 adds instead of subtracting, measuring from the top.",
+     "trap": "sign_error"
+    }
+   }
+  }
+ ]
+}
