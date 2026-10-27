@@ -1,0 +1,430 @@
+{
+ "ideas": "generated set 26 (UB/UD)",
+ "results": {
+  "UB01": [
+   {
+    "other_id": "CLD-ACT-M-000623",
+    "severity": "close",
+    "why": "Solve V = (1/3)πr²h for h: isolates a plain factor. UB01 must undo a square root (divide by 2π, square the whole side, multiply by g). Different key step. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000424 (= ideas-gen-05 V09)",
+    "severity": "close",
+    "why": "Area in terms of circumference: substitute r = C/(2π). Different mechanism. Cited."
+   }
+  ],
+  "UB02": [
+   {
+    "other_id": "CLD-SAT-M-000496 (= ideas-gen-08 CB01)",
+    "severity": "close",
+    "why": "Border on all four sides of a square photo, (s + 4)² − s². UB02 trims two sides of a non-square rectangle and rejects the root 44. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000475 / CLD-SAT-M-000498",
+    "severity": "close",
+    "why": "Rectangle-to-square and open-box domain. Different ask. Cited."
+   }
+  ],
+  "UB03": [
+   {
+    "other_id": "CLD-SAT-M-000163",
+    "severity": "close",
+    "why": "(x + 3)² from x² + 6x = 7: one-variable square completion. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000089",
+    "severity": "close",
+    "why": "x² + y² = 29 and xy = 10, find (x + y)²: two-variable square identity, different given and ask. Not cited."
+   },
+   {
+    "other_id": "CLD-ACT-M-000247",
+    "severity": "close",
+    "why": "Combine two linear equations into a target linear expression. Cited."
+   }
+  ],
+  "UB04": [
+   {
+    "other_id": "CLD-SAT-M-000838 (= ideas-gen-23 RB11)",
+    "severity": "close",
+    "why": "f(1/x) = −f(x) for a rational f: substitution, not self-composition. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000619 (= ideas-gen-13 HB09)",
+    "severity": "close",
+    "why": "Simplify a written-out compound fraction. UB04 must build it by composing. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000732 / CLD-ACT-M-000438 / CLD-ACT-M-000585 / CLD-ACT-M-000625 / CLD-ACT-M-000347",
+    "severity": "close",
+    "why": "f(f(x)) with polynomials or numbers (count roots, evaluate, solve). None composes a rational function symbolically."
+   }
+  ],
+  "UB05": [
+   {
+    "other_id": "CLD-SAT-M-000281 (= ideas-gen-01 G12)",
+    "severity": "close",
+    "why": "(x − 3)(x + 5) = (x − 3)(2x − 1), sum of solutions; dividing loses x = 3. UB05 turns the lost root into the condition for a parameter. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000794 (= ideas-gen-21 PB15, batch-073)",
+    "severity": "close",
+    "why": "x² + (k − 2)x + k − 3 = 0 has exactly one solution; discriminant is a perfect square in k. UB05's discriminant is also a perfect square, (k − 5)², but it asks for k, not the solution, and the factored form is visible. Not cited."
+   },
+   {
+    "other_id": "ideas-gen-24 SA07",
+    "severity": "close",
+    "why": "c(x − 4) + 12 = 3x with exactly one solution (linear, asks the solution). Different degree and ask."
+   }
+  ],
+  "UB06": [
+   {
+    "other_id": "CLD-ACT-M-000618",
+    "severity": "close",
+    "why": "Generator flag adjudicated: ACT-618 evaluates n(n − 1)/2 forward for n = 8 (answer 28). UB06 gives the count and solves the quadratic for n, rejecting −12. Different asked quantity and key step. Allowed; keep in a different batch from any handshake/diagonal count."
+   },
+   {
+    "other_id": "CLD-ACT-M-000245",
+    "severity": "close",
+    "why": "Diagonals of a 10-gon, n(n − 3)/2 forward. Different ask."
+   }
+  ],
+  "UB07": [
+   {
+    "other_id": "CLD-SAT-M-000892 (= ideas-gen-25 TB10, batch-080)",
+    "severity": "close",
+    "why": "Vertex of y = x² − 8x + c on y = x; find c. UB07 finds b from a slope in which c cancels. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000615 (= ideas-gen-13 HB05) / CLD-SAT-M-000162",
+    "severity": "close",
+    "why": "Vertex-position conditions with a known b; different ask. 000615 cited."
+   }
+  ],
+  "UB08": [
+   {
+    "other_id": "CLD-SAT-M-000205",
+    "severity": "close",
+    "why": "Interval where a given quadratic is positive. UB08 recovers a from the y-intercept and uses the threshold −5 (mirror point). Cited."
+   },
+   {
+    "other_id": "ideas-gen-25 TB03",
+    "severity": "close",
+    "why": "Quadratic profit at least 600, count whole-dollar prices: quadratic inequality against a nonzero threshold, but the quadratic is given and the ask is a count."
+   }
+  ],
+  "UB09": [
+   {
+    "other_id": "CLD-SAT-M-000295 (= ideas-gen-01 G27)",
+    "severity": "close",
+    "why": "Square inscribed in a 6-8 right triangle in the same position; single shape, no optimization. The square is UB09's trap. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000554 (= ideas-gen-10 EB03)",
+    "severity": "close",
+    "why": "Greatest perimeter of a rectangle under a parabola. Cited."
+   },
+   {
+    "other_id": "ideas-gen-21 PD02",
+    "severity": "close",
+    "why": "Square on one side of a triangle with height 10; similar triangles, no optimization."
+   }
+  ],
+  "UB10": [
+   {
+    "other_id": "CLD-SAT-M-000667 (= ideas-gen-15 JB17) / CLD-SAT-M-000304",
+    "severity": "close",
+    "why": "Find c from shifted or given roots. Cited."
+   },
+   {
+    "other_id": "ideas-gen-25 TB11 / ideas-gen-17 LB12",
+    "severity": "close",
+    "why": "Sum and product of roots used forward. UB10 makes the coefficients the roots, a system in b and c."
+   }
+  ],
+  "UB11": [
+   {
+    "other_id": "CLD-ACT-M-000515",
+    "severity": "close",
+    "why": "Integer k for which x² + kx + 9 = 0 has no real solutions; discriminant k² − 36. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000077",
+    "severity": "close",
+    "why": "Two real solutions, condition linear in k. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000794 (batch-073) / ideas-gen-21 PB09",
+    "severity": "close",
+    "why": "k in both the linear and the constant term (000794), and an interval MC for a discriminant condition (PB09, 0 < c < 9). UB11 combines the two; different ask from each."
+   }
+  ],
+  "UB12": [
+   {
+    "other_id": "CLD-ACT-M-000101",
+    "severity": "template",
+    "why": "Not cited. ACT-101: if 2^a = 3 and 3^b = 16, what is ab? (4). UB12: if 2^a = 5 and 5^b = 8, what is ab? (3). Same chained-base mechanism (2^(ab) = (2^a)^b), same asked quantity (ab), same distractor types (6.34 = calculator decimal, 48 = product of outputs). Cross-exam re-skin with only numbers changed. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000219 / ideas-gen-23 RB10 / CLD-ACT-M-000655",
+    "severity": "close",
+    "why": "Single-base exponent combination. Cited (219, RB10)."
+   }
+  ],
+  "UB13": [
+   {
+    "other_id": "CLD-ACT-M-000049",
+    "severity": "template",
+    "why": "Not cited. ACT-049: if x + 1/x = 5, what is x² + 1/x²? (23). UB13: f(x) = 3^x + 3^(−x), f(a) = 5, find f(2a) (23). With u = 3^a, this is exactly u + 1/u = 5, find u² + 1/u², with the same given 5, the same answer 23 and the same traps (25, 27). The exponential wrapper adds only the rewrite 9^a = (3^a)². Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000836 (= ideas-gen-23 RB05, batch-076) / CLD-SAT-M-000466 / CLD-SAT-M-000287",
+    "severity": "close",
+    "why": "Reciprocal-pair identities (difference of squares; (√x + 1/√x)²; x + 1/x from a quadratic). Different asks. 836 cited."
+   },
+   {
+    "other_id": "ideas-gen-11 FB05",
+    "severity": "close",
+    "why": "f(x) = 2^x − 2^(−x), f(a) = 3, f(−a): oddness. Cited."
+   }
+  ],
+  "UB14": [
+   {
+    "other_id": "CLD-SAT-M-000286 (= ideas-gen-01 G17)",
+    "severity": "close",
+    "why": "9^x = 5, find 27^x · 3^(−x): one base. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000072 / CLD-ACT-M-000745 / ideas-gen-21 PB11",
+    "severity": "close",
+    "why": "Pull a constant out of a shifted exponent (2^(x+1) = 2 · 2^x). UB14 also merges 2^x · 3^x into 6^x. Different ask."
+   }
+  ],
+  "UB15": [
+   {
+    "other_id": "CLD-ACT-M-000290",
+    "severity": "template",
+    "why": "Not cited (generator cited ACT-467 instead). ACT-290: a rectangle has a perimeter of 34 centimeters and an area of 60 square centimeters; what is the length of its longer side? (12). UB15: perimeter 34 cm, area 70 cm², longer side (10). Same mechanism (sum and product give a quadratic whose roots are the sides), same ask, even the same perimeter and units. Only the area changes. Drop."
+   },
+   {
+    "other_id": "CLD-ACT-M-000467",
+    "severity": "close",
+    "why": "Perimeter and diagonal give the area; no quadratic solved. Cited."
+   }
+  ],
+  "UB16": [
+   {
+    "other_id": "CLD-SAT-M-000462 (= ideas-gen-07 BA03)",
+    "severity": "close",
+    "why": "a/b from a linear relation. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000285 (= ideas-gen-01 G16)",
+    "severity": "close",
+    "why": "Factor a one-variable trinomial. Cited."
+   }
+  ],
+  "UB17": [
+   {
+    "other_id": "CLD-ACT-M-000658 / CLD-SAT-M-000417 (= ideas-gen-05 V13)",
+    "severity": "close",
+    "why": "Half-life given, compute forward. UB17 recovers the half-life. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000303 / CLD-SAT-M-000578",
+    "severity": "close",
+    "why": "Doubling/halving period given; different ask (percent per sub-period; time to equal)."
+   }
+  ],
+  "UD01": [
+   {
+    "other_id": "CLD-SAT-M-000324 (= ideas-gen-02 H29)",
+    "severity": "close",
+    "why": "One external tangency: center distance = sum of radii. Cited."
+   },
+   {
+    "other_id": "ideas-gen-25 TD08 / CLD-ACT-M-000166",
+    "severity": "close",
+    "why": "Common external tangent of two circles. Different ask. TD08 cited."
+   }
+  ],
+  "UD02": [
+   {
+    "other_id": "CLD-ACT-M-000147",
+    "severity": "close",
+    "why": "Longest rod in a 3-by-4-by-12 box: edges given. UD02 must recover a² + b² + c² from face diagonals. Cited."
+   },
+   {
+    "other_id": "ideas-gen-19 ND04 / ideas-gen-06 AD07",
+    "severity": "close",
+    "why": "Face areas to volume; vertex to face center. Cited."
+   }
+  ],
+  "UD03": [
+   {
+    "other_id": "CLD-SAT-M-000047 / CLD-SAT-M-000230",
+    "severity": "close",
+    "why": "3:4:5 shape given and scaled. UD03 derives the shape from the arithmetic-sequence condition. Cited."
+   }
+  ],
+  "UD04": [
+   {
+    "other_id": "CLD-ACT-M-000737 / CLD-ACT-M-000778",
+    "severity": "close",
+    "why": "Single semicircle attached to a polygon. Cited."
+   },
+   {
+    "other_id": "CLD-ACT-M-000386 / ideas-gen-09 DD03",
+    "severity": "close",
+    "why": "Square in a semicircle; running-track area. Different setup."
+   }
+  ],
+  "UD05": [
+   {
+    "other_id": "CLD-SAT-M-000348 (= ideas-gen-03 M03)",
+    "severity": "close",
+    "why": "Hemisphere poured into a cylinder; find a depth. Cited."
+   },
+   {
+    "other_id": "CLD-ACT-M-000232 / CLD-ACT-M-000624 / CLD-ACT-M-000173",
+    "severity": "close",
+    "why": "Volume scaling of a cylinder; sphere displacement. Different ask."
+   }
+  ],
+  "UD06": [
+   {
+    "other_id": "CLD-ACT-M-000617",
+    "severity": "close",
+    "why": "Generator flag adjudicated: ACT-617 gives the interior angle (150°) and asks n. UD06 asks the same final quantity (n from a regular polygon's interior angle), but the angle (156°) must first be built from the 360° around the point and the decagon's interior angle (144°), which is two added steps. Close, not template. Allowed; keep apart from ACT-617, ACT-186 and ACT-657."
+   },
+   {
+    "other_id": "CLD-SAT-M-000627 (= ideas-gen-13 HD03, batch-061)",
+    "severity": "close",
+    "why": "Square and regular pentagon share a side; find an angle. Cited."
+   }
+  ],
+  "UD07": [
+   {
+    "other_id": "CLD-SAT-M-000046 / CLD-SAT-M-000105",
+    "severity": "close",
+    "why": "Cos of an angle in one right triangle; similar-triangle side ratio. Cited."
+   }
+  ],
+  "UD08": [
+   {
+    "other_id": "CLD-SAT-M-000856 (= ideas-gen-23 RD07, batch-077) / CLD-ACT-M-000065",
+    "severity": "close",
+    "why": "Diameter AB, inscribed angle at C; find angles/arcs. UD08 works backward from an area to r. Cited."
+   },
+   {
+    "other_id": "ideas-gen-03 M01",
+    "severity": "close",
+    "why": "Area of triangle AOB as k√3 from an arc; 30-60-90 split. Different setup."
+   }
+  ],
+  "UD09": [
+   {
+    "other_id": "CLD-SAT-M-000857 (= ideas-gen-23 RD08, batch-077)",
+    "severity": "close",
+    "why": "Cylinder inscribed in a sphere. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000632 (= ideas-gen-13 HD11)",
+    "severity": "close",
+    "why": "Cone radius at a known water level by similar triangles. Cited."
+   }
+  ],
+  "UD10": [
+   {
+    "other_id": "CLD-ACT-M-000457",
+    "severity": "close",
+    "why": "Midpoint square; fixed 1:2 ratio. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000450 (= ideas-gen-06 AD03) / CLD-SAT-M-000685",
+    "severity": "close",
+    "why": "Corner triangles cut from a rectangle; point inside a square. Different ask."
+   }
+  ],
+  "UD11": [
+   {
+    "other_id": "CLD-SAT-M-000751 (= ideas-gen-19 ND08, batch-069)",
+    "severity": "close",
+    "why": "Right angle at the origin inscribed in a known circle. UD11 uses the right angle to locate the diameter of an unknown circle. Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000673 (= ideas-gen-15 JD07)",
+    "severity": "close",
+    "why": "Circle through two points tangent to a line; radius is also 13/2 = 6.5. Different mechanism but the same answer: keep apart. Cited."
+   },
+   {
+    "other_id": "ideas-gen-06 AD05",
+    "severity": "close",
+    "why": "Circle of radius 13 through two points; center by perpendicular bisector. Different ask."
+   }
+  ],
+  "UD12": [
+   {
+    "other_id": "CLD-SAT-M-000855 (= ideas-gen-23 RD06, batch-077)",
+    "severity": "close",
+    "why": "Not cited. Two poles 6 and 9 m tall, crossed wires, crossing height 3.6 = ab/(a + b). Each half of UD12's segment is the same ab/(a + b) quantity (6 = 15·10/25) from the same crossed-segments similar-triangle mechanism; UD12 asks for a length in a trapezoid and doubles it. Different asked quantity and setting, so close, but a strong mechanism match: never batch together."
+   },
+   {
+    "other_id": "CLD-SAT-M-000752 (= ideas-gen-19 ND09) / CLD-ACT-M-000193 / CLD-ACT-M-000333",
+    "severity": "close",
+    "why": "Diagonal split ratio used for areas (752), a diagonal piece (193), the midsegment (333). Cited."
+   }
+  ],
+  "UD13": [
+   {
+    "other_id": "CLD-ACT-M-000241",
+    "severity": "close",
+    "why": "25-foot ladder, base moved from 7 to 15 ft; how far the top slides (4). UD13: same 25-foot ladder and 7-24-25 triple, same kind of ask (change in the top's height, 17). The added step is decoding a sine and a cosine (cofunction), so close rather than template, but the surface is nearly identical. Revise numbers (different ladder and triple). Cited."
+   },
+   {
+    "other_id": "CLD-SAT-M-000858 (= ideas-gen-23 RD09, batch-077) / CLD-SAT-M-000801 / CLD-SAT-M-000802 (batch-073) / CLD-ACT-M-000401",
+    "severity": "close",
+    "why": "Cofunction family: kite height from cos(90 − x)° = 0.6; sin A = cos B triangle area; sin(90 − x) + cos(90 − x); cos(90° − θ). Four live cofunction items already; UD13 is the fifth. Allowed, but keep apart from all of these. 858 cited."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "UB03": "Plug-in cue (generator flag adjudicated): the expression is constant on the line, so x = 3, y = 0 gives 9 − 6 = 3 instantly and eliminates all three distractors without any factoring. This is a non-identity item, so the point check is a full bypass, not a check. Not a drop (the recognition skill is real and the SAT has similar items), but rate it easy-medium, not medium, and do not count it as a factoring item. An SPR version does not fix it.",
+  "UB16": "Plug-in concern (generator flag adjudicated): testing choices in x² − 5xy + 6y² = 0 with y = 1 rejects A (1/3) and D (6) and leaves 2 and 3; the stated condition x ≠ 2y then picks 3. Back-solving a choice is ordinary MC strategy and still uses the condition, so this is acceptable. Unlike UB03, the plug-in does not bypass the item. Keep at medium-hard. Minor: B is ruled out by the stem's own condition, so it is a weak distractor for careful readers; D (6) is weak too. Consider replacing D with 3/2 (solves for y/x after factoring as (x − 2y)(x − 3y) and inverting the excluded root) or −3 (sign slip in the factors).",
+  "UB06": "Easy SPR: 13 can be found by trying n with a calculator (13·12/2 = 78). Acceptable at easy. Trap 12 rationale fine.",
+  "UB12": "Calculator shortcut: log₂5 × log₅8 = 3.000 on any calculator. Moot (drop).",
+  "UB14": "Calculator/Desmos shortcut: graph y = 2^(x + 1)·3^(x − 1) and y = 16, read x ≈ 1.6826, then 6^x = 24.000. The exact integer key makes the purely numeric route fully reliable, so the exponent-rule skill can be skipped. Not fatal (the SAT allows Desmos), but this is a cue. Consider asking for an expression rather than a number, or keep it at medium.",
+  "UB15": "Moot (drop). The key 10 and the trap 7 are the two roots, so a student can guess 10 by finding two numbers with sum 17 and product 70 by inspection.",
+  "UB05": "Mild: 3 is visible in the factor (x − 3) and is listed as a trap; the key 5 is not visible. Fine.",
+  "UB11": "Mild: test values k = 0, 4 and 6 (substitute and check for real roots) eliminate B, C and D, but each test needs the discriminant or a factoring check, so it is not a bypass. Fine.",
+  "UD07": "Irrelevant given: ST = 50 is never used. This is the intended bait for A (7/50), and the item is easy, so it is acceptable, but the item reviewer should know. Choices are short and not distinguishable by length.",
+  "UD10": "Mild: C (10√2 ≈ 14.14) is within 0.15 of the key 14, but it is distinct in exact form, so this is fine. The 6-8-10 triple is guessable from AE = 6 and side 10, so the item stays at medium.",
+  "UD11": "Same answer as banked CLD-SAT-M-000673 (6.5). Not a cue in itself, but keep the two in different batches.",
+  "UD06": "Scope note: interior angles of regular polygons ((n − 2)·180/n) are not an explicit digital-SAT topic. They are rarely tested on the SAT and common on the ACT. Acceptable as a hard geometry item, but do not add more of these.",
+  "UD02": "Scope note: the space diagonal √(a² + b² + c²) of a box is rare on the digital SAT (it appears only as a Pythagorean extension). Acceptable at hard. The item can be solved by recovering the edges 2, 3, 6, which is pure Pythagorean work.",
+  "UD13": "Mild: the trap 0 ('the same angle') is common-sense-eliminable, because the base moved, so the height changed. The 25-7-24 numbers repeat CLD-ACT-M-000241 exactly.",
+  "UD01": "Good: r > 2 removes the other configuration, (√17 − 3)/2 ≈ 0.56. The trap √5 ≈ 2.236 satisfies r > 2, so it stays plausible.",
+  "within-list overlaps (generator-noted)": "UD08/UD11: both rely on 'an inscribed right angle subtends a diameter'. Allowed as different items (one area-to-radius with a 30-60-90 triangle, one coordinate radius), but put them in different batches. UB03/UB16: both two-variable quadratic forms in x and y that factor; different asks; separate batches. UB12–UB14: UB12 and UB13 are dropped, so UB14 is the only live exponent item from the trio. UB02/UB06/UB15: UB15 is dropped; UB02 and UB06 both 'set up a quadratic from context and reject a root', so keep them apart. UD07/UD09/UD12: UD09 and UD12 both use similar triangles to get a linear length relation, so separate them; UD07 overlaps only loosely."
+ },
+ "math_errors": {
+  "none (keys)": "All 30 keys and every listed distractor or trap were recomputed with sympy (scratchpad v74.py). UB01 L = gT²/(4π²) (check 1.000); UB02 roots 6, 44, trap 5.28; UB03 3 (6, 9, 15 check); UB04 (x − 1)/x, at x = 2: A 1, B 2, C −0.5, D 0.5; UB05 (x − 3)(x + 2 − k), discriminant (k − 5)², k = 5; UB06 13 (−12; 12 from n(n + 1)/2; 9.35); UB07 slope = b/2 for all c, b = −6; UB08 a = 1, 0 < x < 4, q = 4; UB09 max 20 at x = 5, square trap 1600/81 = 19.75, inverted-slope trap 12.8; UB10 (b, c) = (1, −2), spurious (−1/2, −1/2) and (0, 0) excluded, x² − x/2 − 1/2 has roots 1 and −1/2; UB11 −2 < k < 6; UB12 ab = 3 (a ≈ 2.3219, b ≈ 1.2920); UB13 23 (both roots of u + 1/u = 5); UB14 6^x = 24, A 32/3, D 96; UB15 7, 10; UB16 2, 3; UB17 h = 2; UD01 r = 3, (√17 − 3)/2 ≈ 0.56, √5 ≈ 2.236; UD02 a², b², c² = 4, 9, 36 → 7, √98 ≈ 9.90, √85 ≈ 9.22, 11; UD03 s = 4d, d = 3, perimeter 36; UD04 8π (10π, 16π, 32π); UD05 27 (54 checks); UD06 15 (trap 18, 2.31); UD07 PQ = 25, 7/25; UD08 r = 6 (3√2, 6√3 check); UD09 r = 3, 54 (18; 64 from r = h = 4); UD10 14 (10√2 ≈ 14.14); UD11 center (7, 4.5), r = 6.5; UD12 12 = 2·15·10/25; UD13 24 − 7 = 17.",
+  "UB07 (rationale wording)": "The trap 6 is described as 'writes the vertex's x-coordinate as b/2, which flips the slope's sign'. The slope then comes out −b/2 = −3, so b = 6. Correct, but the explanation should show that step.",
+  "UD08 (distractor C rationale)": "The arithmetic for C checks (legs r and r/√3 give area r²/(2√3) = 18√3, so r² = 108 and r = 6√3), but the stated misconception, 'AC = r and BC = r/√3', is implausible: it makes the hypotenuse 2r/√3, not 2r, so no student reasoning from a diameter of 2r gets there. Other natural slips collide with existing choices: taking AB = r gives r² = 144 and r = 12 (= D), and dropping the 1/2 gives 3√2 (= A). Fix: replace C with 36 (stops at r² = 36) or keep 6√3 with an honest rationale."
+ },
+ "recommend_drop": [
+  "UB12",
+  "UB13",
+  "UB15"
+ ],
+ "recommend_revise": {
+  "UB03": "Lower to easy-medium. The point plug-in (x = 3, y = 0) is a full bypass in this non-identity item. Keep it as a recognition item, or drop it if the batch already has a perimeter/plug-in-friendly item. Cite CLD-SAT-M-000089.",
+  "UB05": "Cite CLD-SAT-M-000794 (batch-073; exactly-one-solution parameter with a perfect-square discriminant) and keep UB05 in a different batch.",
+  "UB14": "Acknowledge the Desmos route (solve numerically, then evaluate 6^x = 24.000) and keep the item at medium (not medium-hard), or ask for the expression for 6^x in a form a calculator cannot read off.",
+  "UB16": "Optional: replace the weak D (6) with a factoring-slip value (e.g., −3 from (x + 2y)(x + 3y) sign errors, or 3/2).",
+  "UD07": "Keep ST = 50 only if the item reviewer accepts an intentionally unused given at easy level. Otherwise give the scale factor a role, e.g., ask for TU.",
+  "UD08": "Replace distractor C (6√3, implausible rationale) with 36 (stops at r² = 36) or another plausible slip that does not collide with A or D.",
+  "UD12": "Cite CLD-SAT-M-000855 (crossed wires, the same ab/(a + b) mechanism) and never batch the two together.",
+  "UD13": "Change the ladder and triple away from CLD-ACT-M-000241's 25-foot, 7-24-25 ladder (e.g., a 17-foot ladder with sin x° = 8/17 and cos y° = 8/17, answer 15 − 8 = 7), and cite 000801, 000802 and 000858 as the cofunction family.",
+  "UD06": "Optional scope note in the item: regular-polygon interior angles are ACT-typical. Keep it as the only polygon-angle item in its batch.",
+  "batching": "Keep apart (different batches): UB05 from 000794 (batch-073) and 000281; UB06 from ACT-618 and ACT-245; UB07 from 000892 (batch-080) and 000615; UB08 from 000205; UB09 from 000295 and 000554; UB10 from 000667 and 000304; UB11 from 000794, 000077 and ACT-515; UB14 from 000286 and 000072; UB04 from 000838 (batch-076) and 000619; UB17 from 000417 and ACT-658; UD06 from ACT-617, ACT-186 and 000627; UD08 from 000856 (batch-077); UD09 from 000857 (batch-077) and 000632; UD11 from 000751 and 000673 (same answer 6.5); UD12 from 000855 (batch-077) and 000752; UD13 from 000858 (batch-077), 000801/000802 (batch-073) and ACT-241. Within the list, separate UD08/UD11, UB03/UB16, UB02/UB06 and UD09/UD12."
+ }
+}
