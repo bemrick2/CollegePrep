@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T07:44:42+00:00",
+  "updated_at": "2026-10-27T07:46:35+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 281,
-    "act_reading": 264,
+    "act_reading": 255,
     "sat_reading_writing": 278,
     "sat_math": 518
   },
@@ -1093,12 +1093,12 @@
       "passages": 28
     },
     "act_reading": {
-      "accepted": 264,
-      "retired_after_audit": 3,
+      "accepted": 255,
+      "retired_after_audit": 12,
       "by_skill": {
-        "Craft and Structure": 96,
-        "Integration of Knowledge and Ideas": 73,
-        "Key Ideas and Details": 95
+        "Craft and Structure": 94,
+        "Integration of Knowledge and Ideas": 71,
+        "Key Ideas and Details": 90
       },
       "by_subskill": {
         "Applying a character's standard": 1,
@@ -1127,10 +1127,8 @@
         "Central claim of a passage": 3,
         "Central claim of a research narrative": 1,
         "Central idea of a narrative": 3,
-        "Central idea of an argumentative essay": 1,
         "Central idea of an informational passage": 2,
         "Characterization": 3,
-        "Comparing a narrator’s views over time": 1,
         "Comparing perspectives (younger and older narrator)": 1,
         "Comparing the passages' focus": 1,
         "Comparing two parts of a narrative": 1,
@@ -1143,7 +1141,6 @@
         "Detail": 6,
         "Detail (cross-passage trap)": 1,
         "Detail (paraphrased)": 7,
-        "Detail requiring careful reading": 1,
         "Effect of a narrative detail": 1,
         "Effect of figurative language": 2,
         "Evaluating evidence for a claim": 2,
@@ -1158,7 +1155,7 @@
         "Function of a detail": 7,
         "Function of a figurative comparison": 1,
         "Function of a final sentence": 1,
-        "Function of a paragraph": 10,
+        "Function of a paragraph": 9,
         "Function of a parenthetical remark": 1,
         "Function of a phrase": 2,
         "Function of a short paragraph": 1,
@@ -1179,10 +1176,8 @@
         "Inference about a gesture": 1,
         "Inference about a mechanism": 1,
         "Inference about a narrator's view": 1,
-        "Inference about a quoted statement": 1,
         "Inference about a stated outcome": 1,
         "Inference about an author's preferred explanation": 1,
-        "Inference about an earlier view": 1,
         "Inference about evidence": 1,
         "Inference about historical understanding": 1,
         "Inference about motivation": 1,
@@ -1190,7 +1185,6 @@
         "Inference about why outside rules failed": 1,
         "Inference across paragraphs about which performers benefited": 1,
         "Inference from a comparison": 1,
-        "Inference from a concession": 1,
         "Inference from a detail": 2,
         "Inference from a sequence of details": 1,
         "Inference from an example": 1,
@@ -1223,7 +1217,7 @@
         "Main purpose of a passage": 8,
         "Main purpose of one passage": 1,
         "Meaning of a phrase in context": 6,
-        "Meaning of a word in context": 24,
+        "Meaning of a word in context": 23,
         "Overall structure of a narrative": 1,
         "Overall structure of a passage": 1,
         "Overall structure of an argument": 1,
@@ -1233,7 +1227,6 @@
         "Predicting one author's response to the other": 1,
         "Purpose of a passage": 1,
         "Purpose of a short paragraph": 1,
-        "Purpose of a technique described in the passage": 1,
         "Relating a proposal to the other passage": 1,
         "Relationship between paragraphs": 4,
         "Relationship of a closing paragraph": 1,
@@ -1250,23 +1243,23 @@
         "Synthesizing the passage": 1
       },
       "by_difficulty_author": {
-        "easy": 77,
+        "easy": 73,
         "hard": 32,
-        "medium": 155
+        "medium": 150
       },
       "by_difficulty_calibrated": {
-        "easy": 152,
-        "medium": 112
+        "easy": 148,
+        "medium": 107
       },
       "calibrated_share": {
-        "easy": 0.576,
-        "medium": 0.424
+        "easy": 0.58,
+        "medium": 0.42
       },
       "answer_key_balance": {
-        "A": 76,
-        "B": 64,
-        "C": 62,
-        "D": 62
+        "A": 74,
+        "B": 62,
+        "C": 60,
+        "D": 59
       },
       "modeling_items": 0,
       "spr_items": 0,
@@ -2151,6 +2144,15 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "sat_reading_writing": {
+      "next_batch": 32,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 0.6,
+        "Information and Ideas": -2.1,
+        "Standard English Conventions": 13.9,
+        "Expression of Ideas": -2.4
+      }
+    },
     "act_english": {
       "next_batch": 29,
       "skill_gap_for_next_10": {
@@ -2162,18 +2164,9 @@
     "act_reading": {
       "next_batch": 34,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 36.5,
-        "Craft and Structure": -15.2,
+        "Key Ideas and Details": 37.2,
+        "Craft and Structure": -15.8,
         "Integration of Knowledge and Ideas": -11.4
-      }
-    },
-    "sat_reading_writing": {
-      "next_batch": 32,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 0.6,
-        "Information and Ideas": -2.1,
-        "Standard English Conventions": 13.9,
-        "Expression of Ideas": -2.4
       }
     }
   },
@@ -2190,8 +2183,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 264,
-      "share_of_target": 0.386
+      "accepted": 255,
+      "share_of_target": 0.373
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2205,7 +2198,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2115,
+  "total_accepted": 2106,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -50587,7 +50580,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T07:44:42+00:00",
+    "heartbeat_at": "2026-10-27T07:46:34+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

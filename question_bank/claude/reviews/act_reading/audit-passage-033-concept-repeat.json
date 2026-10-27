@@ -1,0 +1,27 @@
+{
+ "audit": "ACT Reading passage-level concept-repeat check, prompted when drafting batch 34 surfaced passage CLD-P-ACT-R-000012",
+ "date": "2026-10-27",
+ "new_passage": "CLD-P-ACT-R-000033 (The Rhyme Problem, batch 33)",
+ "existing_passage": "CLD-P-ACT-R-000012 (The Joke That Will Not Cross, batch 12)",
+ "finding": "Substantive duplicate at the passage level. Both are first-person essays by a literary translator arguing that a literal translation keeps the words but loses what the original was doing, that the translator must choose which loss to accept, that opposed camps are 'both right', and that no choice is neutral. Changing puns to rhyme does not make the argument original. The automated passage screen (word-overlap similarity) did not flag it; it was found by reading.",
+ "item_overlaps": {
+  "CLD-ACT-R-000259": {
+   "duplicate_of": "CLD-ACT-R-000100",
+   "shared_idea": "Both central claims: a translation that keeps the words can lose what the original was doing (a poem's form as part of its meaning vs a pun's effect as the point of the sentence)."
+  },
+  "CLD-ACT-R-000261": {
+   "duplicate_of": "CLD-ACT-R-000107",
+   "shared_idea": "Both: the reader understands the content but loses the experience ('told me what the poems say, not what they are like' vs a footnoted joke understood but not funny)."
+  },
+  "CLD-ACT-R-000265": {
+   "duplicate_of": "CLD-ACT-R-000104",
+   "shared_idea": "Both ask when/why the translator departs from the literal text to keep an effect (near-rhymes and moved rhymes vs inventing a new joke)."
+  },
+  "CLD-ACT-R-000266": {
+   "duplicate_of": "CLD-ACT-R-000101",
+   "shared_idea": "Both interpret an author's concession that two opposed camps are 'both right' as accepting that every option has a cost (see also 106, 'none of them good')."
+  }
+ },
+ "decision": "Retire all nine batch-33 items. Dropping only the four overlapping items would leave a five-item set on a passage whose argument still repeats passage 012; the passage record stays in the bank (append-only) but has no live items.",
+ "process_fix": "Before drafting a new ACT Reading passage, read the titles and opening paragraphs of every existing passage in the same genre (not only the screen's similarity score)."
+}
