@@ -1,0 +1,205 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 35,
+  "reviewed_at": "2026-10-27T03:55:00+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 35
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000298",
+    "CLD-SAT-M-000299",
+    "CLD-SAT-M-000300",
+    "CLD-SAT-M-000301",
+    "CLD-SAT-M-000302",
+    "CLD-SAT-M-000303",
+    "CLD-SAT-M-000304",
+    "CLD-SAT-M-000305"
+  ],
+  "results": [
+    {
+      "cand": "Q035-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "3h+2d=h+5d -> 2h=3d -> h=1.5(2.40)=3.60. Distractors: 1.60 (inverted ratio), 4.80 (2d), 7.20 (3d) are plausible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000298"
+    },
+    {
+      "cand": "Q035-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-2",
+      "computed_answer": "-2",
+      "blind_answer": "-2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "f(x)=m(x-6); g(8)=2m+4=0 -> m=-2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000299"
+    },
+    {
+      "cand": "Q035-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "15",
+      "computed_answer": "15",
+      "blind_answer": "15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "200+15w > 2(350-10w) -> 35w > 500 -> w > 14.29 -> 15. Check w=14: 410 vs 420 (no); w=15: 425 vs 400 (yes).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000300"
+    },
+    {
+      "cand": "Q035-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "436",
+      "computed_answer": "436",
+      "blind_answer": "436",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "12n+40=14n-26 -> n=33; cost=12(33)+40=436=14(33)-26. Trap answer 33 (members).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000301"
+    },
+    {
+      "cand": "Q035-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Vertex at x=k, y=k^2-2k^2+k^2+2k-8=2k-8 -> y=2x-8. Can be checked by graphing two k values. Only one choice passes through (0,-8) and (1,-6).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must complete the square with a parameter and treat the vertex coordinates as a point that moves; plugging in two values of k also works but must be thought of."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000302"
+    },
+    {
+      "cand": "Q035-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "41.4",
+      "computed_answer": "41.4",
+      "blind_answer": "41.4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Factor per 3 years = 2^(1/2)=1.41421 -> 41.4%. Trap: 50 (linear halving).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000303"
+    },
+    {
+      "cand": "Q035-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Other root 3-sqrt5 (sum 6); c=product=9-5=4. Direct substitution also gives -4+c=0. Distractor -4 is a sign trap; 9 and 14 from (3)^2 and 9+5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000304"
+    },
+    {
+      "cand": "Q035-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "Distance center-to-chord = sqrt(100-36)=8, so P is 10-8=2 from chord midpoint; AP=sqrt(36+4)=sqrt40=2sqrt10. D (2sqrt34=sqrt(36+100)) uses 10 instead of 2; 8 is the center distance; 6sqrt2 is an isosceles-right guess.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000305"
+    }
+  ]
+}

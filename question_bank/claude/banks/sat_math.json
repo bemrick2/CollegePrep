@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 34,
-  "updated_at": "2026-10-27T03:43:49+00:00",
+  "version": 35,
+  "updated_at": "2026-10-27T03:55:00+00:00",
   "passages": [],
   "questions": [
     {
@@ -21394,6 +21394,582 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-034.review.json",
         "computation": "checks/sat_math/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000298",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Price from an equal-cost relation and one known price",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a fair, 3 hot dogs and 2 drinks cost the same as 1 hot dog and 5 drinks. If a drink costs $2.40, what is the price of one hot dog?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$1.60",
+        "B": "$3.60",
+        "C": "$4.80",
+        "D": "$7.20"
+      },
+      "correct_answer": "B",
+      "explanation": "Let h be the price of a hot dog and d the price of a drink. Then 3h + 2d = h + 5d, so 2h = 3d and h = 1.5d. With d = $2.40, h = 1.5 × 2.40 = $3.60. No total cost is needed.",
+      "distractor_explanations": {
+        "A": "$1.60 inverts the ratio, using h = (2/3)d.",
+        "C": "$4.80 doubles the drink price instead of using h = 1.5d.",
+        "D": "$7.20 uses 2h = 3d but forgets to divide by 2."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Set the two costs equal and collect like terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 3h + 2d = h + 5d and solve for h in terms of d."
+      },
+      "remember": "Equal costs give a ratio of prices, not a total.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-01",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000299",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Slope recovered from how a vertical shift moves an intercept",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The graph of a linear function f has an x-intercept at x = 6. The graph of g(x) = f(x) + 4 has an x-intercept at x = 8. What is the slope of the graph of f ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-2",
+      "accepted_answers": [
+        "-2"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 has the wrong sign: the shift up moved the intercept right, so the line falls.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "8",
+          "rationale": "8 is the x-intercept of g, not a slope.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Because f(6) = 0, f(x) = m(x − 6) for some slope m. Then g(8) = f(8) + 4 = 2m + 4. Since 8 is an x-intercept of g, 2m + 4 = 0, so m = −2. Check: shifting a falling line up moves its x-intercept to the right.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write f in the form m(x − 6)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use g(8) = 0 to get an equation in m."
+      },
+      "remember": "A line with a known x-intercept r is y = m(x − r).",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-02",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-2",
+        "blind_answer": "-2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000300",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Least whole number satisfying a scaled linear inequality",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Lena's savings, in dollars, w weeks from now will be 200 + 15w, and Omar's savings, in dollars, will be 350 − 10w. What is the least whole number of weeks w for which Lena's savings will be more than twice Omar's savings?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is when the two savings are equal, not when Lena's is more than twice Omar's.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "14",
+          "rationale": "14 rounds 14.29 down; at w = 14, 410 < 420.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Solve 200 + 15w > 2(350 − 10w) = 700 − 20w. Then 35w > 500, so w > 14.29. The least whole number is 15. Check: at w = 14, Lena has 410 and twice Omar's is 420; at w = 15, Lena has 425 and twice Omar's is 400.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the inequality with the factor 2 on Omar's side."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn 'more than twice' into an inequality and round up."
+      },
+      "remember": "'More than twice' means greater than 2 times the other amount.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-03",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000301",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Unknown total defined by a shortfall and a surplus",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If each member of a club pays $12, the club will be $40 short of the cost of a trip. If each member pays $14, the club will have $26 more than the cost of the trip. What is the cost of the trip, in dollars?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "436",
+      "accepted_answers": [
+        "436"
+      ],
+      "common_errors": [
+        {
+          "value": "33",
+          "rationale": "33 is the number of members, not the cost.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "396",
+          "rationale": "396 is 12 × 33, the amount collected at $12 each, without the $40 shortfall.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Let n be the number of members. The cost is 12n + 40 and also 14n − 26. So 12n + 40 = 14n − 26, which gives 2n = 66 and n = 33. The cost is 12(33) + 40 = 436 dollars; check 14(33) − 26 = 436.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the cost two ways using the number of members."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two expressions for the cost equal."
+      },
+      "remember": "Check whether you solved for the quantity actually asked.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-04",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "436",
+        "blind_answer": "436",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000302",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Line containing the vertices of a family of parabolas",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For each value of the constant k, the graph of y = x² − 2kx + k² + 2k − 8 in the xy-plane is a parabola. The vertices of all these parabolas lie on which line?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "y = −2x + 8",
+        "B": "y = x − 8",
+        "C": "y = 2x − 8",
+        "D": "y = 2x"
+      },
+      "correct_answer": "C",
+      "explanation": "Rewrite the equation as y = (x − k)² + 2k − 8. The vertex is (k, 2k − 8). Its y-coordinate is 2 times its x-coordinate minus 8, so every vertex lies on y = 2x − 8. Check: k = 0 gives vertex (0, −8); k = 4 gives (4, 0).",
+      "distractor_explanations": {
+        "A": "y = −2x + 8 has the signs of both terms reversed.",
+        "B": "y = x − 8 drops the coefficient 2 on k.",
+        "D": "y = 2x drops the constant −8."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Complete the square in x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Find the vertex for two values of k and the line through them."
+      },
+      "remember": "Vertex form y = (x − h)² + v shows the vertex (h, v).",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-05",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000303",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Percent growth over half a doubling period",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A quantity doubles every 6 years. By what percent does the quantity increase every 3 years? Round your answer to the nearest tenth of a percent. (Disregard the % sign when entering your answer.)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "41.4",
+      "accepted_answers": [
+        "41.4"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 halves the 100% increase, as if growth were linear.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "141.4",
+          "rationale": "141.4 is the growth factor as a percent, not the increase.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Over 6 years the factor is 2. Two 3-year periods make 6 years, so the 3-year factor b satisfies b² = 2 and b = √2 ≈ 1.4142. The quantity increases by about 41.42% every 3 years, which rounds to 41.4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What factor, applied twice, gives a factor of 2?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let the 3-year factor be b and use b² = 2."
+      },
+      "remember": "Exponential growth: equal time steps multiply by equal factors.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-06",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "41.4",
+        "blind_answer": "41.4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000304",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constant term from one irrational solution",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "One solution of the equation x² − 6x + c = 0, where c is a constant, is 3 + √5. What is the value of c ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−4",
+        "B": "4",
+        "C": "9",
+        "D": "14"
+      },
+      "correct_answer": "B",
+      "explanation": "The solutions add to 6, so the other solution is 6 − (3 + √5) = 3 − √5. Their product is c = (3 + √5)(3 − √5) = 9 − 5 = 4. Substituting 3 + √5 directly also gives (14 + 6√5) − (18 + 6√5) + c = 0, so c = 4.",
+      "distractor_explanations": {
+        "A": "−4 makes a sign error in 9 − 5.",
+        "C": "9 squares 3 and ignores √5.",
+        "D": "14 adds 9 + 5 instead of subtracting."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What is the other solution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the sum and product of the solutions."
+      },
+      "remember": "For x² + bx + c = 0, the solutions multiply to c.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-07",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000305",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Distance from a chord endpoint to the midpoint of its arc",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a circle with radius 10, chord AB has length 12. Point P is the midpoint of minor arc AB. What is the length of segment AP ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6√2",
+        "B": "2√10",
+        "C": "8",
+        "D": "2√34"
+      },
+      "correct_answer": "B",
+      "explanation": "Let M be the midpoint of AB; AM = 6. The distance from the center O to the chord is √(10² − 6²) = 8. P lies on ray OM at distance 10 from O, so MP = 10 − 8 = 2. In right triangle AMP, AP = √(6² + 2²) = √40 = 2√10.",
+      "distractor_explanations": {
+        "A": "6√2 treats MP as 6, the same as AM.",
+        "C": "8 is the distance from the center to the chord.",
+        "D": "2√34 uses MP = 10, the radius, instead of 10 − 8."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Find the distance from the center to the chord."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radius through P perpendicular to AB."
+      },
+      "remember": "The perpendicular from the center bisects a chord.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 35,
+      "draft_candidate": "Q035-10",
+      "created_at": "2026-10-27T03:55:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-035.review.json",
+        "computation": "checks/sat_math/batch_035.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,0 +1,462 @@
+{
+ "bank": "sat_math",
+ "batch": 35,
+ "plan": "SAT Math batch 35: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 1; 5 student-produced responses. Ideas H01–H03, H11–H13, H17, H23, H27 from generated set 2 (independently pre-checked: no copy or template matches; H05, H16 and H21 dropped), plus a rewrite of withdrawn Q034-06 (answer cue) as a new candidate asking for a value in both intervals. Relabelled to the blind solver's rating where it was lower: Q035-01 medium→easy, Q035-02 hard→medium, Q035-06 hard→medium, Q035-10 hard→medium.",
+ "candidates": [
+  {
+   "cand": "Q035-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Price from an equal-cost relation and one known price",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "At a fair, 3 hot dogs and 2 drinks cost the same as 1 hot dog and 5 drinks. If a drink costs $2.40, what is the price of one hot dog?",
+   "explanation": "Let h be the price of a hot dog and d the price of a drink. Then 3h + 2d = h + 5d, so 2h = 3d and h = 1.5d. With d = $2.40, h = 1.5 × 2.40 = $3.60. No total cost is needed.",
+   "hints": [
+    "Set the two costs equal and collect like terms."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write 3h + 2d = h + 5d and solve for h in terms of d."
+   },
+   "remember": "Equal costs give a ratio of prices, not a total.",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "$1.60",
+    "B": "$3.60",
+    "C": "$4.80",
+    "D": "$7.20"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "$1.60 inverts the ratio, using h = (2/3)d.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "$4.80 doubles the drink price instead of using h = 1.5d.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$7.20 uses 2h = 3d but forgets to divide by 2.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q035-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Slope recovered from how a vertical shift moves an intercept",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The graph of a linear function f has an x-intercept at x = 6. The graph of g(x) = f(x) + 4 has an x-intercept at x = 8. What is the slope of the graph of f ?",
+   "explanation": "Because f(6) = 0, f(x) = m(x − 6) for some slope m. Then g(8) = f(8) + 4 = 2m + 4. Since 8 is an x-intercept of g, 2m + 4 = 0, so m = −2. Check: shifting a falling line up moves its x-intercept to the right.",
+   "hints": [
+    "Write f in the form m(x − 6)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use g(8) = 0 to get an equation in m."
+   },
+   "remember": "A line with a known x-intercept r is y = m(x − r).",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "-2",
+   "accepted_answers": [
+    "-2"
+   ],
+   "common_errors": [
+    {
+     "value": "2",
+     "rationale": "2 has the wrong sign: the shift up moved the intercept right, so the line falls.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "8",
+     "rationale": "8 is the x-intercept of g, not a slope.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q035-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Least whole number satisfying a scaled linear inequality",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Lena's savings, in dollars, w weeks from now will be 200 + 15w, and Omar's savings, in dollars, will be 350 − 10w. What is the least whole number of weeks w for which Lena's savings will be more than twice Omar's savings?",
+   "explanation": "Solve 200 + 15w > 2(350 − 10w) = 700 − 20w. Then 35w > 500, so w > 14.29. The least whole number is 15. Check: at w = 14, Lena has 410 and twice Omar's is 420; at w = 15, Lena has 425 and twice Omar's is 400.",
+   "hints": [
+    "Write the inequality with the factor 2 on Omar's side."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Turn 'more than twice' into an inequality and round up."
+   },
+   "remember": "'More than twice' means greater than 2 times the other amount.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is when the two savings are equal, not when Lena's is more than twice Omar's.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "14",
+     "rationale": "14 rounds 14.29 down; at w = 14, 410 < 420.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q035-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Unknown total defined by a shortfall and a surplus",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "If each member of a club pays $12, the club will be $40 short of the cost of a trip. If each member pays $14, the club will have $26 more than the cost of the trip. What is the cost of the trip, in dollars?",
+   "explanation": "Let n be the number of members. The cost is 12n + 40 and also 14n − 26. So 12n + 40 = 14n − 26, which gives 2n = 66 and n = 33. The cost is 12(33) + 40 = 436 dollars; check 14(33) − 26 = 436.",
+   "hints": [
+    "Write the cost two ways using the number of members."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the two expressions for the cost equal."
+   },
+   "remember": "Check whether you solved for the quantity actually asked.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "436",
+   "accepted_answers": [
+    "436"
+   ],
+   "common_errors": [
+    {
+     "value": "33",
+     "rationale": "33 is the number of members, not the cost.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "396",
+     "rationale": "396 is 12 × 33, the amount collected at $12 each, without the $40 shortfall.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q035-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Line containing the vertices of a family of parabolas",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "For each value of the constant k, the graph of y = x² − 2kx + k² + 2k − 8 in the xy-plane is a parabola. The vertices of all these parabolas lie on which line?",
+   "explanation": "Rewrite the equation as y = (x − k)² + 2k − 8. The vertex is (k, 2k − 8). Its y-coordinate is 2 times its x-coordinate minus 8, so every vertex lies on y = 2x − 8. Check: k = 0 gives vertex (0, −8); k = 4 gives (4, 0).",
+   "hints": [
+    "Complete the square in x."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Find the vertex for two values of k and the line through them."
+   },
+   "remember": "Vertex form y = (x − h)² + v shows the vertex (h, v).",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must complete the square with a parameter and treat the vertex coordinates as a point that moves; plugging in two values of k also works but must be thought of."
+   },
+   "choices": {
+    "A": "y = −2x + 8",
+    "B": "y = x − 8",
+    "C": "y = 2x − 8",
+    "D": "y = 2x"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "y = −2x + 8 has the signs of both terms reversed.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "y = x − 8 drops the coefficient 2 on k.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "y = 2x drops the constant −8.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q035-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Percent growth over half a doubling period",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A quantity doubles every 6 years. By what percent does the quantity increase every 3 years? Round your answer to the nearest tenth of a percent. (Disregard the % sign when entering your answer.)",
+   "explanation": "Over 6 years the factor is 2. Two 3-year periods make 6 years, so the 3-year factor b satisfies b² = 2 and b = √2 ≈ 1.4142. The quantity increases by about 41.42% every 3 years, which rounds to 41.4.",
+   "hints": [
+    "What factor, applied twice, gives a factor of 2?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Let the 3-year factor be b and use b² = 2."
+   },
+   "remember": "Exponential growth: equal time steps multiply by equal factors.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "41.4",
+   "accepted_answers": [
+    "41.4"
+   ],
+   "common_errors": [
+    {
+     "value": "50",
+     "rationale": "50 halves the 100% increase, as if growth were linear.",
+     "trap": "overextend_trend"
+    },
+    {
+     "value": "141.4",
+     "rationale": "141.4 is the growth factor as a percent, not the increase.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q035-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Constant term from one irrational solution",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "One solution of the equation x² − 6x + c = 0, where c is a constant, is 3 + √5. What is the value of c ?",
+   "explanation": "The solutions add to 6, so the other solution is 6 − (3 + √5) = 3 − √5. Their product is c = (3 + √5)(3 − √5) = 9 − 5 = 4. Substituting 3 + √5 directly also gives (14 + 6√5) − (18 + 6√5) + c = 0, so c = 4.",
+   "hints": [
+    "What is the other solution?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the sum and product of the solutions."
+   },
+   "remember": "For x² + bx + c = 0, the solutions multiply to c.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−4",
+    "B": "4",
+    "C": "9",
+    "D": "14"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−4 makes a sign error in 9 − 5.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "9 squares 3 and ignores √5.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "14 adds 9 + 5 instead of subtracting.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q035-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Distance from a chord endpoint to the midpoint of its arc",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In a circle with radius 10, chord AB has length 12. Point P is the midpoint of minor arc AB. What is the length of segment AP ?",
+   "explanation": "Let M be the midpoint of AB; AM = 6. The distance from the center O to the chord is √(10² − 6²) = 8. P lies on ray OM at distance 10 from O, so MP = 10 − 8 = 2. In right triangle AMP, AP = √(6² + 2²) = √40 = 2√10.",
+   "hints": [
+    "Find the distance from the center to the chord."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the radius through P perpendicular to AB."
+   },
+   "remember": "The perpendicular from the center bisects a chord.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6√2",
+    "B": "2√10",
+    "C": "8",
+    "D": "2√34"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "6√2 treats MP as 6, the same as AM.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 is the distance from the center to the chord.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "2√34 uses MP = 10, the radius, instead of 10 − 8.",
+     "trap": "partial_answer"
+    }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q035-08",
+   "reason": "blind solve: over-determined - the 294 total alone gives x = 54, so the conditional-probability step is not needed. Resubmitted without the total as Q036-11.",
+   "item": {
+    "cand": "Q035-08",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Missing table cell from a conditional probability, then the reverse conditional",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "hard",
+    "stem": "A survey of 294 people classified each person by age and preferred news source.\nNews source | Under 30 | 30 or older\nPodcasts | x | 66\nTelevision | 48 | 126\nIf a person who prefers podcasts is chosen at random, the probability that the person is under 30 is 0.45. If a person under 30 is chosen at random, what is the probability that the person prefers podcasts?",
+    "explanation": "From x/(x + 66) = 0.45, x = 0.45x + 29.7, so 0.55x = 29.7 and x = 54. (Check: 54 + 66 + 48 + 126 = 294.) There are 54 + 48 = 102 people under 30, and 54 of them prefer podcasts, so the probability is 54/102 = 9/17.",
+    "hints": [
+     "Use the given probability to find x."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Find x first, then restrict to the under-30 column."
+    },
+    "remember": "The condition sets the denominator.",
+    "expected_time_seconds": 90,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students must find a missing cell from one conditional probability and then compute the reverse conditional; reusing 0.45 is a strong trap."
+    },
+    "format": "spr",
+    "answer": "9/17",
+    "accepted_answers": [
+     "9/17",
+     ".5294",
+     ".5295"
+    ],
+    "common_errors": [
+     {
+      "value": "0.45",
+      "rationale": "0.45 is the given probability with the condition reversed.",
+      "trap": "wrong_quantity"
+     },
+     {
+      "value": "54/294",
+      "rationale": "54/294 uses all surveyed people instead of only those under 30.",
+      "trap": null
+     }
+    ]
+   }
+  },
+  {
+   "cand": "Q035-09",
+   "reason": "blind solve: answer cue - the key 50.5% is the only non-integer choice. Resubmitted with new numbers and integer choices as Q036-12.",
+   "item": {
+    "cand": "Q035-09",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Common value consistent with two margins of error",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "hard",
+    "stem": "Independent random polls estimated the percent of voters who support a measure in two cities. In City A the estimate was 54% with a margin of error of 4 percentage points. In City B the estimate was 46% with a margin of error of 5 percentage points. If the true percents of supporters in the two cities are in fact equal, which of the following is a plausible value of that common percent, based on the polls?",
+    "explanation": "The plausible values are 50% to 58% for City A and 41% to 51% for City B. A common percent must lie in both ranges, from 50% to 51%. Only 50.5% does.",
+    "hints": [
+     "Write each poll's plausible range."
+    ],
+    "strategy": {
+     "key": "draw_it_out",
+     "explanation": "Draw both intervals on one number line."
+    },
+    "remember": "A value plausible for both must lie in both intervals.",
+    "expected_time_seconds": 70,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students must build both intervals and intersect them; each wrong choice is plausible for one city."
+    },
+    "choices": {
+     "A": "46%",
+     "B": "49%",
+     "C": "50.5%",
+     "D": "53%"
+    },
+    "answer": "C",
+    "distractors": {
+     "A": {
+      "rationale": "46% is City B's estimate; it lies outside City A's range.",
+      "trap": "partial_answer"
+     },
+     "B": {
+      "rationale": "49% is plausible for City B but below City A's range.",
+      "trap": "partial_answer"
+     },
+     "D": {
+      "rationale": "53% is plausible for City A but above City B's range.",
+      "trap": "partial_answer"
+     }
+    }
+   }
+  }
+ ]
+}

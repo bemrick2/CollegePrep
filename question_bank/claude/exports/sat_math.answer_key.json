@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 34,
+  "bank_version": 35,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -5834,6 +5834,186 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the triangle and the two bisectors."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000298",
+      "correct_answer": "B",
+      "explanation": "Let h be the price of a hot dog and d the price of a drink. Then 3h + 2d = h + 5d, so 2h = 3d and h = 1.5d. With d = $2.40, h = 1.5 × 2.40 = $3.60. No total cost is needed.",
+      "distractor_explanations": {
+        "A": "$1.60 inverts the ratio, using h = (2/3)d.",
+        "C": "$4.80 doubles the drink price instead of using h = 1.5d.",
+        "D": "$7.20 uses 2h = 3d but forgets to divide by 2."
+      },
+      "hints": [
+        "Set the two costs equal and collect like terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 3h + 2d = h + 5d and solve for h in terms of d."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000299",
+      "correct_answer": "-2",
+      "accepted_answers": [
+        "-2"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 has the wrong sign: the shift up moved the intercept right, so the line falls.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "8",
+          "rationale": "8 is the x-intercept of g, not a slope.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Because f(6) = 0, f(x) = m(x − 6) for some slope m. Then g(8) = f(8) + 4 = 2m + 4. Since 8 is an x-intercept of g, 2m + 4 = 0, so m = −2. Check: shifting a falling line up moves its x-intercept to the right.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write f in the form m(x − 6)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use g(8) = 0 to get an equation in m."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000300",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is when the two savings are equal, not when Lena's is more than twice Omar's.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "14",
+          "rationale": "14 rounds 14.29 down; at w = 14, 410 < 420.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Solve 200 + 15w > 2(350 − 10w) = 700 − 20w. Then 35w > 500, so w > 14.29. The least whole number is 15. Check: at w = 14, Lena has 410 and twice Omar's is 420; at w = 15, Lena has 425 and twice Omar's is 400.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the inequality with the factor 2 on Omar's side."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn 'more than twice' into an inequality and round up."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000301",
+      "correct_answer": "436",
+      "accepted_answers": [
+        "436"
+      ],
+      "common_errors": [
+        {
+          "value": "33",
+          "rationale": "33 is the number of members, not the cost.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "396",
+          "rationale": "396 is 12 × 33, the amount collected at $12 each, without the $40 shortfall.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Let n be the number of members. The cost is 12n + 40 and also 14n − 26. So 12n + 40 = 14n − 26, which gives 2n = 66 and n = 33. The cost is 12(33) + 40 = 436 dollars; check 14(33) − 26 = 436.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the cost two ways using the number of members."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two expressions for the cost equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000302",
+      "correct_answer": "C",
+      "explanation": "Rewrite the equation as y = (x − k)² + 2k − 8. The vertex is (k, 2k − 8). Its y-coordinate is 2 times its x-coordinate minus 8, so every vertex lies on y = 2x − 8. Check: k = 0 gives vertex (0, −8); k = 4 gives (4, 0).",
+      "distractor_explanations": {
+        "A": "y = −2x + 8 has the signs of both terms reversed.",
+        "B": "y = x − 8 drops the coefficient 2 on k.",
+        "D": "y = 2x drops the constant −8."
+      },
+      "hints": [
+        "Complete the square in x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Find the vertex for two values of k and the line through them."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000303",
+      "correct_answer": "41.4",
+      "accepted_answers": [
+        "41.4"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 halves the 100% increase, as if growth were linear.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "141.4",
+          "rationale": "141.4 is the growth factor as a percent, not the increase.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Over 6 years the factor is 2. Two 3-year periods make 6 years, so the 3-year factor b satisfies b² = 2 and b = √2 ≈ 1.4142. The quantity increases by about 41.42% every 3 years, which rounds to 41.4.",
+      "distractor_explanations": {},
+      "hints": [
+        "What factor, applied twice, gives a factor of 2?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let the 3-year factor be b and use b² = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000304",
+      "correct_answer": "B",
+      "explanation": "The solutions add to 6, so the other solution is 6 − (3 + √5) = 3 − √5. Their product is c = (3 + √5)(3 − √5) = 9 − 5 = 4. Substituting 3 + √5 directly also gives (14 + 6√5) − (18 + 6√5) + c = 0, so c = 4.",
+      "distractor_explanations": {
+        "A": "−4 makes a sign error in 9 − 5.",
+        "C": "9 squares 3 and ignores √5.",
+        "D": "14 adds 9 + 5 instead of subtracting."
+      },
+      "hints": [
+        "What is the other solution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the sum and product of the solutions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000305",
+      "correct_answer": "B",
+      "explanation": "Let M be the midpoint of AB; AM = 6. The distance from the center O to the chord is √(10² − 6²) = 8. P lies on ray OM at distance 10 from O, so MP = 10 − 8 = 2. In right triangle AMP, AP = √(6² + 2²) = √40 = 2√10.",
+      "distractor_explanations": {
+        "A": "6√2 treats MP as 6, the same as AM.",
+        "C": "8 is the distance from the center to the chord.",
+        "D": "2√34 uses MP = 10, the radius, instead of 10 − 8."
+      },
+      "hints": [
+        "Find the distance from the center to the chord."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radius through P perpendicular to AB."
       }
     }
   ]
