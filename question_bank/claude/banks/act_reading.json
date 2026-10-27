@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 56,
-  "updated_at": "2026-10-27T18:03:45+00:00",
+  "version": 57,
+  "updated_at": "2026-10-27T18:26:34+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -619,6 +619,17 @@
       "word_count": 378,
       "text": "Mr. Halvorsen had sold his house in August, and he was moving to his daughter's apartment across the state on the first of November. So I did not understand why, on a gray afternoon in late October, he asked me to help him plant two hundred tulip bulbs along the front walk.\n\n\"They won't come up until April,\" I said, kneeling beside him with the trowel. I was fourteen and believed that pointing out the obvious was a kind of help.\n\n\"That's right,\" he said, and handed me another bulb. He showed me how deep to set each one—three times its own height—and which end to point toward the sky. His hands, which had built half the fences on our street, shook a little now, so he let me dig while he sorted the bulbs by color in his lap: red ones near the steps, yellow ones by the mailbox, a few white ones scattered where, he said, they would surprise people.\n\nWe worked until the light went thin. I kept waiting for him to explain, and he kept not explaining. Once he stopped and looked at the house for a long time, and I looked at the dirt, because that seemed like the polite thing to do.\n\nThe family who bought the house moved in the week after he left. They had a little boy who rode a red tricycle up and down the walk all winter, over the place where the bulbs were sleeping. I watched from my window and said nothing to anyone.\n\nIn April the tulips came up exactly as he had arranged them, red by the steps and yellow by the mailbox. The white ones appeared in odd places, one beside the drain spout, two under the maple, and the boy's mother stood in the yard one morning with her coffee, turning slowly, as if someone had left her a message she was still working out how to read.\n\nI wrote to Mr. Halvorsen that week. I told him about the colors and the white ones under the maple. I did not ask him why he had planted them. By then I thought I knew, and I suspected that if I wrote the reason down, it would come out smaller than it was.",
       "batch": 57,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000058",
+      "title": "The Missing Step",
+      "genre": "natural science",
+      "word_count": 487,
+      "text": "Almost every cook knows the sting: a few strokes of the knife through an onion, and the eyes begin to water. For about three decades, chemists believed they understood why. An intact onion, they knew, stores sulfur-containing compounds in one part of each cell and an enzyme called alliinase in another. Cutting ruptures the cells, the two meet, and a chain of reactions begins. The explanation seemed complete: alliinase broke down the sulfur compounds, and the products drifted up and irritated the eyes.\n\nThe trouble was that alliinase does much the same work in garlic, and garlic does not make people cry. In 2002, a team of researchers in Japan reported that the explanation was missing a step. Alliinase, they found, produces an unstable intermediate compound. In garlic, the corresponding compound mostly reacts with itself, forming the compounds behind garlic's sharp smell. In onion, a second enzyme seizes most of it first and converts it into a volatile compound that is the real irritant. The researchers named the newly identified enzyme lachrymatory-factor synthase, after the Latin word for tears.\n\nThe discovery mattered for more than chemistry trivia. Because the irritant and many of the compounds that give onion its flavor come from the same starting material, cooks and growers had long assumed that a tearless onion would also be a bland one. The new finding suggested otherwise. If only the second enzyme could be switched off, the intermediate compound might follow the garlic-like path instead, and the onion might keep, or even gain, flavor while losing its sting.\n\nResearchers in New Zealand and Japan later tested the idea by using genetic techniques to suppress the enzyme in onion plants. The resulting onions released far less of the irritant, and chemical analysis found higher levels of other sulfur compounds associated with flavor. Those onions were never sold, however; genetically modified onions faced regulatory and consumer hurdles. A Japanese company took a slower route, breeding onions over many years, without genetic engineering, that produce little of the irritant. Its tearless onion reached stores in Japan in the 2010s.\n\nFamiliar kitchen advice, meanwhile, makes sense in light of the chemistry. Chilling an onion before cutting slows the enzymes and the evaporation of the irritant. A sharp knife crushes fewer cells than a dull one, so it releases less of the starting material. Cutting beside an open window or a fan simply carries the irritant away before it reaches the eyes. None of these tricks stops the reaction; each only reduces how much of the irritant forms or how much of it arrives.\n\nFor the onion, of course, the reaction was never aimed at cooks. The two-step chemistry appears to be a defense: an animal that bites into the bulb breaks its cells and is met with a burst of irritants. That the same defense works on a person holding a knife is, from the onion's point of view, an accident.",
+      "batch": 58,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -35395,6 +35406,929 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-057.review.json",
         "computation": "checks/act_reading/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000487",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "the explanation was missing a step",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "argue that genetically modified onions should be sold despite regulatory and consumer resistance.",
+        "B": "explain how a long-accepted account of onion tears was revised and what the revision made possible.",
+        "C": "compare onion and garlic as cooking ingredients to show why cooks prefer one over the other.",
+        "D": "describe several kitchen methods that cooks can use to keep onions from causing tears."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage presents the older explanation, the 2002 discovery of a missing enzyme, and what followed: tearless onions and a new understanding of kitchen tricks.",
+      "distractor_explanations": {
+        "A": "The passage reports the hurdles but takes no position on whether such onions should be sold.",
+        "C": "Garlic appears only as a clue in the chemistry; cooking preferences are never discussed.",
+        "D": "Kitchen methods are the subject of one paragraph, not the passage as a whole."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What happens to the older explanation in paragraph 2?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph in a few words, then combine."
+      },
+      "remember": "A main-purpose answer must cover the whole passage.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-01",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000488",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "converts it into a volatile compound that is the real irritant",
+      "figure": null,
+      "stem": "According to the passage, lachrymatory-factor synthase converts:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "sulfur-containing compounds into the unstable intermediate compound.",
+        "B": "garlic's intermediate compound into the source of garlic's sharp smell.",
+        "C": "the irritant into compounds that give onion its flavor.",
+        "D": "an unstable intermediate compound into the substance that irritates the eyes."
+      },
+      "correct_answer": "D",
+      "explanation": "Alliinase makes the unstable intermediate, and the second enzyme, lachrymatory-factor synthase, converts it into the irritant.",
+      "distractor_explanations": {
+        "A": "That is the job of alliinase, the first enzyme.",
+        "B": "In garlic, the compound mostly reacts with itself; the passage does not credit the onion enzyme.",
+        "C": "The enzyme produces the irritant; it does not turn the irritant into flavor compounds."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which enzyme acts first, and which acts second?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find where the passage names the enzyme."
+      },
+      "remember": "Keep track of which step each enzyme performs.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-02",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000489",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "The trouble was that alliinase does much the same work in garlic",
+      "figure": null,
+      "stem": "In the passage, the observation that garlic \"does not make people cry\" mainly serves to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "point out a fact that the older explanation could not account for.",
+        "B": "show that garlic lacks the enzyme alliinase.",
+        "C": "suggest that garlic's flavor comes from a different starting material.",
+        "D": "explain why cooks have long preferred garlic to onion."
+      },
+      "correct_answer": "A",
+      "explanation": "If alliinase alone caused tears, garlic should cause them too. That mismatch, introduced as \"the trouble,\" exposed the gap that the 2002 study filled.",
+      "distractor_explanations": {
+        "B": "The passage says alliinase does much the same work in garlic.",
+        "C": "The passage says the corresponding compound in garlic follows a different path, not that it starts from a different material.",
+        "D": "Cooks' preferences between the two are never discussed."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Why is the garlic fact called \"the trouble\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what problem the garlic fact creates for the old account."
+      },
+      "remember": "A contrasting case can reveal a gap in an explanation.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-03",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000490",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "a second enzyme seizes most of it first",
+      "figure": null,
+      "stem": "As it is used in paragraph 2, the word seizes most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "understands.",
+        "B": "confiscates.",
+        "C": "takes hold of.",
+        "D": "attacks suddenly."
+      },
+      "correct_answer": "C",
+      "explanation": "The enzyme takes hold of the intermediate compound before it can react with itself, so \"takes hold of\" fits.",
+      "distractor_explanations": {
+        "A": "\"Seize\" can mean grasp an idea, but an enzyme acting on a compound does not understand it.",
+        "B": "\"Confiscates\" implies taking property by authority, which does not fit a chemical reaction.",
+        "D": "The enzyme converts the compound; nothing suggests a sudden attack."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Replace the word with each choice and reread the sentence."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a plain word for what the enzyme does to the compound."
+      },
+      "remember": "Pick the meaning that fits the sentence, not the most familiar one.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-04",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000491",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (cause)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "might follow the garlic-like path instead",
+      "figure": null,
+      "stem": "Based on the passage, suppressing lachrymatory-factor synthase might increase an onion's flavor because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "chilling the onion would no longer be needed to slow the enzymes before cutting.",
+        "B": "alliinase would then produce more of the sulfur compounds stored in the cell.",
+        "C": "the irritant itself is the main source of the onion's flavor.",
+        "D": "the intermediate could then form other flavor compounds, as in garlic."
+      },
+      "correct_answer": "D",
+      "explanation": "With the second enzyme switched off, the intermediate is not turned into the irritant and can instead form other sulfur compounds, as in garlic; the engineered onions had more flavor-related sulfur compounds.",
+      "distractor_explanations": {
+        "A": "Chilling is a kitchen trick for tears; it has nothing to do with flavor.",
+        "B": "Alliinase breaks the sulfur compounds down; it does not produce them.",
+        "C": "If the irritant were the main flavor source, removing it would make the onion blander."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What would happen to the intermediate compound without the second enzyme?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Connect paragraph 3's prediction with paragraph 4's result."
+      },
+      "remember": "Trace where a material goes when one step is blocked.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-05",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000492",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (reason)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "genetically modified onions faced regulatory and consumer hurdles",
+      "figure": null,
+      "stem": "According to the passage, the onions developed with genetic techniques were never sold because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "genetically modified onions faced regulatory and consumer hurdles.",
+        "B": "they still released too much of the irritant to be called tearless.",
+        "C": "chemical analysis showed that they had lost most of their flavor.",
+        "D": "a company had already sold a bred tearless onion in New Zealand."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 4 states that the onions were never sold because genetically modified onions faced regulatory and consumer hurdles.",
+      "distractor_explanations": {
+        "B": "They released far less of the irritant.",
+        "C": "Analysis found higher levels of flavor-related compounds.",
+        "D": "The bred onion reached stores in Japan, and the passage does not say it blocked the other onions."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the word \"however\" in paragraph 4."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Locate the sentence that explains why they were not sold."
+      },
+      "remember": "Answer detail questions from the exact sentence.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-06",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000493",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "each only reduces how much of the irritant forms",
+      "figure": null,
+      "stem": "The last sentence of paragraph 5 (\"None of these ... arrives\") mainly serves to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "dismiss the kitchen methods as unscientific advice with no real effect.",
+        "B": "clarify what the kitchen methods actually accomplish and what they cannot do.",
+        "C": "introduce a different method that does stop the reaction completely.",
+        "D": "contrast the kitchen methods with the tearless onions bred in Japan."
+      },
+      "correct_answer": "B",
+      "explanation": "After explaining each trick, the author notes that none stops the reaction; each only reduces how much irritant forms or reaches the eyes. The sentence sets the limits of the methods.",
+      "distractor_explanations": {
+        "A": "The passage says the methods make sense and do reduce the irritant.",
+        "C": "No such method is introduced.",
+        "D": "The sentence mentions only the kitchen tricks; it makes no comparison with the bred onions."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the sentence praise, reject, or limit the methods?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide whether the sentence supports, rejects, or qualifies the paragraph."
+      },
+      "remember": "A qualifying sentence limits a claim without rejecting it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-07",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000494",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Application (same reason)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "A sharp knife crushes fewer cells than a dull one",
+      "figure": null,
+      "stem": "Based on the passage, which method would most likely reduce tears for the same reason that using a sharp knife does?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Storing the onion in a refrigerator",
+        "B": "Cutting the onion beside an open window",
+        "C": "Slicing the onion with fewer, cleaner cuts",
+        "D": "Holding the onion farther from the face"
+      },
+      "correct_answer": "C",
+      "explanation": "A sharp knife helps because it breaks fewer cells and so releases less starting material. Fewer, cleaner cuts reduce tears for that same reason.",
+      "distractor_explanations": {
+        "A": "Chilling works by slowing the enzymes and evaporation, not by breaking fewer cells.",
+        "B": "Moving air carries the irritant away; it does not reduce the cells broken.",
+        "D": "Distance reduces how much irritant arrives, not how much is released."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Why does a sharp knife help, according to paragraph 5?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "State the sharp knife's reason, then match it."
+      },
+      "remember": "Match the mechanism, not just the outcome.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-08",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000495",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (author's implication)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "The two-step chemistry appears to be a defense",
+      "figure": null,
+      "stem": "The author's description of the effect on cooks as \"an accident\" suggests that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "onions were bred by people specifically to produce more irritant.",
+        "B": "cooks can avoid the reaction entirely by cutting onions with care.",
+        "C": "scientists still do not understand how the irritant is produced.",
+        "D": "the onion's chemistry probably arose as a defense against animals."
+      },
+      "correct_answer": "D",
+      "explanation": "Calling the effect on cooks an accident implies that the reaction exists for another reason: defense against animals that bite the bulb.",
+      "distractor_explanations": {
+        "A": "The passage presents the reaction as a natural defense, not a result of breeding for irritation.",
+        "B": "Paragraph 5 says no trick stops the reaction.",
+        "C": "The passage explains how the irritant is produced."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Who is the defense aimed at?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what the reaction is \"for,\" according to the last paragraph."
+      },
+      "remember": "An 'accident' implies the effect was not the purpose.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-09",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000496",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Sequence of events",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000058",
+      "underline": null,
+      "evidence": "Cutting ruptures the cells, the two meet",
+      "figure": null,
+      "stem": "According to the passage, what is the first step in the process that produces the irritant?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Cells break open, so an enzyme meets the stored compounds.",
+        "B": "Lachrymatory-factor synthase converts the intermediate compound.",
+        "C": "The irritant evaporates and drifts toward the eyes.",
+        "D": "The intermediate compound reacts with itself."
+      },
+      "correct_answer": "A",
+      "explanation": "The sulfur compounds and alliinase are stored apart until cutting ruptures the cells, which lets them meet and starts the reactions.",
+      "distractor_explanations": {
+        "B": "This happens after alliinase has produced the intermediate.",
+        "C": "This is the final stage, after the irritant has formed.",
+        "D": "That mostly happens in garlic; in onion the second enzyme acts first."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What keeps the reaction from happening in an intact onion?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find what starts the chain of reactions."
+      },
+      "remember": "Find the trigger that starts a process.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-10",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000497",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000057",
+      "underline": null,
+      "evidence": "until the light went thin",
+      "figure": null,
+      "stem": "As it is used in the fourth paragraph, the word thin most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "narrow.",
+        "B": "faint.",
+        "C": "slender.",
+        "D": "sharp."
+      },
+      "correct_answer": "B",
+      "explanation": "Light that \"went thin\" was fading in the late afternoon, so \"thin\" means \"faint.\"",
+      "distractor_explanations": {
+        "A": "Light is not described as having width.",
+        "C": "This describes a body or object, not light.",
+        "D": "Fading late-afternoon light is the opposite of sharp."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What happens to daylight late on an October afternoon?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict from the time of day."
+      },
+      "remember": "Pick the meaning that fits what the word describes.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-11",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000498",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a closing sentence",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000057",
+      "underline": null,
+      "evidence": "it would come out smaller than it was",
+      "figure": null,
+      "stem": "In the last sentence, the narrator suggests that writing down the reason for the planting would have:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "embarrassed Mr. Halvorsen in front of his daughter.",
+        "B": "revealed that the narrator had guessed the reason wrong.",
+        "C": "proved to Mr. Halvorsen that the narrator had been paying attention.",
+        "D": "reduced something meaningful to an explanation that fell short of it."
+      },
+      "correct_answer": "D",
+      "explanation": "The narrator fears that putting the reason into words \"would come out smaller than it was,\" that is, explaining the gesture would diminish it.",
+      "distractor_explanations": {
+        "A": "No embarrassment or daughter's reaction is suggested.",
+        "B": "The narrator believes the guess is right; the concern is about putting it into words.",
+        "C": "The narrator chooses not to write the reason, so nothing is proved."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does \"come out smaller\" refer to?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the final clause closely."
+      },
+      "remember": "Closing sentences often explain a character's choice not to speak.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-12",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000499",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Point of view",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000057",
+      "underline": null,
+      "evidence": "I was fourteen",
+      "figure": null,
+      "stem": "The passage is narrated from the point of view of:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Mr. Halvorsen, explaining why he decided to plant the bulbs.",
+        "B": "the mother of the boy who moved into the house.",
+        "C": "the neighbor who helped plant the bulbs, recalling events from that year.",
+        "D": "an outside narrator who knows every character's thoughts."
+      },
+      "correct_answer": "C",
+      "explanation": "The \"I\" is a neighbor recalling being fourteen, with no access to Mr. Halvorsen's thoughts.",
+      "distractor_explanations": {
+        "A": "Mr. Halvorsen never narrates or explains.",
+        "B": "She is observed by the narrator; she does not narrate.",
+        "D": "The narrator cannot know why Mr. Halvorsen planted the bulbs."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Who is \"I\" in the passage?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Identify the narrator and what the narrator can know."
+      },
+      "remember": "A first-person narrator cannot know other characters' thoughts.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "R058-13",
+      "created_at": "2026-10-27T18:26:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-058.review.json",
+        "computation": "checks/act_reading/batch_058.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
