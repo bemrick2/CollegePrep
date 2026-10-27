@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 51,
- "plan": "SAT Math batch 51: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 5 student-produced responses. Ideas BA05-BA07, BA09, BB05, BB06, BB08, BC02, BC03, BD03, BD05 from generated set 7 (independently pre-checked: no copy or template matches). BA06/BA13 and BA02/BC03 kept in different batches. Plus Q051-12, the revised resubmission of Q050-08 without the class sizes.",
+ "plan": "SAT Math batch 51: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 5 student-produced responses. Ideas BA05-BA07, BA09, BB05, BB06, BB08, BC02, BC03, BD03, BD05 from generated set 7 (independently pre-checked: no copy or template matches). BA06/BA13 and BA02/BC03 kept in different batches. Plus Q051-12, the revised resubmission of Q050-08 without the class sizes. Relabelled to the blind solver's rating where it was lower: Q051-03 medium→easy, Q051-07 hard→medium, Q051-08 hard→medium, Q051-12 hard→medium.",
  "candidates": [
   {
    "cand": "Q051-01",
@@ -97,7 +97,7 @@
    "skill": "Algebra",
    "subskill": "Coefficient of a third line through the intersection of two others",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The graphs of 2x + y = 7, x − y = 2, and kx + 3y = 13 in the xy-plane all pass through one common point. What is the value of k ?",
    "explanation": "Adding the first two equations gives 3x = 9, so x = 3 and y = 1. The third line passes through (3, 1), so 3k + 3 = 13 and k = 10/3.",
    "hints": [
@@ -190,8 +190,8 @@
    "subskill": "Two constants of a rational function from two values",
    "repo_skill_key": "sat_advanced_math",
    "difficulty": "medium",
-   "stem": "The function f is defined by f(x) = (ax + 6)/(x + b), where a and b are constants. If f(0) = 2 and f(2) = 3, what is the value of a ?",
-   "explanation": "f(0) = 6/b = 2 gives b = 3. Then f(2) = (2a + 6)/(2 + 3) = 3, so 2a + 6 = 15 and a = 9/2.",
+   "stem": "In the xy-plane, the graph of y = (ax + 6)/(x + b), where a and b are constants, passes through the points (0, 2) and (2, 3). What is the value of a ?",
+   "explanation": "At (0, 2): 6/b = 2, so b = 3. At (2, 3): (2a + 6)/(2 + 3) = 3, so 2a + 6 = 15 and a = 9/2. Using the point with x = 0 first isolates b.",
    "hints": [
     "Which value gives b directly?"
    ],
@@ -274,7 +274,7 @@
    "skill": "Advanced Math",
    "subskill": "Least integer constant that keeps a rational function defined everywhere",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The function h is defined by h(x) = 1/(x² − 6x + k), where k is an integer constant. If h(x) is defined for every real number x, what is the least possible value of k ?",
    "explanation": "h is defined for every x exactly when x² − 6x + k is never 0, which requires a negative discriminant: 36 − 4k < 0, so k > 9. The least integer is 10. (For k = 9 the denominator is (x − 3)², which is 0 at x = 3.)",
    "hints": [
@@ -290,8 +290,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The condition is hidden in a statement about the domain, and the boundary k = 9 is a strong trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "10",
@@ -317,7 +316,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Conditional probability where the mean defines the group",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The table shows the number of pets owned by each of the 40 students in a class.\nNumber of pets | 0 | 1 | 2 | 3 | 4\nNumber of students | 12 | 15 | 8 | 4 | 1\nA student is chosen at random from the students who own more than the mean number of pets for the class. What is the probability that the chosen student owns at least 3 pets?",
    "explanation": "The total number of pets is 15 + 16 + 12 + 4 = 47, so the mean is 47/40 = 1.175. The students owning more than 1.175 pets are those with 2 or more: 8 + 4 + 1 = 13. Of them, 4 + 1 = 5 own at least 3. The probability is 5/13.",
    "hints": [
@@ -333,8 +332,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must compute a mean from a frequency table and use it to define the conditioning group."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "5/13",
@@ -500,7 +498,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "How moving one value between groups changes both means",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The students in class A have a mean test score of 78, and the students in class B have a mean test score of 83. One student, who scored 80, moves from class B to class A. Which of the following statements is true?",
    "explanation": "The score 80 is above class A's mean of 78, so adding it to class A raises A's mean. It is below class B's mean of 83, so removing it from class B raises B's mean. Both means increase, whatever the class sizes.",
    "hints": [
@@ -516,8 +514,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must see that the same value can raise both means; assuming a trade-off is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "Class A's mean increases, and class B's mean increases.",
