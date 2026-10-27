@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:06:35+00:00",
+  "updated_at": "2026-10-27T03:07:14+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 214
+    "sat_math": 221
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 224,
-      "REVISE": 1,
+      "PASS": 231,
+      "REVISE": 2,
       "REJECT": 0,
-      "candidates": 225,
+      "candidates": 233,
       "passed_after_revision": 1
     }
   },
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 214,
+      "accepted": 221,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 72,
-        "Algebra": 65,
-        "Geometry and Trigonometry": 41,
-        "Problem-Solving and Data Analysis": 36
+        "Advanced Math": 74,
+        "Algebra": 67,
+        "Geometry and Trigonometry": 43,
+        "Problem-Solving and Data Analysis": 37
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1422,6 +1422,7 @@
         "Chained percent relationships": 1,
         "Coefficient that makes two lines parallel": 1,
         "Coefficients from the vertex of a parabola": 1,
+        "Coefficients of an equivalent linear expression": 1,
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
         "Comparing exponential, polynomial and linear values": 1,
@@ -1472,6 +1473,7 @@
         "Finding a coefficient from part of a system's solution": 1,
         "Finding a constant from a given solution": 1,
         "Finding a constant from the sum of a line's intercepts": 1,
+        "Finding a coordinate after finding the slope": 1,
         "Finding a coordinate on a line through two points": 1,
         "Finding a percent of a group": 1,
         "Finding a whole from a percent": 1,
@@ -1481,9 +1483,11 @@
         "Horizontal shift that matches an exponential function": 1,
         "Hypotenuse from area and a leg ratio": 1,
         "Hypotenuse when it exceeds a leg by a given amount": 1,
+        "Identifying a decreasing exponential function": 1,
         "Identifying a quadratic equation with no real solutions": 1,
         "Identifying an exponential function from a table": 1,
         "Identifying the solution of a linear system": 1,
+        "Input for a given output of a quadratic": 1,
         "Inscribed and central angles with algebra": 1,
         "Intercepts of a line in standard form": 1,
         "Interpreting a change in a linear conversion formula": 1,
@@ -1504,6 +1508,7 @@
         "Lines that avoid a quadrant": 1,
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
+        "Maximum value from the range and the minimum": 1,
         "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
         "Minimum of a horizontally shifted quadratic": 1,
@@ -1518,6 +1523,7 @@
         "Percent of a percent": 1,
         "Perfect-square trinomial": 1,
         "Perimeter of a rectangle from its area and length": 1,
+        "Perimeter of a right triangle from a sine value and the hypotenuse": 1,
         "Perimeter of an equilateral triangle from its height": 1,
         "Point on a proportional line with a coordinate condition": 1,
         "Point with related coordinates on a line": 1,
@@ -1586,6 +1592,7 @@
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
+        "Tangent of an angle formed by a rectangle's diagonal": 1,
         "Third angle of a triangle": 1,
         "Time for a falling object to reach a height": 1,
         "Time for a whole job from a partial job": 1,
@@ -1622,32 +1629,32 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 46,
+        "easy": 49,
         "hard": 11,
-        "medium": 157
+        "medium": 161
       },
       "by_difficulty_calibrated": {
-        "easy": 90,
+        "easy": 93,
         "hard": 6,
-        "medium": 118
+        "medium": 122
       },
       "calibrated_share": {
         "easy": 0.421,
-        "hard": 0.028,
-        "medium": 0.551
+        "hard": 0.027,
+        "medium": 0.552
       },
       "answer_key_balance": {
         "-1": 1,
         "-12": 1,
         "-9": 2,
-        "1": 1,
+        "1": 2,
         "1.5": 2,
         "10": 3,
         "11": 2,
         "114": 1,
         "115": 1,
         "12": 3,
-        "15": 3,
+        "15": 4,
         "16": 1,
         "18": 1,
         "18/13": 1,
@@ -1674,12 +1681,12 @@
         "9": 2,
         "90": 1,
         "A": 36,
-        "B": 44,
-        "C": 42,
-        "D": 27
+        "B": 46,
+        "C": 44,
+        "D": 28
       },
-      "modeling_items": 58,
-      "spr_items": 65,
+      "modeling_items": 59,
+      "spr_items": 67,
       "passages": 0
     }
   },
@@ -1688,7 +1695,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 24
+    "sat_math": 25
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1720,30 +1727,38 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 25,
+    "next_batch": 26,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 13.4,
-      "Advanced Math": 6.4,
+      "Algebra": 13.8,
+      "Advanced Math": 6.8,
       "Problem-Solving and Data Analysis": -2.4,
-      "Geometry and Trigonometry": -7.4
+      "Geometry and Trigonometry": -8.4
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -34.0,
-      "medium": -6.0,
-      "hard": 50.0
+      "easy": -35.2,
+      "medium": -6.5,
+      "hard": 51.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 6.0,
-      "B": -2.0,
-      "C": 0.0,
-      "D": 15.0
+      "A": 7.3,
+      "B": -2.7,
+      "C": -0.7,
+      "D": 15.3
     },
-    "spr_items": 65,
+    "spr_items": 67,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 30,
       "skill_gap_for_next_10": {
@@ -1751,14 +1766,6 @@
         "Information and Ideas": -1.6,
         "Standard English Conventions": 12.4,
         "Expression of Ideas": -2.6
-      }
-    },
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
       }
     },
     "act_english": {
@@ -1793,12 +1800,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 214,
-      "share_of_target": 0.214
+      "accepted": 221,
+      "share_of_target": 0.221
     }
   },
   "total_target": 3841,
-  "total_accepted": 1725,
+  "total_accepted": 1732,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48970,7 +48977,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 24,
+      "bank_version": 25,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49096,7 +49103,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:06:35+00:00",
+    "heartbeat_at": "2026-10-27T03:07:13+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

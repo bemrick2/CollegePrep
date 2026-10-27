@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 24,
-  "updated_at": "2026-10-27T03:03:39+00:00",
+  "version": 25,
+  "updated_at": "2026-10-27T03:07:11+00:00",
   "passages": [],
   "questions": [
     {
@@ -16112,6 +16112,509 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-024.review.json",
         "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000225",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Coefficients of an equivalent linear expression",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The equation 3(2x + 1) − 2(x − 4) = ax + b is true for all values of x, where a and b are constants. What is the value of a + b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "-1",
+          "rationale": "−1 writes −2(x − 4) as −2x − 8, a sign error.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "4",
+          "rationale": "4 is the value of a alone.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Expanding gives 6x + 3 − 2x + 8 = 4x + 11. So a = 4 and b = 11, and a + b = 15. (Equivalently, a + b is the value of the left side at x = 1: 9 + 6 = 15.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Expand and combine like terms."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate the left side at x = 1."
+      },
+      "remember": "Subtracting a product changes the sign of every term in it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-01",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000226",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Finding a coordinate after finding the slope",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = kx + 3, where k is a constant, passes through the points (2, 11) and (−1, n). What is the value of n ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−7",
+        "B": "−1",
+        "C": "3",
+        "D": "7"
+      },
+      "correct_answer": "B",
+      "explanation": "Substituting (2, 11) gives 11 = 2k + 3, so k = 4. Then at x = −1, n = 4(−1) + 3 = −1.",
+      "distractor_explanations": {
+        "A": "−7 subtracts 3 instead of adding it: −4 − 3.",
+        "C": "3 is the y-intercept, not the value at x = −1.",
+        "D": "7 uses x = 1 instead of x = −1."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "wrong_quantity",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Use the first point to find k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k, then evaluate at x = −1."
+      },
+      "remember": "Find the unknown slope first.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-02",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000227",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Input for a given output of a quadratic",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² − 2x − 8. For what value of x is f(x) = −9 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1",
+      "accepted_answers": [
+        "1"
+      ],
+      "common_errors": [
+        {
+          "value": "-1",
+          "rationale": "−1 makes a sign error in the factor (x − 1).",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-9",
+          "rationale": "−9 is the output, not the input.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Setting x² − 2x − 8 = −9 gives x² − 2x + 1 = 0, or (x − 1)² = 0, so x = 1 is the only solution. (−9 is the minimum value of f.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Set the function equal to −9 and rearrange."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve x² − 2x + 1 = 0."
+      },
+      "remember": "Move every term to one side before factoring.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-05",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1",
+        "blind_answer": "1",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000228",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Identifying a decreasing exponential function",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following functions is decreasing for all values of x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(x) = 3(1.2)ˣ",
+        "B": "f(x) = 0.8x",
+        "C": "f(x) = −3(0.8)ˣ",
+        "D": "f(x) = 3(0.8)ˣ"
+      },
+      "correct_answer": "D",
+      "explanation": "For a(b)ˣ with a > 0, the function decreases when 0 < b < 1, so 3(0.8)ˣ is decreasing. −3(0.8)ˣ has a negative coefficient, so its values rise toward 0: it is increasing. 3(1.2)ˣ and 0.8x are increasing.",
+      "distractor_explanations": {
+        "A": "A base greater than 1 with a positive coefficient gives growth.",
+        "B": "0.8x has a positive slope, so it is increasing.",
+        "C": "The negative coefficient flips the graph: the values rise toward 0, so it is increasing."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "sign_error"
+      },
+      "hints": [
+        "Consider both the base and the sign of the coefficient."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare f(0) and f(1) for each function."
+      },
+      "remember": "Decay needs a positive coefficient and a base between 0 and 1.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-06",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000229",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Tangent of an angle formed by a rectangle's diagonal",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle is 12 units long and 5 units wide. A diagonal of the rectangle forms an acute angle θ with one of the longer sides. What is the value of tan θ ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5/13",
+        "B": "5/12",
+        "C": "12/13",
+        "D": "12/5"
+      },
+      "correct_answer": "B",
+      "explanation": "The diagonal, a longer side (12) and a shorter side (5) form a right triangle. For the angle θ at the end of the longer side, the opposite side is 5 and the adjacent side is 12, so tan θ = 5/12.",
+      "distractor_explanations": {
+        "A": "5/13 is sin θ, using the diagonal 13.",
+        "C": "12/13 is cos θ.",
+        "D": "12/5 is the tangent of the other acute angle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Sketch the right triangle formed by the diagonal."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the sides opposite and adjacent to θ."
+      },
+      "remember": "tan = opposite / adjacent.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-07",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000230",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Perimeter of a right triangle from a sine value and the hypotenuse",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a right triangle, one acute angle θ satisfies sin θ = 3/5, and the hypotenuse has length 20. What is the perimeter of the triangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "28",
+        "B": "40",
+        "C": "48",
+        "D": "96"
+      },
+      "correct_answer": "C",
+      "explanation": "sin θ = opposite/hypotenuse = 3/5, so the side opposite θ is (3/5)(20) = 12. The other leg is √(20² − 12²) = 16. The perimeter is 12 + 16 + 20 = 48.",
+      "distractor_explanations": {
+        "A": "28 adds only the two legs.",
+        "B": "40 counts the hypotenuse twice instead of finding the second leg.",
+        "D": "96 is the area of the triangle, (1/2)(12)(16)."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Use the sine to find one leg."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the opposite leg, then the other leg."
+      },
+      "remember": "sin = opposite / hypotenuse.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-08",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000231",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Maximum value from the range and the minimum",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A data set has a range of 24, and its minimum value is 13. What is the maximum value of the data set?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "11",
+        "B": "24",
+        "C": "37",
+        "D": "312"
+      },
+      "correct_answer": "C",
+      "explanation": "The range is the maximum minus the minimum, so maximum − 13 = 24 and the maximum is 24 + 13 = 37.",
+      "distractor_explanations": {
+        "A": "11 subtracts 13 from 24.",
+        "B": "24 is the range itself.",
+        "D": "312 multiplies the range by the minimum."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Recall the definition of range."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve max − 13 = 24."
+      },
+      "remember": "Range = maximum − minimum.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 25,
+      "draft_candidate": "Q025-09",
+      "created_at": "2026-10-27T03:07:11+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [
+          "minor: distractor D (312 = 13*24) is implausible and trivially eliminated; B (24) also weak."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-025.review.json",
+        "computation": "checks/sat_math/batch_025.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

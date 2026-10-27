@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 25,
- "plan": "SAT Math batch 25 (9 items): Algebra 2, Advanced Math 4, Geometry and Trigonometry 2, Problem-Solving and Data Analysis 1; 2 student-produced responses; 1 item labelled hard. Ideas pre-checked (reviews/sat_math/ideas-025.repeats.json): four templates (ACT 441, 028, 084, 413) dropped; a common-factor rational simplification was dropped at screening as too close to ACT 170.",
+ "plan": "SAT Math batch 25 (9 items): Algebra 2, Advanced Math 4, Geometry and Trigonometry 2, Problem-Solving and Data Analysis 1; 2 student-produced responses; 1 item labelled hard. Ideas pre-checked (reviews/sat_math/ideas-025.repeats.json): four templates (ACT 441, 028, 084, 413) dropped; a common-factor rational simplification was dropped at screening as too close to ACT 170. Q025-03 withdrawn after the blind solve (cross-item cue with Q025-04). Relabelled to the blind solver's rating where it was lower: Q025-01 medium→easy, Q025-02 medium→easy, Q025-04 hard→medium.",
  "candidates": [
   {
    "cand": "Q025-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Coefficients of an equivalent linear expression",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The equation 3(2x + 1) − 2(x − 4) = ax + b is true for all values of x, where a and b are constants. What is the value of a + b ?",
    "explanation": "Expanding gives 6x + 3 − 2x + 8 = 4x + 11. So a = 4 and b = 11, and a + b = 15. (Equivalently, a + b is the value of the left side at x = 1: 9 + 6 = 15.)",
    "hints": [
@@ -51,7 +51,7 @@
    "skill": "Algebra",
    "subskill": "Finding a coordinate after finding the slope",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "In the xy-plane, the line y = kx + 3, where k is a constant, passes through the points (2, 11) and (−1, n). What is the value of n ?",
    "explanation": "Substituting (2, 11) gives 11 = 2k + 3, so k = 4. Then at x = −1, n = 4(−1) + 3 = −1.",
    "hints": [
@@ -92,58 +92,12 @@
    }
   },
   {
-   "cand": "Q025-03",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Evaluating a revenue model",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "easy",
-   "stem": "A theater estimates that it will sell T = 600 − 20p tickets when the ticket price is p dollars. What is the theater's estimated revenue, in dollars, when the ticket price is $15 ?",
-   "explanation": "At p = 15 the theater sells T = 600 − 20(15) = 300 tickets. Revenue = price × tickets = 15 × 300 = $4,500.",
-   "hints": [
-    "Find the number of tickets first."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Revenue = p × T."
-   },
-   "remember": "Revenue = price × quantity sold.",
-   "expected_time_seconds": 35,
-   "modeling": true,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "300",
-    "B": "4,500",
-    "C": "8,700",
-    "D": "9,000"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "300 is the number of tickets, not the revenue.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "8,700 subtracts 300 from 9,000.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "9,000 multiplies 600 by 15, ignoring the drop in ticket sales.",
-     "trap": null
-    }
-   }
-  },
-  {
    "cand": "Q025-04",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
    "subskill": "Price that maximizes a quadratic revenue model",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A theater's revenue, in dollars, from ticket sales is modeled by R(p) = p(600 − 20p), where p is the ticket price in dollars. What ticket price gives the greatest revenue?",
    "explanation": "R(p) = p(600 − 20p) has zeros at p = 0 and p = 30, and the parabola opens downward. Its maximum is midway between the zeros, at p = 15, where R(15) = 15 × 300 = $4,500.",
    "hints": [
@@ -159,8 +113,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must recognise a quadratic in factored form and locate its vertex from the zeros; 30 (where revenue is zero) is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "15",
@@ -407,6 +360,58 @@
     "D": {
      "rationale": "312 multiplies the range by the minimum.",
      "trap": null
+    }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q025-03",
+   "reason": "blind solver: uses the same ticket model as Q025-04 and its $15 price cues the answer to Q025-04; withdrawn (cross-item cue)",
+   "item": {
+    "cand": "Q025-03",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Evaluating a revenue model",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "easy",
+    "stem": "A theater estimates that it will sell T = 600 − 20p tickets when the ticket price is p dollars. What is the theater's estimated revenue, in dollars, when the ticket price is $15 ?",
+    "explanation": "At p = 15 the theater sells T = 600 − 20(15) = 300 tickets. Revenue = price × tickets = 15 × 300 = $4,500.",
+    "hints": [
+     "Find the number of tickets first."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Revenue = p × T."
+    },
+    "remember": "Revenue = price × quantity sold.",
+    "expected_time_seconds": 35,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "300",
+     "B": "4,500",
+     "C": "8,700",
+     "D": "9,000"
+    },
+    "answer": "B",
+    "distractors": {
+     "A": {
+      "rationale": "300 is the number of tickets, not the revenue.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "8,700 subtracts 300 from 9,000.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "9,000 multiplies 600 by 15, ignoring the drop in ticket sales.",
+      "trap": null
+     }
     }
    }
   }
