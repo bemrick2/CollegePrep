@@ -1,0 +1,162 @@
+{
+ "ideas": "generated set 9 (DA/DB/DC/DD)",
+ "results": {
+  "DA01": [
+   {
+    "other_id": "CLD-SAT-M-000002 (retired)",
+    "severity": "close",
+    "why": "Retired template 'solve a linear system for an expression (x + y)'; DA01 asks the same kind of combination from a system, found by adding the equations. The twist (3 unknowns, individual prices not determined) changes the reasoning somewhat, but this is the retired item's template. The demo fixture 'If 2x + y = 11 and x − y = 1, what is x + y?' is the same frame."
+   },
+   {
+    "other_id": "CLD-SAT-M-000377",
+    "severity": "close",
+    "why": "Same symmetric-coefficient setup (3,2 / 2,3 resources); 377 solves for one unknown, DA01 adds the equations for the total."
+   }
+  ],
+  "DA02": [],
+  "DA03": [
+   {
+    "other_id": "CLD-SAT-M-000515 / Q055-01 / gen08:CA11",
+    "severity": "close",
+    "why": "Same asked quantity ('which equation gives the same model in terms of a new input variable') solved by substituting for the old input. 515 rescales the input (chirps per 14 s to per minute); DA03 shifts the base year."
+   },
+   {
+    "other_id": "CLD-SAT-M-000460 / Q050-01 / gen07:BA01",
+    "severity": "close",
+    "why": "Both turn on re-basing a linear model from years after 2010 to years after 2015 (x = t + 5 shift and its wrong-direction trap). 460 then equates two models; DA03 only rewrites one."
+   }
+  ],
+  "DA04": [
+   {
+    "other_id": "CLD-ACT-M-000196",
+    "severity": "template",
+    "why": "Same template: a fee plus a better per-unit rate against an option with no or lower fee, then the least whole number under a strict inequality whose equality point is an integer. 196 has choices 99/100/101 with equality at 100; DA04 has equality at 138 and key 139. The fee-before-conversion twist is small."
+   },
+   {
+    "other_id": "CLD-SAT-M-000073",
+    "severity": "close",
+    "why": "Least whole number for which one pricing option beats the other (strict inequality, round up past the break-even point)."
+   }
+  ],
+  "DA05": [
+   {
+    "other_id": "CLD-SAT-M-000375 / Q042-02 / gen04:N06",
+    "severity": "close",
+    "why": "Both intersect two absolute-value intervals. 375 counts integers in the overlap; DA05 rewrites the overlap as one absolute value inequality."
+   }
+  ],
+  "DA06": [
+   {
+    "other_id": "CLD-SAT-M-000173",
+    "severity": "template",
+    "why": "Same template: one quantity falls linearly and another rises linearly; find when they are equal, so the gap closes at the sum of the rates (phones' battery levels vs tanks). The leak adds only one extra term to tank A's rate."
+   }
+  ],
+  "DA07": [],
+  "DA08": [],
+  "DA09": [],
+  "DA10": [],
+  "DB01": [
+   {
+    "other_id": "CLD-SAT-M-000366 / Q041-05 / gen04:P01",
+    "severity": "template",
+    "why": "Same setup run in reverse: a fixed total ($120 / $600) equals count × unit amount, and a change in the count goes with a $5 change in the unit amount, which gives a rational equation that becomes a quadratic with a rejected negative root. 366 asks the unit price; DB01 asks the count. The '$5 less' is reused."
+   }
+  ],
+  "DB02": [],
+  "DB03": [],
+  "DB04": [
+   {
+    "other_id": "FIXTURE (bacteria triples every 4 hours, expression after t days)",
+    "severity": "close",
+    "why": "Same template: write an exponential from a stated multiplying period (base^(t/period)). The fixture adds a unit change; DB04 states it as the functional equation P(t + 12) = 2P(t). Also related to CLD-ACT-M-000312 (P = 50·2^(t/3))."
+   }
+  ],
+  "DB05": [],
+  "DB06": [],
+  "DB07": [
+   {
+    "other_id": "CLD-SAT-M-000148",
+    "severity": "close",
+    "why": "Percent change in a product-based quantity when two factors each change by a percent; DB07 puts the product under a square root. See also CLD-SAT-M-000524 (two percent changes combined in a ratio)."
+   }
+  ],
+  "DB08": [
+   {
+    "other_id": "gen06:AB09",
+    "severity": "template",
+    "why": "Same template: a quantity decreases by a fixed percent per step; find the least whole number of steps until it falls below a threshold fraction. Both have a linear-decrease trap, a 'last step still above' distractor and the key as the largest choice. Only the context (algae per week vs light per meter) changes."
+   }
+  ],
+  "DB09": [],
+  "DB10": [],
+  "DC01": [
+   {
+    "other_id": "CLD-SAT-M-000371 / Q041-10 / gen04:R03",
+    "severity": "close",
+    "why": "Same first step (aluminum, density 2.7 g/cm³, volume = mass/density, then a dimension). 371 takes a cube root for an edge; DC01 divides by a cross section for a length and converts units. Aluminum at 2.7 is reused."
+   }
+  ],
+  "DC02": [],
+  "DC03": [],
+  "DC04": [],
+  "DC05": [],
+  "DD01": [
+   {
+    "other_id": "CLD-SAT-M-000150",
+    "severity": "close",
+    "why": "Radius from an arc length and its central angle (radians in 150; degrees in DD01, through the full circumference). DD01 is also Eratosthenes' classic measurement."
+   }
+  ],
+  "DD02": [],
+  "DD03": [],
+  "DD04": [],
+  "DD05": [
+   {
+    "other_id": "CLD-SAT-M-000186",
+    "severity": "close",
+    "why": "Concentric-circle ring area: 186 gives R = 2r and the ring area and asks r; DD05 sets ring area = inner disk area and asks r = R/√2."
+   }
+  ]
+ },
+ "within_list_cues": [
+  "DA03 / DB02: both are time-shift substitutions with a 'shift the wrong way' distractor (x = t + 2015 vs A(t − 2)); doing one cues the other's direction.",
+  "DB05 / DC03: both frame fuel use per mile. DB05's gallons-per-mile model hands over DC03's key insight that fuel use is the reciprocal of mpg.",
+  "DB10 / DD05: both answers are a side divided or multiplied by √2 because of halving (half-sheet similarity, half-area ring). The second one seen is cued.",
+  "DD01 / DD03: both recover a radius from a known length of a circle's curved part (arc → circumference → r).",
+  "DC02 / DC04: both divide by a percent factor (1.68, 0.75) after setting the base; mild."
+ ],
+ "answer_errors": [
+  "DA04: the trap 'treating the $6 fee as 6 euros' gives 0.92d − 6 > 0.88d, so d > 150 and the least whole number is 151, not 150 (150 is that trap's equality point). Restate the trap value as 151, or call 150 the equality-point version of this error.",
+  "DA02: the 1,200 trap ('0.01m = 12') has no stated misreading that produces 0.01m. Give it a concrete error (e.g., reading '2% less' as 0.97m) or replace it. All keys recompute correctly: DA01 5, DA02 600, DA03 3.2t + 61, DA04 139, DA05 |p − 7.25| ≤ 0.15, DA06 12, DA07 1,260, DA08 1.75, DA09 A, DA10 90, DB01 30, DB02 A(t − 2) + 5, DB03 17.2, DB04 300·2^(t/12), DB05 67 (67.25), DB06 4x + 12, DB07 10%, DB08 11, DB09 28, DB10 29.7, DC01 25, DC02 390, DC03 100, DC04 80, DC05 3/8, DD01 6,366, DD02 132 (131.75), DD03 10,154, DD04 14.5, DD05 3.54. All stated MC distractor values were checked and match their stated errors."
+ ],
+ "cues_or_overdetermined": [
+  "DA05: the key is the only choice whose tolerance (0.15) is smaller than both given tolerances (0.6, 0.5), and an overlap must be narrower than the narrower range. A, B and C each include pH values outside species B's range (for example, their low ends 6.8, 6.2 and 6.65 are below 7.1), so one shared check eliminates all three.",
+  "DA09: the key (A) is much longer and more qualified than B, C and D. C is eliminated because 2.40 is stated in the stem as A's price, and D because the cost for all juice B is the constant 18, not 0.9. Only B needs real thought.",
+  "DB02: D, A(t) + 3, is the only choice not of the form A(t ± 2) ± 5, and C has −5 against '5 degrees higher'. A quick check leaves A vs B, which is the one real decision.",
+  "DB04: B (300·2^(12t)) is absurd at a glance, and a single check of P(12) = 600 removes B and D, leaving only the linear choice to beat with P(24).",
+  "DB08: for a 'least' ask the key, 11, is the largest choice, and it sits right next to C = 10. Extreme-value cue, the same pattern as gen06:AB09.",
+  "DD01: the key, 6,366 km, is Earth's actual radius (about 6,371 km). Any student who knows Earth's size picks it without computing, and 917, 3,183 and 12,732 are clearly unrealistic.",
+  "DD03: the key equals A + B (3,852 + 6,303 = 10,155 ≈ 10,154), so a test-wise student sees the key as 'both parts together'. D (28,011) can also be ruled out because it exceeds the area of a circle with a 400 m perimeter (about 12,732).",
+  "DD05: the 2-meter length is extra information. It is intentional (it cancels), but it is in different units from the radius; this is acceptable, just noted."
+ ],
+ "grid_problems": [],
+ "unrealistic": [],
+ "likely_easier_than_labeled": [
+  "DA01 (hard): the 3-2-1 / 1-2-3 coefficients make 'add the equations' visible at a glance; closer to medium-hard.",
+  "DB04 (hard): 'doubles every 12 years → 300·2^(t/12)' is a standard form most students recognize; medium-hard at most.",
+  "DB07 (hard): √(1.1·1.1) = 1.1 is a one-step observation once written; medium-hard.",
+  "DC03 (hard): four direct divisions (12,000/15, /20, /30, /40); the trap only works on students who don't compute. Medium.",
+  "DC05 (hard): the weighting by class size is a single step; medium-hard.",
+  "DD05 (hard): 25 − r² = r² is one line; medium-hard.",
+  "DA09 (hard): the key-length cue and eliminable distractors make it medium-hard as written.",
+  "DD01 (medium-hard): the realistic key makes it effectively medium."
+ ],
+ "notes_well_known": [
+  "DD01 restates Eratosthenes' measurement of Earth, a widely published classic.",
+  "DB10 is the A4/ISO 216 paper fact (21 × 29.7 cm). Students who know A4 dimensions can answer from memory.",
+  "DC03 is the published 'MPG illusion' example (Larrick & Soll).",
+  "DB01 is the classic textbook 'shared cost with more people' rational-equation problem; its form is common in SAT prep materials. No idea closely copies a specific released official SAT item that I could identify.",
+  "No idea uses the over-used frame 'linear f with a disguised second point, asks f(0)'."
+ ]
+}
