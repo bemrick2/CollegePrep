@@ -1,0 +1,303 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 67,
+  "reviewed_at": "2026-10-27T17:10:36+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 67
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000716",
+    "CLD-SAT-M-000717",
+    "CLD-SAT-M-000718",
+    "CLD-SAT-M-000719",
+    "CLD-SAT-M-000720",
+    "CLD-SAT-M-000721",
+    "CLD-SAT-M-000722",
+    "CLD-SAT-M-000723",
+    "CLD-SAT-M-000724",
+    "CLD-SAT-M-000725",
+    "CLD-SAT-M-000726",
+    "CLD-SAT-M-000727"
+  ],
+  "results": [
+    {
+      "cand": "Q067-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "860",
+      "computed_answer": "860",
+      "blind_answer": "860",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Total 6200; days1-6 sum 3240; days5-10 sum 4680; 3240+4680-6200=1720 = days5+6; mean 860. 10 days, first 6 and last 6 overlap exactly on days 5 and 6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The windows overlap, so students must find the overlap by combining totals."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000716"
+    },
+    {
+      "cand": "Q067-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "60 shares + 30 shares = 90 shares for $1800, so $20. A $10 does not come from any natural error; B $15 is the January price; D $22.50 is the plain mean of the two prices (trap).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The tempting unweighted mean of the prices is wrong because quantities differ."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000717"
+    },
+    {
+      "cand": "Q067-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7",
+      "computed_answer": "7",
+      "blind_answer": "7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "P(car|F)=24/(42+y); P(F|car)=24/49; the numerators are equal so 42+y=49, y=7. Unique.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The two conditionals are reverses of each other, so equal numerators force equal totals."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000718"
+    },
+    {
+      "cand": "Q067-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Cooked meat 30*0.15=4.5 kg; raw boneless 4.5/0.75=6; bone-in 6/0.8=7.5. A 5.40 = 4.5*1.2 (multiplying by percents instead of dividing); B 6.00 stops at boneless raw; D 8.18 = 4.5/0.55 (subtracting 20%+25%).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two percent losses on different bases must be combined by multiplying and undone by dividing."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000719"
+    },
+    {
+      "cand": "Q067-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "37.5",
+      "computed_answer": "37.5",
+      "blind_answer": "37.5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Cost 100, price 160, profit 60; 60/160=37.5%. Accept 37.5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The base switches from cost to price."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000720"
+    },
+    {
+      "cand": "Q067-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "History z=(82-70)/8=1.5; math 76+1.5*6=85. A 77.5 = mean+1.5 (raw z added); C 88 = mean+12 raw points; D 92 also wrong (76+16, doubling).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000721"
+    },
+    {
+      "cand": "Q067-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "0.25F=150 so F=600. A 120 = 150*0.8; B 450 = 600-150 / 3*150; D 750 is the new amount.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000722"
+    },
+    {
+      "cand": "Q067-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "A: 9000*12=108000; B: 12000*6=72000; ratio 3:2; A gets 3/5*21000=12600. A $9,000 uses ratio of amounts 9:12; B equal split; D $14,000 = 2/3 share.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000723"
+    },
+    {
+      "cand": "Q067-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "108",
+      "computed_answer": "108",
+      "blind_answer": "108",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Window sums 840 (Sun) and 882 (Mon); 882-840=42=150-x, x=108. Context: window moving one day drops the prior Monday; consistent.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "One value enters and one leaves at the same time, and the change in the mean must be scaled to a total."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000724"
+    },
+    {
+      "cand": "Q067-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "(400*10+1000*15+250*5)/30=20250/30=675. A 550 = unweighted mean of three balances; B 575 and D 810 are not correct weighted means.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000725"
+    },
+    {
+      "cand": "Q067-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3600",
+      "computed_answer": "3600",
+      "blind_answer": "3600",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Remaining fraction 0.7*0.75*0.8=0.42; 1512/0.42=3600.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Each percent applies to a different remainder, so they must be multiplied, not added."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000726"
+    },
+    {
+      "cand": "Q067-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "A rate 84/2.4=35, B rate 45/1.2=37.5 per 100,000; difference 2.5. B 35 and C 37.5 are the individual rates; D 39 is another incorrect value.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000727"
+    }
+  ]
+}

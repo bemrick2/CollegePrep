@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T17:09:57+00:00",
+  "updated_at": "2026-10-27T17:10:52+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 404,
     "act_reading": 395,
     "sat_reading_writing": 405,
-    "sat_math": 685
+    "sat_math": 697
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 40
     },
     "sat_math": {
-      "PASS": 715,
+      "PASS": 727,
       "REVISE": 23,
       "REJECT": 3,
-      "candidates": 741,
+      "candidates": 753,
       "passed_after_revision": 29
     }
   },
@@ -1651,13 +1651,13 @@
       "passages": 432
     },
     "sat_math": {
-      "accepted": 685,
+      "accepted": 697,
       "retired_after_audit": 30,
       "by_skill": {
         "Advanced Math": 229,
         "Algebra": 216,
         "Geometry and Trigonometry": 128,
-        "Problem-Solving and Data Analysis": 112
+        "Problem-Solving and Data Analysis": 124
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1700,6 +1700,7 @@
         "Areas of triangles on opposite sides of a square": 1,
         "Areas of two rectangles with equal diagonals and different ratios": 1,
         "Average cost under a two-tier price": 1,
+        "Average price with equal dollar amounts": 1,
         "Axis of symmetry from a shift that reflects the zeros": 1,
         "Balance condition summing products on one side": 1,
         "Base perimeter from dividing a volume polynomial by the height": 1,
@@ -1742,6 +1743,7 @@
         "Comparing exponential, polynomial and linear values": 1,
         "Comparing linear and percent increases in successive years": 1,
         "Comparing means and standard deviations from frequency tables": 1,
+        "Comparing rates per 100,000": 1,
         "Comparing successive percent changes in different orders": 1,
         "Comparing the mean and median after adding a value": 1,
         "Comparing two linear cost plans": 1,
@@ -1998,6 +2000,7 @@
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
         "Matching numerators over a factored quadratic denominator": 1,
+        "Matching standing across two distributions": 1,
         "Maximum gap between a linear and a quadratic position": 1,
         "Maximum height after finding a constant from the landing time": 1,
         "Maximum of a quadratic built from two equal values": 1,
@@ -2034,11 +2037,13 @@
         "Opposite endpoint of a diameter from a circle equation": 1,
         "Order amount that matches a free-shipping threshold": 1,
         "Order of a vertical shift and a vertical stretch": 1,
+        "Original amount from a percent change in a proportion": 1,
         "Original price from a discount, a coupon and the final share": 1,
         "Original price when a price rise and a sales drop leave revenue unchanged": 1,
         "Original total from probabilities before and after a removal": 1,
         "Output change from a percent change in the input": 1,
         "Overlapping groups from two conditional percents": 1,
+        "Overlapping windows of a mean": 1,
         "Pace per mile from a metric race time": 1,
         "Parameter from the area of a triangle formed by two lines and a vertical line": 1,
         "Parameter that makes a linear equation an identity": 1,
@@ -2088,6 +2093,7 @@
         "Probability for a randomly chosen person when counts are given by group": 1,
         "Product of the solutions of a quadratic equation": 1,
         "Product of x-coordinates where a line meets a circle": 1,
+        "Profit as a percent of price": 1,
         "Proportion that holds only on a shifted temperature scale": 1,
         "Quadrants of a line after slope and intercept switch roles": 1,
         "Quadratic from a minimum stated as an inequality": 1,
@@ -2108,6 +2114,7 @@
         "Rate of rise of a level in a cylinder with a unit conversion": 1,
         "Rate problem with a unit conversion": 1,
         "Ratio applied after excluding a group": 1,
+        "Ratio built from amount times time": 1,
         "Ratio of distances on a number line with two cases": 1,
         "Ratio of remaining masses for two half-lives": 1,
         "Ratio of two conditional probabilities from a table without totals": 1,
@@ -2136,6 +2143,7 @@
         "Remaining distance when one runner finishes": 1,
         "Returning to an initial height in a quadratic model": 1,
         "Revenue unchanged after price changes": 1,
+        "Reverse conditional probabilities in a table": 1,
         "Rewriting a product of exponential expressions with one base": 1,
         "Rewriting exponential expressions with a common base": 1,
         "Rhombus inscribed in a rectangle": 1,
@@ -2176,6 +2184,7 @@
         "Simplifying a rational expression by factoring twice": 1,
         "Simplifying an expression with negative exponents": 1,
         "Sine of a base angle in an isosceles triangle": 1,
+        "Sliding-window average": 1,
         "Slope forced by two points with swapped coordinates": 1,
         "Slope from a point and an x-intercept": 1,
         "Slope hidden in a constant-difference condition": 1,
@@ -2288,6 +2297,7 @@
         "Two travelers leaving at different times in opposite directions": 1,
         "Two unknowns from a percent speed change": 1,
         "Two-purchase system with a percent discount on one item": 1,
+        "Undoing two successive percent losses": 1,
         "Unit cost from two rates": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
@@ -2314,9 +2324,11 @@
         "Volume of cylinders with the same height and different radii": 1,
         "Volume rate in gallons from a depth rate over an area": 1,
         "Weight of snow from depth ratio and density": 1,
+        "Weighted average by days": 1,
         "When two linear quantities are equal": 1,
         "Where a circle tangent to the x-axis crosses the y-axis": 1,
         "Where two linear functions given by tables are equal": 1,
+        "Whole from a chain of percents of remainders": 1,
         "Whole-triangle area from a sub-triangle area and the altitude relation": 1,
         "Width of a rectangle from a quadratic area": 1,
         "Work rates from a combined and a sequential job": 1,
@@ -2347,19 +2359,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 93,
-        "hard": 87,
-        "medium": 505
+        "easy": 97,
+        "hard": 89,
+        "medium": 511
       },
       "by_difficulty_calibrated": {
-        "easy": 144,
-        "hard": 79,
-        "medium": 462
+        "easy": 148,
+        "hard": 81,
+        "medium": 468
       },
       "calibrated_share": {
-        "easy": 0.21,
-        "hard": 0.115,
-        "medium": 0.674
+        "easy": 0.212,
+        "hard": 0.116,
+        "medium": 0.671
       },
       "answer_key_balance": {
         "-1": 3,
@@ -2377,6 +2389,7 @@
         "10": 11,
         "10.5": 1,
         "1000": 1,
+        "108": 1,
         "11": 3,
         "11/3": 1,
         "110": 1,
@@ -2434,7 +2447,8 @@
         "330": 1,
         "34": 1,
         "36": 4,
-        "37.5": 1,
+        "3600": 1,
+        "37.5": 2,
         "39": 1,
         "4": 14,
         "4.05": 1,
@@ -2462,7 +2476,7 @@
         "64": 1,
         "640": 1,
         "67": 1,
-        "7": 10,
+        "7": 11,
         "7.2": 2,
         "748": 1,
         "8": 8,
@@ -2473,6 +2487,7 @@
         "81": 1,
         "81/4": 1,
         "84": 1,
+        "860": 1,
         "9": 4,
         "9/17": 1,
         "9/2": 1,
@@ -2480,13 +2495,13 @@
         "94": 1,
         "95": 1,
         "96": 1,
-        "A": 94,
-        "B": 142,
-        "C": 124,
+        "A": 95,
+        "B": 143,
+        "C": 129,
         "D": 73
       },
       "modeling_items": 251,
-      "spr_items": 252,
+      "spr_items": 257,
       "passages": 0
     }
   },
@@ -2495,7 +2510,7 @@
     "act_english": 46,
     "act_reading": 51,
     "sat_reading_writing": 48,
-    "sat_math": 66
+    "sat_math": 67
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2527,30 +2542,38 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 67,
+    "next_batch": 68,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 27.2,
-      "Advanced Math": 14.2,
-      "Problem-Solving and Data Analysis": -7.8,
-      "Geometry and Trigonometry": -23.8
+      "Algebra": 31.4,
+      "Advanced Math": 18.4,
+      "Problem-Solving and Data Analysis": -18.0,
+      "Geometry and Trigonometry": -22.0
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 29.8,
+      "easy": 28.8,
       "medium": -114.5,
-      "hard": 94.8
+      "hard": 95.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 36.3,
-      "B": -11.7,
-      "C": 6.3,
-      "D": 57.3
+      "A": 37.6,
+      "B": -10.4,
+      "C": 3.6,
+      "D": 59.6
     },
-    "spr_items": 252,
+    "spr_items": 257,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 47,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 48.7,
+        "Knowledge of Language": 14.9,
+        "Conventions of Standard English": -47.3
+      }
+    },
     "act_reading": {
       "next_batch": 52,
       "skill_gap_for_next_10": {
@@ -2566,14 +2589,6 @@
         "Information and Ideas": -8.1,
         "Standard English Conventions": 24.9,
         "Expression of Ideas": -4.0
-      }
-    },
-    "act_english": {
-      "next_batch": 47,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 48.7,
-        "Knowledge of Language": 14.9,
-        "Conventions of Standard English": -47.3
       }
     }
   },
@@ -2600,12 +2615,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 685,
-      "share_of_target": 0.685
+      "accepted": 697,
+      "share_of_target": 0.697
     }
   },
   "total_target": 3841,
-  "total_accepted": 2663,
+  "total_accepted": 2675,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -306684,7 +306699,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 66,
+      "bank_version": 67,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -306810,7 +306825,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T17:09:57+00:00",
+    "heartbeat_at": "2026-10-27T17:10:51+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

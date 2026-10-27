@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 66,
-  "updated_at": "2026-10-27T17:07:50+00:00",
+  "version": 67,
+  "updated_at": "2026-10-27T17:10:36+00:00",
   "passages": [],
   "questions": [
     {
@@ -51700,6 +51700,888 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-066.review.json",
         "computation": "checks/sat_math/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000716",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Overlapping windows of a mean",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Over 10 consecutive days, a museum's mean daily attendance was 620. The mean daily attendance for the first 6 of these days was 540, and the mean daily attendance for the last 6 of these days was 780. What was the mean daily attendance on the 5th and 6th days?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "860",
+      "accepted_answers": [
+        "860"
+      ],
+      "common_errors": [
+        {
+          "value": "660",
+          "rationale": "660 averages 540 and 780.",
+          "trap": null
+        },
+        {
+          "value": "1720",
+          "rationale": "1720 is the total for the two days; it forgets to divide by 2.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "620",
+          "rationale": "620 is the overall mean.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The totals are 10(620) = 6,200 for all days, 6(540) = 3,240 for days 1-6, and 6(780) = 4,680 for days 5-10. Days 5 and 6 are counted in both windows, so their total is 3,240 + 4,680 − 6,200 = 1,720, and their mean is 860.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Convert each mean to a total."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the two window totals and subtract the overall total."
+      },
+      "remember": "Work with totals, not means, when groups overlap.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-01",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "860",
+        "blind_answer": "860",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000717",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Average price with equal dollar amounts",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Ravi invested $900 in a fund in January, when its shares cost $15 each, and another $900 in June, when its shares cost $30 each. What was the average price Ravi paid per share for all the shares he bought?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$10.00",
+        "B": "$15.00",
+        "C": "$20.00",
+        "D": "$22.50"
+      },
+      "correct_answer": "C",
+      "explanation": "Ravi bought 900/15 = 60 shares in January and 900/30 = 30 shares in June, so 90 shares for $1,800. The average price is 1,800/90 = $20.00. More shares were bought at the lower price, so the average is below the mean of the two prices.",
+      "distractor_explanations": {
+        "A": "$10.00 divides one $900 investment by all 90 shares.",
+        "B": "$15.00 uses the January price because most shares were bought then.",
+        "D": "$22.50 is the mean of the two share prices, ignoring that different numbers of shares were bought."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many shares did Ravi buy each time?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide total dollars by total shares."
+      },
+      "remember": "An average price is total cost divided by total quantity.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-02",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000718",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Reverse conditional probabilities in a table",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table gives all the commuters in a survey, by gender and usual way of getting to work.\nFemale: bus 18, car 24, walk y\nMale: bus 30, car 25, walk 15\nIf a female commuter is selected at random, the probability that she usually commutes by car is equal to the probability that a commuter selected at random from those who usually commute by car is female. What is the value of y ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "25.2",
+          "rationale": "25.2 sets the probability of car for females equal to that for males.",
+          "trap": null
+        },
+        {
+          "value": "49",
+          "rationale": "49 sets y equal to the number of car commuters.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 equates y with the number of male car commuters.",
+          "trap": null
+        }
+      ],
+      "explanation": "The first probability is 24/(42 + y), and the second is 24/(24 + 25) = 24/49. The numerators are equal, so the denominators must be equal: 42 + y = 49, and y = 7.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each probability as a fraction from the table."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two fractions equal."
+      },
+      "remember": "A conditional probability's denominator is the group you select from.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-03",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000719",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Undoing two successive percent losses",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A caterer buys bone-in chicken. The bones make up 20% of the raw weight, and the boneless meat loses 25% of its weight when it is cooked. How many kilograms of raw bone-in chicken does the caterer need to serve 30 guests 150 grams of cooked boneless meat each?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5.40",
+        "B": "6.00",
+        "C": "7.50",
+        "D": "8.18"
+      },
+      "correct_answer": "C",
+      "explanation": "The guests need 30(0.15) = 4.5 kilograms of cooked meat. Cooked meat is 0.8 × 0.75 = 0.6 of the raw weight, so the caterer needs 4.5/0.6 = 7.5 kilograms.",
+      "distractor_explanations": {
+        "A": "5.40 adds 20% to 4.5 and ignores the cooking loss.",
+        "B": "6.00 divides by 0.75 and ignores the bones.",
+        "D": "8.18 subtracts both percents at once, 4.5/(1 − 0.45)."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What fraction of the raw weight ends up as cooked meat?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the two remaining fractions, then divide."
+      },
+      "remember": "Successive percent changes multiply; they do not add.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-04",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000720",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Profit as a percent of price",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A store sets the price of each item it sells 60% above the item's cost to the store. The store's profit on an item is its price minus its cost. What percent of an item's price is the store's profit? (Disregard the % sign when entering your answer. For example, if your answer is 15.5%, enter 15.5)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "37.5",
+      "accepted_answers": [
+        "37.5"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 repeats the markup, which is a percent of the cost.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "40",
+          "rationale": "40 is 100 − 60.",
+          "trap": null
+        },
+        {
+          "value": "62.5",
+          "rationale": "62.5 is the cost as a percent of the price.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If the cost is C, the price is 1.6C and the profit is 0.6C. As a percent of the price, the profit is 0.6C/1.6C = 0.375, or 37.5%.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the price in terms of the cost?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the cost be $100."
+      },
+      "remember": "Check which quantity a percent is measured against.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-05",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "37.5",
+        "blind_answer": "37.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000721",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Matching standing across two distributions",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On a history test, the scores had a mean of 70 and a standard deviation of 8. On a math test, the scores had a mean of 76 and a standard deviation of 6. Ana scored 82 on the history test. What math test score would be the same number of standard deviations above the math mean as Ana's history score is above the history mean?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "77.5",
+        "B": "85",
+        "C": "88",
+        "D": "92"
+      },
+      "correct_answer": "B",
+      "explanation": "Ana's history score is (82 − 70)/8 = 1.5 standard deviations above the mean. On the math test, 1.5 standard deviations above the mean is 76 + 1.5(6) = 85.",
+      "distractor_explanations": {
+        "A": "77.5 adds 1.5 points instead of 1.5 standard deviations.",
+        "C": "88 keeps the same 12-point gap above the mean.",
+        "D": "92 scales the 12-point gap by 8/6 instead of 6/8."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many standard deviations above the mean is 82?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the number of standard deviations, then apply it to the math test."
+      },
+      "remember": "Compare scores by standard deviations from the mean, not by points.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-06",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000722",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Original amount from a percent change in a proportion",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The amount of flour in a recipe is proportional to the number of servings. Increasing the number of servings by 25% requires 150 more grams of flour. How many grams of flour does the original recipe use?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "120",
+        "B": "450",
+        "C": "600",
+        "D": "750"
+      },
+      "correct_answer": "C",
+      "explanation": "Because flour is proportional to servings, a 25% increase in servings is a 25% increase in flour. So 150 grams is 25% of the original amount, which is 150/0.25 = 600 grams.",
+      "distractor_explanations": {
+        "A": "120 treats 150 as 125% of the original.",
+        "B": "450 subtracts the added flour from 4 × 150.",
+        "D": "750 is the new amount of flour after the increase, not the original."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What percent of the original is the extra 150 grams?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 0.25 times the original equal to 150."
+      },
+      "remember": "Proportional quantities change by the same percent.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-07",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000723",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Ratio built from amount times time",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two partners started a business. Partner A invested $9,000 for the full 12 months of the first year, and partner B invested $12,000 for only the last 6 months. They split the year's $21,000 profit in proportion to each partner's amount invested multiplied by the number of months it was invested. How much of the profit does partner A receive?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$9,000",
+        "B": "$10,500",
+        "C": "$12,600",
+        "D": "$14,000"
+      },
+      "correct_answer": "C",
+      "explanation": "Partner A's share weight is 9,000 × 12 = 108,000 and partner B's is 12,000 × 6 = 72,000, a ratio of 3 : 2. Partner A receives 3/5 of $21,000, which is $12,600.",
+      "distractor_explanations": {
+        "A": "$9,000 splits by amount only, 9 : 12.",
+        "B": "$10,500 splits the profit equally.",
+        "D": "$14,000 splits by months only, 12 : 6."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is each partner's amount times months?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build the ratio, then take A's fraction of the profit."
+      },
+      "remember": "A ratio split gives each part its fraction of the total.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-08",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000724",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Sliding-window average",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A clinic reports a 7-day average: the mean number of patients it saw over the most recent 7 days. The 7-day average was 120 on a Sunday and 126 on the next day, Monday. The clinic saw 150 patients that Monday. How many patients did it see on the previous Monday, the day that dropped out of the 7-day window?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "108",
+      "accepted_answers": [
+        "108"
+      ],
+      "common_errors": [
+        {
+          "value": "144",
+          "rationale": "144 subtracts the 6-patient change in the average instead of the change in the total.",
+          "trap": null
+        },
+        {
+          "value": "192",
+          "rationale": "192 adds the change in the total instead of subtracting it.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The 7-day total rose by 7(126 − 120) = 42. When the window moves forward a day, the new Monday enters and the previous Monday leaves, so 150 − (previous Monday) = 42, and the previous Monday was 108.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How much did the 7-day total change?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Change in total = value in − value out."
+      },
+      "remember": "When a window slides, the total changes by the value in minus the value out.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-09",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "108",
+        "blind_answer": "108",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000725",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Weighted average by days",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A credit card's interest is based on the average daily balance over a 30-day billing cycle. During one cycle, the balance was $400 for the first 10 days, $1,000 for the next 15 days, and $250 for the last 5 days. What was the average daily balance for the cycle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$550",
+        "B": "$575",
+        "C": "$675",
+        "D": "$810"
+      },
+      "correct_answer": "C",
+      "explanation": "Weight each balance by its number of days: 400(10) + 1,000(15) + 250(5) = 4,000 + 15,000 + 1,250 = 20,250. Dividing by 30 days gives $675.",
+      "distractor_explanations": {
+        "A": "$550 is the unweighted mean of the three balances.",
+        "B": "$575 attaches 10 days to $1,000 and 15 days to $400.",
+        "D": "$810 divides the 20,250 total by 25 days instead of 30."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many days was each balance in effect?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Weight each balance by its days."
+      },
+      "remember": "Weight each value by how long or how often it occurs.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-10",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000726",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Whole from a chain of percents of remainders",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Of a family's monthly budget, 30% goes to rent, 25% of what remains after rent goes to food, and 20% of what remains after rent and food goes to transportation. The remaining $1,512 goes to savings. What is the family's monthly budget, in dollars?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3600",
+      "accepted_answers": [
+        "3600"
+      ],
+      "common_errors": [
+        {
+          "value": "6048",
+          "rationale": "6048 subtracts 30 + 25 + 20 = 75% of the budget.",
+          "trap": null
+        },
+        {
+          "value": "2880",
+          "rationale": "2880 skips the transportation step.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2160",
+          "rationale": "2160 stops after rent.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "After each step the family keeps 0.7, then 0.75, then 0.8 of the remainder, so savings are 0.7 × 0.75 × 0.8 = 0.42 of the budget. The budget is 1,512/0.42 = $3,600.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What fraction of the budget is left after each step?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the remaining fractions, then divide."
+      },
+      "remember": "Each percent here applies to a remainder, so multiply the fractions kept.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-11",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3600",
+        "blind_answer": "3600",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000727",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Comparing rates per 100,000",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Last year, city A had 84 cases of a disease among its 240,000 residents, and city B had 45 cases among its 120,000 residents. How many more cases per 100,000 residents did city B have than city A?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2.5",
+        "B": "35",
+        "C": "37.5",
+        "D": "39"
+      },
+      "correct_answer": "A",
+      "explanation": "City A's rate is 84/240,000 × 100,000 = 35 per 100,000, and city B's is 45/120,000 × 100,000 = 37.5 per 100,000. City B had 37.5 − 35 = 2.5 more cases per 100,000, even though it had fewer cases in total.",
+      "distractor_explanations": {
+        "B": "35 is city A's rate.",
+        "C": "37.5 is city B's rate.",
+        "D": "39 subtracts the raw case counts, 84 − 45."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Convert each city's cases to a rate per 100,000."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute both rates, then subtract."
+      },
+      "remember": "Compare groups of different sizes with rates, not raw counts.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "Q067-12",
+      "created_at": "2026-10-27T17:10:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-067.review.json",
+        "computation": "checks/sat_math/batch_067.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
