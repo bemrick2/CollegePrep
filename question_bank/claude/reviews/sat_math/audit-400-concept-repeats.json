@@ -1,0 +1,219 @@
+{
+  "audit": "SAT Math concept-repeat check at 408 accepted (items 317+)",
+  "date": "2026-10-27",
+  "repeats": [
+    {
+      "sat_id": "CLD-SAT-M-000392",
+      "other_id": "CLD-SAT-M-000129",
+      "severity": "copy",
+      "why": "Same opening sentence (f(x) = a · bˣ, a and b positive) and the same function 2·3ˣ: SAT 129 gives f(1) = 6 and f(3) = 54 and asks f(0); SAT 392 gives f(1) = 6 and f(x + 2) = 9f(x) and asks f(−1). The ratio over two steps is 9 and f(1) = 6 in both, so b = 3 and the answer is found by dividing back from f(1). 54 appears as a distractor in 392."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000357",
+      "other_id": "CLD-SAT-M-000018",
+      "severity": "template",
+      "why": "Exact reverse: SAT 018 describes random selection plus random assignment and asks which conclusion is supported (cause, generalizable to the population). SAT 357 asks which design allows a cause-and-effect conclusion that generalizes, and the answer is the same design: random sample plus random assignment."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000381",
+      "other_id": "CLD-ACT-M-000022",
+      "severity": "template",
+      "why": "Both use a symmetry condition to get the axis (f(x) = f(6 − x) → x = 3; equal values at 0 and 4 → x = 2), then the given extreme value to fix the vertex, then evaluate f at another x (f(−1) and f(5))."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000384",
+      "other_id": "CLD-SAT-M-000010",
+      "severity": "template",
+      "why": "Both: parallel lines cut by a transversal, two algebraic angles that are supplementary ((2x + 15)° + (4x + 45)° vs (5x + 12)° + (3x + 24)° = 180°), solve for x and report one angle. 384 only adds that 'not congruent' means supplementary."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000318",
+      "other_id": "CLD-ACT-M-000078",
+      "severity": "close",
+      "why": "Staggered start times (a 30-minute head start), then relative speed to find a clock time. ACT 078 is a same-direction catch-up; SAT 318 has opposite directions and a target separation."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000324",
+      "other_id": "CLD-ACT-M-000369",
+      "severity": "close",
+      "why": "Distance between centers or points from the origin circle (5-12-13 / 6-8-10 multiples), then subtract the radius 5. Different objects (a tangent circle's radius vs the shortest distance to a circle)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000347",
+      "other_id": "CLD-ACT-M-000266",
+      "severity": "close",
+      "why": "Percent change in a reciprocal rate: the pace (min/mile) shrinks so speed rises by 8/7.5 − 1. ACT 266 has the size shrinking so the price per ounce rises by 20/16 − 1. Same inverse-proportion percent trick."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000350",
+      "other_id": "CLD-ACT-M-000242",
+      "severity": "close",
+      "why": "Interpreting a rate constant in a decreasing linear model of fuel or water left (G = 15 − m/28 vs G = 350 − 12.5t). In SAT 350 the constant is a divisor, so 28 is miles per gallon rather than gallons per unit."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000357",
+      "other_id": "CLD-SAT-M-000222",
+      "severity": "close",
+      "why": "Same random assignment vs random selection inference idea as SAT 222 (volunteers randomly assigned, so causal but not generalizable). 357 asks for the design rather than the conclusion."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000359",
+      "other_id": "CLD-ACT-M-000604",
+      "severity": "close",
+      "why": "The altitude from the right angle to the hypotenuse is leg·leg/hypotenuse (6-8-10 → 4.8; 15-20-25 → 12). SAT 359 first gets the sides from sin A = 3/5."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000361",
+      "other_id": "CLD-ACT-M-000634",
+      "severity": "close",
+      "why": "Two angles of elevation to a tower setup. ACT 634 uses two observation points to find the height; SAT 361 uses one point and two targets (tower and antenna) to find the difference."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000369",
+      "other_id": "CLD-ACT-M-000749",
+      "severity": "close",
+      "why": "A function defined at a shifted input (f(x + 1) = 2x + 5 vs f(x − 1) = x² + 2x), solved by substituting u = x ± 1. ACT asks for a value; SAT asks for the rule."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000370",
+      "other_id": "CLD-ACT-M-000047",
+      "severity": "close",
+      "why": "Comparing standard deviations of data sets with equal means by how far values sit from the center. SAT 370 uses frequency tables and also asks about the means."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000371",
+      "other_id": "CLD-ACT-M-000256",
+      "severity": "close",
+      "why": "Density = mass/volume run in reverse: ACT finds density from block dimensions and mass; SAT finds a cube's edge from density and mass (adds kg→g and a cube root)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000372",
+      "other_id": "CLD-ACT-M-000014",
+      "severity": "close",
+      "why": "Circle and diameter endpoints run in reverse: ACT goes from the endpoints to the equation (center = midpoint); SAT goes from the equation and one endpoint to the other (complete the square, then reflect through the center)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000378",
+      "other_id": "CLD-ACT-M-000685",
+      "severity": "close",
+      "why": "A cubic with one known zero or factor; divide out to get the remaining quadratic's zeros. SAT first finds k from p(3) = 0."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000383",
+      "other_id": "CLD-ACT-M-000615",
+      "severity": "close",
+      "why": "Weighted combined mean of two groups solved for an unknown. ACT 615/275 solve for a group size; SAT 383 solves for a group mean, with a 3:1 size ratio and a 10-point gap."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000385",
+      "other_id": "CLD-ACT-M-000401",
+      "severity": "close",
+      "why": "The cofunction identity sin A = cos B (cos(90° − θ) = sin θ). SAT 385 embeds it in a linear equation sin A = 3 cos B − 1."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000395",
+      "other_id": "CLD-ACT-M-000319",
+      "severity": "close",
+      "why": "Lateral area of a cylinder 2πrh = 60π run in reverse (ACT: r = 3, h = 10 → 60π; SAT: 60π, h = 6 → r = 5), then volume. The resulting cylinder (r = 5, h = 6, V = 150π) is the same as in ACT 402 (diameter 10, height 6, volume 150π)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000400",
+      "other_id": "CLD-SAT-M-000104",
+      "severity": "close",
+      "why": "A constant rate inferred from the fraction of a tank done in a given time (3/4 in 18 min; 1/4 drained in 10 min), then scaled to another fraction."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000401",
+      "other_id": "CLD-ACT-M-000531",
+      "severity": "close",
+      "why": "Maximum height of a downward quadratic model. SAT 401 first recovers b from the vertex location x = 4."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000402",
+      "other_id": "CLD-SAT-M-000129",
+      "severity": "close",
+      "why": "The exponential part repeats SAT 129: a·bˣ through two points two units apart, then evaluate at an intermediate or earlier input. 402 adds a linear model through the same points."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000408",
+      "other_id": "CLD-SAT-M-000033",
+      "severity": "close",
+      "why": "Same ask, 'What is the positive solution to the equation …', for a quadratic. 408 needs factoring with an irrational coefficient ((x − 3√3)(x + √3)), while 033 factors over the integers."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000412",
+      "other_id": "CLD-ACT-M-000420",
+      "severity": "close",
+      "why": "Reading the point (x₁, y₁) from point-slope form. SAT 412 interprets y₁ = 50 in context (members at week 10)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000413",
+      "other_id": "CLD-SAT-M-000066",
+      "severity": "close",
+      "why": "A cylinder with height tied to the radius (h = 2r) solved for r from a volume condition. SAT 413 sets volume equal to surface area instead of a given volume."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000419",
+      "other_id": "CLD-ACT-M-000503",
+      "severity": "close",
+      "why": "Two overlapping groups, so find the overlap by inclusion–exclusion, then a conditional probability. SAT 419 gives 'neither' and conditions on the complement."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000422",
+      "other_id": "CLD-SAT-M-000306",
+      "severity": "close",
+      "why": "A fixed fee plus a per-unit charge recovered from two totals (two events / two memberships). 306 then asks for a modified total; 422 asks for the fee, with one total disguised as an average."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000424",
+      "other_id": "CLD-ACT-M-000095",
+      "severity": "close",
+      "why": "Circumference → radius → area. ACT uses numbers (10π → 25π); SAT asks for the general formula A = C²/(4π)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000427",
+      "other_id": "CLD-SAT-M-000208",
+      "severity": "close",
+      "why": "Two-rate split of a total: x + y = total and r₁x + r₂y = second total (running/walking hours vs city/highway km with L/100 km)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000428",
+      "other_id": "CLD-ACT-M-000454",
+      "severity": "close",
+      "why": "Scaling a sample proportion to a population count. SAT 428 adds a conditional percent (45% of the 40 dog owners) before scaling."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000430",
+      "other_id": "CLD-ACT-M-000446",
+      "severity": "close",
+      "why": "Triangles that share a height have areas proportional to their bases (BD : DC). SAT 430 adds the midpoint halving step."
+    }
+  ],
+  "official_mirrors": [
+    {
+      "sat_id": "CLD-SAT-M-000357",
+      "resembles": "Official SAT study-design items (random sampling for generalization, random assignment for causation)",
+      "severity": "close",
+      "why": "A standard official framing, with the design asked for instead of the conclusion. Pattern-level, not verbatim."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000370",
+      "resembles": "Official SAT items comparing two data sets' means/standard deviations from frequency tables or dot plots",
+      "severity": "close",
+      "why": "Symmetric distributions with equal means, one spread to the extremes. A common official structure, with new numbers."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000428",
+      "resembles": "Official SAT 'estimate the number in the population from a random sample' items",
+      "severity": "close",
+      "why": "Sample count/percent scaled to the population of 6,000. A conditional percent is added, as in some official items."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000415",
+      "resembles": "Official SAT items comparing linear (constant amount) and exponential (constant percent) growth",
+      "severity": "close",
+      "why": "The same starting value, where the first-year increases are equal and the exponential one overtakes it. A standard official idea, not a copy."
+    }
+  ],
+  "summary": "Checked 114 live SAT items (CLD-SAT-M-000317 to 000430) against all 408 live SAT items, 774 live ACT items (retired ids skipped) and the 22 math demo fixtures. Shortlisted with TF-IDF and number overlap plus keyword searches, then judged by reading. Results: 1 copy (392 vs 129: same function 2·3ˣ and the same given values), 3 template repeats (357 vs 018, an exact reverse; 381 vs ACT 022; 384 vs SAT 010) and 27 close pairs. No in-scope item repeats a demo fixture at template level. No new pairs inside the 317+ block itself: items such as 382/427 (L/100 km) and 318/341/389 (travel) share a topic but ask different things. Most of the new block uses fresh structures, often a twist on a standard idea (for example a reverse or a hidden condition). Recommended action: revise or retire 392; consider revising 357, 381 and 384."
+}
