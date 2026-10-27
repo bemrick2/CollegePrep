@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 30,
-  "updated_at": "2026-10-27T03:21:43+00:00",
+  "version": 31,
+  "updated_at": "2026-10-27T03:24:26+00:00",
   "passages": [],
   "questions": [
     {
@@ -18927,6 +18927,369 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-030.review.json",
         "computation": "checks/sat_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000264",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Approximating a solution of an exponential-linear equation by graphing",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The equation 2ˣ = x + 3 has two real solutions. To the nearest tenth, what is the greater of the two solutions?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−2.9",
+        "B": "2.0",
+        "C": "2.4",
+        "D": "2.5"
+      },
+      "correct_answer": "C",
+      "explanation": "Graph y = 2ˣ and y = x + 3 (or y = 2ˣ − x − 3) and find where they cross. The crossings are near x ≈ −2.86 and x ≈ 2.44. The greater solution, to the nearest tenth, is 2.4. Check: 2^2.4 ≈ 5.28 and 2.4 + 3 = 5.4, while 2^2.5 ≈ 5.66 > 5.5.",
+      "distractor_explanations": {
+        "A": "−2.9 is the other (lesser) solution.",
+        "B": "2.0 tests only whole numbers; 2² = 4 is still less than 5.",
+        "D": "2.5 rounds 2.44 up instead of down."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Graph both sides of the equation."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the intersection points on a graphing calculator."
+      },
+      "remember": "Solutions of f(x) = g(x) are the x-coordinates of intersections.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "Q031-01",
+      "created_at": "2026-10-27T03:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: no stated real-world context; item is essentially 'graph and read intersection', which a graphing calculator makes routine"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-031.review.json",
+        "computation": "checks/sat_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000265",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Intersection of a square-root graph and a line",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graphs of y = √x and y = x/4 intersect at the origin and at the point (a, b), where a > 0. What is the value of a ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the y-coordinate b, not a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is √4, a misstep from x/4 = 1.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting √x = x/4 and squaring gives x = x²/16, so x² − 16x = 0 and x(x − 16) = 0. The nonzero solution is x = 16, and indeed √16 = 4 = 16/4. So a = 16.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Set the two expressions equal."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test perfect squares: √16 = 4 and 16/4 = 4."
+      },
+      "remember": "Square both sides, then check for extraneous solutions.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "Q031-02",
+      "created_at": "2026-10-27T03:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "16",
+        "blind_answer": "16",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-031.review.json",
+        "computation": "checks/sat_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000266",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "First integer at which exponential growth overtakes linear growth",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The functions f and g are defined by f(x) = 100(1.1)ˣ and g(x) = 100 + 15x. What is the smallest positive integer x for which f(x) > g(x) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "7",
+        "B": "8",
+        "C": "9",
+        "D": "10"
+      },
+      "correct_answer": "C",
+      "explanation": "Compare values: f(7) ≈ 194.9 < g(7) = 205, f(8) ≈ 214.4 < g(8) = 220, and f(9) ≈ 235.8 > g(9) = 235. So the smallest positive integer is 9. (A table or graph on the calculator shows this quickly.)",
+      "distractor_explanations": {
+        "A": "At x = 7, f(7) ≈ 194.9 is still less than g(7) = 205.",
+        "B": "At x = 8, f(8) ≈ 214.4 is still less than g(8) = 220.",
+        "D": "f(10) > g(10), but 10 is not the smallest such integer."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Make a table of values for both functions."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Evaluate both functions at consecutive integers."
+      },
+      "remember": "Exponential growth eventually overtakes linear growth.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "Q031-03",
+      "created_at": "2026-10-27T03:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: margin at x=9 is narrow (235.79 vs 235), so precise computation is needed; that is fine but rewards a calculator table"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-031.review.json",
+        "computation": "checks/sat_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000267",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Choosing a line of best fit for data",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table shows four data points.\nx | 1 | 2 | 3 | 4\ny | 3.1 | 4.9 | 7.2 | 8.8\nWhich of the following equations best models the data?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "y = 1.15x + 1.94",
+        "B": "y = −1.94x + 1.15",
+        "C": "y = 1.94x + 1.15",
+        "D": "y = 1.94x + 6.0"
+      },
+      "correct_answer": "C",
+      "explanation": "The y-values increase by about 1.9 for each increase of 1 in x, so the slope is about 1.94. At x = 1 the model should give about 3.1, and 1.94(1) + 1.15 = 3.09. So y = 1.94x + 1.15 fits best (it is the least-squares line).",
+      "distractor_explanations": {
+        "A": "This swaps the slope and the y-intercept; it rises only about 1.15 per unit.",
+        "B": "This has a negative slope, but y increases as x increases.",
+        "D": "This has the right slope, but 6.0 is the mean of y, not the intercept; it predicts 7.94 at x = 1."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Estimate the slope from the table."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check each model at x = 1 and x = 4."
+      },
+      "remember": "A best-fit line has the data's trend as its slope and passes near the points.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "Q031-04",
+      "created_at": "2026-10-27T03:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: B has a negative slope and is easily eliminated since y clearly increases; D's intercept 6.0 is also quickly eliminated (x=1 gives 7.94 vs 3.1). Effectively a two-way choice between A and C (both give 3.09 at x=1, but diverge at x=4: 6.54 vs 8.91)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-031.review.json",
+        "computation": "checks/sat_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000268",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving a literal linear equation for one variable",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation bx − 5 = 3x + 2b, b is a constant not equal to 3. Which of the following gives x in terms of b ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x = (2b − 5)/(b − 3)",
+        "B": "x = (2b + 5)/(b − 3)",
+        "C": "x = (2b + 5)/(b + 3)",
+        "D": "x = (2b + 5)/(3 − b)"
+      },
+      "correct_answer": "B",
+      "explanation": "Collect the x-terms on the left and the other terms on the right: bx − 3x = 2b + 5. Factor: x(b − 3) = 2b + 5. Since b ≠ 3, x = (2b + 5)/(b − 3).",
+      "distractor_explanations": {
+        "A": "This moves −5 without changing its sign.",
+        "C": "This adds 3x instead of subtracting it when collecting terms.",
+        "D": "This collects x-terms on the right but leaves the numerator's sign unchanged."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Collect the x-terms on one side and factor out x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Choose b = 4: 4x − 5 = 3x + 8 gives x = 13, and (8 + 5)/(4 − 3) = 13."
+      },
+      "remember": "Factor out the variable you are solving for.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 31,
+      "draft_candidate": "Q031-05",
+      "created_at": "2026-10-27T03:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-031.review.json",
+        "computation": "checks/sat_math/batch_031.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

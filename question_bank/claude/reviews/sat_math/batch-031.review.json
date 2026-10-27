@@ -1,0 +1,141 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 31,
+  "reviewed_at": "2026-10-27T03:24:26+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 31
+  },
+  "counts": {
+    "PASS": 5,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000264",
+    "CLD-SAT-M-000265",
+    "CLD-SAT-M-000266",
+    "CLD-SAT-M-000267",
+    "CLD-SAT-M-000268"
+  ],
+  "results": [
+    {
+      "cand": "Q031-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: no stated real-world context; item is essentially 'graph and read intersection', which a graphing calculator makes routine"
+      ],
+      "blind_notes": "Roots of 2^x - x - 3 = 0: x ~ -2.863 and x ~ 2.4449. Greater root is 2.4 to the nearest tenth. A (-2.9) is the lesser root, a good distractor; D (2.5) catches rounding/estimation errors (2^2.5=5.66>5.5, 2^2.4=5.28<5.4); B (2.0) gives 4 vs 5. Exactly one defensible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000264"
+    },
+    {
+      "cand": "Q031-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "16",
+      "computed_answer": "16",
+      "blind_answer": "16",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "sqrt(x) = x/4 -> x = x^2/16 -> x(x-16)=0 -> a=16 (b=4). Quick by graphing too.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000265"
+    },
+    {
+      "cand": "Q031-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: margin at x=9 is narrow (235.79 vs 235), so precise computation is needed; that is fine but rewards a calculator table"
+      ],
+      "blind_notes": "f(8)=214.36<220; f(9)=235.79>235; f(10)=259.37>250. At x=0 f=g, so not 'greater'. Smallest positive integer is 9. Choices 7,8,10 are adjacent plausible values; 10 catches those who misjudge the near-tie at 9.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000266"
+    },
+    {
+      "cand": "Q031-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: B has a negative slope and is easily eliminated since y clearly increases; D's intercept 6.0 is also quickly eliminated (x=1 gives 7.94 vs 3.1). Effectively a two-way choice between A and C (both give 3.09 at x=1, but diverge at x=4: 6.54 vs 8.91)"
+      ],
+      "blind_notes": "Least-squares fit: slope 1.94, intercept 1.15 exactly, so y = 1.94x + 1.15. A swaps slope and intercept.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000267"
+    },
+    {
+      "cand": "Q031-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "bx - 3x = 2b + 5 -> x(b-3) = 2b+5 -> x = (2b+5)/(b-3). A sign error on 5; C wrong sign on 3; D sign error in denominator (would require -(2b+5)). Condition b != 3 is correctly stated.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000268"
+    }
+  ]
+}

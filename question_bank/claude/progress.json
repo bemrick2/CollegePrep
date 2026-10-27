@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:23:49+00:00",
+  "updated_at": "2026-10-27T03:24:29+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 253
+    "sat_math": 258
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 263,
+      "PASS": 268,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 265,
+      "candidates": 270,
       "passed_after_revision": 2
     }
   },
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 253,
+      "accepted": 258,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 88,
-        "Algebra": 76,
+        "Advanced Math": 91,
+        "Algebra": 77,
         "Geometry and Trigonometry": 49,
-        "Problem-Solving and Data Analysis": 40
+        "Problem-Solving and Data Analysis": 41
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1411,6 +1411,7 @@
         "Annual percent growth from two values two years apart": 1,
         "Applying a part-to-whole rate": 1,
         "Applying a percent increase": 1,
+        "Approximating a solution of an exponential-linear equation by graphing": 1,
         "Arc length from coordinates on a circle": 1,
         "Arc length with a radian measure": 1,
         "Area of a right triangle with legs in a 2 : 1 ratio": 1,
@@ -1420,6 +1421,7 @@
         "Area of an isosceles triangle with 30° base angles": 1,
         "Center of a circle from a point and its radius": 1,
         "Chained percent relationships": 1,
+        "Choosing a line of best fit for data": 1,
         "Coefficient that makes two lines parallel": 1,
         "Coefficients from the vertex of a parabola": 1,
         "Coefficients of an equivalent linear expression": 1,
@@ -1482,6 +1484,7 @@
         "Finding a coordinate on a line through two points": 1,
         "Finding a percent of a group": 1,
         "Finding a whole from a percent": 1,
+        "First integer at which exponential growth overtakes linear growth": 1,
         "Fuel remaining after a trip": 1,
         "Greatest whole number under a budget with a minimum purchase": 1,
         "Greatest whole number under a budget with equal quantities": 1,
@@ -1505,6 +1508,7 @@
         "Intersection of a line and a parabola": 1,
         "Intersection of a line in point-slope form with a horizontal line": 1,
         "Intersection of a line with a perpendicular line through the origin": 1,
+        "Intersection of a square-root graph and a line": 1,
         "Intersection of two lines": 1,
         "Intersections of a line and an absolute value graph": 1,
         "Inverse variation in a work problem": 1,
@@ -1589,6 +1593,7 @@
         "Solving a linear equation with a fractional coefficient": 1,
         "Solving a linear equation with decimal coefficients": 1,
         "Solving a linear inequality in function notation": 1,
+        "Solving a literal linear equation for one variable": 1,
         "Solving a one-step distributed equation": 1,
         "Solving a rational equation": 1,
         "Solving a simple radical equation": 1,
@@ -1661,19 +1666,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 67,
+        "easy": 69,
         "hard": 11,
-        "medium": 175
+        "medium": 178
       },
       "by_difficulty_calibrated": {
-        "easy": 111,
+        "easy": 113,
         "hard": 6,
-        "medium": 136
+        "medium": 139
       },
       "calibrated_share": {
-        "easy": 0.439,
-        "hard": 0.024,
-        "medium": 0.538
+        "easy": 0.438,
+        "hard": 0.023,
+        "medium": 0.539
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1688,7 +1693,7 @@
         "115": 1,
         "12": 3,
         "15": 4,
-        "16": 2,
+        "16": 3,
         "18": 1,
         "18/13": 1,
         "2": 4,
@@ -1715,12 +1720,12 @@
         "9": 2,
         "90": 1,
         "A": 39,
-        "B": 56,
-        "C": 52,
+        "B": 57,
+        "C": 55,
         "D": 31
       },
-      "modeling_items": 68,
-      "spr_items": 75,
+      "modeling_items": 69,
+      "spr_items": 76,
       "passages": 0
     }
   },
@@ -1729,7 +1734,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 30
+    "sat_math": 31
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1761,38 +1766,30 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 31,
+    "next_batch": 32,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 16.0,
-      "Advanced Math": 4.0,
-      "Problem-Solving and Data Analysis": -0.6,
-      "Geometry and Trigonometry": -9.6
+      "Algebra": 16.8,
+      "Advanced Math": 2.8,
+      "Problem-Solving and Data Analysis": -0.8,
+      "Geometry and Trigonometry": -8.8
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -45.2,
-      "medium": -4.5,
-      "hard": 59.8
+      "easy": -46.0,
+      "medium": -5.0,
+      "hard": 61.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 10.3,
-      "B": -6.7,
-      "C": -2.7,
-      "D": 18.3
+      "A": 11.2,
+      "B": -6.8,
+      "C": -4.8,
+      "D": 19.2
     },
-    "spr_items": 75,
+    "spr_items": 76,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 30,
       "skill_gap_for_next_10": {
@@ -1808,6 +1805,14 @@
         "Production of Writing": 28.8,
         "Knowledge of Language": 18.6,
         "Conventions of Standard English": -33.2
+      }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1834,12 +1839,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 253,
-      "share_of_target": 0.253
+      "accepted": 258,
+      "share_of_target": 0.258
     }
   },
   "total_target": 3841,
-  "total_accepted": 1764,
+  "total_accepted": 1769,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49011,7 +49016,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 30,
+      "bank_version": 31,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49137,7 +49142,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:23:49+00:00",
+    "heartbeat_at": "2026-10-27T03:24:29+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

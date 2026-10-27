@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 30,
+  "bank_version": 31,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -5133,6 +5133,102 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Set the exponents equal: x² = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000264",
+      "correct_answer": "C",
+      "explanation": "Graph y = 2ˣ and y = x + 3 (or y = 2ˣ − x − 3) and find where they cross. The crossings are near x ≈ −2.86 and x ≈ 2.44. The greater solution, to the nearest tenth, is 2.4. Check: 2^2.4 ≈ 5.28 and 2.4 + 3 = 5.4, while 2^2.5 ≈ 5.66 > 5.5.",
+      "distractor_explanations": {
+        "A": "−2.9 is the other (lesser) solution.",
+        "B": "2.0 tests only whole numbers; 2² = 4 is still less than 5.",
+        "D": "2.5 rounds 2.44 up instead of down."
+      },
+      "hints": [
+        "Graph both sides of the equation."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the intersection points on a graphing calculator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000265",
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the y-coordinate b, not a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is √4, a misstep from x/4 = 1.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting √x = x/4 and squaring gives x = x²/16, so x² − 16x = 0 and x(x − 16) = 0. The nonzero solution is x = 16, and indeed √16 = 4 = 16/4. So a = 16.",
+      "distractor_explanations": {},
+      "hints": [
+        "Set the two expressions equal."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test perfect squares: √16 = 4 and 16/4 = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000266",
+      "correct_answer": "C",
+      "explanation": "Compare values: f(7) ≈ 194.9 < g(7) = 205, f(8) ≈ 214.4 < g(8) = 220, and f(9) ≈ 235.8 > g(9) = 235. So the smallest positive integer is 9. (A table or graph on the calculator shows this quickly.)",
+      "distractor_explanations": {
+        "A": "At x = 7, f(7) ≈ 194.9 is still less than g(7) = 205.",
+        "B": "At x = 8, f(8) ≈ 214.4 is still less than g(8) = 220.",
+        "D": "f(10) > g(10), but 10 is not the smallest such integer."
+      },
+      "hints": [
+        "Make a table of values for both functions."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Evaluate both functions at consecutive integers."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000267",
+      "correct_answer": "C",
+      "explanation": "The y-values increase by about 1.9 for each increase of 1 in x, so the slope is about 1.94. At x = 1 the model should give about 3.1, and 1.94(1) + 1.15 = 3.09. So y = 1.94x + 1.15 fits best (it is the least-squares line).",
+      "distractor_explanations": {
+        "A": "This swaps the slope and the y-intercept; it rises only about 1.15 per unit.",
+        "B": "This has a negative slope, but y increases as x increases.",
+        "D": "This has the right slope, but 6.0 is the mean of y, not the intercept; it predicts 7.94 at x = 1."
+      },
+      "hints": [
+        "Estimate the slope from the table."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check each model at x = 1 and x = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000268",
+      "correct_answer": "B",
+      "explanation": "Collect the x-terms on the left and the other terms on the right: bx − 3x = 2b + 5. Factor: x(b − 3) = 2b + 5. Since b ≠ 3, x = (2b + 5)/(b − 3).",
+      "distractor_explanations": {
+        "A": "This moves −5 without changing its sign.",
+        "C": "This adds 3x instead of subtracting it when collecting terms.",
+        "D": "This collects x-terms on the right but leaves the numerator's sign unchanged."
+      },
+      "hints": [
+        "Collect the x-terms on one side and factor out x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Choose b = 4: 4x − 5 = 3x + 8 gives x = 13, and (8 + 5)/(4 − 3) = 13."
       }
     }
   ]
