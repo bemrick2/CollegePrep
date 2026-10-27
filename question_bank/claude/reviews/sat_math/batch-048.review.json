@@ -1,0 +1,308 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 48,
+  "reviewed_at": "2026-10-27T05:51:12+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 48
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000440",
+    "CLD-SAT-M-000441",
+    "CLD-SAT-M-000442",
+    "CLD-SAT-M-000443",
+    "CLD-SAT-M-000444",
+    "CLD-SAT-M-000445",
+    "CLD-SAT-M-000446",
+    "CLD-SAT-M-000447",
+    "CLD-SAT-M-000448",
+    "CLD-SAT-M-000449",
+    "CLD-SAT-M-000450",
+    "CLD-SAT-M-000451"
+  ],
+  "results": [
+    {
+      "cand": "Q048-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: choices B and D are sub-intervals of C and A is the complement side of 400; a student who solves only A<C (p>400) or only A<B (p<500) still lands near C, and B/D use the irrelevant B=C crossover at 450, which is a good trap but makes the 400/500 endpoints in C stand out"
+      ],
+      "blind_notes": "A<B: 12+0.08p<27+0.05p -> p<500. A<C: 12+0.08p<0.11p -> p>400. 400<p<500. (450 is the B=C crossover.)",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000440"
+    },
+    {
+      "cand": "Q048-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [
+        "minor: 2.5 F per 1,000 ft is lower than the usual atmospheric lapse rate (~3.5-5.4 F per 1,000 ft); acceptable as 'this model' but could be made more realistic (e.g., 3.5)"
+      ],
+      "blind_notes": "Change 6,500 ft -> drop 16.25; 58-16.25=41.75. A uses 10,500 total; D adds; C uses 6,000.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000441"
+    },
+    {
+      "cand": "Q048-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(a-3)x >= b-5; need a-3<0 and (b-5)/(a-3)=4. a=2 -> b=1. B gives x<=-4, C gives all reals, D gives x>=4 (sign trap).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000442"
+    },
+    {
+      "cand": "Q048-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "h=f-g is linear with h(0)=8, h(10)=-12; slope -2; h(x)=0 at x=4. Requires insight that the difference of linear functions is linear.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Neither function is given; students must work with their difference as one linear function and get its sign right at x = 10."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000443"
+    },
+    {
+      "cand": "Q048-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "f(x)=0.5(x+4)(x-6) from f(0)=-12. g(0)=f(-3)=0.5(1)(-9)=-4.5. C is f(3) (wrong shift direction), B is unchanged intercept.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000444"
+    },
+    {
+      "cand": "Q048-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "x^(1/2)=2, x=4, x^(-3/2)=1/8. D sign trap, C=1/x, A=1/32.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000445"
+    },
+    {
+      "cand": "Q048-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "x in {7,-1}, y in {1,-5}; max x-y = 7-(-5)=12.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000446"
+    },
+    {
+      "cand": "Q048-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Mean increase (9*5+25)/10=7; median (avg of 5th and 6th, order preserved) increases 5; 7-5=2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000447"
+    },
+    {
+      "cand": "Q048-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4.05",
+      "computed_answer": "4.05",
+      "blind_answer": "4.05",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "4.5 Mb/s * 7200 s = 32,400 Mb = 4,050 MB = 4.05 GB. Realistic HD streaming magnitude.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000448"
+    },
+    {
+      "cand": "Q048-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [],
+      "blind_notes": "s*sqrt2 = s+3 -> s=3(sqrt2+1)=3+3sqrt2 (choice C, the side-length trap); d=s+3=6+3sqrt2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must solve an equation with an irrational coefficient and rationalize; reporting the side is a trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000449"
+    },
+    {
+      "cand": "Q048-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Remaining sides 2*(16-8)+2*(10-8)=20; four hypotenuses 4sqrt2 -> 16sqrt2. Total 20+16sqrt2. C = rectangle perimeter.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000450"
+    },
+    {
+      "cand": "Q048-12",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q047-07",
+          "status": "withdrawn after blind solve",
+          "reason": "blind solve: wrong units - in °F the room would be 22°F (below freezing); the numbers fit Celsius. Resubmitted in °C in batch 48."
+        }
+      ],
+      "key": "20",
+      "computed_answer": "20",
+      "blind_answer": "20",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "64(0.5)^(t/10)=16 -> (0.5)^(t/10)=1/4 -> t/10=2 -> t=20. Realistic cooling model (86 C start, 22 C room).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000451"
+    }
+  ]
+}

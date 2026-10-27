@@ -1,0 +1,356 @@
+{
+ "bank": "sat_math",
+ "batch": 49,
+ "plan": "SAT Math batch 49: Algebra 2, Advanced Math 2, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 3; 6 student-produced responses. Ideas AA10, AA13, AB08, AB12, AC05, AD04, AD05, AD06 from generated set 6 (independently pre-checked: no copy or template matches). AA13's trap note replaced.",
+ "candidates": [
+  {
+   "cand": "Q049-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Least integer constant from a strict bound on a solution",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the equation 5x − a = 2x + 12, a is a constant. If the solution of the equation is greater than 7, what is the least possible integer value of a ?",
+   "explanation": "Solving gives 3x = 12 + a, so x = (12 + a)/3. The condition x > 7 means 12 + a > 21, so a > 9. The least integer greater than 9 is 10.",
+   "hints": [
+    "Solve for x in terms of a."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the solution in terms of a, then apply the inequality."
+   },
+   "remember": "A strict inequality excludes its boundary.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 makes the solution exactly 7, which is not greater than 7.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "21",
+     "rationale": "21 is the bound on 12 + a, not on a.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q049-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear function from a nested input",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "For the linear function f, f(2) = 5 and f(f(2)) = 14. What is the value of f(0) ?",
+   "explanation": "Since f(2) = 5, f(f(2)) = f(5) = 14. The slope is (14 − 5)/(5 − 2) = 3, so f(0) = f(2) − 2(3) = 5 − 6 = −1.",
+   "hints": [
+    "What is f(f(2)) when f(2) = 5?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Turn the nested value into a second point."
+   },
+   "remember": "Evaluate the inside function first.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "-1",
+   "accepted_answers": [
+    "-1"
+   ],
+   "common_errors": [
+    {
+     "value": "11",
+     "rationale": "11 adds 2 × 3 to f(2) instead of subtracting.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "5",
+     "rationale": "5 is f(2), not f(0).",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q049-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Interpreting a constant in a quadratic area model",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The area A, in square meters, of a rectangle with width w meters and a fixed perimeter is given by A(w) = w(50 − w). What does the number 50 represent in this context?",
+   "explanation": "Area = width × length, so the length is 50 − w. Then length + width = (50 − w) + w = 50. The perimeter is 2(50) = 100 meters, and the greatest area is A(25) = 625 square meters.",
+   "hints": [
+    "Which factor is the length?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write length + width from the factors."
+   },
+   "remember": "Read each factor of a product model as a quantity.",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The sum of the rectangle's length and width, in meters",
+    "B": "The perimeter of the rectangle, in meters",
+    "C": "The greatest possible area of the rectangle, in square meters",
+    "D": "The length of the rectangle, in meters"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The perimeter is twice the sum: 2(50) = 100 meters.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "The greatest area is A(25) = 625, not 50.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The length is 50 − w, not 50.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q049-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Time at which a rational concentration model reaches a value",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The concentration of a drug in a patient's blood t hours after a dose is modeled by C(t) = 50t/(t + 4) milligrams per liter, for t ≥ 0. At what time t, in hours, is the concentration 30 milligrams per liter?",
+   "explanation": "Set 50t/(t + 4) = 30. Multiplying by t + 4 gives 50t = 30t + 120, so 20t = 120 and t = 6 hours. Check: C(6) = 300/10 = 30.",
+   "hints": [
+    "Multiply both sides by t + 4."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Clear the denominator and solve the linear equation."
+   },
+   "remember": "Multiply every term when clearing a denominator.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "0.6",
+     "rationale": "0.6 divides 30 by 50, ignoring the denominator t + 4.",
+     "trap": null
+    },
+    {
+     "value": "2.4",
+     "rationale": "2.4 solves 50t = 30(4), dropping the 30t term.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q049-05",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Ratio of two conditional probabilities from a table without totals",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A gym classified each of its members by plan and preferred workout time. The table gives all the members.\nPlan | Morning | Afternoon | Evening\nA | 20 | 35 | 45\nB | 30 | 18 | 12\nThe probability that a randomly chosen Plan B member prefers morning is how many times the probability that a randomly chosen Plan A member prefers morning?",
+   "explanation": "Plan B has 30 + 18 + 12 = 60 members, so P(morning | B) = 30/60 = 0.5. Plan A has 20 + 35 + 45 = 100 members, so P(morning | A) = 20/100 = 0.2. The ratio is 0.5/0.2 = 2.5.",
+   "hints": [
+    "Find each plan's total first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute each conditional probability with its own denominator."
+   },
+   "remember": "Each conditional probability uses its own group as the denominator.",
+   "expected_time_seconds": 85,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "No totals are shown; students must form two conditionals with different denominators, and comparing counts directly is a strong trap."
+   },
+   "format": "spr",
+   "answer": "2.5",
+   "accepted_answers": [
+    "2.5",
+    "5/2"
+   ],
+   "common_errors": [
+    {
+     "value": "1.5",
+     "rationale": "1.5 compares the counts 30 and 20 without the group sizes.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "0.6",
+     "rationale": "0.6 is 30/50, the probability that a morning member has Plan B.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q049-06",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Volume of a pyramid whose height comes from a lateral edge",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A pyramid has a rectangular base that is 8 by 6, and each of its four slanted edges (from a base vertex to the top) has length 13. What is the volume of the pyramid?",
+   "explanation": "The top is directly above the center of the base. Half of the base diagonal is (1/2)√(8² + 6²) = 5, so the height is √(13² − 5²) = 12. The volume is (1/3)(8 × 6)(12) = 192.",
+   "hints": [
+    "Where is the top of the pyramid above the base?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Find the right triangle formed by the height, half the diagonal and an edge."
+   },
+   "remember": "Pyramid volume = (1/3) × base area × height.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find the height inside the solid from a lateral edge and half the base diagonal."
+   },
+   "choices": {
+    "A": "192",
+    "B": "208",
+    "C": "576",
+    "D": "624"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "208 uses the slanted edge, 13, as the height.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "576 omits the factor 1/3.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "624 omits the 1/3 and uses 13 as the height.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q049-07",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Greatest center y-coordinate from two points and a radius",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a circle with radius 13 passes through the points (−4, 2) and (20, 2). What is the greatest possible y-coordinate of the center of the circle?",
+   "explanation": "The center is on the perpendicular bisector of the chord, x = 8. Half the chord is 12, so the center is √(13² − 12²) = 5 units above or below y = 2. The greatest possible y-coordinate is 7.",
+   "hints": [
+    "Where is the center relative to the chord?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the chord, its perpendicular bisector and a radius."
+   },
+   "remember": "A chord's perpendicular bisector passes through the center.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find two possible centers using the chord's perpendicular bisector and the Pythagorean theorem."
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "-3",
+     "rationale": "−3 is the center below the chord, the lesser possibility.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2",
+     "rationale": "2 assumes the segment between the points is a diameter.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q049-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Area of a sector of a ring with a degree angle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Two circles have the same center, and their radii are 9 and 12. Two radii of the larger circle form a 60° central angle. The region between the two circles and inside this angle has an area of kπ. What is the value of k ?",
+   "explanation": "The region is the 60° sector of the large circle minus the 60° sector of the small circle: (60/360)(π · 12² − π · 9²) = (1/6)(144 − 81)π = 10.5π. So k = 10.5.",
+   "hints": [
+    "What fraction of a full circle is 60°?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract the two sector areas."
+   },
+   "remember": "Sector area = (angle/360) × πr².",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "10.5",
+   "accepted_answers": [
+    "10.5",
+    "21/2"
+   ],
+   "common_errors": [
+    {
+     "value": "1.5",
+     "rationale": "1.5 squares the 3-unit difference in the radii.",
+     "trap": null
+    },
+    {
+     "value": "63",
+     "rationale": "63 omits the 60/360 fraction.",
+     "trap": "partial_answer"
+    }
+   ]
+  }
+ ]
+}
