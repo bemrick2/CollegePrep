@@ -1,0 +1,310 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_english",
+  "batch": 54,
+  "reviewed_at": "2026-10-27T19:05:51+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 54
+  },
+  "counts": {
+    "PASS": 5,
+    "REVISE": 1,
+    "REJECT": 4
+  },
+  "appended_ids": [
+    "CLD-ACT-E-000501",
+    "CLD-ACT-E-000502",
+    "CLD-ACT-E-000503",
+    "CLD-ACT-E-000504",
+    "CLD-ACT-E-000505"
+  ],
+  "results": [
+    {
+      "cand": "E054-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Original is a comma splice (two independent clauses joined by a comma). B fuses them with no punctuation (run-on). D 'do, and, one' puts a stray comma after the conjunction. C 'could do. One of them became...' gives two complete sentences.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000501"
+    },
+    {
+      "cand": "E054-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "'set them falling, so that players had to rotate them quickly into place' states a result clearly and is correct. B 'although' sets up a contrast that makes no sense: the falling is the reason players must rotate. C 'having' leaves the 'so that' clause without a finite verb, so it is a fragment. D 'falling so, that' puts the comma in the wrong place and splits 'so that'.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000502"
+    },
+    {
+      "cand": "E054-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "A, B and C each say the cause-effect idea twice ('so'/'consequently' plus 'as a result'/'because of this'). D 'it vanished, so the pieces above it dropped down' is concise and correct.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000503"
+    },
+    {
+      "cand": "E054-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "A singular possessive is needed for 'the first version'. A 'it's' means 'it is'. C 'their' is plural and has no plural antecedent. D 'its'' is not a word. B 'its' is correct.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-E-000255",
+          "similarity": 0.64
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "E054-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "The NO CHANGE wording 'found it difficult to stop playing' already shows strong appeal fairly well, so A competes more than a typical weak original. C is better because it is more concrete and vivid, but the gap is narrower than ideal. Consider weakening the original, e.g. 'found it enjoyable.'"
+        }
+      ],
+      "blind_notes": "B 'interesting' is weak. D talks about graphics, not appeal. C ('kept playing long after they meant to get back to work') gives the most concrete and vivid evidence of strong appeal.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REJECT",
+      "reason": "Blind solver A: the NO CHANGE wording (\"found it difficult to stop playing\") already shows strong appeal and competes with the key; the underlined text is passage text that cannot change after banking. Withdrawn."
+    },
+    {
+      "cand": "E054-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "'across Moscow and then beyond the Soviet Union' is one compound modifier of 'spread', so no punctuation is needed. B's comma is unnecessary because there is no second independent clause. C needs an independent clause after the semicolon and has none. D leaves 'And then beyond the Soviet Union.' as a fragment.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000504"
+    },
+    {
+      "cand": "E054-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "The proposed sentence about research on spatial reasoning drifts away from the paragraph's subject, which is how the game spread. A and B invent links that the sentence does not make. C is wrong because the sentence contradicts nothing.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000505"
+    },
+    {
+      "cand": "E054-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "The key rests on the ACT convention of no comma in a 'not X but Y' correlative. Many style guides (e.g., Chicago) treat the comma in 'not to him, but to the government' as optional or acceptable for emphasis, so a sophisticated reader could defend A. Under ACT conventions B is the single best answer, but the item would be cleaner with a distractor that is clearly wrong in place of the optional-comma contrast."
+        }
+      ],
+      "blind_notes": "B 'not to him but to the government' joins the correlative pair with no comma, which ACT treats as correct. A adds a comma ACT treats as unnecessary. C needs an independent clause after the semicolon and has none. D puts commas in illogical places.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Choice A ('not to him, but to the government') is a common variant that some edited prose uses for emphasis. CMOS-style guidance and ACT convention prefer no comma in a 'not X but Y' correlative, so B is the intended and best answer. Still, A is less clearly wrong than a typical distractor; consider an explanation that cites the correlative-pair rule."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REJECT",
+      "reason": "Both blind solvers: the comma in \"not X, but Y\" is accepted by some style guides, so choice A is defensible. Withdrawn."
+    },
+    {
+      "cand": "E054-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Sentence 12 contrasts with 'earned almost nothing' and moves forward in time, so 'Eventually, though,' fits. B 'For example' is wrong because the sentence is not an example. C 'Therefore' is wrong because the sentence is not a consequence. D 'Similarly' is wrong because the sentence describes a change, not a similarity.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-E-000061",
+          "similarity": 0.6
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "E054-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "The essay covers how the game was created (paragraphs 1-2) and ends with Pajitnov co-founding the company that controls the name. A is wrong because the essay says he earned almost nothing in the Soviet era. B is wrong because pentominoes get only one sentence. D is wrong because the essay says 'almost nothing' for years, not 'never'. Facts check out: 1984 Academy of Sciences computing center, text-only first version, the tetra+tennis name, the state held the rights, and he co-founded The Tetris Company in 1996.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "The passage never says outright that Pajitnov profited. It only says he co-founded a company that controls the Tetris name. C's careful wording ('later stake in its name') handles this, but the stem's 'came to profit from it' is a mild inference. One added clause (e.g., 'and finally began to earn royalties') would make the Yes airtight."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"The passage never says outright that Pajitnov profited. It only says he co-founded a company that controls the Tetris name. C's careful wording ('later stake in its name') handles this, but the stem's 'came to profit from it' is a mild inference. One added clause (e.g., 'and finally began to earn royalties') would make the Yes airtight.\"}"
+    }
+  ]
+}

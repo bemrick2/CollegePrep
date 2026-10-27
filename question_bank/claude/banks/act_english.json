@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 53,
-  "updated_at": "2026-10-27T18:51:07+00:00",
+  "version": 54,
+  "updated_at": "2026-10-27T19:05:51+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -564,6 +564,17 @@
       "word_count": 197,
       "text": "[1] After serving in the U.S. Navy during the Civil War, Lewis Latimer was hired at a Boston patent law firm as an office {{1|boy, his duties}} were mostly running errands. [2] Watching the firm's draftsmen prepare drawings for patent applications, {{2|Latimer taught himself the craft}} at night. [3] His skill eventually earned him a promotion to head draftsman. [4] In 1876, he prepared the drawings {{3|that}} accompanied Alexander Graham Bell's application for a telephone patent.\n\n[5] Latimer then turned to electric lighting. [6] Early incandescent bulbs used carbon filaments that burned out quickly, and manufacturing them {{4|were}} slow and unreliable. [7] In 1882, Latimer patented an improved process for making carbon {{5|filaments, the process}} yielded filaments that were cheaper to produce. [8] {{6|However,}} he supervised the installation of electric lighting systems in several cities, including New York and Philadelphia.\n\n[9] In 1884, Latimer joined Thomas Edison's company, where he {{7|worked and was employed}} as a draftsman and as an expert witness in patent cases. [10] He was later the only Black member of the Edison Pioneers, a group of {{8|Edisons}} earliest associates. [11] Latimer, who also wrote poetry and taught drafting to immigrants, {{9|died in 1928.}}",
       "batch": 53,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000054",
+      "title": "Falling Into Place",
+      "genre": "informative essay",
+      "word_count": 232,
+      "text": "[1] In 1984, Alexey Pajitnov was working as a researcher at a computer center of the Soviet Academy of Sciences in Moscow. [2] In his spare time, he wrote small programs to test what the center's computers could {{1|do, one}} of them became the most famous puzzle game in the world.\n\n[3] The idea came from pentominoes, a puzzle in which players fit together shapes made of five squares. [4] Pajitnov simplified the shapes to four squares each and set them {{2|falling, so that players had to rotate}} them quickly into place. [5] When a horizontal row was completely filled, it vanished, {{3|and so, as a result, the}} pieces above it dropped down. [6] He named the game Tetris, combining \"tetra,\" the Greek prefix for four, with \"tennis,\" his favorite sport.\n\n[7] The computer Pajitnov used could not display graphics, so the first version drew {{4|it's}} pieces with letters and brackets. [8] Even so, colleagues who tried the game {{5|found it difficult to stop playing.}} [9] Copies spread from machine to machine across Moscow{{6| and}} then beyond the Soviet Union. {{7|}}\n\n[10] Because Pajitnov had written the game at a state institution, the rights to it belonged {{8|not to him, but to the government}}. [11] For years, he earned almost nothing from it. [12] {{9|Eventually, though,}} he moved to the United States and, in 1996, co-founded a company that controls the Tetris name.",
+      "batch": 54,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -36044,6 +36055,361 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-053.review.json",
         "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000501",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": 1,
+      "evidence": "of them became the most famous puzzle game in the world",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "do one",
+        "C": "do. One",
+        "D": "do, and, one"
+      },
+      "correct_answer": "C",
+      "explanation": "Both parts are independent clauses, so a period correctly separates them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "B": "Without punctuation, the two independent clauses run together.",
+        "D": "The comma after \"and\" wrongly separates the conjunction from the clause it introduces."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone as a sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each side of the punctuation."
+      },
+      "remember": "Separate two independent clauses with a period or semicolon.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "E054-01",
+      "created_at": "2026-10-27T19:05:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-054.review.json",
+        "computation": "checks/act_english/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000502",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precision and logic of a clause",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": 2,
+      "evidence": "rotate",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "falling, although players had to rotate",
+        "C": "falling, so that players having to rotate",
+        "D": "falling so, that players had to rotate"
+      },
+      "correct_answer": "A",
+      "explanation": "\"So that\" correctly shows the result of setting the pieces falling: players had to rotate them quickly into place.",
+      "distractor_explanations": {
+        "B": "\"Although\" signals a contrast, but rotating the pieces is the result of their falling, not a contrast with it.",
+        "C": "\"Having\" leaves the clause after \"so that\" without a main verb.",
+        "D": "The comma after \"so\" breaks up the conjunction \"so that.\""
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the relationship between the falling pieces and the rotating?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the logic before the grammar."
+      },
+      "remember": "Choose the connector that shows the actual relationship.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "E054-02",
+      "created_at": "2026-10-27T19:05:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-054.review.json",
+        "computation": "checks/act_english/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000503",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": 3,
+      "evidence": "it vanished",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "and as a result of this, the",
+        "C": "and consequently, because of this, the",
+        "D": "so the"
+      },
+      "correct_answer": "D",
+      "explanation": "\"So the pieces above it dropped down\" shows the result once, without repeating it.",
+      "distractor_explanations": {
+        "A": "\"So\" and \"as a result\" say the same thing.",
+        "B": "\"As a result of this\" is wordy and repeats the cause-and-effect idea.",
+        "C": "\"Consequently\" and \"because of this\" say the same thing."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "Do any words repeat an idea already clear from context?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Choose the shortest correct option."
+      },
+      "remember": "When choices mean the same thing, choose the most concise.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "E054-03",
+      "created_at": "2026-10-27T19:05:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-054.review.json",
+        "computation": "checks/act_english/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000504",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary punctuation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": 6,
+      "evidence": "then beyond the Soviet Union",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": ", and",
+        "C": "; and",
+        "D": ". And"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Across Moscow and then beyond the Soviet Union\" is a compound phrase, not two clauses, so no punctuation is needed before \"and.\"",
+      "distractor_explanations": {
+        "B": "A comma before \"and\" is used to join independent clauses, but \"then beyond the Soviet Union\" is not a clause.",
+        "C": "A semicolon cannot introduce a phrase that is not an independent clause.",
+        "D": "This would leave \"And then beyond the Soviet Union\" as a fragment."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the part after \"and\" a complete clause?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check whether \"then beyond the Soviet Union\" has a subject and verb."
+      },
+      "remember": "Do not put a comma before \"and\" when it joins two phrases.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "E054-06",
+      "created_at": "2026-10-27T19:05:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-054.review.json",
+        "computation": "checks/act_english/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000505",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": 7,
+      "evidence": "Copies spread from machine to machine across Moscow",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nSome researchers have studied whether puzzle games improve spatial reasoning.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why the game spread so quickly across Moscow.",
+        "B": "Yes, because it supports the claim that colleagues found the game hard to stop.",
+        "C": "No, because it contradicts the claim that the game was simple.",
+        "D": "No, because it shifts from the game's spread to a separate research question."
+      },
+      "correct_answer": "D",
+      "explanation": "The paragraph describes the early version and the game's spread; a sentence about research on spatial reasoning interrupts that focus.",
+      "distractor_explanations": {
+        "A": "The sentence does not explain the game's spread; it raises an unrelated question about effects.",
+        "B": "The sentence concerns research on reasoning, not why people kept playing.",
+        "C": "The sentence does not address whether the game was simple."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is the paragraph about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the sentence with the paragraph's focus."
+      },
+      "remember": "Add a sentence only if it develops the paragraph's point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "E054-07",
+      "created_at": "2026-10-27T19:05:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-054.review.json",
+        "computation": "checks/act_english/batch_054.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
