@@ -1,0 +1,288 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 31,
+  "reviewed_at": "2026-10-27T07:15:08+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 31
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000241",
+    "CLD-ACT-R-000242",
+    "CLD-ACT-R-000243",
+    "CLD-ACT-R-000244",
+    "CLD-ACT-R-000245",
+    "CLD-ACT-R-000246",
+    "CLD-ACT-R-000247"
+  ],
+  "results": [
+    {
+      "cand": "R031-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        "minor: answer cue - key closely paraphrases the passage's final sentence, so it reads as a lookup for students who check the conclusion"
+      ],
+      "blind_notes": "A, B, D are each accurate but cover only one paragraph (P1-2, P4-5, P3); C states the overarching claim of the closing sentence.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "answer cue: key closely paraphrases the passage's final sentence ('a city's temperature is partly a product of the choices made in building it... can also be changed by... rebuilding it'), so students who read the conclusion can match it directly"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: answer cue: key closely paraphrases the passage's final sentence ('a city's temperature is partly a product of the choices made in building it... can also be changed by... rebuilding it'), so students who read the conclusion can match it directly"
+    },
+    {
+      "cand": "R031-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: A relies on dark surfaces absorbing more sunlight, a link the passage makes only through para 4's reflective-roof discussion; it is still the only choice that bears on para 2's absorb-store-release mechanism"
+      ],
+      "blind_notes": "A isolates surface material with trees held constant and shows night warmth tracks heat storage. B is the noon gap and doesn't address the mechanism (and the passage says the gap is smaller then). C weakens it. D compares two waste-heat sources, a side detail and in winter.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: A relies on the dark-vs-pale absorption idea that the passage gives in paragraph 4 (roofs), not paragraph 2; students must infer that darker pavement stores more heat. The inference is reasonable but worth noting",
+        "minor: B (noon gap) is a plausible trap because it describes the heat island, but it does not test the storage/release mechanism; the passage says the gap is larger at night"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000241"
+    },
+    {
+      "cand": "R031-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Evapotranspiration explains why vegetation cools; the next sentence says the city replaced 'that cooling vegetation.' A misreads ('absorbs sunlight too'); B and C are unsupported.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: C (health risks) and B (watering lawns) are distractors almost nobody would pick",
+        "overlap: D's wording ('replacing vegetation with pavement makes a city warmer') restates the paragraph 2 explanation that R031-02 tests, and it echoes R031-01's main idea, so it gives a mild hint toward both"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: overlap: D's wording ('replacing vegetation with pavement makes a city warmer') restates the paragraph 2 explanation that R031-02 tests, and it echoes R031-01's main idea, so it gives a mild hint toward both"
+    },
+    {
+      "cand": "R031-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "'carry real risks' = pose risks. A is the literal sense; C is weakly tempting.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000242"
+    },
+    {
+      "cand": "R031-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: little more than a lookup of para 3's 'fewest trees and the most pavement'"
+      ],
+      "blind_notes": "Downtown, all pavement, almost no trees. B has tall buildings but large shade trees; C has heavy tree cover; D is next to farmland.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: close to a lookup of paragraph 3 ('hottest blocks... fewest trees and the most pavement'); B is the only competitive distractor (tall buildings trap heat, but it has large shade trees)"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000243"
+    },
+    {
+      "cand": "R031-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Hot summers and mild winters (frosts rare) give the most savings. C is the trap (hot summers but long snowy winters lose part of the savings); B and D have little cooling demand.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: C (hot summers but long snowy winters) is the intended trap; B and D are weak"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000244"
+    },
+    {
+      "cand": "R031-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 66,
+      "blind_flags": [],
+      "blind_notes": "The island peaks at night, and nighttime heat stops recovery, so its timing raises the health risk. Linking back to para 1's timing is a small step. B is from the same paragraph but explains nothing here; A is unsupported.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: D's 'heat island's timing' requires linking the paragraph 3 phrase back to the night-time peak described in paragraph 1. The link is fair, but the wording is abstract, and some students may hesitate or pick B because it appears in the same paragraph"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000245"
+    },
+    {
+      "cand": "R031-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: wrong choices are weak - A and C are never mentioned and D contradicts the passage outright, so few students would pick them"
+      ],
+      "blind_notes": "Trees are slow to grow but offer two benefits (shade and leaf cooling). Over decades the slow start matters less.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: distractors are weak. D contradicts the passage outright, and A (cost) and C (existing buildings) are never mentioned, so the item is solved by elimination",
+        "minor: 'its two benefits' (shade plus cooling through leaves) needs a small inference, but no rival choice competes"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000246"
+    },
+    {
+      "cand": "R031-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: distractors are easy to rule out (no theory rejected, no two named cities, no history)"
+      ],
+      "blind_notes": "P1 pattern, P2 causes, P3 effects, P4-5 two responses (roofs and trees), P6 conclusion.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: A, C and D are plainly inconsistent with the passage (no theory is rejected, no two named cities, no history), so this is easy by elimination"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000247"
+    }
+  ]
+}
