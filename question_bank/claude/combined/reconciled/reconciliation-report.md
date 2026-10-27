@@ -1,6 +1,6 @@
 # Reconciled combined bank
 
-Generated 2026-10-27T23:50:02+00:00. Baseline: user-supplied combined screening ZIP (sha256 5e97823b612c5765...), 3345 records. Claude current banks: 3595 records. Records are matched by question ID and a normalized content hash (stem, choices, key, passage text). Claude items already in the baseline are not counted twice.
+Generated 2026-10-27T23:51:23+00:00. Baseline: user-supplied combined screening ZIP (sha256 5e97823b612c5765...), 3345 records. Claude current banks: 3595 records. Records are matched by question ID and a normalized content hash (stem, choices, key, passage text). Claude items already in the baseline are not counted twice.
 
 | Section | Reviewed drafts | Pending review | Active retained (reviewed + pending) | Holds | Reserved/duplicate | Retired | By source |
 |---|---:|---:|---:|---:|---:|---:|---|
