@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 84,
-  "updated_at": "2026-10-27T19:57:24+00:00",
+  "version": 85,
+  "updated_at": "2026-10-27T19:59:30+00:00",
   "passages": [],
   "questions": [
     {
@@ -68560,6 +68560,885 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-084.review.json",
         "computation": "checks/sat_math/batch_084.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000944",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a counting quadratic for the number of teams",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a league, each team plays every other team exactly once. If the league has n teams, the number of games played is n(n − 1)/2. In one season, 78 games were played. How many teams are in the league?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "13",
+      "accepted_answers": [
+        "13"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 solves n(n + 1)/2 = 78 instead.",
+          "trap": null
+        },
+        {
+          "value": "39",
+          "rationale": "39 halves 78.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Set n(n − 1)/2 = 78, so n(n − 1) = 156 and n² − n − 156 = 0, which factors as (n − 13)(n + 12) = 0. A number of teams cannot be negative, so n = 13. Check: 13 × 12/2 = 78.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Multiply both sides by 2 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try values near √156 and check."
+      },
+      "remember": "Reject a negative root when counting objects.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-02",
+      "created_at": "2026-10-27T19:59:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "13",
+        "blind_answer": "13",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: formula is given, so this is just solving n(n-1)=156; guess-and-check or graphing is immediate"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000945",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Combining exponential factors with different bases",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 2^(x + 1) · 3^(x − 1) = 16, what is the value of 6ˣ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "32/3",
+        "B": "16",
+        "C": "24",
+        "D": "96"
+      },
+      "correct_answer": "C",
+      "explanation": "2^(x + 1) = 2 · 2ˣ and 3^(x − 1) = 3ˣ/3, so the product is (2/3)(2ˣ · 3ˣ) = (2/3)6ˣ. Setting (2/3)6ˣ = 16 gives 6ˣ = 16 × 3/2 = 24.",
+      "distractor_explanations": {
+        "A": "Treats 2^(x + 1) as 2ˣ/2 and 3^(x − 1) as 3 · 3ˣ, multiplying by 2/3 instead of dividing.",
+        "B": "Combines the bases and adds the shifts, +1 − 1 = 0, as if the product were 6ˣ.",
+        "D": "Writes the product as 6^(x − 1), using the shift −1 for both factors."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Split off the constant factors from each power."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite each power as a constant times 2ˣ or 3ˣ."
+      },
+      "remember": "When the exponents match, 2ˣ · 3ˣ = 6ˣ.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-04",
+      "created_at": "2026-10-27T19:59:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000946",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Homogeneous quadratic in two variables",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x² − 5xy + 6y² = 0, where y ≠ 0 and x ≠ 2y, what is the value of x/y?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−3",
+        "B": "1/3",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answer": "D",
+      "explanation": "The left side factors as (x − 2y)(x − 3y) = 0. Since x ≠ 2y, x = 3y, so x/y = 3. Equivalently, dividing by y² gives (x/y)² − 5(x/y) + 6 = 0, so x/y is 2 or 3, and 2 is excluded.",
+      "distractor_explanations": {
+        "A": "Factors as (x + 2y)(x + 3y), losing the signs.",
+        "B": "Finds x = 3y but reports y/x.",
+        "C": "Gives the ratio that the condition x ≠ 2y excludes."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "wrong_quantity",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Factor the left side as you would x² − 5x + 6."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide by y² to get an equation in x/y."
+      },
+      "remember": "Use stated exclusions to choose between solutions.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-05",
+      "created_at": "2026-10-27T19:59:29+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: the condition x != 2y explicitly eliminates choice C, leaving 3 as the only factor-root among the choices; -3 and 1/3 are sign/reciprocal distractors"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000947",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Recovering a half-life from a fraction remaining",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sample of a radioactive substance decays so that the amount remaining is halved every h hours. After 10 hours, 1/32 of the original amount remains. What is the value of h?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the number of half-lives, not their length.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3.2",
+          "rationale": "3.2 divides 32 by 10.",
+          "trap": null
+        }
+      ],
+      "explanation": "Since 1/32 = (1/2)⁵, the substance has gone through 5 half-lives in 10 hours, so each half-life is 10/5 = 2 hours.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write 1/32 as a power of 1/2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Count the halvings, then divide the time."
+      },
+      "remember": "Count halvings by writing the fraction as a power of 1/2.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-06",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000948",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Areas of semicircles on collinear diameters",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Point C lies on segment AB, where AB = 12 and AC = 4. Semicircles are drawn on the same side of line AB with diameters AB, AC, and CB. What is the area of the region that is inside the semicircle with diameter AB but outside the other two semicircles?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "8π",
+        "B": "10π",
+        "C": "16π",
+        "D": "32π"
+      },
+      "correct_answer": "A",
+      "explanation": "The radii are 6, 2, and 4. The area is (1/2)π(6²) − (1/2)π(2²) − (1/2)π(4²) = 18π − 2π − 8π = 8π.",
+      "distractor_explanations": {
+        "B": "Subtracts only the semicircle on CB.",
+        "C": "Uses full-circle areas πr² throughout.",
+        "D": "Uses the diameters 12, 4, and 8 as radii."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find each radius first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the three semicircles."
+      },
+      "remember": "A semicircle's area is half of πr², with r half the diameter.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-07",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000949",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Volume scaling of similar solids",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A solid metal sphere with a radius of 6 centimeters is melted down, and all of the metal is used to make solid spheres that each have a radius of 2 centimeters. How many of the smaller spheres are made?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "9",
+        "C": "27",
+        "D": "54"
+      },
+      "correct_answer": "C",
+      "explanation": "Volumes of spheres scale with the cube of the radius, so the count is (6/2)³ = 27. Directly, (4/3)π(6³) ÷ (4/3)π(2³) = 288π ÷ (32π/3) = 27.",
+      "distractor_explanations": {
+        "A": "Compares the radii directly.",
+        "B": "Compares the squares of the radii, as for areas.",
+        "D": "Computes the small sphere's volume with 2² instead of 2³."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How does volume change when every length triples?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the large volume by the small one."
+      },
+      "remember": "Volume scales with the cube of the length ratio.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-08",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000950",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Regular polygons meeting at a point",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An equilateral triangle, a regular decagon (10 sides), and a regular polygon with n sides fit together around a point, each with one vertex at the point, so that they cover the region around the point with no gaps or overlaps. What is the value of n?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "156",
+          "rationale": "156 is the interior angle, not the number of sides.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "18",
+          "rationale": "18 uses 140° for the decagon's interior angle.",
+          "trap": null
+        }
+      ],
+      "explanation": "The angles at the point sum to 360°. The triangle contributes 60° and the decagon's interior angle is 180(10 − 2)/10 = 144°, so the n-gon's interior angle is 360 − 60 − 144 = 156°. Its exterior angle is 24°, so n = 360/24 = 15.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the sum of the angles around a point?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the missing interior angle, then the exterior angle."
+      },
+      "remember": "A regular n-gon's exterior angle is 360/n.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-09",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [
+          "minor: requires interior-angle formula for regular polygons ((n-2)180/n); in scope but at the edge of commonly tested SAT geometry"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000951",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Trigonometric ratio through similar triangles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Right triangles PQR and STU are similar, with vertices P, Q, and R corresponding to S, T, and U, respectively. Angles R and U are right angles, PR = 24, and QR = 7. What is the value of cos T?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "7/25",
+        "B": "7/24",
+        "C": "24/25",
+        "D": "24/7"
+      },
+      "correct_answer": "A",
+      "explanation": "PQ = √(24² + 7²) = 25. Corresponding angles of similar triangles are congruent, so cos T = cos Q = QR/PQ = 7/25.",
+      "distractor_explanations": {
+        "B": "Uses adjacent over opposite, which is 1/tan Q.",
+        "C": "Uses opposite over hypotenuse, which is sin Q.",
+        "D": "Uses opposite over adjacent, which is tan Q."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which angle in triangle PQR corresponds to angle T?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the sides around angle Q."
+      },
+      "remember": "Similar triangles have equal trigonometric ratios at corresponding angles.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-10",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: closely resembles a common released-SAT pattern (similar right triangles, find trig ratio of corresponding angle, 7-24-25 type triple)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000952",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Square inscribed in a square off the midpoints",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Square EFGH lies inside square ABCD, with E on side AB, F on side BC, G on side CD, and H on side DA. AE = 6, and the area of square EFGH is 100. What is the side length of square ABCD?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "12",
+        "B": "14",
+        "C": "10√2",
+        "D": "16"
+      },
+      "correct_answer": "B",
+      "explanation": "The four corner triangles are congruent right triangles, so BF = AE = 6. In right triangle EBF, EF = 10, so EB² + 6² = 10² and EB = 8. Then AB = AE + EB = 6 + 8 = 14.",
+      "distractor_explanations": {
+        "A": "Assumes E is the midpoint of AB, so AB = 2 × 6.",
+        "C": "Uses the diagonal of EFGH, which works only when the vertices are midpoints.",
+        "D": "Adds AE to the side of EFGH, 6 + 10."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which segment equals AE?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the congruent corner triangles."
+      },
+      "remember": "Look for congruent right triangles in the corners.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-11",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000953",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Circle through three points with a right angle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a circle passes through the points (1, 2), (13, 2), and (1, 7). What is the radius of the circle?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6.5",
+      "accepted_answers": [
+        "6.5",
+        "13/2"
+      ],
+      "common_errors": [
+        {
+          "value": "13",
+          "rationale": "13 is the diameter.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 is half the horizontal chord, treating it as a diameter.",
+          "trap": null
+        }
+      ],
+      "explanation": "The segment from (1, 2) to (13, 2) is horizontal and the one from (1, 2) to (1, 7) is vertical, so the angle at (1, 2) is a right angle. An inscribed right angle intercepts a diameter, so the segment from (13, 2) to (1, 7), of length √(12² + 5²) = 13, is a diameter, and the radius is 6.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What kind of angle is at (1, 2)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the three points."
+      },
+      "remember": "An inscribed right angle's opposite side is a diameter.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-12",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6.5",
+        "blind_answer": "6.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [
+          "minor: accept 13/2 as equivalent entry"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000954",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Segment through the intersection of trapezoid diagonals",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In trapezoid ABCD, side AB is parallel to side CD, AB = 15, and CD = 10. The diagonals AC and BD intersect at point P. A segment through P parallel to AB has one endpoint on leg AD and the other on leg BC. What is the length of this segment?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "12.5",
+          "rationale": "12.5 is the midsegment, the average of the bases.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 is only one of the two pieces.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Triangles CPD and APB are similar with ratio 10 : 15, so AP : PC = BP : PD = 3 : 2. In triangle ACD, the piece from AD to P is parallel to DC, so its length is (AP/AC)(CD) = (3/5)(10) = 6. In triangle BDC, the piece from P to BC is (BP/BD)(CD) = 6. The total is 12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How do the diagonals divide each other?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the segment at P and use two pairs of similar triangles."
+      },
+      "remember": "The segment through the diagonals' intersection is not the midsegment.",
+      "expected_time_seconds": 130,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-13",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 20,
+        "blind_flags": [
+          "minor: relies on a two-stage similar-triangle argument (or harmonic-mean result 2ab/(a+b)); in domain but at the upper limit of SAT difficulty"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000955",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Ladder positions given by a sine and a cosine",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A 17-foot ladder leans against a vertical wall, with its base on level ground. At first, the ladder makes an angle of x° with the ground, where sin x° = 8/17. The base of the ladder is then moved toward the wall until the ladder makes an angle of y° with the ground, where cos y° = 8/17. How many feet higher up the wall does the top of the ladder reach after the move?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 is the new height, not the change.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "9",
+          "rationale": "9 subtracts 17 − 8, as if the ladder stood vertically after the move.",
+          "trap": null
+        }
+      ],
+      "explanation": "At first, the top is 17 sin x° = 8 feet up. After the move, the base is 17 cos y° = 8 feet from the wall, so the top is √(17² − 8²) = 15 feet up. The top rises 15 − 8 = 7 feet.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which side does each ratio give?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the ladder in both positions."
+      },
+      "remember": "Sine gives the side opposite the angle; cosine gives the adjacent side.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 85,
+      "draft_candidate": "Q085-14",
+      "created_at": "2026-10-27T19:59:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: initial angle (sin x=8/17, about 28 degrees, base 15 ft from wall) is an unrealistically shallow, unsafe ladder angle"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-085.review.json",
+        "computation": "checks/sat_math/batch_085.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

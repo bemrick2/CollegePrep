@@ -1,0 +1,541 @@
+{
+ "bank": "sat_math",
+ "batch": 86,
+ "plan": "SAT Math batch 86: 12 items from idea set 27 (VA01, VA02, VA03, VA06, VA07, VC01, VC04, VC06, VC09, VC11, VC12, VC14; pre-checked in ideas-075.repeats.json, which dropped VA04, VA05, VA09, VA12, VA14 and VC03 as templates). Fixes: VA01 duplicate trap removed; VC04 sample-level false statement added so the key is not the only sample statement; VC06 one distractor hedged so the key is not the only hedged claim. Keep-apart pairs (VC06/VC07, VC12/VC13, VC01/VC02, VC04/VC05, VA03/VC08, VA01/VA13) split across batches 86 and 87. Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q086-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Rescaling a line to a fixed constant",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, the graph of ax + by = 12, where a and b are constants, passes through the points (2, 3) and (6, 1). What is the value of a + b?",
+   "explanation": "The slope through the two points is (1 − 3)/(6 − 2) = −1/2, so y − 3 = −(1/2)(x − 2), which is x + 2y = 8. To make the constant 12, multiply by 3/2: (3/2)x + 3y = 12. So a = 3/2, b = 3 and a + b = 9/2. Check: 3 + 9 = 12 and 9 + 3 = 12.",
+   "hints": [
+    "Substitute each point into ax + by = 12."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write two equations in a and b, or find the line and rescale it."
+   },
+   "remember": "A fixed constant fixes the scale of the coefficients.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The unscaled sum 3 is a natural trap."
+   },
+   "format": "spr",
+   "answer": "9/2",
+   "accepted_answers": [
+    "9/2",
+    "4.5"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 adds the coefficients of x + 2y = 8 without rescaling the constant to 12.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "4",
+     "rationale": "4 is the y-intercept of the line.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q086-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear growth from block totals",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A company's annual revenue increased by the same amount each year from 2020 through 2026. The company's total revenue for the three years 2020, 2021, and 2022 was $45 million, and its total revenue for the three years 2023, 2024, and 2025 was $63 million. What was the company's revenue, in millions of dollars, in 2026?",
+   "explanation": "For a linear pattern, the total of three consecutive years is 3 times the middle year, so revenue was 15 in 2021 and 21 in 2024. That is an increase of 6 over 3 years, or 2 per year, so 2026 revenue was 21 + 2(2) = 25. The full list is 13, 15, 17, 19, 21, 23, 25.",
+   "hints": [
+    "What is the middle year's revenue in each block?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Turn each three-year total into a middle-year value."
+   },
+   "remember": "Three equally spaced values in a linear pattern average to the middle one.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Block totals must be converted to points before finding the slope."
+   },
+   "format": "spr",
+   "answer": "25",
+   "accepted_answers": [
+    "25"
+   ],
+   "common_errors": [
+    {
+     "value": "27",
+     "rationale": "27 adds 6 to 21, which is the 2027 value.",
+     "trap": null
+    },
+    {
+     "value": "33",
+     "rationale": "33 treats the 18 difference between totals as a 3-year change of 6 per year.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q086-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Splitting a combined rate using a difference",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Ana and Ben start 1,500 meters apart and walk toward each other along a straight path, each at a constant speed. The distance between them, in meters, t minutes after they start is D = 1,500 − 150t. Ana walks 30 meters per minute faster than Ben. How many meters will Ben have walked when they meet?",
+   "explanation": "The distance shrinks by the sum of the two speeds, so a + b = 150 and a − b = 30, giving Ben 60 meters per minute and Ana 90. They meet when D = 0, at t = 10 minutes, so Ben has walked 60 × 10 = 600 meters.",
+   "hints": [
+    "What does the 150 represent?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Read the slope as the combined speed."
+   },
+   "remember": "When two objects approach each other, their speeds add.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "600",
+   "accepted_answers": [
+    "600"
+   ],
+   "common_errors": [
+    {
+     "value": "750",
+     "rationale": "750 assumes each walks half the distance.",
+     "trap": null
+    },
+    {
+     "value": "900",
+     "rationale": "900 is Ana's distance.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q086-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Count-and-total system with different billing periods",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A gym has 300 members. Each member either pays $40 per month or pays $360 per year. In one year, the gym collected a total of $117,600 from these 300 members, and every member who pays by the month paid for all 12 months. How many members pay $360 per year?",
+   "explanation": "A monthly member pays 12 × 40 = $480 a year. With n yearly members, 480(300 − n) + 360n = 117,600, so 144,000 − 120n = 117,600 and n = 220. Check: 80 × 480 + 220 × 360 = 38,400 + 79,200 = 117,600.",
+   "hints": [
+    "Put both kinds of member on a yearly basis."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write one equation using the number of yearly members."
+   },
+   "remember": "Convert rates to the same time period before combining.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "220",
+   "accepted_answers": [
+    "220"
+   ],
+   "common_errors": [
+    {
+     "value": "80",
+     "rationale": "80 is the number of monthly members.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "245",
+     "rationale": "245 divides 117,600 by 480.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q086-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Percent change under constant dollar growth",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "Ana's annual salary increased by the same dollar amount each year from 2018 to 2026. Her salary in 2022 was 25% greater than her salary in 2018. By what percent was her salary in 2026 greater than her salary in 2022?",
+   "explanation": "Let s be her 2018 salary. The increase over 4 years is 0.25s, so her 2026 salary is 1.25s + 0.25s = 1.5s. Then 1.5s/1.25s = 1.2, so her 2026 salary was 20% greater than her 2022 salary.",
+   "hints": [
+    "Write each salary in terms of the 2018 salary."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a 2018 salary of 100."
+   },
+   "remember": "Equal dollar increases give shrinking percent increases.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Linear growth must be separated from constant percent growth."
+   },
+   "choices": {
+    "A": "16⅔%",
+    "B": "20%",
+    "C": "25%",
+    "D": "50%"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "Divides the increase 0.25s by the 2026 salary instead of the 2022 salary.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Assumes the same percent increase every 4 years, which is exponential growth.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Gives the increase from 2018 to 2026.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q086-06",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Ratio of actual values around an exponential fit",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A scatterplot shows the number of subscribers y, in thousands, to a newsletter x months after it was launched, for x = 0 to x = 12. An exponential curve of best fit for the data is y = 3.2(1.3)^x. The actual number of subscribers at x = 6 was 10% less than the number predicted by the curve, and the actual number at x = 7 was 10% greater than the number predicted by the curve. The actual number of subscribers at x = 7 was approximately what percent greater than the actual number at x = 6? Round your answer to the nearest whole percent. (Disregard the % sign when entering your answer.)",
+   "explanation": "The predictions at x = 7 and x = 6 differ by the factor 1.3, so the ratio of actual values is 1.3(1.1)/(0.9) ≈ 1.589, about 59% greater. With numbers: predictions ≈ 15.45 and 20.08 thousand; actual values ≈ 13.90 and 22.09 thousand.",
+   "hints": [
+    "Write each actual value as a multiple of its prediction."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Combine the curve's growth factor with both residuals."
+   },
+   "remember": "Percent residuals multiply with an exponential model's factor.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Combines a growth factor with residuals in opposite directions."
+   },
+   "format": "spr",
+   "answer": "59",
+   "accepted_answers": [
+    "59"
+   ],
+   "common_errors": [
+    {
+     "value": "30",
+     "rationale": "30 uses the growth factor and ignores both residuals.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "43",
+     "rationale": "43 applies the 10% above the curve but forgets that x = 6 was below it, 1.3(1.1).",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q086-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "What a margin of error does and does not guarantee",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A random sample of 500 of a city's 80,000 adults were asked whether they had used the public library in the past year, and 62% of the sample said yes. The margin of error for this estimate is 4 percentage points. Which of the following must be true?",
+   "explanation": "62% of 500 is 310, a fact about the sample. Statements about the city's adults describe plausible values only, and the margin of error describes uncertainty about the population, not about the sample's own count.",
+   "hints": [
+    "Which statements are about the sample, and which about the city?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Ask which statement is certain rather than plausible."
+   },
+   "remember": "A margin of error describes the population estimate, not the sample.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Must distinguish certain sample facts from plausible population claims."
+   },
+   "choices": {
+    "A": "Between 58% and 66% of the city's adults used the public library in the past year.",
+    "B": "At least 46,400 of the city's adults used the public library in the past year.",
+    "C": "Between 290 and 330 of the 500 adults in the sample said they had used the library.",
+    "D": "Exactly 310 of the 500 adults in the sample said they had used the library."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "Treats the plausible interval as certain.",
+     "trap": "extreme_language"
+    },
+    "B": {
+     "rationale": "Treats 58% of 80,000 as a guaranteed floor.",
+     "trap": "extreme_language"
+    },
+    "C": {
+     "rationale": "Applies the margin of error to the sample itself, whose count is known exactly.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q086-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Combining two studies with different kinds of randomness",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "Two studies looked at volunteer work and life satisfaction. In study 1, researchers selected 600 adults at random from all the adults in a city; adults who reported more hours of volunteer work tended to report higher life satisfaction. In study 2, 200 adults who answered an advertisement were randomly assigned either to volunteer 2 hours each week for 3 months or not to volunteer; at the end, the volunteer group reported higher average life satisfaction, and the difference was too large to be explained by chance. Which conclusion is best supported by the two studies?",
+   "explanation": "Study 2's random assignment supports a causal conclusion, but only for people like its volunteers. Study 1's random sampling lets its association be generalized to the city, but it cannot show cause. Neither study has both features.",
+   "hints": [
+    "What does each kind of randomness allow you to conclude?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Match random assignment to cause and random sampling to generalization."
+   },
+   "remember": "Random assignment supports cause; random sampling supports generalization.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Two partial designs must not be merged into one conclusion."
+   },
+   "choices": {
+    "A": "Volunteering likely causes higher satisfaction for the city's adults, since study 1 sampled the city at random and study 2 assigned volunteering at random.",
+    "B": "Volunteering likely causes higher satisfaction for adults like those in study 2, and study 1's association can be generalized to the city's adults.",
+    "C": "Neither study supports a cause-and-effect conclusion, because the adults in study 2 were not selected at random from the city.",
+    "D": "Study 1 shows that volunteering causes higher satisfaction for the city's adults, and study 2 shows only an association for its volunteers."
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "Merges the two studies as if one study had both random sampling and random assignment.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Confuses random selection with random assignment.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Reverses what each design supports.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q086-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Mixing paints given by part-to-part ratios",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "Paint A is a mixture of blue paint and white paint in the ratio 1 : 3 by volume, and paint B is a mixture of blue paint and white paint in the ratio 2 : 3 by volume. A painter mixes 1 liter of paint A with 2 liters of paint B. What fraction of the resulting 3 liters of paint, by volume, is blue paint?",
+   "explanation": "Paint A is 1/4 blue and paint B is 2/5 blue. The blue paint is 1(1/4) + 2(2/5) = 1/4 + 4/5 = 21/20 liters out of 3 liters, so the fraction is (21/20)/3 = 7/20.",
+   "hints": [
+    "What fraction of each paint is blue?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Convert each ratio to a part-to-whole fraction first."
+   },
+   "remember": "A part-to-part ratio a : b means a/(a + b) of the whole.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Ratio-to-fraction conversion plus an unequal weighted average."
+   },
+   "choices": {
+    "A": "3/10",
+    "B": "13/40",
+    "C": "7/20",
+    "D": "5/9"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "Swaps the amounts, using 2 liters of A and 1 liter of B.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "Averages 1/4 and 2/5 as if equal volumes were mixed.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Reads the ratios 1 : 3 and 2 : 3 as the fractions 1/3 and 2/3.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q086-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Unit cost built from usage per batch",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "An ink cartridge holds 12 milliliters of ink and costs $30. Printing 50 pages of a typical document uses 0.8 milliliter of ink. At this rate, what is the cost of the ink, in cents, for each page?",
+   "explanation": "The cartridge prints 12/0.8 = 15 sets of 50 pages, or 750 pages. The cost per page is $30/750 = $0.04, which is 4 cents.",
+   "hints": [
+    "How many pages does one cartridge print?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find pages per cartridge, then divide the cost."
+   },
+   "remember": "Check the units the question asks for.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "0.04",
+     "rationale": "0.04 is the cost in dollars, not cents.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "750",
+     "rationale": "750 is the number of pages per cartridge.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q086-11",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Shifting values above and below the median",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A data set consists of 11 different numbers, and its median is 20. Each number in the data set that is greater than 20 is increased by 5, and each number that is less than 20 is decreased by 5. Compared with the original data set, which of the following must be true of the new data set?",
+   "explanation": "With 11 different numbers and a median of 20, exactly 5 numbers are above 20 and 5 are below. The total changes by 5(5) − 5(5) = 0, so the mean is unchanged. The largest number rises by 5 and the smallest falls by 5, so the range grows by 10.",
+   "hints": [
+    "How many numbers are above and below the median?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a small data set with median 20."
+   },
+   "remember": "Shifts that cancel in total leave the mean unchanged.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Separates the effect on the mean from the effect on the range."
+   },
+   "choices": {
+    "A": "The mean is the same, and the range is the same.",
+    "B": "The mean is 5 greater, and the range is 10 greater.",
+    "C": "The mean is 5 greater, and the range is the same.",
+    "D": "The mean is the same, and the range is 10 greater."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "Assumes the two shifts cancel for the range as well.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "Treats the change as adding 5 to every number, but then widens the range.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Applies the uniform-shift rule to both measures.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q086-12",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Prediction from a line through two points",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "A scatterplot shows the height y, in centimeters, of each of 14 bean seedlings and the number of days x since the seedling sprouted. The line of best fit passes through the points (0, 4.2) and (10, 9.2). According to the line of best fit, what is the predicted height, in centimeters, of a seedling 16 days after it sprouted?",
+   "explanation": "The slope is (9.2 − 4.2)/10 = 0.5, so the line is y = 0.5x + 4.2. At x = 16, y = 8 + 4.2 = 12.2 centimeters.",
+   "hints": [
+    "Find the slope from the two points."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the equation of the line, then substitute."
+   },
+   "remember": "Use slope and intercept; do not assume proportionality.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "12.2",
+   "accepted_answers": [
+    "12.2",
+    "61/5"
+   ],
+   "common_errors": [
+    {
+     "value": "14.72",
+     "rationale": "14.72 scales 9.2 by 16/10, as if the line passed through the origin.",
+     "trap": null
+    },
+    {
+     "value": "8",
+     "rationale": "8 forgets the intercept.",
+     "trap": "partial_answer"
+    }
+   ]
+  }
+ ]
+}

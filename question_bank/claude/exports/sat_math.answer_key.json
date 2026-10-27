@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 84,
+  "bank_version": 85,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -20008,6 +20008,277 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Use similar triangles to find the cone's radius at a height."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000944",
+      "correct_answer": "13",
+      "accepted_answers": [
+        "13"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 solves n(n + 1)/2 = 78 instead.",
+          "trap": null
+        },
+        {
+          "value": "39",
+          "rationale": "39 halves 78.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Set n(n − 1)/2 = 78, so n(n − 1) = 156 and n² − n − 156 = 0, which factors as (n − 13)(n + 12) = 0. A number of teams cannot be negative, so n = 13. Check: 13 × 12/2 = 78.",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides by 2 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try values near √156 and check."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000945",
+      "correct_answer": "C",
+      "explanation": "2^(x + 1) = 2 · 2ˣ and 3^(x − 1) = 3ˣ/3, so the product is (2/3)(2ˣ · 3ˣ) = (2/3)6ˣ. Setting (2/3)6ˣ = 16 gives 6ˣ = 16 × 3/2 = 24.",
+      "distractor_explanations": {
+        "A": "Treats 2^(x + 1) as 2ˣ/2 and 3^(x − 1) as 3 · 3ˣ, multiplying by 2/3 instead of dividing.",
+        "B": "Combines the bases and adds the shifts, +1 − 1 = 0, as if the product were 6ˣ.",
+        "D": "Writes the product as 6^(x − 1), using the shift −1 for both factors."
+      },
+      "hints": [
+        "Split off the constant factors from each power."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite each power as a constant times 2ˣ or 3ˣ."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000946",
+      "correct_answer": "D",
+      "explanation": "The left side factors as (x − 2y)(x − 3y) = 0. Since x ≠ 2y, x = 3y, so x/y = 3. Equivalently, dividing by y² gives (x/y)² − 5(x/y) + 6 = 0, so x/y is 2 or 3, and 2 is excluded.",
+      "distractor_explanations": {
+        "A": "Factors as (x + 2y)(x + 3y), losing the signs.",
+        "B": "Finds x = 3y but reports y/x.",
+        "C": "Gives the ratio that the condition x ≠ 2y excludes."
+      },
+      "hints": [
+        "Factor the left side as you would x² − 5x + 6."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide by y² to get an equation in x/y."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000947",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the number of half-lives, not their length.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3.2",
+          "rationale": "3.2 divides 32 by 10.",
+          "trap": null
+        }
+      ],
+      "explanation": "Since 1/32 = (1/2)⁵, the substance has gone through 5 half-lives in 10 hours, so each half-life is 10/5 = 2 hours.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write 1/32 as a power of 1/2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Count the halvings, then divide the time."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000948",
+      "correct_answer": "A",
+      "explanation": "The radii are 6, 2, and 4. The area is (1/2)π(6²) − (1/2)π(2²) − (1/2)π(4²) = 18π − 2π − 8π = 8π.",
+      "distractor_explanations": {
+        "B": "Subtracts only the semicircle on CB.",
+        "C": "Uses full-circle areas πr² throughout.",
+        "D": "Uses the diameters 12, 4, and 8 as radii."
+      },
+      "hints": [
+        "Find each radius first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the three semicircles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000949",
+      "correct_answer": "C",
+      "explanation": "Volumes of spheres scale with the cube of the radius, so the count is (6/2)³ = 27. Directly, (4/3)π(6³) ÷ (4/3)π(2³) = 288π ÷ (32π/3) = 27.",
+      "distractor_explanations": {
+        "A": "Compares the radii directly.",
+        "B": "Compares the squares of the radii, as for areas.",
+        "D": "Computes the small sphere's volume with 2² instead of 2³."
+      },
+      "hints": [
+        "How does volume change when every length triples?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the large volume by the small one."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000950",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "156",
+          "rationale": "156 is the interior angle, not the number of sides.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "18",
+          "rationale": "18 uses 140° for the decagon's interior angle.",
+          "trap": null
+        }
+      ],
+      "explanation": "The angles at the point sum to 360°. The triangle contributes 60° and the decagon's interior angle is 180(10 − 2)/10 = 144°, so the n-gon's interior angle is 360 − 60 − 144 = 156°. Its exterior angle is 24°, so n = 360/24 = 15.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the sum of the angles around a point?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the missing interior angle, then the exterior angle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000951",
+      "correct_answer": "A",
+      "explanation": "PQ = √(24² + 7²) = 25. Corresponding angles of similar triangles are congruent, so cos T = cos Q = QR/PQ = 7/25.",
+      "distractor_explanations": {
+        "B": "Uses adjacent over opposite, which is 1/tan Q.",
+        "C": "Uses opposite over hypotenuse, which is sin Q.",
+        "D": "Uses opposite over adjacent, which is tan Q."
+      },
+      "hints": [
+        "Which angle in triangle PQR corresponds to angle T?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the sides around angle Q."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000952",
+      "correct_answer": "B",
+      "explanation": "The four corner triangles are congruent right triangles, so BF = AE = 6. In right triangle EBF, EF = 10, so EB² + 6² = 10² and EB = 8. Then AB = AE + EB = 6 + 8 = 14.",
+      "distractor_explanations": {
+        "A": "Assumes E is the midpoint of AB, so AB = 2 × 6.",
+        "C": "Uses the diagonal of EFGH, which works only when the vertices are midpoints.",
+        "D": "Adds AE to the side of EFGH, 6 + 10."
+      },
+      "hints": [
+        "Which segment equals AE?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the congruent corner triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000953",
+      "correct_answer": "6.5",
+      "accepted_answers": [
+        "6.5",
+        "13/2"
+      ],
+      "common_errors": [
+        {
+          "value": "13",
+          "rationale": "13 is the diameter.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 is half the horizontal chord, treating it as a diameter.",
+          "trap": null
+        }
+      ],
+      "explanation": "The segment from (1, 2) to (13, 2) is horizontal and the one from (1, 2) to (1, 7) is vertical, so the angle at (1, 2) is a right angle. An inscribed right angle intercepts a diameter, so the segment from (13, 2) to (1, 7), of length √(12² + 5²) = 13, is a diameter, and the radius is 6.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "What kind of angle is at (1, 2)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the three points."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000954",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "12.5",
+          "rationale": "12.5 is the midsegment, the average of the bases.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 is only one of the two pieces.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Triangles CPD and APB are similar with ratio 10 : 15, so AP : PC = BP : PD = 3 : 2. In triangle ACD, the piece from AD to P is parallel to DC, so its length is (AP/AC)(CD) = (3/5)(10) = 6. In triangle BDC, the piece from P to BC is (BP/BD)(CD) = 6. The total is 12.",
+      "distractor_explanations": {},
+      "hints": [
+        "How do the diagonals divide each other?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the segment at P and use two pairs of similar triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000955",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 is the new height, not the change.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "9",
+          "rationale": "9 subtracts 17 − 8, as if the ladder stood vertically after the move.",
+          "trap": null
+        }
+      ],
+      "explanation": "At first, the top is 17 sin x° = 8 feet up. After the move, the base is 17 cos y° = 8 feet from the wall, so the top is √(17² − 8²) = 15 feet up. The top rises 15 − 8 = 7 feet.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which side does each ratio give?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the ladder in both positions."
       }
     }
   ]
