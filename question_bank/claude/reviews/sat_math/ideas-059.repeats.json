@@ -1,0 +1,101 @@
+{
+  "ideas": "generated set 11 (FA/FB/FC/FD)",
+  "results": {
+    "FA01": [
+      {"other_id": "CLD-SAT-M-000441", "severity": "close", "why": "Linear model from a rate/known point evaluated at a new input; here the slope comes from two points. Same skill and reasoning, but the given information differs, so this is close, not a template."},
+      {"other_id": "over-used frame (e.g. CLD-SAT-M-000410/000453/000485, ideas-gen-05 U08)", "severity": "close", "why": "Next to the over-used 'linear f, two points, asks f(0)' frame. The intercept is offered as a decoy and the ask is h(1), not f(0), so it is not the frame itself. The stacking-cups setup is also a widely used Algebra 1 classroom task."}
+    ],
+    "FA02": [],
+    "FA03": [
+      {"other_id": "CLD-SAT-M-000079", "severity": "close", "why": "Same asked quantity: the first whole period at which a linearly decreasing amount drops below a threshold. Here the rate must first come from purchase and salvage values. CLD-ACT-M-000450 (linear depreciation at a given year) is only skill-level."}
+    ],
+    "FA04": [],
+    "FA05": [],
+    "FA06": [],
+    "FA07": [],
+    "FA08": [],
+    "FB01": [],
+    "FB02": [],
+    "FB03": [],
+    "FB04": [
+      {"other_id": "CLD-SAT-M-000500 / batch-053:Q053-10 / ideas-gen-08:CD01", "severity": "close", "why": "Reuses the same pizzeria with 10-inch and 14-inch diameters. The template differs (fixed cost + area term recovered from two prices), but the specific numbers and context are reused; change the sizes."}
+    ],
+    "FB05": [],
+    "FB06": [],
+    "FB07": [
+      {"other_id": "CLD-SAT-M-000119", "severity": "close", "why": "A rational-expression operation whose result collapses to the same constant 2. The operation (quotient vs difference) and the factorizations differ, so it is not a template, but the constant answer of 2 repeats. CLD-ACT-M-000051 also uses x² − 9 over a quadratic."}
+    ],
+    "FB08": [],
+    "FB09": [
+      {"other_id": "CLD-SAT-M-000412", "severity": "close", "why": "Shares the idea that a shifted model's coefficient is the value at the shift (t = 4), not at t = 0. SAT-412 is a linear point-slope interpretation and FB09 is an exponential evaluation at t = 0. Not a repeat."}
+    ],
+    "FB10": [],
+    "FB11": [],
+    "FB12": [],
+    "FC01": [],
+    "FC02": [
+      {"other_id": "CLD-SAT-M-000383 (batch-042:Q042-10, ideas-gen-04:R05)", "severity": "template", "why": "Same template: two groups with known relative sizes (here 1:4, there 1:3), a stated link between the groups' values (×1.5 here, +10 there) and the combined weighted value; asks for one group's value. Only the link type and the context change."},
+      {"other_id": "CLD-ACT-M-000586", "severity": "close", "why": "The forward weighted-percent problem (group shares + subgroup rates → overall); FC02 runs it in reverse with a linking condition."}
+    ],
+    "FC03": [],
+    "FC04": [
+      {"other_id": "CLD-ACT-M-000097", "severity": "template", "why": "Same template run in reverse. A crew is scheduled to finish in a given time, works part of the job, then the crew size changes (painters join there, workers leave here). Asks for the total time, solved by rescaling only the remaining work. The generator's cited neighbour SAT-238 (whole-job inverse variation) is only skill-level."}
+    ],
+    "FC05": [
+      {"other_id": "CLD-ACT-M-000308", "severity": "template", "why": "Same template: the limiting ingredient. Each supply gives its own maximum and the smallest one controls the greatest output. Three ingredients in a ratio and a continuous weight replace two per-batch amounts and whole batches, but the reasoning is identical. ACT-395 (generator's neighbour) is only skill-level."}
+    ],
+    "FD01": [],
+    "FD02": [],
+    "FD03": [
+      {"other_id": "CLD-SAT-M-000187", "severity": "close", "why": "Hypotenuse exceeds a leg by a given amount. In SAT-187 the other leg is given and the Pythagorean theorem gives a linear equation; here the cosine fixes the side ratio and the ask is the area. Shared feature, different reasoning."}
+    ],
+    "FD04": [],
+    "FD05": [
+      {"other_id": "CLD-ACT-M-000085 / CLD-SAT-M-000490 / CLD-SAT-M-000359", "severity": "close", "why": "Same figure (altitude to the hypotenuse in right triangle ABC with C = 90°) used three times already. The ask (AD/DB from tan A, the square of the leg ratio) is new, but the figure is heavily used."}
+    ]
+  },
+  "within_list_cues": [
+    "FB01 / FB08: both combine two exponential models into one (ratio of factors / adding exponent rates). FB08's solution shows FB01's step, and FB01's wrong 'subtract the rates' trap is the same idea as FB08's D trap.",
+    "FD03 / FD05: identical opening ('In right triangle ABC, angle C is the right angle and [cos/tan] A = ...'). FD03, FD04 (5-5-6 / 5-5-8 = 3-4-5 halves) and FD03's 15-20-25 all rest on 3-4-5 triangles.",
+    "FD01 / FD02: both turn on a 30° angle (tan 30° for the cone radius, sin 30° for the obtuse-triangle height).",
+    "FA03 / FA04: both are 'first/least whole number past a threshold' round-up items in the same section.",
+    "FA07 / FC03: both convert between pace/speed and time from a driving context."
+  ],
+  "answer_errors": [
+    "No wrong keys: all 30 stated answers recompute correctly, and every distractor value matches its stated error.",
+    "FA04 rationale is wrong: it says the adult round-up (22.5 -> 23) 'decides' the bus count, but 202.5/50 = 4.05 also gives 5 buses. The first rounding never matters, so the item reduces to 'remember the adults'. Change the numbers if the double round-up is meant to matter.",
+    "FA02 rationale is wrong: it says testing choices takes two k-values, but k = -2 makes the line y = 10, and only the key (3, 10) has y = 10. One substitution identifies the key."
+  ],
+  "cues_or_overdetermined": [
+    "FA01: key 8.0 = choice A (1.5) + choice C (6.5), since h(1) = slope + intercept. Also, a single cup must be taller than the 1.5 cm each extra cup adds, so A and B (2.8) are implausible on sight.",
+    "FA02: k = -2 collapses the family to y = 10. Only the key has y = 10, so one quick check eliminates all three wrong choices.",
+    "FA05: key 2/7 and D 5/7 are a complement pair with the same denominator, which points to one of them (on vs off share).",
+    "FA07: realism cue. 24 km/h is the only plausible courier driving speed; 0.4, 2.5 and 8 km/h are walking pace or slower. The 5-minute loading time is never used in the computation (intended decoy, but over-determined).",
+    "FB01: near-tie. Key 68.1% vs B 66.5% (0.96^10) are 1.6 points apart under an 'approximately' ask; a rough estimate cannot separate them.",
+    "FB08: key 7.2 is the only non-integer and the smallest value; all wrong choices are integer multiples of 6 (12, 18, 36).",
+    "FB09: since the model grows, the launch value must be below 1,200, which eliminates C (1,200) and D (2,099) at once; the key is the least value.",
+    "FC03: over-determined. The 360-mile trip length cancels: the extra cost per hour saved is the same for any distance, so the 360 is never needed."
+  ],
+  "grid_problems": [
+    "None. SPR answers 7, 5, 96, 1000, -4, 30, 9, 20, 7.5 and 8 all fit the grid. FC02 (30) needs the usual '(Disregard the % sign)' instruction."
+  ],
+  "unrealistic": [
+    "FA05 (mild): a home cooling 0.2°F per minute (12°F per hour) with the heater off is fast for a house. The 8-on/20-off cycle is plausible, but a slower cooling rate (e.g. 0.1) would be more realistic."
+  ],
+  "likely_easier_than_labeled": [
+    "FA01 (hard): one slope computation then 14 - 4(1.5) = 8. The naive first approach (find the line, plug in n = 1) solves it, so it is really medium.",
+    "FA02 (hard): the k = -2 shortcut makes it medium-hard for test-wise students.",
+    "FA04 (medium-hard): the adult round-up never matters, so it is closer to medium.",
+    "FB05 (medium-hard): noticing that f is odd, or plugging any value, takes seconds; medium.",
+    "FB11 (medium-hard): substitute r = 2t into the sphere-volume formula; medium.",
+    "FC01 (medium-hard): a direct proportion 100 x 26/25; medium.",
+    "FC05 (medium-hard): a standard limiting-ingredient minimum; medium.",
+    "FD01 (hard): one tan 30° step plus the cone formula; medium-hard.",
+    "FD02 (hard): (1/2)ab sin C, or the 30° exterior altitude, solves it directly; the standard first approach works, so medium-hard."
+  ],
+  "official_or_well_known_mirrors": [
+    "No idea closely mirrors a specific released official SAT question I can confirm.",
+    "Well-known non-SAT classics: FA01 (stacking-cups Algebra 1 task), FB02 (police car catch-up / maximum gap physics problem), FC01 (oversized-tire odometer error), FD04 (5-5-6 and 5-5-8 isosceles triangles with equal area is a familiar competition fact), FB06 (decibel intensity ratio).",
+    "FB09's shifted-exponent model format (coefficient = value at a nonzero time) is common in official SAT practice material, as a format only."
+  ]
+}

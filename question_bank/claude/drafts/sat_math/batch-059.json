@@ -1,0 +1,1273 @@
+{
+ "bank": "sat_math",
+ "batch": 59,
+ "plan": "SAT Math batch 59: 21 new items from generated idea set 11 (pre-checked in ideas-059.repeats.json) plus 6 batch-58 items resubmitted as revision 2 (wording/grid fixes only). Dropped from set 11: FC02, FC04, FC05 (templates of CLD-SAT-M-000383, CLD-ACT-M-000097, CLD-ACT-M-000308), FB04 (reused pizzeria context), FD05 (over-used altitude figure), FA01 (cue and classroom classic), FA02 (one test eliminates every distractor), FA05 (a wrong method gives the key), FA07 (only realistic speed is the key). Fixes: FB08 numbers changed so all choices are integers; FB09 distractors moved below 1,200 so growth alone does not eliminate them; FC03 trip length removed (it cancelled) and the item asks for the length-independent ratio; FB01 asks to the nearest tenth of a percent; FA04 explanation corrected; easier-than-labeled ideas labeled medium.",
+ "candidates": [
+  {
+   "cand": "Q059-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "First whole year past a threshold under linear depreciation with salvage value",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A company buys a machine for $48,000 and depreciates it linearly: its book value drops by the same amount each year until it reaches its salvage value of $6,000 at the end of 12 years. At the end of how many whole years will the book value first be less than half of the purchase price?",
+   "explanation": "The value drops by (48,000 − 6,000)/12 = $3,500 per year. Half the purchase price is $24,000, and 48,000 − 3,500t < 24,000 gives t > 6.86. After 6 years the value is $27,000; after 7 years it is $23,500. So the answer is 7.",
+   "hints": [
+    "How much does the value drop each year?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the yearly drop from the two endpoint values, then solve the inequality."
+   },
+   "remember": "With a salvage value, half the life does not give half the value.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The \"halfway\" intuition gives 6; students must compute the rate from two endpoints and round up past the threshold."
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 assumes half the useful life gives half the value, which ignores the $6,000 salvage value.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q059-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Two chained round-ups from a ratio and a capacity",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A school is taking 180 students on a field trip. There must be at least 1 adult chaperone for every 8 students, and each bus can hold at most 50 people (students and adults). What is the least number of buses needed?",
+   "explanation": "At least 180/8 = 22.5 adults are needed, so at least 23 adults. That makes at least 203 people, and 203/50 = 4.06, so 5 buses are needed. Five buses, each with 36 students and at least 5 adults, satisfy every condition.",
+   "hints": [
+    "How many adults are needed?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the least number of adults, add the students, then divide by the bus capacity."
+   },
+   "remember": "When a count must be a whole number that meets a minimum, round up.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "5",
+   "accepted_answers": [
+    "5"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 ignores the adults (180/50 = 3.6) and rounds up, or rounds 203/50 = 4.06 down.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Sum-and-difference system with three exclusive groups",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In a customer survey, every respondent chose exactly one of satisfied, neutral, or dissatisfied. Of the respondents, 15% chose neutral, and the percent who chose satisfied was 41 percentage points greater than the percent who chose dissatisfied. What percent of the respondents chose satisfied?",
+   "explanation": "The satisfied and dissatisfied percents add to 100 − 15 = 85 and differ by 41. So s + d = 85 and s − d = 41, which give s = 63.",
+   "hints": [
+    "What do the satisfied and dissatisfied percents add up to?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write a sum equation and a difference equation."
+   },
+   "remember": "Exclusive groups' percents add to 100.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "22",
+    "B": "56",
+    "C": "63",
+    "D": "70.5"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "22 is the dissatisfied percent, not the satisfied percent.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "56 adds the 15% neutral to the 41-point gap.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "70.5 is (100 + 41)/2, which forgets to remove the neutral group.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q059-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Order amount that matches a free-shipping threshold",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "An online store charges shipping of $5 plus 8% of the order amount on orders under $75 and ships orders of $75 or more for free. To the nearest cent, what order amount under $75 has the same total cost (order amount plus shipping) as a $75 order?",
+   "explanation": "For an order of x dollars under $75, the total cost is x + 5 + 0.08x = 1.08x + 5. Setting this equal to 75 gives 1.08x = 70, so x = 70/1.08 ≈ 64.81.",
+   "hints": [
+    "Write the total cost of an order of x dollars under $75."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set 1.08x + 5 equal to 75."
+   },
+   "remember": "A percent fee applies to the unknown amount, not to the threshold.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must model a piecewise cost and apply the percent to the unknown; the $64.00 and $64.44 traps are strong."
+   },
+   "choices": {
+    "A": "$64.00",
+    "B": "$64.44",
+    "C": "$64.81",
+    "D": "$70.00"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "$64.00 takes 8% of $75 instead of 8% of the unknown amount: 75 − 5 − 6.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "$64.44 divides 75 by 1.08 before subtracting the $5 fee.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$70.00 ignores the 8% part of the shipping charge.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q059-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Ratio of two exponential models (real purchasing power)",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "From 2010 to 2020, Ana's salary increased by 2% each year, and the prices of the goods she buys increased by 6% each year. The purchasing power of her salary (the amount of goods it can buy) in 2020 was what percent of its purchasing power in 2010, to the nearest tenth of a percent?",
+   "explanation": "Purchasing power is salary divided by prices. After 10 years it is (1.02)¹⁰/(1.06)¹⁰ = (1.02/1.06)¹⁰ ≈ 0.6807 times its 2010 value, or about 68.1%.",
+   "hints": [
+    "Write each quantity as a starting value times a growth factor raised to 10."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide the two exponential models."
+   },
+   "remember": "A ratio of exponentials is the ratio of the bases raised to the same power.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The 0.96¹⁰ shortcut is close but wrong; students must divide the two growth factors."
+   },
+   "choices": {
+    "A": "60.0%",
+    "B": "66.5%",
+    "C": "68.1%",
+    "D": "75.0%"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "60.0% subtracts the 4-point yearly gap 10 times without compounding.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "66.5% compounds the gap as a 4% yearly loss, 0.96¹⁰, but dividing by 1.06 is not the same as multiplying by 0.96 after the salary increase.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "75.0% treats both increases as simple growth: 1.20/1.60.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum gap between a linear and a quadratic position",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A car traveling at a constant 24 meters per second passes a parked police car. At that moment the police car starts from rest, and t seconds later it has traveled 1.5t² meters. What is the greatest distance, in meters, between the two cars before the police car catches up?",
+   "explanation": "The gap is 24t − 1.5t². This quadratic is greatest at t = −24/(2(−1.5)) = 8, where the gap is 24(8) − 1.5(64) = 192 − 96 = 96 meters.",
+   "hints": [
+    "Write the distance between the cars as a function of t."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract the two positions and find the vertex."
+   },
+   "remember": "The greatest difference of two functions is the maximum of their difference, a new function.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build a new quadratic for the gap; the catch-up time and distance are tempting wrong quantities."
+   },
+   "format": "spr",
+   "answer": "96",
+   "accepted_answers": [
+    "96"
+   ],
+   "common_errors": [
+    {
+     "value": "16",
+     "rationale": "16 is the time, in seconds, when the police car catches up.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "384",
+     "rationale": "384 is the distance each car has traveled when the police car catches up.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "8",
+     "rationale": "8 is the time of the greatest gap, not the gap.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Per-unit rate under a fractional power law",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "According to one model, an animal's daily energy need is proportional to m^(3/4), where m is the animal's mass. Animal B has 81 times the mass of animal A. According to the model, animal B's daily energy need per kilogram of body mass is what fraction of animal A's?",
+   "explanation": "B's total need is 81^(3/4) = 27 times A's. Spread over 81 times the mass, B's need per kilogram is 27/81 = 1/3 of A's.",
+   "hints": [
+    "How many times as much total energy does B need?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try masses 1 and 81: total needs are 1 and 27."
+   },
+   "remember": "Per-unit rate = total ÷ amount; check which way the comparison runs.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must apply a fractional exponent and then convert to a per-unit rate, which reverses the comparison."
+   },
+   "choices": {
+    "A": "1/27",
+    "B": "1/3",
+    "C": "3",
+    "D": "27"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "1/27 inverts the power: 81^(−3/4).",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "3 divides the wrong way: 81/27.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "27 is the ratio of total energy needs, ignoring \"per kilogram.\"",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q059-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Odd symmetry of a difference of exponentials",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = 2ˣ − 2⁻ˣ. If f(a) = 3, what is the value of f(−a)?",
+   "explanation": "f(−a) = 2⁻ᵃ − 2ᵃ = −(2ᵃ − 2⁻ᵃ) = −f(a) = −3. Solving for a is possible but unnecessary.",
+   "hints": [
+    "Write f(−a) and compare it with f(a)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute −a and factor out −1."
+   },
+   "remember": "Look for structure before solving for a variable you may not need.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−3",
+    "B": "−1/3",
+    "C": "1/3",
+    "D": "3"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−1/3 treats f(−a) as the negative reciprocal of f(a).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1/3 treats f(−a) as the reciprocal of f(a).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3 assumes f is symmetric about the y-axis.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q059-09",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Quotient of exponential expressions in context",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A sound's intensity, in watts per square meter, is 10^((L − 120)/10), where L is the sound level in decibels. A leaf blower at 100 decibels is how many times as intense as a dishwasher at 70 decibels?",
+   "explanation": "The ratio is 10^((100 − 120)/10) ÷ 10^((70 − 120)/10) = 10⁻² ÷ 10⁻⁵ = 10³ = 1,000.",
+   "hints": [
+    "Write each intensity as a power of 10."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide powers of 10 by subtracting exponents."
+   },
+   "remember": "Dividing powers of the same base subtracts the exponents.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "1000",
+   "accepted_answers": [
+    "1000"
+   ],
+   "common_errors": [
+    {
+     "value": "30",
+     "rationale": "30 is the difference in decibels, not the ratio of intensities.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "3",
+     "rationale": "3 is the difference of the exponents, without raising 10 to that power.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-10",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Quotient of rational expressions that collapses to a constant",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For x > 3, which expression is equivalent to (x² − 9)/(x² + 6x + 9) ÷ (x − 3)/(2x + 6)?",
+   "explanation": "Factor: (x² − 9)/(x² + 6x + 9) = (x − 3)(x + 3)/(x + 3)² = (x − 3)/(x + 3). Dividing by (x − 3)/(2(x + 3)) means multiplying by 2(x + 3)/(x − 3), which gives 2.",
+   "hints": [
+    "Factor every numerator and denominator."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 5: (16/64) ÷ (2/16) = 2."
+   },
+   "remember": "To divide by a fraction, multiply by its reciprocal, then cancel common factors.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1/2",
+    "B": "2",
+    "C": "2(x − 3)/(x + 3)",
+    "D": "(x − 3)²/(2(x + 3)²)"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "1/2 inverts the first fraction instead of the second.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "2(x − 3)/(x + 3) factors x² − 9 as (x − 3)².",
+     "trap": null
+    },
+    "D": {
+     "rationale": "(x − 3)²/(2(x + 3)²) multiplies by the second fraction instead of dividing.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-11",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Meeting time of a growing and a decaying population",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The number of plants of an invasive species in a wetland doubles every 2 years, while the number of plants of a native species halves every 6 years. Currently, the native species is 16 times as numerous as the invasive species. If these trends continue, in how many years will the two species be equally numerous?",
+   "explanation": "Let the invasive count be N now; the native count is 16N. After t years: N · 2^(t/2) = 16N · 2^(−t/6). So 2^(t/2 + t/6) = 2⁴, which gives 2t/3 = 4 and t = 6.",
+   "hints": [
+    "Write both counts as powers of 2."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the two models equal and compare exponents."
+   },
+   "remember": "Growth and decay both close a gap, so their exponent rates add.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must write both models with base 2 and combine the exponents; ignoring one trend gives a strong trap."
+   },
+   "choices": {
+    "A": "6",
+    "B": "8",
+    "C": "12",
+    "D": "24"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "8 ignores the native species' decline: t/2 = 4.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "12 subtracts the exponent rates instead of adding them: t/2 − t/6 = 4.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "24 ignores the invasive species' growth: t/6 = 4.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q059-12",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Initial value of an exponential model with a shifted input",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The number of subscribers to an app t months after its launch is modeled by S(t) = 1,200(1.15)^(t − 4), for 0 ≤ t ≤ 24. According to the model, to the nearest whole number, how many subscribers did the app have at launch?",
+   "explanation": "At launch, t = 0, so S(0) = 1,200(1.15)⁻⁴ = 1,200/1.15⁴ ≈ 686.1, or 686. The 1,200 is the number of subscribers 4 months after launch.",
+   "hints": [
+    "What is t at launch?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Evaluate S(0)."
+   },
+   "remember": "With a shifted exponent, the coefficient is the value at the shift, not at t = 0.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognize that the coefficient is not the initial value and evaluate a negative exponent."
+   },
+   "choices": {
+    "A": "480",
+    "B": "686",
+    "C": "750",
+    "D": "1,043"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "480 removes 15% of 1,200 four times without compounding: 1,200 − 4(180).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "750 divides by 1 + 4(0.15) instead of by 1.15⁴.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1,043 divides by 1.15 only once.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q059-13",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Scaled-input equation that reduces to a linear equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = x² + 3x. For what value of x is f(2x) = 4f(x) − 18?",
+   "explanation": "f(2x) = 4x² + 6x and 4f(x) − 18 = 4x² + 12x − 18. Setting them equal: 6x = 12x − 18, so x = 3.",
+   "hints": [
+    "Write f(2x) by replacing every x with 2x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Expand both sides; the x² terms cancel."
+   },
+   "remember": "Replace every x with the new input, and distribute a multiplier to every term.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−6",
+    "B": "−3",
+    "C": "2",
+    "D": "3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "−6 writes 4f(x) as 4x² + 3x, multiplying only the first term by 4.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "−3 makes a sign slip: 6x = 12x + 18.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "2 writes f(2x) as 4x² + 3x, doubling the input only in the squared term.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-14",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Composing a sphere volume with a linearly growing radius",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A spherical balloon is inflated so that its radius, starting from 0, increases at a constant rate of 2 centimeters per second. Which function gives the volume V, in cubic centimeters, of the balloon t seconds after inflation begins?",
+   "explanation": "After t seconds the radius is r = 2t centimeters, so V = (4/3)πr³ = (4/3)π(2t)³ = (4/3)π(8t³) = (32/3)πt³.",
+   "hints": [
+    "Write the radius in terms of t."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute r = 2t into V = (4/3)πr³."
+   },
+   "remember": "When substituting a product, raise every factor to the power.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "V = (8/3)πt³",
+    "B": "V = 16πt²",
+    "C": "V = (32/3)πt³",
+    "D": "V = 32πt³"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "(8/3)πt³ cubes t but not the 2.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "16πt² uses the surface-area formula 4πr².",
+     "trap": null
+    },
+    "D": {
+     "rationale": "32πt³ drops the 1/3 from 4/3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-15",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Ratio of distances on a number line with two cases",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "On a number line, point P is twice as far from 10 as it is from 1. What is the sum of all possible coordinates of P?",
+   "explanation": "|x − 10| = 2|x − 1|. Between 1 and 10: 10 − x = 2(x − 1), so x = 4. Left of 1: 10 − x = 2(1 − x), so x = −8. Right of 10: x − 10 = 2(x − 1) gives x = −8, which is not right of 10. The sum is 4 + (−8) = −4.",
+   "hints": [
+    "Could P be outside the segment from 1 to 10?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the number line and test each region."
+   },
+   "remember": "An equation with distances can have solutions outside the segment between the points.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Most students find only the point between 1 and 10; the second solution lies outside the segment."
+   },
+   "format": "spr",
+   "answer": "-4",
+   "accepted_answers": [
+    "-4"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 finds only the point between 1 and 10.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "-8",
+     "rationale": "-8 finds only the point to the left of 1.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-16",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Direction of error for a miscalibrated odometer",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A car's odometer counts how many times the wheels turn and assumes tires 25 inches in diameter, but the car has tires 26 inches in diameter. When the odometer shows that the car has traveled 100 miles, how many miles has the car actually traveled?",
+   "explanation": "Each turn of a 26-inch tire covers 26/25 as far as the odometer assumes. So the actual distance is 100 × 26/25 = 104.0 miles.",
+   "hints": [
+    "Does a larger tire cover more or less ground per turn?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Scale the distance by the ratio of circumferences."
+   },
+   "remember": "Circumference is proportional to diameter, so distance per turn scales by the diameter ratio.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "96.0",
+    "B": "96.2",
+    "C": "104.0",
+    "D": "108.2"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "96.0 takes 4% off instead of adding it.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "96.2 inverts the ratio: 100 × 25/26.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "108.2 squares the ratio, as if comparing areas.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-17",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Extra fuel cost per hour saved, independent of trip length",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A car gets 30 miles per gallon at 60 miles per hour and 24 miles per gallon at 75 miles per hour, and gasoline costs $3.60 per gallon. For a highway trip of any length, the extra fuel cost of driving at 75 miles per hour instead of 60 is the same for each hour of driving time saved. What is that cost, in dollars per hour saved?",
+   "explanation": "Per mile, the extra fuel is 1/24 − 1/30 = 1/120 gallon, costing 3.60/120 = $0.03. Per mile, the time saved is 1/60 − 1/75 = 1/300 hour. So each hour saved costs 0.03 × 300 = $9. (For example, a 300-mile trip uses 2.5 extra gallons, $9.00, and saves 1 hour.)",
+   "hints": [
+    "Pick a convenient trip length."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a 300-mile trip: compare gallons and hours at each speed."
+   },
+   "remember": "When a ratio is the same for any amount, choose a convenient amount to compute it.",
+   "expected_time_seconds": 100,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must form a ratio of two differences; computing only the extra cost or the time saved is a strong trap."
+   },
+   "format": "spr",
+   "answer": "9",
+   "accepted_answers": [
+    "9"
+   ],
+   "common_errors": [
+    {
+     "value": "10.8",
+     "rationale": "10.8 is the extra fuel cost for a 360-mile trip, not the cost per hour saved.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "0.03",
+     "rationale": "0.03 is the extra fuel cost per mile, not per hour saved.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-18",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Cone volume from a height and the slope angle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A conical pile of sand has a height of 3 meters, and its sloping side makes a 30° angle with the level ground. What is the volume, in cubic meters, of the pile?",
+   "explanation": "The radius r satisfies tan 30° = 3/r, so r = 3/tan 30° = 3√3. Then V = (1/3)π(3√3)²(3) = (1/3)π(27)(3) = 27π.",
+   "hints": [
+    "Draw the right triangle formed by the height, the radius and the slant side."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label the 30° angle at the ground."
+   },
+   "remember": "The angle at the ground is opposite the height, so tan = height/radius.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3π",
+    "B": "27π",
+    "C": "36π",
+    "D": "81π"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "3π uses r = 3 · tan 30° = √3, swapping the legs.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "36π uses the slant height 3/sin 30° = 6 as the radius.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "81π drops the 1/3 in the cone volume formula.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q059-19",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Area of a triangle with an obtuse included angle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In triangle ABC, AB = 8, AC = 10, and the measure of angle A is 150°. What is the area of triangle ABC?",
+   "explanation": "The altitude from C to line AB falls outside the triangle. It makes a 30° angle (the supplement of 150°) with line AB, so its length is 10 sin 30° = 5. The area is (1/2)(8)(5) = 20.",
+   "hints": [
+    "Extend side AB and drop the altitude from C."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the obtuse triangle and the outside altitude."
+   },
+   "remember": "Area = (1/2)ab sin C, and sin 150° = sin 30°.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "20",
+    "B": "20√3",
+    "C": "40",
+    "D": "40√3"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "20√3 uses the height 10 sin 60° = 5√3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "40 forgets the factor 1/2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "40√3 makes both errors.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-20",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Right-triangle sides from a cosine and a difference",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In right triangle ABC, angle C is the right angle and cos A = 0.6. The hypotenuse is 10 units longer than the shorter leg. What is the area of triangle ABC?",
+   "explanation": "With hypotenuse h, AC = 0.6h and BC = 0.8h, so the shorter leg is 0.6h. Then h − 0.6h = 10, so h = 25, and the legs are 15 and 20. The area is (1/2)(15)(20) = 150.",
+   "hints": [
+    "Write each leg in terms of the hypotenuse."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use cos A = adjacent/hypotenuse to write the legs as 0.6h and 0.8h."
+   },
+   "remember": "A trig ratio fixes the triangle's shape; one length then fixes its size.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "150",
+    "B": "187.5",
+    "C": "300",
+    "D": "600"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "187.5 multiplies half the hypotenuse by the shorter leg: (1/2)(25)(15).",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "300 forgets the factor 1/2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "600 takes 0.8h as the shorter leg, so h = 50 and the legs are 30 and 40.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q059-21",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Second isosceles triangle with equal legs and equal area",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "An isosceles triangle with two sides of length 5 and a base of length 6 has the same area as a different isosceles triangle whose two equal sides also have length 5. What is the length of the base of the second triangle?",
+   "explanation": "The first triangle has height √(25 − 9) = 4 and area (1/2)(6)(4) = 12. For base b, the height is √(25 − b²/4), so (1/2)b√(25 − b²/4) = 12. Squaring gives b²(100 − b²) = 2,304, so b² = 36 or b² = 64. The other triangle has base 8 (height 3): two 3-4-5 right triangles placed back to back along the side of length 3.",
+   "hints": [
+    "What is the first triangle's area?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Split each triangle into two right triangles."
+   },
+   "remember": "Two right triangles can be joined along either leg to form different isosceles triangles.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must set up a quadratic in b² or see the other arrangement of the 3-4-5 triangles."
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is the base of the first triangle.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "4",
+     "rationale": "4 is the height of the first triangle.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-22",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Counting equal step heights between two inclusive bounds",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A staircase must rise a total of 108 inches, and every step (riser) must be the same height. The building code requires each riser to be at least 6 inches and at most 7.5 inches high. How many different numbers of steps are possible?",
+   "explanation": "With n steps, each riser is 108/n inches, so 6 ≤ 108/n ≤ 7.5. This gives 14.4 ≤ n ≤ 18. The whole numbers in that range are 15, 16, 17 and 18, so 4 numbers of steps are possible (18 steps give risers of exactly 6 inches, which the code allows).",
+   "hints": [
+    "Write the riser height in terms of the number of steps n."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 6 ≤ 108/n ≤ 7.5 for n; dividing flips which bound is which."
+   },
+   "remember": "Larger risers mean fewer steps, so the bounds on n come out reversed.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The bounds flip when solving for n, and one endpoint is exactly an integer while the other must be rounded up."
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 subtracts the endpoints, 18 − 15, instead of counting 15, 16, 17 and 18.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "5",
+     "rationale": "5 rounds 108/7.5 = 14.4 down and counts 14 through 18, but 14 steps would make each riser 7.71 inches.",
+     "trap": null
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q058-01",
+     "status": "REVISE",
+     "reason": "remember is over 16 words"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-23",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Same-slope linear formulas: what equal outputs imply about inputs",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A shoe-size chart uses S = 3L − 22 for men's sizes and S = 3L − 20.5 for women's sizes, where L is the length of the foot in inches. If a man and a woman wear the same numerical shoe size, which statement is true?",
+   "explanation": "If the sizes are equal, 3Lₘ − 22 = 3L_w − 20.5, so 3(Lₘ − L_w) = 1.5 and Lₘ − L_w = 0.5. The man's foot is 0.5 inch longer, whatever the size.",
+   "hints": [
+    "Set the two sizes equal."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try size S = 8: the man's foot is 10 inches and the woman's is 9.5 inches."
+   },
+   "remember": "Same-slope linear rules give equal outputs when the inputs differ by a fixed amount.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The man's foot is 0.5 inch longer.",
+    "B": "The man's foot is 1.5 inches longer.",
+    "C": "The woman's foot is 0.5 inch longer.",
+    "D": "The woman's foot is 1.5 inches longer."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "1.5 inches is the difference of the constants; it must still be divided by 3.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "This reverses the direction: subtracting more (22) means the man needs a longer foot for the same size.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This both reverses the direction and forgets to divide by 3.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q058-03",
+     "status": "REVISE",
+     "reason": "remember is over 16 words"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-24",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Fuel inequality with a reserve given as time",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A small airplane burns 8 gallons of fuel per hour in flight. Before one flight it holds 42 gallons. It uses 2 gallons while taxiing before takeoff, and it must land with enough fuel for at least 45 more minutes of flight. What is the greatest possible flight time, in minutes?",
+   "explanation": "The 45-minute reserve is 0.75(8) = 6 gallons. With flight time t hours, 42 − 2 − 8t ≥ 6, so 8t ≤ 34 and t ≤ 4.25 hours. That is 4.25(60) = 255 minutes.",
+   "hints": [
+    "How many gallons does 45 minutes of flight use?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write fuel at landing ≥ reserve fuel and solve for t."
+   },
+   "remember": "Convert every quantity to one unit, then convert the answer to the unit asked.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The reserve is given in time and must be converted to fuel, the taxi fuel comes off first, and decimal hours must be converted to minutes."
+   },
+   "choices": {
+    "A": "255",
+    "B": "265",
+    "C": "270",
+    "D": "300"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "265 reads 4.25 hours as 4 hours 25 minutes.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "270 forgets the 2 gallons used while taxiing: 8t ≤ 36 gives 4.5 hours.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "300 forgets the reserve: 8t ≤ 40 gives 5 hours.",
+     "trap": "partial_answer"
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q058-06",
+     "status": "REVISE",
+     "reason": "remember is over 16 words"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-25",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Exponential outputs from a product of two outputs",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = a · bˣ, where a and b are positive constants. If f(2) · f(4) = 144 and f(5) = 48, what is the value of f(1)?",
+   "explanation": "f(2) · f(4) = ab² · ab⁴ = (ab³)² = f(3)², and f(3) > 0, so f(3) = 12. Then f(5)/f(3) = b² = 48/12 = 4, so b = 2. Finally f(1) = f(3)/b² = 12/4 = 3.",
+   "hints": [
+    "Write f(2) · f(4) using a and b."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the two expressions and look for a perfect square."
+   },
+   "remember": "For an exponential, a middle output is the geometric mean of its neighbors.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students cannot find a and b from the product alone; they must see that the product is f(3)² and then use the ratio of outputs."
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is f(2), not f(1).",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "1.5",
+     "rationale": "1.5 is a, which is f(0).",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "12",
+     "rationale": "12 is f(3).",
+     "trap": "partial_answer"
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q058-17",
+     "status": "REVISE",
+     "reason": "remember is over 16 words; hint may give the answer away: 'Write f(2) · f(4) in terms of a and b and compare it with f(3).'"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-26",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Angles of two pulleys linked by a belt",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A belt connects a pulley with a radius of 30 centimeters to a pulley with a radius of 12 centimeters, and the belt does not slip. When the larger pulley turns through an angle of 2π/3 radians, through what angle, in radians, does the smaller pulley turn?",
+   "explanation": "The belt moves the same arc length on both pulleys: 30(2π/3) = 20π centimeters. On the smaller pulley this arc corresponds to 20π/12 = 5π/3 radians.",
+   "hints": [
+    "What distance does the belt move?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use arc length = radius × angle on each pulley."
+   },
+   "remember": "Belt-linked pulleys share arc length, so their angles vary inversely with their radii.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4π/15",
+    "B": "2π/3",
+    "C": "5π/6",
+    "D": "5π/3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "4π/15 multiplies by 12/30 instead of 30/12.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "2π/3 assumes both pulleys turn through the same angle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5π/6 divides the arc length by the diameter, 24, instead of the radius.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q058-25",
+     "status": "REVISE",
+     "reason": "remember is over 16 words"
+    }
+   ]
+  },
+  {
+   "cand": "Q059-27",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Trigonometric ratios with an extraneous root",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In a right triangle, angle A is one of the acute angles, sin A = (x − 3)/17, and cos A = (x + 4)/17, where x is a constant. What is the value of tan A?",
+   "explanation": "Since sin²A + cos²A = 1, (x − 3)² + (x + 4)² = 289, so 2x² + 2x + 25 = 289, x² + x − 132 = 0, and x = 11 or x = −12. If x = −12, sin A and cos A are both negative, which is impossible for an acute angle, so x = 11. Then sin A = 8/17, cos A = 15/17, and tan A = 8/15.",
+   "hints": [
+    "Use sin²A + cos²A = 1."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the resulting quadratic and keep the root that makes both ratios positive."
+   },
+   "remember": "For an acute angle, sine, cosine and tangent are all positive.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Neither ratio is given numerically; students must solve a quadratic from the Pythagorean identity and reject the extraneous root."
+   },
+   "format": "spr",
+   "answer": "8/15",
+   "accepted_answers": [
+    "8/15",
+    ".5333",
+    ".5334"
+   ],
+   "common_errors": [
+    {
+     "value": "15/8",
+     "rationale": "15/8 inverts the ratio: cos A/sin A.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "11",
+     "rationale": "11 is the value of x, not tan A.",
+     "trap": "wrong_quantity"
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q058-29",
+     "status": "REVISE",
+     "reason": "accepted answer '0.5333' does not fit the SAT grid"
+    }
+   ]
+  }
+ ]
+}
