@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 78,
+  "bank_version": 79,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -18372,6 +18372,258 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Match the net change in cars to the change in percent."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000876",
+      "correct_answer": "B",
+      "explanation": "Line ℓ is y = 2x − 2, and strictly below it means y < 2x − 2. For (c, c): c < 2c − 2, so c > 2.",
+      "distractor_explanations": {
+        "A": "This uses run over rise for the slope, y = x/2 − 2, and then solves c < c/2 − 2.",
+        "C": "This subtracts 2c and divides by −1 without reversing the inequality.",
+        "D": "This uses the y-intercept −2 as the boundary instead of solving c < 2c − 2."
+      },
+      "hints": [
+        "Write the equation of ℓ first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test c = 3 and c = 0 against the line."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000877",
+      "correct_answer": "A",
+      "explanation": "The slope is (a − b)/(b − a) = −1, so f(x) = −x + k. From f(a) = b, k = a + b, so f(x) = −x + a + b and f(0) = a + b.",
+      "distractor_explanations": {
+        "B": "This assumes swapping inputs and outputs means the graph passes through the origin.",
+        "C": "This confuses f with y = x; the slope is −1.",
+        "D": "This extends the pattern; in fact f(a + b) = 0."
+      },
+      "hints": [
+        "Find the slope from the two points (a, b) and (b, a)."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1 and b = 3: f(1) = 3 and f(3) = 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000878",
+      "correct_answer": "C",
+      "explanation": "After both departures, (1/2)(2/3)x = x/3 people remain. Then x/3 + 12 = x − 8, so 2x/3 = 20 and x = 30. Check: 30, then 15, then 10, then 22 = 30 − 8.",
+      "distractor_explanations": {
+        "A": "This leaves out the 12 people who joined: x/3 = x − 8.",
+        "B": "This takes 1/3 of the starting group instead of the people still in the group.",
+        "D": "This multiplies 20 by 3 but does not divide by 2."
+      },
+      "hints": [
+        "What fraction of the group remains after both departures?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice through the sequence of changes."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000879",
+      "correct_answer": "A",
+      "explanation": "The mean is (6x + 6)/3 = 2x + 2. The equation 2x + 2 = 2x + 3 is false for every x, so there are no such values.",
+      "distractor_explanations": {
+        "B": "This does not divide the sum by 3: 6x + 6 = 2x + 3.",
+        "C": "This divides the sum by 2: 3x + 3 = 2x + 3.",
+        "D": "This sees 2x on both sides and decides the sides are the same."
+      },
+      "hints": [
+        "Simplify the mean before comparing."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the mean, simplify, and compare."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000880",
+      "correct_answer": "D",
+      "explanation": "The empty box still weighs 240 grams, and each glass marble weighs 1.5 × 18 = 27 grams, so W = 27n + 240.",
+      "distractor_explanations": {
+        "A": "This multiplies the whole equation by 1.5, including the box.",
+        "B": "This scales the marbles correctly but changes the box's weight.",
+        "C": "This adds 1.5 grams to each marble instead of multiplying by 1.5."
+      },
+      "hints": [
+        "What does each part of W = 18n + 240 represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Change only the weight per marble."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000881",
+      "correct_answer": "340",
+      "accepted_answers": [
+        "340"
+      ],
+      "common_errors": [
+        {
+          "value": "357",
+          "rationale": "357 pools the samples as 50/140 of 1,000, though upperclassmen were sampled at twice the rate.",
+          "trap": null
+        },
+        {
+          "value": "350",
+          "rationale": "350 averages 30% and 40%.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 applies each rate to the other group.",
+          "trap": null
+        }
+      ],
+      "explanation": "Underclassmen: 18/60 = 30% of 600 = 180. Upperclassmen: 32/80 = 40% of 400 = 160. The estimate is 180 + 160 = 340.",
+      "distractor_explanations": {},
+      "hints": [
+        "Were the two groups sampled at the same rate?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale each sample proportion to its own group."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000882",
+      "correct_answer": "53",
+      "accepted_answers": [
+        "53"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 divides 1,800 by 40 and ignores the stops.",
+          "trap": null
+        },
+        {
+          "value": "54",
+          "rationale": "54 uses the average rate of 400 bottles per 12 minutes.",
+          "trap": null
+        },
+        {
+          "value": "51",
+          "rationale": "51 leaves out the stop before the last run.",
+          "trap": null
+        }
+      ],
+      "explanation": "Each 10-minute run fills 400 bottles. After 4 runs (1,600 bottles), the time is 4(10) + 3(2) = 46 minutes. The 4th stop ends at 48 minutes, and the last 200 bottles take 5 more minutes, so the total is 53 minutes.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many full runs are needed before the last partial run?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a timeline of runs and stops."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000883",
+      "correct_answer": "C",
+      "explanation": "3n + 4 > 110 gives n > 35 1/3, so n = 36 through 50, which is 15 integers. 3n + 4 is even exactly when n is even: 36, 38, …, 50, which is 8 integers. The probability is 8/50 = 4/25.",
+      "distractor_explanations": {
+        "A": "This adds 4 instead of subtracting it: 3n > 114 gives n > 38, and the even values 40 to 50 are 6 of 50.",
+        "B": "This counts the odd values of n, 37 through 49.",
+        "D": "This leaves out the \"even\" condition."
+      },
+      "hints": [
+        "When is 3n + 4 even?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the inequality, then count the even values."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000884",
+      "correct_answer": "400",
+      "accepted_answers": [
+        "400"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 is the extra sugar.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "250",
+          "rationale": "250 is the flour that must be added, without the butter.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "500",
+          "rationale": "500 scales the whole 1,000-gram planned batch by 1.5 and subtracts 1,000.",
+          "trap": null
+        }
+      ],
+      "explanation": "With 300 grams of sugar, the ratio requires 750 grams of flour and 450 grams of butter. The baker must add 750 − 500 = 250 grams of flour and 450 − 300 = 150 grams of butter, 400 grams in all.",
+      "distractor_explanations": {},
+      "hints": [
+        "What amounts of flour and butter match 300 grams of sugar?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale the ratio to the sugar, then subtract what is there."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000885",
+      "correct_answer": "B",
+      "explanation": "The condition is 0.98w ≤ 49 ≤ 1.02w, so 49/1.02 ≤ w ≤ 49/0.98, which is 48.04 ≤ w ≤ 50.00.",
+      "distractor_explanations": {
+        "A": "This takes 2% of the reading, 0.98 kilogram, instead of 2% of the true weight.",
+        "C": "This uses the true weight as the base for one bound and the reading for the other.",
+        "D": "This treats 2% as 2 kilograms."
+      },
+      "hints": [
+        "Is the 2% a percent of the reading or of the true weight?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the two inequalities with w as the base."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000886",
+      "correct_answer": "C",
+      "explanation": "B = 0.7C and A = 1.25B = 0.875C, so C = A/0.875 ≈ 1.143A. C is about 14.3% greater than A.",
+      "distractor_explanations": {
+        "A": "This combines the percents as 30 − 25.",
+        "B": "This finds that A is 12.5% less than C, using C as the base instead of A.",
+        "D": "This finds C − A ≈ 0.179B and divides by B instead of A."
+      },
+      "hints": [
+        "Write A and B in terms of C."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let C = 100."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000887",
+      "correct_answer": "B",
+      "explanation": "In table B, y/x = 6/2 = 15/5 = 24/8 = 3 in every row, so y = 3x and y is proportional to x. No other table has a constant ratio.",
+      "distractor_explanations": {
+        "A": "This is linear, y = 2x + 3, but has a nonzero intercept, so it is not proportional.",
+        "C": "This works for the first two rows, but 9/4 ≠ 3.",
+        "D": "Both quantities grow by multiplying, but y/x is not constant."
+      },
+      "hints": [
+        "Is y/x the same in every row?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compute y/x for each row of each table."
       }
     }
   ]

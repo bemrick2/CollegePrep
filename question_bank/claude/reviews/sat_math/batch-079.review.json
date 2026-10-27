@@ -1,0 +1,308 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 79,
+  "reviewed_at": "2026-10-27T18:54:10+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 79
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000876",
+    "CLD-SAT-M-000877",
+    "CLD-SAT-M-000878",
+    "CLD-SAT-M-000879",
+    "CLD-SAT-M-000880",
+    "CLD-SAT-M-000881",
+    "CLD-SAT-M-000882",
+    "CLD-SAT-M-000883",
+    "CLD-SAT-M-000884",
+    "CLD-SAT-M-000885",
+    "CLD-SAT-M-000886",
+    "CLD-SAT-M-000887"
+  ],
+  "results": [
+    {
+      "cand": "Q079-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Line y=2x-2. Below: c < 2c-2 -> c > 2. C (c<2) is the sign-flip trap; A, D are weaker distractors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The point moves along y = x, so the answer is a solution set for c."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000876"
+    },
+    {
+      "cand": "Q079-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Slope (a-b)/(b-a) = -1, so f(x) = -x + k; f(a)=b gives k=a+b, so f(0)=a+b. D gives f(a+b)=0, not a+b; B and C are false. Students can test numbers (a=1, b=2). At the hard/medium boundary.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The slope and intercept must be found symbolically from the swap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000877"
+    },
+    {
+      "cand": "Q079-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: backsolving from the choices is quick (30 -> 15 -> 10 -> 22 = 30 - 8)"
+      ],
+      "blind_notes": "x/2 people remain, then (2/3)(x/2) = x/3; x/3 + 12 = x - 8 gives x = 30. All choices are divisible by 6, so there is no divisibility shortcut.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000878"
+    },
+    {
+      "cand": "Q079-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "The mean is (6x+6)/3 = 2x+2, which never equals 2x+3, so no solution.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The equation reduces to a false statement, which students often misread."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000879"
+    },
+    {
+      "cand": "Q079-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: 18 g per marble is heavy for a marble (typical glass marbles weigh about 5 g); plausible only for large marbles",
+        "minor: 'filled with glass marbles' implies the first box's marbles are not glass; acceptable but slightly odd wording"
+      ],
+      "blind_notes": "Each marble weighs 18 g and the box 240 g. The new marble weighs 27 g and the box is unchanged: W = 27n + 240. A scales the box weight too (trap).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000880"
+    },
+    {
+      "cand": "Q079-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "340",
+      "computed_answer": "340",
+      "blind_answer": "340",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "0.3*600 = 180 and 0.4*400 = 160, total 340. Trap: pooling 50/140 * 1000 = 357.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Pooling the samples is tempting but wrong because the sampling rates differ."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000881"
+    },
+    {
+      "cand": "Q079-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "53",
+      "computed_answer": "53",
+      "blind_answer": "53",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Each 12-min cycle fills 400 bottles. After 4 cycles (48 min) 1600 are filled; 200 more take 5 min, so 53. Traps: 45 (ignoring stops), 51, 50.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The final partial run must be handled separately; the average rate gives a wrong answer."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000882"
+    },
+    {
+      "cand": "Q079-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "n >= 36. 3n+4 is even iff n is even: 36..50 even gives 8 values, 8/50 = 4/25. B = odd count (7/50), D = all n >= 36 (15/50).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000883"
+    },
+    {
+      "cand": "Q079-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "400",
+      "computed_answer": "400",
+      "blind_answer": "400",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Sugar 300 means 2 parts = 300, so 1 part = 150. Flour 750 (+250), butter 450 (+150), total 400.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000884"
+    },
+    {
+      "cand": "Q079-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "|49 - w| <= 0.02w gives 49/1.02 <= w <= 49/0.98, so 48.04 <= w <= 50.00. A (+/-2% of the reading) is the strong trap; C mixes the two bounds; D is +/-2 kg.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The percent is of the unknown, so the interval is not centered on the reading."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000885"
+    },
+    {
+      "cand": "Q079-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "A = 1.25*0.7C = 0.875C, so C/A = 1.1429, i.e. 14.3%. B (12.5%) uses C as the base (trap); A = 30 - 25; D is another miscalculation.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two comparisons with different bases must be chained, and the answer uses a third base."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000886"
+    },
+    {
+      "cand": "Q079-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "y = 3x in B. A is linear but not proportional; C breaks at (4, 9); D is not linear.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000887"
+    }
+  ]
+}

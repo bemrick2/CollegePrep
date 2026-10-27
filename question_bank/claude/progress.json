@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T18:53:02+00:00",
+  "updated_at": "2026-10-27T18:55:23+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 466,
     "act_reading": 474,
     "sat_reading_writing": 481,
-    "sat_math": 845
+    "sat_math": 857
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 45
     },
     "sat_math": {
-      "PASS": 875,
+      "PASS": 887,
       "REVISE": 28,
       "REJECT": 7,
-      "candidates": 910,
+      "candidates": 922,
       "passed_after_revision": 33
     }
   },
@@ -1735,13 +1735,13 @@
       "passages": 508
     },
     "sat_math": {
-      "accepted": 845,
+      "accepted": 857,
       "retired_after_audit": 30,
       "by_skill": {
         "Advanced Math": 274,
-        "Algebra": 255,
+        "Algebra": 260,
         "Geometry and Trigonometry": 162,
-        "Problem-Solving and Data Analysis": 154
+        "Problem-Solving and Data Analysis": 161
       },
       "by_subskill": {
         "A line and its reflection across y = x": 1,
@@ -1815,12 +1815,15 @@
         "Capacity of a prism with a trapezoid cross section": 1,
         "Carrying a tolerance through a trim-and-divide transformation": 1,
         "Center of a circle from a point and its radius": 1,
+        "Chain of fractions ending in an equation": 1,
+        "Chained percent comparisons with changing bases": 1,
         "Chained percent relationships": 1,
         "Chained unit conversion with rounding up": 1,
         "Change in a linear function over different intervals": 1,
         "Change in break-even quantity when the price rises": 1,
         "Change in height from a radical model solved twice": 1,
         "Change in x for a given change in predicted y": 1,
+        "Changing one parameter of a linear model": 1,
         "Choosing a confounding variable": 1,
         "Choosing a line of best fit for data": 1,
         "Choosing the half-plane that contains the origin": 1,
@@ -1977,10 +1980,12 @@
         "Equation of a circle with an unknown constant": 1,
         "Equation of a proportional line from its slope": 1,
         "Equation that is quadratic in a square root": 1,
+        "Equation that reduces to a false statement": 1,
         "Equation with fractions and a leftover amount": 1,
         "Equation with two radicals": 1,
         "Equilateral triangle inside a square": 1,
         "Equivalent form of a linear equation with fractions": 1,
+        "Estimates from samples drawn at different rates": 1,
         "Estimating a count from two densities over shares of an area": 1,
         "Evaluating a cubic function at two inputs": 1,
         "Evaluating a linear function after finding its intercept": 1,
@@ -2148,6 +2153,7 @@
         "Linear function from a functional equation": 1,
         "Linear function from a nested input": 1,
         "Linear function from its intercept and a sign condition": 1,
+        "Linear function that swaps two values": 1,
         "Linear function value from a sum and a difference of outputs": 1,
         "Linear function where y = f(x) and y = 2f(x) intersect": 1,
         "Linear growth from a percent of a fixed value": 1,
@@ -2194,6 +2200,7 @@
         "Missing table cell from a conditional probability, then the reverse conditional": 1,
         "Missing table cell from equal conditional and overall probabilities": 1,
         "Moving an overlap between two bases": 1,
+        "Moving point and a strict linear inequality": 1,
         "Multiplying powers with fractional exponents": 1,
         "Negative exponent applied to a sum": 1,
         "Negative rational exponent after solving a rational-exponent equation": 1,
@@ -2248,6 +2255,7 @@
         "Percent of a percent": 1,
         "Percent price cut that keeps a smaller markup": 1,
         "Percent requirement with the unknown in the base": 1,
+        "Percent tolerance of an unknown base": 1,
         "Percent-of-capacity change from net counts": 1,
         "Perfect-square trinomial": 1,
         "Perimeter of a rectangle from its area and length": 1,
@@ -2278,6 +2286,7 @@
         "Printing time from a volume rate through cubed unit conversions": 1,
         "Probability for a person from a household table": 1,
         "Probability for a randomly chosen person when counts are given by group": 1,
+        "Probability from an inequality and a parity condition": 1,
         "Product of the solutions of a quadratic equation": 1,
         "Product of x-coordinates where a line meets a circle": 1,
         "Profit as a percent of price": 1,
@@ -2336,6 +2345,8 @@
         "Remainder of a polynomial built from a shifted input": 1,
         "Remainder of a polynomial from its division form": 1,
         "Remaining distance when one runner finishes": 1,
+        "Repeated stops in a production schedule": 1,
+        "Restoring a ratio when one ingredient is in excess": 1,
         "Returning to an initial height in a quadratic model": 1,
         "Revenue model built from price increases": 1,
         "Revenue unchanged after price changes": 1,
@@ -2482,6 +2493,7 @@
         "Tangent of an angle from a point on a circle": 1,
         "Tangent of the other acute angle from a sine": 1,
         "Tax rate from changes in price and total": 1,
+        "Testing tables for proportionality": 1,
         "The one solution shared by a family of quadratics": 1,
         "Third angle of a triangle": 1,
         "Third zero of a cubic from its constant and leading coefficients": 1,
@@ -2591,19 +2603,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 122,
-        "hard": 120,
-        "medium": 603
+        "easy": 123,
+        "hard": 121,
+        "medium": 613
       },
       "by_difficulty_calibrated": {
-        "easy": 170,
-        "hard": 117,
-        "medium": 558
+        "easy": 171,
+        "hard": 118,
+        "medium": 568
       },
       "calibrated_share": {
-        "easy": 0.201,
+        "easy": 0.2,
         "hard": 0.138,
-        "medium": 0.66
+        "medium": 0.663
       },
       "answer_key_balance": {
         "-1": 5,
@@ -2695,6 +2707,7 @@
         "314": 1,
         "330": 1,
         "34": 1,
+        "340": 1,
         "36": 5,
         "3600": 1,
         "37.5": 2,
@@ -2704,6 +2717,7 @@
         "4.2": 1,
         "4/3": 1,
         "40": 7,
+        "400": 1,
         "41.4": 1,
         "436": 1,
         "44": 2,
@@ -2718,6 +2732,7 @@
         "5/2": 2,
         "50": 4,
         "52": 1,
+        "53": 1,
         "5760": 1,
         "6": 12,
         "60": 3,
@@ -2749,13 +2764,13 @@
         "94": 1,
         "95": 2,
         "96": 1,
-        "A": 111,
-        "B": 168,
-        "C": 153,
-        "D": 91
+        "A": 113,
+        "B": 171,
+        "C": 156,
+        "D": 92
       },
       "modeling_items": 252,
-      "spr_items": 322,
+      "spr_items": 325,
       "passages": 0
     }
   },
@@ -2764,7 +2779,7 @@
     "act_english": 53,
     "act_reading": 59,
     "sat_reading_writing": 58,
-    "sat_math": 78
+    "sat_math": 79
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2796,27 +2811,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 79,
+    "next_batch": 80,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 44.2,
-      "Advanced Math": 25.2,
-      "Problem-Solving and Data Analysis": -25.8,
-      "Geometry and Trigonometry": -33.8
+      "Algebra": 43.4,
+      "Advanced Math": 29.4,
+      "Problem-Solving and Data Analysis": -31.0,
+      "Geometry and Trigonometry": -32.0
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 43.8,
-      "medium": -130.5,
-      "hard": 96.8
+      "easy": 45.8,
+      "medium": -134.5,
+      "hard": 98.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 49.3,
-      "B": -7.7,
-      "C": 7.3,
-      "D": 69.3
+      "A": 49.6,
+      "B": -8.4,
+      "C": 6.6,
+      "D": 70.6
     },
-    "spr_items": 322,
+    "spr_items": 325,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -2828,14 +2843,6 @@
         "Integration of Knowledge and Ideas": -35.1
       }
     },
-    "act_english": {
-      "next_batch": 54,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 54.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -56.2
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 59,
       "skill_gap_for_next_10": {
@@ -2843,6 +2850,14 @@
         "Information and Ideas": -17.3,
         "Standard English Conventions": 28.7,
         "Expression of Ideas": -2.8
+      }
+    },
+    "act_english": {
+      "next_batch": 54,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 54.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -56.2
       }
     }
   },
@@ -2869,12 +2884,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 845,
-      "share_of_target": 0.845
+      "accepted": 857,
+      "share_of_target": 0.857
     }
   },
   "total_target": 3841,
-  "total_accepted": 3040,
+  "total_accepted": 3052,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -540019,7 +540034,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 78,
+      "bank_version": 79,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -540145,7 +540160,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T18:53:01+00:00",
+    "heartbeat_at": "2026-10-27T18:55:23+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

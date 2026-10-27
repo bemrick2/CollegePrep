@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 78,
-  "updated_at": "2026-10-27T18:52:30+00:00",
+  "version": 79,
+  "updated_at": "2026-10-27T18:54:10+00:00",
   "passages": [],
   "questions": [
     {
@@ -63518,6 +63518,884 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-078.review.json",
         "computation": "checks/sat_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000876",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Moving point and a strict linear inequality",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, line ℓ passes through the points (0, −2) and (3, 4). The solutions of an inequality are all the points that lie strictly below line ℓ. For which values of c is the point (c, c) a solution of the inequality?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "c < −4",
+        "B": "c > 2",
+        "C": "c < 2",
+        "D": "c > −2"
+      },
+      "correct_answer": "B",
+      "explanation": "Line ℓ is y = 2x − 2, and strictly below it means y < 2x − 2. For (c, c): c < 2c − 2, so c > 2.",
+      "distractor_explanations": {
+        "A": "This uses run over rise for the slope, y = x/2 − 2, and then solves c < c/2 − 2.",
+        "C": "This subtracts 2c and divides by −1 without reversing the inequality.",
+        "D": "This uses the y-intercept −2 as the boundary instead of solving c < 2c − 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Write the equation of ℓ first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test c = 3 and c = 0 against the line."
+      },
+      "remember": "Below a line means y is less than the line's expression.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-01",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000877",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear function that swaps two values",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the linear function f, f(a) = b and f(b) = a, where a and b are constants and a ≠ b. Which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(0) = a + b",
+        "B": "f(0) = 0",
+        "C": "The slope of the graph of f is 1.",
+        "D": "f(a + b) = a + b"
+      },
+      "correct_answer": "A",
+      "explanation": "The slope is (a − b)/(b − a) = −1, so f(x) = −x + k. From f(a) = b, k = a + b, so f(x) = −x + a + b and f(0) = a + b.",
+      "distractor_explanations": {
+        "B": "This assumes swapping inputs and outputs means the graph passes through the origin.",
+        "C": "This confuses f with y = x; the slope is −1.",
+        "D": "This extends the pattern; in fact f(a + b) = 0."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Find the slope from the two points (a, b) and (b, a)."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1 and b = 3: f(1) = 3 and f(3) = 1."
+      },
+      "remember": "Slope between (a, b) and (b, a) is always −1.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-02",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000878",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Chain of fractions ending in an equation",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A tour group set out from a museum entrance. After the first exhibit, half of the people in the group left. After the second exhibit, 1/3 of the people still in the group left. Then 12 people joined the group, and the group had 8 fewer people than it had at the start. How many people were in the group at the start?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "12",
+        "B": "24",
+        "C": "30",
+        "D": "60"
+      },
+      "correct_answer": "C",
+      "explanation": "After both departures, (1/2)(2/3)x = x/3 people remain. Then x/3 + 12 = x − 8, so 2x/3 = 20 and x = 30. Check: 30, then 15, then 10, then 22 = 30 − 8.",
+      "distractor_explanations": {
+        "A": "This leaves out the 12 people who joined: x/3 = x − 8.",
+        "B": "This takes 1/3 of the starting group instead of the people still in the group.",
+        "D": "This multiplies 20 by 3 but does not divide by 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What fraction of the group remains after both departures?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice through the sequence of changes."
+      },
+      "remember": "A fraction of the remainder is not a fraction of the start.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-03",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: backsolving from the choices is quick (30 -> 15 -> 10 -> 22 = 30 - 8)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000879",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equation that reduces to a false statement",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following describes the values of x for which the mean of 2x + 1, 3x − 4, and x + 9 is equal to 2x + 3 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "There are no such values of x.",
+        "B": "x = −3/4 only",
+        "C": "x = 0 only",
+        "D": "All real numbers"
+      },
+      "correct_answer": "A",
+      "explanation": "The mean is (6x + 6)/3 = 2x + 2. The equation 2x + 2 = 2x + 3 is false for every x, so there are no such values.",
+      "distractor_explanations": {
+        "B": "This does not divide the sum by 3: 6x + 6 = 2x + 3.",
+        "C": "This divides the sum by 2: 3x + 3 = 2x + 3.",
+        "D": "This sees 2x on both sides and decides the sides are the same."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Simplify the mean before comparing."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the mean, simplify, and compare."
+      },
+      "remember": "If the variable cancels and a false statement remains, there is no solution.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-04",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000880",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Changing one parameter of a linear model",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A box of marbles has a total weight of W grams, where W = 18n + 240 and n is the number of marbles in the box. A second box of the same kind is filled with glass marbles, each of which weighs 1.5 times as much as a marble in the first box. Which equation gives the total weight W, in grams, of the second box when it holds n glass marbles?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "W = 27n + 360",
+        "B": "W = 27n + 160",
+        "C": "W = 19.5n + 240",
+        "D": "W = 27n + 240"
+      },
+      "correct_answer": "D",
+      "explanation": "The empty box still weighs 240 grams, and each glass marble weighs 1.5 × 18 = 27 grams, so W = 27n + 240.",
+      "distractor_explanations": {
+        "A": "This multiplies the whole equation by 1.5, including the box.",
+        "B": "This scales the marbles correctly but changes the box's weight.",
+        "C": "This adds 1.5 grams to each marble instead of multiplying by 1.5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does each part of W = 18n + 240 represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Change only the weight per marble."
+      },
+      "remember": "Interpret each constant before changing a model.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-05",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: 18 g per marble is heavy for a marble (typical glass marbles weigh about 5 g); plausible only for large marbles",
+          "minor: 'filled with glass marbles' implies the first box's marbles are not glass; acceptable but slightly odd wording"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000881",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Estimates from samples drawn at different rates",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A school has 600 underclassmen and 400 upperclassmen. To estimate how many students would join a new club, the school surveyed a random sample of 60 underclassmen and a separate random sample of 80 upperclassmen. Of the students surveyed, 18 underclassmen and 32 upperclassmen said they would join. Based on these samples, what is the best estimate of the number of students at the school who would join the club?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "340",
+      "accepted_answers": [
+        "340"
+      ],
+      "common_errors": [
+        {
+          "value": "357",
+          "rationale": "357 pools the samples as 50/140 of 1,000, though upperclassmen were sampled at twice the rate.",
+          "trap": null
+        },
+        {
+          "value": "350",
+          "rationale": "350 averages 30% and 40%.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 applies each rate to the other group.",
+          "trap": null
+        }
+      ],
+      "explanation": "Underclassmen: 18/60 = 30% of 600 = 180. Upperclassmen: 32/80 = 40% of 400 = 160. The estimate is 180 + 160 = 340.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Were the two groups sampled at the same rate?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale each sample proportion to its own group."
+      },
+      "remember": "Scale each sample to the group it came from.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-06",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "340",
+        "blind_answer": "340",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000882",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Repeated stops in a production schedule",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bottling machine fills 40 bottles per minute while it runs. It runs for 10 minutes, stops for 2 minutes, runs for 10 minutes, stops for 2 minutes, and continues in this pattern. If the machine starts running at time 0, how many minutes after it starts will it have filled 1,800 bottles?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "53",
+      "accepted_answers": [
+        "53"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 divides 1,800 by 40 and ignores the stops.",
+          "trap": null
+        },
+        {
+          "value": "54",
+          "rationale": "54 uses the average rate of 400 bottles per 12 minutes.",
+          "trap": null
+        },
+        {
+          "value": "51",
+          "rationale": "51 leaves out the stop before the last run.",
+          "trap": null
+        }
+      ],
+      "explanation": "Each 10-minute run fills 400 bottles. After 4 runs (1,600 bottles), the time is 4(10) + 3(2) = 46 minutes. The 4th stop ends at 48 minutes, and the last 200 bottles take 5 more minutes, so the total is 53 minutes.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How many full runs are needed before the last partial run?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a timeline of runs and stops."
+      },
+      "remember": "Average rates fail when a process ends partway through a cycle.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-07",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "53",
+        "blind_answer": "53",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000883",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Probability from an inequality and a parity condition",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An integer n is chosen at random from the integers 1 through 50, inclusive. What is the probability that 3n + 4 is both greater than 110 and even?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3/25",
+        "B": "7/50",
+        "C": "4/25",
+        "D": "3/10"
+      },
+      "correct_answer": "C",
+      "explanation": "3n + 4 > 110 gives n > 35 1/3, so n = 36 through 50, which is 15 integers. 3n + 4 is even exactly when n is even: 36, 38, …, 50, which is 8 integers. The probability is 8/50 = 4/25.",
+      "distractor_explanations": {
+        "A": "This adds 4 instead of subtracting it: 3n > 114 gives n > 38, and the even values 40 to 50 are 6 of 50.",
+        "B": "This counts the odd values of n, 37 through 49.",
+        "D": "This leaves out the \"even\" condition."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "When is 3n + 4 even?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the inequality, then count the even values."
+      },
+      "remember": "3n + 4 has the same parity as n.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-08",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000884",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Restoring a ratio when one ingredient is in excess",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A recipe uses flour, sugar, and butter in the ratio 5 : 2 : 3 by weight. A baker making a batch with 500 grams of flour and 300 grams of butter accidentally added 300 grams of sugar instead of 200 grams. To restore the ratio 5 : 2 : 3 without removing any sugar, the baker will add only more flour and more butter. How many grams of flour and butter combined must be added?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "400",
+      "accepted_answers": [
+        "400"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 is the extra sugar.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "250",
+          "rationale": "250 is the flour that must be added, without the butter.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "500",
+          "rationale": "500 scales the whole 1,000-gram planned batch by 1.5 and subtracts 1,000.",
+          "trap": null
+        }
+      ],
+      "explanation": "With 300 grams of sugar, the ratio requires 750 grams of flour and 450 grams of butter. The baker must add 750 − 500 = 250 grams of flour and 450 − 300 = 150 grams of butter, 400 grams in all.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What amounts of flour and butter match 300 grams of sugar?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale the ratio to the sugar, then subtract what is there."
+      },
+      "remember": "Scale a ratio to the ingredient that cannot change.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-09",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "400",
+        "blind_answer": "400",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000885",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent tolerance of an unknown base",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bathroom scale's reading is always within 2% of the true weight of the person on it; that is, the reading differs from the true weight by at most 2% of the true weight. A person's reading is 49.0 kilograms. Which of the following gives all possible values of the person's true weight w, in kilograms, rounded to the nearest hundredth?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "48.02 ≤ w ≤ 49.98",
+        "B": "48.04 ≤ w ≤ 50.00",
+        "C": "48.04 ≤ w ≤ 49.98",
+        "D": "47.00 ≤ w ≤ 51.00"
+      },
+      "correct_answer": "B",
+      "explanation": "The condition is 0.98w ≤ 49 ≤ 1.02w, so 49/1.02 ≤ w ≤ 49/0.98, which is 48.04 ≤ w ≤ 50.00.",
+      "distractor_explanations": {
+        "A": "This takes 2% of the reading, 0.98 kilogram, instead of 2% of the true weight.",
+        "C": "This uses the true weight as the base for one bound and the reading for the other.",
+        "D": "This treats 2% as 2 kilograms."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the 2% a percent of the reading or of the true weight?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the two inequalities with w as the base."
+      },
+      "remember": "Check which quantity a percent is taken of.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-10",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000886",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Chained percent comparisons with changing bases",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Quantity A is 25% greater than quantity B, and quantity B is 30% less than quantity C. Quantity C is approximately what percent greater than quantity A?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5%",
+        "B": "12.5%",
+        "C": "14.3%",
+        "D": "17.9%"
+      },
+      "correct_answer": "C",
+      "explanation": "B = 0.7C and A = 1.25B = 0.875C, so C = A/0.875 ≈ 1.143A. C is about 14.3% greater than A.",
+      "distractor_explanations": {
+        "A": "This combines the percents as 30 − 25.",
+        "B": "This finds that A is 12.5% less than C, using C as the base instead of A.",
+        "D": "This finds C − A ≈ 0.179B and divides by B instead of A."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write A and B in terms of C."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let C = 100."
+      },
+      "remember": "\"Percent greater than A\" uses A as the base.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-11",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000887",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Testing tables for proportionality",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In which of the following tables is y proportional to x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x: 2, 4, 6; y: 7, 11, 15",
+        "B": "x: 2, 5, 8; y: 6, 15, 24",
+        "C": "x: 1, 2, 4; y: 3, 6, 9",
+        "D": "x: 2, 4, 8; y: 3, 9, 27"
+      },
+      "correct_answer": "B",
+      "explanation": "In table B, y/x = 6/2 = 15/5 = 24/8 = 3 in every row, so y = 3x and y is proportional to x. No other table has a constant ratio.",
+      "distractor_explanations": {
+        "A": "This is linear, y = 2x + 3, but has a nonzero intercept, so it is not proportional.",
+        "C": "This works for the first two rows, but 9/4 ≠ 3.",
+        "D": "Both quantities grow by multiplying, but y/x is not constant."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Is y/x the same in every row?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compute y/x for each row of each table."
+      },
+      "remember": "Proportional means y/x is constant.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 79,
+      "draft_candidate": "Q079-12",
+      "created_at": "2026-10-27T18:54:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-079.review.json",
+        "computation": "checks/sat_math/batch_079.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
