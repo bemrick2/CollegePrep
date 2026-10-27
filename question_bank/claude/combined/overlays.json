@@ -462,6 +462,30 @@
    "status_until_reviewed": "hold",
    "requires_source_adoption": true,
    "note": "Source file not edited. The proposed version counts as reviewed only after fresh blind solves bound to this content hash."
+  },
+  "PP-VERBAL-20261022-E-016": {
+   "kind": "proposed_display_repair",
+   "owner": "ChatGPT",
+   "source_bank": "prep-and-price-verbal-pilot-001.json",
+   "source_content_version": 1,
+   "reason": "literal insertion of options produced defective text: option B was a display label \" (no punctuation)\", which inserts as literal words",
+   "method": "anchored the preceding word ('feature') inside every option, so option B is the bare word and every option inserts literally",
+   "proposed": {
+    "stem": "Which completion conforms to Standard English?",
+    "passage": "The fictional designer gave the chair a single unusual ______ its back could be detached and used as a tray.",
+    "choices": {
+     "A": "feature,",
+     "B": "feature",
+     "C": "feature:",
+     "D": "feature; although"
+    },
+    "key": "C"
+   },
+   "content_hash": "a58b992838fdb61b",
+   "status_until_reviewed": "hold",
+   "requires_source_adoption": true,
+   "found_by": "T8 blind solvers (chatgpt-sat_rw-05, both flagged minor); the original version passed both solves but the label form fails the literal-insertion rule",
+   "note": "Source file not edited. The proposed version counts as reviewed only after fresh blind solves bound to this content hash."
   }
  }
 }
