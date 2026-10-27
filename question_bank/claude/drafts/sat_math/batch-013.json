@@ -1,0 +1,462 @@
+{
+ "bank": "sat_math",
+ "batch": 13,
+ "plan": "SAT Math batch 13: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: integer roots (ACT 190), f(2x) transformations (122/303), y-intercept from factored form (155), point on a line (559).",
+ "candidates": [
+  {
+   "cand": "Q013-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Line with equal intercepts through a given point",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a line with a negative slope passes through the point (2, 5). The line's x-intercept and y-intercept are equal. What is the slope of the line?",
+   "explanation": "A line with equal nonzero intercepts a has the form x/a + y/a = 1, or x + y = a, so its slope is −1. Through (2, 5), a = 7, giving x + y = 7 with both intercepts equal to 7. (The only other line through (2, 5) with equal intercepts is y = (5/2)x through the origin, which has a positive slope.)",
+   "hints": [
+    "What does a line look like if its two intercepts are equal?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the intercepts in terms of the slope m and set them equal."
+   },
+   "remember": "Equal nonzero intercepts force a slope of −1.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must translate 'equal intercepts' into a condition on the slope; algebraically it produces a quadratic in m with an extra root that the negative-slope condition rules out."
+   },
+   "format": "spr",
+   "answer": "-1",
+   "accepted_answers": [
+    "-1"
+   ],
+   "common_errors": [
+    {
+     "value": "5/2",
+     "rationale": "5/2 is the other slope that makes the intercepts equal, but it is positive (both intercepts are 0).",
+     "trap": null
+    },
+    {
+     "value": "7",
+     "rationale": "7 is the value of each intercept, not the slope.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q013-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear equation with parentheses on both sides",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies the equation 3(x + 4) = 2(x − 1) ?",
+   "explanation": "Distributing gives 3x + 12 = 2x − 2. Subtracting 2x and 12 from both sides gives x = −14. Check: 3(−10) = −30 and 2(−15) = −30.",
+   "hints": [
+    "Distribute on both sides first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = −14 in both sides."
+   },
+   "remember": "Distribute to every term inside each set of parentheses.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−14",
+    "B": "−13",
+    "C": "−10",
+    "D": "14"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−13 distributes the 2 only to x, writing 2x − 1.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−10 writes 2(x − 1) as 2x + 2.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "14 makes a sign error when moving 12 to the other side.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q013-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Finding a coordinate on a line through two points",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a line passes through the points (−1, 10) and (5, −2). The point (c, 4) also lies on the line. What is the value of c ?",
+   "explanation": "The slope is (−2 − 10)/(5 − (−1)) = −12/6 = −2. Using (−1, 10): y − 10 = −2(x + 1), so y = −2x + 8. Setting y = 4 gives 4 = −2c + 8, so c = 2.",
+   "hints": [
+    "Find the slope first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the equation of the line, then substitute y = 4."
+   },
+   "remember": "Use the slope and one point to write the line's equation.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−2",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−2 is the slope, or comes from 4 = 2c + 8 with the wrong sign.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "3 uses 10 as the y-intercept: 4 = −2c + 10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4 is the y-coordinate of the point, not c.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q013-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Simplifying a difference of rational expressions",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "For x ≠ 2 and x ≠ 4, which of the following is equivalent to (x² − 16)/(x − 4) − (x² − 4)/(x − 2) ?",
+   "explanation": "Factor each numerator as a difference of squares: (x − 4)(x + 4)/(x − 4) = x + 4 and (x − 2)(x + 2)/(x − 2) = x + 2. Then (x + 4) − (x + 2) = 2, a constant.",
+   "hints": [
+    "Factor each numerator."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 0: 4 − 2 = 2."
+   },
+   "remember": "Factor first; common factors cancel.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognise two differences of squares and cancel before combining; many try a common denominator and get lost."
+   },
+   "choices": {
+    "A": "−2",
+    "B": "2",
+    "C": "6",
+    "D": "2x + 6"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−2 subtracts in the wrong order.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "6 adds the constants 4 and 2 after cancelling.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2x + 6 adds the two simplified expressions.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q013-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Horizontal shift that matches an exponential function",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The functions f and g are defined by f(x) = 3 · 2ˣ and g(x) = 12 · 2ˣ. For all x, g(x) = f(x + k), where k is a constant. What is the value of k ?",
+   "explanation": "f(x + k) = 3 · 2ˣ⁺ᵏ = 3 · 2ᵏ · 2ˣ. For this to equal 12 · 2ˣ, 3 · 2ᵏ = 12, so 2ᵏ = 4 and k = 2.",
+   "hints": [
+    "Rewrite 2ˣ⁺ᵏ as 2ᵏ · 2ˣ."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check x = 0: g(0) = 12 and f(2) = 12."
+   },
+   "remember": "A horizontal shift of an exponential multiplies it by a constant.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that shifting an exponential's input is the same as scaling its output, then solve 2ᵏ = 4; 4 is a strong trap."
+   },
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "9",
+    "D": "36"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "4 is the value of 2ᵏ, not k.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "9 subtracts the coefficients: 12 − 3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "36 multiplies the coefficients.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q013-06",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Conditional probability from percents",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "At a school, 60% of the students belong to at least one club. Of the students who belong to a club, 40% play a sport. Of the students who do not belong to a club, 25% play a sport. If a student who plays a sport is selected at random, what is the probability that the student belongs to a club?",
+   "explanation": "Imagine 100 students: 60 are in a club, and 40% of them, 24, play a sport. Of the 40 not in a club, 25%, or 10, play a sport. So 34 students play a sport, and 24 of them are in a club. The probability is 24/34 = 12/17.",
+   "hints": [
+    "Imagine 100 students and count each group."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Use 100 students to turn the percents into counts."
+   },
+   "remember": "For \"given\" questions, the denominator is the given group.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must reverse a conditional probability built from percents of different groups; 0.4 and 0.24 are strong traps."
+   },
+   "format": "spr",
+   "answer": "12/17",
+   "accepted_answers": [
+    "12/17",
+    ".7058",
+    ".7059"
+   ],
+   "common_errors": [
+    {
+     "value": "0.4",
+     "rationale": "0.4 is the probability that a club member plays a sport, not the reverse.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "0.24",
+     "rationale": "0.24 is the fraction of all students who are in a club and play a sport.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q013-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Applying a percent increase",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "A bakery sold 240 rolls on Monday. On Tuesday it sold 15% more rolls than on Monday. How many rolls did the bakery sell on Tuesday?",
+   "explanation": "15% of 240 is 0.15 × 240 = 36, so on Tuesday the bakery sold 240 + 36 = 276 rolls. Equivalently, 1.15 × 240 = 276.",
+   "hints": [
+    "Find 15% of 240."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply 240 by 1.15."
+   },
+   "remember": "\"15% more\" means multiply by 1.15.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "36",
+    "B": "255",
+    "C": "276",
+    "D": "2,760"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "36 is the increase, not Tuesday's total.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "255 adds 15 instead of 15%.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2,760 misplaces the decimal point.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q013-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Sine of a base angle in an isosceles triangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In triangle ABC, AB = AC = 10 and BC = 12. What is the value of sin B ?",
+   "explanation": "Drop the altitude from A to BC. In an isosceles triangle it bisects BC, so it meets BC 6 units from B. The altitude has length √(10² − 6²) = 8. In the right triangle with hypotenuse AB = 10, sin B = 8/10 = 4/5.",
+   "hints": [
+    "Draw the altitude from A to BC."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "The altitude splits the triangle into two 6-8-10 right triangles."
+   },
+   "remember": "An isosceles triangle's altitude bisects its base.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must construct an altitude to create a right triangle before any trigonometry applies."
+   },
+   "choices": {
+    "A": "3/5",
+    "B": "3/4",
+    "C": "4/5",
+    "D": "4/3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "3/5 is cos B = 6/10.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "3/4 is 6/8, the reciprocal of tan B.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4/3 is tan B = 8/6.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q013-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Right triangle with algebraic legs",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "The legs of a right triangle have lengths x and x + 7, and the hypotenuse has length 13. What is the area of the triangle?",
+   "explanation": "By the Pythagorean theorem, x² + (x + 7)² = 169, so 2x² + 14x − 120 = 0, or x² + 7x − 60 = 0, which factors as (x + 12)(x − 5) = 0. Since x > 0, x = 5 and the legs are 5 and 12. The area is (1/2)(5)(12) = 30.",
+   "hints": [
+    "Write the Pythagorean theorem with x."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try a familiar right triangle with hypotenuse 13."
+   },
+   "remember": "Lengths must be positive; discard the negative root.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "30",
+   "accepted_answers": [
+    "30"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is the value of x, the shorter leg.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "60",
+     "rationale": "60 omits the 1/2 in the area formula.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q013-10",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "y-intercept of a quadratic in vertex form",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "The function f is defined by f(x) = 2(x − 3)² + 1. What is the y-intercept of the graph of y = f(x) in the xy-plane?",
+   "explanation": "The y-intercept occurs at x = 0: f(0) = 2(0 − 3)² + 1 = 2(9) + 1 = 19, so the y-intercept is (0, 19). The point (3, 1) is the vertex, not the y-intercept.",
+   "hints": [
+    "Substitute x = 0."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Evaluate f(0)."
+   },
+   "remember": "The y-intercept is f(0).",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "(0, 1)",
+    "B": "(0, 7)",
+    "C": "(0, 10)",
+    "D": "(0, 19)"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "1 is the y-coordinate of the vertex.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "7 computes 2(3) + 1, forgetting to square.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10 computes (0 − 3)² + 1 without the factor 2.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}
