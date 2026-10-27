@@ -1,0 +1,140 @@
+{
+ "ideas": "generated set 16 (KA/KC)",
+ "results": {
+  "KA01": [
+   {"other_id": "CLD-SAT-M-000493", "severity": "close", "why": "Both ask what a coefficient product means in a cost or interest model (1.08(18) there). Here the term 0.02x appears only after substituting into a two-account system and has to be read against an all-at-4% baseline. Different structure."},
+   {"other_id": "ideas-gen-12 GA02", "severity": "close", "why": "Both interpret a coefficient in a two-item money equation (12x + 15y = 600, read 0.8). GA02 reads a slope; KA01 reads a term made by substitution. Different asked quantity."},
+   {"other_id": "KA13 (this set)", "severity": "close", "why": "Generator flag. Both are two-variable money equations, but KA01 interprets a term made by substitution and KA13 converts a count variable into boxes. Different mechanism, so both are allowed."}
+  ],
+  "KA02": [
+   {"other_id": "CLD-SAT-M-000668 / CLD-ACT-M-000398", "severity": "close", "why": "Linear total cost with fixed cost plus a per-item cost, and average cost per item. Those items give the formula; here two (count, average) pairs are turned into totals and the slope is found. Different ask."},
+   {"other_id": "KA14 (this set)", "severity": "close", "why": "Both build a linear cost from two data points (here averages, in KA14 totals). Same building step, different asks."}
+  ],
+  "KA03": [
+   {"other_id": "CLD-SAT-M-000471", "severity": "close", "why": "Linear growth combined with a percent increase over an interval (f(12) is 12% more than f(10); find f(0)). Here no values are given, and the ask is the percent over a later, longer span."},
+   {"other_id": "CLD-SAT-M-000415 / CLD-SAT-M-000195", "severity": "close", "why": "Constant absolute growth compared with percent growth, and population percent increase. Different ask."}
+  ],
+  "KA04": [
+   {"other_id": "CLD-SAT-M-000002", "severity": "close", "why": "Both add the two equations to get at x + y. 002 has numeric coefficients and asks for x + y; here x + y is given, the coefficients are swapped symbolic constants, and a + b is asked."},
+   {"other_id": "CLD-SAT-M-000594 / CLD-SAT-M-000080", "severity": "close", "why": "Systems with constant coefficients and a structural ask. Different mechanism."}
+  ],
+  "KA05": [
+   {"other_id": "CLD-SAT-M-000327 (= ideas-gen-03 J01)", "severity": "close", "why": "A ticket-revenue change caused by a price change, with a total ticket count, solved for the adult count. 327 swaps two given prices and gives the dollar difference. Here no prices are given and the revenue change is 0 (3a = 2c). Same family but a different mechanism."},
+   {"other_id": "CLD-ACT-M-000020", "severity": "close", "why": "The standard adult/child ticket system. Here no prices or total revenue are given."}
+  ],
+  "KA06": [
+   {"other_id": "CLD-ACT-M-000110", "severity": "close", "why": "A combined work rate for two pipes (together time given). That item leads to a quadratic; here a together time plus a sequential run give a linear system in the rates."},
+   {"other_id": "CLD-SAT-M-000104", "severity": "close", "why": "A pump at a constant rate. Single pump, trivial version."}
+  ],
+  "KA07": [
+   {"other_id": "CLD-SAT-M-000538", "severity": "close", "why": "A body-measurement formula where inputs change (BSA with height and mass +10%). That one is multiplicative and asks for a percent; here it is linear, with two opposite-sign changes and an absolute change asked."},
+   {"other_id": "CLD-SAT-M-000529", "severity": "close", "why": "Evaluating a two-input linear rule. Different ask."}
+  ],
+  "KA08": [
+   {"other_id": "CLD-SAT-M-000328", "severity": "close", "why": "A constant in an inequality is bounded by a point being or not being a solution. 328 is one-variable with one point; here a half-plane slope gets a two-sided range from one point in and one point out."}
+  ],
+  "KA09": [],
+  "KA10": [
+   {"other_id": "CLD-SAT-M-000216", "severity": "close", "why": "A linear diver-depth model. That one is about descent rate and depth; here pressure is linear with a nonzero intercept and the trap is proportional reasoning."}
+  ],
+  "KA11": [
+   {"other_id": "CLD-SAT-M-000415", "severity": "close", "why": "Linear vs. exponential growth. Here a percent of a fixed initial value gives a linear model; build-the-equation ask."},
+   {"other_id": "CLD-ACT-M-000203", "severity": "close", "why": "Loses 4% of the charge at the start of each hour, so exponential. That is the mirror image (percent of the current value). Different model."}
+  ],
+  "KA12": [
+   {"other_id": "CLD-SAT-M-000588 (= ideas-gen-10 EA01)", "severity": "close", "why": "Counting how many integer values satisfy a compound constraint, with an inclusive count. The staircase uses divisors; here a fixed-total two-item revenue becomes 300 <= 200 + 5L <= 360."},
+   {"other_id": "ideas-gen-01 G11", "severity": "close", "why": "Counting ticket combinations at an exact total. Different constraint type."}
+  ],
+  "KA13": [
+   {"other_id": "CLD-SAT-M-000528 / CLD-SAT-M-000346", "severity": "close", "why": "Re-expressing a linear model under a change of variable or units. Here a count is regrouped into boxes in a standard-form budget."},
+   {"other_id": "KA01 (this set)", "severity": "close", "why": "Generator flag. Two-item money equation, different mechanism (see KA01)."}
+  ],
+  "KA14": [
+   {"other_id": "ideas-gen-05 U01", "severity": "close", "why": "Two pricing plans whose linear graphs are parallel (no common point). U01 asks for the condition on the constants; here plan B is built from two data points and the ask is a verbal comparison."},
+   {"other_id": "CLD-ACT-M-000311 / CLD-SAT-M-000073", "severity": "close", "why": "Comparing two cost plans. Different ask (meaning of a solution; break-even count)."}
+  ],
+  "KA15": [
+   {"other_id": "CLD-SAT-M-000529 / ideas-gen-11 FA07", "severity": "close", "why": "Total time = travel time + fixed per-stop or loading time. Those give the formula. Here the travel time comes from a percent speed change (time scales by 1/1.2)."}
+  ],
+  "KC01": [
+   {"other_id": "CLD-SAT-M-000223", "severity": "close", "why": "Means converted to totals, and a sub-group mean found by subtraction. 223 uses disjoint parts; here the windows overlap and the overlap is found by inclusion-exclusion."},
+   {"other_id": "KC11 (this set)", "severity": "close", "why": "Generator flag. Both turn means of day-windows into totals. KC01 finds an overlap of two fixed windows; KC11 finds the value that leaves a sliding window (change in total = in minus out). Different mechanism and ask, so both are allowed. Avoid placing them next to each other."}
+  ],
+  "KC02": [
+   {"other_id": "CLD-ACT-M-000546 / CLD-ACT-M-000068", "severity": "close", "why": "Mathematically the same as the equal-distance round-trip average speed (harmonic mean of 15 and 30 = 20, against 60/40 there), with the trap being the arithmetic mean of the two rates. These are ACT-bank items; no SAT item does it, so it is allowed. Note the reskin."},
+   {"other_id": "CLD-SAT-M-000341 (= ideas-gen-03 J08)", "severity": "close", "why": "Round trip at 50/30 mph, but asks for a distance, not an average rate."},
+   {"other_id": "KC12 (this set)", "severity": "close", "why": "Generator flag. Both are weighted averages with the unweighted mean as the trap. KC02 weights by shares bought (equal dollars, harmonic); KC12 weights by days (arithmetic). Different mechanism, so both are allowed. Keep them apart."}
+  ],
+  "KC03": [
+   {"other_id": "CLD-SAT-M-000607 (= ideas-gen-12 GC07)", "severity": "close", "why": "Missing cell in a two-way table, found from an equality of two probabilities. 607 equates a row conditional with an overall marginal; here the two conditionals are reverses with the same numerator, so the row total equals the column total. Different key insight."},
+   {"other_id": "CLD-SAT-M-000315", "severity": "close", "why": "Missing cell from a given conditional, then the reverse conditional. Different ask."}
+  ],
+  "KC04": [
+   {"other_id": "CLD-SAT-M-000008 / CLD-SAT-M-000036", "severity": "close", "why": "Percent of a percent (forward) and whole from a percent. Here two successive losses are undone in reverse."},
+   {"other_id": "KC13, KC05 (this set)", "severity": "close", "why": "The same reverse successive-percent mechanism appears three times in this set (see within_list_cues)."}
+  ],
+  "KC05": [
+   {"other_id": "CLD-SAT-M-000008", "severity": "close", "why": "The same two-level percent chain (percent of a percent) run forward. Here it runs backward from the count."},
+   {"other_id": "KC13 (this set)", "severity": "template", "why": "Same mechanism and same asked quantity: a base multiplied by a chain of successive fractions equals a given final count, so find the base (13,640 / (0.62 x 0.55) vs 1,512 / (0.7 x 0.75 x 0.8)). KC13 is the harder version with three steps; KC05 is redundant inside this set."}
+  ],
+  "KC06": [
+   {"other_id": "CLD-ACT-M-000227", "severity": "close", "why": "Same ask: profit as a percent of the selling price, and the same trap of using the cost as the base. The ACT item gives dollars ($40 cost, $50 price); here only a 60% markup is given. Cross-exam, so not a drop, but this is near-template."},
+   {"other_id": "CLD-SAT-M-000335 / CLD-SAT-M-000065", "severity": "close", "why": "Markup on cost, then a sale. 065 even uses a 60% markup. Different asks."}
+  ],
+  "KC07": [
+   {"other_id": "CLD-ACT-M-000576", "severity": "close", "why": "Same history numbers (mean 70, SD 8) and the first step is that item: how many SDs above the mean. Here the standing is then carried to a second distribution."},
+   {"other_id": "CLD-SAT-M-000655 (= ideas-gen-14 IC10)", "severity": "close", "why": "Two score distributions with means and SDs. Different ask."}
+  ],
+  "KC08": [
+   {"other_id": "CLD-SAT-M-000421 (= ideas-gen-05 U12)", "severity": "close", "why": "Same core step: a given absolute change is p% of the original, so original = change / p (12 is 30% of the start, 40; here 150 is 25% of the original, 600). 421 adds a 'rate times days' step; KC08 adds a proportionality step. Thin, but not the same wrapper."},
+   {"other_id": "CLD-ACT-M-000207 / CLD-SAT-M-000599", "severity": "close", "why": "Scaling a recipe by proportion; output change from an input percent change. Different ask."}
+  ],
+  "KC09": [
+   {"other_id": "CLD-ACT-M-000297", "severity": "close", "why": "Dividing profit in a ratio. There the ratio is given; here it is built from amount times months."},
+   {"other_id": "CLD-SAT-M-000654 (= ideas-gen-14 IC08)", "severity": "close", "why": "Splitting a cost in proportion to a measure. Different weighting."}
+  ],
+  "KC10": [
+   {"other_id": "ideas-gen-07 BC04", "severity": "template", "why": "Same mechanism and same ask with the numbers changed: a 2x3 vs 2x2 two-way table of members/nonmembers, P(member OR column category) by inclusion-exclusion. The distractor set is identical in kind: 'and' (96/400 vs 40/250), members only (150/400 vs 100/250), key, and the double-counted sum (0.79 vs 0.88). BC04 was not drafted into batches 030-063, but it is an earlier idea and this re-uses it."},
+   {"other_id": "CLD-ACT-M-000284", "severity": "close", "why": "An OR probability with overlap (hearts or face cards)."}
+  ],
+  "KC11": [
+   {"other_id": "CLD-SAT-M-000084", "severity": "close", "why": "A change in mean from replacing one value in a fixed-size set (change in total = new - old). 084 gives both values and asks for the new mean; here the change in mean and the new value are given and the removed value is asked. Inverse direction, same identity."},
+   {"other_id": "CLD-ACT-M-000006 / CLD-ACT-M-000530", "severity": "close", "why": "Value removed or added, from a change in mean. The set size changes there; here it stays at 7."},
+   {"other_id": "KC01 (this set)", "severity": "close", "why": "Generator flag; see KC01."}
+  ],
+  "KC12": [
+   {"other_id": "CLD-ACT-M-000328 / CLD-ACT-M-000096", "severity": "close", "why": "A weighted mean with the unweighted mean as the trap (time-weighted average speed; class means). Here the weights are days."},
+   {"other_id": "CLD-SAT-M-000161", "severity": "close", "why": "Weighted share. Different ask."},
+   {"other_id": "KC02 (this set)", "severity": "close", "why": "Generator flag; see KC02."}
+  ],
+  "KC13": [
+   {"other_id": "CLD-SAT-M-000036 / CLD-SAT-M-000113", "severity": "close", "why": "Whole from percents of one base; a chain of percents of different bases (forward). Here three successive remainders are reversed from a dollar amount."},
+   {"other_id": "KC05 (this set)", "severity": "template", "why": "Same reverse successive-percent chain (see KC05). Keep KC13 and drop KC05."}
+  ],
+  "KC14": [
+   {"other_id": "ideas-gen-12 GC08", "severity": "template", "why": "Same mechanism and ask: a line-of-best-fit slope applied to a change in x given in raw units when x is in scaled units ($1,000 = 10 hundreds; 300 kg = 3 hundreds), then the predicted change in y converted to the asked unit (thousands of dollars; per 100 km times 2.5). The distractors match one for one: forgets the x scale (C there / B here), stops before the y conversion (A there / C here). The extra trip-length step only changes the final unit factor."},
+   {"other_id": "CLD-SAT-M-000659 (= ideas-gen-14 IC15)", "severity": "close", "why": "Slope times a difference in x on a line of best fit. Asks for a difference in residuals."},
+   {"other_id": "CLD-SAT-M-000427 / CLD-SAT-M-000382", "severity": "close", "why": "Liters per 100 km contexts. Different mechanism."}
+  ],
+  "KC15": [
+   {"other_id": "CLD-SAT-M-000103", "severity": "close", "why": "Part-to-whole rate. No bank or idea item compares rates per 100,000."}
+  ]
+ },
+ "within_list_cues": {
+  "KC04 / KC05 / KC13": "Three ideas in one set reverse a chain of successive percents (known final amount / product of retained fractions). KC05 is a template of KC13; KC04 differs only in context (two losses). Keep at most two; drop KC05.",
+  "KC01 / KC11": "Both convert window means to totals. They differ in mechanism (overlap by inclusion-exclusion vs. sliding-window in-minus-out), so both are allowed but should not be adjacent.",
+  "KC02 / KC12": "Both are weighted means with the unweighted mean of the rates as trap choice. KC02 is harmonic (equal dollars), KC12 is weighted by days. Both are allowed.",
+  "KA01 / KA13": "Both are two-variable money equations. KA01 interprets a substituted term; KA13 regroups a variable into boxes. Both are allowed.",
+  "KA02 / KA14": "Both build a linear cost from two data points (averages to totals in KA02; totals in KA14). Different asks.",
+  "KC03 / KC10": "Two two-way-table probability items in one set (missing cell from reverse conditionals; union). Different asks.",
+  "KA03": "SPR. The key falls out by letting the 2010 population be 100 (25, then 125, then 175, so 50/125). That is a legitimate SAT strategy, not a defect; the item still tests base-shift reasoning.",
+  "KC04": "Mild cue: the key, 7.50, is the largest choice, and a student who knows the raw weight must be 'divided by both losses' can pick the largest without computing. Consider adding the subtract-both-percents distractor 4.5/0.55 = 8.18 so the key is not the extreme.",
+  "KA08": "Not a cue: every choice must be checked against both points, as the generator says. Testing either point alone eliminates only one or two choices.",
+  "KC08": "Choice B's rationale (150/0.8 = 187.5) is weak; no natural misconception produces it. Consider 750 (150 x 5, which treats 150 as 1/5 of the new amount) or 450 alone.",
+  "other": "No choice gives the answer away in KA01, KA07, KA09-KA14, KC06, KC07, KC09, KC10, KC12, KC14 or KC15, and no second defensible answer was found. In KA01, the equivalent phrasing 'extra interest from investing x at 6% rather than 4%' is not offered as a separate choice, so A is unique."
+ },
+ "math_errors": {
+  "none": "All 30 keys were recomputed in Python and are correct: KA01 220 (A), KA02 1.50, KA03 40, KA04 6, KA05 160, KA06 14 (B 10.5), KA07 20, KA08 2.8, KA09 16 (6.5w <= 108), KA10 25, KA11 8 + 1.2w, KA12 13 (L = 20..32), KA13 12c + 6b = 480, KA14 A (B = 26 + 4c), KA15 14 (T = 24), KC01 860, KC02 20, KC03 7, KC04 7.5, KC05 40000, KC06 37.5, KC07 85, KC08 600, KC09 12600, KC10 0.55, KC11 108, KC12 675, KC13 3600, KC14 3.15, KC15 2.5. The distractor values match their stated rationales (e.g. KA09 9.5w gives 11, 4.5w gives 24; KC03 trap 25.2; KC13 2948.4, 2880, 2160, 6048; KC12 575, 810)."
+ },
+ "recommend_drop": ["KC10", "KC14", "KC05"]
+}

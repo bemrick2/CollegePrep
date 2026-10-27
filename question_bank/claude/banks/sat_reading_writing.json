@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Reading and Writing",
   "id_prefix": "CLD-SAT-RW-",
-  "version": 46,
-  "updated_at": "2026-10-27T16:24:47+00:00",
+  "version": 47,
+  "updated_at": "2026-10-27T16:51:48+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-SAT-RW-000001",
@@ -4579,6 +4579,50 @@
       "word_count": 80,
       "text": "While researching a topic, a student has taken the following notes:\n- The Erie Canal opened in New York State in 1825.\n- It connected the Hudson River at Albany to Lake Erie at Buffalo.\n- Before the canal, shipping a ton of goods from Buffalo to New York City could cost about $100.\n- After the canal opened, the cost fell to roughly $10 per ton.\n- New York City soon became the busiest port in the United States.",
       "batch": 46,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000436",
+      "title": "Railroad time",
+      "genre": "history",
+      "word_count": 54,
+      "text": "Before the 1880s, most towns in the United States set their clocks by the sun, so noon in one town might fall several minutes before noon in a town a short distance to the west. A historian argues that railroads, which needed consistent schedules across long distances, were chiefly responsible for ending this practice.",
+      "batch": 47,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000437",
+      "title": "Festival founders",
+      "genre": "local history",
+      "word_count": 30,
+      "text": "The festival's founders—two retired teachers, a baker, and a local ______ expected it to draw visitors from outside the county, yet last year it attracted more than twenty thousand people.",
+      "batch": 47,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000438",
+      "title": "The surveyor's notebooks",
+      "genre": "history",
+      "word_count": 30,
+      "text": "The surveyor's field notebooks, recovered from a farmhouse attic in 1987 and now held in the state library's special collections, ______ the earliest detailed description of the valley's river system.",
+      "batch": 47,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000440",
+      "title": "Lichen survey",
+      "genre": "environmental science",
+      "word_count": 80,
+      "text": "While researching a topic, a student has taken the following notes:\n- Many lichens are sensitive to sulfur dioxide, an air pollutant.\n- In a 2015 survey, volunteers counted lichen species on trees across a city.\n- Sites far from major roads had an average of 11 lichen species; sites near major roads had an average of 4.\n- The survey did not measure sulfur dioxide directly.\n- Lichens can also be affected by tree bark acidity and by shade.",
+      "batch": 47,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -34165,6 +34209,290 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_reading_writing/batch-046.review.json",
         "computation": "checks/sat_reading_writing/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000417",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Command of evidence: textual (supporting a claim)",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000436",
+      "underline": null,
+      "evidence": "were chiefly responsible for ending this practice",
+      "figure": null,
+      "stem": "Which finding, if true, would most directly support the historian's argument?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Railroad companies published printed timetables listing the departure and arrival times of their trains at each station.",
+        "B": "Towns on rail lines replaced local sun time with the railroads' standard time years before towns without rail service did.",
+        "C": "Pocket watches became much less expensive during the decades in which railroads expanded.",
+        "D": "Towns that gained rail service grew in population faster than towns that did not."
+      },
+      "correct_answer": "B",
+      "explanation": "If rail towns abandoned sun time well before towns without railroads, the change tracks rail service, which is what the historian's claim predicts.",
+      "distractor_explanations": {
+        "A": "Timetables existing does not show that railroads changed how towns set their clocks.",
+        "C": "Cheaper watches would be a competing explanation, not support for the railroads' role.",
+        "D": "Population growth is unrelated to how towns kept time."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What evidence would link the change specifically to railroads?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look for a comparison between towns with and without railroads."
+      },
+      "remember": "The strongest support ties the effect to the proposed cause and not to something else.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "S047-06",
+      "created_at": "2026-10-27T16:51:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-047.review.json",
+        "computation": "checks/sat_reading_writing/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000418",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Paired dashes",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000437",
+      "underline": null,
+      "evidence": "two retired teachers, a baker, and a local",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "historian, never",
+        "B": "historian; never",
+        "C": "historian never",
+        "D": "historian—never"
+      },
+      "correct_answer": "D",
+      "explanation": "The list of founders is set off by an opening dash after \"founders,\" so a matching dash must close it after \"historian.\" Commas inside the list cannot do that job.",
+      "distractor_explanations": {
+        "A": "The interrupting list begins with a dash, so it must close with a dash; a comma leaves the dash unpaired.",
+        "B": "A semicolon would cut the subject \"founders\" off from its verb \"expected.\"",
+        "C": "Without a closing dash, the list runs straight into the verb and the interruption is never closed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How does the interruption begin?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the opening punctuation and match it."
+      },
+      "remember": "An element opened with a dash closes with a dash.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "S047-07",
+      "created_at": "2026-10-27T16:51:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-047.review.json",
+        "computation": "checks/sat_reading_writing/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000419",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Finite verb after a long subject",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000438",
+      "underline": null,
+      "evidence": "The surveyor's field notebooks",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "contain",
+        "B": "containing",
+        "C": "which contain",
+        "D": "having contained"
+      },
+      "correct_answer": "A",
+      "explanation": "The subject \"notebooks\" needs a main verb after the long modifier. \"Contain\" is a finite plural verb that completes the sentence.",
+      "distractor_explanations": {
+        "B": "\"Containing\" is not a main verb, so the sentence would have no verb for \"notebooks.\"",
+        "C": "\"Which contain\" turns the predicate into another modifier and leaves the subject with no main verb.",
+        "D": "\"Having contained\" is a participle and cannot serve as the main verb."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the sentence already have a main verb?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out the modifier between the commas and read the rest."
+      },
+      "remember": "Every sentence needs a finite main verb for its subject.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "S047-08",
+      "created_at": "2026-10-27T16:51:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-047.review.json",
+        "computation": "checks/sat_reading_writing/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000420",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Rhetorical synthesis (method and limitation)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000440",
+      "underline": null,
+      "evidence": "The survey did not measure sulfur dioxide directly.",
+      "figure": null,
+      "stem": "The student wants to present the survey's finding while acknowledging a limitation of the survey. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Sites near major roads averaged only 4 lichen species, compared with 11 at sites far from roads, showing that sulfur dioxide from city traffic had killed the lichens.",
+        "B": "Because many lichens are sensitive to sulfur dioxide, volunteers in 2015 counted lichen species on trees across a city.",
+        "C": "Sites near major roads averaged 4 lichen species versus 11 far from roads, but since sulfur dioxide was not measured, shade or bark acidity could explain the gap.",
+        "D": "Lichens can be affected by shade and bark acidity, and the 2015 survey did not measure sulfur dioxide directly."
+      },
+      "correct_answer": "C",
+      "explanation": "Only C gives the result (4 versus 11 species) and the limitation (pollution was not measured, and other factors could explain the difference).",
+      "distractor_explanations": {
+        "A": "This presents the finding but overstates it as proof and acknowledges no limitation.",
+        "B": "This describes the method but gives neither the finding nor a limitation.",
+        "D": "This states a limitation but omits the survey's finding."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which choice does both things the goal asks for?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check each choice for the finding and for a limitation."
+      },
+      "remember": "A two-part goal needs both parts in the answer.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "S047-10",
+      "created_at": "2026-10-27T16:51:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-047.review.json",
+        "computation": "checks/sat_reading_writing/batch_047.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

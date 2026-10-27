@@ -1,0 +1,299 @@
+{
+ "ideas": "generated set 17 (LB/LD)",
+ "results": {
+  "LB01": [
+   {
+    "other_id": "CLD-SAT-M-000663",
+    "severity": "close",
+    "why": "Also composes two graph transformations in a stated order, but on a specific quadratic and asks for zeros; here f is unspecified and the asked quantity is the constant gap from swapping a vertical shift and a vertical stretch. Weak match."
+   }
+  ],
+  "LB02": [
+   {
+    "other_id": "ideas-gen-15 JB16",
+    "severity": "close",
+    "why": "Equal outputs at two inputs locate the axis of symmetry of an unknown quadratic; JB16's vertex is a given value, here the vertex lies between table times and needs the leading coefficient from second differences."
+   },
+   {
+    "other_id": "CLD-ACT-M-000531",
+    "severity": "close",
+    "why": "Maximum height of a projectile quadratic, but the formula is given there (ACT bank)."
+   }
+  ],
+  "LB03": [
+   {
+    "other_id": "CLD-SAT-M-000392",
+    "severity": "close",
+    "why": "Same backward step: a known 2-step growth factor divides out to go back 2 steps (f(x + 2) = 9f(x), f(1) = 6, find f(-1)). Here the 2-year factor must first be found from two values (32,805/40,500), so there is one more step."
+   },
+   {
+    "other_id": "CLD-SAT-M-000195",
+    "severity": "close",
+    "why": "Finds a constant percent rate from two values 2 years apart; here the rate is used to work backward instead of being asked."
+   },
+   {
+    "other_id": "CLD-SAT-M-000322",
+    "severity": "close",
+    "why": "Runs a known compound rate backward in time; the rate is given there."
+   }
+  ],
+  "LB04": [
+   {
+    "other_id": "CLD-SAT-M-000578",
+    "severity": "close",
+    "why": "Same core computation: a doubling term and a halving term combine by adding or subtracting the exponents t/p. 578 asks when two separate populations become equal (16 = 2^(t/2 + t/6)); here one model multiplies a growth factor by a decay factor and asks the net doubling time. Different asked quantity, so allowed, but do not put both in the same short set."
+   },
+   {
+    "other_id": "ideas-gen-11 FB08",
+    "severity": "close",
+    "why": "Variant of the 578 idea (doubles every 2 years, halves every 3 years, ratio 64); same note as for 578."
+   }
+  ],
+  "LB05": [
+   {
+    "other_id": "CLD-ACT-M-000303",
+    "severity": "close",
+    "why": "Inverts an inner linear map to find where a composed function takes a known value (g(x) = f(2x)); here the inner map is 2x - 1 and the answer is a factor. ACT bank, so close only."
+   }
+  ],
+  "LB06": [
+   {
+    "other_id": "CLD-SAT-M-000466",
+    "severity": "close",
+    "why": "Squares a binomial of radicals; 466 is symbolic, here numeric. Different enough."
+   }
+  ],
+  "LB07": [
+   {
+    "other_id": "CLD-SAT-M-000101",
+    "severity": "close",
+    "why": "f(1) = f(9) gives the axis of symmetry of a quadratic; 101 then asks a value at the vertex, here outputs are compared by distance from the axis with a > 0."
+   }
+  ],
+  "LB08": [
+   {
+    "other_id": "CLD-SAT-M-000355",
+    "severity": "close",
+    "why": "Exponential-plus-constant model a·b^x + c fitted from f(0) and f(3), then a value asked (f(2)). 355 gives the base and leaves the constant unknown; here the constant (60) is given and the base is unknown. Same family, different step."
+   },
+   {
+    "other_id": "CLD-SAT-M-000620",
+    "severity": "close",
+    "why": "a(0.5)^x + c with the asymptote 6 and intercept 20 given, find f(2); same idea of working with the gap above/below the asymptote, but the base is given there."
+   }
+  ],
+  "LB09": [
+   {
+    "other_id": "CLD-SAT-M-000181",
+    "severity": "close",
+    "why": "Counts intersection points of an absolute-value graph with another graph; there a line with no parameter, here a parabola sharing the vertex, for every a > 0."
+   }
+  ],
+  "LB10": [
+   {
+    "other_id": "ideas-gen-11 FB05",
+    "severity": "close",
+    "why": "Both use the b^x and b^(-x) pair; FB05 uses oddness of 2^x - 2^(-x), here the asked identity is the product. Not a template."
+   }
+  ],
+  "LB11": [
+   {
+    "other_id": "CLD-SAT-M-000619",
+    "severity": "close",
+    "why": "Simplifying a complex fraction built from 1/x terms; different key step (here the sign factor 4 - 2x = -2(x - 2))."
+   }
+  ],
+  "LB12": [
+   {
+    "other_id": "CLD-SAT-M-000153",
+    "severity": "close",
+    "why": "Same function form p(x) = (x - a)(x - b); 153 gives two values and asks a + b, here the vertex is given and ab is asked."
+   },
+   {
+    "other_id": "CLD-SAT-M-000162",
+    "severity": "close",
+    "why": "Vertex given, find a combination of coefficients (a + c); different form and asked quantity."
+   }
+  ],
+  "LB13": [
+   {
+    "other_id": "CLD-SAT-M-000145",
+    "severity": "close",
+    "why": "Radical equation with an extraneous root; 145 solves one specific equation, here the root condition is applied across a parameter to count solutions."
+   },
+   {
+    "other_id": "ideas-gen-02 H16",
+    "severity": "close",
+    "why": "Radical equation with a constant, reject the extraneous root; H16 fixes k from a known solution and asks the solution set."
+   }
+  ],
+  "LB14": [
+   {
+    "other_id": "CLD-SAT-M-000662",
+    "severity": "close",
+    "why": "Cubic with unknown coefficients and given zeros; 662 asks the third zero from the constant term, here 0 is the hidden zero and p(-1) is asked."
+   }
+  ],
+  "LB15": [
+   {
+    "other_id": "CLD-SAT-M-000290",
+    "severity": "close",
+    "why": "Rational equation with a parameter where an excluded value (x = 1 there, x = 2 here) changes the solution count; 290 asks for no solution, here exactly one solution arises two ways."
+   },
+   {
+    "other_id": "CLD-SAT-M-000062",
+    "severity": "close",
+    "why": "Discriminant = 0 for exactly one real solution; this is only the first of the two cases here."
+   }
+  ],
+  "LB16": [
+   {
+    "other_id": "CLD-SAT-M-000539",
+    "severity": "close",
+    "why": "Area of a triangle whose vertices come from a parabola's intersection points; there the axis intercepts, here the line-parabola intersections plus the origin."
+   },
+   {
+    "other_id": "CLD-ACT-M-000776",
+    "severity": "close",
+    "why": "Same intersection of y = x^2 with a line, but asks a distance (ACT bank)."
+   }
+  ],
+  "LB17": [
+   {
+    "other_id": "CLD-SAT-M-000204",
+    "severity": "close",
+    "why": "Same sum-of-distances function |x - a| + |x - b|; 204 asks its minimum, here the value is above the minimum and the sum of the two solutions is asked."
+   },
+   {
+    "other_id": "CLD-SAT-M-000255",
+    "severity": "close",
+    "why": "Sum of all solutions to an absolute-value equation; single absolute value there."
+   }
+  ],
+  "LB18": [
+   {
+    "other_id": "CLD-SAT-M-000414",
+    "severity": "close",
+    "why": "Set a parabola equal to a line to find where a projectile meets something; there over time with a drone, here in space with a sloped lawn."
+   }
+  ],
+  "LD01": [
+   {
+    "other_id": "ideas-gen-15 JD04",
+    "severity": "close",
+    "why": "Same mechanism: an angle bisector plus a line parallel to a side creates two equal angles (alternate interior / corresponding), forcing an isosceles triangle. JD04 uses an interior bisector and asks a length; here an exterior bisector and an angle is asked."
+   },
+   {
+    "other_id": "CLD-SAT-M-000297",
+    "severity": "close",
+    "why": "Same given (angle A = 50 degrees) with bisectors in triangle ABC; interior bisectors of B and C there."
+   }
+  ],
+  "LD02": [
+   {
+    "other_id": "CLD-SAT-M-000406",
+    "severity": "close",
+    "why": "Inscribed angle equals half its intercepted arc; one-step there, here equal chords give equal arcs and the leftover arc is used."
+   }
+  ],
+  "LD03": [
+   {
+    "other_id": "CLD-ACT-M-000739",
+    "severity": "close",
+    "why": "Parallelogram with sides and a 60 degree angle; area there (ACT bank), longer diagonal here."
+   }
+  ],
+  "LD04": [
+   {
+    "other_id": "CLD-SAT-M-000633",
+    "severity": "close",
+    "why": "Triangle areas between parallel lines via shared heights; here P is unknown and the two heights sum to the side length. Weak match."
+   }
+  ],
+  "LD05": [
+   {
+    "other_id": "CLD-SAT-M-000673",
+    "severity": "close",
+    "why": "Circle fixed by tangency to a horizontal line plus points on it; 673 asks the radius, here two parallel tangents give the radius and the asked quantity is the constant c of the expanded equation."
+   },
+   {
+    "other_id": "CLD-ACT-M-000134",
+    "severity": "close",
+    "why": "Circle tangent to two lines through a given point, two candidate centers; ACT bank."
+   }
+  ],
+  "LD06": [
+   {
+    "other_id": "ideas-gen-05 Y05",
+    "severity": "close",
+    "why": "Isosceles triangle checked against the triangle inequality; Y05 picks one triangle from two given sides, here all isosceles triangles with perimeter 30 are counted."
+   }
+  ],
+  "LD07": [
+   {
+    "other_id": "CLD-SAT-M-000134",
+    "severity": "template",
+    "why": "Same computation and the same numbers: a length scale factor of 1.5 applied to a measure of 48, so the answer is 48(2.25) = 108, with the identical choice set 72 / 96 / 108 / 162 (the x1.5, x2, x1.5^2 and x1.5^3 traps). Only the wrapper differs (cylinder radius with fixed height vs. photo diagonal). A student who has seen 134 recognizes it immediately."
+   }
+  ],
+  "LD08": [
+   {
+    "other_id": "CLD-SAT-M-000133",
+    "severity": "close",
+    "why": "Shadow similar-triangle problem; point light source there. Different."
+   },
+   {
+    "other_id": "CLD-ACT-M-000257",
+    "severity": "close",
+    "why": "Plain sun-shadow proportion (ACT bank); here part of the shadow lies on a wall."
+   }
+  ],
+  "LD09": [
+   {
+    "other_id": "CLD-SAT-M-000635",
+    "severity": "close",
+    "why": "Angular rate of a turning wheel converted to linear speed with a unit change; there via gear teeth and circumference in rpm, here s = r·theta in radians."
+   }
+  ],
+  "LD10": [
+   {
+    "other_id": "CLD-SAT-M-000480",
+    "severity": "close",
+    "why": "Right triangle with tan A = 2 (legs 1 and 2); 480 starts there, here tan A = 2 must be derived from tan A = 4 tan B and the area found from the hypotenuse."
+   },
+   {
+    "other_id": "CLD-SAT-M-000023",
+    "severity": "close",
+    "why": "tan A and hypotenuse given, find a leg; one-step version."
+   }
+  ],
+  "LD11": [
+   {
+    "other_id": "CLD-SAT-M-000632",
+    "severity": "close",
+    "why": "Partly filled container whose water region is similar to the full shape (cone at depth 6 of 9); 632 computes the cone volume directly, here the prism means a square law on a ratio."
+   },
+   {
+    "other_id": "CLD-SAT-M-000526",
+    "severity": "close",
+    "why": "Water-trough prism capacity; full trough only."
+   }
+  ],
+  "LD12": []
+ },
+ "within_list_cues": {
+  "LB10": "Confirmed. A plug-in check eliminates every distractor without the algebra: x = 0 makes f/g = 1, not b^2 (b > 1), which kills C; x = 1 makes f - g = a(b - 1/b) and f + g = a(b + 1/b), both different from 0 and 2a when b > 1, which kills A and B. With any b (say a = 1, b = 2) two numbers settle the item. That is a fair SAT strategy, but for a medium-hard item the key carries no difficulty beyond b^x · b^(-x) = 1. Suggest asking a non-identity quantity (e.g. given f(3)·g(3) or f(k)/g(k), find something), or use distractors that also hold at x = 0 and x = 1.",
+  "LB11": "Mild cue: at x = 1 (the only one of 0, 1, 2 in the domain) A, B and D all equal -2, but one more value (x = 3: original -2/3; A -2/3, B -2, C 2/3, D 2/3) separates the key from all three distractors. Two test values are enough. That is normal for an equivalent-expression item; listed for awareness only.",
+  "LB06": "Calculator cue: the expression is purely numeric, so evaluating (sqrt 3 + sqrt 12)^2 on the allowed calculator gives 27 directly and no radical simplification is needed. For a medium item that tests radical rules this removes the skill. Consider a symbolic version (e.g. (sqrt(3k) + sqrt(12k))^2 for k > 0, key 27k) or keep it as an easy item.",
+  "LB02": "The explanation says 'second difference -20 gives a = -5'; the second difference of 51, 61, 61 is -10 (2a = -10). The key 62.25 is right; fix the explanation text.",
+  "LB04": "Do not place in the same set as CLD-SAT-M-000578; the combined-exponent step 2^(t/4) · 2^(-t/12) is the same skill.",
+  "LD07": "Choice set and numbers (48, x1.5 scale, 72/96/108/162) match CLD-SAT-M-000134 exactly; see results."
+ },
+ "math_errors": {
+  "LB02": "Explanation only: the second difference is -10, not -20 (h = 51, 61, 61 gives first differences +10, 0). The key 62.25 checks: h(t) = -5t^2 + 35t + 1 gives h(2) = 51, h(3) = 61, h(4) = 61 and h(3.5) = 62.25."
+ },
+ "recommend_drop": [
+  "LD07"
+ ],
+ "key_checks": "Recomputed every key: LB01 8, LB02 62.25, LB03 50,000, LB04 doubles every 6 h, LB05 x - 2, LB06 27, LB07 f(0) > f(3), LB08 50, LB09 3, LB10 product = a^2, LB11 -2/x, LB12 5, LB13 k = -0.2 (valid range -1/4 < k <= 0), LB14 12, LB15 {-1, 0}, LB16 3, LB17 -2, LB18 30, LD01 80, LD02 75, LD03 7, LD04 32, LD05 47, LD06 7, LD07 108, LD08 17, LD09 54, LD10 17, LD11 0.53, LD12 26/3. All distractor values also verified as described. No wrong keys."
+}

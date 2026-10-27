@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T16:27:26+00:00",
+  "updated_at": "2026-10-27T16:55:40+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -20,7 +20,7 @@
     "act_math": 774,
     "act_english": 387,
     "act_reading": 385,
-    "sat_reading_writing": 389,
+    "sat_reading_writing": 393,
     "sat_math": 646
   },
   "review_totals": {
@@ -46,10 +46,10 @@
       "passed_after_revision": 25
     },
     "sat_reading_writing": {
-      "PASS": 416,
-      "REVISE": 25,
+      "PASS": 420,
+      "REVISE": 31,
       "REJECT": 3,
-      "candidates": 444,
+      "candidates": 454,
       "passed_after_revision": 34
     },
     "sat_math": {
@@ -1436,13 +1436,13 @@
       "passages": 49
     },
     "sat_reading_writing": {
-      "accepted": 389,
+      "accepted": 393,
       "retired_after_audit": 27,
       "by_skill": {
         "Craft and Structure": 116,
-        "Expression of Ideas": 83,
-        "Information and Ideas": 110,
-        "Standard English Conventions": 80
+        "Expression of Ideas": 84,
+        "Information and Ideas": 111,
+        "Standard English Conventions": 82
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -1468,7 +1468,7 @@
         "Command of evidence: quantitative (weaken)": 1,
         "Command of evidence: textual (quotation)": 5,
         "Command of evidence: textual (support a hypothesis)": 1,
-        "Command of evidence: textual (supporting a claim)": 3,
+        "Command of evidence: textual (supporting a claim)": 4,
         "Command of evidence: textual (supporting a hypothesis)": 6,
         "Command of evidence: textual (weaken a hypothesis)": 1,
         "Command of evidence: textual (weaken)": 1,
@@ -1482,7 +1482,7 @@
         "Cross-text connections (evaluating evidence)": 1,
         "Determiners and plural possessives": 1,
         "End punctuation (direct question)": 1,
-        "Finite verb after a long subject": 1,
+        "Finite verb after a long subject": 2,
         "Finite verb after an introductory modifier": 1,
         "Finite verb in a main clause": 1,
         "Function of a quotation": 1,
@@ -1504,7 +1504,7 @@
         "No comma between a subject and its verb": 1,
         "No punctuation between a verb and its that-clause": 1,
         "Overall text structure": 6,
-        "Paired dashes": 3,
+        "Paired dashes": 4,
         "Parallel structure in a series": 1,
         "Parallel structure in a series of verbs": 1,
         "Participial phrase as a modifier": 1,
@@ -1547,7 +1547,7 @@
         "Rhetorical synthesis (introducing a subject)": 3,
         "Rhetorical synthesis (making a generalization)": 1,
         "Rhetorical synthesis (making a recommendation)": 1,
-        "Rhetorical synthesis (method and limitation)": 1,
+        "Rhetorical synthesis (method and limitation)": 2,
         "Rhetorical synthesis (presenting a conclusion)": 1,
         "Rhetorical synthesis (presenting a finding)": 1,
         "Rhetorical synthesis (significance for a new audience)": 1,
@@ -1612,29 +1612,29 @@
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 132,
+        "easy": 135,
         "hard": 31,
-        "medium": 226
+        "medium": 227
       },
       "by_difficulty_calibrated": {
-        "easy": 224,
+        "easy": 227,
         "hard": 8,
-        "medium": 157
+        "medium": 158
       },
       "calibrated_share": {
-        "easy": 0.576,
-        "hard": 0.021,
-        "medium": 0.404
+        "easy": 0.578,
+        "hard": 0.02,
+        "medium": 0.402
       },
       "answer_key_balance": {
-        "A": 97,
-        "B": 96,
-        "C": 97,
-        "D": 99
+        "A": 98,
+        "B": 97,
+        "C": 98,
+        "D": 100
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 416
+      "passages": 420
     },
     "sat_math": {
       "accepted": 646,
@@ -2437,7 +2437,7 @@
     "act_math": 80,
     "act_english": 44,
     "act_reading": 49,
-    "sat_reading_writing": 46,
+    "sat_reading_writing": 47,
     "sat_math": 63
   },
   "next_batch_guidance": {
@@ -2494,21 +2494,21 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 47,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": -4.3,
-        "Information and Ideas": -6.3,
-        "Standard English Conventions": 23.7,
-        "Expression of Ideas": -3.2
-      }
-    },
     "act_english": {
       "next_batch": 45,
       "skill_gap_for_next_10": {
         "Production of Writing": 44.8,
         "Knowledge of Language": 15.4,
         "Conventions of Standard English": -44.2
+      }
+    },
+    "sat_reading_writing": {
+      "next_batch": 48,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": -3.2,
+        "Information and Ideas": -6.2,
+        "Standard English Conventions": 22.8,
+        "Expression of Ideas": -3.4
       }
     },
     "act_reading": {
@@ -2538,8 +2538,8 @@
     },
     "sat_reading_writing": {
       "target": 694,
-      "accepted": 389,
-      "share_of_target": 0.561
+      "accepted": 393,
+      "share_of_target": 0.566
     },
     "sat_math": {
       "target": 1000,
@@ -2548,9 +2548,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2581,
+  "total_accepted": 2585,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "sat_reading_writing",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -306081,7 +306081,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 46,
+      "bank_version": 47,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -306214,7 +306214,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T16:27:25+00:00",
+    "heartbeat_at": "2026-10-27T16:55:39+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

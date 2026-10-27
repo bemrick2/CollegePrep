@@ -1,0 +1,310 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 47,
+  "reviewed_at": "2026-10-27T16:51:47+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 47
+  },
+  "counts": {
+    "PASS": 4,
+    "REVISE": 6,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000417",
+    "CLD-SAT-RW-000418",
+    "CLD-SAT-RW-000419",
+    "CLD-SAT-RW-000420"
+  ],
+  "results": [
+    {
+      "cand": "S047-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "'hardly ______' with an un- word creates a double negative; tests careful reading but is legitimate. All four options share the un- prefix, so there is no length or form cue."
+        }
+      ],
+      "blind_notes": "After the colon the passage says she admired one thing but mostly found fault, so her praise was held back: 'hardly unreserved'. A: nothing in the passage says she lacked knowledge. B: whether anyone asked for the review is irrelevant. D: the passage says nothing about originality. Inserted sentence: 'The critic's verdict on the new film was hardly unreserved: although...' reads cleanly.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "'Hardly unreserved' is understatement for a review that is mostly negative; the double negative plus four 'un-' options makes it a decoding task. Reads fine, but 'hardly unreserved' fits a mostly positive review with some reservations better than a mostly negative one."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"'hardly ______' with an un- word creates a double negative; tests careful reading but is legitimate. All four options share the un- prefix, so there is no length or form cue.\"}; {'severity': 'nonblocking', 'note': \"'Hardly unreserved' is understatement for a review that is mostly negative; the double negative plus four 'un-' options makes it a decoding task. Reads fine, but 'hardly unreserved' fits a mostly positive review with some reservations better than a mostly negative one.\"}"
+    },
+    {
+      "cand": "S047-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "'just as low' has no stated baseline because there is no pot without marigolds. The comparison between sterilized and unsterilized pots still supports A on its own."
+        }
+      ],
+      "blind_notes": "Sterilizing the soil killed the fungi, yet the nematode reduction stayed the same, so the effect does not depend on fungi. B: the study did not compare fungi near marigolds with fungi near tomatoes. C: the study gives no information on harm to tomatoes. D: every pot had a marigold, so this cannot be inferred.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "The design has no marigold-free control, so it isolates fungi only. A is limited to 'does not depend on soil fungi', which is properly hedged."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"'just as low' has no stated baseline because there is no pot without marigolds. The comparison between sterilized and unsterilized pots still supports A on its own.\"}; {'severity': 'nonblocking', 'note': \"The design has no marigold-free control, so it isolates fungi only. A is limited to 'does not depend on soil fungi', which is properly hedged.\"}"
+    },
+    {
+      "cand": "S047-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "The key is the only option that computes differences, and it is slightly the longest. The cue is mild. Its arithmetic is correct: 14-6=8 and 9-5=4."
+        }
+      ],
+      "blind_notes": "The conclusion is that the app helped the below-grade group more, which needs a comparison of the advantage over nonusers in both groups. A: uses raw gains, which can't separate the app's effect from the group's baseline. B: covers only the at-grade group. C: shows the app helped both groups but not that it helped one group more.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'The key is the only option that computes differences, and it is slightly the longest. The cue is mild. Its arithmetic is correct: 14-6=8 and 9-5=4.'}"
+    },
+    {
+      "cand": "S047-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": null,
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Vint held television viewing roughly constant and still found differences in dialect use, so television is unlikely to be the cause. A: contradicts her 'not broadcast speech' claim. C: she never questions that the change happened. D: no text suggests television preserves dialect.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "S047-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Distractor A is noticeably the longest option, which works against the key rather than pointing to it. No other defects."
+        }
+      ],
+      "blind_notes": "Putting the slip in the drawer of letters she 'did not intend to answer' implies she won't follow through on her promise. A: nothing in the text mentions finances or suppliers. B: she wrote the title down and studied it, so she has not forgotten it. D: the drawer suggests the opposite of writing to him.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Inference rests on the analogy to 'letters she did not intend to answer'; one might also read pride or a suspicion that the book does not exist, but C remains the only supportable option."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Distractor A is noticeably the longest option, which works against the key rather than pointing to it. No other defects.'}; {'severity': 'nonblocking', 'note': \"Inference rests on the analogy to 'letters she did not intend to answer'; one might also read pride or a suspicion that the book does not exist, but C remains the only supportable option.\"}"
+    },
+    {
+      "cand": "S047-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Rail towns adopted standard time years before towns without rail service, which links the switch to railroads. A: shows railroads kept schedules, not that they ended sun time. C: points to a different factor. D: population growth is irrelevant to timekeeping. The historical premise, railroad standard time in 1883, is accurate.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000417"
+    },
+    {
+      "cand": "S047-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "The appositive opens with a dash, so it must close with one: '...a baker, and a local historian—never expected it...'. A: comma closes a dash-opened appositive (mismatched). B: semicolon leaves 'The festival's founders—...historian' as a fragment. C: leaves the appositive unclosed, so 'a local historian never expected' wrongly reads as its own clause. The meaning ('never expected... yet attracted 20,000') is logical.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000418"
+    },
+    {
+      "cand": "S047-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "The subject 'notebooks' needs a finite plural verb, so 'contain' is correct. B, C and D (containing / which contain / having contained) each leave the sentence without a main verb, so the result is a fragment. The long interrupter between subject and verb is the intended difficulty.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000419"
+    },
+    {
+      "cand": "S047-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "'wrongly as it turned out' may lure some takers to 'Nevertheless'. The logic still clearly supports cause and effect. The history is accurate: Newton's 1668 reflector came from his belief that chromatic aberration couldn't be corrected, and achromatic lenses came later."
+        }
+      ],
+      "blind_notes": "Believing lenses couldn't be fixed, he built a mirror telescope, so the second step follows from the first: 'Accordingly'. B: the step is not a contrast with his conclusion. C: the sentence is not an example. D: no contrast is set up.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"'wrongly as it turned out' may lure some takers to 'Nevertheless'. The logic still clearly supports cause and effect. The history is accurate: Newton's 1668 reflector came from his belief that chromatic aberration couldn't be corrected, and achromatic lenses came later.\"}"
+    },
+    {
+      "cand": "S047-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "C is the only choice that gives the finding (4 vs 11) and also names a limitation (sulfur dioxide unmeasured, so other factors are possible). A: overclaims a cause and names no limitation. B: gives neither the finding nor a limitation. D: gives the limitation but not the finding.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000420"
+    }
+  ]
+}
