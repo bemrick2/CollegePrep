@@ -1,0 +1,321 @@
+{
+ "bank": "sat_math",
+ "batch": 28,
+ "plan": "SAT Math batch 28 (7 items): Algebra 3, Advanced Math 2, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 1; 2 student-produced responses. Ideas pre-checked (reviews/sat_math/ideas-028.repeats.json): one template (ACT 647) dropped.",
+ "candidates": [
+  {
+   "cand": "Q028-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear equation with fractional coefficients",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "What value of x satisfies the equation (3/4)x − 2 = (1/2)x + 3 ?",
+   "explanation": "Subtracting (1/2)x from both sides gives (1/4)x − 2 = 3, so (1/4)x = 5 and x = 20. Check: 15 − 2 = 13 and 10 + 3 = 13.",
+   "hints": [
+    "Collect the x-terms on one side."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply every term by 4 to clear the fractions."
+   },
+   "remember": "Clear fractions by multiplying every term by a common denominator.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "20",
+   "accepted_answers": [
+    "20"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is the value of (1/4)x, not x.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "4",
+     "rationale": "4 subtracts 3 − 2 instead of adding 3 + 2, giving (1/4)x = 1.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q028-02",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Unit cost from two rates",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A car travels 32 miles per gallon of gasoline, and gasoline costs $3.52 per gallon. What is the cost of gasoline, in cents, for each mile the car travels?",
+   "explanation": "Cost per mile = (dollars per gallon) ÷ (miles per gallon) = 3.52 ÷ 32 = $0.11 per mile, which is 11 cents.",
+   "hints": [
+    "Which units cancel to leave dollars per mile?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide dollars per gallon by miles per gallon."
+   },
+   "remember": "Track units: ($/gal) ÷ (mi/gal) = $/mi.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.11",
+    "B": "9.09",
+    "C": "11",
+    "D": "112.64"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "0.11 is the cost in dollars, not cents.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "9.09 divides 32 by 3.52, giving miles per dollar.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "112.64 multiplies the two rates.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q028-03",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Tangent of a ramp angle from rise and run",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A ramp rises 3 feet over a horizontal distance of 20 feet. What is the tangent of the angle the ramp makes with the level ground?",
+   "explanation": "The rise is opposite the angle and the horizontal run is adjacent to it, so the tangent is 3/20 = 0.15.",
+   "hints": [
+    "Which side is opposite the angle, and which is adjacent?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the right triangle formed by the ramp."
+   },
+   "remember": "tan = opposite / adjacent = rise / run.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.148",
+    "B": "0.15",
+    "C": "0.989",
+    "D": "6.67"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "0.148 is the sine: 3 divided by the ramp's length, √409 ≈ 20.2.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "0.989 is the cosine of the angle.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "6.67 inverts the ratio: run over rise.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q028-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Greatest whole number under a budget with equal quantities",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Kia has $50 to spend. She buys the same number of movie tickets, at $8 each, and snacks, at $3 each. What is the greatest number of movie tickets she can buy?",
+   "explanation": "Each ticket-and-snack pair costs 8 + 3 = $11. If she buys n of each, 11n ≤ 50, so n ≤ 4.5. The greatest whole number is 4.",
+   "hints": [
+    "What does one ticket plus one snack cost?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 8n + 3n ≤ 50 for the greatest whole n."
+   },
+   "remember": "Round down when you cannot exceed a budget.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "6",
+    "D": "16"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "5 rounds 4.5 up; 5 pairs would cost $55.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "6 ignores the snacks: 50 ÷ 8, rounded down.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "16 divides 50 by the snack price.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q028-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Equation of a proportional line from its slope",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "Which of the following is an equation of the line in the xy-plane that passes through the origin and has a slope of −3 ?",
+   "explanation": "A line through the origin has y-intercept 0, so it has the form y = mx. With slope −3, the equation is y = −3x.",
+   "hints": [
+    "What is the y-intercept of a line through the origin?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check which equation gives y = 0 at x = 0 and has slope −3."
+   },
+   "remember": "Through the origin: y = mx.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "y = −3",
+    "B": "y = x − 3",
+    "C": "y = −3x",
+    "D": "y = −3x + 3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "y = −3 is a horizontal line with slope 0.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This has slope 1 and y-intercept −3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This has the right slope but passes through (0, 3), not the origin.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q028-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Real cube root of a negative number",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "If x³ = −64, what is the value of x ?",
+   "explanation": "(−4)³ = −64, and a cube has exactly one real root, so x = −4. Unlike square roots, cube roots of negative numbers are real.",
+   "hints": [
+    "What number cubed gives −64?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Cube each choice."
+   },
+   "remember": "Odd powers keep the sign; x³ = −64 has one real solution.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−8",
+    "B": "−4",
+    "C": "4",
+    "D": "±4"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−8 is the square root of 64 with a negative sign.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4³ = 64, not −64.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "±4 treats the equation like x² = 16; (4)³ is positive.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q028-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Sum of the solutions of an absolute value equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What is the sum of all solutions to the equation |2x − 3| = 7 ?",
+   "explanation": "|2x − 3| = 7 means 2x − 3 = 7 or 2x − 3 = −7. The first gives x = 5 and the second gives x = −2. Both check, and their sum is 3.",
+   "hints": [
+    "An absolute value equation has two cases."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 2x − 3 = 7 and 2x − 3 = −7."
+   },
+   "remember": "|A| = k (k > 0) means A = k or A = −k.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is only the solution from 2x − 3 = 7.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "-2",
+     "rationale": "−2 is only the solution from 2x − 3 = −7.",
+     "trap": "partial_answer"
+    }
+   ]
+  }
+ ]
+}
