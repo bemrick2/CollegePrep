@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 22,
-  "updated_at": "2026-10-27T02:56:23+00:00",
+  "version": 23,
+  "updated_at": "2026-10-27T03:00:19+00:00",
   "passages": [],
   "questions": [
     {
@@ -14818,6 +14818,580 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-022.review.json",
         "computation": "checks/sat_math/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000207",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Writing one equation for three related lengths",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A carpenter cuts a 20-foot board into three pieces. The second piece is twice as long as the first, and the third piece is 2 feet longer than the first. What is the length, in feet, of the longest piece?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "4.5",
+          "rationale": "4.5 is the length of the first piece.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "6.5",
+          "rationale": "6.5 is the length of the third piece.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If the first piece is x feet, the pieces are x, 2x and x + 2. Then x + 2x + x + 2 = 20, so 4x = 18 and x = 4.5. The pieces are 4.5, 9 and 6.5 feet, so the longest is 9 feet.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write every piece in terms of the first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 4x + 2 = 20, then find each length."
+      },
+      "remember": "Answer the question asked: the longest piece, not x.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-01",
+      "created_at": "2026-10-27T03:00:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "9",
+        "blind_answer": "9",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000208",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "System of equations for time at two speeds",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Hana runs at 6 miles per hour and walks at 3 miles per hour. On one outing she covers 15 miles in a total of 3.5 hours. How many hours does she spend running?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1.5",
+        "B": "2",
+        "C": "2.5",
+        "D": "5"
+      },
+      "correct_answer": "A",
+      "explanation": "Let r be hours running and w hours walking. Then r + w = 3.5 and 6r + 3w = 15. Substituting w = 3.5 − r gives 6r + 10.5 − 3r = 15, so 3r = 4.5 and r = 1.5 hours (and she walks 2 hours).",
+      "distractor_explanations": {
+        "B": "2 is the time spent walking.",
+        "C": "2.5 divides 15 by 6, as if she ran the whole way.",
+        "D": "5 divides 15 by 3, as if she walked the whole way."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write one equation for time and one for distance."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 1.5 hours: 9 miles running plus 2 hours × 3 = 6 miles walking."
+      },
+      "remember": "Distance = rate × time for each part.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-02",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: D (5) exceeds the 3.5-hour total, so it can be eliminated without solving"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000209",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constant in a factored quadratic from a point",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of y = (x − 2)(x + k), where k is a constant, passes through the point (4, 12). What is the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−2",
+        "B": "2",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "Substituting x = 4 and y = 12 gives 12 = (4 − 2)(4 + k) = 2(4 + k), so 4 + k = 6 and k = 2.",
+      "distractor_explanations": {
+        "A": "−2 solves 2(4 − k) = 12, using the wrong sign for k.",
+        "C": "4 is the x-coordinate of the given point.",
+        "D": "6 is the value of 4 + k, not k."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Substitute the point into the equation."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 2(4 + k) = 12."
+      },
+      "remember": "A point on a graph satisfies its equation.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-03",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000210",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Using a quadratic condition with a linear equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x² − 9 = 0, x + y = 5 and x < 0, what is the value of y ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−3",
+        "B": "2",
+        "C": "5",
+        "D": "8"
+      },
+      "correct_answer": "D",
+      "explanation": "x² − 9 = 0 gives x = 3 or x = −3. Since x < 0, x = −3, and then y = 5 − (−3) = 8.",
+      "distractor_explanations": {
+        "A": "−3 is the value of x, not y.",
+        "B": "2 uses the positive solution x = 3.",
+        "C": "5 assumes x = 0."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Solve x² − 9 = 0 and apply the condition x < 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find x, then substitute into x + y = 5."
+      },
+      "remember": "Use every condition given.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-04",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000211",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating an exponential function at a fractional input",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function h is defined by h(x) = 4ˣ. What is the value of h(1.5) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "6",
+        "C": "8",
+        "D": "16"
+      },
+      "correct_answer": "C",
+      "explanation": "Write 1.5 as 3/2. Then h(1.5) = 4^(3/2) = (√4)³ = 2³ = 8. Equivalently, 4^1.5 = 4¹ × 4^0.5 = 4 × 2 = 8.",
+      "distractor_explanations": {
+        "A": "2 is 4^(1/2), not 4^(3/2).",
+        "B": "6 multiplies 4 by 1.5 instead of raising 4 to the power 1.5.",
+        "D": "16 is 4², not 4^1.5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write 1.5 as 3/2."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "4^1.5 = 4 × 4^0.5 = 4 × 2."
+      },
+      "remember": "x^(m/n) = (ⁿ√x)ᵐ.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-05",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000212",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Width of a rectangle from a quadratic area",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle has an area of x² + 7x + 12 square units and a length of x + 4 units, where x > 0. Which expression represents the width of the rectangle, in units?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x − 3",
+        "B": "x + 3",
+        "C": "x + 8",
+        "D": "7x + 12"
+      },
+      "correct_answer": "B",
+      "explanation": "x² + 7x + 12 = (x + 3)(x + 4). Since area = length × width and the length is x + 4, the width is x + 3.",
+      "distractor_explanations": {
+        "A": "x − 3 has the wrong sign; (x − 3)(x + 4) = x² + x − 12.",
+        "C": "x + 8 adds 4 to 4 instead of factoring.",
+        "D": "7x + 12 subtracts x² from the area instead of dividing by the length."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Factor the area expression."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: area 20 and length 5, so width 4 = 1 + 3."
+      },
+      "remember": "Width = area ÷ length.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-06",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000213",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Square with the same perimeter as an equilateral triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An equilateral triangle has sides of length 8 centimeters. A square has the same perimeter as the triangle. What is the area of the square, in square centimeters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the side length of the square, not its area.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "64",
+          "rationale": "64 uses 8 as the side of the square.",
+          "trap": null
+        }
+      ],
+      "explanation": "The triangle's perimeter is 3 × 8 = 24 centimeters. A square with perimeter 24 has sides of 24 ÷ 4 = 6 centimeters, so its area is 6² = 36 square centimeters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find the shared perimeter first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Perimeter → side of the square → area."
+      },
+      "remember": "Equal perimeters do not mean equal side lengths.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-07",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "36",
+        "blind_answer": "36",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000214",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area of a triangle formed by two radii and a chord",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a circle with center O and radius 5, chord AB has length 8. What is the area of triangle AOB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "10",
+        "B": "12",
+        "C": "20",
+        "D": "24"
+      },
+      "correct_answer": "B",
+      "explanation": "The perpendicular from O to AB bisects the chord, forming right triangles with hypotenuse 5 and leg 4, so the distance from O to AB is √(5² − 4²) = 3. The area of triangle AOB is (1/2)(8)(3) = 12.",
+      "distractor_explanations": {
+        "A": "10 multiplies the radius by 4 and halves it, using the wrong height.",
+        "C": "20 uses the radius 5 as the height: (1/2)(8)(5).",
+        "D": "24 omits the factor 1/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Draw the perpendicular from O to the chord."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "The perpendicular splits AB into two segments of 4."
+      },
+      "remember": "A perpendicular from the center bisects a chord.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "Q023-08",
+      "created_at": "2026-10-27T03:00:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-023.review.json",
+        "computation": "checks/sat_math/batch_023.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,0 +1,206 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 23,
+  "reviewed_at": "2026-10-27T03:00:19+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 23
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000207",
+    "CLD-SAT-M-000208",
+    "CLD-SAT-M-000209",
+    "CLD-SAT-M-000210",
+    "CLD-SAT-M-000211",
+    "CLD-SAT-M-000212",
+    "CLD-SAT-M-000213",
+    "CLD-SAT-M-000214"
+  ],
+  "results": [
+    {
+      "cand": "Q023-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "9",
+      "computed_answer": "9",
+      "blind_answer": "9",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "x + 2x + (x+2) = 20 -> x = 4.5; pieces 4.5, 9, 6.5; longest is 9. Trap: entering x = 4.5 or 6.5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000207"
+    },
+    {
+      "cand": "Q023-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: D (5) exceeds the 3.5-hour total, so it can be eliminated without solving"
+      ],
+      "blind_notes": "6r + 3(3.5 - r) = 15 -> 3r = 4.5 -> r = 1.5. Walking time is 2 (B, the trap). Check: 9 + 6 = 15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000208"
+    },
+    {
+      "cand": "Q023-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "(4-2)(4+k) = 12 -> 4 + k = 6 -> k = 2. A is the sign-error trap; D is 4+k.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000209"
+    },
+    {
+      "cand": "Q023-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "x = -3 (x<0), y = 5 - (-3) = 8. B uses x = 3, A is x itself.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000210"
+    },
+    {
+      "cand": "Q023-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "4^1.5 = (sqrt 4)^3 = 8; one calculator step. B (6) = 4*1.5 trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000211"
+    },
+    {
+      "cand": "Q023-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "x^2+7x+12 = (x+3)(x+4); width = x+3. A sign trap; C/D weak distractors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000212"
+    },
+    {
+      "cand": "Q023-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "36",
+      "computed_answer": "36",
+      "blind_answer": "36",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Perimeter 24 -> square side 6 -> area 36. Routine two-step; traps 24 or 16sqrt3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000213"
+    },
+    {
+      "cand": "Q023-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Perpendicular from O bisects AB: half-chord 4, hypotenuse 5 -> distance 3. Area = (1/2)(8)(3) = 12. D (24) forgets 1/2; C = (1/2)(8)(5) uses the radius as the height; A = (1/2)(4)(5).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000214"
+    }
+  ]
+}

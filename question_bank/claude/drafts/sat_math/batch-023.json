@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 23,
- "plan": "SAT Math batch 23 (8 items): Algebra 2, Advanced Math 4, Geometry and Trigonometry 2; 2 student-produced responses; 1 item labelled hard. Ideas pre-checked (reviews/sat_math/ideas-023.repeats.json): four templates (ACT 149, 556, 675; SAT 144) dropped; a triangle angle-sum idea skipped as close to SAT 076; a plain linear-system item was dropped at screening as too close to retired SAT 002.",
+ "plan": "SAT Math batch 23 (8 items): Algebra 2, Advanced Math 4, Geometry and Trigonometry 2; 2 student-produced responses; 1 item labelled hard. Ideas pre-checked (reviews/sat_math/ideas-023.repeats.json): four templates (ACT 149, 556, 675; SAT 144) dropped; a triangle angle-sum idea skipped as close to SAT 076; a plain linear-system item was dropped at screening as too close to retired SAT 002. Relabelled to the blind solver's rating where it was lower: Q023-03 medium→easy, Q023-04 medium→easy, Q023-06 medium→easy, Q023-08 hard→medium.",
  "candidates": [
   {
    "cand": "Q023-01",
@@ -97,7 +97,7 @@
    "skill": "Advanced Math",
    "subskill": "Constant in a factored quadratic from a point",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "In the xy-plane, the graph of y = (x − 2)(x + k), where k is a constant, passes through the point (4, 12). What is the value of k ?",
    "explanation": "Substituting x = 4 and y = 12 gives 12 = (4 − 2)(4 + k) = 2(4 + k), so 4 + k = 6 and k = 2.",
    "hints": [
@@ -143,7 +143,7 @@
    "skill": "Advanced Math",
    "subskill": "Using a quadratic condition with a linear equation",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "If x² − 9 = 0, x + y = 5 and x < 0, what is the value of y ?",
    "explanation": "x² − 9 = 0 gives x = 3 or x = −3. Since x < 0, x = −3, and then y = 5 − (−3) = 8.",
    "hints": [
@@ -235,7 +235,7 @@
    "skill": "Advanced Math",
    "subskill": "Width of a rectangle from a quadratic area",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A rectangle has an area of x² + 7x + 12 square units and a length of x + 4 units, where x > 0. Which expression represents the width of the rectangle, in units?",
    "explanation": "x² + 7x + 12 = (x + 3)(x + 4). Since area = length × width and the length is x + 4, the width is x + 3.",
    "hints": [
@@ -323,7 +323,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Area of a triangle formed by two radii and a chord",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In a circle with center O and radius 5, chord AB has length 8. What is the area of triangle AOB ?",
    "explanation": "The perpendicular from O to AB bisects the chord, forming right triangles with hypotenuse 5 and leg 4, so the distance from O to AB is √(5² − 4²) = 3. The area of triangle AOB is (1/2)(8)(3) = 12.",
    "hints": [
@@ -339,8 +339,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must construct the perpendicular from the center to find the height; using the radius as the height (20) is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "10",

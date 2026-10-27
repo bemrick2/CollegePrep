@@ -1,0 +1,11 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 23},
+ "answers": {
+  "Q023-01": {"answer": "9", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "x + 2x + (x+2) = 20 -> x = 4.5; pieces 4.5, 9, 6.5; longest is 9. Trap: entering x = 4.5 or 6.5."},
+  "Q023-02": {"answer": "A", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": ["minor: D (5) exceeds the 3.5-hour total, so it can be eliminated without solving"], "notes": "6r + 3(3.5 - r) = 15 -> 3r = 4.5 -> r = 1.5. Walking time is 2 (B, the trap). Check: 9 + 6 = 15."},
+  "Q023-03": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "(4-2)(4+k) = 12 -> 4 + k = 6 -> k = 2. A is the sign-error trap; D is 4+k."},
+  "Q023-04": {"answer": "D", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "x = -3 (x<0), y = 5 - (-3) = 8. B uses x = 3, A is x itself."},
+  "Q023-05": {"answer": "C", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "4^1.5 = (sqrt 4)^3 = 8; one calculator step. B (6) = 4*1.5 trap."},
+  "Q023-06": {"answer": "B", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy", "flags": [], "notes": "x^2+7x+12 = (x+3)(x+4); width = x+3. A sign trap; C/D weak distractors."},
+  "Q023-07": {"answer": "36", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "Perimeter 24 -> square side 6 -> area 36. Routine two-step; traps 24 or 16sqrt3."},
+  "Q023-08": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "Perpendicular from O bisects AB: half-chord 4, hypotenuse 5 -> distance 3. Area = (1/2)(8)(3) = 12. D (24) forgets 1/2; C = (1/2)(8)(5) uses the radius as the height; A = (1/2)(4)(5)."}
+ }}
