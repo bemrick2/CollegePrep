@@ -1011,6 +1011,27 @@
    "audit": "reviews/sat_reading_writing/audit-300-concept-repeats.json",
    "date": "2026-10-27",
    "kind": "audit-template"
+  },
+  "CLD-SAT-M-000027": {
+   "duplicate_of": "CLD-ACT-M-000030",
+   "shared_idea": "solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying | solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying -- Both are linear proportions solved identically: cross-multiply (4(x-5)=2(x-2) vs 5(x-4)=3(x+2)), distribute, solve linear equation. Only numbers differ; the variable-in-denominator in A adds only a trivial domain check (x≠2,5) that never comes into play.",
+   "audit": "combined/audits/dup-adjudication-satmath.json",
+   "date": "2026-10-27",
+   "kind": "audit-copy"
+  },
+  "CLD-SAT-M-000200": {
+   "duplicate_of": "CLD-ACT-M-000182",
+   "shared_idea": "find x-intercept of line through (0,-4) parallel to a standard-form line | find x-intercept of line through a point parallel to a standard-form line -- Same task and path: convert a standard-form line to slope form to get parallel slope, write line through given point, set y=0 for x-intercept. A's point happens to be the y-intercept, but the steps are the same; only numbers differ.",
+   "audit": "combined/audits/dup-adjudication-satmath.json",
+   "date": "2026-10-27",
+   "kind": "audit-copy"
+  },
+  "CLD-SAT-M-000005": {
+   "duplicate_of": "CLD-ACT-M-000660",
+   "shared_idea": "arc length s=rθ with angle in terms of π, report coefficient k | arc length s=rθ with a radian angle (decimal) -- Both apply s=rθ with radius and radian angle given (15·4π/5 vs 4·1.5). Single-formula substitution; difference in π-coefficient reporting is only answer format.",
+   "audit": "combined/audits/dup-adjudication-satmath.json",
+   "date": "2026-10-27",
+   "kind": "audit-copy"
   }
  }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T13:17:20+00:00",
+  "updated_at": "2026-10-27T13:18:04+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 349,
     "act_reading": 346,
     "sat_reading_writing": 358,
-    "sat_math": 518
+    "sat_math": 515
   },
   "review_totals": {
     "act_math": {
@@ -1581,12 +1581,12 @@
       "passages": 385
     },
     "sat_math": {
-      "accepted": 518,
-      "retired_after_audit": 27,
+      "accepted": 515,
+      "retired_after_audit": 30,
       "by_skill": {
-        "Advanced Math": 176,
-        "Algebra": 166,
-        "Geometry and Trigonometry": 92,
+        "Advanced Math": 175,
+        "Algebra": 165,
+        "Geometry and Trigonometry": 91,
         "Problem-Solving and Data Analysis": 84
       },
       "by_subskill": {
@@ -1605,7 +1605,6 @@
         "Applying a percent increase": 1,
         "Approximating a solution of an exponential-linear equation by graphing": 1,
         "Arc length from coordinates on a circle": 1,
-        "Arc length with a radian measure": 1,
         "Area of a circle as a function of its circumference": 1,
         "Area of a rectangle from two perimeter conditions": 1,
         "Area of a rhombus with a 60° angle from its shorter diagonal": 1,
@@ -1994,7 +1993,6 @@
         "Solving a linear inequality with a negative literal coefficient": 1,
         "Solving a literal linear equation for one variable": 1,
         "Solving a one-step distributed equation": 1,
-        "Solving a rational equation": 1,
         "Solving a shifted, translated function equation from a table": 1,
         "Solving a simple radical equation": 1,
         "Solving a square-root growth model": 1,
@@ -2104,7 +2102,6 @@
         "Zeros of a quadratic in vertex form": 1,
         "Zeros of a vertically shifted quadratic": 1,
         "x-intercept of a line from a point and a coefficient condition": 1,
-        "x-intercept of a parallel line through a point": 1,
         "y-intercept from a slope and a point": 1,
         "y-intercept from an x-intercept and another point": 1,
         "y-intercept of a quadratic in vertex form": 1
@@ -2112,15 +2109,15 @@
       "by_difficulty_author": {
         "easy": 82,
         "hard": 50,
-        "medium": 386
+        "medium": 383
       },
       "by_difficulty_calibrated": {
-        "easy": 133,
+        "easy": 132,
         "hard": 43,
-        "medium": 342
+        "medium": 340
       },
       "calibrated_share": {
-        "easy": 0.257,
+        "easy": 0.256,
         "hard": 0.083,
         "medium": 0.66
       },
@@ -2143,7 +2140,7 @@
         "110": 1,
         "114": 1,
         "115": 1,
-        "12": 7,
+        "12": 6,
         "12.5": 1,
         "12/25": 1,
         "1260": 1,
@@ -2203,7 +2200,7 @@
         "7": 6,
         "7.2": 2,
         "748": 1,
-        "8": 6,
+        "8": 5,
         "80": 2,
         "81": 1,
         "81/4": 1,
@@ -2215,10 +2212,10 @@
         "A": 75,
         "B": 109,
         "C": 90,
-        "D": 57
+        "D": 56
       },
       "modeling_items": 187,
-      "spr_items": 187,
+      "spr_items": 185,
       "passages": 0
     }
   },
@@ -2265,38 +2262,38 @@
     "skill_gap_for_next_10": {
       "Algebra": 18.8,
       "Advanced Math": 8.8,
-      "Problem-Solving and Data Analysis": -4.8,
-      "Geometry and Trigonometry": -12.8
+      "Problem-Solving and Data Analysis": -5.2,
+      "Geometry and Trigonometry": -12.2
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -1.0,
-      "medium": -78.0,
-      "hard": 89.0
+      "easy": -0.8,
+      "medium": -77.5,
+      "hard": 88.2
     },
     "answer_key_gap_for_next_10": {
-      "A": 24.0,
-      "B": -10.0,
-      "C": 9.0,
-      "D": 42.0
+      "A": 23.4,
+      "B": -10.6,
+      "C": 8.4,
+      "D": 42.4
     },
-    "spr_items": 187,
+    "spr_items": 185,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 46,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 48.9,
-        "Craft and Structure": -16.0,
-        "Integration of Knowledge and Ideas": -22.9
-      }
-    },
     "act_english": {
       "next_batch": 40,
       "skill_gap_for_next_10": {
         "Production of Writing": 40.4,
         "Knowledge of Language": 12.6,
         "Conventions of Standard English": -37.6
+      }
+    },
+    "act_reading": {
+      "next_batch": 46,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 48.9,
+        "Craft and Structure": -16.0,
+        "Integration of Knowledge and Ideas": -22.9
       }
     },
     "sat_reading_writing": {
@@ -2332,12 +2329,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 518,
-      "share_of_target": 0.518
+      "accepted": 515,
+      "share_of_target": 0.515
     }
   },
   "total_target": 3841,
-  "total_accepted": 2345,
+  "total_accepted": 2342,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -143205,7 +143202,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T13:17:20+00:00",
+    "heartbeat_at": "2026-10-27T13:18:03+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

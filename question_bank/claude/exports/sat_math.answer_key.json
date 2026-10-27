@@ -54,34 +54,6 @@
       }
     },
     {
-      "id": "CLD-SAT-M-000005",
-      "correct_answer": "12",
-      "accepted_answers": [
-        "12"
-      ],
-      "common_errors": [
-        {
-          "value": "6",
-          "rationale": "6 halves the arc length, as if the angle were 2π/5.",
-          "trap": null
-        },
-        {
-          "value": "24",
-          "rationale": "24 uses the diameter, 30, instead of the radius.",
-          "trap": "wrong_quantity"
-        }
-      ],
-      "explanation": "Arc length = radius × angle in radians = 15 × 4π/5 = 12π, so k = 12.",
-      "distractor_explanations": {},
-      "hints": [
-        "How is arc length related to a radian angle?"
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "Multiply the radius by the angle in radians."
-      }
-    },
-    {
       "id": "CLD-SAT-M-000006",
       "correct_answer": "C",
       "explanation": "Substituting x = 2 makes the factor x − 2 equal to 0, so p(2) = 0 · q(2) + 5 = 5. Nothing is known about p(5), p(−2) or q(2).",
@@ -502,34 +474,6 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Compare P(0), P(1) and P(2)."
-      }
-    },
-    {
-      "id": "CLD-SAT-M-000027",
-      "correct_answer": "8",
-      "accepted_answers": [
-        "8"
-      ],
-      "common_errors": [
-        {
-          "value": "1",
-          "rationale": "1 cross-multiplies as 4(x − 2) = 2(x − 5).",
-          "trap": null
-        },
-        {
-          "value": "−8",
-          "rationale": "−8 makes a sign error when collecting terms.",
-          "trap": "sign_error"
-        }
-      ],
-      "explanation": "Cross-multiply: 4(x − 5) = 2(x − 2), so 4x − 20 = 2x − 4, 2x = 16 and x = 8. Neither denominator is 0 at x = 8.",
-      "distractor_explanations": {},
-      "hints": [
-        "Cross-multiply to clear the fractions."
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "Cross-multiply, then check the denominators."
       }
     },
     {
@@ -3750,23 +3694,6 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Use a common denominator of 12."
-      }
-    },
-    {
-      "id": "CLD-SAT-M-000200",
-      "correct_answer": "D",
-      "explanation": "Rewriting 3x − 6y = 7 as y = (1/2)x − 7/6 shows a slope of 1/2. Line ℓ has the same slope and y-intercept −4, so y = (1/2)x − 4. Setting y = 0 gives (1/2)x = 4, so x = 8.",
-      "distractor_explanations": {
-        "A": "−8 makes a sign error when solving (1/2)x − 4 = 0.",
-        "B": "−2 uses the perpendicular slope −2.",
-        "C": "2 uses the slope 2, inverting 1/2."
-      },
-      "hints": [
-        "Find the slope of 3x − 6y = 7."
-      ],
-      "strategy": {
-        "key": "translate_to_algebra",
-        "explanation": "Write ℓ in slope-intercept form, then set y = 0."
       }
     },
     {
