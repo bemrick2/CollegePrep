@@ -1,14 +1,14 @@
 {
  "bank": "act_english",
  "batch": 37,
- "plan": "Informative essay (CLD-P-ACT-E-000037) on Nellie Bly's 1889-90 trip around the world. Topic checked against 36 ACT English passages; every grammar choice set checked against the live bank with chsearch.py (no matches). Skills new to the bank: lead/led, 'off of', 'a number of' agreement, pronoun case after 'between', where/were, past participle 'beaten'; plus goal detail, setup sentence, emphasizing detail (NO CHANGE), conclusion linking to the opening. No transition item.",
+ "plan": "Informative essay (CLD-P-ACT-E-000037) on Nellie Bly's 1889-90 trip around the world. Topic checked against 36 ACT English passages; every grammar choice set checked against the live bank with chsearch.py (no matches). Skills new to the bank: lead/led, 'off of', 'a number of' agreement, pronoun case after 'between', where/were, past participle 'beaten'; plus goal detail, setup sentence, emphasizing detail (NO CHANGE), conclusion linking to the opening. No transition item. Relabelled to the blind solvers' rating where it was lower: E037-02 medium→easy, E037-06 medium→easy, E037-09 medium→easy, E037-10 hard→easy.",
  "passages": [
   {
    "passage_id": "CLD-P-ACT-E-000037",
    "title": "Seventy-Two Days",
    "genre": "informative essay",
-   "word_count": 249,
-   "text": "In 1888, a young reporter for the New York World proposed a stunt: she would travel around the world faster than Phileas Fogg, the hero of Jules Verne's novel Around the World in Eighty Days. Her editors at first {{1|lead}} her to believe that a man would be sent instead, since a woman would supposedly need too much luggage. The reporter, who wrote under the name Nellie Bly, answered that if a man went, she would make the same trip for another newspaper and beat him.\n\nOn November 14, 1889, Bly boarded a steamship in New Jersey carrying a single small bag. {{2|}} She crossed the Atlantic to England and continued by train to Amiens, France. When she stepped {{3|off of}} the train there, Verne and his wife were waiting to meet her. Back in New York, the World ran a contest inviting readers to guess the exact length of her trip, and a number of rival newspapers {{4|was}} following her progress.\n\n{{5|Bly continued east across Asia.}} On the day she left, a magazine called Cosmopolitan had sent its own reporter, Elizabeth Bisland, around the world in the opposite direction. The race between Bisland and {{6|she}} drew wide attention, yet for most of the trip neither of the women knew exactly {{7|were}} the other was.\n\nBly arrived back in New Jersey on January 25, 1890, seventy-two days after she had left. She had {{8|beat}} Fogg's fictional record by eight days, and {{9|thousands of people jammed the station to cheer her}}. {{10|}}"
+   "word_count": 251,
+   "text": "In 1888, a young reporter for the New York World proposed a stunt: she would travel around the world faster than Phileas Fogg, the hero of Jules Verne's novel Around the World in Eighty Days. Her editors at first {{1|lead}} her to believe that a man would be sent instead, since a woman would supposedly need too much luggage. The reporter, who wrote under the name Nellie Bly, answered that if a man went, she would make the same trip for another newspaper and beat him.\n\nOn November 14, 1889, Bly boarded a steamship in New Jersey carrying a single small bag. {{2|}} She crossed the Atlantic to England and continued by train and boat to Amiens, France. When she stepped {{3|off of}} the train there, Verne and his wife were waiting to meet her. Back in New York, the World ran a contest inviting readers to guess the exact length of her trip, and a number of rival newspapers {{4|was}} following her progress.\n\n{{5|Bly continued east across Asia.}} On the day she left, a magazine called Cosmopolitan had sent its own reporter, Elizabeth Bisland, around the world in the opposite direction. The race between Bisland and {{6|she}} drew wide attention, yet for most of the trip neither of the women knew exactly {{7|were}} the other was.\n\nBly arrived back in New Jersey on January 25, 1890, seventy-two days after she had left. She had {{8|beat}} Fogg's fictional record by eight days, and {{9|thousands of people jammed the station to cheer her}}. {{10|}}"
   }
  ],
  "candidates": [
@@ -69,7 +69,7 @@
    "skill": "Production of Writing",
    "subskill": "Choosing a detail to fulfill a goal",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The writer wants to add a sentence that emphasizes how lightly Bly packed. Which choice best accomplishes this goal?",
    "choices": {
     "A": "The steamship she boarded was one of the fastest passenger ships crossing the Atlantic at the time.",
@@ -265,7 +265,7 @@
    "skill": "Conventions of Standard English",
    "subskill": "Pronoun case after a preposition",
    "repo_skill_key": "act_usage",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -412,7 +412,7 @@
    "skill": "Production of Writing",
    "subskill": "Precise detail (emphasizing size)",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice most effectively emphasizes the size of the crowd that greeted Bly?",
    "choices": {
     "A": "NO CHANGE",
@@ -461,7 +461,7 @@
    "skill": "Production of Writing",
    "subskill": "Conclusion connecting to the opening",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "The writer wants to conclude the essay by connecting Bly's success to her editors' doubts described in the first paragraph. Which choice best accomplishes this goal?",
    "choices": {
     "A": "She had circled the globe with one small bag, answering her editors' worry that a woman would need too much luggage.",
@@ -501,6 +501,12 @@
     "single_correct": true,
     "choice_lengths": "balanced"
    }
+  }
+ ],
+ "revision_log": [
+  {
+   "round": "1a",
+   "reason": "Both round-1 blind solves matched all keys with no blocking flags; one noted 'by train to Amiens' skipped the Channel crossing. Changed to 'by train and boat' (untested sentence; no item text or keys affected); not re-solved."
   }
  ]
 }

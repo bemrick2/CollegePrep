@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 36,
-  "updated_at": "2026-10-27T09:56:02+00:00",
+  "version": 37,
+  "updated_at": "2026-10-27T10:04:41+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -399,6 +399,17 @@
       "word_count": 222,
       "text": "Before electric refrigerators, ice in summer was a luxury in most of the world. In 1806, a young Boston merchant named Frederic Tudor set out to sell it in the tropics. He loaded a ship with about 130 tons of ice cut from New England ponds and sent it to the Caribbean island of Martinique. Much of the cargo melted before it could be sold, and {{1|much}} people in Boston laughed at the scheme.\n\nTudor's {{2|principle}} problem was keeping the ice frozen. On a long voyage, even thick blocks slowly {{3|evaporated}} in the ship's hold. After years of experiments, he found that packing the blocks in {{4|a certain material}} slowed melting dramatically. Within a few decades, ships carried ice to cities as far away as Calcutta, India{{5|, cut from New England ponds}}.\n\n{{6|Ponds are common throughout New England.}} Each winter, crews marked the frozen ponds into grids, sawed out heavy blocks, and floated them to icehouses on shore. The workers {{7|theirselves}} were often farmers who needed wages during the months when their fields lay idle.\n\nBy the 1850s, ice had become an ordinary part of life in American cities. Tudor, once mocked, became known as the {{8|\"Ice King,\" and}} his company shipped ice around the world. By the early 1900s, however, mechanical ice-making and cheaper electricity {{9|was}} steadily ending the natural-ice trade. {{10|}}",
       "batch": 36,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000037",
+      "title": "Seventy-Two Days",
+      "genre": "informative essay",
+      "word_count": 251,
+      "text": "In 1888, a young reporter for the New York World proposed a stunt: she would travel around the world faster than Phileas Fogg, the hero of Jules Verne's novel Around the World in Eighty Days. Her editors at first {{1|lead}} her to believe that a man would be sent instead, since a woman would supposedly need too much luggage. The reporter, who wrote under the name Nellie Bly, answered that if a man went, she would make the same trip for another newspaper and beat him.\n\nOn November 14, 1889, Bly boarded a steamship in New Jersey carrying a single small bag. {{2|}} She crossed the Atlantic to England and continued by train and boat to Amiens, France. When she stepped {{3|off of}} the train there, Verne and his wife were waiting to meet her. Back in New York, the World ran a contest inviting readers to guess the exact length of her trip, and a number of rival newspapers {{4|was}} following her progress.\n\n{{5|Bly continued east across Asia.}} On the day she left, a magazine called Cosmopolitan had sent its own reporter, Elizabeth Bisland, around the world in the opposite direction. The race between Bisland and {{6|she}} drew wide attention, yet for most of the trip neither of the women knew exactly {{7|were}} the other was.\n\nBly arrived back in New Jersey on January 25, 1890, seventy-two days after she had left. She had {{8|beat}} Fogg's fictional record by eight days, and {{9|thousands of people jammed the station to cheer her}}. {{10|}}",
+      "batch": 37,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -26060,6 +26071,718 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-036.review.json",
         "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000363",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Commonly confused words (lead / led)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 1,
+      "evidence": "her to believe that a man would be sent instead",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "led",
+        "C": "leaded",
+        "D": "had lead"
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence describes a past action, so the past tense of \"lead\" is needed: \"led.\"",
+      "distractor_explanations": {
+        "A": "\"Lead\" is the present tense (or a metal); the past tense of the verb is \"led.\"",
+        "C": "\"Leaded\" means containing the metal lead and is not a form of the verb.",
+        "D": "After \"had,\" the past participle \"led\" is needed, not \"lead.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the action past or present?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the tense of the surrounding verbs."
+      },
+      "remember": "Lead (present) / led (past); the metal is also spelled lead.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-01",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000364",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Choosing a detail to fulfill a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 2,
+      "evidence": "carrying a single small bag",
+      "figure": null,
+      "stem": "The writer wants to add a sentence that emphasizes how lightly Bly packed. Which choice best accomplishes this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The steamship she boarded was one of the fastest passenger ships crossing the Atlantic at the time.",
+        "B": "Many reporters and onlookers gathered at the dock to watch the ship leave for England that cold morning.",
+        "C": "It held little more than toiletries, writing supplies, and a change of underwear; she wore one dress for the entire trip.",
+        "D": "She had studied train and steamship timetables very carefully for several weeks before she finally left."
+      },
+      "correct_answer": "C",
+      "explanation": "Only C details how little Bly carried, which emphasizes light packing and answers her editors' worry about luggage.",
+      "distractor_explanations": {
+        "A": "This is about the ship's speed, not Bly's packing.",
+        "B": "This describes the crowd, not how lightly Bly packed.",
+        "D": "This describes her planning, not how little she carried."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "true_but_irrelevant",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "Which choice is about her luggage?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the goal before the choices."
+      },
+      "remember": "Judge each choice only against the goal in the question.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-02",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000365",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary preposition (\"off of\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 3,
+      "evidence": "the train there, Verne and his wife were waiting",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "off to",
+        "C": "out off",
+        "D": "off"
+      },
+      "correct_answer": "D",
+      "explanation": "In standard written English, \"off\" alone does the job: \"stepped off the train.\"",
+      "distractor_explanations": {
+        "A": "\"Off of\" adds an unnecessary \"of\"; standard written English uses \"off.\"",
+        "B": "\"Stepped off to the train\" changes the meaning; she was leaving the train.",
+        "C": "\"Out off\" is not a standard phrase."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does every word in the phrase earn its place?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the phrase without the extra word."
+      },
+      "remember": "Write \"off the train,\" not \"off of the train.\"",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-03",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: passage says she 'continued by train to Amiens' after England, glossing over the Channel crossing to France; acceptable simplification"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000366",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Agreement with \"a number of\"",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 4,
+      "evidence": "a number of rival newspapers",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were",
+        "C": "has been",
+        "D": "is"
+      },
+      "correct_answer": "B",
+      "explanation": "\"A number of\" works like \"many,\" so the subject is plural and takes \"were.\" (\"The number of,\" by contrast, is singular.)",
+      "distractor_explanations": {
+        "A": "\"A number of\" means \"several\" and takes a plural verb.",
+        "C": "This is singular; \"a number of rival newspapers\" is plural.",
+        "D": "This is singular and present tense; the subject is plural and the events are past."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Does \"a number of\" mean one thing or several?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Replace \"a number of\" with \"several.\""
+      },
+      "remember": "A number of = plural; the number of = singular.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-04",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000367",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Sentence that sets up what follows",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 5,
+      "evidence": "had sent its own reporter, Elizabeth Bisland",
+      "figure": null,
+      "stem": "Which choice most effectively sets up the information that follows in the paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Asia was the longest part of Bly's journey.",
+        "C": "Bly did not know at first that she was in a race.",
+        "D": "Bly sent regular reports back to her newspaper."
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph reveals a rival reporter racing the other way; saying Bly did not know she was in a race sets up that surprise.",
+      "distractor_explanations": {
+        "A": "This repeats her route and does not prepare for the news about a rival.",
+        "B": "This makes a claim about distance that the paragraph never develops.",
+        "D": "Her reports are not what the paragraph goes on to discuss."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does the rest of the paragraph reveal?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the paragraph, then choose its opening."
+      },
+      "remember": "An opening sentence should prepare for the paragraph's main information.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-05",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000368",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun case after a preposition",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 6,
+      "evidence": "The race between Bisland and",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "her",
+        "C": "herself",
+        "D": "hers"
+      },
+      "correct_answer": "B",
+      "explanation": "Pronouns that follow a preposition such as \"between\" are objects: \"between Bisland and her.\"",
+      "distractor_explanations": {
+        "A": "\"Between\" is a preposition, so its objects take the object case: \"her,\" not \"she.\"",
+        "C": "A reflexive pronoun needs an antecedent doing the action in the same clause.",
+        "D": "\"Hers\" is a possessive pronoun and does not fit here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Would you say \"between she\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Drop the other name and test the pronoun alone."
+      },
+      "remember": "After a preposition, use object pronouns: me, him, her, us, them.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-06",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000369",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Commonly confused words (where / were)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 7,
+      "evidence": "neither of the women knew exactly",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "wear",
+        "C": "we're",
+        "D": "where"
+      },
+      "correct_answer": "D",
+      "explanation": "The women did not know the other's location, so the sentence needs \"where,\" meaning \"in what place.\"",
+      "distractor_explanations": {
+        "A": "\"Were\" is a form of \"be\"; the sentence needs \"where,\" which refers to a place.",
+        "B": "\"Wear\" means to have on clothing and makes no sense here.",
+        "C": "\"We're\" means \"we are,\" which does not fit."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is the sentence about a place?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Say each choice in the sentence."
+      },
+      "remember": "Where = place; were = past of \"be\"; we're = we are.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-07",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000370",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Past participle after \"had\"",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 8,
+      "evidence": "Fogg's fictional record by eight days",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "beated",
+        "C": "beaten",
+        "D": "beating"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Had\" forms the past perfect, which takes the past participle: \"had beaten.\"",
+      "distractor_explanations": {
+        "A": "\"Beat\" is the base form or simple past; after \"had,\" the past participle is needed.",
+        "B": "\"Beated\" is not a standard form of \"beat.\"",
+        "D": "\"Had beating\" is not a standard verb form."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What form follows \"had\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Spot the helping verb."
+      },
+      "remember": "Had + past participle: had beaten, had begun, had flown.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-08",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000371",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Precise detail (emphasizing size)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 9,
+      "evidence": "Bly arrived back in New Jersey on January 25, 1890",
+      "figure": null,
+      "stem": "Which choice most effectively emphasizes the size of the crowd that greeted Bly?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "some people came to see her arrive",
+        "C": "there were people at the station",
+        "D": "a crowd of a certain size gathered"
+      },
+      "correct_answer": "A",
+      "explanation": "Only the original wording (\"thousands of people jammed the station\") conveys a very large crowd.",
+      "distractor_explanations": {
+        "B": "\"Some people\" suggests a small crowd.",
+        "C": "This gives no sense of how many people came.",
+        "D": "\"A certain size\" is vague and does not emphasize a large crowd."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which choice gives a sense of a large number?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the goal before the choices."
+      },
+      "remember": "\"Emphasize\" calls for the most vivid, specific choice.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-09",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000372",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion connecting to the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000037",
+      "underline": 10,
+      "evidence": "since a woman would supposedly need too much luggage",
+      "figure": null,
+      "stem": "The writer wants to conclude the essay by connecting Bly's success to her editors' doubts described in the first paragraph. Which choice best accomplishes this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "She had circled the globe with one small bag, answering her editors' worry that a woman would need too much luggage.",
+        "B": "Elizabeth Bisland arrived in New York several days later and went on to write a book about her own journey.",
+        "C": "Jules Verne's popular novel had first been published about seventeen years before Bly's journey began.",
+        "D": "Within a few months, another traveler completed the same trip in even less time than Bly had needed."
+      },
+      "correct_answer": "A",
+      "explanation": "The editors doubted a woman could travel light; A answers that doubt directly by pointing to her single small bag.",
+      "distractor_explanations": {
+        "B": "This concerns Bisland, not the editors' doubts.",
+        "C": "This adds a fact about the novel, not the editors' doubts.",
+        "D": "This reports a later record and does not connect to the editors' doubts."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What were the editors' doubts?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the first paragraph, then match."
+      },
+      "remember": "When a goal names an earlier detail, the answer must refer back to it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 37,
+      "draft_candidate": "E037-10",
+      "created_at": "2026-10-27T10:04:41+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-037.review.json",
+        "computation": "checks/act_english/batch_037.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
