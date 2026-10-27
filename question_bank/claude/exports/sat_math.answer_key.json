@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 8,
+  "bank_version": 9,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -1546,6 +1546,209 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Solve 6x + 90 = 360, then evaluate each angle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000077",
+      "correct_answer": "D",
+      "explanation": "Two distinct real solutions require a positive discriminant: (−12)² − 4(2)(k) = 144 − 8k > 0, so k < 18. The conditions k < 36 and k < 72 include values such as k = 20 for which the equation has no real solutions.",
+      "distractor_explanations": {
+        "A": "k > 18 reverses the inequality; those values give no real solutions.",
+        "B": "k < 72 uses 2ac instead of 4ac.",
+        "C": "k < 36 omits the leading coefficient 2 from 4ac."
+      },
+      "hints": [
+        "What must be true of b² − 4ac?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try k = 20: 144 − 160 < 0, so k = 20 does not work."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000078",
+      "correct_answer": "B",
+      "explanation": "x/4 = 9 gives x = 36, so x/12 = 36/12 = 3. (Equivalently, x/12 is one third of x/4.)",
+      "distractor_explanations": {
+        "A": "1/3 is the ratio of x/12 to x/4, not the value of x/12.",
+        "C": "27 multiplies 9 by 3 instead of dividing.",
+        "D": "108 multiplies 9 by 12."
+      },
+      "hints": [
+        "Find x first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply both sides by 4, then divide by 12."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000079",
+      "correct_answer": "B",
+      "explanation": "After w weeks he has 1,250 − 45w dollars. 1,250 − 45w < 500 gives 45w > 750, so w > 16.67. The first whole number of weeks is 17. (After 16 weeks he has $530; after 17 he has $485.)",
+      "distractor_explanations": {
+        "A": "16 rounds 16.67 down; after 16 weeks he still has $530.",
+        "C": "27 finds when the savings would run out, ignoring the $500 level.",
+        "D": "28 is the first week the savings would be negative."
+      },
+      "hints": [
+        "Write an expression for the savings after w weeks."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 16 and 17 weeks."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000080",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the value of a alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "7",
+          "rationale": "7 copies the coefficients directly (a = 4, b = 3), ignoring the ratio of the constant terms.",
+          "trap": null
+        }
+      ],
+      "explanation": "Infinitely many solutions means the equations are multiples of each other. The constants give 12/8 = 3/2, so the first equation is 3/2 times the second: a = (3/2)(4) = 6 and 3 = (3/2)b, so b = 2. Then a + b = 8.",
+      "distractor_explanations": {},
+      "hints": [
+        "Compare the constant terms to find the scale factor."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Each coefficient of the first equation is 3/2 times the matching coefficient of the second."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000081",
+      "correct_answer": "A",
+      "explanation": "(a − 1)/(a + 4) = 2 gives a − 1 = 2a + 8, so a = −9. Check: (−10)/(−5) = 2.",
+      "distractor_explanations": {
+        "B": "−5 multiplies only a by 2, writing a − 1 = 2a + 4.",
+        "C": "3 ignores the denominator and solves a − 1 = 2.",
+        "D": "9 makes a sign error when collecting terms."
+      },
+      "hints": [
+        "Multiply both sides by a + 4."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a = −9: −10/−5 = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000082",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "5/6",
+          "rationale": "5/6 adds the exponents 1/2 and 1/3 without rewriting the bases as powers of 2.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 rewrites only one of the two factors as 2ˣ.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "4^(x/2) = (2²)^(x/2) = 2ˣ and 8^(x/3) = (2³)^(x/3) = 2ˣ. Their product is 2ˣ · 2ˣ = 2^(2x), so k = 2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write 4 and 8 as powers of 2."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 6: 4³ · 8² = 64 · 64 = 4,096 = 2¹², so 6k = 12."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000083",
+      "correct_answer": "C",
+      "explanation": "28 ÷ 80 = 0.35, which is 35%.",
+      "distractor_explanations": {
+        "A": "22.4% computes 28% of 80 instead of 28 as a percent of 80.",
+        "B": "28% treats the count as the percent.",
+        "D": "65% is the percent of students who did not choose soccer."
+      },
+      "hints": [
+        "Divide the part by the whole."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute 28/80."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000084",
+      "correct_answer": "18",
+      "accepted_answers": [
+        "18"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the decrease in the mean, not the new mean.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "20",
+          "rationale": "20 assumes the mean does not change.",
+          "trap": null
+        }
+      ],
+      "explanation": "The original sum is 10 × 20 = 200. Replacing 38 with 18 lowers the sum by 20, to 180, so the new mean is 180 ÷ 10 = 18.",
+      "distractor_explanations": {},
+      "hints": [
+        "How does the sum change?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "New mean = (200 − 38 + 18)/10."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000085",
+      "correct_answer": "A",
+      "explanation": "V = lwh, so 168 = 4 × 6 × h = 24h and h = 7.",
+      "distractor_explanations": {
+        "B": "14 uses half the base area, as for a triangle.",
+        "C": "28 divides 168 by 6 only.",
+        "D": "42 divides 168 by 4 only."
+      },
+      "hints": [
+        "Volume = length × width × height."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 24h = 168."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000086",
+      "correct_answer": "B",
+      "explanation": "Substituting y = x + k gives x² + (x + k)² = 50, or 2x² + 2kx + k² − 50 = 0. Tangency means exactly one solution, so the discriminant is 0: 4k² − 8(k² − 50) = 0, so 400 − 4k² = 0, k² = 100 and k = 10. (Equivalently, the distance from the origin to the line, k/√2, equals the radius √50.)",
+      "distractor_explanations": {
+        "A": "5√2 is the radius of the circle.",
+        "C": "10√2 divides by 2 instead of √2 in the distance from the origin to the line.",
+        "D": "50 is r², not k."
+      },
+      "hints": [
+        "Substitute the line into the circle's equation."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle and a line of slope 1 just touching it."
       }
     }
   ]

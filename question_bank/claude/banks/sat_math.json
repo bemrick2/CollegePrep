@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 8,
-  "updated_at": "2026-10-27T02:01:34+00:00",
+  "version": 9,
+  "updated_at": "2026-10-27T02:05:05+00:00",
   "passages": [],
   "questions": [
     {
@@ -5466,6 +5466,722 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-008.review.json",
         "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000077",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Condition for two real solutions",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation 2x² − 12x + k = 0, k is a constant. The equation has two distinct real solutions. Which of the following describes all possible values of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "k > 18",
+        "B": "k < 72",
+        "C": "k < 36",
+        "D": "k < 18"
+      },
+      "correct_answer": "D",
+      "explanation": "Two distinct real solutions require a positive discriminant: (−12)² − 4(2)(k) = 144 − 8k > 0, so k < 18. The conditions k < 36 and k < 72 include values such as k = 20 for which the equation has no real solutions.",
+      "distractor_explanations": {
+        "A": "k > 18 reverses the inequality; those values give no real solutions.",
+        "B": "k < 72 uses 2ac instead of 4ac.",
+        "C": "k < 36 omits the leading coefficient 2 from 4ac."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What must be true of b² − 4ac?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try k = 20: 144 − 160 < 0, so k = 20 does not work."
+      },
+      "remember": "Two real solutions ↔ b² − 4ac > 0.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-01",
+      "created_at": "2026-10-27T02:05:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000078",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Evaluating a related expression from a linear equation",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x/4 = 9, what is the value of x/12 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1/3",
+        "B": "3",
+        "C": "27",
+        "D": "108"
+      },
+      "correct_answer": "B",
+      "explanation": "x/4 = 9 gives x = 36, so x/12 = 36/12 = 3. (Equivalently, x/12 is one third of x/4.)",
+      "distractor_explanations": {
+        "A": "1/3 is the ratio of x/12 to x/4, not the value of x/12.",
+        "C": "27 multiplies 9 by 3 instead of dividing.",
+        "D": "108 multiplies 9 by 12."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find x first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply both sides by 4, then divide by 12."
+      },
+      "remember": "Solve for x, then evaluate the new expression.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-02",
+      "created_at": "2026-10-27T02:05:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000079",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear inequality in a savings context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Kenji has $1,250 in savings and withdraws $45 at the end of each week. After how many weeks will his savings first be less than $500 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "16",
+        "B": "17",
+        "C": "27",
+        "D": "28"
+      },
+      "correct_answer": "B",
+      "explanation": "After w weeks he has 1,250 − 45w dollars. 1,250 − 45w < 500 gives 45w > 750, so w > 16.67. The first whole number of weeks is 17. (After 16 weeks he has $530; after 17 he has $485.)",
+      "distractor_explanations": {
+        "A": "16 rounds 16.67 down; after 16 weeks he still has $530.",
+        "C": "27 finds when the savings would run out, ignoring the $500 level.",
+        "D": "28 is the first week the savings would be negative."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write an expression for the savings after w weeks."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check 16 and 17 weeks."
+      },
+      "remember": "Round in the direction the context requires.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-03",
+      "created_at": "2026-10-27T02:05:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000080",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "System with infinitely many solutions and two unknown constants",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "ax + 3y = 12\n4x + by = 8\nIn the system of equations above, a and b are constants. If the system has infinitely many solutions, what is the value of a + b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the value of a alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "7",
+          "rationale": "7 copies the coefficients directly (a = 4, b = 3), ignoring the ratio of the constant terms.",
+          "trap": null
+        }
+      ],
+      "explanation": "Infinitely many solutions means the equations are multiples of each other. The constants give 12/8 = 3/2, so the first equation is 3/2 times the second: a = (3/2)(4) = 6 and 3 = (3/2)b, so b = 2. Then a + b = 8.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Compare the constant terms to find the scale factor."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Each coefficient of the first equation is 3/2 times the matching coefficient of the second."
+      },
+      "remember": "Infinitely many solutions: one equation is a constant multiple of the other.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-04",
+      "created_at": "2026-10-27T02:05:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000081",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving an equation involving a rational function",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function g is defined by g(x) = (x − 1)/(x + 4). If g(a) = 2, what is the value of a ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−9",
+        "B": "−5",
+        "C": "3",
+        "D": "9"
+      },
+      "correct_answer": "A",
+      "explanation": "(a − 1)/(a + 4) = 2 gives a − 1 = 2a + 8, so a = −9. Check: (−10)/(−5) = 2.",
+      "distractor_explanations": {
+        "B": "−5 multiplies only a by 2, writing a − 1 = 2a + 4.",
+        "C": "3 ignores the denominator and solves a − 1 = 2.",
+        "D": "9 makes a sign error when collecting terms."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Multiply both sides by a + 4."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a = −9: −10/−5 = 2."
+      },
+      "remember": "Clear the denominator, distributing to every term.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-05",
+      "created_at": "2026-10-27T02:05:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000082",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rewriting a product of exponential expressions with one base",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For all real values of x, the expression 4^(x/2) · 8^(x/3) is equivalent to 2^(kx), where k is a constant. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "5/6",
+          "rationale": "5/6 adds the exponents 1/2 and 1/3 without rewriting the bases as powers of 2.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 rewrites only one of the two factors as 2ˣ.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "4^(x/2) = (2²)^(x/2) = 2ˣ and 8^(x/3) = (2³)^(x/3) = 2ˣ. Their product is 2ˣ · 2ˣ = 2^(2x), so k = 2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write 4 and 8 as powers of 2."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 6: 4³ · 8² = 64 · 64 = 4,096 = 2¹², so 6k = 12."
+      },
+      "remember": "(aᵐ)ⁿ = aᵐⁿ; rewrite every base as the same base first.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-06",
+      "created_at": "2026-10-27T02:05:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000083",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Finding a percent of a group",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a class of 80 students, 28 students chose soccer as their favorite sport. What percent of the students in the class chose soccer?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "22.4%",
+        "B": "28%",
+        "C": "35%",
+        "D": "65%"
+      },
+      "correct_answer": "C",
+      "explanation": "28 ÷ 80 = 0.35, which is 35%.",
+      "distractor_explanations": {
+        "A": "22.4% computes 28% of 80 instead of 28 as a percent of 80.",
+        "B": "28% treats the count as the percent.",
+        "D": "65% is the percent of students who did not choose soccer."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Divide the part by the whole."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute 28/80."
+      },
+      "remember": "Percent = part ÷ whole × 100.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-07",
+      "created_at": "2026-10-27T02:05:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000084",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Effect of replacing a value on the mean",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A data set of 10 numbers has a mean of 20. If one value in the data set, 38, is replaced with 18, what is the mean of the new data set?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "18",
+      "accepted_answers": [
+        "18"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the decrease in the mean, not the new mean.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "20",
+          "rationale": "20 assumes the mean does not change.",
+          "trap": null
+        }
+      ],
+      "explanation": "The original sum is 10 × 20 = 200. Replacing 38 with 18 lowers the sum by 20, to 180, so the new mean is 180 ÷ 10 = 18.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How does the sum change?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "New mean = (200 − 38 + 18)/10."
+      },
+      "remember": "Mean = sum ÷ count; track the change in the sum.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-08",
+      "created_at": "2026-10-27T02:05:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "18",
+        "blind_answer": "18",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000085",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Height of a rectangular prism from its volume",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular prism has a volume of 168 cubic centimeters. Its base is a rectangle that is 4 centimeters by 6 centimeters. What is the height of the prism, in centimeters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "7",
+        "B": "14",
+        "C": "28",
+        "D": "42"
+      },
+      "correct_answer": "A",
+      "explanation": "V = lwh, so 168 = 4 × 6 × h = 24h and h = 7.",
+      "distractor_explanations": {
+        "B": "14 uses half the base area, as for a triangle.",
+        "C": "28 divides 168 by 6 only.",
+        "D": "42 divides 168 by 4 only."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Volume = length × width × height."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 24h = 168."
+      },
+      "remember": "Divide the volume by the base area to get the height.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-09",
+      "created_at": "2026-10-27T02:05:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000086",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Line tangent to a circle centered at the origin",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = x + k, where k is a positive constant, is tangent to the circle x² + y² = 50. What is the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5√2",
+        "B": "10",
+        "C": "10√2",
+        "D": "50"
+      },
+      "correct_answer": "B",
+      "explanation": "Substituting y = x + k gives x² + (x + k)² = 50, or 2x² + 2kx + k² − 50 = 0. Tangency means exactly one solution, so the discriminant is 0: 4k² − 8(k² − 50) = 0, so 400 − 4k² = 0, k² = 100 and k = 10. (Equivalently, the distance from the origin to the line, k/√2, equals the radius √50.)",
+      "distractor_explanations": {
+        "A": "5√2 is the radius of the circle.",
+        "C": "10√2 divides by 2 instead of √2 in the distance from the origin to the line.",
+        "D": "50 is r², not k."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Substitute the line into the circle's equation."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle and a line of slope 1 just touching it."
+      },
+      "remember": "Tangent ↔ exactly one intersection ↔ discriminant 0.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 9,
+      "draft_candidate": "Q009-10",
+      "created_at": "2026-10-27T02:05:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-009.review.json",
+        "computation": "checks/sat_math/batch_009.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
