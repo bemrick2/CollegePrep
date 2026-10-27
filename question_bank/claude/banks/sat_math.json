@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 85,
-  "updated_at": "2026-10-27T19:59:30+00:00",
+  "version": 86,
+  "updated_at": "2026-10-27T20:01:16+00:00",
   "passages": [],
   "questions": [
     {
@@ -69439,6 +69439,731 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-085.review.json",
         "computation": "checks/sat_math/batch_085.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000956",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear growth from block totals",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A company's annual revenue increased by the same amount each year from 2020 through 2026. The company's total revenue for the three years 2020, 2021, and 2022 was $45 million, and its total revenue for the three years 2023, 2024, and 2025 was $63 million. What was the company's revenue, in millions of dollars, in 2026?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "27",
+          "rationale": "27 adds 6 to 21, which is the 2027 value.",
+          "trap": null
+        },
+        {
+          "value": "33",
+          "rationale": "33 treats the 18 difference between totals as a 3-year change of 6 per year.",
+          "trap": null
+        }
+      ],
+      "explanation": "For a linear pattern, the total of three consecutive years is 3 times the middle year, so revenue was 15 in 2021 and 21 in 2024. That is an increase of 6 over 3 years, or 2 per year, so 2026 revenue was 21 + 2(2) = 25. The full list is 13, 15, 17, 19, 21, 23, 25.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the middle year's revenue in each block?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Turn each three-year total into a middle-year value."
+      },
+      "remember": "Three equally spaced values in a linear pattern average to the middle one.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-02",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "25",
+        "blind_answer": "25",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000957",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Splitting a combined rate using a difference",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Ana and Ben start 1,500 meters apart and walk toward each other along a straight path, each at a constant speed. The distance between them, in meters, t minutes after they start is D = 1,500 − 150t. Ana walks 30 meters per minute faster than Ben. How many meters will Ben have walked when they meet?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "600",
+      "accepted_answers": [
+        "600"
+      ],
+      "common_errors": [
+        {
+          "value": "750",
+          "rationale": "750 assumes each walks half the distance.",
+          "trap": null
+        },
+        {
+          "value": "900",
+          "rationale": "900 is Ana's distance.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The distance shrinks by the sum of the two speeds, so a + b = 150 and a − b = 30, giving Ben 60 meters per minute and Ana 90. They meet when D = 0, at t = 10 minutes, so Ben has walked 60 × 10 = 600 meters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What does the 150 represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Read the slope as the combined speed."
+      },
+      "remember": "When two objects approach each other, their speeds add.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-03",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "600",
+        "blind_answer": "600",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000958",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Count-and-total system with different billing periods",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A gym has 300 members. Each member either pays $40 per month or pays $360 per year. In one year, the gym collected a total of $117,600 from these 300 members, and every member who pays by the month paid for all 12 months. How many members pay $360 per year?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "220",
+      "accepted_answers": [
+        "220"
+      ],
+      "common_errors": [
+        {
+          "value": "80",
+          "rationale": "80 is the number of monthly members.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "245",
+          "rationale": "245 divides 117,600 by 480.",
+          "trap": null
+        }
+      ],
+      "explanation": "A monthly member pays 12 × 40 = $480 a year. With n yearly members, 480(300 − n) + 360n = 117,600, so 144,000 − 120n = 117,600 and n = 220. Check: 80 × 480 + 220 × 360 = 38,400 + 79,200 = 117,600.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Put both kinds of member on a yearly basis."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write one equation using the number of yearly members."
+      },
+      "remember": "Convert rates to the same time period before combining.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-04",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "220",
+        "blind_answer": "220",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000959",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Percent change under constant dollar growth",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Ana's annual salary increased by the same dollar amount each year from 2018 to 2026. Her salary in 2022 was 25% greater than her salary in 2018. By what percent was her salary in 2026 greater than her salary in 2022?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "16⅔%",
+        "B": "20%",
+        "C": "25%",
+        "D": "50%"
+      },
+      "correct_answer": "B",
+      "explanation": "Let s be her 2018 salary. The increase over 4 years is 0.25s, so her 2026 salary is 1.25s + 0.25s = 1.5s. Then 1.5s/1.25s = 1.2, so her 2026 salary was 20% greater than her 2022 salary.",
+      "distractor_explanations": {
+        "A": "Divides the increase 0.25s by the 2026 salary instead of the 2022 salary.",
+        "C": "Assumes the same percent increase every 4 years, which is exponential growth.",
+        "D": "Gives the increase from 2018 to 2026."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write each salary in terms of the 2018 salary."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a 2018 salary of 100."
+      },
+      "remember": "Equal dollar increases give shrinking percent increases.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-05",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000960",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Ratio of actual values around an exponential fit",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A scatterplot shows the number of subscribers y, in thousands, to a newsletter x months after it was launched, for x = 0 to x = 12. An exponential curve of best fit for the data is y = 3.2(1.3)^x. The actual number of subscribers at x = 6 was 10% less than the number predicted by the curve, and the actual number at x = 7 was 10% greater than the number predicted by the curve. The actual number of subscribers at x = 7 was approximately what percent greater than the actual number at x = 6? Round your answer to the nearest whole percent. (Disregard the % sign when entering your answer.)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "59",
+      "accepted_answers": [
+        "59"
+      ],
+      "common_errors": [
+        {
+          "value": "30",
+          "rationale": "30 uses the growth factor and ignores both residuals.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "43",
+          "rationale": "43 applies the 10% above the curve but forgets that x = 6 was below it, 1.3(1.1).",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The predictions at x = 7 and x = 6 differ by the factor 1.3, so the ratio of actual values is 1.3(1.1)/(0.9) ≈ 1.589, about 59% greater. With numbers: predictions ≈ 15.45 and 20.08 thousand; actual values ≈ 13.90 and 22.09 thousand.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each actual value as a multiple of its prediction."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the curve's growth factor with both residuals."
+      },
+      "remember": "Percent residuals multiply with an exponential model's factor.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-06",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "59",
+        "blind_answer": "59",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: coefficient 3.2 is unnecessary (cancels in the ratio); acceptable as a distractor but makes the item slightly over-determined"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000961",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Combining two studies with different kinds of randomness",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two studies looked at volunteer work and life satisfaction. In study 1, researchers selected 600 adults at random from all the adults in a city; adults who reported more hours of volunteer work tended to report higher life satisfaction. In study 2, 200 adults who answered an advertisement were randomly assigned either to volunteer 2 hours each week for 3 months or not to volunteer; at the end, the volunteer group reported higher average life satisfaction, and the difference was too large to be explained by chance. Which conclusion is best supported by the two studies?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Volunteering likely causes higher satisfaction for the city's adults, since study 1 sampled the city at random and study 2 assigned volunteering at random.",
+        "B": "Volunteering likely causes higher satisfaction for adults like those in study 2, and study 1's association can be generalized to the city's adults.",
+        "C": "Neither study supports a cause-and-effect conclusion, because the adults in study 2 were not selected at random from the city.",
+        "D": "Study 1 shows that volunteering causes higher satisfaction for the city's adults, and study 2 shows only an association for its volunteers."
+      },
+      "correct_answer": "B",
+      "explanation": "Study 2's random assignment supports a causal conclusion, but only for people like its volunteers. Study 1's random sampling lets its association be generalized to the city, but it cannot show cause. Neither study has both features.",
+      "distractor_explanations": {
+        "A": "Merges the two studies as if one study had both random sampling and random assignment.",
+        "C": "Confuses random selection with random assignment.",
+        "D": "Reverses what each design supports."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "sign_error"
+      },
+      "hints": [
+        "What does each kind of randomness allow you to conclude?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match random assignment to cause and random sampling to generalization."
+      },
+      "remember": "Random assignment supports cause; random sampling supports generalization.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-08",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000962",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Mixing paints given by part-to-part ratios",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Paint A is a mixture of blue paint and white paint in the ratio 1 : 3 by volume, and paint B is a mixture of blue paint and white paint in the ratio 2 : 3 by volume. A painter mixes 1 liter of paint A with 2 liters of paint B. What fraction of the resulting 3 liters of paint, by volume, is blue paint?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3/10",
+        "B": "13/40",
+        "C": "7/20",
+        "D": "5/9"
+      },
+      "correct_answer": "C",
+      "explanation": "Paint A is 1/4 blue and paint B is 2/5 blue. The blue paint is 1(1/4) + 2(2/5) = 1/4 + 4/5 = 21/20 liters out of 3 liters, so the fraction is (21/20)/3 = 7/20.",
+      "distractor_explanations": {
+        "A": "Swaps the amounts, using 2 liters of A and 1 liter of B.",
+        "B": "Averages 1/4 and 2/5 as if equal volumes were mixed.",
+        "D": "Reads the ratios 1 : 3 and 2 : 3 as the fractions 1/3 and 2/3."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What fraction of each paint is blue?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert each ratio to a part-to-whole fraction first."
+      },
+      "remember": "A part-to-part ratio a : b means a/(a + b) of the whole.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-09",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000963",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Unit cost built from usage per batch",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An ink cartridge holds 12 milliliters of ink and costs $30. Printing 50 pages of a typical document uses 0.8 milliliter of ink. At this rate, what is the cost of the ink, in cents, for each page?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "0.04",
+          "rationale": "0.04 is the cost in dollars, not cents.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "750",
+          "rationale": "750 is the number of pages per cartridge.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The cartridge prints 12/0.8 = 15 sets of 50 pages, or 750 pages. The cost per page is $30/750 = $0.04, which is 4 cents.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How many pages does one cartridge print?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find pages per cartridge, then divide the cost."
+      },
+      "remember": "Check the units the question asks for.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-10",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000964",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Shifting values above and below the median",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A data set consists of 11 different numbers, and its median is 20. Each number in the data set that is greater than 20 is increased by 5, and each number that is less than 20 is decreased by 5. Compared with the original data set, which of the following must be true of the new data set?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The mean is the same, and the range is the same.",
+        "B": "The mean is 5 greater, and the range is 10 greater.",
+        "C": "The mean is 5 greater, and the range is the same.",
+        "D": "The mean is the same, and the range is 10 greater."
+      },
+      "correct_answer": "D",
+      "explanation": "With 11 different numbers and a median of 20, exactly 5 numbers are above 20 and 5 are below. The total changes by 5(5) − 5(5) = 0, so the mean is unchanged. The largest number rises by 5 and the smallest falls by 5, so the range grows by 10.",
+      "distractor_explanations": {
+        "A": "Assumes the two shifts cancel for the range as well.",
+        "B": "Treats the change as adding 5 to every number, but then widens the range.",
+        "C": "Applies the uniform-shift rule to both measures."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "How many numbers are above and below the median?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a small data set with median 20."
+      },
+      "remember": "Shifts that cancel in total leave the mean unchanged.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-11",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000965",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Prediction from a line through two points",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A scatterplot shows the height y, in centimeters, of each of 14 bean seedlings and the number of days x since the seedling sprouted. The line of best fit passes through the points (0, 4.2) and (10, 9.2). According to the line of best fit, what is the predicted height, in centimeters, of a seedling 16 days after it sprouted?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12.2",
+      "accepted_answers": [
+        "12.2",
+        "61/5"
+      ],
+      "common_errors": [
+        {
+          "value": "14.72",
+          "rationale": "14.72 scales 9.2 by 16/10, as if the line passed through the origin.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 forgets the intercept.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The slope is (9.2 − 4.2)/10 = 0.5, so the line is y = 0.5x + 4.2. At x = 16, y = 8 + 4.2 = 12.2 centimeters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find the slope from the two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the equation of the line, then substitute."
+      },
+      "remember": "Use slope and intercept; do not assume proportionality.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 86,
+      "draft_candidate": "Q086-12",
+      "created_at": "2026-10-27T20:01:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12.2",
+        "blind_answer": "12.2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-086.review.json",
+        "computation": "checks/sat_math/batch_086.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

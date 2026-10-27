@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 85,
+  "bank_version": 86,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -20279,6 +20279,243 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the ladder in both positions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000956",
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "27",
+          "rationale": "27 adds 6 to 21, which is the 2027 value.",
+          "trap": null
+        },
+        {
+          "value": "33",
+          "rationale": "33 treats the 18 difference between totals as a 3-year change of 6 per year.",
+          "trap": null
+        }
+      ],
+      "explanation": "For a linear pattern, the total of three consecutive years is 3 times the middle year, so revenue was 15 in 2021 and 21 in 2024. That is an increase of 6 over 3 years, or 2 per year, so 2026 revenue was 21 + 2(2) = 25. The full list is 13, 15, 17, 19, 21, 23, 25.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the middle year's revenue in each block?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Turn each three-year total into a middle-year value."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000957",
+      "correct_answer": "600",
+      "accepted_answers": [
+        "600"
+      ],
+      "common_errors": [
+        {
+          "value": "750",
+          "rationale": "750 assumes each walks half the distance.",
+          "trap": null
+        },
+        {
+          "value": "900",
+          "rationale": "900 is Ana's distance.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The distance shrinks by the sum of the two speeds, so a + b = 150 and a − b = 30, giving Ben 60 meters per minute and Ana 90. They meet when D = 0, at t = 10 minutes, so Ben has walked 60 × 10 = 600 meters.",
+      "distractor_explanations": {},
+      "hints": [
+        "What does the 150 represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Read the slope as the combined speed."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000958",
+      "correct_answer": "220",
+      "accepted_answers": [
+        "220"
+      ],
+      "common_errors": [
+        {
+          "value": "80",
+          "rationale": "80 is the number of monthly members.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "245",
+          "rationale": "245 divides 117,600 by 480.",
+          "trap": null
+        }
+      ],
+      "explanation": "A monthly member pays 12 × 40 = $480 a year. With n yearly members, 480(300 − n) + 360n = 117,600, so 144,000 − 120n = 117,600 and n = 220. Check: 80 × 480 + 220 × 360 = 38,400 + 79,200 = 117,600.",
+      "distractor_explanations": {},
+      "hints": [
+        "Put both kinds of member on a yearly basis."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write one equation using the number of yearly members."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000959",
+      "correct_answer": "B",
+      "explanation": "Let s be her 2018 salary. The increase over 4 years is 0.25s, so her 2026 salary is 1.25s + 0.25s = 1.5s. Then 1.5s/1.25s = 1.2, so her 2026 salary was 20% greater than her 2022 salary.",
+      "distractor_explanations": {
+        "A": "Divides the increase 0.25s by the 2026 salary instead of the 2022 salary.",
+        "C": "Assumes the same percent increase every 4 years, which is exponential growth.",
+        "D": "Gives the increase from 2018 to 2026."
+      },
+      "hints": [
+        "Write each salary in terms of the 2018 salary."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a 2018 salary of 100."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000960",
+      "correct_answer": "59",
+      "accepted_answers": [
+        "59"
+      ],
+      "common_errors": [
+        {
+          "value": "30",
+          "rationale": "30 uses the growth factor and ignores both residuals.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "43",
+          "rationale": "43 applies the 10% above the curve but forgets that x = 6 was below it, 1.3(1.1).",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The predictions at x = 7 and x = 6 differ by the factor 1.3, so the ratio of actual values is 1.3(1.1)/(0.9) ≈ 1.589, about 59% greater. With numbers: predictions ≈ 15.45 and 20.08 thousand; actual values ≈ 13.90 and 22.09 thousand.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each actual value as a multiple of its prediction."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the curve's growth factor with both residuals."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000961",
+      "correct_answer": "B",
+      "explanation": "Study 2's random assignment supports a causal conclusion, but only for people like its volunteers. Study 1's random sampling lets its association be generalized to the city, but it cannot show cause. Neither study has both features.",
+      "distractor_explanations": {
+        "A": "Merges the two studies as if one study had both random sampling and random assignment.",
+        "C": "Confuses random selection with random assignment.",
+        "D": "Reverses what each design supports."
+      },
+      "hints": [
+        "What does each kind of randomness allow you to conclude?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match random assignment to cause and random sampling to generalization."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000962",
+      "correct_answer": "C",
+      "explanation": "Paint A is 1/4 blue and paint B is 2/5 blue. The blue paint is 1(1/4) + 2(2/5) = 1/4 + 4/5 = 21/20 liters out of 3 liters, so the fraction is (21/20)/3 = 7/20.",
+      "distractor_explanations": {
+        "A": "Swaps the amounts, using 2 liters of A and 1 liter of B.",
+        "B": "Averages 1/4 and 2/5 as if equal volumes were mixed.",
+        "D": "Reads the ratios 1 : 3 and 2 : 3 as the fractions 1/3 and 2/3."
+      },
+      "hints": [
+        "What fraction of each paint is blue?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert each ratio to a part-to-whole fraction first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000963",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "0.04",
+          "rationale": "0.04 is the cost in dollars, not cents.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "750",
+          "rationale": "750 is the number of pages per cartridge.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The cartridge prints 12/0.8 = 15 sets of 50 pages, or 750 pages. The cost per page is $30/750 = $0.04, which is 4 cents.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many pages does one cartridge print?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find pages per cartridge, then divide the cost."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000964",
+      "correct_answer": "D",
+      "explanation": "With 11 different numbers and a median of 20, exactly 5 numbers are above 20 and 5 are below. The total changes by 5(5) − 5(5) = 0, so the mean is unchanged. The largest number rises by 5 and the smallest falls by 5, so the range grows by 10.",
+      "distractor_explanations": {
+        "A": "Assumes the two shifts cancel for the range as well.",
+        "B": "Treats the change as adding 5 to every number, but then widens the range.",
+        "C": "Applies the uniform-shift rule to both measures."
+      },
+      "hints": [
+        "How many numbers are above and below the median?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a small data set with median 20."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000965",
+      "correct_answer": "12.2",
+      "accepted_answers": [
+        "12.2",
+        "61/5"
+      ],
+      "common_errors": [
+        {
+          "value": "14.72",
+          "rationale": "14.72 scales 9.2 by 16/10, as if the line passed through the origin.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 forgets the intercept.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The slope is (9.2 − 4.2)/10 = 0.5, so the line is y = 0.5x + 4.2. At x = 16, y = 8 + 4.2 = 12.2 centimeters.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the slope from the two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the equation of the line, then substitute."
       }
     }
   ]
