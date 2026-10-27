@@ -1,0 +1,469 @@
+{
+ "ideas": "generated set 30 (YA/YB/YC/YD)",
+ "results": {
+  "YA01": [
+   {
+    "other_id": "CLD-SAT-M-000868 (= ideas-gen-22 QA12)",
+    "severity": "close",
+    "why": "Cited. Negative-slope line through (−3, 0) with axes-triangle area 12; find the slope. There the point is an intercept and the area gives one linear step; here the point is off both axes, giving a quadratic with two valid lines and an ask for the greater intercept. Allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000273",
+    "severity": "close",
+    "why": "Cited. Area of the triangle cut off by 3x + 4y = 24. Forward computation only."
+   }
+  ],
+  "YA02": [
+   {
+    "other_id": "CLD-ACT-M-000620 / CLD-SAT-M-000024 / CLD-SAT-M-000038",
+    "severity": "close",
+    "why": "Cited. Solve or count integer solutions of a linear or compound inequality. Here the bounds of a different expression (4x + 1) are asked after a sign reversal. Allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000250",
+    "severity": "close",
+    "why": "Not cited. Compound inequality in context, greatest integer n. Different ask."
+   }
+  ],
+  "YA03": [
+   {
+    "other_id": "CLD-SAT-M-000877",
+    "severity": "close",
+    "why": "Cited. A linear f that swaps a and b; what must be true. Different setup and ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000092",
+    "severity": "close",
+    "why": "Cited. Line through (2, 4) and (k, 3k). Different."
+   }
+  ],
+  "YA04": [
+   {
+    "other_id": "CLD-SAT-M-000135",
+    "severity": "template",
+    "why": "Not cited. 15x + 25y = 750; 'If Lena paints 6 more hours, how many fewer hours must she mow to earn the same $750?' (key 10). Same mechanism (an increase in one variable is offset by a decrease in the other at the ratio of the coefficients) and same ask (how many fewer of the other), with the same key 10 and the same trap types (inverted ratio, one-unit trade). Only the context and numbers change. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000761 / CLD-SAT-M-000001",
+    "severity": "close",
+    "why": "Cited. Interpret a coefficient ratio; substitute one value. Different asks."
+   }
+  ],
+  "YA05": [
+   {
+    "other_id": "CLD-ACT-M-000480",
+    "severity": "close",
+    "why": "Not cited. Least integer x with x/3 − 2 > 1. Same 'integer extreme under a strict bound' ask with a fraction to clear; here two fractions and a subtracted binomial. Allowed, note it."
+   },
+   {
+    "other_id": "CLD-SAT-M-000024 / CLD-SAT-M-000038",
+    "severity": "close",
+    "why": "Cited. Whole-number linear inequalities. Different ask."
+   }
+  ],
+  "YA06": [
+   {
+    "other_id": "CLD-SAT-M-000923",
+    "severity": "close",
+    "why": "Cited. Cost-share rational system. Different."
+   },
+   {
+    "other_id": "ideas-gen-27 VA14",
+    "severity": "close",
+    "why": "Not cited. Banquet hall with 22 tables of 4 or 6 seats. Same context, different mechanism (mixture count). Keep the two apart in batching."
+   }
+  ],
+  "YA07": [
+   {
+    "other_id": "CLD-SAT-M-000143",
+    "severity": "template",
+    "why": "Not cited. Kim has $20; pens $1.25, notebooks $3.50; she must buy at least 4 notebooks; greatest number of pens (4 from 4.8). Same mechanism (subtract the fixed amount used by the known quantity of the first product from a two-variable budget, divide by the second unit cost, round down) and same ask (greatest whole number of the second product). Flour instead of dollars is a context change. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000252",
+    "severity": "close",
+    "why": "Not cited. Greatest number of tickets with equal counts under a budget. Same rounding-down ask, different constraint."
+   },
+   {
+    "other_id": "CLD-SAT-M-000003 / CLD-SAT-M-000590",
+    "severity": "close",
+    "why": "Cited. Writing the inequality; one-variable fuel. Different."
+   }
+  ],
+  "YA08": [
+   {
+    "other_id": "CLD-SAT-M-000268",
+    "severity": "close",
+    "why": "Not cited. bx − 5 = 3x + 2b, solve for x: the target variable is in two terms and must be factored out before dividing. Same key step, in an abstract equation instead of a named formula. Allowed; batch apart."
+   },
+   {
+    "other_id": "CLD-ACT-M-000490",
+    "severity": "close",
+    "why": "Cited. Evaluate A = P(1 + rt). Different ask (evaluate, not solve)."
+   },
+   {
+    "other_id": "CLD-ACT-M-000321 / CLD-SAT-M-000125 / CLD-ACT-M-000169",
+    "severity": "close",
+    "why": "Solve a formula for a variable. Different structure."
+   }
+  ],
+  "YB01": [
+   {
+    "other_id": "CLD-SAT-M-000378",
+    "severity": "close",
+    "why": "Flagged. One factor fixes one constant; the other zeros are new. Here two factor conditions give a 2x2 system. Agree close."
+   },
+   {
+    "other_id": "CLD-SAT-M-000852 (= ideas-gen-23 RB16)",
+    "severity": "close",
+    "why": "Cited. x² − 3x + 2 = (x − 1)(x − 2) is a factor of x⁴ + ax² + b: substitute the two roots to get a 2x2 system for a and b. Same first step as YB01; the ask differs (b vs the sum of distinct zeros). Close, batch apart."
+   },
+   {
+    "other_id": "CLD-SAT-M-000662 (= JB05) / CLD-SAT-M-000309 (= H18)",
+    "severity": "close",
+    "why": "Not cited. 662: third zero of a cubic from two given zeros. 309: a constant creates a repeated zero, count distinct x-intercepts. YB01 combines both ideas. Allowed."
+   }
+  ],
+  "YB02": [
+   {
+    "other_id": "CLD-SAT-M-000247",
+    "severity": "close",
+    "why": "Flagged. Two exponent equations solved in sequence for b. Here the power of a power gives (a + b)(a − b) and the given a − b is divided out. Agree close."
+   },
+   {
+    "other_id": "CLD-ACT-M-000091",
+    "severity": "close",
+    "why": "Not cited. x + y = 7 and x² − y² = 21; find x by dividing the difference of squares by the known factor. Same key move as YB02 (difference of squares divided by a known factor) wrapped in exponents here. Different ask (x vs a + b). Close; cite it."
+   }
+  ],
+  "YB03": [
+   {
+    "other_id": "CLD-SAT-M-000740 / CLD-ACT-M-000469",
+    "severity": "close",
+    "why": "Not cited. Length up p% and width down p%; area changes by −p². The percent version of the same (s + c)(s − c) = s² − c² fact. Additive and percent versions differ in ask. Allowed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000148 / CLD-SAT-M-000004",
+    "severity": "close",
+    "why": "Cited. Agree close."
+   }
+  ],
+  "YB04": [
+   {
+    "other_id": "CLD-SAT-M-000120",
+    "severity": "template",
+    "why": "Not cited. f(x) = 3 · 2ˣ, g(x) = 12 · 2ˣ, g(x) = f(x + k); find k (2). Same mechanism (a constant multiple 2^k of an exponential equals a horizontal shift by k) and the same ask (the size/direction of that shift); YB04 only states the shift in words. This is the same pairing that got ideas-gen-25 TB04 dropped in ideas-072. Drop."
+   },
+   {
+    "other_id": "CLD-ACT-M-000745",
+    "severity": "close",
+    "why": "Flagged. 2^(x + 3) equivalent to 8 · 2ˣ: the symbolic identity underneath YB04. Close on its own; with 000120 the idea is a re-skin."
+   },
+   {
+    "other_id": "CLD-SAT-M-000735 (= NB09)",
+    "severity": "close",
+    "why": "Not cited. 'How can the graph of y = √(9x) be obtained from y = √x?' Same answer-format (describe a transformation) for a different function."
+   },
+   {
+    "other_id": "ideas-gen-25 TB04 (dropped)",
+    "severity": "close",
+    "why": "Converse direction (translate, find c). Already dropped."
+   }
+  ],
+  "YB05": [
+   {
+    "other_id": "CLD-SAT-M-000087",
+    "severity": "close",
+    "why": "Flagged. x-intercepts 2 and 3 and y-intercept 6; find a + b + c. Same three conditions; the ask here is the equation itself, with distractors that each meet two of the three conditions. Agree close."
+   },
+   {
+    "other_id": "CLD-SAT-M-000936 (= ideas-gen-26 UB08)",
+    "severity": "close",
+    "why": "Cited. Intercepts then an inequality. Different ask. Do not batch YB05 with 936 or YB08."
+   }
+  ],
+  "YB06": [
+   {
+    "other_id": "CLD-SAT-M-000194 / CLD-ACT-M-000426",
+    "severity": "close",
+    "why": "Cited. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000731",
+    "severity": "close",
+    "why": "Not cited. 1/x + 1/y = 4/3 and x + y = 8; find x² + y². Sum-of-reciprocals with a second relation. Different ask and method. Allowed."
+   }
+  ],
+  "YB07": [
+   {
+    "other_id": "CLD-SAT-M-000355",
+    "severity": "close",
+    "why": "Flagged. a · 2ˣ + b from f(0) and f(3) with the base given. Here the base is unknown and comes from the ratio of successive differences. Agree close."
+   },
+   {
+    "other_id": "ideas-gen-17 LB08",
+    "severity": "close",
+    "why": "Flagged. Limit given. Agree close."
+   },
+   {
+    "other_id": "CLD-ACT-M-000131 / ideas-gen-21 HB18",
+    "severity": "close",
+    "why": "Not cited. Quadratic from three points, find f(2); quadratic from differences. Same 'three values, predict the next' shape with a different model. Allowed."
+   }
+  ],
+  "YB08": [
+   {
+    "other_id": "CLD-SAT-M-000788 (= ideas-gen-21 PB08)",
+    "severity": "close",
+    "why": "Cited. One root 4 times the other. Here the ratio combines with the axis. Agree close."
+   },
+   {
+    "other_id": "CLD-SAT-M-000034",
+    "severity": "close",
+    "why": "Cited. a from the maximum; reverse direction. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000936",
+    "severity": "close",
+    "why": "Not cited. Quadratic from two x-intercepts and a y-intercept, then a further ask. Same 'fix a from the y-intercept' step. Batch apart from YB05 and 936."
+   }
+  ],
+  "YC01": [
+   {
+    "other_id": "CLD-ACT-M-000530",
+    "severity": "close",
+    "why": "Flagged. Count given (9 values, mean 12 → 13), find the added value. YC01 recovers the count from the first change and then reuses it for a different added value; the first half of YC01 is ACT-530 run backward. Close, not template: the ask (a new mean) and the extra step differ. Keep, cite it."
+   }
+  ],
+  "YC02": [
+   {
+    "other_id": "CLD-SAT-M-000294 (= ideas-gen-01 G26)",
+    "severity": "template",
+    "why": "Not cited. 'From 2020 to 2025, a town's population increased by 20%, and the percent of residents who recycle rose from 40% to 50%. By what percent did the number of residents who recycle increase?' (50). Same mechanism (1.2 × new share/old share) and the same ask (percent increase of the subgroup), even the same 20% and 40% base share. Club/juniors and 45% are a numbers/context change. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000131 / CLD-SAT-M-000114",
+    "severity": "close",
+    "why": "Cited. Agree close."
+   }
+  ],
+  "YC03": [
+   {
+    "other_id": "CLD-SAT-M-000113",
+    "severity": "close",
+    "why": "Not cited. 'x is 150% of y, and y is 40% less than z; x is what percent of z?' Same opening fact (x = 1.5y), different base for the ask. Allowed; cite it."
+   },
+   {
+    "other_id": "CLD-ACT-M-000387 / CLD-SAT-M-000008",
+    "severity": "close",
+    "why": "Cited. Agree."
+   }
+  ],
+  "YC04": [
+   {
+    "other_id": "CLD-SAT-M-000114",
+    "severity": "close",
+    "why": "Cited. Total grows; here the total is fixed. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000571",
+    "severity": "close",
+    "why": "Not cited. Survey with exclusive options and a percentage-point gap; different ask (a percent, not N)."
+   }
+  ],
+  "YC05": [
+   {
+    "other_id": "CLD-ACT-M-000586 / ideas-gen-06 AC02",
+    "severity": "close",
+    "why": "Cited. Forward weighted percent. Agree."
+   },
+   {
+    "other_id": "CLD-ACT-M-000275 / CLD-ACT-M-000615",
+    "severity": "close",
+    "why": "Not cited. Combined mean given; solve for a group size. Same inverse weighted-average mechanism with counts instead of shares. Close; cite one."
+   },
+   {
+    "other_id": "ideas-gen-08 CC02",
+    "severity": "close",
+    "why": "Not cited. Donors gave $20 or $50, mean $32; percent who gave $50. Same mechanism and ask (share of a group from an overall weighted average). Not banked or drafted, so allowed, but do not revive CC02 later."
+   }
+  ],
+  "YC06": [
+   {
+    "other_id": "CLD-SAT-M-000093",
+    "severity": "template",
+    "why": "Not cited. 'The data set 5, 8, x, 12, 15 has a mean of 11. What is the median?' (12). Same mechanism (use the mean to find x, then reorder, because the found value moves out of its listed position) and same ask (median). YC06 puts x in four expressions, which is more algebra, not a new step. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000879",
+    "severity": "close",
+    "why": "Cited. Mean equation with no solution. Different ask."
+   }
+  ],
+  "YC07": [
+   {
+    "other_id": "CLD-ACT-M-000136 / CLD-ACT-M-000236",
+    "severity": "close",
+    "why": "Cited. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000960 (= ideas-gen-27 VC01)",
+    "severity": "close",
+    "why": "Not cited. Ratio of actual values around an exponential fit. Different model and ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000418 (= W02)",
+    "severity": "close",
+    "why": "Not cited. Percent change between two predictions of a line of best fit. Different base. Allowed."
+   }
+  ],
+  "YD01": [
+   {
+    "other_id": "ideas-gen-26 UD11 (= CLD-SAT-M-000953) / ideas-gen-17 LD05",
+    "severity": "close",
+    "why": "Cited. Agree."
+   },
+   {
+    "other_id": "ideas-gen-11 AD05 / CLD-SAT-M-000673",
+    "severity": "close",
+    "why": "Not cited. Two points plus the radius (or tangency): the center lies on the perpendicular bisector. Same first step; different second condition. Allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000283",
+    "severity": "close",
+    "why": "Not cited. Perpendicular bisector of a segment; y-intercept. Building block only."
+   }
+  ],
+  "YD02": [
+   {
+    "other_id": "CLD-SAT-M-000395",
+    "severity": "close",
+    "why": "Cited. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000413 (= ideas-gen-04 V04)",
+    "severity": "close",
+    "why": "Not cited. Cylinder with h = 2r whose volume equals its surface area; find r. Same 'a shape relation fixes h in terms of r' setup; different second condition and ask. Allowed; batch apart."
+   }
+  ],
+  "YD03": [
+   {
+    "other_id": "CLD-ACT-M-000617 / CLD-SAT-M-000950",
+    "severity": "close",
+    "why": "Cited. Agree."
+   }
+  ],
+  "YD04": [
+   {
+    "other_id": "CLD-ACT-M-000071",
+    "severity": "close",
+    "why": "Cited. Quadrant III, given identity. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000799 (= PD05)",
+    "severity": "close",
+    "why": "Not cited. cos θ = −1/2 and sin θ < 0; find θ. Same 'sign from quadrant' step. Different ask. Allowed."
+   }
+  ],
+  "YD05": [
+   {
+    "other_id": "CLD-SAT-M-000844 / CLD-SAT-M-000349",
+    "severity": "close",
+    "why": "Cited. Agree."
+   },
+   {
+    "other_id": "CLD-SAT-M-000998 (= ideas-gen-28 WD12, batch-089)",
+    "severity": "close",
+    "why": "Not cited. Square ABCD side 8 with E on BC, BE = 6; sin(∠DAE). Same figure setup, different ask and method. Batch apart."
+   },
+   {
+    "other_id": "CLD-SAT-M-000685",
+    "severity": "close",
+    "why": "Not cited. Triangles inside a square by area subtraction. Different."
+   }
+  ],
+  "YD06": [
+   {
+    "other_id": "CLD-ACT-M-000407",
+    "severity": "close",
+    "why": "Not cited; it should be. Sector of radius 6 and 120° rolled into a cone; find the base radius. That is exactly YD06's first step (arc → base circumference, sector radius → slant height). YD06 adds the Pythagorean height and the volume, so the ask differs. Close; cite it."
+   },
+   {
+    "other_id": "CLD-ACT-M-000550 / CLD-ACT-M-000194",
+    "severity": "close",
+    "why": "Cited (550). Cone volume from radius and slant height: YD06's second half. With ACT-407 the item is a chain of two ACT items, which is still allowed for SAT."
+   }
+  ],
+  "YD07": [
+   {
+    "other_id": "CLD-SAT-M-000230",
+    "severity": "close",
+    "why": "Flagged. sin θ = 3/5 and hypotenuse 20 → perimeter. YD07 runs the same scaled 3-4-5 triangle the other way (perimeter → hypotenuse) from a tangent. Different asked quantity, so close; thin."
+   },
+   {
+    "other_id": "CLD-SAT-M-000023",
+    "severity": "close",
+    "why": "Not cited. tan A = 5/12 and AB = 26 → BC. Same ratio-to-scaled-triple step. With 230, YD07 sits between two banked items; keep only as an easy item and batch apart from 230/023."
+   },
+   {
+    "other_id": "ideas-gen-26 UD03",
+    "severity": "close",
+    "why": "Not cited. Arithmetic-sequence right triangle; perimeter 36. Same perimeter 36 and 3-4-5 scale. Batch apart."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "YA01": "None. SPR; the traps (10, 5, −2, −4.5) are clean. Both lines verified (a, b) = (5, 10) and (10/3, 15).",
+  "YA02": "Mild: A and B use the same numbers (−3, 21) and differ only in which end is inclusive, so a test-taker who sees that C and D use other numbers narrows to the A/B pair. Acceptable for an inequality-symbol item. Optionally make C or D share −3/21 with a different symbol mix (e.g. −3 < 4x + 1 < 21) so three choices share the numbers.",
+  "YA03": "None.",
+  "YA04": "Moot (drop).",
+  "YA05": "None.",
+  "YA06": "None. All values given; the arrangement is fully determined.",
+  "YA07": "Moot (drop).",
+  "YA08": "None. Test values (P = 100, r = 0.05, t = 4) separate the choices, but this is a literal-equation item, where checking is fair.",
+  "YB01": "Key cue: the key −1 is just the sum of the two given zeros, 1 + (−2). A student who ignores the cubic and adds the zeros named in the stem gets the key without finding a, b or the third zero; 'distinct' only changes the answer if the third zero were new, and here it is not. Revise the ask so it needs a and b, e.g. 'What is the value of p(3)?' (20), or change the factors so the third zero is new.",
+  "YB02": "None.",
+  "YB03": "None. No common-sense elimination: 'the areas are equal' is a real misconception.",
+  "YB04": "Moot (drop).",
+  "YB05": "None. Plugging x = 0 and the given zeros into each choice is the intended check, not a shortcut.",
+  "YB06": "None.",
+  "YB07": "None. The 'differences triple' route is the math, not a shortcut.",
+  "YB08": "None. Accept 9/4 and 2.25 (terminating).",
+  "YC01": "None for the key (27.6 = 138/5 terminates). The 29.08 trap is a rounded repeating decimal (756/26 = 29.0769...); keep it only as a listed trap, not as a typed value to match.",
+  "YC02": "Moot (drop).",
+  "YC03": "Common-sense elimination: D (250%) is impossible, since y is part of the positive sum x + y and must be less than 100% of it. Replace D with a possible value, e.g. 50% (treats x + y as 2y).",
+  "YC04": "None.",
+  "YC05": "None. Reasoning that 65% is above the midpoint 55% (so more than half attended) eliminates A and B, but that is the intended insight.",
+  "YC06": "Moot (drop).",
+  "YC07": "None.",
+  "YD01": "None for the key. The 50/9 trap is not self-consistent: the center (8/3, 16/3) is 50/9 from (1, 7) but 98/9 from (5, 3). Keep it only as a listed trap or replace it.",
+  "YD02": "None.",
+  "YD03": "None. Note that the interior-angle formula for regular polygons is not on the SAT reference sheet; it is used on the SAT, so in scope.",
+  "YD04": "Weak distractors: A (−1.4) and C (0.2) both need cos θ to be negative, which contradicts the given cos θ = 0.6, so a careful reader eliminates them from the stem alone. Replace them with traps that keep cos θ = 0.6: −0.8 (reports sin θ only) and −0.48 (multiplies, sin θ · cos θ). Suggested set: −0.8, −0.48, −0.2 (key), 1.4.",
+  "YD05": "None. Accept 34.8 and 174/5.",
+  "YD06": "None.",
+  "YD07": "None."
+ },
+ "math_errors": {
+  "all": "Every key recomputed with sympy: YA01 15 (a = 10/3, b = 15; also (5, 10)); YA02 −3 ≤ 4x + 1 < 21; YA03 b = 5; YA04 10; YA05 16; YA06 64; YA07 46 (46.25); YA08 A/(1 + rt); YB01 −1 (a = −3, b = 2, (x − 1)²(x + 2)); YB02 15 (9, 6); YB03 −9; YB05 D (y-intercepts −10, −20, 20, 20; C zeros −2, 5); YB06 6; YB07 83 (a = b = 3, c = 2); YB08 9/4; YC01 27.6; YC02 35%; YC03 40%; YC04 300; YC05 70% (D 81.25%); YC06 20 (x = 11; 12, 12, 20, 22, 29); YC07 25%; YD01 10 (center (2, 4)); YD02 24; YD03 12; YD04 −0.2; YD05 34.8; YD06 324 (r = 9, h = 12); YD07 15. All distractor/trap values match their stated errors. No key errors.",
+  "YD01": "Trap 50/9 is internally inconsistent (the wrong center is not equidistant from the two points: 50/9 vs 98/9). Not a key error.",
+  "YC01": "Trap '29.08' is 756/26 = 29.0769... rounded. Not a key error."
+ },
+ "recommend_drop": [
+  "YA04",
+  "YA07",
+  "YB04",
+  "YC02",
+  "YC06"
+ ],
+ "recommend_revise": {
+  "YB01": "Change the ask so the given zeros do not give the key (e.g. p(3) = 20). Cite CLD-SAT-M-000852 and 000662.",
+  "YC03": "Replace D (250%) with a possible percent, e.g. 50%. Cite CLD-SAT-M-000113.",
+  "YD04": "Replace A and C, which contradict cos θ = 0.6, with −0.8 (sin θ only) and −0.48 (sin θ · cos θ). Cite CLD-SAT-M-000799.",
+  "YD06": "Cite CLD-ACT-M-000407 (sector → cone base radius); no content change needed.",
+  "YD07": "Cite CLD-SAT-M-000023 and ideas-gen-26 UD03; keep as easy only.",
+  "YA02": "Optional: make one of C/D share the −3 and 21 numbers so the key is not one of the only two with the same numbers.",
+  "YD01": "Optional: replace the 50/9 trap with a self-consistent one.",
+  "batching": "Keep apart: YB02 and YB03 (both difference of squares); YB05, YB08 and CLD-SAT-M-000936 (quadratic from intercepts); YC01 and the mean items; YC03, YC04 and YC05 (three percent items, at most two per batch); YD04 and YD07 (trig ratios); YD05 and CLD-SAT-M-000998 (batch-089 square ABCD); YA08 and CLD-SAT-M-000268; YA06 and ideas-gen-27 VA14 (banquet hall); YD02 and CLD-SAT-M-000413; YD06 with any cone item from batch-08x/09x. After the 5 drops, 25 remain: 6 Algebra, 7 Advanced Math, 5 PSDA, 7 Geometry. PSDA is now thin, so the next set should weight YC-type topics."
+ }
+}

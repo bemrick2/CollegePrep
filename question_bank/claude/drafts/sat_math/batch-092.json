@@ -1,0 +1,583 @@
+{
+ "bank": "sat_math",
+ "batch": 92,
+ "plan": "SAT Math batch 92: 12 new items (YA01, YA03, YA05, YB02, YB06, YB07, YC01, YC05, YD01, YD06 from idea set 30, pre-checked in ideas-078.repeats.json, which dropped YA04, YA07, YB04, YC02 and YC06 as templates; XA13 and XC12 from idea set 29, held back from batches 90-91 for keep-apart rules). Fixes: YD01 inconsistent 50/9 trap removed; trap lists trimmed to derivable values. Plus Q090-08 resubmitted as revision 2 (non-answering comparison distractor replaced with total tutored). Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q092-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Line through a point with a given triangle area",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, line ℓ has a negative slope and passes through the point (2, 6). Line ℓ and the two coordinate axes form a triangle with an area of 25 square units. What is the greatest possible y-intercept of line ℓ?",
+   "explanation": "With x-intercept a and y-intercept b, the point (2, 6) gives 2/a + 6/b = 1, and the area gives (1/2)ab = 25, so b = 50/a. Then 2/a + 6a/50 = 1, which gives 3a² − 25a + 50 = 0, so a = 5 or a = 10/3, and b = 10 or b = 15. Both lines work, so the greatest y-intercept is 15. Check: y = −4.5x + 15 passes through (2, 6) and makes a triangle of area (1/2)(10/3)(15) = 25.",
+   "hints": [
+    "Write the line in intercept form."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the point and the area to write two equations in the intercepts."
+   },
+   "remember": "Check whether more than one line satisfies the conditions.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Two lines satisfy the conditions; the quadratic must be solved fully."
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "10",
+     "rationale": "10 is the y-intercept of the other line, found from the integer pair (5, 10).",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "5",
+     "rationale": "5 is an x-intercept, not a y-intercept.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Swapped coordinates on two different lines",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the point (a, b) lies on the line y = 2x + 1, and the point (b, a) lies on the line y = 3x − 13, where a and b are constants. What is the value of b?",
+   "explanation": "The first point gives b = 2a + 1. For the second point, the x-coordinate is b and the y-coordinate is a, so a = 3b − 13. Substituting, a = 3(2a + 1) − 13 = 6a − 10, so a = 2 and b = 5. Check: 5 = 2(2) + 1 and 2 = 3(5) − 13.",
+   "hints": [
+    "Which coordinate of (b, a) is x?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute each point into its own line."
+   },
+   "remember": "Read each coordinate carefully when letters are swapped.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "5",
+   "accepted_answers": [
+    "5"
+   ],
+   "common_errors": [
+    {
+     "value": "29",
+     "rationale": "29 ignores the swap and solves 2a + 1 = 3a − 13.",
+     "trap": null
+    },
+    {
+     "value": "2",
+     "rationale": "2 is the value of a.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Clearing fractions in an inequality",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "What is the greatest integer x that satisfies the inequality (x + 4)/3 − (x − 2)/5 < 4?",
+   "explanation": "Multiplying every term by 15 gives 5(x + 4) − 3(x − 2) < 60, so 5x + 20 − 3x + 6 < 60, 2x < 34, and x < 17. The inequality is strict, so the greatest integer is 16.",
+   "hints": [
+    "Multiply every term by the common denominator."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Clear the fractions, then solve."
+   },
+   "remember": "Distribute a subtraction to every term in the binomial.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "16",
+   "accepted_answers": [
+    "16"
+   ],
+   "common_errors": [
+    {
+     "value": "17",
+     "rationale": "17 ignores that the inequality is strict.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "22",
+     "rationale": "22 distributes the subtraction as −3x − 6.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Power of a power as a difference of squares",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "For x > 1, (x^(a + b))^(a − b) = x⁴⁵ and xᵃ/xᵇ = x³, where a and b are constants. What is the value of a + b?",
+   "explanation": "The power of a power gives x^((a + b)(a − b)), so (a + b)(a − b) = 45. The quotient gives a − b = 3. Dividing, a + b = 45/3 = 15 (so a = 9 and b = 6). Since x > 1, equal powers of x have equal exponents.",
+   "hints": [
+    "What exponent results from a power of a power?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write both conditions as equations in the exponents."
+   },
+   "remember": "(a + b)(a − b) = a² − b².",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Recognize a product of exponents and divide by the given factor."
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "42",
+     "rationale": "42 subtracts the exponents, 45 − 3.",
+     "trap": null
+    },
+    {
+     "value": "135",
+     "rationale": "135 multiplies 45 by 3.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q092-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Rational equation from reciprocals of two numbers",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Two positive numbers differ by 2, and the sum of their reciprocals is 5/12. What is the greater of the two numbers?",
+   "explanation": "With numbers x and x + 2, 1/x + 1/(x + 2) = 5/12. Clearing denominators, 12(2x + 2) = 5x(x + 2), so 5x² − 14x − 24 = 0 and (5x + 6)(x − 4) = 0. Since the numbers are positive, x = 4 and the greater number is 6. Check: 1/4 + 1/6 = 5/12.",
+   "hints": [
+    "Name the numbers x and x + 2."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try pairs of numbers that differ by 2."
+   },
+   "remember": "Reject roots that violate a stated condition.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 is the smaller number.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2.4",
+     "rationale": "2.4 inverts the given sum, 12/5.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q092-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Exponential with an added constant from three values",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = a · bˣ + c, where a, b, and c are constants and b > 0. If f(0) = 5, f(1) = 11, and f(2) = 29, what is the value of f(3)?",
+   "explanation": "The constant c cancels in differences: f(1) − f(0) = a(b − 1) = 6 and f(2) − f(1) = ab(b − 1) = 18, so b = 3. Then 2a = 6 gives a = 3, and c = 5 − 3 = 2. So f(3) = 3(27) + 2 = 83. Equivalently, the differences triple, so the next difference is 54 and f(3) = 29 + 54.",
+   "hints": [
+    "What happens to c when you subtract outputs?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Compare successive differences."
+   },
+   "remember": "Differences of a · bˣ + c grow by the factor b.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The base must come from the ratio of successive differences."
+   },
+   "format": "spr",
+   "answer": "83",
+   "accepted_answers": [
+    "83"
+   ],
+   "common_errors": [
+    {
+     "value": "47",
+     "rationale": "47 extends the last difference of 18 linearly.",
+     "trap": null
+    },
+    {
+     "value": "81",
+     "rationale": "81 finds a and b but leaves out c.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Recovering a list size from a mean change",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A list of numbers has a mean of 30. When the number 50 is added to the list, the mean of the new list is 32. If, instead, the number 6 had been added to the original list, what would the mean of the new list have been?",
+   "explanation": "With n numbers, 30n + 50 = 32(n + 1), so n = 9 and the sum is 270. Adding 6 gives a sum of 276 for 10 numbers, a mean of 27.6.",
+   "hints": [
+    "How many numbers were in the original list?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the sum before and after adding 50."
+   },
+   "remember": "Use the change in the sum to find how many values there are.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "27.6",
+   "accepted_answers": [
+    "27.6",
+    "138/5"
+   ],
+   "common_errors": [
+    {
+     "value": "28",
+     "rationale": "28 assumes the mean drops by the same 2 that it rose.",
+     "trap": null
+    },
+    {
+     "value": "18",
+     "rationale": "18 averages 30 and 6.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q092-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Group share from a weighted average",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "At a school, 65% of the students who took an exam passed it. Of the students who took the exam and attended a review session, 80% passed; of the students who took the exam and did not attend the review session, 30% passed. What percent of the students who took the exam attended the review session?",
+   "explanation": "If a fraction s attended, the overall pass rate is a weighted average: 0.80s + 0.30(1 − s) = 0.65. So 0.50s = 0.35 and s = 0.70, or 70%. Check: per 100 students, 0.8(70) + 0.3(30) = 56 + 9 = 65.",
+   "hints": [
+    "Let s be the fraction who attended."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the overall rate as a weighted average."
+   },
+   "remember": "An overall rate is a weighted average of the group rates.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The unknown is the weight, not the overall rate."
+   },
+   "choices": {
+    "A": "35%",
+    "B": "55%",
+    "C": "70%",
+    "D": "81.25%"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "Subtracts 30% from 65% and stops before dividing by the 50-point gap.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "Averages 80% and 30% as if the groups were equal in size.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Divides 65% by 80%, as if every student who passed had attended.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q092-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Circle from two points and a line through its center",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a circle passes through the points (1, 7) and (5, 3), and its center lies on the line y = 2x. An equation of the circle is (x − h)² + (y − k)² = r², where h, k, and r are constants. What is the value of r²?",
+   "explanation": "The center is equally far from both points, so it lies on their perpendicular bisector. The midpoint is (3, 5) and the segment's slope is −1, so the bisector is y = x + 2. With y = 2x, the center is (2, 4), and r² = (1 − 2)² + (7 − 4)² = 10. Check (5, 3): 9 + 1 = 10.",
+   "hints": [
+    "Where are points equidistant from (1, 7) and (5, 3)?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Find the perpendicular bisector of the two points."
+   },
+   "remember": "A circle's center lies on the perpendicular bisector of any chord.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires intersecting a perpendicular bisector with a given line."
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "8",
+     "rationale": "8 uses the midpoint (3, 5) as the center, which is not on y = 2x.",
+     "trap": null
+    },
+    {
+     "value": "32",
+     "rationale": "32 is the square of the distance between the two points.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Cone formed by rolling a sector",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A sector of a circle has a radius of 15 centimeters and a central angle of 216°. The sector is rolled up so that its two straight edges meet exactly, forming the curved surface of a right circular cone with no overlap. The volume of the cone is kπ cubic centimeters. What is the value of k?",
+   "explanation": "The arc length (216/360)(2π)(15) = 18π becomes the circumference of the base, so the base radius is 9. The sector's radius becomes the slant height, 15, so the height is √(15² − 9²) = 12. The volume is (1/3)π(9²)(12) = 324π.",
+   "hints": [
+    "What does the arc become when the sector is rolled up?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Match each part of the sector to a part of the cone."
+   },
+   "remember": "The sector's radius becomes the cone's slant height.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The sector must be translated into the cone's dimensions first."
+   },
+   "format": "spr",
+   "answer": "324",
+   "accepted_answers": [
+    "324"
+   ],
+   "common_errors": [
+    {
+     "value": "405",
+     "rationale": "405 uses the slant height 15 as the height.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "972",
+     "rationale": "972 leaves out the 1/3 in the cone volume formula.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-11",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Standard-form line with related intercepts",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graph of 3x + ky = 24, where k is a positive constant, has an x-intercept that is twice its y-intercept. What is the value of k?",
+   "explanation": "The x-intercept is 24/3 = 8, so the y-intercept is 4. Then 4k = 24 and k = 6. Check: 3x + 6y = 24 has intercepts (8, 0) and (0, 4).",
+   "hints": [
+    "Find the x-intercept first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the known intercept to find the other."
+   },
+   "remember": "Set x = 0 or y = 0 to find an intercept.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "3/2",
+     "rationale": "3/2 makes the y-intercept twice the x-intercept.",
+     "trap": null
+    },
+    {
+     "value": "4",
+     "rationale": "4 is the y-intercept.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q092-12",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Effect of a capped shift on mean and median",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "On a 100-point test, the 25 students in a class had scores with a median of 76, and exactly 4 students scored above 90. The teacher raised every student's score by 10 points, except that any score that would go above 100 was set to 100 instead. Which of the following must be true about the new scores compared with the original scores?",
+   "explanation": "Adding 10 and capping at 100 keeps the scores in order, so the 13th score, 76, becomes 86 and the median rises by exactly 10. Each score above 90 rises by less than 10, and no score rises by more than 10, so the mean rises by less than 10.",
+   "hints": [
+    "Which scores are affected by the cap?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a small set of scores with a few above 90."
+   },
+   "remember": "A cap affects the mean but not a median far from the cap.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Separates the effect of a cap on the mean from its effect on the median."
+   },
+   "choices": {
+    "A": "The median increased by exactly 10 points, and the mean increased by less than 10 points.",
+    "B": "Both the median and the mean increased by exactly 10 points.",
+    "C": "The mean increased by exactly 10 points, and the median increased by less than 10 points.",
+    "D": "Both the median and the mean increased by less than 10 points."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "Treats the change as adding a constant to every score.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "Reverses which statistic the capped scores affect.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Thinks the capped scores lower every measure of center.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q092-13",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Missing comparison group in outcome-selected data",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A school counselor wanted to know whether students who attend the school's after-school tutoring program are more likely to earn an A in algebra than students who do not attend. She looked at the records of the 50 students who earned an A in algebra last year and found that 40 of them, or 80%, had attended the tutoring program. Which additional information is most needed to answer the counselor's question?",
+   "explanation": "The 80% describes students who earned an A, not students who were tutored. If about 80% of the students who did not earn an A also attended tutoring, there is no association. The tutoring rate among non-A students supplies the needed comparison.",
+   "hints": [
+    "Whom does the 80% describe?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Look for the group the data leave out."
+   },
+   "remember": "To show an association, compare rates across groups.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The data were selected on the outcome."
+   },
+   "choices": {
+    "A": "The percent of the students in the school's geometry classes who earned an A last year",
+    "B": "The percent of the students who did not earn an A in algebra who attended the tutoring program",
+    "C": "The total number of students at the school who attended the tutoring program last year",
+    "D": "The percent of the 50 students who earned an A who said the tutoring program was helpful"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "Brings in a comparison group, but one from a different course that says nothing about tutoring.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Gives the size of the tutored group but no information about untutored students, so no comparison of A rates is possible.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Opinion data from the same selected group.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "blind solver: key was the only choice naming a comparison group; other distractors plainly irrelevant",
+     "change": "choice C replaced with a relevant but insufficient quantity (total tutored)"
+    }
+   ]
+  }
+ ]
+}
